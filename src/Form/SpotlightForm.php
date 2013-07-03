@@ -1,0 +1,130 @@
+<?php
+/**
+ * Spotlight form
+ *
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
+ * @license         http://www.xoopsengine.org/license New BSD License
+ * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
+ * @since           3.0
+ * @package         Module\News
+ * @version         $Id$
+ */
+
+namespace Module\News\Form;
+
+use Pi;
+use Pi\Form\Form as BaseForm;
+
+class SpotlightForm extends BaseForm
+{
+    public function __construct($name = null, $module = array())
+    {
+        $this->module = $module;
+        $this->topic = array(
+            -1 => __('Home Page'),
+            0 => __('All Topics'),
+        );
+        parent::__construct($name);
+    }
+
+    public function getInputFilter()
+    {
+        if (!$this->filter) {
+            $this->filter = new SpotlightFilter;
+        }
+        return $this->filter;
+    }
+
+    public function init()
+    {
+        // id
+        $this->add(array(
+            'name' => 'id',
+            'attributes' => array(
+                'type' => 'hidden',
+            ),
+        ));
+        // story
+        $this->add(array(
+            'name' => 'story',
+            'type' => 'Module\News\Form\Element\Story',
+            'options' => array(
+                'label' => __('Story'),
+                'module' => $this->module,
+            ),
+            'attributes' => array(
+                'description' => __('Select story for add to Spotlight'),
+                'size' => 1,
+                'multiple' => 0,
+            ),
+        ));
+        // topic
+        $this->add(array(
+            'name' => 'topic',
+            'type' => 'Module\News\Form\Element\Topic',
+            'options' => array(
+                'label' => __('Show in'),
+                'module' => $this->module,
+                'topic' => $this->topic,
+            ),
+            'attributes' => array(
+                'description' => __('Select Spotlight topic, Your Spotlight show in this topic/page'),
+                'size' => 1,
+                'multiple' => 0,
+            ),
+        ));
+        // publish
+        $this->add(array(
+            'name' => 'publish',
+            'options' => array(
+                'label' => __('Publish date'),
+            ),
+            'attributes' => array(
+                'type' => 'date',
+                'value' => date('Y-m-d'),
+                'description' => '',
+            )
+        ));
+        // expire
+        $this->add(array(
+            'name' => 'expire',
+            'options' => array(
+                'label' => __('Expire date'),
+            ),
+            'attributes' => array(
+                'type' => 'date',
+                'value' => date('Y-m-d', strtotime('+1 week')),
+                'description' => '',
+            )
+        ));
+        // status
+        $this->add(array(
+            'name' => 'status',
+            'type' => 'select',
+            'options' => array(
+                'label' => __('Status'),
+                'value_options' => array(
+                    1 => __('Published'),
+                    2 => __('Pending review'),
+                    3 => __('Draft'),
+                    4 => __('Private'),
+                ),
+            ),
+        ));
+        // Save
+        $this->add(array(
+            'name' => 'submit',
+            'type' => 'submit',
+            'attributes' => array(
+                'value' => __('Submit'),
+            )
+        ));
+    }
+}

@@ -1,0 +1,15 @@
+<?php $this->css($this->assetModule('css/block.css', 'news')); ?>
+<div class="itemBlock itemBlockList">
+	<div class="itemList">
+		<ul>
+			<?php foreach($block['resources'] as $story) { ?>
+			<li>
+			   <span class="itemTitle"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></span>
+				<?php if($block['showdate']){ ?><span class="itemPostDate"><?php _e('Update Time'); ?>:<?php echo $this->escape($story['publish']); ?></span><?php } ?>
+				<?php if($block['showhits']){ ?><span class="itemStats"><?php _e('Read'); ?>:<?php echo $this->escape($story['hits']); ?></span><?php } ?>
+			</li>
+			<?php } ?>
+		</ul>
+	   <div class="clearfix"></div>
+	</div>	
+</div>

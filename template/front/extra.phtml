@@ -1,0 +1,32 @@
+<?php $this->css($this->assetModule('css/extra.css')); ?>
+<div class="extra">
+	<ul>
+	<?php foreach($extra as $field) { ?>
+		<li class="field-<?php echo $field['id']; ?>">
+			<?php if($field['image']) { ?><img src="<?php echo $field['imageurl']; ?>" alt="<?php echo $field['title']; ?>" /><?php } ?>
+			<?php 
+			switch($field['type']) { 
+				case 'text': ?>
+				<strong><?php echo $field['title']; ?></strong>
+				<span><?php echo $field['data']; ?></span>
+				<?php break;
+				case 'link': ?>
+				<span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
+				<?php break;
+				case 'currency': ?>
+				<strong><?php echo $field['title']; ?></strong>
+				<span><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></span>
+				<?php break;
+				case 'date': ?>
+				<strong><?php echo $field['title']; ?></strong>
+				<span><?php echo $this->dateFormat($field['data'], IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM, "en_US"); ?></span>
+				<?php break;
+				case 'number': ?>
+				<strong><?php echo $field['title']; ?></strong>
+				<span><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></span>
+				<?php break;
+			} ?>
+		</li>
+	<?php } ?>
+	</ul>
+</div>

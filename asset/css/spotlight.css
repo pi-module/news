@@ -1,0 +1,16 @@
+.spotlightTitle h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.spotlightTitle {
+    border-bottom: 1px dotted #ccc;
+}
+
+.spotlightListItem .spotlightTitle {
+    border: 0;
+}
+
+.spotlightListItem .spotlightTitle h4 {
+    font-size: 1em;
+}

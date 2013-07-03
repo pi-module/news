@@ -1,0 +1,87 @@
+<?php
+    $this->css(array(
+        $this->assetModule('css/admin.css'),
+        $this->assetModule('script/system-ui.css', 'system'),
+    ));
+    $this->jQuery();
+    $this->js($this->assetModule('script/system-msg.js', 'system'));
+?>
+<div class="news">
+	<div class="btn-group">
+	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	   <a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="icon-file"></i> <?php _e('All stores'); ?></a>
+	   <a class="btn" title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="icon-file"></i> <?php _e('Published'); ?></a>
+	   <a class="btn" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="icon-file"></i> <?php _e('Pending review'); ?></a>
+	   <a class="btn" title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="icon-file"></i> <?php _e('Trash'); ?></a>
+	</div>
+	<h3><?php _e('List of stroes'); ?></h3>
+	<table id="story-list" class="table table-striped table-bordered table-condensed">
+		<tr>
+			<th><?php _e('ID'); ?></th>
+			<th><?php _e('Title'); ?></th>
+			<th><?php _e('Publish'); ?></th>
+			<th><?php _e('Action'); ?></th>
+		</tr>
+		<?php foreach($stores as $story) { ?>
+		<?php
+		if($story['status'] == 1) {
+			$labelClass = 'label-success';	
+		} elseif($story['status'] == 5) {
+			$labelClass = 'label-important';	
+		} else {
+			$labelClass = 'label-warning';	
+		}			
+		?>
+		<tr>
+			<td><span id="label-<?php echo $story['id']; ?>" class="label <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
+			<td><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
+			<td><?php echo $this->escape($story['publish']); ?></td>
+			<td>
+				<div class="btn-group">
+					<?php if($story['status'] == 1) { ?>
+					<button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="icon-remove icon-white"></i> <?php _e('Reject'); ?></button>
+					<?php } else { ?>
+					<button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-success" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>"><i class="icon-ok icon-white"></i> <?php _e('Accept'); ?></button>
+					<?php } ?>
+					<a class="btn" title="<?php _e('PerView'); ?>" href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i class="icon-eye-open"></i> <?php _e('PerView'); ?></a>
+					<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
+					<a class="btn" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Attach'); ?></a>
+					<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
+				</div>
+			</td>
+		</tr>
+		<?php } ?>
+	</table>
+	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+	<p>
+		<span class="label label-success"><?php _e('Published'); ?></span>
+		<span class="label label-warning"><?php _e('Pending review'); ?></span>
+		<span class="label label-important"><?php _e('Trash'); ?></span>
+	</p>
+</div>
+<script type="text/javascript" >
+(function($){
+    $("#story-list").on("click","button",function(){
+       systemMessage.wait("<?php _e('Accept story in process'); ?>");
+       $.getJSON($(this).attr("data-link")).done(function(result){
+          if(result.ajaxstatus==1){
+          	 if(result.storystatus==1){
+	          	 var labelClass = 'label label-success';
+	          	 var buttonClass = 'btn btn-warning disabled';
+	          	 var buttonText = '<i class="icon-remove icon-white"></i> <?php _e("Reject"); ?>';
+          	 }
+          	 if(result.storystatus==2){
+	          	 var labelClass = 'label label-warning';
+	          	 var buttonClass = 'btn btn-success disabled';
+	          	 var buttonText = '<i class="icon-ok icon-white"></i> <?php _e("Accept"); ?>';
+          	 }
+          	 $('#label-' + result.id).attr('class', labelClass);
+          	 $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
+             systemMessage.succ(result.message);
+          }else{
+             systemMessage.fail(result.message);
+          }
+       });
+    });
+})(jQuery)
+</script>

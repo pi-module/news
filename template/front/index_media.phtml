@@ -1,0 +1,25 @@
+<?php $this->css($this->assetModule('css/front.css')); ?>
+<div class="news">
+   <?php include $this->template('front/topicinfo'); ?>
+   <?php include $this->template('front/spotlight'); ?>
+   <?php if(!empty($config['advertisement'])){ ?><div class="itemAds"><?php echo $config['advertisement']; ?></div><?php } ?>
+	<div class="typemedia">
+	<?php foreach($stores as $story) { ?>
+		<div class="<?php echo $topic['column_class']; ?>">
+		<div class="item">
+			<?php if($story['image']){ ?>
+		   <div class="itemImageList gallery">
+			   <a href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="ItemStoryImg" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+		   </div>
+			<div class="clearfix"></div>
+		   <?php } ?>
+			<div class="itemTitle">
+				<h3><?php if($story['important']) { ?><span class="label label-important"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+			</div>
+		</div>
+		</div>
+	<?php } ?>
+	<div class="clearfix"></div>
+	</div>
+   <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+</div>

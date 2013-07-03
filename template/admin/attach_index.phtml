@@ -1,0 +1,50 @@
+<?php $this->css($this->assetModule('css/admin.css')); ?>
+<div class="news">
+	<div class="btn-group">
+	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	   <a class="btn" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="icon-folder-open"></i> <?php _e('Add Topic'); ?></a>
+	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
+	   <a class="btn" title="<?php _e('Add Spotlight'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Spotlight'); ?></a>
+	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'extra', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
+	</div>
+	<h3><?php _e('List of attached files'); ?></h3>
+	<table class="table table-striped table-bordered table-condensed">
+		<tr>
+			<th><?php _e('ID'); ?></th>
+			<th><?php _e('Preview'); ?></th>
+			<th><?php _e('Information'); ?></th>
+			<th><?php _e('create'); ?></th>
+			<th><?php _e('Action'); ?></th>
+		</tr>
+		<?php foreach($files as $file) { ?>
+		<?php
+		if($file['status'] == 1) {
+			$labelClass = 'label-success';	
+		} else {
+			$labelClass = 'label-warning';	
+		}		
+		?>
+		<tr>
+			<td><span class="label <?php echo $labelClass; ?>"><?php echo $this->escape($file['id']); ?></span></td>
+			<td width="80"><div class="preview-img"><img src="<?php echo $this->escape($file['preview']); ?>" alt="<?php echo $this->escape($file['title']); ?>" /></div></td>
+			<td>
+				<p><strong><?php _e('Title'); ?></strong> <?php echo $this->escape($file['title']); ?></p>
+				<p><strong><?php _e('Story'); ?></strong> <?php echo $this->escape($file['storytitle']); ?></p>
+			</td>
+			<td><?php echo $this->escape($file['create']); ?></td>
+			<td>
+				<div class="btn-group">
+					<a class="btn" rel="external" title="<?php _e('Get'); ?>" href="<?php echo $file['link']; ?>"><i class="icon-download-alt"></i> <?php _e('Get'); ?></a>
+					<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'edit', 'id' => $file['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
+					<a class="btn" title="<?php _e('Edit from story'); ?>" href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['story'])); ?>"><i class="icon-edit"></i> <?php _e('Edit from story'); ?></a>
+				</div>
+			</td>
+		</tr>
+		<?php } ?>
+	</table>
+	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+	<p>
+		<span class="label label-success"><?php _e('Published'); ?></span>
+		<span class="label label-warning"><?php _e('Pending review'); ?></span>
+	</p>
+</div>

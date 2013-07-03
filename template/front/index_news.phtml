@@ -1,0 +1,68 @@
+<?php 
+$this->css($this->assetModule('css/front.css')); 
+if($config['image_lightbox']){ 
+	$this->jQuery();
+	$this->js($this->assetModule('js/lightbox.js'));
+	$this->footScript()->appendScript("$(function() {
+		  $('.gallery a').lightBox({
+	        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') . "',
+	        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') . "',
+	        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') . "',
+	        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') . "',
+	        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') . "',
+	        overlayOpacity: 0.6,
+		     containerResizeSpeed: 350,
+		  });
+	});");
+	$this->css($this->assetModule('css/lightbox.css'));
+} 
+?>
+<div class="news">
+   <?php include $this->template('front/topicinfo'); ?>
+   <?php include $this->template('front/profile'); ?>
+   <?php include $this->template('front/spotlight'); ?>
+   <?php if(!empty($config['advertisement'])){ ?><div class="itemAds"><?php echo $config['advertisement']; ?></div><?php } ?>
+	<div class="typenews">
+	<?php foreach($stores as $story) { ?>
+		<div class="<?php echo $topic['column_class']; ?>">
+		<div class="item">
+			<div class="itemHead">
+				<span class="itemTitle">
+					<h3><?php if($story['important']) { ?><span class="label label-important"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+				</span>
+			</div>
+			<div class="itemInfo">
+				<?php if($topic['showdate']){ ?><span class="itemPostDate"><?php _e('Update Time'); ?>: <?php echo $this->escape($story['publish']); ?></span><?php } ?>
+				<?php if($topic['showhits']){ ?><span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span><?php } ?>
+				<?php if($topic['showcoms']){ ?><span class="itemComments"><?php _e('Comments'); ?>: <?php echo $this->escape($story['comments']); ?></span><?php } ?>
+			   <?php if($topic['showtopic']) { ?><span class="itemtopics"><?php _e('Topics'); ?>: 
+				<?php foreach($story['topics'] as $storyTopic) { ?>
+					<?php $storyTopic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($storyTopic['alias']))); ?>
+					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+				<?php } ?></span><?php } ?>
+			   <div class="clearfix"></div>
+			</div>
+			<div class="itemBody">
+			   <?php if($story['image']){ ?>
+			   <div class="itemImageList gallery <?php echo $config['image_float']; ?>">
+			   <?php if($config['image_lightbox']){ ?>
+				   <a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+				   <?php } else { ?>
+				   <img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+				   <?php } ?>
+			   </div>
+			   <?php } ?>
+			   <div class="itemText"><?php echo $story['short']; ?></div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="itemFoot">
+            <div class="itemMore"><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>"><?php _e('More'); ?></a></div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		</div>
+	<?php } ?>
+	<div class="clearfix"></div>
+	</div>
+   <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+</div>

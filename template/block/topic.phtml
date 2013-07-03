@@ -1,0 +1,13 @@
+<?php $this->css($this->assetModule('css/block.css', 'news')); ?>
+<div class="categoryBlock categoryBlockList">
+	<div class="itemList">
+		<ul>
+		<?php foreach($block['resources'] as $topic) { ?>
+			<li>
+				<span class="itemTitle"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'topic' ,'alias' => $this->escape($topic['alias']))); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a></span>
+			</li>
+		<?php } ?>
+		<div class="clearfix"></div>
+		</ul>
+	</div>
+</div> 

@@ -1,0 +1,65 @@
+<?php
+    $this->css(array(
+        $this->assetModule('css/admin.css'),
+        $this->assetModule('script/system-ui.css', 'system'),
+    ));
+    $this->jQuery();
+    $this->js($this->assetModule('script/system-msg.js', 'system'));
+?>
+<div class="news">
+	<div class="btn-group">
+	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
+	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	   <a class="btn" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="icon-folder-open"></i> <?php _e('Add Topic'); ?></a>
+	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
+	   <a class="btn" title="<?php _e('Add Spotlight'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Spotlight'); ?></a>
+	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'extra', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
+	</div>
+	<br />
+	<h3><?php echo $title; ?></h3>
+   <div class="page-message">
+		<div class="alert alert-block ">
+		   <h4 class="alert-heading"><?php echo $title; ?></h4>
+		   <p><?php _e('You can add or delete manager for this topic'); ?></p>
+	   </div>
+   </div>
+	<table id="moderator-list" class="table table-striped table-bordered table-condensed">
+		<tr>
+			<th><?php _e('Name'); ?></th>
+			<th><?php _e('Status'); ?></th>
+			<th><?php _e('Action'); ?></th>
+		</tr>
+		<?php foreach($moderators as $moderator) { ?>
+		<tr>
+			<td><?php echo $this->escape($moderator['identity']); ?></td>
+			<td>
+			<?php if($moderator['status'] == 1) { ?>
+			   <button type="button" class="btn btn-danger" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'status', 'id' => $moderator['id'], 'status' => '0')); ?>"><i class="icon-remove icon-white"></i> <?php _e('Reject'); ?></button>
+				<?php } else { ?>
+				<button type="button" class="btn btn-success" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'status', 'id' => $moderator['id'], 'status' => '1')); ?>"><i class="icon-ok icon-white"></i> <?php _e('Accept'); ?></button>
+			<?php } ?>
+			</td>
+			<td>
+				<div class="btn-group">
+					<a class="btn" title="<?php echo sprintf(__('All topics from %s user') , $moderator['identity']); ?>" href="<?php echo $this->url('', array('action' => 'user', 'id' => $moderator['manager'])); ?>"><i class="icon-user"></i> <?php echo sprintf(__('All topics from <strong>%s</strong> user') , $moderator['identity']); ?></a>
+					<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $moderator['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
+				</div>
+			</td>
+		</tr>
+		<?php } ?>
+	</table>
+</div> 
+<script type="text/javascript" >
+(function($){
+    $("#moderator-list").on("click","button",function(){
+       systemMessage.wait("<?php _e('Moderator in process'); ?>");
+       $.getJSON($(this).attr("data-link")).done(function(result){
+          if(result.status==1){
+             systemMessage.succ(result.message);
+          }else{
+             systemMessage.fail(result.message);
+          }
+       });
+    });
+})(jQuery)
+</script>

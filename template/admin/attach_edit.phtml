@@ -1,0 +1,52 @@
+<?php $this->css($this->assetModule('css/admin.css')); ?>
+<div class="news">
+	<div class="btn-group">
+	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
+	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	   <a class="btn" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="icon-folder-open"></i> <?php _e('Add Topic'); ?></a>
+	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
+	   <a class="btn" title="<?php _e('Add Spotlight'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Spotlight'); ?></a>
+	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'extra', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
+	</div>
+	<h2><?php echo $this->escape($title); ?></h2>
+	<div class="row">
+		<div class="span6">
+			<div class="view-file">
+			<?php if($file['type'] == 'video') { ?>
+				<div class="attach-video">
+					<?php 
+						$this->jQuery();
+						$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
+					?>
+					<div id="mediaspace<?php echo $file['id']; ?>"></div>
+					<script type='text/javascript'>
+					  jwplayer("mediaspace<?php echo $file['id']; ?>").setup({
+					    "flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+					    "file": "<?php echo $file['view']; ?>",
+					    "title": "<?php echo $file['title']; ?>",
+					    "controlbar": "bottom",
+					  });
+					</script>
+				</div>
+			<?php } elseif($file['type'] == 'audio') { ?>
+					<div class="attach-audio-file span12">
+						<object class="span11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
+							<param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
+							<param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $file['view']; ?>">
+							<param name="quality" value="high">
+							<param name="menu" value="false">
+							<param name="wmode" value="transparent">
+						</object> 
+					</div>
+			<?php } elseif($file['type'] == 'image') { ?>
+				<div class="attach-image"><img src="<?php echo $this->escape($file['view']); ?>" alt="<?php echo $this->escape($file['title']); ?>" /></div>
+			<?php } else { ?>
+	          <div class="attach-image"><a class="btn" rel="external" title="<?php echo $this->escape($file['title']); ?>" href="<?php echo $this->escape($file['view']); ?>"><i class="icon-download-alt"></i> <?php _e('Get it'); ?></a></div>
+	      <?php } ?>
+			</div>
+			<p><strong><?php _e('File title'); ?></strong> <?php echo $this->escape($file['title']); ?></p>
+			<p><strong><?php _e('Story title'); ?></strong> <?php echo $this->escape($story['title']); ?></p>
+		</div>
+		<div class="span6"><?php include $this->templateComponent('form'); ?></div>
+	</div>
+</div>

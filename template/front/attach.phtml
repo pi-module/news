@@ -1,0 +1,114 @@
+<?php 
+if($config['image_lightbox']){ 
+	$this->jQuery();
+	$this->js($this->assetModule('js/lightbox.js'));
+	$this->footScript()->appendScript("$(function() {
+		  $('.gallery a').lightBox({
+	        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') . "',
+	        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') . "',
+	        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') . "',
+	        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') . "',
+	        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') . "',
+	        overlayOpacity: 0.6,
+		     containerResizeSpeed: 350,
+		  });
+	});");
+	$this->css($this->assetModule('css/lightbox.css'));
+} 
+?>
+<div class="attach">
+<?php if(!empty($attach['video'])) { ?>
+	<div class="attach-video">
+		<h4><?php _e('Attached video'); ?></h4>
+		<?php foreach($attach['video'] as $video) { ?>
+			<div class="attach-audio-video span12">
+				<?php 
+					$this->jQuery();
+					$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
+				?>
+				<div id="mediaspace<?php echo $video['id']; ?>"></div>
+				<script type='text/javascript'>
+				  jwplayer("mediaspace<?php echo $video['id']; ?>").setup({
+				    "flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+				    "file": "<?php echo $video['link']; ?>",
+				    "title": "<?php echo $video['title']; ?>",
+				    "controlbar": "bottom",
+				    "width": 640,
+				    "height": 480,
+				  });
+				</script>
+			</div>
+		<?php } ?>
+	</div>
+<?php } ?>
+<?php if(!empty($attach['audio'])) { ?>
+	<div class="attach-audio">
+		<h4><?php _e('Attached audio'); ?></h4>
+		<?php foreach($attach['audio'] as $audio) { ?>
+		<div class="attach-audio-file span12">
+			<object class="span11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
+				<param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
+				<param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $audio['link']; ?>">
+				<param name="quality" value="high">
+				<param name="menu" value="false">
+				<param name="wmode" value="transparent">
+			</object> 
+		</div>
+		<?php } ?>
+	</div>
+<?php } ?>
+<?php if(!empty($attach['image'])) { ?>
+	<div class="attach-image">
+		<h4><?php _e('Attached images'); ?></h4>
+		<ul class="thumbnails gallery">
+		<?php foreach($attach['image'] as $image) { ?>
+			<li class="span3">
+				<div class="thumbnail">
+					<a href="<?php echo $image['mediumurl']; ?>" title="<?php echo $this->escape($image['title']); ?>"><img src="<?php echo $image['thumburl']; ?>" alt="<?php echo $this->escape($image['title']); ?>" /></a>
+				</div>		
+			</li>
+		<?php } ?>
+		</ul>
+	</div>	
+<?php } ?>
+<?php if(!empty($attach['archive'])) { ?>
+	<div class="attach-archive">
+		<h4><?php _e('Attached archives'); ?></h4>
+		<ul>
+		<?php foreach($attach['archive'] as $archive) { ?>
+			<li><a rel="external" title="<?php echo $archive['title']; ?>" href="<?php echo $archive['link']; ?>"><?php echo $archive['title']; ?></a></li>
+		<?php } ?>
+		</ul>
+	</div>
+<?php } ?>
+<?php if(!empty($attach['doc'])) { ?>
+	<div class="attach-doc">
+		<h4><?php _e('Attached docs'); ?></h4>
+		<ul>
+		<?php foreach($attach['doc'] as $doc) { ?>
+			<li><a rel="external" title="<?php echo $doc['title']; ?>" href="<?php echo $doc['link']; ?>"><?php echo $doc['title']; ?></a></li>
+		<?php } ?>
+		</ul>
+	</div>
+<?php } ?>
+<?php if(!empty($attach['pdf'])) { ?>
+	<div class="attach-pdf">
+		<h4><?php _e('Attached pdfs'); ?></h4>
+		<ul>
+		<?php foreach($attach['pdf'] as $pdf) { ?>
+			<li><a rel="external" title="<?php echo $pdf['title']; ?>" href="<?php echo $pdf['link']; ?>"><?php echo $pdf['title']; ?></a></li>
+		<?php } ?>
+		</ul>
+	</div>
+<?php } ?>
+<?php if(!empty($attach['other'])) { ?>
+	<div class="attach-other">
+		<h4><?php _e('Attached pdfs'); ?></h4>
+		<ul>
+		<?php foreach($attach['other'] as $other) { ?>
+			<li><a rel="external" title="<?php echo $other['title']; ?>" href="<?php echo $other['link']; ?>"><?php echo $other['title']; ?></a></li>
+		<?php } ?>
+		</ul>
+	</div>
+<?php } ?>
+</div>
