@@ -156,9 +156,9 @@ class TopicController extends ActionController
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
                         // Resize
-                        $this->resize($values['image'], $original_path, $large_path, '8000', '8000');
-                        $this->resize($values['image'], $original_path, $medium_path, '8000', '8000');
-                        $this->resize($values['image'], $original_path, $thumb_path, '8000', '8000');
+                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $large_path, '8000', '8000');
+                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $medium_path, '8000', '8000');
+                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $thumb_path, '8000', '8000');
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
@@ -181,13 +181,13 @@ class TopicController extends ActionController
                 $values['columns'] = ($values['columns']) ? $values['columns'] : $this->config('show_columns');
                 // Set keywords
                 $keywords = ($values['keywords']) ? $values['keywords'] : $values['title'];
-                $values['keywords'] = $this->meta()->keywords($keywords);
+                $values['keywords'] = Pi::service('api')->news(array('Text', 'keywords'), $keywords);
                 // Set description
                 $description = ($values['description']) ? $values['description'] : $values['title'];
-                $values['description'] = $this->meta()->description($description);
+                $values['description'] = Pi::service('api')->news(array('Text', 'description'), $description);
                 // Set alias
                 $alias = ($values['alias']) ? $values['alias'] : $values['title'];
-                $values['alias'] = $this->alias($alias, $values['id'], $this->getModel('topic'));
+                $values['alias'] = Pi::service('api')->news(array('Text', 'alias'), $alias, $values['id'], $this->getModel('topic'));
                 // Set if new
                 if (empty($values['id'])) {
                     // Set time

@@ -314,9 +314,9 @@ class AttachController extends ActionController
                 $newPach = Pi::path('upload/' . $this->config('image_path') . '/original/' . $path . '/' . $file);
                 Pi::service('file')->copy($oldPath, $newPach);
                 Pi::service('file')->remove($oldPath);
-                $this->resize($file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/large/' . $path, $this->config('image_largew'), $this->config('image_largeh'));
-                $this->resize($file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/medium/' . $path, $this->config('image_mediumw'), $this->config('image_mediumh'));
-                $this->resize($file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/thumb/' . $path, $this->config('image_thumbw'), $this->config('image_thumbh'));
+                Pi::service('api')->news(array('Resize', 'start'), $file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/large/' . $path, $this->config('image_largew'), $this->config('image_largeh'));
+                Pi::service('api')->news(array('Resize', 'start'), $file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/medium/' . $path, $this->config('image_mediumw'), $this->config('image_mediumh'));
+                Pi::service('api')->news(array('Resize', 'start'), $file, $this->config('image_path') . '/original/' . $path, $this->config('image_path') . '/thumb/' . $path, $this->config('image_thumbw'), $this->config('image_thumbh'));
                 break;
 
             // Move video, audio, pdf, doc
