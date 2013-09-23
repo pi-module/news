@@ -491,7 +491,7 @@ return array(
         ),
         'social_twitter' => array(
             'category' => 'social',
-            'title' => __('Show twitter'),
+            'title' => __('Show Twitter'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -500,7 +500,7 @@ return array(
         // Spotlight
         'spotlight_number' => array(
             'category' => 'spotlight',
-            'title' => __('Number of stores'),
+            'title' => __('Number of stories'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',

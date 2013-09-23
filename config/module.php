@@ -26,9 +26,9 @@ return array(
         // Module title, required
         'title' => __('News'),
         // Description, for admin, optional
-        'description' => __('Manage News'),
+        'description' => __('Manage News and Blog'),
         // Version number, required
-        'version' => '1.0.0-beta.2',
+        'version' => '1.0.0-beta.3',
         // Distribution license, required
         'license' => 'New BSD',
         // Logo image, for admin, optional
@@ -65,7 +65,7 @@ return array(
             // Module configs
             'config' => 'config.php',
             // ACL specs
-            'acl'           => 'acl.php',
+            'acl' => 'acl.php',
             // Block definition
             'block' => 'block.php',
             // Bootstrap, priority

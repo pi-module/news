@@ -43,7 +43,7 @@
 			<td>
 				<div class="btn-group">
 					<a class="btn" title="<?php _e('View'); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($topic['alias']))); ?>"><i class="icon-eye-open"></i> <?php _e('View'); ?></a>
-					<a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="icon-eye-open"></i> <?php _e('All stores'); ?></a>
+					<a class="btn" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="icon-eye-open"></i> <?php _e('All stories'); ?></a>
 					<a class="btn" title="<?php _e('Manager'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'topic', 'id' => $topic['id'])); ?>"><i class="icon-user"></i> <?php _e('Manager'); ?></a>
 					<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
 					<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $topic['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
