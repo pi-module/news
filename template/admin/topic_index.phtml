@@ -1,12 +1,8 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
-	<div class="btn-group">
-	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	<p>
 	   <a class="btn" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="icon-folder-open"></i> <?php _e('Add Topic'); ?></a>
-	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
-	   <a class="btn" title="<?php _e('Add Spotlight'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Spotlight'); ?></a>
-	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'extra', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
-	</div>
+	</p>
 	<h3><?php _e('List of topics'); ?></h3>
 	<table class="table table-striped table-bordered table-condensed">
 		<tr>
@@ -41,13 +37,11 @@
 			}		
 			?></span></td>
 			<td>
-				<div class="btn-group">
 					<a class="btn" title="<?php _e('View'); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($topic['alias']))); ?>"><i class="icon-eye-open"></i> <?php _e('View'); ?></a>
 					<a class="btn" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="icon-eye-open"></i> <?php _e('All stories'); ?></a>
 					<a class="btn" title="<?php _e('Manager'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'topic', 'id' => $topic['id'])); ?>"><i class="icon-user"></i> <?php _e('Manager'); ?></a>
 					<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
 					<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $topic['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
-				</div>
 			</td>
 		</tr>
 		<?php } ?>

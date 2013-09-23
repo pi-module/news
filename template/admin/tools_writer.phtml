@@ -1,14 +1,12 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
-	<div class="btn-group">
+	<p>
 	   <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="icon-repeat"></i> <?php _e('Rebuild'); ?></a>
 	   <a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="icon-trash"></i> <?php _e('Prune'); ?></a>
 	   <a class="btn btn-danger" title="<?php _e('Writer'); ?>" href="<?php echo $this->url('', array('action' => 'writer')); ?>"><i class="icon-user"></i> <?php _e('Writer'); ?></a>
 	   <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="icon-user"></i> <?php _e('Spotlight'); ?></a>
-	</div>
-	<br />
+	</p>
 	<h2><?php echo $title; ?></h2>
-	
 	<?php if (!empty($message)) { ?>
 	    <div class="page-message">
 			   <div class="alert alert-block ">
@@ -17,7 +15,6 @@
 			   </div>
 	    </div>
 	<?php } ?>
-	
 	<table class="table table-striped table-bordered table-condensed">
 		<tr>
 			<th><?php _e('Writer'); ?></th>

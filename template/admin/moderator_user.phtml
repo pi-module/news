@@ -7,15 +7,10 @@
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="news">
-	<div class="btn-group">
+	<p>
 	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
-	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
-	   <a class="btn" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="icon-folder-open"></i> <?php _e('Add Topic'); ?></a>
 	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
-	   <a class="btn" title="<?php _e('Add Spotlight'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Spotlight'); ?></a>
-	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'extra', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
-	</div>
-	<br />
+	</p>
 	<h3><?php echo $title; ?></h3>
    <div class="page-message">
    	<div class="alert alert-block ">
@@ -40,10 +35,10 @@
 			<?php } ?>
 			</td>
 			<td>
-				<div class="btn-group">
+				<p>
 					<a class="btn" title="<?php echo sprintf(__('All users for %s topic') , $this->escape($moderator['title'])); ?>" href="<?php echo $this->url('', array('action' => 'topic', 'id' => $moderator['topic'])); ?>"><i class="icon-folder-open"></i> <?php echo sprintf(__('All users for <strong>%s</strong> topic') , $this->escape($moderator['title'])); ?></a>
 					<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $moderator['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
-				</div>
+				</p>
 			</td>
 		</tr>
 		<?php } ?>

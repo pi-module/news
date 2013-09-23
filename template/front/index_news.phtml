@@ -38,7 +38,7 @@ if($config['image_lightbox']){
 			   <?php if($topic['showtopic']) { ?><span class="itemtopics"><?php _e('Topics'); ?>: 
 				<?php foreach($story['topics'] as $storyTopic) { ?>
 					<?php $storyTopic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($storyTopic['alias']))); ?>
-					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
 				<?php } ?></span><?php } ?>
 			   <div class="clearfix"></div>
 			</div>

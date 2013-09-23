@@ -1,1 +1,10 @@
- 
+News module todo
+
+General
+=============================
+
+When Pi-user ready
+=============================
+1. Add support for Pi Image Service 
+2. Add support for new Pi User
+3. Add support for new Pi Route 

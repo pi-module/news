@@ -29,13 +29,13 @@
 			<div class="clearfix"></div>
 		</div>
 		<div class="itemFoot">
-		   <div class="btn-group">
+		   <p>
 				<a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i>  <?php _e('Back'); ?></a>
 				<a class="btn" title="<?php _e('View'); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($story['alias']))); ?>"><i class="icon-eye-open"></i> <?php _e('View'); ?></a>
 				<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
 				<a class="btn" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Attach'); ?></a>
 				<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
-	      </div>
+	      </p>
 		</div>
 	</div>
 </div>

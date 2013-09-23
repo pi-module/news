@@ -7,13 +7,13 @@
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="news">
-	<div class="btn-group">
+	<p>
 	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
 	   <a class="btn" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="icon-file"></i> <?php _e('All stories'); ?></a>
 	   <a class="btn" title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="icon-file"></i> <?php _e('Published'); ?></a>
 	   <a class="btn" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="icon-file"></i> <?php _e('Pending review'); ?></a>
 	   <a class="btn" title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="icon-file"></i> <?php _e('Trash'); ?></a>
-	</div>
+	</p>
 	<h2><?php echo $this->escape($title); ?></h2>
 	<div id="story-form">
 	<?php include $this->templateComponent('form'); ?>
