@@ -4,5 +4,4 @@ News module changelog
 =============================
 1. Update version to 1.0.0-beta.3
 2. Fix translation
-
-
+3. Update Text API for use PI methods
