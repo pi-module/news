@@ -80,7 +80,7 @@ class Story extends AbstractApi
     public function Topic($topic)
     {
         $where = array('id' => Json::decode($topic), 'status' => 1);
-        $columns = array('id', 'title', 'alias');
+        $columns = array('id', 'title', 'slug');
         $select = Pi::model('topic', $this->getModule())->select()->where($where)->columns($columns);
         $topic = Pi::model('topic', $this->getModule())->selectWith($select)->toArray();
         return $topic;
@@ -119,7 +119,7 @@ class Story extends AbstractApi
         // Get story
         if (!empty($storyId)) {
             $whereStory = array('status' => 1, 'id' => $storyId);
-            $columnStory = array('id', 'title', 'alias');
+            $columnStory = array('id', 'title', 'slug');
             $select = Pi::model('story', $this->getModule())->select()->columns($columnStory)->where($whereStory)->order($order);
             $related = Pi::model('story', $this->getModule())->selectWith($select)->toArray();
         }
@@ -137,7 +137,7 @@ class Story extends AbstractApi
         $storyNextLink = Pi::model('link', $this->getModule())->selectWith($selectNextLink)->toArray();
         if (!empty($storyNextLink[0]['story'])) {
             $story = Pi::model('story', $this->getModule())->find($storyNextLink[0]['story'])->toArray();
-            $link['next'] = $story['alias'];
+            $link['next'] = $story['slug'];
         }
         // Select Prev
         $wherePrevLink = array('status' => 1, 'story <  ?' => $id, 'publish <= ?' => time(), 'topic' => Json::decode($topic));
@@ -145,7 +145,7 @@ class Story extends AbstractApi
         $storyPrevLink = Pi::model('link', $this->getModule())->selectWith($selectPrevLink)->toArray();
         if (!empty($storyPrevLink[0]['story'])) {
             $story = Pi::model('story', $this->getModule())->find($storyPrevLink[0]['story'])->toArray();
-            $link['previous'] = $story['alias'];
+            $link['previous'] = $story['slug'];
         }
         return $link;
     }

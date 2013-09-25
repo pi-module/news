@@ -4,7 +4,7 @@
 	<div class="item">
 	   <div class="itemHead">
 			<span class="itemTitle">
-			    <h3><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+			    <h3><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
 		   </span>
 		</div>
 		<?php if($block['showdate'] || $block['showhits']){ ?>
@@ -22,7 +22,7 @@
 	   <?php } ?>
 	   <?php if($block['showmore']){ ?>
 		   <div class="itemFoot">
-			   <span class="itemMore"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _e('Read More'); ?></a></span>
+			   <span class="itemMore"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _e('Read More'); ?></a></span>
 		   </div>
 		<?php } ?>
 	</div>

@@ -35,7 +35,7 @@ class ModeratorController extends ActionController
         // Get page
         $page = $this->params('p', 1);
         // Get topic list row
-        $select = $this->getModel('topic')->select()->columns(array('id', 'title', 'alias'))->order(array('id DESC', 'create DESC'));
+        $select = $this->getModel('topic')->select()->columns(array('id', 'title', 'slug'))->order(array('id DESC', 'create DESC'));
         $topicSet = $this->getModel('topic')->selectWith($select);
         // Get moderator list
         $select = $this->getModel('moderator')->select()->order(array('status DESC', 'id DESC'));
@@ -117,13 +117,13 @@ class ModeratorController extends ActionController
             $topicList[] = $moderator[$row->topic]['topic'];
         }
         // Get topics
-        $select = $this->getModel('topic')->select()->where(array('id' => $topicList))->columns(array('id', 'title', 'alias'));
+        $select = $this->getModel('topic')->select()->where(array('id' => $topicList))->columns(array('id', 'title', 'slug'));
         $rowset = $this->getModel('topic')->selectWith($select);
         // Make list
         foreach ($rowset as $topic) {
             $topics[$topic->id] = $topic->toArray();
             $moderator[$topic->id]['title'] = $topics[$topic->id]['title'];
-            $moderator[$topic->id]['alias'] = $topics[$topic->id]['alias'];
+            $moderator[$topic->id]['slug'] = $topics[$topic->id]['slug'];
         }
         // Set view
         $this->view()->setTemplate('moderator_user');

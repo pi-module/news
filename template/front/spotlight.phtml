@@ -24,7 +24,7 @@ if(!empty($spotlight)) {
 		<div class="spotlightTop span12">
 			<div class="spotlightTitle">
 				<h2>
-					<a title="<?php echo $this->escape($spotlight['top']['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($spotlight['top']['alias']))); ?>"><?php echo $this->escape($spotlight['top']['title']); ?></a>
+					<a title="<?php echo $this->escape($spotlight['top']['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($spotlight['top']['slug']))); ?>"><?php echo $this->escape($spotlight['top']['title']); ?></a>
 				</h2>
 			</div>
 			<div class="spotlightBody">
@@ -48,7 +48,7 @@ if(!empty($spotlight)) {
 			<div class="spotlightListItem span6">
 				<div class="spotlightTitle">
 					<h4>
-						<a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a>
+						<a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a>
 					</h4>
 				</div>
 				<div class="spotlightBody">

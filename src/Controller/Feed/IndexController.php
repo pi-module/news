@@ -41,7 +41,7 @@ class IndexController extends FeedController
             'date_created' => time(),
         );
 
-        $columns = array('id', 'title', 'alias', 'short', 'publish');
+        $columns = array('id', 'title', 'slug', 'short', 'publish');
         $order = array('publish DESC', 'id DESC');
         $where = array('status' => 1);
         $limit = intval($this->config('feed_num'));
@@ -64,7 +64,7 @@ class IndexController extends FeedController
             'module' => $this->getModule(),
             'controller' => 'story',
             'action' => 'index',
-            'alias' => $row['alias']
+            'slug' => $row['slug']
         ));
         return Pi::url($uri, false);
     }

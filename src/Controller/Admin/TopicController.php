@@ -30,7 +30,7 @@ class TopicController extends ActionController
 {
     protected $ImagePrefix = 'topic_';
     protected $topicColumns = array(
-        'id', 'pid', 'title', 'alias', 'body', 'image', 'path', 'keywords', 'description', 'topic_type', 'topic_style', 'perpage', 'columns', 'author', 'create', 'status',
+        'id', 'pid', 'title', 'slug', 'body', 'image', 'path', 'keywords', 'description', 'topic_type', 'topic_style', 'perpage', 'columns', 'author', 'create', 'status',
         'showtopic', 'showtopicinfo', 'showauthor', 'showdate', 'showpdf', 'showprint', 'showmail', 'shownav', 'showhits', 'showcoms', 'topic_homepage', 'inlist'
     );
 
@@ -40,7 +40,7 @@ class TopicController extends ActionController
         $page = $this->params('p', 1);
         $module = $this->params('module');
         // Get info
-        $columns = array('id', 'title', 'alias', 'topic_type', 'status');
+        $columns = array('id', 'title', 'slug', 'topic_type', 'status');
         $order = array('id DESC', 'create DESC');
         $select = $this->getModel('topic')->select()->columns($columns)->order($order);
         $rowset = $this->getModel('topic')->selectWith($select);
@@ -185,9 +185,9 @@ class TopicController extends ActionController
                 // Set description
                 $description = ($values['description']) ? $values['description'] : $values['title'];
                 $values['description'] = Pi::service('api')->news(array('Text', 'description'), $description);
-                // Set alias
-                $alias = ($values['alias']) ? $values['alias'] : $values['title'];
-                $values['alias'] = Pi::service('api')->news(array('Text', 'alias'), $alias, $values['id'], $this->getModel('topic'));
+                // Set slug
+                $slug = ($values['slug']) ? $values['slug'] : $values['title'];
+                $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug, $values['id'], $this->getModel('topic'));
                 // Set if new
                 if (empty($values['id'])) {
                     // Set time
@@ -207,9 +207,9 @@ class TopicController extends ActionController
                 if ($row->id) {
                 	  // Set topic as page for dress up block 
                 	  if(empty($values['id'])) {
-	                	  $this->setPage($row->alias, $row->title);
+	                	  $this->setPage($row->slug, $row->title);
                 	  } else {	
-                	  	  $this->updatePage($topic['alias'], $row->alias, $row->title);
+                	  	  $this->updatePage($topic['slug'], $row->slug, $row->title);
                     }
                     Pi::service('registry')->page->clear($this->getModule());
                     $message = __('Topic data saved successfully.');
@@ -282,7 +282,7 @@ class TopicController extends ActionController
             );
             Pi::service('file')->remove($files);
             // Remove page
-            $this->removePage($row->alias);
+            $this->removePage($row->slug);
             Pi::service('registry')->page->clear($this->getModule());
             // Remove topic
             $row->delete();

@@ -46,16 +46,16 @@ class SpotlightController extends ActionController
             $storyArr[] = $spotlight['story'];
         }
         // Get topics
-        $select = $this->getModel('topic')->select()->where(array('id' => array_unique($topicArr)))->columns(array('id', 'title', 'alias'));
+        $select = $this->getModel('topic')->select()->where(array('id' => array_unique($topicArr)))->columns(array('id', 'title', 'slug'));
         $topicSet = $this->getModel('topic')->selectWith($select);
         // Make topic list
         foreach ($topicSet as $row) {
             $topicList[$row->id] = $row->toArray();
         }
-        $topicList[-1] = array('id' => -1, 'title' => __('Home Page'), 'alias' => '');
-        $topicList[0] = array('id' => 0, 'title' => __('All Topics'), 'alias' => '');
+        $topicList[-1] = array('id' => -1, 'title' => __('Home Page'), 'slug' => '');
+        $topicList[0] = array('id' => 0, 'title' => __('All Topics'), 'slug' => '');
         // Get stores
-        $select = $this->getModel('story')->select()->where(array('id' => array_unique($storyArr)))->columns(array('id', 'title', 'alias'));
+        $select = $this->getModel('story')->select()->where(array('id' => array_unique($storyArr)))->columns(array('id', 'title', 'slug'));
         $storySet = $this->getModel('story')->selectWith($select);
         // Make story list
         foreach ($storySet as $row) {
@@ -68,9 +68,9 @@ class SpotlightController extends ActionController
         foreach ($spotlightSet as $row) {
             $spotlightList[$row->id] = $row->toArray();
             $spotlightList[$row->id]['storytitle'] = $storyList[$row->story]['title'];
-            $spotlightList[$row->id]['storyalias'] = $storyList[$row->story]['alias'];
+            $spotlightList[$row->id]['storyslug'] = $storyList[$row->story]['slug'];
             $spotlightList[$row->id]['topictitle'] = $topicList[$row->topic]['title'];
-            $spotlightList[$row->id]['topicalias'] = $topicList[$row->topic]['alias'];
+            $spotlightList[$row->id]['topicslug'] = $topicList[$row->topic]['slug'];
             $spotlightList[$row->id]['publish'] = _date($spotlightList[$row->id]['publish']);
             $spotlightList[$row->id]['expire'] = _date($spotlightList[$row->id]['expire']);
         }

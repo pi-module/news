@@ -27,10 +27,10 @@ class StoryController extends ActionController
     public function indexAction()
     {
         // Get info from url
-        $alias = $this->params('alias');
+        $slug = $this->params('slug');
         $module = $this->params('module');
         // Find story
-        $story = $this->getModel('story')->find($alias, 'alias')->toArray();
+        $story = $this->getModel('story')->find($slug, 'slug')->toArray();
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
         // Check page
@@ -117,7 +117,7 @@ class StoryController extends ActionController
             $url['route'] = $module . '-news';
             $url['parameter']['module'] = $module;
             $url['parameter']['controller'] = 'story';
-            $url['parameter']['alias'] = $story['alias'];
+            $url['parameter']['slug'] = $story['slug'];
             // Get comment
             $comment = Pi::service('api')->comment(array('Comment', 'Render'), $module, $story['id'], $url);
             $this->view()->assign('usecomment', $comment['config']['comment_active']);

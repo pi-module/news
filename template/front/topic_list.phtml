@@ -10,7 +10,7 @@
 				<?php foreach($topics as $topic) { ?>
 				<tr>
 					<td class="top">
-						<div class="itemTitle"><a title="<?php echo $topic['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'topic' ,'alias' => $this->escape($topic['alias']))); ?>"><?php echo $this->escape($topic['title']); ?></a></div>
+						<div class="itemTitle"><a title="<?php echo $topic['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'topic' ,'slug' => $this->escape($topic['slug']))); ?>"><?php echo $this->escape($topic['title']); ?></a></div>
 						<div class="itemText"><?php echo $topic['body']; ?></div>
 						<?php if($topic['image']){ ?>
 						<div class="gallery">

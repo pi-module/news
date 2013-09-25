@@ -30,7 +30,7 @@ class ManagementController extends ActionController
 {
     protected $ImagePrefix = 'image_';
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'alias', 'topic', 'short', 'body', 'keywords', 'description', 'important', 'status', 'create', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'keywords', 'description', 'important', 'status', 'create', 
         'update', 'publish', 'author', 'hits', 'image', 'path', 'comments', 'point', 'count', 'favorite', 'attach', 'extra'
     );
 
@@ -63,7 +63,7 @@ class ManagementController extends ActionController
         // check Allowed
         $topicId = $this->AllowedAction($this->params()->fromRoute());
         // Topic list
-        $columns = array('id', 'title', 'alias');
+        $columns = array('id', 'title', 'slug');
         $where = array('status' => 1, 'id' => $topicId);
         $select = $this->getModel('topic')->select()->columns($columns)->where($where);
         $rowset = $this->getModel('topic')->selectWith($select);
@@ -100,7 +100,7 @@ class ManagementController extends ActionController
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'alias', 'topic', 'author', 'hits', 'status', 'publish');
+        $columnStory = array('id', 'title', 'slug', 'topic', 'author', 'hits', 'status', 'publish');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -135,11 +135,11 @@ class ManagementController extends ActionController
         // check Allowed
         $this->AllowedAction($this->params()->fromRoute());
         // Get id and status
-        $alias = $this->params('alias');
+        $slug = $this->params('slug');
         // set story
-        $story = $this->getModel('story')->find($alias, 'alias');
+        $story = $this->getModel('story')->find($slug, 'slug');
         // Check
-        if ($story && !empty($alias)) {
+        if ($story && !empty($slug)) {
             // remove file
             $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $story->path . '/' . $story->image),
@@ -173,14 +173,14 @@ class ManagementController extends ActionController
     {
         // get info
         $module = $this->params('module');
-        $alias = $this->params('alias');
+        $slug = $this->params('slug');
         // check Allowed
         $this->AllowedAction($this->params()->fromRoute());
         // Set story image url
         $options['imageurl'] = null;
         // Get story
-        if ($alias) {
-            $values = $this->getModel('story')->find($alias, 'alias')->toArray();
+        if ($slug) {
+            $values = $this->getModel('story')->find($slug, 'slug')->toArray();
             // Set story image url
             if ($values['image']) {
                 $options['imageurl'] = Pi::url('upload/' . $this->config('image_path') . '/thumb/' . $values['path'] . '/' . $values['image']);
@@ -261,8 +261,8 @@ class ManagementController extends ActionController
                 $values['keywords'] = Pi::service('api')->news(array('Text', 'keywords'), $values['title']);
                 // Set description
                 $values['description'] = Pi::service('api')->news(array('Text', 'description'), $values['title']);
-                // Set alias
-                $values['alias'] = Pi::service('api')->news(array('Text', 'alias'), $values['title'], $values['id'], $this->getModel('story'));
+                // Set slug
+                $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $values['title'], $values['id'], $this->getModel('story'));
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('story')->find($values['id']);
@@ -300,7 +300,7 @@ class ManagementController extends ActionController
                 $message = __('Invalid data, please check and re-submit.');
             }
         } else {
-            if (!empty($alias)) {
+            if (!empty($slug)) {
                 if ($values['status'] == 5) {
                     $message = __('Error in Edit story');
                     $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'management'), $message);
@@ -329,13 +329,13 @@ class ManagementController extends ActionController
 
     public function deleteAction()
     {
-        // Get page ID or alias from url
+        // Get page ID or slug from url
         $module = $this->params('module');
-        $alias = $this->params('alias');
+        $slug = $this->params('slug');
         // check Allowed
         $topic = $this->AllowedAction($this->params()->fromRoute());
         // Get row
-        $row = $this->getModel('story')->find($alias, 'alias');
+        $row = $this->getModel('story')->find($slug, 'slug');
         if (!isset($row) || $row->status == 5 || !in_array($row->topic, $topic)) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'management'), __('Error Delete story'));
         }

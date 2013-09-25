@@ -9,7 +9,7 @@
 		</tr>
 		<?php foreach($block['resources'] as $story) { ?>
 		<tr class="odd">
-			<td><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></td>
+			<td><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></td>
 			<?php if($block['showdesc']){ ?><td><?php echo $this->escape($story['short']); ?></td><?php } ?>
 			<?php if($block['showdate']){ ?><td><?php echo $this->escape($story['publish']); ?></td><?php } ?>
 			<?php if($block['showhits']){ ?><td><?php echo $this->escape($story['hits']); ?></td><?php } ?>

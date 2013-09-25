@@ -28,16 +28,16 @@ class WriterController extends IndexController
     public function indexAction()
     {
         // Get info from url
-        $alias = $this->params('alias');
+        $slug = $this->params('slug');
         $module = $this->params('module');
         $page = $this->params('page', 1);
-        // Check alias
-        if (empty($alias)) {
+        // Check slug
+        if (empty($slug)) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'writer', 'action' => 'list'), __('Got to writer list.'));
         }
         // Find user
-        $user = Pi::model('user_account')->find($alias, 'identity');
-        // Check alias
+        $user = Pi::model('user_account')->find($slug, 'identity');
+        // Check slug
         if (empty($user)) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'writer', 'action' => 'list'), __('Got to writer list.'));
         }
@@ -58,14 +58,14 @@ class WriterController extends IndexController
         // Story
         $story = $this->StoryList($where, $offset, $limit);
         // Set paginator
-        $template = array('module' => $module, 'controller' => 'writer', 'alias' => urlencode($alias), 'page' => '%page%');
+        $template = array('module' => $module, 'controller' => 'writer', 'slug' => urlencode($slug), 'page' => '%page%');
         $paginator = $this->StoryPaginator($template, $where, $page, $limit);
         // Spotlight
         $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config);
         // Set view
-        $this->view()->headTitle(sprintf(__('All stores from %s'), $alias));
-        $this->view()->headDescription($alias, 'set');
-        $this->view()->headKeywords($alias, 'set');
+        $this->view()->headTitle(sprintf(__('All stores from %s'), $slug));
+        $this->view()->headDescription($slug, 'set');
+        $this->view()->headKeywords($slug, 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);

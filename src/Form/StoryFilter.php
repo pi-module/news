@@ -51,9 +51,9 @@ class StoryFilter extends InputFilter
                 ),
             ),
         ));
-        // alias
+        // slug
         $this->add(array(
-            'name' => 'alias',
+            'name' => 'slug',
             'required' => false,
             'filters' => array(
                 array(

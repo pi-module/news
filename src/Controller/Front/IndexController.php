@@ -82,7 +82,7 @@ class IndexController extends ActionController
             $stpryId[] = $id['story'];
         }
         // Set info
-        $column = array('id', 'title', 'alias', 'topic', 'short', 'important', 'publish', 'hits', 'image', 'path', 'comments');
+        $column = array('id', 'title', 'slug', 'topic', 'short', 'important', 'publish', 'hits', 'image', 'path', 'comments');
         $where = array('status' => 1, 'id' => $stpryId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($column)->where($where)->order($order);
@@ -93,7 +93,7 @@ class IndexController extends ActionController
             $storytopics = Json::decode($story[$row->id]['topic']);
             foreach ($storytopics as $storytopic) {
                 $story[$row->id]['topics'][$storytopic]['title'] = $topicList[$storytopic]['title'];
-                $story[$row->id]['topics'][$storytopic]['alias'] = $topicList[$storytopic]['alias'];
+                $story[$row->id]['topics'][$storytopic]['slug'] = $topicList[$storytopic]['slug'];
             }
             $story[$row->id]['short'] = Pi::service('markup')->render($story[$row->id]['short'], 'text', 'html');
             $story[$row->id]['publish'] = _date($story[$row->id]['publish']);

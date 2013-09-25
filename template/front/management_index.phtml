@@ -44,7 +44,7 @@
 			<?php foreach($stores as $story) { ?>
 			<tr>
 			   <td><?php echo $this->escape($story['id']); ?></td>
-				<td><a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
+				<td><a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
 				<td><?php echo $story['publish']; ?></td>
 			   <td>
 			   <?php if($story['status'] == 1){ ?>	
@@ -55,8 +55,8 @@
 			   </td>
 			   <td>
 				   <div class="btn-group">
-					    <a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'submit', 'alias' => $this->escape($story['alias']))); ?>"><i class="icon-edit icon-white"></i> <?php _e('Edit'); ?></a>
-						 <a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'delete', 'alias' => $this->escape($story['alias']))); ?>"><i class="icon-trash icon-white"></i> <?php _e('Delete'); ?></a>
+					    <a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'submit', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-edit icon-white"></i> <?php _e('Edit'); ?></a>
+						 <a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'delete', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-trash icon-white"></i> <?php _e('Delete'); ?></a>
 				   </div>
 			   </td>
 			</tr>

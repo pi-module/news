@@ -28,7 +28,7 @@ return array(
         // Description, for admin, optional
         'description' => __('Manage News and Blog'),
         // Version number, required
-        'version' => '1.0.0-beta.3',
+        'version' => '1.0.3',
         // Distribution license, required
         'license' => 'New BSD',
         // Logo image, for admin, optional

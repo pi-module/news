@@ -58,18 +58,18 @@ class ToolsController extends ActionController
             $values = $this->request->getPost();
             // Get all story
             $where = array('publish > ?' => strtotime($values['start']), 'publish < ?' => strtotime($values['end']));
-            $columns = array('id', 'title', 'alias', 'keywords', 'description');
+            $columns = array('id', 'title', 'slug', 'keywords', 'description');
             $order = array('id ASC');
             $select = $this->getModel('story')->select()->where($where)->columns($columns)->order($order);
             $rowset = $this->getModel('story')->selectWith($select);
             // Do rebuild
             switch ($values['rebuild']) {
-                case 'alias':
+                case 'slug':
                     foreach ($rowset as $row) {
-                        $values['alias'] = Pi::service('api')->news(array('Text', 'alias'), $row->title, $row->id, $this->getModel('story'));
-                        $this->getModel('story')->update(array('alias' => $alias), array('id' => $row->id));
+                        $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $row->title, $row->id, $this->getModel('story'));
+                        $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild Alias, all story alias update');
+                    $message = __('Finish Rebuild slug, all story slug update');
                     break;
 
                 case 'keywords':

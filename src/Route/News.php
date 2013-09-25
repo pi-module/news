@@ -82,9 +82,9 @@ class News extends Standard
                         $storyPath = explode($this->paramDelimiter, $controller[1], 2);
                         if (in_array('print', $storyPath)) {
                             $matches['action'] = 'print';
-                            $matches['alias'] = urldecode($storyPath[1]);
+                            $matches['slug'] = urldecode($storyPath[1]);
                         } else {
-                            $matches['alias'] = urldecode($storyPath[0]);
+                            $matches['slug'] = urldecode($storyPath[0]);
                         }
                     }
                     break;
@@ -110,12 +110,12 @@ class News extends Standard
                             $matches['action'] = 'list';
                         } elseif ($writerPath[0] == 'profile') {
                             $matches['action'] = 'profile';
-                            $matches['alias'] = urldecode($writerPath[1]);
+                            $matches['slug'] = urldecode($writerPath[1]);
                             if (isset($writerPath[2]) && $writerPath[2] == 'page') {
                                 $matches['page'] = intval($writerPath[3]);
                             }
                         } else {
-                            $matches['alias'] = urldecode($writerPath[0]);
+                            $matches['slug'] = urldecode($writerPath[0]);
                             if (isset($writerPath[1]) && $writerPath[1] == 'page') {
                                 $matches['page'] = intval($writerPath[2]);
                             }
@@ -144,14 +144,14 @@ class News extends Standard
                         if ($managementPath[0] == 'submit') {
                             $matches['action'] = 'submit';
                             if (isset($managementPath[1])) {
-                                $matches['alias'] = urldecode($managementPath[1]);
+                                $matches['slug'] = urldecode($managementPath[1]);
                             }
                         } elseif ($managementPath[0] == 'delete') {
                             $matches['action'] = 'delete';
-                            $matches['alias'] = urldecode($managementPath[1]);
+                            $matches['slug'] = urldecode($managementPath[1]);
                         } elseif ($managementPath[0] == 'remove') {
                             $matches['action'] = 'remove';
-                            $matches['alias'] = urldecode($managementPath[1]);
+                            $matches['slug'] = urldecode($managementPath[1]);
                         } elseif ($managementPath[0] == 'page') {
                             $matches['page'] = intval($managementPath[1]);
                             if (isset($managementPath[2]) && $managementPath[2] == 'topic' && isset($managementPath[4]) && $managementPath[4] == 'status') {
@@ -178,7 +178,7 @@ class News extends Standard
                 case 'tag':
                     if (!empty($controller[1])) {
                         $tagPath = explode($this->paramDelimiter, $controller[1]);
-                        $matches['alias'] = urldecode($tagPath[0]);
+                        $matches['slug'] = urldecode($tagPath[0]);
                         if (isset($tagPath[1]) && $tagPath[1] == 'page') {
                             $matches['page'] = intval($tagPath[2]);
                         }
@@ -238,8 +238,8 @@ class News extends Standard
         if (!empty($mergedParams['month'])) {
             $url['month'] = $mergedParams['month'];
         }
-        if (!empty($mergedParams['alias'])) {
-            $url['alias'] = $mergedParams['alias'];
+        if (!empty($mergedParams['slug'])) {
+            $url['slug'] = $mergedParams['slug'];
         }
         if (!empty($mergedParams['page'])) {
             $url['page'] = 'page' . $this->paramDelimiter . $mergedParams['page'];

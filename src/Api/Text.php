@@ -25,7 +25,7 @@ use Pi\Application\AbstractApi;
 /*
  * Pi::service('api')->news(array('Text', 'keywords'), $keywords);
  * Pi::service('api')->news(array('Text', 'description'), $description);
- * Pi::service('api')->news(array('Text', 'alias'), $alias, $id, $model);
+ * Pi::service('api')->news(array('Text', 'slug'), $slug, $id, $model);
  */
 
 class Text extends AbstractApi
@@ -67,11 +67,11 @@ class Text extends AbstractApi
 	}	
 	
 	/**
-     * Returns the alias
+     * Returns the slug
      *
      * @return boolean
      */
-	public function alias($slug, $id, $model)
+	public function slug($slug, $id, $model)
 	{
 		$slug = _strip($slug);
         $slug = strtolower(trim($slug));
@@ -84,15 +84,15 @@ class Text extends AbstractApi
 	public function checkSlug($slug, $id, $model)
 	{
 		if (empty($id)) {
-			$where = array('alias' => $slug);
+			$where = array('slug' => $slug);
 		} else {
-			$where = array('alias' => $slug, 'id != ?' => $id);
+			$where = array('slug' => $slug, 'id != ?' => $id);
 		}	
-		$columns = array('id', 'alias');
+		$columns = array('id', 'slug');
 		$select = $model->select()->columns($columns)->where($where);
 		$rowset = $model->selectWith($select);
 		if($rowset->count()) {
-			$slug = $this->alias($slug . ' ' . rand(1, 9999), $id, $model);
+			$slug = $this->slug($slug . ' ' . rand(1, 9999), $id, $model);
 		}
 		return $slug;	
 	}	                  

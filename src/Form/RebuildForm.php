@@ -32,9 +32,9 @@ class RebuildForm extends BaseForm
             'type' => 'select',
             'options' => array(
                 'label' => __('Rebuild'),
-                'value' => 'alias',
+                'value' => 'slug',
                 'value_options' => array(
-                    'alias' => __('Alias'),
+                    'slug' => __('slug'),
                     'keywords' => __('Meta Keywords'),
                     'description' => __('Meta Description'),
                 ),

@@ -46,7 +46,7 @@ class Spotlight extends AbstractApi
             $spotlightId[] = $row['story'];
         }
         if (!empty($spotlightId)) {
-            $columns = array('id', 'title', 'alias', 'short', 'image', 'path');
+            $columns = array('id', 'title', 'slug', 'short', 'image', 'path');
             $order = array('publish DESC', 'id DESC');
             $where = array('status' => 1, 'id' => $spotlightId);
             $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where)->order($order);

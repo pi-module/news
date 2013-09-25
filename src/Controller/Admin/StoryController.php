@@ -30,7 +30,7 @@ class StoryController extends ActionController
 {
     protected $ImagePrefix = 'image_';
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'alias', 'topic', 'short', 'body', 'keywords', 'description', 'important', 'status', 'create', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'keywords', 'description', 'important', 'status', 'create', 
         'update', 'publish', 'author', 'hits', 'image', 'path', 'comments', 'point', 'count', 'favorite', 'attach', 'extra'
     );
 
@@ -68,7 +68,7 @@ class StoryController extends ActionController
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'alias', 'status', 'publish', 'author');
+        $columnStory = array('id', 'title', 'slug', 'status', 'publish', 'author');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -297,9 +297,9 @@ class StoryController extends ActionController
                 // Set description
                 $description = ($values['description']) ? $values['description'] : $values['title'];
                 $values['description'] = Pi::service('api')->news(array('Text', 'description'), $description);
-                // Set alias
-                $alias = ($values['alias']) ? $values['alias'] : $values['title'];
-                $values['alias'] = Pi::service('api')->news(array('Text', 'alias'), $alias, $values['id'], $this->getModel('story'));
+                // Set slug
+                $slug = ($values['slug']) ? $values['slug'] : $values['title'];
+                $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug, $values['id'], $this->getModel('story'));
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('story')->find($values['id']);
@@ -330,7 +330,7 @@ class StoryController extends ActionController
                 if ($addSlide && Pi::service('module')->isActive('slide')) {
                     $slide['title'] = $values['title'];
                     $slide['description'] = $values['short'];
-                    $slide['url'] = $this->url('.news', array('module' => $module, 'controller' => 'story', 'alias' => $values['alias']));
+                    $slide['url'] = $this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $values['slug']));
                     $slide['image'] = $medium_path;
                     Pi::service('api')->slide(array('add', 'slide'), $slide);
                 }

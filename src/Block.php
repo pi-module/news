@@ -45,7 +45,7 @@ class Block
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'alias', 'topic', 'short', 'important', 'publish', 'image', 'path', 'hits');
+        $columnStory = array('id', 'title', 'slug', 'topic', 'short', 'important', 'publish', 'image', 'path', 'hits');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = Pi::model('story', $module)->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -84,7 +84,7 @@ class Block
                $story[$row->id] = $row->toArray();
               $story[$row->id]['mediumurl'] = \Pi::url('upload/news/medium/') . $row->image;
               $story[$row->id]['thumburl'] = \Pi::url('upload/news/thumb/') . $row->image;
-              $story[$row->id]['url'] = \App\News\Module::StoryUrl($row->alias);
+              $story[$row->id]['url'] = \App\News\Module::StoryUrl($row->slug);
              $story[$row->id]['spotlight'] = $spotlight[$row->id];
            }
 
@@ -103,7 +103,7 @@ class Block
         $block = array();
         $block = array_merge($block, $options);
         // Set model and get information
-        $columns = array('id', 'title', 'alias');
+        $columns = array('id', 'title', 'slug');
         $where = array('status' => 1);
         if (!in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];

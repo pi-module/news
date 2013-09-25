@@ -74,11 +74,11 @@ class StoryUserForm extends BaseForm
                 'class' => 'span12',
             )
         ));
-        // alias
+        // slug
         $this->add(array(
-            'name' => 'alias',
+            'name' => 'slug',
             'options' => array(
-                'label' => __('Alias'),
+                'label' => __('slug'),
             ),
             'attributes' => array(
                 'type' => 'text',

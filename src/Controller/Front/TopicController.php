@@ -29,13 +29,13 @@ class TopicController extends IndexController
     {
         // Get info from url
         $page = $this->params('page', 1);
-        $alias = $this->params('action');
+        $slug = $this->params('action');
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic information from model
-        $topic = $this->getModel('topic')->find($alias, 'alias');
-        // Check alias set
+        $topic = $this->getModel('topic')->find($slug, 'slug');
+        // Check slug set
         if(empty($topic)) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'topic', 'action' => 'list'), __('Got to topic list.'));
         }	
@@ -59,7 +59,7 @@ class TopicController extends IndexController
         // Story
         $story = $this->StoryList($where, $offset, $limit);
         // Set paginator
-        $template = array('module' => $module, 'controller' => 'topic', 'alias' => $alias, 'page' => '%page%');
+        $template = array('module' => $module, 'controller' => 'topic', 'slug' => $slug, 'page' => '%page%');
         $paginator = $this->StoryPaginator($template, $where, $page, $limit);
         // Spotlight
         $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config, $topic['id']);
@@ -77,12 +77,12 @@ class TopicController extends IndexController
 
     public function listAction()
     {
-        // Get page ID or alias from url
+        // Get page ID or slug from url
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module, 'show');
         // Get topic list
-        $columns = array('id', 'title', 'alias', 'pid', 'body', 'path', 'image');
+        $columns = array('id', 'title', 'slug', 'pid', 'body', 'path', 'image');
         $where = array('status' => 1, 'inlist' => 1);
         $order = array('create DESC', 'id DESC');
         $select = $this->getModel('topic')->select()->columns($columns)->where($where)->order($order);

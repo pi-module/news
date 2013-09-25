@@ -26,13 +26,13 @@ if($config['image_lightbox']){
 		</div>
 		<div class="itemInfo">
 		   <?php if($story['important']) { ?><span class="label label-important"><?php _e('Important'); ?></span><?php } ?>
-			<?php if($topic['showauthor']) { ?><span class="itemPoster"><?php _e('By'); ?>: <a title="" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'writer' ,'action' => 'index' ,'alias' => $this->escape($story['identity']))); ?>"><?php echo $this->escape($story['identity']); ?></a></span><?php } ?>
+			<?php if($topic['showauthor']) { ?><span class="itemPoster"><?php _e('By'); ?>: <a title="" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'writer' ,'action' => 'index' ,'slug' => $this->escape($story['identity']))); ?>"><?php echo $this->escape($story['identity']); ?></a></span><?php } ?>
 			<?php if($topic['showdate']) { ?><span class="itemPostDate"><?php _e('Update Time'); ?>: <?php echo $this->escape($story['publish']); ?></span><?php } ?>
 			<?php if($topic['showhits']) { ?><span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span><?php } ?>
 			<?php if($topic['showcoms']) { ?><span class="itemComments"><?php _e('Comments'); ?>: <?php echo $this->escape($story['comments']); ?></span><?php } ?>
 		   <?php if($topic['showtopic']) { ?><span class="itemtopics"><?php _e('Topics'); ?>: 
 			<?php foreach($story['topic'] as $storyTopic) { ?>
-				<?php $storyTopic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($storyTopic['alias']))); ?>
+				<?php $storyTopic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'slug' => $this->escape($storyTopic['slug']))); ?>
 				<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
 			<?php } ?></span><?php } ?>
 		   <div class="clearfix"></div>
@@ -57,7 +57,7 @@ if($config['image_lightbox']){
 		<?php if($tags) { ?>
 		<div class="tagbar">
 		<?php foreach($tags as $tag) { ?>
-			<a title="<?php echo $tag; ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'tag', 'alias' => urlencode($tag))); ?>"><span class="label label-inverse icon-tag"> <?php echo $tag; ?></span></a>
+			<a title="<?php echo $tag; ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'tag', 'slug' => urlencode($tag))); ?>"><span class="label label-inverse icon-tag"> <?php echo $tag; ?></span></a>
 		<?php } ?>
 		</div>
 		<?php } ?>
@@ -69,10 +69,10 @@ if($config['image_lightbox']){
 				<div class="itemPager">
 	      <ul class="pager">
 		      <?php if(!empty($link['previous'])) { ?>
-		      <li class="previous"><a title="<?php _e('Older'); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($link['previous']))); ?>"><?php _e('Older'); ?></a></li>
+		      <li class="previous"><a title="<?php _e('Older'); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($link['previous']))); ?>"><?php _e('Older'); ?></a></li>
 		      <?php } ?>
 		      <?php if(!empty($link['next'])) { ?>
-		      <li class="next"><a title="<?php _e('Newer'); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($link['next']))); ?>"><?php _e('Newer'); ?></a></li>
+		      <li class="next"><a title="<?php _e('Newer'); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($link['next']))); ?>"><?php _e('Newer'); ?></a></li>
 		      <?php } ?>
 	      </ul>
       </div>
@@ -95,7 +95,7 @@ if($config['image_lightbox']){
 		   <h3><?php _e('Related storys'); ?></h3>
 			<ul>
 			<?php foreach($relateds as $related) { ?>
-			   <li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($related['alias']))); ?>"><?php echo $this->escape($related['title']); ?></a></li>
+			   <li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($related['slug']))); ?>"><?php echo $this->escape($related['title']); ?></a></li>
 		   <?php }?>
 			</ul>
 		</div>

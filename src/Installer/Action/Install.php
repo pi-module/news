@@ -65,7 +65,7 @@ class Install extends BasicInstall
         // Add topic
         $topicData = array(
             'title' => __('Default'),
-            'alias' => 'default',
+            'slug' => 'default',
             'body' => __('This is a default topic for news module'),
             'keywords' => 'default,topic',
             'description' => 'default topic',
@@ -98,7 +98,7 @@ class Install extends BasicInstall
         $storyData = array(
             'title' => __('Hello world !'),
             'subtitle' => __('Hello World'),
-            'alias' => 'hello-world',
+            'slug' => 'hello-world',
             'topic' => Json::encode(array('1')),
             'short' => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
             'body' => __('This is more text. you can edit this part easy too and if you want you can add new topics and new storys'),

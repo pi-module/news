@@ -148,7 +148,7 @@ class Topic extends AbstractApi
 
     public function Info()
     {
-        $columns = array('id', 'title', 'alias');
+        $columns = array('id', 'title', 'slug');
         $where = array('status' => 1);
         $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where);
         $rowset = Pi::model('topic', $this->getModule())->selectWith($select);

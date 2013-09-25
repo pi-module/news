@@ -17,7 +17,7 @@ $this->css(array(
 				<div class="profile-info">
 					<h5 class="profile-identity"><?php echo $this->escape($writer['identity']); ?></h5>
 					<div class="profile-email"><?php echo $this->escape($writer['email']); ?></div>
-					<div class="profile-link"><a title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'writer' ,'action' => 'index' ,'alias' => $this->escape($writer['identity']))); ?>"><?php _e('All stores'); ?></a></div>
+					<div class="profile-link"><a title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'writer' ,'action' => 'index' ,'slug' => $this->escape($writer['identity']))); ?>"><?php _e('All stores'); ?></a></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

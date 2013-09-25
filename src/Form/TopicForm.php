@@ -77,11 +77,11 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
-        // alias
+        // slug
         $this->add(array(
-            'name' => 'alias',
+            'name' => 'slug',
             'options' => array(
-                'label' => __('Alias'),
+                'label' => __('slug'),
             ),
             'attributes' => array(
                 'type' => 'text',

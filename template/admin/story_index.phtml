@@ -34,7 +34,7 @@
 		?>
 		<tr>
 			<td><span id="label-<?php echo $story['id']; ?>" class="label <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
-			<td><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($story['alias']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
+			<td><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
 			<td><?php echo $this->escape($story['publish']); ?></td>
 			<td>
 

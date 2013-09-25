@@ -32,13 +32,13 @@ class JsonController extends IndexController
         // Get info from url
         $story = array();
         $page = $this->params('page', 1);
-        $alias = $this->params('topic');
+        $slug = $this->params('topic');
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic information from model
-        $topic = $this->getModel('topic')->find($alias, 'alias');
-        // Check alias set
+        $topic = $this->getModel('topic')->find($slug, 'slug');
+        // Check slug set
         if(empty($topic)) {
             echo Json::encode($story);
             exit;

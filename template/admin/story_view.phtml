@@ -13,7 +13,7 @@
 			<span class="itemComments"><?php _e('Comments'); ?>: <?php echo $this->escape($story['comments']); ?></span>
 			<span class="itemtopics"><?php _e('Topics'); ?>: 
 			<?php foreach($topics as $topic) { ?>
-				<?php $topic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'alias' => $this->escape($topic['alias']))); ?>
+				<?php $topic['url'] = $this->url('.news',  array('module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug']))); ?>
 				<a title="<?php echo $topic['title']; ?>" href="<?php echo $topic['url']; ?>"><?php echo $topic['title']; ?></a>
 			<?php } ?></span>
 		   <div class="clearfix"></div>
@@ -31,7 +31,7 @@
 		<div class="itemFoot">
 		   <p>
 				<a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i>  <?php _e('Back'); ?></a>
-				<a class="btn" title="<?php _e('View'); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'alias' => $this->escape($story['alias']))); ?>"><i class="icon-eye-open"></i> <?php _e('View'); ?></a>
+				<a class="btn" title="<?php _e('View'); ?>" href="<?php echo $this->url('.news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-eye-open"></i> <?php _e('View'); ?></a>
 				<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Edit'); ?></a>
 				<a class="btn" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="icon-edit"></i> <?php _e('Attach'); ?></a>
 				<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="icon-trash"></i> <?php _e('Delete'); ?></a>
