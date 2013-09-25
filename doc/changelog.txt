@@ -6,3 +6,4 @@ News module changelog
 2. Fix translation
 3. Update Text API for use PI methods
 4. Improve templates
+5. Remove social bookmark option

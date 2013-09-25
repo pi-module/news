@@ -465,14 +465,6 @@ return array(
         ),
         */
         // Social
-        'social_bookmark' => array(
-            'category' => 'social',
-            'title' => __('Show Bookmark'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
         'social_gplus' => array(
             'category' => 'social',
             'title' => __('Show Google Plus'),
