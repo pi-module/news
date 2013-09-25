@@ -66,7 +66,7 @@ class News extends Standard
         $controller = explode($this->paramDelimiter, $path, 2);
 
         // Set controller
-        $controllerList = array('archive', 'favorite', 'index', 'management', 'story', 'tag', 'topic', 'writer');
+        $controllerList = array('archive', 'favorite', 'index', 'json', 'management', 'story', 'tag', 'topic', 'writer');
         if (isset($controller[0]) && in_array($controller[0], $controllerList)) {
             $matches['controller'] = urldecode($controller[0]);
         } elseif (isset($controller[0]) && $controller[0] == 'page') {
@@ -185,11 +185,21 @@ class News extends Standard
                     }
                     break;
                     
-                 case 'favorite':
+                case 'favorite':
                     if (!empty($controller[1])) {
                         $favoritePath = explode($this->paramDelimiter, $controller[1], 2);
                         if (isset($favoritePath[0]) && $favoritePath[0] == 'page') {
                             $matches['page'] = intval($favoritePath[1]);
+                        }
+                    }
+                    break;
+
+                case 'json':
+                    if (!empty($controller[1])) {
+                        $jsonPath = explode($this->paramDelimiter, $controller[1], 3);
+                        $matches['topic'] = urldecode($jsonPath[0]);
+                        if (isset($jsonPath[1]) && $jsonPath[1] == 'page') {
+                            $matches['page'] = intval($jsonPath[2]);
                         }
                     }
                     break;

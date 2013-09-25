@@ -7,3 +7,4 @@ News module changelog
 3. Update Text API for use PI methods
 4. Improve templates
 5. Remove social bookmark option
+6. Add Json Controller for make output for mobile apps
