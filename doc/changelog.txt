@@ -8,3 +8,4 @@ News module changelog
 4. Improve templates
 5. Remove social bookmark option
 6. Add Json Controller for make output for mobile apps
+7. Add SlugDuplicate Validator
