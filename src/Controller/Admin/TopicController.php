@@ -135,6 +135,10 @@ class TopicController extends ActionController
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
+            // Set slug
+            $slug = ($data['slug']) ? $data['slug'] : $data['title'];
+            $data['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug);
+            // Form filter
             $form->setInputFilter(new TopicFilter);
             $form->setData($data);
             if ($form->isValid()) {
@@ -185,9 +189,6 @@ class TopicController extends ActionController
                 // Set description
                 $description = ($values['description']) ? $values['description'] : $values['title'];
                 $values['description'] = Pi::service('api')->news(array('Text', 'description'), $description);
-                // Set slug
-                $slug = ($values['slug']) ? $values['slug'] : $values['title'];
-                $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug, $values['id'], $this->getModel('topic'));
                 // Set if new
                 if (empty($values['id'])) {
                     // Set time

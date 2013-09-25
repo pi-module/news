@@ -196,6 +196,10 @@ class ManagementController extends ActionController
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
+            // Set slug
+            $slug = ($data['slug']) ? $data['slug'] : $data['title'];
+            $data['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug);
+            // Form filter
             $form->setInputFilter(new StoryUserFilter($options['field']));
             $form->setData($data);
             if ($form->isValid()) {
@@ -261,8 +265,6 @@ class ManagementController extends ActionController
                 $values['keywords'] = Pi::service('api')->news(array('Text', 'keywords'), $values['title']);
                 // Set description
                 $values['description'] = Pi::service('api')->news(array('Text', 'description'), $values['title']);
-                // Set slug
-                $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $values['title'], $values['id'], $this->getModel('story'));
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('story')->find($values['id']);

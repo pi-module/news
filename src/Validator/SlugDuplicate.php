@@ -34,24 +34,26 @@ class SlugDuplicate extends AbstractValidator
         self::TAKEN     => 'This slug already exists',
     );
 
+    protected $options = array(
+        'module', 'table'
+    );
+
     /**
-     * Page slug validate
+     * Slug validate
      *
-     * @param  mixed $table
      * @param  mixed $value
-     * @param  int   $id
+     * @param  array $context
      * @return boolean
      */
-    public function isValid($table, $value, $id = null)
+    public function isValid($value, $context = null)
     {
-        $module = Pi::service('module')->current();
         $this->setValue($value);
         if (null !== $value) {
             $where = array('slug' => $value);
-            if (!empty($id)) {
-                $where['id <> ?'] = $id;
+            if (!empty($context['id'])) {
+                $where['id <> ?'] = $context['id'];
             }
-            $rowset = Pi::model($table, $module)->select($where);
+            $rowset = Pi::model($this->options['table'], $this->options['module'])->select($where);
             if ($rowset->count()) {
                 $this->error(static::TAKEN);
                 return false;
