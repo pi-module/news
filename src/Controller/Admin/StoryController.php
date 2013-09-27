@@ -335,6 +335,15 @@ class StoryController extends ActionController
                     $slide['image'] = $medium_path;
                     Pi::service('api')->slide(array('add', 'slide'), $slide);
                 }
+                // Add to sitemap
+                if (empty($values['id']) && Pi::service('module')->isActive('sitemap')) {
+                    $link = array();
+                    $link['loc'] = Pi::url($this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $values['slug'])));
+                    $link['lastmod'] = date("Y-m-d H:i:s"); // Or set empty
+                    $link['changefreq'] = 'daily'; // Or set empty
+                    $link['priority'] = ''; // Or set empty
+                    Pi::service('api')->sitemap(array('Sitemap', 'add'), 'news', 'story', $link);
+                }
                 // Check it save or not
                 if ($row->id) {
                     $message = __('Story data saved successfully.');
