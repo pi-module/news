@@ -35,10 +35,11 @@ class Block
         // Set model and get information
         $whereLink['status'] = 1;
         //$order = array($block['order'],'id DESC');
+        $columns = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
         $order = array('publish DESC', 'id DESC');
         $limit = intval($block['number']);
         // Get info from link table
-        $select = Pi::model('link', $module)->select()->where($whereLink)->columns(array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story')))->order($order)->offset($offset)->limit($limit);
+        $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
         // Make list
         foreach ($rowset as $id) {
@@ -55,10 +56,10 @@ class Block
             $story[$row->id] = $row->toArray();
             $story[$row->id]['publish'] = date('Y/m/d H:i:s', $story[$row->id]['publish']);
             if ($story[$row->id]['image']) {
-                $story[$row->id]['originalurl'] = Pi::url('upload/' . $module . '/original/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['largeurl'] = Pi::url('upload/' . $module . '/large/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['mediumurl'] = Pi::url('upload/' . $module . '/medium/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['thumburl'] = Pi::url('upload/' . $module . '/thumb/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                $story[$row->id]['originalurl'] = Pi::url('upload/' . $module . '/image/original/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                $story[$row->id]['largeurl'] = Pi::url('upload/' . $module . '/image/large/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                $story[$row->id]['mediumurl'] = Pi::url('upload/' . $module . '/image/medium/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                $story[$row->id]['thumburl'] = Pi::url('upload/' . $module . '/image/thumb/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
             }
         }
         // Set block array

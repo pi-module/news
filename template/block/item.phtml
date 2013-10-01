@@ -1,30 +1,25 @@
 <?php $this->css($this->assetModule('css/block.css', 'news')); ?>
 <div class="itemBlock itemBlockitem">
 	<?php foreach($block['resources'] as $story) { ?>
-	<div class="item">
-	   <div class="itemHead">
-			<span class="itemTitle">
-			    <h3><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
-		   </span>
-		</div>
-		<?php if($block['showdate'] || $block['showhits']){ ?>
-		<div class="itemInfo">
-			<?php if($block['showdate']){ ?><span class="itemPostDate"><?php _e('Update Time'); ?>:<?php echo $this->escape($story['publish']); ?></span><?php } ?>
-			<?php if($block['showhits']){ ?><span class="itemStats"><?php _e('Read'); ?>:<?php echo $this->escape($story['hits']); ?></span><?php } ?>
-		</div>
-		<?php } ?>
-		<?php if($block['showimage'] || $block['showdesc']){ ?>
-		<div class="itemBody">
-		   <?php if($block['showimage'] && !empty($story['thumburl'])){ ?><div class="itemImage left"><img class="left story_img" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></div><?php } ?>
-		   <?php if($block['showdesc']){ ?><div class="itemText"><?php echo $story['short']; ?></div><?php } ?>
-		   <div class="clearfix"></div>
-	   </div>
-	   <?php } ?>
-	   <?php if($block['showmore']){ ?>
-		   <div class="itemFoot">
-			   <span class="itemMore"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _e('Read More'); ?></a></span>
-		   </div>
-		<?php } ?>
-	</div>
+	<div class="media">
+		<?php if($block['showimage'] && !empty($story['thumburl'])){ ?>
+		<a class="pull-left itemImage" href="<?php echo Pi::url($this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug'])))); ?>">
+			<img src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-polaroid"  />
+        </a>
+        <?php } ?>
+        <div class="media-body">
+        	<h4 class="media-heading"><a href="<?php echo Pi::url($this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug'])))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h4>
+        	<?php if($block['showdate'] || $block['showhits']){ ?>
+			<div class="itemInfo">
+				<?php if($block['showdate']){ ?><span class="itemPostDate"><?php _e('Update Time'); ?>:<?php echo $this->escape($story['publish']); ?></span><?php } ?>
+				<?php if($block['showhits']){ ?><span class="itemStats"><?php _e('Read'); ?>:<?php echo $this->escape($story['hits']); ?></span><?php } ?>
+			</div>
+			<?php } ?>
+        	<?php if($block['showdesc']){ echo $story['short']; } ?>
+        	<?php if($block['showmore']){ ?>
+            <span><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _e('Read More'); ?></a></span>
+        	<?php } ?>
+        </div>	
+    </div>
 	<?php } ?>
 </div>
