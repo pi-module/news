@@ -68,27 +68,25 @@ return array(
                 'value' => 1,
             ),
             'showmore' => array(
-                'title' => __('Show More link'),
+                'title' => __('Show More link for each story'),
                 'description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
-            'order' => array(
-                'title' => __('Order'),
+            'showblockmore' => array(
+                'title' => __('Show More link to module page'),
                 'description' => '',
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publish DESC' => __('Publish'),
-                            'hits DESC' => __('Hits'),
-                            'comments DESC' => __('Comments'),
-                        ),
-                    ),
-                ),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => __('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
                 'filter' => 'string',
-                'value' => 'publish DESC',
+                'value' => '',
             ),
         ),
         'access' => array(
@@ -132,21 +130,19 @@ return array(
                 'filter' => 'number_int',
                 'value' => 0,
             ),
-            'order' => array(
-                'title' => __('Order'),
+            'showblockmore' => array(
+                'title' => __('Show More link to module page'),
                 'description' => '',
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publish DESC' => __('Publish'),
-                            'hits DESC' => __('Hits'),
-                            'comments DESC' => __('Comments'),
-                        ),
-                    ),
-                ),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => __('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
                 'filter' => 'string',
-                'value' => 'publish DESC',
+                'value' => '',
             ),
         ),
         'access' => array(
@@ -197,21 +193,19 @@ return array(
                 'filter' => 'number_int',
                 'value' => 1,
             ),
-            'order' => array(
-                'title' => __('Order'),
+            'showblockmore' => array(
+                'title' => __('Show More link to module page'),
                 'description' => '',
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publish DESC' => __('Publish'),
-                            'hits DESC' => __('Hits'),
-                            'comments DESC' => __('Comments'),
-                        ),
-                    ),
-                ),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => __('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
                 'filter' => 'string',
-                'value' => 'publish DESC',
+                'value' => '',
             ),
         ),
         'access' => array(
@@ -277,21 +271,19 @@ return array(
                 'filter' => 'number_int',
                 'value' => 1,
             ),
-            'order' => array(
-                'title' => __('Order'),
+            'showblockmore' => array(
+                'title' => __('Show More link to module page'),
                 'description' => '',
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publish DESC' => __('Publish'),
-                            'hits DESC' => __('Hits'),
-                            'comments DESC' => __('Comments'),
-                        ),
-                    ),
-                ),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => __('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
                 'filter' => 'string',
-                'value' => 'publish DESC',
+                'value' => '',
             ),
         ),
         'access' => array(
@@ -327,6 +319,20 @@ return array(
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
+            ),
+            'showblockmore' => array(
+                'title' => __('Show More link to module page'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => __('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => '',
             ),
         ),
         'access' => array(

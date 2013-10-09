@@ -11,5 +11,10 @@
 			<?php } ?>
 		</ul>
 	   <div class="clearfix"></div>
-	</div>	
+	</div>
+	<?php if ($block['showblockmore']) { ?>
+    <div class="itemBlockLink">
+    	<a title="<?php _e('read more'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php _e('read more'); ?></a>
+    </div>
+	<?php } ?>
 </div>
