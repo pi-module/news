@@ -110,16 +110,15 @@ class IndexController extends ActionController
     
     public function StoryPaginator($template, $where, $page, $perpage)
     {
+        // get count     
         $columns = array('count' => new \Zend\Db\Sql\Expression('count(DISTINCT `story`)'));
         $select = $this->getModel('link')->select()->where($where)->columns($columns);
         $count = $this->getModel('link')->selectWith($select)->current()->count;
+        // paginator
         $paginator = \Pi\Paginator\Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($perpage);
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            'template' => $this->url('.news', $template),
-        ));
-        // return paginator
+        $paginator->setUrlOptions(array('template' => $this->url('.news', $template)));
         return $paginator;
     }
 }

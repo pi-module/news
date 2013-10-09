@@ -56,10 +56,10 @@ class Block
             $story[$row->id] = $row->toArray();
             $story[$row->id]['publish'] = date('Y/m/d H:i:s', $story[$row->id]['publish']);
             if ($story[$row->id]['image']) {
-                $story[$row->id]['originalurl'] = Pi::url('upload/' . $module . '/image/original/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['largeurl'] = Pi::url('upload/' . $module . '/image/large/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['mediumurl'] = Pi::url('upload/' . $module . '/image/medium/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                $story[$row->id]['thumburl'] = Pi::url('upload/' . $module . '/image/thumb/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                $story[$row->id]['originalurl'] = Pi::url(sprintf('upload/%s/image/original/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
+                $story[$row->id]['largeurl'] = Pi::url(sprintf('upload/%s/image/large/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
+                $story[$row->id]['mediumurl'] = Pi::url(sprintf('upload/%s/image/medium/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
+                $story[$row->id]['thumburl'] = Pi::url(sprintf('upload/%s/image/thumb/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
             }
         }
         // Set block array
@@ -69,33 +69,10 @@ class Block
 
     public static function spotlight($options = array(), $module = null)
     {
-        /*
-           // Set options
-           $block = array();
-           $block = array_merge($block, $options);
-
-           // Set model and get information
-            $story_model = \Pi::service('module')->model('story', 'news');
-            $story_list = $story_model->Story_GetBlock($block['topicid'], $block['order'] ,$block['number']);
-
-          // Process information
-          $spotlight = \App\News\Module::Spotlight($story_list , $block['subspotlight']);
-           foreach ($story_list as $row)
-           {
-               $story[$row->id] = $row->toArray();
-              $story[$row->id]['mediumurl'] = \Pi::url('upload/news/medium/') . $row->image;
-              $story[$row->id]['thumburl'] = \Pi::url('upload/news/thumb/') . $row->image;
-              $story[$row->id]['url'] = \App\News\Module::StoryUrl($row->slug);
-             $story[$row->id]['spotlight'] = $spotlight[$row->id];
-           }
-
-          // Make Spotlight
-          $story = \App\News\Module::Spotlight($story);
-
-          // Set block array
-          $block['resources'] = $story;
-           return $block;
-           */
+      // Set options
+      $block = array();
+      $block = array_merge($block, $options);
+      return $block;
     }
 
     public static function topic($options = array(), $module = null)
