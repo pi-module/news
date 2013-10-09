@@ -5,15 +5,15 @@ if(!empty($spotlight)) {
 		$this->jQuery();
 		$this->js($this->assetModule('js/lightbox.js'));
 		$this->footScript()->appendScript("$(function() {
-			  $('.gallery a').lightBox({
+			$('.gallery a').lightBox({
 		        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') . "',
 		        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') . "',
 		        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') . "',
 		        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') . "',
 		        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') . "',
 		        overlayOpacity: 0.6,
-			     containerResizeSpeed: 350,
-			  });
+			    containerResizeSpeed: 350,
+			});
 		});");
 		$this->css($this->assetModule('css/lightbox.css'));
 	} 
@@ -29,14 +29,14 @@ if(!empty($spotlight)) {
 			</div>
 			<div class="spotlightBody">
 				<?php if($spotlight['top']['image']){ ?>
-			   <div class="itemImageList gallery <?php echo $config['image_float']; ?>">
-			      <?php if($config['image_lightbox']){ ?>
-				   <a href="<?php echo $spotlight['top']['mediumurl']; ?>" title="<?php echo $this->escape($spotlight['top']['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $spotlight['top']['thumburl']; ?>" alt="<?php echo $this->escape($spotlight['top']['title']); ?>" /></a>
-				   <?php } else { ?>
-				   <img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $spotlight['top']['thumburl']; ?>" alt="<?php echo $this->escape($spotlight['top']['title']); ?>" />
-				   <?php } ?>
-			   </div>
-			   <?php } ?>
+			    <div class="itemImageList gallery <?php echo $config['image_float']; ?>">
+			    	<?php if($config['image_lightbox']){ ?>
+					<a href="<?php echo $spotlight['top']['mediumurl']; ?>" title="<?php echo $this->escape($spotlight['top']['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $spotlight['top']['thumburl']; ?>" alt="<?php echo $this->escape($spotlight['top']['title']); ?>" /></a>
+					<?php } else { ?>
+					<img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $spotlight['top']['thumburl']; ?>" alt="<?php echo $this->escape($spotlight['top']['title']); ?>" />
+					<?php } ?>
+				</div>
+			    <?php } ?>
 				<div class="spotlightText"><?php echo $this->escape($spotlight['top']['short']); ?></div>
 				<div class="clearfix"></div>
 			</div>
@@ -53,14 +53,14 @@ if(!empty($spotlight)) {
 				</div>
 				<div class="spotlightBody">
 					<?php if($story['image'] && $config['spotlight_image']){ ?>
-				   <div class="itemImageList gallery <?php echo $config['image_float']; ?>">
-					   <?php if($config['image_lightbox']){ ?>
-					   <a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-				      <?php } else { ?>
-				      <img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
-				      <?php } ?>
-				   </div>
-				   <?php } ?>
+				    <div class="itemImageList gallery <?php echo $config['image_float']; ?>">
+						<?php if($config['image_lightbox']){ ?>
+						<a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+				    	<?php } else { ?>
+				    	<img class="<?php echo $config['image_float']; ?> ItemStoryImg img-polaroid" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+				    	<?php } ?>
+				    </div>
+					<?php } ?>
 					<div class="spotlightText"><?php echo $this->escape($story['short']); ?></div>
 					<div class="clearfix"></div>
 				</div>

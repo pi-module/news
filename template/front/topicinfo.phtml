@@ -4,15 +4,15 @@ if($topic['showtopicinfo'] && (!empty($topic['body']) || !empty($topic['image'])
 		$this->jQuery();
 		$this->js($this->assetModule('js/lightbox.js'));
 		$this->footScript()->appendScript("$(function() {
-			  $('.gallery a').lightBox({
+			$('.gallery a').lightBox({
 		        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') . "',
 		        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') . "',
 		        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') . "',
 		        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') . "',
 		        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') . "',
 		        overlayOpacity: 0.6,
-			     containerResizeSpeed: 350,
-			  });
+			    containerResizeSpeed: 350,
+			});
 		});");
 		$this->css($this->assetModule('css/lightbox.css'));
 	} 

@@ -1,7 +1,5 @@
-<?php 
-if(!empty($user)) {
-	$this->css($this->assetModule('css/profile.css')); 
-?>
+<?php if(!empty($user)) { ?>
+<?php $this->css($this->assetModule('css/profile.css')); ?>
 <div class="profile well">
 	<div class="profile-avatar">
 		<?php echo $this->gravatar($this->escape($user['email'])); ?>

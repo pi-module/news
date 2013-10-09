@@ -9,11 +9,11 @@
 		<div class="<?php echo $topic['column_class']; ?>">
 		<div class="item">
 			<?php if($story['image']){ ?>
-		   <div class="itemImageList gallery">
-			   <a href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="ItemStoryImg" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-		   </div>
+			<div class="itemImageList gallery">
+				<a href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="ItemStoryImg" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+		    </div>
 			<div class="clearfix"></div>
-		   <?php } ?>
+		    <?php } ?>
 			<div class="itemTitle">
 				<h3><?php if($story['important']) { ?><span class="label label-important"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a></h3>
 			</div>
@@ -22,5 +22,5 @@
 	<?php } ?>
 	<div class="clearfix"></div>
 	</div>
-   <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
 </div>

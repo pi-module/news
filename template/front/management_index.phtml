@@ -2,19 +2,19 @@
 <div class="news">
 	<div class="page-message">
 		<div class="alert alert-block ">
-		   <h4 class="alert-heading"><?php echo $title; ?></h4>
-		   <p><?php echo $message; ?></p>
+			<h4 class="alert-heading"><?php echo $title; ?></h4>
+		    <p><?php echo $message; ?></p>
 		</div>
 	</div>
-	<div class="btn-group">
-	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management', 'action' => 'submit')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
-	   <a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index')); ?>"><i class="icon-file"></i> <?php _e('All stores'); ?></a>
+	<p>
+		<a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management', 'action' => 'submit')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+		<a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index')); ?>"><i class="icon-file"></i> <?php _e('All stores'); ?></a>
 		<a class="btn" title="<?php _e('Published'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index', 'status' => '1')); ?>"><i class="icon-file"></i> <?php _e('Published'); ?></a>
-      <a class="btn" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index', 'status' => '2')); ?>"><i class="icon-file"></i> <?php _e('Pending review'); ?></a>
-	</div>
+    	<a class="btn" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index', 'status' => '2')); ?>"><i class="icon-file"></i> <?php _e('Pending review'); ?></a>
+	</p>
 	<br />
 	<div class="typetable">
-	   <h3><?php _e('List of topics'); ?></h3>
+		<h3><?php _e('List of topics'); ?></h3>
 		<table class="table table-striped table-bordered table-condensed">
 			<tr>
 				<th><?php _e('ID'); ?></th>
@@ -23,41 +23,41 @@
 			</tr>
 			<?php foreach($topics as $topic) { ?>
 			<tr>
-			   <td><?php echo $this->escape($topic['id']); ?></td>
-            <td><?php echo $this->escape($topic['title']); ?></td>
-            <td><a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="icon-file"></i> <?php _e('All stores'); ?></a></td>
+				<td><?php echo $this->escape($topic['id']); ?></td>
+            	<td><?php echo $this->escape($topic['title']); ?></td>
+            	<td><a class="btn" title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('controller' => 'management', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="icon-file"></i> <?php _e('All stores'); ?></a></td>
 			</tr>
 			<?php } ?>
 		</table>
 		<div class="clearfix"></div>
 	</div>
 	<div class="typetable">
-	   <h3><?php _e('List of stores'); ?></h3>
+	    <h3><?php _e('List of stores'); ?></h3>
 		<table class="table table-striped table-bordered table-condensed">
 			<tr>
 				<th><?php _e('ID'); ?></th>
 				<th><?php _e('Title'); ?></th>
 				<th><?php _e('Publish'); ?></th>
 				<th><?php _e('Status'); ?></th>
-            <th><?php _e('Action'); ?></th>
+            	<th><?php _e('Action'); ?></th>
 			</tr>
 			<?php foreach($stores as $story) { ?>
 			<tr>
-			   <td><?php echo $this->escape($story['id']); ?></td>
+				<td><?php echo $this->escape($story['id']); ?></td>
 				<td><a title="<?php echo $story['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a></td>
 				<td><?php echo $story['publish']; ?></td>
-			   <td>
-			   <?php if($story['status'] == 1){ ?>	
+				<td>
+				<?php if($story['status'] == 1){ ?>	
 					<span class="label label-success"><?php _e('Published'); ?></span>
-			   <?php } else { ?>	
-			      <span class="label label-warning"><?php _e('Not Published'); ?></span>
-			   <?php } ?>
-			   </td>
-			   <td>
-				   <div class="btn-group">
-					    <a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'submit', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-edit icon-white"></i> <?php _e('Edit'); ?></a>
-						 <a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'delete', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-trash icon-white"></i> <?php _e('Delete'); ?></a>
-				   </div>
+				<?php } else { ?>	
+			    	<span class="label label-warning"><?php _e('Not Published'); ?></span>
+				<?php } ?>
+				</td>
+				<td>
+					<div class="btn-group">
+						<a class="btn" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'submit', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-edit icon-white"></i> <?php _e('Edit'); ?></a>
+						<a class="btn" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('.news',  array('controller' => 'management' ,'action' => 'delete', 'slug' => $this->escape($story['slug']))); ?>"><i class="icon-trash icon-white"></i> <?php _e('Delete'); ?></a>
+					</div>
 			   </td>
 			</tr>
 			<?php } ?>

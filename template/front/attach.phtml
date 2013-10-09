@@ -3,15 +3,15 @@ if($config['image_lightbox']){
 	$this->jQuery();
 	$this->js($this->assetModule('js/lightbox.js'));
 	$this->footScript()->appendScript("$(function() {
-		  $('.gallery a').lightBox({
+		$('.gallery a').lightBox({
 	        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') . "',
 	        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') . "',
 	        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') . "',
 	        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') . "',
 	        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') . "',
 	        overlayOpacity: 0.6,
-		     containerResizeSpeed: 350,
-		  });
+		    containerResizeSpeed: 350,
+		});
 	});");
 	$this->css($this->assetModule('css/lightbox.css'));
 } 
@@ -28,14 +28,14 @@ if($config['image_lightbox']){
 				?>
 				<div id="mediaspace<?php echo $video['id']; ?>"></div>
 				<script type='text/javascript'>
-				  jwplayer("mediaspace<?php echo $video['id']; ?>").setup({
-				    "flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+				jwplayer("mediaspace<?php echo $video['id']; ?>").setup({
+					"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
 				    "file": "<?php echo $video['link']; ?>",
 				    "title": "<?php echo $video['title']; ?>",
 				    "controlbar": "bottom",
 				    "width": 640,
 				    "height": 480,
-				  });
+				});
 				</script>
 			</div>
 		<?php } ?>
@@ -76,7 +76,9 @@ if($config['image_lightbox']){
 		<h4><?php _e('Attached archives'); ?></h4>
 		<ul>
 		<?php foreach($attach['archive'] as $archive) { ?>
-			<li><a rel="external" title="<?php echo $archive['title']; ?>" href="<?php echo $archive['link']; ?>"><?php echo $archive['title']; ?></a></li>
+			<li>
+				<a rel="external" title="<?php echo $archive['title']; ?>" href="<?php echo $archive['link']; ?>"><?php echo $archive['title']; ?></a>
+			</li>
 		<?php } ?>
 		</ul>
 	</div>
@@ -86,7 +88,9 @@ if($config['image_lightbox']){
 		<h4><?php _e('Attached docs'); ?></h4>
 		<ul>
 		<?php foreach($attach['doc'] as $doc) { ?>
-			<li><a rel="external" title="<?php echo $doc['title']; ?>" href="<?php echo $doc['link']; ?>"><?php echo $doc['title']; ?></a></li>
+			<li>
+				<a rel="external" title="<?php echo $doc['title']; ?>" href="<?php echo $doc['link']; ?>"><?php echo $doc['title']; ?></a>
+			</li>
 		<?php } ?>
 		</ul>
 	</div>
@@ -96,7 +100,9 @@ if($config['image_lightbox']){
 		<h4><?php _e('Attached pdfs'); ?></h4>
 		<ul>
 		<?php foreach($attach['pdf'] as $pdf) { ?>
-			<li><a rel="external" title="<?php echo $pdf['title']; ?>" href="<?php echo $pdf['link']; ?>"><?php echo $pdf['title']; ?></a></li>
+			<li>
+				<a rel="external" title="<?php echo $pdf['title']; ?>" href="<?php echo $pdf['link']; ?>"><?php echo $pdf['title']; ?></a>
+			</li>
 		<?php } ?>
 		</ul>
 	</div>
@@ -106,7 +112,9 @@ if($config['image_lightbox']){
 		<h4><?php _e('Attached pdfs'); ?></h4>
 		<ul>
 		<?php foreach($attach['other'] as $other) { ?>
-			<li><a rel="external" title="<?php echo $other['title']; ?>" href="<?php echo $other['link']; ?>"><?php echo $other['title']; ?></a></li>
+			<li>
+				<a rel="external" title="<?php echo $other['title']; ?>" href="<?php echo $other['link']; ?>"><?php echo $other['title']; ?></a>
+			</li>
 		<?php } ?>
 		</ul>
 	</div>
