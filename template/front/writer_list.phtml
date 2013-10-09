@@ -5,7 +5,8 @@ $this->css(array(
 )); 
 ?>
 <div class="news">
-	<?php if(!empty($config['advertisement'])){ ?><div class="itemAds"><?php echo $config['advertisement']; ?></div><?php } ?>
+	<?php include $this->template('front/feed'); ?>
+	<?php include $this->template('front/advertisement'); ?>
 	<div class="newsWriter">
 		<h2><?php _e('List of Writers'); ?></h2>
 		<div class="well">

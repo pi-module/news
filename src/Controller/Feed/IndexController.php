@@ -20,8 +20,8 @@
 
 namespace Module\News\Controller\Feed;
 
-use Pi;
 use Pi\Mvc\Controller\FeedController;
+use Pi;
 
 /**
  * Index action controller
@@ -35,12 +35,11 @@ class IndexController extends FeedController
      */
     public function indexAction()
     {
-        $feed = array(
-            'title' => __('News feed'),
-            'description' => __('Recent News.'),
-            'date_created' => time(),
-        );
-
+        $feed = $this->getDataModel(array(
+            'title'         => __('News feed'),
+            'description'   => __('Recent News.'),
+            'date_created'  => time(),
+        ));
         $columns = array('id', 'title', 'slug', 'short', 'publish');
         $order = array('publish DESC', 'id DESC');
         $where = array('status' => 1);
@@ -48,12 +47,12 @@ class IndexController extends FeedController
         $select = $this->getModel('story')->select()->columns($columns)->where($where)->order($order)->limit($limit);
         $rowset = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $entry[$row->id] = $row->toArray();
-            $entry['title'] = $row['title'];
-            $entry['description'] = $row['short'];
-            $entry['date_modified'] = (int)$row['publish'];
+            $entry = array();
+            $entry['title'] = $row->title;
+            $entry['description'] = $row->short;
+            $entry['date_modified'] = (int)$row->publish;
             $entry['link'] = $this->getHref($row);
-            $feed['entries'][] = $entry;
+            $feed->entry = $entry;
         }
         return $feed;
     }

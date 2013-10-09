@@ -1,6 +1,7 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="news">
-	<?php if(!empty($config['advertisement'])){ ?><div class="itemAds"><?php echo $config['advertisement']; ?></div><?php } ?>
+	<?php include $this->template('front/feed'); ?>
+	<?php include $this->template('front/advertisement'); ?>
 	<div class="page-message">
 		<div class="alert alert-block ">
 			<h4 class="alert-heading"><?php _e('Archive'); ?></h4>
