@@ -8,13 +8,13 @@ General
 4. Improve media / file / attach system (Like article module)
 5. Improve DB filed names
 6. Add draft system
-7. improve topic system like article module category system
-8. improve author system and add two filed for author and submiter (or manager)
+7. Improve topic system like article module category system
+8. Improve author system and add two filed for author and submiter (or manager)
 9. Add markup for story 
 
 When Pi-user ready
 =============================
-1. Add support for Pi Image Service 
+1. Add support for new Pi Image Service 
 2. Add support for new Pi User
 3. Add support for new Pi Route 
-4. Add permission system
+4. Add support for new Pi permission system

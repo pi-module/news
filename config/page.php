@@ -21,10 +21,6 @@ return array(
 // Front section
     'front' => array(
         array(
-            'title' => __('Global page'),
-            'block' => 1,
-        ),
-        array(
             'title' => __('Index page'),
             'controller' => 'index',
             'block' => 1,

@@ -1,6 +1,6 @@
 News module changelog
 
-2013
+Cersion 1.0.3
 =============================
 1. Update version to 1.0.3
 2. Fix translation
@@ -12,3 +12,4 @@ News module changelog
 8. Change alias to slug
 9. Use SlugDuplicate Validator
 10. Fix Rss Feed and add Rss icon
+11. Fix config/page.php
