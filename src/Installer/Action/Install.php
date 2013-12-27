@@ -76,7 +76,7 @@ class Install extends BasicInstall
             'status' => '1',
             'topic_type' => 'module',
             'topic_homepage' => 'type1',
-            'author' => Pi::registry('user')->id,
+            'author' => Pi::user()->getId(),
         );
         $topicModel->insert($topicData);
         
@@ -108,20 +108,20 @@ class Install extends BasicInstall
             'create' => time(),
             'update' => time(),
             'publish' => time(),
-            'author' => Pi::registry('user')->id,
+            'author' => Pi::user()->getId(),
         );
         $storyModel->insert($storyData);
 
         // Add writer
         $writerData = array(
-            'author' => Pi::registry('user')->id,
+            'author' => Pi::user()->getId(),
             'count' => '1',
         );
         $writerModel->insert($writerData);
 
         // Add moderator
         $moderatorData = array(
-            'manager' => Pi::registry('user')->id,
+            'manager' => Pi::user()->getId(),
             'topic' => '1',
             'status' => '1',
         );
@@ -133,7 +133,7 @@ class Install extends BasicInstall
             'topic' => '1',
             'publish' => time(),
             'status' => '1',
-            'author' => Pi::registry('user')->id,
+            'author' => Pi::user()->getId(),
         );
         $linkModel->insert($linkData);
 
