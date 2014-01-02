@@ -2,7 +2,7 @@
 <div class="news">
 	<?php include $this->template('front/feed'); ?>
 	<?php include $this->template('front/advertisement'); ?>
-	<div class="newsTopic">
+	<div class="topic-list">
 		<table class="table table-striped table-bordered table-condensed">
 			<thead>
 				<th><?php _e('List of Topics'); ?></th>
@@ -11,15 +11,12 @@
 				<?php foreach($topics as $topic) { ?>
 				<tr>
 					<td class="top">
-						<div class="itemTitle"><a title="<?php echo $topic['title']; ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'topic' ,'slug' => $this->escape($topic['slug']))); ?>"><?php echo $this->escape($topic['title']); ?></a></div>
-						<div class="itemText"><?php echo $topic['body']; ?></div>
-						<?php if($topic['image']){ ?>
-						<div class="gallery">
-							<a href="<?php echo $topic['mediumurl']; ?>" title="<?php echo $this->escape($topic['title']); ?>" >
-								<img class="<?php echo $config['imgfloat']; ?> story_img" src="<?php echo $topic['thumburl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-							</a>
+							<?php if($topic['image']){ ?>
+							<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+							<?php } ?>
+							<h4><a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a></h4>
+							<?php echo $topic['description']; ?>
 						</div>
-						<?php } ?>
 					</td>
 				</tr>
 				<?php } ?>

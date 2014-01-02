@@ -1,11 +1,11 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
 	<p>
-	   <a class="btn" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="icon-user"></i> <?php _e('Add Moderator'); ?></a>
+	   <a class="btn btn-primary" title="<?php _e('Add Moderator'); ?>" href="<?php echo $this->url('', array('controller' => 'moderator', 'action' => 'update')); ?>"><i class="fa fa-user"></i> <?php _e('Add Moderator'); ?></a>
 	</p>
 	<h3><?php echo $title; ?></h3>
    <div class="page-message">
-	   <div class="alert alert-block ">
+	   <div class="alert alert-block">
 		   <h4 class="alert-heading"><?php echo $title; ?></h4>
 		   <p><?php _e('You can Manage Moderators for all topics'); ?></p>
 	   </div>
@@ -21,9 +21,9 @@
 			<td>
 			<?php foreach($row['moderators'] as $moderator) { ?>
 				<?php if($moderator['status'] == 1){ ?>	
-				<a title="<?php echo $this->escape($moderator['identity']); ?>" href="<?php echo $this->url('', array('action' => 'user', 'id' => $moderator['manager'])); ?>"><span class="label label-success"><?php echo $this->escape($moderator['identity']); ?></span></a>
+				<a title="<?php echo $this->escape($moderator['identity']); ?>" href="<?php echo $this->url('', array('action' => 'user', 'id' => $moderator['manager'])); ?>"><span class="label label label-success"><?php echo $this->escape($moderator['identity']); ?></span></a>
 				<?php } else { ?>	
-				<a title="<?php echo $this->escape($moderator['identity']); ?>" href="<?php echo $this->url('', array('action' => 'user', 'id' => $moderator['manager'])); ?>"><span class="label label-important"><?php echo $this->escape($moderator['identity']); ?></span></a>
+				<a title="<?php echo $this->escape($moderator['identity']); ?>" href="<?php echo $this->url('', array('action' => 'user', 'id' => $moderator['manager'])); ?>"><span class="label label label-important"><?php echo $this->escape($moderator['identity']); ?></span></a>
 				<?php } ?>	
 			<?php } ?>
 			</td>

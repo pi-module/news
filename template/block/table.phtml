@@ -4,14 +4,14 @@
 		<tr char="head">
 			<th><?php _e('Title'); ?></th>
 			<?php if($block['showdesc']){ ?><th><?php _e('Short Info'); ?></th><?php } ?>
-			<?php if($block['showdate']){ ?><th><?php _e('Update Time'); ?></th><?php } ?>
+			<?php if($block['showdate']){ ?><th><?php _e('time_update Time'); ?></th><?php } ?>
 			<?php if($block['showhits']){ ?><th><?php _e('Read'); ?></th><?php } ?>
 		</tr>
 		<?php foreach($block['resources'] as $story) { ?>
 		<tr class="odd">
 			<td><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></td>
 			<?php if($block['showdesc']){ ?><td><?php echo $this->escape($story['short']); ?></td><?php } ?>
-			<?php if($block['showdate']){ ?><td><?php echo $this->escape($story['publish']); ?></td><?php } ?>
+			<?php if($block['showdate']){ ?><td><?php echo $this->escape($story['time_publish']); ?></td><?php } ?>
 			<?php if($block['showhits']){ ?><td><?php echo $this->escape($story['hits']); ?></td><?php } ?>
 		</tr>
 		<?php } ?>

@@ -1,31 +1,25 @@
 <?php
 /**
- * News module Text class
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\AbstractApi;
 
 /*
- * Pi::service('api')->news(array('Text', 'keywords'), $keywords);
- * Pi::service('api')->news(array('Text', 'description'), $description);
- * Pi::service('api')->news(array('Text', 'slug'), $slug);
+ * Pi::api('news', 'text')->keywords($keywords);
+ * Pi::api('news', 'text')->description($description);
+ * Pi::api('news', 'text')->title($title);
+ * Pi::api('news', 'text')->slug($slug);
  */
 
 class Text extends AbstractApi
@@ -58,13 +52,29 @@ class Text extends AbstractApi
      * @param  string $description
      * @return string
      */
-	public function description($description) 
-	{
-		$description = _strip($description); 
+    public function description($description) 
+    {
+        $description = _strip($description); 
         $description = strtolower(trim($description));
         $description = preg_replace('/[\s]+/', ' ', $description);
-		return $description;
-	}	
+        return $description;
+    }   
+
+    /**
+     * Invoke as a functor
+     *
+     * Make meta title from phrase
+     *
+     * @param  string $title
+     * @return string
+     */
+    public function title($title) 
+    {
+        $title = _strip($title); 
+        $title = strtolower(trim($title));
+        $title = preg_replace('/[\s]+/', ' ', $title);
+        return $title;
+    }   
 	
 	/**
      * Returns the slug

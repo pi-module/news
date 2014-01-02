@@ -1,15 +1,15 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
 	<p>
-	   <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="icon-repeat"></i> <?php _e('Rebuild'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="icon-trash"></i> <?php _e('Prune'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Writer'); ?>" href="<?php echo $this->url('', array('action' => 'writer')); ?>"><i class="icon-user"></i> <?php _e('Writer'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="icon-user"></i> <?php _e('Spotlight'); ?></a>
+	   <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="fa fa-repeat"></i> <?php _e('Rebuild'); ?></a>
+	   <a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Prune'); ?></a>
+	   <a class="btn btn-danger" title="<?php _e('Writer'); ?>" href="<?php echo $this->url('', array('action' => 'writer')); ?>"><i class="fa fa-user"></i> <?php _e('Writer'); ?></a>
+	   <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="fa fa-user"></i> <?php _e('Spotlight'); ?></a>
 	</p>
 	<h3><?php _e('How this part work?'); ?></h3>
-	<p><?php _e('Tools system, help you to manage your module, update database and remove unused information. At this moment, we ready 4 tools for you : '); ?></p>
+	<p><?php _e('Tools system, help you to manage your module, time_update database and remove unused information. At this moment, we ready 4 tools for you : '); ?></p>
 	<ul>
-		<li><strong><?php _e('Rebuild'); ?></strong> : <?php _e('You can rebuild all your added stores, after rebuild all your old data update to new. And you must set start and end publish time.'); ?></li>
+		<li><strong><?php _e('Rebuild'); ?></strong> : <?php _e('You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'); ?></li>
 		<li><strong><?php _e('Prune'); ?></strong> : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
 		<li><strong><?php _e('Writer'); ?></strong> : <?php _e('You can reset all write info'); ?></li>
 		<li><strong><?php _e('Spotlight'); ?></strong> : <?php _e('You can remove old spotlights'); ?></li>

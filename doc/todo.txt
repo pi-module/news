@@ -9,7 +9,7 @@ General
 5. Improve DB filed names
 6. Add draft system
 7. Improve topic system like article module category system
-8. Improve author system and add two filed for author and submiter (or manager)
+8. Improve uid system and add two filed for uid and submiter (or manager)
 9. Add markup for story 
 
 When Pi-user ready

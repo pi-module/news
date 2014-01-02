@@ -1,22 +1,15 @@
 <?php
 /**
- * News submit controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -30,8 +23,8 @@ class ManagementController extends ActionController
 {
     protected $ImagePrefix = 'image_';
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'keywords', 'description', 'important', 'status', 'create', 
-        'update', 'publish', 'author', 'hits', 'image', 'path', 'comments', 'point', 'count', 'favorite', 'attach', 'extra'
+        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'seo_keywords', 'seo_description', 'important', 'status', 'time_create', 
+        'time_update', 'time_publish', 'uid', 'hits', 'image', 'path', 'comments', 'point', 'count', 'favorite', 'attach', 'extra'
     );
 
     /**
@@ -59,7 +52,7 @@ class ManagementController extends ActionController
         $module = $this->params('module');
         $status = $this->params('status');
         $topic = $this->params('topic');
-        $author = $this->params('author');
+        $uid = $this->params('uid');
         // check Allowed
         $topicId = $this->AllowedAction($this->params()->fromRoute());
         // Topic list
@@ -72,7 +65,7 @@ class ManagementController extends ActionController
         }
         // Set info
         $offset = (int)($page - 1) * $this->config('show_perpage');
-        $order = array('publish DESC', 'id DESC');
+        $order = array('time_publish DESC', 'id DESC');
         $limit = intval($this->config('show_perpage'));
         // Set where
         $whereLink = array();
@@ -90,7 +83,7 @@ class ManagementController extends ActionController
         }
         // Set limit by day
         if ($this->config('daylimit')) {
-            $whereLink['publish > ?'] = time() - (86400 * $this->config('daylimit'));
+            $whereLink['time_publish > ?'] = time() - (86400 * $this->config('daylimit'));
         }
         // Get info from link table
         $select = $this->getModel('link')->select()->where($whereLink)->columns(array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story')))->order($order)->offset($offset)->limit($limit);
@@ -100,7 +93,7 @@ class ManagementController extends ActionController
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'slug', 'topic', 'author', 'hits', 'status', 'publish');
+        $columnStory = array('id', 'title', 'slug', 'topic', 'uid', 'hits', 'status', 'time_publish');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -108,7 +101,7 @@ class ManagementController extends ActionController
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
-            $story[$row->id]['publish'] = _date($story[$row->id]['publish']);
+            $story[$row->id]['time_publish'] = _date($story[$row->id]['time_publish']);
         }
         // Set message
         $message = __('Welcome to module managment, You have access for add ,edit or delete some of stroes. ');
@@ -251,20 +244,20 @@ class ManagementController extends ActionController
                 $values['topic'] = Json::encode(array_unique($values['topic']));
                 // Set time
                 if (empty($values['id'])) {
-                    $values['create'] = $values['update'] = $values['publish'] = time();
+                    $values['time_create'] = $values['time_update'] = $values['time_publish'] = time();
                 } else {
-                    $values['update'] = time();
+                    $values['time_update'] = time();
                 }
                 // Set user
                 if (empty($values['id'])) {
-                    $values['author'] = Pi::registry('user')->id;
+                    $values['uid'] = Pi::user()->getId();
                 }
                 // Set status
                 $values['status'] = 1;
-                // Set keywords
-                $values['keywords'] = Pi::service('api')->news(array('Text', 'keywords'), $values['title']);
-                // Set description
-                $values['description'] = Pi::service('api')->news(array('Text', 'description'), $values['title']);
+                // Set seo_keywords
+                $values['seo_keywords'] = Pi::service('api')->news(array('Text', 'seo_keywords'), $values['title']);
+                // Set seo_description
+                $values['seo_description'] = Pi::service('api')->news(array('Text', 'seo_description'), $values['title']);
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('story')->find($values['id']);
@@ -274,7 +267,7 @@ class ManagementController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Topic
-                Pi::service('api')->news(array('Topic', 'Set'), $row->id, $row->topic, $row->publish, $row->status, $row->author);
+                Pi::service('api')->news(array('Topic', 'Set'), $row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {
@@ -285,7 +278,7 @@ class ManagementController extends ActionController
                 }
                 // Writer
                 if (empty($values['id'])) {
-                    Pi::service('api')->news(array('writer', 'add'), $values['author']);
+                    Pi::service('api')->news(array('writer', 'add'), $values['uid']);
                 }
                 // Extra
                 if (!empty($extra)) {
@@ -341,9 +334,9 @@ class ManagementController extends ActionController
         if (!isset($row) || $row->status == 5 || !in_array($row->topic, $topic)) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'management'), __('Error Delete story'));
         }
-        // Update Status in story table
+        // time_update Status in story table
         $this->getModel('story')->update(array('status' => 5), array('id' => $row->id));
-        // Update Status in link table
+        // time_update Status in link table
         $this->getModel('link')->update(array('status' => 5), array('story' => $row->id));
         // back
         $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'management'), __('Your selected stroy delete successfully.'));

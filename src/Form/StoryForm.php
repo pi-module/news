@@ -1,22 +1,15 @@
 <?php
 /**
- * Story form
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form;
 
 use Pi;
@@ -24,11 +17,11 @@ use Pi\Form\Form as BaseForm;
 
 class StoryForm extends BaseForm
 {
-    public function __construct($name = null, $module, $options = array())
+    public function __construct($name = null, $options = array())
     {
-        $this->module = $module;
+        $this->module = Pi::service('module')->current();
         $this->field = $options['field'];
-        $this->imageurl = $options['imageurl'];
+        $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeurl = empty($options['removeurl']) ? '' : $options['removeurl'];
         parent::__construct($name);
     }
@@ -59,7 +52,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                'class' => 'span6',
+                
             )
         ));
         // subtitle
@@ -71,7 +64,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                'class' => 'span6',
+                
             )
         ));
         // slug
@@ -83,7 +76,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                'class' => 'span6',
+                
             )
         ));
         // topic
@@ -106,7 +99,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '5',
                 'cols' => '40',
-                'class' => 'span6',
+                
                 'description' => '',
             )
         ));
@@ -120,41 +113,6 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'editor',
-                'description' => '',
-            )
-        ));
-        // tag
-        if (Pi::service('module')->isActive('tag')) {
-            $this->add(array(
-                'name' => 'tag',
-                'options' => array(
-                    'label' => __('Tags'),
-                ),
-                'attributes' => array(
-                    'type' => 'text',
-                    'description' => '',
-                )
-            ));
-        }
-        // keywords
-        $this->add(array(
-            'name' => 'keywords',
-            'options' => array(
-                'label' => __('Keywords'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
-        // description
-        $this->add(array(
-            'name' => 'description',
-            'options' => array(
-                'label' => __('Description'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
                 'description' => '',
             )
         ));
@@ -184,7 +142,7 @@ class StoryForm extends BaseForm
             ),
         ));
         // Image
-        if (isset($this->imageurl)) {
+        if ($this->thumbUrl) {
             $this->add(array(
                 'name' => 'imageview',
                 'options' => array(
@@ -192,8 +150,7 @@ class StoryForm extends BaseForm
                 ),
                 'attributes' => array(
                     'type' => 'image',
-                    'src' => $this->imageurl,
-                    'height' => '200',
+                    'src' => $this->thumbUrl,
                     'disabled' => true,
                     'description' => '',
                 )
@@ -205,17 +162,17 @@ class StoryForm extends BaseForm
                 ),
                 'attributes' => array(
                     'type' => 'button',
-                    'class' => 'btn btn-danger btn-small',
+                    'class' => 'btn btn-danger btn-sm',
                     'data-toggle' => 'button',
-                    'data-link' => $this->removeurl,
+                    'data-link' => $this->removeUrl,
                 )
             ));
             $this->add(array(
-	            'name' => 'image',
-	            'attributes' => array(
-	                'type' => 'hidden',
-	            ),
-	         ));
+                'name' => 'image',
+                'attributes' => array(
+                    'type' => 'hidden',
+                ),
+             ));
         } else {
             $this->add(array(
                 'name' => 'image',
@@ -228,31 +185,91 @@ class StoryForm extends BaseForm
                 )
             ));
         }
-        // slide
-        if (Pi::service('module')->isActive('slide')) {
+        // extra_seo
+        $this->add(array(
+            'name' => 'extra_seo',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('SEO options'),
+            ),
+        ));
+        // seo_title
+        $this->add(array(
+            'name' => 'seo_title',
+            'options' => array(
+                'label' => __('SEO Title'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // seo_keywords
+        $this->add(array(
+            'name' => 'seo_keywords',
+            'options' => array(
+                'label' => __('SEO Keywords'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // seo_description
+        $this->add(array(
+            'name' => 'seo_description',
+            'options' => array(
+                'label' => __('SEO Description'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // tag
+        if (Pi::service('module')->isActive('tag')) {
             $this->add(array(
-                'name' => 'slide',
-                'type' => 'checkbox',
+                'name' => 'tag',
                 'options' => array(
-                    'label' => __('Add as slide'),
+                    'label' => __('Tags'),
                 ),
                 'attributes' => array(
-                    'description' => __('Add as slide, Install slide module required'),
+                    'type' => 'text',
+                    'description' => '',
                 )
             ));
         }
+        // extra_field
+        $this->add(array(
+            'name' => 'extra_field',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('Extra fields'),
+            ),
+        ));
         // Set extra field
         if (!empty($this->field)) {
             foreach ($this->field as $field) {
-                $this->add(array(
-                    'name' => $field['id'],
-                    'options' => array(
-                        'label' => $field['title'],
-                    ),
-                    'attributes' => array(
-                        'type' => 'text',
-                    )
-                ));
+                if ($field['type'] == 'select') {
+                    $this->add(array(
+                        'name' => $field['id'],
+                        'type' => 'select',
+                        'options' => array(
+                            'label' => sprintf('%s (%s)', $field['title'], $field['type']),
+                            'value_options' => $this->makeArray($field['value']),
+                        ),
+                    ));
+                } else {
+                    $this->add(array(
+                        'name' => $field['id'],
+                        'options' => array(
+                            'label' => sprintf('%s (%s)', $field['title'], $field['type']),
+                        ),
+                        'attributes' => array(
+                            'type' => 'text',
+                        )
+                    ));
+                }
             }
         }
         // Save
@@ -263,5 +280,15 @@ class StoryForm extends BaseForm
                 'value' => __('Submit'),
             )
         ));
+    }
+
+    public function makeArray($string)
+    {
+        $list = array();
+        $variable = explode('|', $string);
+        foreach ($variable as $value) {
+            $list[$value] = $value;
+        }
+        return $list;
     }
 }   

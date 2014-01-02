@@ -13,11 +13,11 @@
 ?>
 <div class="news">
 	<p>
-	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
-	   <a class="btn" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="icon-file"></i> <?php _e('Add Story'); ?></a>
+	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+	   <a class="btn btn-primary" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="fa fa-file"></i> <?php _e('Add Story'); ?></a>
 	</p>
 	<div class="row">
-		<div class="span3">
+		<div class="col-md-3">
 			<h5><?php _e('Levels'); ?></h5>
 			<div class="sub-nav">
 				<ul class="nav nav-tabs nav-stacked">
@@ -26,20 +26,20 @@
 				</ul>
 			</div>
 		</div>
-		<div class="span9">
+		<div class="col-md-9">
 			<h4><?php echo $this->escape($title); ?></h4>
 			<div id="attach-form">
 				<div class="controls" id="js-carousel" style="overflow:hidden;">
 				   <div class="upload-carousel-btn">
 				       <div class="upload-carousel-add">
-				         <i class="icon-plus fileinput-button">
+				         <i class="fa fa-plus fileinput-button">
 				            <input type="file" name="file" multiple style="width: 100%;">
 				         </i>
 				       </div>
 				   </div>
 				</div>
 			   <div class="form-actions">
-				   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'id' => $story['id'])); ?>"><?php _e('Back'); ?></a>
+				   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'id' => $story['id'])); ?>"><?php _e('Back'); ?></a>
 		         <a class="btn btn-primary" title="<?php _e('Finish'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><?php _e('Finish'); ?></a>
 		      </div>
 			</div>
@@ -50,19 +50,19 @@
    <div class="well">
 		<div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>" /></div>
 		<p><%= data.title %></p>
-	   <button type="button" class="info-attach btn btn-info btn-mini" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="icon-eye-open icon-white"></i> <?php _e('Preview'); ?></button>
-	   <button type="button" class="remove-attach btn btn-danger btn-mini" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i class="icon-trash icon-white"></i> <?php _e('Delete'); ?></button>
+	   <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></button>
+	   <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></button>
    </div>
-	<div id="info-attach-<%= data.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div id="info-attach-<%= data.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-label label-defaultledby="myModallabel label-default" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel"><?php _e('Title'); ?> : <%= data.title %></h3>
+			<h3 id="myModallabel label-default"><?php _e('Title'); ?> : <%= data.title %></h3>
 		</div>
 			<div class="modal-body">
-			  <div class="pull-right upload-carousel-item-img"><img class="img-polaroid" src="<%= data.preview %>" alt="<%= data.title %>" /></div>
+			  <div class="pull-right upload-carousel-item-img"><img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>" /></div>
 				<div class="mr10">
-					<strong><?php _e('Create'); ?> </strong>
-					<span> <%= data.create %> </span>
+					<strong><?php _e('time_create'); ?> </strong>
+					<span> <%= data.time_create %> </span>
 				</div>
 				<div class="mr10">
 					<strong><?php _e('Type'); ?> </strong>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true"><?php _e('Close'); ?></button>
+			<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"><?php _e('Close'); ?></button>
 		</div>
 	</div>
 </script>
@@ -95,14 +95,14 @@ var page={
             page.form.find(".upload-carousel-item").each(function(){
                 var el=$(this);
                  content.push({
-                    "id":el.find("[name=id]").val(),
-                    "title":el.find("[name=title]").val(),
-                    "create":el.find("[name=create]").val(),
-                    "type":el.find("[name=type]").val(),
-                    "size":el.find("[name=size]").val(),
-                    "status":el.find("[name=status]").val(),
-                    "hits":el.find("[name=hits]").val(),
-                    "preview":el.find("[name=preview]").val(),
+                   "id":el.find("[name=id]").val(),
+                   "title":el.find("[name=title]").val(),
+                   "time_create":el.find("[name=time_create]").val(),
+                   "type":el.find("[name=type]").val(),
+                   "size":el.find("[name=size]").val(),
+                   "status":el.find("[name=status]").val(),
+                   "hits":el.find("[name=hits]").val(),
+                   "preview":el.find("[name=preview]").val(),
                  });
             });
             page.form.find("[name=content]").val(JSON.stringify(content));
@@ -111,9 +111,9 @@ var page={
 }
 var carouselCollection = new Backbone.Collection(<?php echo $content ?: '[]'; ?>);
 var carouselItemView = Backbone.View.extend({
-    className: "upload-carousel-item",
+    className:"upload-carousel-item",
     events: {
-        "click .remove-attach": "cancel",
+       "click .remove-attach":"cancel",
     },
     render: function () {
         this.$el.html(_.template($("#temp-carousel").html(), this.model.toJSON(), {
@@ -145,7 +145,7 @@ var carouselListView = Backbone.View.extend({
     },
     fileupload: function () {
         var obj={
-          url: "<?php echo $this->url('', array('action' => 'upload', 'id' => $story['id'])); ?>",
+          url:"<?php echo $this->url('', array('action' => 'upload', 'id' => $story['id'])); ?>",
           formData:function(){
               return [];
           }
@@ -158,7 +158,7 @@ var carouselListView = Backbone.View.extend({
                              carouselCollection.add({
                                    id: resp.id,
 					                    title: resp.title,
-					                    create: resp.create,
+					                    time_create: resp.time_create,
 					                    type: resp.type,
 					                    status: resp.status,
 					                    hits: resp.hits,
@@ -179,7 +179,7 @@ var carouselListView = Backbone.View.extend({
                                 carouselCollection.add({
                                    id: resp.id,
 					                    title: resp.title,
-					                    create: resp.create,
+					                    time_create: resp.time_create,
 					                    type: resp.type,
 					                    status: resp.status,
 					                    hits: resp.hits,

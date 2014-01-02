@@ -1,22 +1,15 @@
 <?php
 /**
- * News module Text class
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Api;
 
 use Pi;
@@ -101,13 +94,13 @@ class Resize extends AbstractApi
         switch ($extension) {
             case '.jpg':
             case '.jpeg':
-                $img = @imagecreatefromjpeg($file);
+                $img = @imagetime_createfromjpeg($file);
                 break;
             case '.gif':
-                $img = @imagecreatefromgif($file);
+                $img = @imagetime_createfromgif($file);
                 break;
             case '.png':
-                $img = @imagecreatefrompng($file);
+                $img = @imagetime_createfrompng($file);
                 break;
             default:
                 $img = false;
@@ -123,8 +116,8 @@ class Resize extends AbstractApi
         $optimalWidth = $optionArray['optimalWidth'];
         $optimalHeight = $optionArray['optimalHeight'];
 
-        // *** Resample - create image canvas of x, y size
-        $this->imageResized = imagecreatetruecolor($optimalWidth, $optimalHeight);
+        // *** Resample - time_create image canvas of x, y size
+        $this->imageResized = imagetime_createtruecolor($optimalWidth, $optimalHeight);
         imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
 
         // *** if option is 'crop', then crop too
@@ -233,7 +226,7 @@ class Resize extends AbstractApi
         //imagedestroy($this->imageResized);
 
         // *** Now crop from center to exact requested size
-        $this->imageResized = imagecreatetruecolor($newWidth, $newHeight);
+        $this->imageResized = imagetime_createtruecolor($newWidth, $newHeight);
         imagecopyresampled($this->imageResized, $crop, 0, 0, $cropStartX, $cropStartY, $newWidth, $newHeight, $newWidth, $newHeight);
     }
 

@@ -1,22 +1,15 @@
 <?php
 /**
- * story form
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form;
 
 use Pi;
@@ -92,23 +85,6 @@ class StoryFilter extends InputFilter
                 ),
             ),
         ));
-        // tag
-        if (Pi::service('module')->isActive('tag')) {
-            $this->add(array(
-                'name' => 'tag',
-                'required' => false,
-            ));
-        }
-        // keywords
-        $this->add(array(
-            'name' => 'keywords',
-            'required' => false,
-        ));
-        // description
-        $this->add(array(
-            'name' => 'description',
-            'required' => false,
-        ));
         // important
         $this->add(array(
             'name' => 'important',
@@ -124,10 +100,25 @@ class StoryFilter extends InputFilter
             'name' => 'image',
             'required' => false,
         ));
-        // slide
-        if (Pi::service('module')->isActive('slide')) {
+        // seo_title
+        $this->add(array(
+            'name' => 'seo_title',
+            'required' => false,
+        ));
+        // seo_keywords
+        $this->add(array(
+            'name' => 'seo_keywords',
+            'required' => false,
+        ));
+        // seo_description
+        $this->add(array(
+            'name' => 'seo_description',
+            'required' => false,
+        ));
+        // tag
+        if (Pi::service('module')->isActive('tag')) {
             $this->add(array(
-                'name' => 'slide',
+                'name' => 'tag',
                 'required' => false,
             ));
         }

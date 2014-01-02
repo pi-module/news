@@ -1,22 +1,15 @@
 <?php
 /**
- * Spotlight form
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form;
 
 use Pi;
@@ -80,11 +73,11 @@ class SpotlightForm extends BaseForm
                 'multiple' => 0,
             ),
         ));
-        // publish
+        // time_publish
         $this->add(array(
-            'name' => 'publish',
+            'name' => 'time_publish',
             'options' => array(
-                'label' => __('Publish date'),
+                'label' => __('time_publish date'),
             ),
             'attributes' => array(
                 'type' => 'date',
@@ -92,11 +85,11 @@ class SpotlightForm extends BaseForm
                 'description' => '',
             )
         ));
-        // expire
+        // time_expire
         $this->add(array(
-            'name' => 'expire',
+            'name' => 'time_expire',
             'options' => array(
-                'label' => __('Expire date'),
+                'label' => __('time_expire date'),
             ),
             'attributes' => array(
                 'type' => 'date',
@@ -111,7 +104,7 @@ class SpotlightForm extends BaseForm
             'options' => array(
                 'label' => __('Status'),
                 'value_options' => array(
-                    1 => __('Published'),
+                    1 => __('time_published'),
                     2 => __('Pending review'),
                     3 => __('Draft'),
                     4 => __('Private'),

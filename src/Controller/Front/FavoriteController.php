@@ -1,22 +1,15 @@
 <?php
 /**
- * News Favorite controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -27,10 +20,10 @@ class FavoriteController extends IndexController
 {
     public function indexAction()
     {
-        // Get info from url
+        /* // Get info from url
         $page = $this->params('page', 1);
         $module = $this->params('module');
-        $uid = Pi::registry('user')->id;
+        $uid = Pi::user()->getId();
         // Check user
         if (!$uid) {
             $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'index'), __('The user not select'));
@@ -51,7 +44,7 @@ class FavoriteController extends IndexController
         }
         // Set info
         $limit = intval($topic['perpage']);
-        $where = array('status' => 1, 'topic' => $topicId, 'publish <= ?' => time(), 'story' => $favoriteId);
+        $where = array('status' => 1, 'topic' => $topicId, 'time_publish <= ?' => time(), 'story' => $favoriteId);
         // Story
         $story = $this->StoryList($where, $offset, $limit);
         // Set paginator
@@ -61,13 +54,14 @@ class FavoriteController extends IndexController
         $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config);
         // Set view
         $this->view()->headTitle(__('All your favorite stores'));
-        $this->view()->headDescription(__('All your favorite stores'), 'set');
-        $this->view()->headKeywords(__('Favorite,Story'), 'set');
+        $this->view()->headdescription(__('All your favorite stores'), 'set');
+        $this->view()->headkeywords(__('Favorite,Story'), 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
-        $this->view()->assign('spotlight', $spotlight);
+        $this->view()->assign('spotlight', $spotlight); */
+        $this->view()->setTemplate('empty');
     }
 }

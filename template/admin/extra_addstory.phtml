@@ -11,11 +11,11 @@
 ?>
 <div class="news">
 	<p>
-	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
-	   <a class="btn" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="icon-random"></i> <?php _e('Add Extra'); ?></a>
+	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+	   <a class="btn btn-primary" title="<?php _e('Add Extra'); ?>" href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i class="fa fa-random"></i> <?php _e('Add Extra'); ?></a>
 	</p>
 	<div class="row">
-		<div class="span3">
+		<div class="col-md-3">
 			<h5><?php _e('Levels'); ?></h5>
 			<div class="sub-nav">
 				<ul class="nav nav-tabs nav-stacked">
@@ -25,10 +25,10 @@
 				</ul>
 			</div>
 		</div>
-		<div class="span9">
+		<div class="col-md-9">
 			<h2><?php //echo $this->escape($title); ?></h2>
 			<div id="extra-form">
-			<?php //include $this->templateComponent('form'); ?>
+			<?php //include $this->templateComponent('forms'); ?>
 			</div>
 		</div>
 	</div>

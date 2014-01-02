@@ -1,26 +1,21 @@
 <?php
 /**
- * News index controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
+use Pi\Paginator\Paginator;
+use Zend\Db\Sql\Predicate\Expression;
 use Zend\Json\Json;
 
 class IndexController extends ActionController
@@ -28,97 +23,98 @@ class IndexController extends ActionController
     public function indexAction()
     {
         // Get info from url
-        $page = $this->params('page', 1);
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::service('api')->news(array('Topic', 'Setting'), $config);
-        // Get list of topic ids
-        $topicId = Pi::service('api')->news(array('Topic', 'Id'));
-        // Set info
-        $offset = (int)($page - 1) * $topic['perpage'];
-        $limit = intval($topic['perpage']);
-        $where = array('status' => 1, 'topic' => $topicId, 'publish <= ?' => time());
-        // Story
-        $story = $this->StoryList($where, $offset, $limit);
-        // Set paginator
-        $template = array('module' => $module, 'controller' => 'index', 'page' => '%page%');
-        $paginator = $this->StoryPaginator($template, $where, $page, $limit);
+        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        // Set story info
+        $where = array('status' => 1, 'time_publish <= ?' => time());
+        // Get story List
+        $storyList = $this->storyList($where, $topic['show_perpage']);
+        // Set paginator info
+        $template = array(
+            'controller' => 'index',
+            'action' => 'index',
+            );
+        // Get paginator
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config);
+        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
         // Set view
-        $this->view()->headTitle($topic['title']);
-        $this->view()->headDescription($topic['description'], 'set');
-        $this->view()->headKeywords($topic['keywords'], 'set');
+        $this->view()->headTitle($topic['seo_title']);
+        $this->view()->headdescription($topic['seo_description'], 'set');
+        $this->view()->headkeywords($topic['seo_keywords'], 'set');
         $this->view()->setTemplate($topic['template']);
-        $this->view()->assign('stores', $story);
+        $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
     }
     
-    public function StoryList($where, $offset, $limit)
+    public function storyList($where, $limit)
     {
-        $id = array();
-        $story = array();
-        $module = $this->params('module');
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Get topic list
-        $topicList = Pi::service('api')->news(array('Topic', 'Info'));
         // Set info
-        $columns = array('story' => new \Zend\Db\Sql\Expression('DISTINCT story'));
-        $order = array('publish DESC', 'id DESC');
-        if ($config['daylimit']) {
-            $where['publish > ?'] = time() - (86400 * $config['daylimit']);
+        $id = array();
+        $page = $this->params('page', 1);
+        $module = $this->params('module');
+        $offset = (int)($page - 1) * $limit;
+        $order = array('time_publish DESC', 'id DESC');
+        // Set day limit
+        if ($this->config('daylimit')) {
+            $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
         }
+        // Set info
+        $columns = array('story' => new Expression('DISTINCT story'));
         // Get info from link table
-        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit($limit);
+        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit(intval($limit));
         $rowset = $this->getModel('link')->selectWith($select)->toArray();
         // Make list
         foreach ($rowset as $id) {
-            $stpryId[] = $id['story'];
+            $storyId[] = $id['story'];
         }
         // Set info
-        $column = array('id', 'title', 'slug', 'topic', 'short', 'important', 'publish', 'hits', 'image', 'path', 'comments');
-        $where = array('status' => 1, 'id' => $stpryId);
+        $where = array('status' => 1, 'id' => $storyId);
+        // Get topic list
+        $topicList = Pi::api('news', 'topic')->topicList();
         // Get list of story
-        $select = $this->getModel('story')->select()->columns($column)->where($where)->order($order);
+        $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
-        // Make list
         foreach ($rowset as $row) {
-            $story[$row->id] = $row->toArray();
-            $storytopics = Json::decode($story[$row->id]['topic']);
-            foreach ($storytopics as $storytopic) {
-                $story[$row->id]['topics'][$storytopic]['title'] = $topicList[$storytopic]['title'];
-                $story[$row->id]['topics'][$storytopic]['slug'] = $topicList[$storytopic]['slug'];
-            }
-            $story[$row->id]['short'] = Pi::service('markup')->render($story[$row->id]['short'], 'text', 'html');
-            $story[$row->id]['publish'] = _date($story[$row->id]['publish']);
-            if ($story[$row->id]['image']) {
-                $story[$row->id]['originalurl'] = Pi::url(sprintf('upload/%s/original/%s/%s', $this->config('image_path'), $story[$row->id]['path'], $story[$row->id]['image']));
-                $story[$row->id]['largeurl'] = Pi::url(sprintf('upload/%s/large/%s/%s', $this->config('image_path'), $story[$row->id]['path'], $story[$row->id]['image']));
-                $story[$row->id]['mediumurl'] = Pi::url(sprintf('upload/%s/medium/%s/%s', $this->config('image_path'), $story[$row->id]['path'], $story[$row->id]['image']));
-                $story[$row->id]['thumburl'] = Pi::url(sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $story[$row->id]['path'], $story[$row->id]['image']));
-            }
+            $story[$row->id] = Pi::api('news', 'story')->canonizeStory($row, $topicList);
         }
-        // return story
+        // return product
         return $story;
     }
-    
-    public function StoryPaginator($template, $where, $page, $perpage)
+
+    public function storyPaginator($template, $where, $limit)
     {
+        $page = $this->params('page', 1);
+        //
+        $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
+        $template['year'] = (isset($template['year'])) ? $template['year'] : '';
+        $template['month'] = (isset($template['month'])) ? $template['month'] : '';
         // get count     
-        $columns = array('count' => new \Zend\Db\Sql\Expression('count(DISTINCT `story`)'));
+        $columns = array('count' => new Expression('count(DISTINCT `story`)'));
         $select = $this->getModel('link')->select()->where($where)->columns($columns);
         $count = $this->getModel('link')->selectWith($select)->current()->count;
         // paginator
-        $paginator = \Pi\Paginator\Paginator::factory(intval($count));
-        $paginator->setItemCountPerPage($perpage);
-        $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array('template' => $this->url('.news', $template)));
+        $paginator = Paginator::factory(intval($count));
+        $paginator->setItemCountPerPage(intval($limit));
+        $paginator->setCurrentPageNumber(intval($page));
+        $paginator->setUrlOptions(array(
+            'router'    => $this->getEvent()->getRouter(),
+            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params'    => array_filter(array(
+                'module'        => $this->getModule(),
+                'controller'    => $template['controller'],
+                'action'        => $template['action'],
+                'slug'          => $template['slug'],
+                'year'          => $template['year'],
+                'month'         => $template['month'],
+            )),
+        ));
         return $paginator;
     }
 }

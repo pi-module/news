@@ -1,16 +1,18 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="news">
-	<?php include $this->template('front/feed'); ?>
-    <?php include $this->template('front/topicinfo'); ?>
+    <?php include $this->template('front/feed'); ?>
+    <?php include $this->template('front/archive'); ?>
+    <?php include $this->template('front/topic'); ?>
+    <?php include $this->template('front/writer'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-	<div class="typelist itemList">
+	<div class="index-list">
 		<ul>
 		<?php foreach($stores as $story) { ?>
-			<li class="<?php echo $topic['column_class']; ?>"><?php if($story['important']) { ?><span class="label label-important"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'story' ,'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a></li>
+			<li class="<?php echo $topic['column_class']; ?>"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a><</li>
 		<?php } ?>
 		</ul>
-		<div class="clearfix"></div>
+	    <div class="clearfix"></div>
 	</div>
-   <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>

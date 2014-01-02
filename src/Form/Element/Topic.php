@@ -1,23 +1,15 @@
 <?php
 /**
- * Form element topic class
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @subpackage      Form
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form\Element;
 
 use Pi;
@@ -32,20 +24,13 @@ class Topic extends Select
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
-            // Set default otions
-            if (!isset($this->options['topic'])) {
-                $options[0] = __('All Topics');
-            } else {
-                $options = $this->options['topic'];
-            }
             // Get topic list
-            $select = Pi::model('topic', $this->options['module'])->select()->columns(array('id', 'title'));
+            $select = Pi::model('topic', $this->options['module'])->select()->columns(array('id', 'pid', 'title'));
             $rowset = Pi::model('topic', $this->options['module'])->selectWith($select);
             foreach ($rowset as $row) {
                 $list[$row->id] = $row->toArray();
-                $options[$row->id] = $list[$row->id]['title'];
             }
-            $this->valueOptions = $options;
+            $this->valueOptions = $this->getTree($list);
         }
         return $this->valueOptions;
     }
@@ -58,6 +43,7 @@ class Topic extends Select
         $this->Attributes = array(
             'size' => 5,
             'multiple' => 1,
+            'class' => 'form-control',
         );
         // check form size
         if (isset($this->attributes['size'])) {
@@ -68,5 +54,35 @@ class Topic extends Select
             $this->Attributes['multiple'] = $this->attributes['multiple'];
         }
         return $this->Attributes;
+    }
+
+    public function getTree($elements, $parentId = 0)
+    {
+        $branch = array();
+        // Set default category options
+        if ($parentId == 0) {
+            if (!isset($this->options['topic'])) {
+                $branch[0] = __('All Topics');
+            } else {
+                $branch = $this->options['topic'];
+            }
+        }
+        // Set category list as tree
+        foreach ($elements as $element) {
+            if ($element['pid'] == $parentId) {
+                $depth = 0;
+                $branch[$element['id']] = $element['title'];
+                $children = $this->getTree($elements, $element['id']);
+                if ($children) {
+                    $depth++;
+                    foreach ($children as $key => $value) {
+                        $branch[$key] = sprintf('%s%s' , str_repeat('-', $depth), $value);
+                    }
+                }
+                unset($elements[$element['id']]);
+                unset($depth);
+            }
+        }
+        return $branch;
     }
 }

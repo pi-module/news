@@ -1,24 +1,17 @@
 <?php
 /**
- * Pi module installer action
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @subpackage      Installer
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Installer\Action;
+
 use Pi;
 use Pi\Application\Installer\Action\Install as BasicInstall;
 use Zend\EventManager\Event;
@@ -59,29 +52,25 @@ class Install extends BasicInstall
         $storyModel = Pi::model($module . '/story');
         $topicModel = Pi::model($module . '/topic');
         $writerModel = Pi::model($module . '/writer');
-        $moderatorModel = Pi::model($module . '/moderator');
         $linkModel = Pi::model($module . '/link');
 
         // Add topic
         $topicData = array(
             'title' => __('Default'),
             'slug' => 'default',
-            'body' => __('This is a default topic for news module'),
-            'keywords' => 'default,topic',
-            'description' => 'default topic',
-            'topic_style' => 'news',
-            'perpage' => '5',
-            'columns' => '1',
-            'create' => time(),
+            'description' => __('This is a default topic for news module'),
+            'seo_title' => 'default topic',
+            'seo_keywords' => 'default,topic',
+            'seo_description' => 'default topic',
+            'time_create' => time(),
+            'time_update' => time(),
             'status' => '1',
-            'topic_type' => 'module',
-            'topic_homepage' => 'type1',
-            'author' => Pi::user()->getId(),
+            'style' => 'news',
+            'uid' => Pi::user()->getId(),
         );
         $topicModel->insert($topicData);
         
         // Add topic as page
-        /* Temporary solution */
         $pageData = array(
             'section'       => 'front',
             'module'        => $module,
@@ -102,38 +91,31 @@ class Install extends BasicInstall
             'topic' => Json::encode(array('1')),
             'short' => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
             'body' => __('This is more text. you can edit this part easy too and if you want you can add new topics and new storys'),
-            'keywords' => 'hello,world',
-            'description' => 'hello world',
+            'seo_title' => 'hello world',
+            'seo_keywords' => 'hello,world',
+            'seo_description' => 'hello world',
             'status' => '1',
-            'create' => time(),
-            'update' => time(),
-            'publish' => time(),
-            'author' => Pi::user()->getId(),
+            'time_create' => time(),
+            'time_update' => time(),
+            'time_publish' => time(),
+            'uid' => Pi::user()->getId(),
         );
         $storyModel->insert($storyData);
 
         // Add writer
         $writerData = array(
-            'author' => Pi::user()->getId(),
+            'uid' => Pi::user()->getId(),
             'count' => '1',
         );
         $writerModel->insert($writerData);
-
-        // Add moderator
-        $moderatorData = array(
-            'manager' => Pi::user()->getId(),
-            'topic' => '1',
-            'status' => '1',
-        );
-        $moderatorModel->insert($moderatorData);
 
         // Add link
         $linkData = array(
             'story' => '1',
             'topic' => '1',
-            'publish' => time(),
+            'time_publish' => time(),
             'status' => '1',
-            'author' => Pi::user()->getId(),
+            'uid' => Pi::user()->getId(),
         );
         $linkModel->insert($linkData);
 

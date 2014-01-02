@@ -2,9 +2,9 @@ News module changelog
 
 Cersion 1.0.3
 =============================
-1. Update version to 1.0.3
+1. time_update version to 1.0.3
 2. Fix translation
-3. Update Text API for use PI methods
+3. time_update Text API for use PI methods
 4. Improve templates
 5. Remove social bookmark option
 6. Add Json Controller for make output for mobile apps

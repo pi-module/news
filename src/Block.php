@@ -1,22 +1,15 @@
 <?php
 /**
- * News block class
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News;
 
 use Pi;
@@ -36,7 +29,7 @@ class Block
         $whereLink['status'] = 1;
         //$order = array($block['order'],'id DESC');
         $columns = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
-        $order = array('publish DESC', 'id DESC');
+        $order = array('time_publish DESC', 'id DESC');
         $limit = intval($block['number']);
         // Get info from link table
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
@@ -46,7 +39,7 @@ class Block
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'slug', 'topic', 'short', 'important', 'publish', 'image', 'path', 'hits');
+        $columnStory = array('id', 'title', 'slug', 'topic', 'short', 'important', 'time_publish', 'image', 'path', 'hits');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = Pi::model('story', $module)->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -54,7 +47,7 @@ class Block
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
-            $story[$row->id]['publish'] = date('Y/m/d H:i:s', $story[$row->id]['publish']);
+            $story[$row->id]['time_publish'] = date('Y/m/d H:i:s', $story[$row->id]['time_publish']);
             if ($story[$row->id]['image']) {
                 $story[$row->id]['originalurl'] = Pi::url(sprintf('upload/%s/image/original/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
                 $story[$row->id]['largeurl'] = Pi::url(sprintf('upload/%s/image/large/%s/%s', $module, $story[$row->id]['path'], $story[$row->id]['image']));
@@ -86,7 +79,7 @@ class Block
         if (!in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
         }
-        $order = array('create DESC', 'id DESC');
+        $order = array('time_create DESC', 'id DESC');
         $select = Pi::model('topic', $module)->select()->columns($columns)->where($where)->order($order);
         $rowset = Pi::model('topic', $module)->selectWith($select);
         // Process information

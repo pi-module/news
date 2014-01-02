@@ -1,22 +1,15 @@
 <?php
 /**
- * News index controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -25,53 +18,74 @@ use Zend\Json\Json;
 
 class TagController extends IndexController
 {
-    public function indexAction()
+    public function termAction()
     {
         // Get info from url
-        $slug = $this->params('slug');
         $module = $this->params('module');
-        $page = $this->params('page', 1);
-        // Check slug
-        if (empty($slug)) {
-            $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'index'), __('The tag not found.'));
-        }
+        $slug = $this->params('slug');
+        $action = $this->params('action');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::service('api')->news(array('Topic', 'Setting'), $config);
-        // Get list of topic ids
-        $topicId = Pi::service('api')->news(array('Topic', 'Id'));
-        // Set offset
-        $offset = (int)($page - 1) * $topic['perpage'];
-        // Get story Id from tag module
-        $tags = Pi::service('tag')->getList($module, $slug, null, $config['show_tags'], $offset);
+        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        // Check slug
+        if (!isset($slug) || empty($slug)) {
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('The tag not found.'));
+        }
+        // Get id from tag module
+        $tags = Pi::service('tag')->getList($module, $slug);
         // Check slug
         if (empty($tags)) {
-            $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'index'), __('The tag not found.'));
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('The tag not found.'));
         }
-        // Make list
-        foreach ($tags as $tag) {
-            $tagId[] = $tag['item'];
-        }
-        // Set info
-        $limit = intval($topic['perpage']);
-        $where = array('status' => 1, 'topic' => $topicId, 'publish <= ?' => time(), 'story' => $tagId);
-        // Story
-        $story = $this->StoryList($where, $offset, $limit);
-        // Set paginator
-        $template = array('module' => $module, 'controller' => 'tag', 'slug' => urlencode($slug), 'page' => '%page%');
-        $paginator = $this->StoryPaginator($template, $where, $page, $limit);
+        // Set story info
+        $where = array('status' => 1, 'story' => $tags, 'time_publish <= ?' => time());
+        // Get story List
+        $storyList = $this->storyList($where, $topic['show_perpage']);
+        // Set paginator info
+        $template = array(
+            'controller' => 'tag',
+            'action' => 'term',
+            'slug' => $topic['slug'],
+            );
+        // Get paginator
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config);
+        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
         // Set view
         $this->view()->headTitle(sprintf(__('All stores from %s'), $slug));
-        $this->view()->headDescription($slug, 'set');
-        $this->view()->headKeywords($slug, 'set');
+        $this->view()->headdescription(sprintf(__('All stores from %s'), $slug), 'set');
+        $this->view()->headkeywords($slug, 'set');
         $this->view()->setTemplate($topic['template']);
-        $this->view()->assign('stores', $story);
+        $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
+    }
+
+    public function listAction()
+    {
+        // Get info from url
+        $module = $this->params('module');
+        $where = array('module' => $module);
+        $order = array('count DESC', 'id DESC');
+        $select = Pi::model('stats', 'tag')->select()->where($where)->order($order);
+        $rowset = Pi::model('stats', 'tag')->selectWith($select);
+        foreach ($rowset as $row) {
+            $tag = Pi::model('tag', 'tag')->find($row->tag);
+            $tagList[$row->id] = $row->toArray();
+            $tagList[$row->id]['term'] = $tag['term'];
+            $tagList[$row->id]['url'] = $this->url('', array(
+                'controller' => 'tag', 
+                'action' => 'term', 
+                'slug' => urldecode($tag['term'])
+                ));
+        }
+        // Set view
+        $this->view()->setTemplate('tag_list');
+        $this->view()->assign('tagList', $tagList);
     }
 }	

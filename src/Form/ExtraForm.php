@@ -1,23 +1,15 @@
 <?php
 /**
- * Extra Form
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @subpackage      Form
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form;
 
 use Pi;
@@ -25,10 +17,8 @@ use Pi\Form\Form as BaseForm;
 
 class ExtraForm extends BaseForm
 {
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null)
     {
-        $this->imageurl = $options['imageurl'];
-        $this->removeurl = empty($options['removeurl']) ? '' : $options['removeurl'];
         parent::__construct($name);
     }
 
@@ -60,50 +50,6 @@ class ExtraForm extends BaseForm
                 'description' => '',
             )
         ));
-        // Image
-        if (isset($this->imageurl)) {
-            $this->add(array(
-                'name' => 'imageview',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'image',
-                    'src' => $this->imageurl,
-                    'disabled' => true,
-                    'description' => '',
-                )
-            ));
-            $this->add(array(
-                'name' => 'remove',
-                'options' => array(
-                    'label' => __('Remove image'),
-                ),
-                'attributes' => array(
-                    'type' => 'button',
-                    'class' => 'btn btn-danger btn-small',
-                    'data-toggle' => 'button',
-                    'data-link' => $this->removeurl,
-                )
-            ));
-            $this->add(array(
-	            'name' => 'image',
-	            'attributes' => array(
-	                'type' => 'hidden',
-	            ),
-	         ));
-        } else {
-            $this->add(array(
-                'name' => 'image',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'file',
-                    'description' => '',
-                )
-            ));
-        }
         // status
         $this->add(array(
             'name' => 'status',
@@ -123,13 +69,31 @@ class ExtraForm extends BaseForm
             'options' => array(
                 'label' => __('Type'),
                 'value_options' => array(
-                    'text' => __('text'),
-                    'link' => __('link'),
-                    'currency' => __('currency'),
-                    'date' => __('date'),
-                    'number' => __('number'),
+                    'text' => __('Text : type text content'),
+                    'link' => __('Link : add url for click'),
+                    'video' => __('Video : add flv or mp4 url for play on video player'),
+                    'audio' => __('Audio : add mp3 url for play on audio player'),
+                    'file' => __('File : add file link for download'),
+                    'currency' => __('Currency : add view price for anything'),
+                    'date' => __('Date : add date for view'),
+                    'number' => __('Number : add number'),
+                    'select' => __('Select : add select box for choose'),
                 ),
             ),
+        ));
+        // value
+        $this->add(array(
+            'name' => 'value',
+            'options' => array(
+                'label' => __('Value'),
+            ),
+            'attributes' => array(
+                'type' => 'textarea',
+                'rows' => '5',
+                'cols' => '40',
+                
+                'description' => '',
+            )
         ));
         // search
         $this->add(array(
@@ -142,6 +106,17 @@ class ExtraForm extends BaseForm
                 'description' => '',
             )
         ));
+        // image
+        $this->add(array(
+            'name' => 'image',
+            'options' => array(
+                'label' => __('Image'),
+            ),
+            'attributes' => array(
+                'type' => 'file',
+                'description' => '',
+            )
+        ));
         // Save
         $this->add(array(
             'name' => 'submit',
@@ -151,4 +126,4 @@ class ExtraForm extends BaseForm
             )
         ));
     }
-}	
+}   

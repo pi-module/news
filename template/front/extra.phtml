@@ -1,35 +1,56 @@
-<?php $this->css($this->assetModule('css/extra.css')); ?>
-<div class="extra">
-	<ul>
+<?php if ($config['show_extra'] && isset($extra) && !empty($extra)) { ?>
+<div class="productExtra">
 	<?php foreach($extra as $field) { ?>
-		<li class="field-<?php echo $field['id']; ?>">
+		<div class="field-<?php echo $field['id']; ?>">
 			<?php if($field['image']) { ?>
-			<img src="<?php echo $field['imageurl']; ?>" alt="<?php echo $field['title']; ?>" />
+			<img src="<?php echo $field['imageUrl']; ?>" alt="<?php echo $field['title']; ?>" />
 			<?php } ?>
-			<?php switch($field['type']) { ?>
-				<?php case 'text': ?>
-				<strong><?php echo $field['title']; ?></strong>
-				<span><?php echo $field['data']; ?></span>
-				<?php break; ?>
-				<?php case 'link': ?>
-				<span>
-					<a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a>
-				</span>
-				<?php break; ?>
-				<?php case 'currency': ?>
-				<strong><?php echo $field['title']; ?></strong>
-				<span><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></span>
-				<?php break; ?>
-				<?php case 'date': ?>
-				<strong><?php echo $field['title']; ?></strong>
-				<span><?php echo $this->dateFormat($field['data'], IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM, "en_US"); ?></span>
-				<?php break; ?>
-				<?php case 'number': ?>
-				<strong><?php echo $field['title']; ?></strong>
-				<span><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></span>
-				<?php break; ?>
+			<?php if($field['type'] == 'text' || $field['type'] == 'select') { ?>
+			<strong><?php echo $field['title']; ?></strong>
+			<span><?php echo $field['data']; ?></span>
+			<?php } elseif($field['type'] == 'link') { ?>
+			<span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
+			<?php } elseif($field['type'] == 'file') { ?>
+			<span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
+			<?php } elseif($field['type'] == 'currency') { ?>
+			<strong><?php echo $field['title']; ?></strong>
+			<span><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></span>
+			<?php } elseif($field['type'] == 'date') { ?>
+			<strong><?php echo $field['title']; ?></strong>
+			<span><?php echo $this->dateFormat($field['data'], IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM, "en_US"); ?></span>
+			<?php } elseif($field['type'] == 'number') { ?>
+			<strong><?php echo $field['title']; ?></strong>
+			<span><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></span>
+			<?php } elseif($field['type'] == 'video') { ?>
+			<div class="attach-audio-video col-md-12">
+				<?php 
+					$this->jQuery();
+					$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
+				?>
+				<div id="mediaspace<?php echo $field['id']; ?>"></div>
+				<script type='text/javascript'>
+				jwplayer("mediaspace<?php echo $field['id']; ?>").setup({
+					"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+				    "file": "<?php echo $field['data']; ?>",
+				    "title": "<?php echo $field['title']; ?>",
+				    "controlbar": "bottom",
+				    "width": 640,
+				    "height": 480,
+				});
+				</script>
+			</div>
+			<?php } elseif($field['type'] == 'audio') { ?>
+			<div class="attach-audio-file col-md-12">
+				<object class="col-md-11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
+					<param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
+					<param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $field['data']; ?>">
+					<param name="quality" value="high">
+					<param name="menu" value="false">
+					<param name="wmode" value="transparent">
+				</object> 
+			</div>
 			<?php } ?>
-		</li>
+		</div>
 	<?php } ?>
-	</ul>
 </div>
+<?php } ?>

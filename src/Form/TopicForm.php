@@ -1,22 +1,15 @@
 <?php
 /**
- * Topic form
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Form;
 
 use Pi;
@@ -26,12 +19,12 @@ class TopicForm extends BaseForm
 {
     protected $options;
 
-    public function __construct($name = null, $module, $options = array())
+    public function __construct($name = null, $options = array())
     {
-        $this->topic = array(0 => ' ');
-        $this->module = $module;
-        $this->imageurl = $options['imageurl'];
-        $this->removeurl = empty($options['removeurl']) ? '' : $options['removeurl'];
+        $this->category = array(0 => 'Root');
+        $this->module = Pi::service('module')->current();
+        $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
+        $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
     }
 
@@ -88,75 +81,6 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
-        // body
-        $this->add(array(
-            'name' => 'body',
-            'options' => array(
-                'label' => __('Text'),
-                'editor' => 'html',
-                'set' => '',
-            ),
-            'attributes' => array(
-                'type' => 'editor',
-                'description' => '',
-            )
-        ));
-        // Image
-        if (isset($this->imageurl)) {
-            $this->add(array(
-                'name' => 'imageview',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'image',
-                    'src' => $this->imageurl,
-                    'height' => '200',
-                    'disabled' => true,
-                    'description' => '',
-                )
-            ));
-            $this->add(array(
-                'name' => 'remove',
-                'options' => array(
-                    'label' => __('Remove image'),
-                ),
-                'attributes' => array(
-                    'type' => 'button',
-                    'class' => 'btn btn-danger btn-small',
-                    'data-toggle' => 'button',
-                    'data-link' => $this->removeurl,
-                )
-            ));
-	         $this->add(array(
-	            'name' => 'image',
-	            'attributes' => array(
-	                'type' => 'hidden',
-	            ),
-	         ));
-        } else {
-            $this->add(array(
-                'name' => 'image',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'file',
-                    'description' => '',
-                )
-            ));
-        }
-        // keywords
-        $this->add(array(
-            'name' => 'keywords',
-            'options' => array(
-                'label' => __('Keywords'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
         // description
         $this->add(array(
             'name' => 'description',
@@ -164,7 +88,24 @@ class TopicForm extends BaseForm
                 'label' => __('Description'),
             ),
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => '5',
+                'cols' => '40',
+                
+                'description' => '',
+            )
+        ));
+        // description_footer
+        $this->add(array(
+            'name' => 'description_footer',
+            'options' => array(
+                'label' => __('Footer description'),
+            ),
+            'attributes' => array(
+                'type' => 'textarea',
+                'rows' => '5',
+                'cols' => '40',
+                
                 'description' => '',
             )
         ));
@@ -182,65 +123,12 @@ class TopicForm extends BaseForm
                 ),
             ),
         ));
-        // inlist
+        // style
         $this->add(array(
-            'name' => 'inlist',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('In List'),
-            ),
-            'attributes' => array(
-                'description' => '',
-                'value' => '1',
-            )
-        ));
-        // extra
-        $this->add(array(
-            'name' => 'extra',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('Extra options'),
-            ),
-        ));
-        // topic_type
-        $this->add(array(
-            'name' => 'topic_type',
+            'name' => 'style',
             'type' => 'select',
             'options' => array(
-                'label' => __('Extra Options Type'),
-                'value_options' => array(
-                    'topic' => __('Use topic options'),
-                    'module' => __('Use module options'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => __('Use topic option whit select topic options or set it to module to use module option'),
-                'id' => 'group1',
-            ),
-        ));
-        // topic_homepage
-        $this->add(array(
-            'name' => 'topic_homepage',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Homepage'),
-                'value_options' => array(
-                    'type1' => __('All storys from this topic and all subtopics'),
-                    'type2' => __('All storys from just this topic'),
-                    'type3' => __('All storys from just all subtopics'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => '',
-                'class' => 'group1',
-            ),
-        ));
-        // topic_style
-        $this->add(array(
-            'name' => 'topic_style',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Showtype'),
+                'label' => __('Topic Style'),
                 'value_options' => array(
                     'news' => __('News'),
                     'list' => __('List'),
@@ -251,24 +139,130 @@ class TopicForm extends BaseForm
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
+            ),
+        ));
+        // Image
+        if ($this->thumbUrl) {
+            $this->add(array(
+                'name' => 'imageview',
+                'options' => array(
+                    'label' => __('Image'),
+                ),
+                'attributes' => array(
+                    'type' => 'image',
+                    'src' => $this->thumbUrl,
+                    'disabled' => true,
+                    'description' => '',
+                )
+            ));
+            $this->add(array(
+                'name' => 'remove',
+                'options' => array(
+                    'label' => __('Remove image'),
+                ),
+                'attributes' => array(
+                    'type' => 'button',
+                    'class' => 'btn btn-danger btn-sm',
+                    'data-toggle' => 'button',
+                    'data-link' => $this->removeUrl,
+                )
+            ));
+            $this->add(array(
+                'name' => 'image',
+                'attributes' => array(
+                    'type' => 'hidden',
+                ),
+             ));
+        } else {
+            $this->add(array(
+                'name' => 'image',
+                'options' => array(
+                    'label' => __('Image'),
+                ),
+                'attributes' => array(
+                    'type' => 'file',
+                    'description' => '',
+                )
+            ));
+        }
+        // extra_seo
+        $this->add(array(
+            'name' => 'extra_seo',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('SEO options'),
+            ),
+        ));
+        // seo_title
+        $this->add(array(
+            'name' => 'seo_title',
+            'options' => array(
+                'label' => __('SEO Title'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // seo_keywords
+        $this->add(array(
+            'name' => 'seo_keywords',
+            'options' => array(
+                'label' => __('SEO Keywords'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // seo_description
+        $this->add(array(
+            'name' => 'seo_description',
+            'options' => array(
+                'label' => __('SEO Description'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // extra
+        $this->add(array(
+            'name' => 'extra_settings',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('Extra options'),
+            ),
+        ));
+        // show_config
+        $this->add(array(
+            'name' => 'show_config',
+            'type' => 'select',
+            'options' => array(
+                'label' => __('Extra Config Options Type'),
+                'value_options' => array(
+                    'topic' => __('Use topic options'),
+                    'module' => __('Use module options'),
+                ),
+            ),
+            'attributes' => array(
+                'description' => __('Use topic option whit select topic options or set it to module to use module option'),
             ),
         ));
         // perpage
         $this->add(array(
-            'name' => 'perpage',
+            'name' => 'show_perpage',
             'options' => array(
                 'label' => __('Perpage'),
             ),
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                'class' => 'group1',
             )
         ));
         // columns
         $this->add(array(
-            'name' => 'columns',
+            'name' => 'show_columns',
             'type' => 'select',
             'options' => array(
                 'label' => __('Columns'),
@@ -281,127 +275,105 @@ class TopicForm extends BaseForm
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showtopic
+        // show_topic
         $this->add(array(
-            'name' => 'showtopic',
+            'name' => 'show_topic',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Topic'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showtopicinfo
+        // show_topicinfo
         $this->add(array(
-            'name' => 'showtopicinfo',
+            'name' => 'show_topicinfo',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Topic Information'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showauthor
+        // show_writer
         $this->add(array(
-            'name' => 'showauthor',
+            'name' => 'show_writer',
             'type' => 'checkbox',
             'options' => array(
-                'label' => __('Show Author'),
+                'label' => __('Show writer'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showdate
+        // show_date
         $this->add(array(
-            'name' => 'showdate',
+            'name' => 'show_date',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Date'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showpdf
+        // show_pdf
         $this->add(array(
-            'name' => 'showpdf',
+            'name' => 'show_pdf',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show DPF'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showprint
+        // show_print
         $this->add(array(
-            'name' => 'showprint',
+            'name' => 'show_print',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Print'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showmail
+        // show_mail
         $this->add(array(
-            'name' => 'showmail',
+            'name' => 'show_mail',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Mail'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // shownav
+        // show_hits
         $this->add(array(
-            'name' => 'shownav',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Nav'),
-            ),
-            'attributes' => array(
-                'description' => '',
-                'class' => 'group1',
-            )
-        ));
-        // showhits
-        $this->add(array(
-            'name' => 'showhits',
+            'name' => 'show_hits',
             'type' => 'checkbox',
             'options' => array(
                 'label' => __('Show Hits'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
-        // showcoms
+        // show_tag
         $this->add(array(
-            'name' => 'showcoms',
+            'name' => 'show_tag',
             'type' => 'checkbox',
             'options' => array(
-                'label' => __('Show Coms'),
+                'label' => __('Show Tags'),
             ),
             'attributes' => array(
                 'description' => '',
-                'class' => 'group1',
             )
         ));
         // Save

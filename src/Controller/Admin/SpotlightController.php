@@ -1,22 +1,15 @@
 <?php
 /**
- * News admin spotlight controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -27,7 +20,7 @@ use Module\News\Form\SpotlightFilter;
 class SpotlightController extends ActionController
 {
     protected $spotlightColumns = array(
-        'id', 'story', 'topic', 'author', 'publish', 'expire', 'status'
+        'id', 'story', 'topic', 'uid', 'time_publish', 'time_expire', 'status'
     );
 
     public function indexAction()
@@ -35,7 +28,7 @@ class SpotlightController extends ActionController
         // Get page
         $page = $this->params('p', 1);
         // Get story and topic
-        $select = $this->getModel('spotlight')->select()->where(array('expire > ?' => time()))->columns(array('story', 'topic'));
+        $select = $this->getModel('spotlight')->select()->where(array('time_expire > ?' => time()))->columns(array('story', 'topic'));
         $idSet = $this->getModel('spotlight')->selectWith($select)->toArray();
         if (empty($idSet)) {
             return $this->redirect()->toRoute('', array('action' => 'update'));
@@ -62,7 +55,7 @@ class SpotlightController extends ActionController
             $storyList[$row->id] = $row->toArray();
         }
         // Get spotlights
-        $select = $this->getModel('spotlight')->select()->where(array('expire > ?' => time()))->order(array('id DESC', 'publish DESC'));
+        $select = $this->getModel('spotlight')->select()->where(array('time_expire > ?' => time()))->order(array('id DESC', 'time_publish DESC'));
         $spotlightSet = $this->getModel('spotlight')->selectWith($select);
         // Make spotlight list
         foreach ($spotlightSet as $row) {
@@ -71,8 +64,8 @@ class SpotlightController extends ActionController
             $spotlightList[$row->id]['storyslug'] = $storyList[$row->story]['slug'];
             $spotlightList[$row->id]['topictitle'] = $topicList[$row->topic]['title'];
             $spotlightList[$row->id]['topicslug'] = $topicList[$row->topic]['slug'];
-            $spotlightList[$row->id]['publish'] = _date($spotlightList[$row->id]['publish']);
-            $spotlightList[$row->id]['expire'] = _date($spotlightList[$row->id]['expire']);
+            $spotlightList[$row->id]['time_publish'] = _date($spotlightList[$row->id]['time_publish']);
+            $spotlightList[$row->id]['time_expire'] = _date($spotlightList[$row->id]['time_expire']);
         }
         // Set paginator
         $paginator = \Pi\Paginator\Paginator::factory($spotlightList);
@@ -89,7 +82,7 @@ class SpotlightController extends ActionController
                 'controller' => 'spotlight',
                 'action' => 'index',
             ),
-            // Or use a URL template to create URLs
+            // Or use a URL template to time_create URLs
             //'template'      => '/url/p/%page%/t/%total%',
 
         ));
@@ -115,12 +108,12 @@ class SpotlightController extends ActionController
                     }
                 }
                 // Set time
-                $values['publish'] = strtotime($values['publish']);
-                $values['expire'] = strtotime($values['expire']);
+                $values['time_publish'] = strtotime($values['time_publish']);
+                $values['time_expire'] = strtotime($values['time_expire']);
                 // Set if new
                 if (empty($values['id'])) {
                     // Set user
-                    $values['author'] = Pi::registry('user')->id;
+                    $values['uid'] = Pi::user()->getId();
                 }
                 // Save values
                 if (!empty($values['id'])) {

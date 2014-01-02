@@ -1,21 +1,20 @@
 <?php
 /**
-* Pi Engine (http://pialog.org)
-*
-* @link http://code.pialog.org for the Pi Engine source repository
-* @copyright Copyright (c) Pi Engine http://pialog.org
-* @license http://pialog.org/license.txt New BSD License
-*/
+ * Pi Engine (http://pialog.org)
+ *
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
+ */
 
 /**
-* @author Hossein Azizabadi <azizabadi@faragostaresh.com>
-*/
-
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 return array(
     // Module meta
     'meta' => array(
         'title'         => _a('News'),
-        'description'   => _a('Manage News and Blog'),
+        'seo_description'   => _a('Manage News and Blog'),
         'version'       => '1.0.4',
         'license'       => 'New BSD',
         'logo'          => 'image/logo.png',
@@ -24,8 +23,8 @@ return array(
         'icon'          => 'fa fa fa-book',
         'clonable'      => true,
     ),
-    // Author information
-    'author' => array(
+    // uid information
+    'uid' => array(
         'name'    => 'Hossein Azizabadi',
         'email'   => 'azizabadi@faragostaresh.com',
         'website' => 'http://www.xoopsengine.org',
@@ -33,13 +32,14 @@ return array(
     ),
     // resource
     'resource' => array(
-        'database' => 'database.php',
-        'permission'    => 'permission.php',
+        'database'      => 'database.php',
         'config'        => 'config.php',
+        'permission'    => 'permission.php',
         'block'         => 'block.php',
         'page'          => 'page.php',
-        'route'         => 'route.php',
         'navigation'    => 'navigation.php',
+        'route'         => 'route.php',
+        'comment'       => 'comment.php',
     )
 
 );

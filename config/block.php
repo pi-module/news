@@ -1,83 +1,82 @@
 <?php
 /**
-* Pi Engine (http://pialog.org)
-*
-* @link http://code.pialog.org for the Pi Engine source repository
-* @copyright Copyright (c) Pi Engine http://pialog.org
-* @license http://pialog.org/license.txt New BSD License
-*/
+ * Pi Engine (http://pialog.org)
+ *
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
+ */
 
 /**
-* @author Hossein Azizabadi <azizabadi@faragostaresh.com>
-*/
-
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 return array(
     // Item block
     'item' => array(
         'title' => __('Item'),
-        'description' => '',
+        'seo_description' => '',
         'render' => array('block', 'item'),
         'template' => 'item',
         'config' => array(
             'topicid' => array(
                 'title' => __('Topic'),
-                'description' => __(''),
+                'seo_description' => __(''),
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
             ),
             'number' => array(
                 'title' => __('Number'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showdesc' => array(
                 'title' => __('Shwo text'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showdate' => array(
                 'title' => __('Show date'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showhits' => array(
                 'title' => __('Show hits'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showimage' => array(
                 'title' => __('Show Images'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showmore' => array(
                 'title' => __('Show More link for each story'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showblockmore' => array(
                 'title' => __('Show More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'linkblockmore' => array(
                 'title' => __('Set More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'string',
                 'value' => '',
@@ -92,48 +91,48 @@ return array(
     // List block
     'list' => array(
         'title' => __('list'),
-        'description' => '',
+        'seo_description' => '',
         'render' => array('block', 'item'),
         'template' => 'list',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'seo_description' => __(''),
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
             ),
             'number' => array(
                 'title' => __('Number'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'number_int',
                 'value' => 10,
             ),
             'showdate' => array(
                 'title' => __('Show date'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'showhits' => array(
                 'title' => __('Show hits'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'showblockmore' => array(
                 'title' => __('Show More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'linkblockmore' => array(
                 'title' => __('Set More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'string',
                 'value' => '',
@@ -148,55 +147,55 @@ return array(
     // Table block
     'table' => array(
         'title' => __('Table'),
-        'description' => '',
+        'seo_description' => '',
         'render' => array('block', 'item'),
         'template' => 'table',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'seo_description' => __(''),
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
             ),
             'number' => array(
                 'title' => __('Number'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showdesc' => array(
                 'title' => __('Shwo text'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'showdate' => array(
                 'title' => __('Show date'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showhits' => array(
                 'title' => __('Show hits'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showblockmore' => array(
                 'title' => __('Show More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'linkblockmore' => array(
                 'title' => __('Set More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'string',
                 'value' => '',
@@ -212,69 +211,69 @@ return array(
     // Slotlight block
     'spotlight' => array(
         'title' => __('Spotlight'),
-        'description' => '',
+        'seo_description' => '',
         'render' => array('block', 'spotlight'),
         'template' => 'spotlight',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'seo_description' => __(''),
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
             ),
             'number' => array(
                 'title' => __('Number'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'number_int',
                 'value' => 5,
             ),
             'subspotlight' => array(
                 'title' => __('Number of sub spotlight'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'number_int',
                 'value' => 4,
             ),
             'showdesc' => array(
                 'title' => __('Shwo text'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showdate' => array(
                 'title' => __('Show date'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showhits' => array(
                 'title' => __('Show hits'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showimage' => array(
                 'title' => __('Show Images'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showblockmore' => array(
                 'title' => __('Show More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'linkblockmore' => array(
                 'title' => __('Set More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'string',
                 'value' => '',
@@ -289,41 +288,41 @@ return array(
     // topic block
     'topic' => array(
         'title' => __('List of topic'),
-        'description' => '',
+        'seo_description' => '',
         'render' => array('block', 'topic'),
         'template' => 'topic',
         'config' => array(
             'topicid' => array(
                 'title' => __('Topic'),
-                'description' => __(''),
+                'seo_description' => __(''),
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
             ),
             'showdesc' => array(
                 'title' => __('Shwo text'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showimage' => array(
                 'title' => __('Show Images'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'showblockmore' => array(
                 'title' => __('Show More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
             ),
             'linkblockmore' => array(
                 'title' => __('Set More link to module page'),
-                'description' => '',
+                'seo_description' => '',
                 'edit' => 'text',
                 'filter' => 'string',
                 'value' => '',

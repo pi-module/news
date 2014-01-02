@@ -1,8 +1,26 @@
-<?php $this->css($this->assetModule('css/admin.css')); ?>
-<div class="news">
-	<p>
-	   <a class="btn" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="icon-arrow-left"></i> <?php _e('Back'); ?></a>
-	</p>
-	<h2><?php echo $this->escape($title); ?></h2>
-	<?php include $this->templateComponent('form'); ?>
+<?php
+    $this->css(array(
+        $this->assetModule('css/admin.css'),
+        $this->assetModule('script/system-ui.css', 'system'),
+    ));
+    $this->jQuery();
+    $this->js($this->assetModule('script/system-msg.js', 'system'));
+?>
+<div id="topic-form" class="news">
+	<h3><?php echo $this->escape($title); ?></h3>
+	<?php include $this->templateComponent('forms'); ?>
 </div>
+<script type="text/javascript">
+(function($){
+    $("#topic-form").on("click","button",function(){
+       systemMessage.wait("<?php _e('Remove image topic in process'); ?>");
+       $.getJSON($(this).attr("data-link")).done(function(result){
+          if(result.status==1){
+             systemMessage.succ(result.message);
+          }else{
+             systemMessage.fail(result.message);
+          }
+       });
+    });
+})(jQuery)
+</script>

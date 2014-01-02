@@ -1,22 +1,15 @@
 <?php
 /**
- * News reporter controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -28,51 +21,50 @@ class WriterController extends IndexController
     public function indexAction()
     {
         // Get info from url
-        $slug = $this->params('slug');
         $module = $this->params('module');
-        $page = $this->params('page', 1);
-        // Check slug
-        if (empty($slug)) {
-            $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'writer', 'action' => 'list'), __('Got to writer list.'));
-        }
-        // Find user
-        $user = Pi::model('user_account')->find($slug, 'identity');
-        // Check slug
-        if (empty($user)) {
-            $this->jump(array('route' => '.news', 'module' => $module, 'controller' => 'writer', 'action' => 'list'), __('Got to writer list.'));
-        }
-        // Set user array
-        $user = $user->toArray();
-        // Get info from writer table
-        $writer = $this->getModel('writer')->find($user['id'], 'author')->toArray();
+        $slug = $this->params('slug');
+        $action = $this->params('action');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::service('api')->news(array('Topic', 'Setting'), $config);
-        // Get list of topic ids
-        $topicId = Pi::service('api')->news(array('Topic', 'Id'));
-        // Set info
-        $offset = (int)($page - 1) * $topic['perpage'];
-        $limit = intval($topic['perpage']);
-        $where = array('status' => 1, 'topic' => $topicId, 'publish <= ?' => time(), 'author' => $user['id']);
-        // Story
-        $story = $this->StoryList($where, $offset, $limit);
-        // Set paginator
-        $template = array('module' => $module, 'controller' => 'writer', 'slug' => urlencode($slug), 'page' => '%page%');
-        $paginator = $this->StoryPaginator($template, $where, $page, $limit);
+        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        // Check slug
+        if (!isset($slug) || empty($slug)) {
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('The tag not found.'));
+        }
+        // Get user
+        $user = Pi::user()->bind($slug, 'identity');
+        $writer = $this->getModel('writer')->find($user->id, 'uid')->toArray();
+        $writer['identity'] = $user->identity;
+        $writer['name'] = $user->name;
+        $writer['email'] = $user->email;
+        $writer['avatar'] = '';
+        // Set story info
+        $where = array('status' => 1, 'time_publish <= ?' => time(), 'uid' => $writer['uid']);
+        // Get story List
+        $storyList = $this->storyList($where, $topic['show_perpage']);
+        // Set paginator info
+        $template = array(
+            'controller' => 'tag',
+            'action' => 'term',
+            'slug' => $writer['user']['identity'],
+            );
+        // Get paginator
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::service('api')->news(array('Spotlight', 'load'), $config);
+        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
         // Set view
-        $this->view()->headTitle(sprintf(__('All stores from %s'), $slug));
-        $this->view()->headDescription($slug, 'set');
-        $this->view()->headKeywords($slug, 'set');
+        $this->view()->headTitle(sprintf(__('All stores from %s'), $writer['user']['identity']));
+        $this->view()->headdescription(sprintf(__('All stores from %s'), $writer['user']['identity']), 'set');
+        $this->view()->headkeywords($writer['user']['identity'], 'set');
         $this->view()->setTemplate($topic['template']);
-        $this->view()->assign('stores', $story);
+        $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
-        $this->view()->assign('user', $user);
+        $this->view()->assign('writer', $writer);
     }
 
     public function listAction()
@@ -87,14 +79,20 @@ class WriterController extends IndexController
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
-            $user = Pi::model('user_account')->find($row->author);
-            $list[$row->id]['identity'] = $user->identity;
-            $list[$row->id]['email'] = $user->email;
+            $user = Pi::user()->get($row->uid, array('id', 'identity', 'name', 'email'));
+            $list[$row->id]['identity'] = $user['identity'];
+            $list[$row->id]['email'] = $user['email'];
+            $list[$row->id]['avatar'] = '';
+            $list[$row->id]['url'] = $this->url('', array(
+                'module' => $module,
+                'controller' => 'writer',
+                'slug' => $list[$row->id]['identity'],
+            ));
         }
         // Set view
         $this->view()->headTitle(__('List of all writers'));
-        $this->view()->headDescription(__('List of all writers'), 'set');
-        $this->view()->headKeywords(__('List,writers'), 'set');
+        $this->view()->headdescription(__('List of all writers'), 'set');
+        $this->view()->headkeywords(__('List,writers'), 'set');
         $this->view()->setTemplate('writer_list');
         $this->view()->assign('writers', $list);
         $this->view()->assign('config', $config);

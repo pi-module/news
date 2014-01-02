@@ -1,26 +1,20 @@
 <?php
 /**
- * News admin topic controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Admin;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
+use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\TopicForm;
 use Module\News\Form\TopicFilter;
@@ -28,52 +22,52 @@ use Zend\Json\Json;
 
 class TopicController extends ActionController
 {
-    protected $ImagePrefix = 'topic_';
+    protected $ImageTopicPrefix = 'topic_';
+
     protected $topicColumns = array(
-        'id', 'pid', 'title', 'slug', 'body', 'image', 'path', 'keywords', 'description', 'topic_type', 'topic_style', 'perpage', 'columns', 'author', 'create', 'status',
-        'showtopic', 'showtopicinfo', 'showauthor', 'showdate', 'showpdf', 'showprint', 'showmail', 'shownav', 'showhits', 'showcoms', 'topic_homepage', 'inlist'
+        'id', 'pid', 'title', 'slug', 'description', 'description_footer', 'image', 'path',
+        'seo_title', 'seo_keywords', 'seo_description', 'uid', 'time_create', 'time_update', 
+        'setting', 'status', 'style',
     );
 
     public function indexAction()
     {
         // Get page
-        $page = $this->params('p', 1);
+        $page = $this->params('page', 1);
         $module = $this->params('module');
         // Get info
-        $columns = array('id', 'title', 'slug', 'topic_type', 'status');
-        $order = array('id DESC', 'create DESC');
+        $columns = array('id', 'title', 'slug', 'style', 'status');
+        $order = array('id DESC', 'time_create DESC');
         $select = $this->getModel('topic')->select()->columns($columns)->order($order);
         $rowset = $this->getModel('topic')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
         }
-        // Go to update page if empty
+        // Go to time_update page if empty
         if (empty($list)) {
             return $this->redirect()->toRoute('', array('action' => 'update'));
         }
         // Set paginator
-        $paginator = \Pi\Paginator\Paginator::factory($list);
+        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $select = $this->getModel('topic')->select()->columns($count);
+        $count = $this->getModel('topic')->selectWith($select)->current()->count;
+        $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            // Use router to build URL for each page
-            'pageParam' => 'p',
-            'totalParam' => 't',
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array(
-                'module' => $this->getModule(),
-                'controller' => 'topic',
-                'action' => 'index',
-            ),
-            // Or use a URL template to create URLs
-            //'template'      => '/url/p/%page%/t/%total%',
-
+            'router'    => $this->getEvent()->getRouter(),
+            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params'    => array_filter(array(
+                'module'        => $this->getModule(),
+                'controller'    => 'topic',
+                'action'        => 'index',
+            )),
         ));
         // Set view
         $this->view()->setTemplate('topic_index');
-        $this->view()->assign('topics', $paginator);
+        $this->view()->assign('topics', $list);
+        $this->view()->assign('paginator', $paginator);
     }
 
     public function removeAction()
@@ -118,26 +112,25 @@ class TopicController extends ActionController
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
-        // Set story image url
-        $options['imageurl'] = null;
-        // Get story
+        $option = array();
+        // Find topic
         if ($id) {
             $topic = $this->getModel('topic')->find($id)->toArray();
-            // Set story image url
-            if ($row['image']) {
-                $options['imageurl'] = Pi::url('upload/' . $this->config('image_path') . '/thumb/' . $topic['path'] . '/' . $topic['image']);
-                $options['removeurl'] = $this->url('', array('action' => 'remove', 'id' => $topic['id']));
+            if ($topic['image']) {
+                $topic['thumbUrl'] = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $topic['path'], $topic['image']);
+                $option['thumbUrl'] = Pi::url($topic['thumbUrl']);
+                $option['removeUrl'] = $this->url('', array('action' => 'remove', 'id' => $topic['id']));
             }
         }
         // Set form
-        $form = new TopicForm('topic', $module, $options);
+        $form = new TopicForm('topic', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
             // Set slug
             $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $data['slug'] = Pi::service('api')->news(array('Text', 'slug'), $slug);
+            $data['slug'] = Pi::api('news', 'text')->slug($slug);
             // Form filter
             $form->setInputFilter(new TopicFilter);
             $form->setData($data);
@@ -145,57 +138,66 @@ class TopicController extends ActionController
                 $values = $form->getData();
                 // upload image
                 if (!empty($file['image']['name'])) {
-                    // Set path
-                    $values['path'] = date('Y') . '/' . date('m');
-                    $original_path = $this->config('image_path') . '/original/' . $values['path'];
-                    $large_path = $this->config('image_path') . '/large/' . $values['path'];
-                    $medium_path = $this->config('image_path') . '/medium/' . $values['path'];
-                    $thumb_path = $this->config('image_path') . '/thumb/' . $values['path'];
-                    // Do upload
-                    $uploader = new Upload(array('destination' => $original_path, 'rename' => $this->ImagePrefix . '%random%'));
+                    // Set upload path
+                    $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
+                    $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+                    // Upload
+                    $uploader = new Upload;
+                    $uploader->setDestination($originalPath);
+                    $uploader->setRename($this->ImageTopicPrefix . '%random%');
                     $uploader->setExtension($this->config('image_extension'));
                     $uploader->setSize($this->config('image_size'));
                     if ($uploader->isValid()) {
                         $uploader->receive();
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
-                        // Resize
-                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $large_path, '8000', '8000');
-                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $medium_path, '8000', '8000');
-                        Pi::service('api')->news(array('Resize', 'start'), $values['image'], $original_path, $thumb_path, '8000', '8000');
+                        // process image
+                        Pi::api('news', 'image')->process($values['image'], $values['path']);
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
-	                $values['image'] = '';	
-                }	
-                /* End upload image */
+                    $values['image'] = '';  
+                }
+                // Set setting
+                $setting = array();
+                $setting['show_type'] = $values['show_type'];
+                $setting['show_perpage'] = $values['show_perpage'];
+                $setting['show_columns'] = $values['show_columns'];
+                $setting['show_topic'] = $values['show_topic'];
+                $setting['show_topicinfo'] = $values['show_topicinfo'];
+                $setting['show_uid'] = $values['show_uid'];
+                $setting['show_date'] = $values['show_date'];
+                $setting['show_pdf'] = $values['show_pdf'];
+                $setting['show_print'] = $values['show_print'];
+                $setting['show_mail'] = $values['show_mail'];
+                $setting['show_hits'] = $values['show_hits'];
+                $setting['show_tag'] = $values['show_tag'];
+                $values['setting'] = Json::encode($setting);
+                // Set just category fields
                 foreach (array_keys($values) as $key) {
                     if (!in_array($key, $this->topicColumns)) {
                         unset($values[$key]);
                     }
                 }
-                // Set topic_homepage
-                $values['topic_homepage'] = ($values['topic_homepage']) ? $values['topic_homepage'] : $this->config('show_homepage');
-                // Set topic_style
-                $values['topic_style'] = ($values['topic_style']) ? $values['topic_style'] : $this->config('show_shwotype');
-                // Set perpage
-                $values['perpage'] = ($values['perpage']) ? $values['perpage'] : $this->config('show_perpage');
-                // Set columns
-                $values['columns'] = ($values['columns']) ? $values['columns'] : $this->config('show_columns');
-                // Set keywords
-                $keywords = ($values['keywords']) ? $values['keywords'] : $values['title'];
-                $values['keywords'] = Pi::service('api')->news(array('Text', 'keywords'), $keywords);
-                // Set description
-                $description = ($values['description']) ? $values['description'] : $values['title'];
-                $values['description'] = Pi::service('api')->news(array('Text', 'description'), $description);
+                // Set seo_title
+                $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+                $values['seo_title'] = Pi::api('news', 'text')->title($title);
+                // Set seo_keywords
+                $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
+                $values['seo_keywords'] = Pi::api('news', 'text')->keywords($keywords);
+                // Set seo_description
+                $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+                $values['seo_description'] = Pi::api('news', 'text')->description($description);
                 // Set if new
                 if (empty($values['id'])) {
                     // Set time
-                    $values['create'] = time();
+                    $values['time_create'] = time();
                     // Set user
-                    $values['author'] = Pi::registry('user')->id;
+                    $values['uid'] = Pi::user()->getId();
                 }
+                // Set time_update
+                $values['time_update'] = time();
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('topic')->find($values['id']);
@@ -223,6 +225,8 @@ class TopicController extends ActionController
             }
         } else {
             if ($id) {
+                $setting = Json::decode($topic['setting']);
+                $topic = array_merge($topic, (array) $setting);
                 $form->setData($topic);
                 $message = 'You can edit this Topic';
             } else {
@@ -247,7 +251,7 @@ class TopicController extends ActionController
         if ($row) {
             // Delete writers
             Pi::service('api')->news(array('Writer', 'DeleteTopic'), $row->id);
-            // Update sub topics
+            // time_update sub topics
             $this->getModel('topic')->update(array('pid' => $row->pid), array('pid' => $row->id));
             // remove topic links
             $this->getModel('link')->delete(array('topic' => $row->id));
@@ -260,7 +264,7 @@ class TopicController extends ActionController
                 // Attach
                 $this->getModel('attach')->delete(array('story' => $story['id']));
                 // Extra
-                $this->getModel('data')->delete(array(story => $story['id']));
+                $this->getModel('field_data')->delete(array(story => $story['id']));
                 // Spotlight
                 $this->getModel('spotlight')->delete(array('story' => $story['id']));
                 // Remove story images
@@ -295,7 +299,7 @@ class TopicController extends ActionController
     /**
      * Add page settings to system
      *
-     * @author Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
+     * @uid Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
      * @param string $name
      * @param string $title
      * @return int
@@ -319,7 +323,7 @@ class TopicController extends ActionController
     /**
      * Remove from system page settings
      *
-     * @author Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
+     * @uid Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
      * @param stinr $name
      * @return int
      */
@@ -336,7 +340,7 @@ class TopicController extends ActionController
     }
     
     /**
-     * Update from system page settings
+     * time_update from system page settings
      *
      * @param stinr $name
      * @return int

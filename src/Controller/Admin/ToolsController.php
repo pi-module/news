@@ -1,22 +1,15 @@
 <?php
 /**
- * News admin tools controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -34,12 +27,12 @@ class ToolsController extends ActionController
 
     public function writerAction()
     {
-        $select = $this->getModel('story')->select()->columns(array('author'))->group('author');
+        $select = $this->getModel('story')->select()->columns(array('uid'))->group('uid');
         $rowset = $this->getModel('story')->selectWith($select)->toArray();
         foreach ($rowset as $row) {
-            $select = $this->getModel('story')->select()->columns(array('id'))->where(array('author' => $row['author']));
+            $select = $this->getModel('story')->select()->columns(array('id'))->where(array('uid' => $row['uid']));
             $rowset = $this->getModel('story')->selectWith($select);
-            $writers[] = Pi::service('api')->news(array('Writer', 'Reset'), $row['author'], $rowset->count());
+            $writers[] = Pi::service('api')->news(array('Writer', 'Reset'), $row['uid'], $rowset->count());
         }
         // Set view
         $this->view()->setTemplate('tools_writer');
@@ -51,14 +44,14 @@ class ToolsController extends ActionController
     public function rebuildAction()
     {
         $form = new RebuildForm('rebuild');
-        $message = __('You can rebuild all your added stores, after rebuild all your old data update to new.
-		                 And you must set start and end publish time.');
+        $message = __('You can rebuild all your added stores, after rebuild all your old data time_update to new.
+		                 And you must set start and end time_publish time.');
         if ($this->request->isPost()) {
             // Set form date
             $values = $this->request->getPost();
             // Get all story
-            $where = array('publish > ?' => strtotime($values['start']), 'publish < ?' => strtotime($values['end']));
-            $columns = array('id', 'title', 'slug', 'keywords', 'description');
+            $where = array('time_publish > ?' => strtotime($values['start']), 'time_publish < ?' => strtotime($values['end']));
+            $columns = array('id', 'title', 'slug', 'seo_keywords', 'seo_description');
             $order = array('id ASC');
             $select = $this->getModel('story')->select()->where($where)->columns($columns)->order($order);
             $rowset = $this->getModel('story')->selectWith($select);
@@ -69,23 +62,23 @@ class ToolsController extends ActionController
                         $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $row->title, $row->id, $this->getModel('story'));
                         $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild slug, all story slug update');
+                    $message = __('Finish Rebuild slug, all story slug time_update');
                     break;
 
-                case 'keywords':
+                case 'seo_keywords':
                     foreach ($rowset as $row) {
-                        $keywords = Pi::service('api')->news(array('Text', 'keywords'), $row->title);
-                        $this->getModel('story')->update(array('keywords' => $keywords), array('id' => $row->id));
+                        $seo_keywords = Pi::service('api')->news(array('Text', 'seo_keywords'), $row->title);
+                        $this->getModel('story')->update(array('seo_keywords' => $seo_keywords), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild Meta keywords, all story Meta keywords update');
+                    $message = __('Finish Rebuild Meta seo_keywords, all story Meta seo_keywords time_update');
                     break;
 
-                case 'description':
+                case 'seo_description':
                     foreach ($rowset as $row) {
-                        $description = Pi::service('api')->news(array('Text', 'description'), $row->title);
-                        $this->getModel('story')->update(array('description' => $description), array('id' => $row->id));
+                        $seo_description = Pi::service('api')->news(array('Text', 'seo_description'), $row->title);
+                        $this->getModel('story')->update(array('seo_description' => $seo_description), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild Meta description, all story Meta description update');
+                    $message = __('Finish Rebuild Meta seo_description, all story Meta seo_description time_update');
                     break;
             }
         }
@@ -103,7 +96,7 @@ class ToolsController extends ActionController
             // Set form date
             $values = $this->request->getPost();
             // Set where date
-            $where = array('publish < ?' => strtotime($values['date']));
+            $where = array('time_publish < ?' => strtotime($values['date']));
             // Set topics if select
             if ($values['topic'] && is_array($values['topic'])) {
                 $where['topic'] = $values['topic'];
@@ -127,7 +120,7 @@ class ToolsController extends ActionController
     public function spotlightAction()
     {
         // Delete spotlights
-        $where = array('expire < ?' => time());
+        $where = array('time_expire < ?' => time());
         $number = $this->getModel('spotlight')->delete($where);
         if ($number) {
             // Set class

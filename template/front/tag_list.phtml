@@ -1,0 +1,20 @@
+<?php $this->css($this->assetModule('css/front.css')); ?>
+<div class="news">
+<?php if (isset($tagList) && !empty($tagList)) { ?>
+<div class="tagList clearfix">
+	<div class="page-header">
+		<h4><?php _e('Tag list'); ?></h4>
+	</div>
+	<div class="row">
+		<?php foreach($tagList as $tag) { ?>
+		<div class="well well-small col-md-3">
+			<a title="<?php echo $this->escape($tag['term']); ?>" href="<?php echo $this->escape($tag['url']); ?>">
+				<i class="fa fa-tag"></i> <?php echo $this->escape($tag['term']); ?> ( <?php echo $this->escape($tag['count']); ?> )
+			</a>
+		</div>
+		<?php } ?>
+   </div>
+</div>
+<div class="clearfix"></div>
+<?php } ?>
+</div>

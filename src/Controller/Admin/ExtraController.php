@@ -1,22 +1,15 @@
 <?php
 /**
- * News admin topic controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -27,8 +20,11 @@ use Module\News\Form\ExtraFilter;
 
 class ExtraController extends ActionController
 {
-    protected $ImagePrefix = 'extra_';
-    protected $extraColumns = array('id', 'title', 'image', 'type', 'order', 'status', 'search');
+    protected $ImageExtraPrefix = 'extra_';
+
+    protected $extraColumns = array(
+        'id', 'title', 'image', 'type', 'order', 'status', 'search', 'value'
+    );
 
     public function indexAction()
     {
@@ -38,7 +34,7 @@ class ExtraController extends ActionController
         // Make list
         foreach ($rowset as $row) {
             $field[$row->id] = $row->toArray();
-            $field[$row->id]['imageurl'] = Pi::url('upload/' . $this->config('file_path') . '/extra/' . $field[$row->id]['image']);
+            $field[$row->id]['imageUrl'] = Pi::url(sprintf('upload/%s/icon/%s', $this->config('file_path'), $field[$row->id]['image']));
         }
         // Go to update page if empty
         if (empty($field)) {
@@ -49,54 +45,17 @@ class ExtraController extends ActionController
         $this->view()->assign('fields', $field);
     }
 
-    public function removeAction()
-    {
-        // Get id and status
-        $id = $this->params('id');
-        // set story
-        $field = $this->getModel('field')->find($id);
-        // Check
-        if ($field && !empty($id)) {
-            // remove image
-            $this->removeFile($field->image);
-            // clear DB
-            $field->image = '';
-            // Save
-            if ($field->save()) {
-                $message = sprintf(__('Image of %s removed'), $field->title);
-                $status = 1;
-            } else {
-                $message = __('Image not remove');
-                $status = 0;
-            }
-        } else {
-            $message = __('Please select story');
-            $status = 0;
-        }
-        return array(
-            'status' => $status,
-            'message' => $message,
-        );
-    }
-
     public function updateAction()
     {
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
-        // Set story image url
-        $options['imageurl'] = null;
-        // Get story
+        // Get extra
         if ($id) {
-            $values = $this->getModel('field')->find($id)->toArray();
-            // Set story image url
-            if ($values['image']) {
-                $options['imageurl'] = Pi::url('upload/' . $this->config('file_path') . '/extra/' . $values['image']);
-                $options['removeurl'] = $this->url('', array('action' => 'remove', 'id' => $values['id']));
-            }
+            $extra = $this->getModel('field')->find($id)->toArray();
         }
         // Set form
-        $form = new ExtraForm('story', $options);
+        $form = new ExtraForm('extra', $options);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
@@ -107,8 +66,12 @@ class ExtraController extends ActionController
                 $values = $form->getData();
                 // upload image
                 if (!empty($file['image']['name'])) {
-                    // Do upload
-                    $uploader = new Upload(array('destination' => $this->config('file_path') . '/extra/', 'rename' => $this->ImagePrefix . '%random%'));
+                    // Set upload path
+                    $path = Pi::path(sprintf('upload/%s/icon', $this->config('file_path')));
+                    // Upload
+                    $uploader = new Upload;
+                    $uploader->setDestination($path);
+                    $uploader->setRename($this->ImageExtraPrefix . '%random%');
                     $uploader->setExtension($this->config('image_extension'));
                     $uploader->setSize($this->config('image_size'));
                     if ($uploader->isValid()) {
@@ -119,8 +82,9 @@ class ExtraController extends ActionController
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
-	                $values['image'] = '';	
+                    $values['image'] = '';  
                 }
+                // Set just product fields
                 foreach (array_keys($values) as $key) {
                     if (!in_array($key, $this->extraColumns)) {
                         unset($values[$key]);
@@ -150,7 +114,7 @@ class ExtraController extends ActionController
             }
         } else {
             if ($id) {
-                $form->setData($values);
+                $form->setData($extra);
                 $message = 'You can edit this extra field';
             } else {
                 $message = 'You can add new extra field';
@@ -183,29 +147,19 @@ class ExtraController extends ActionController
 
     public function deleteAction()
     {
-        /*
-           * not completed and need confirm option
-           */
         // Get information
         $this->view()->setTemplate(false);
         $id = $this->params('id');
         $row = $this->getModel('field')->find($id);
         if ($row) {
             // Remove all data
-            $this->getModel('data')->delete(array('field' => $row->id));
-            // Remove image
-            $this->removeFile($row->image);
+            $this->getModel('field_data')->delete(array('field' => $row->id));
             // Remove field
             $row->delete();
             $this->jump(array('action' => 'index'), __('Selected field delete'));
         } else {
             $this->jump(array('action' => 'index'), __('Please select field'));
         }
-    }
 
-    protected function removeFile($file)
-    {
-        $file = Pi::path('upload/' . $this->config('file_path') . '/extra/' . $file);
-        Pi::service('file')->remove($file);
     }
 }

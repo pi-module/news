@@ -13,13 +13,13 @@ $this->css(array(
 			<?php foreach($writers as $writer) { ?>
 			<div class="profile">
 				<div class="profile-avatar">
-					<?php echo $this->gravatar($this->escape($writer['email'])); ?>
+					<?php echo $this->escape($writer['avatar']); ?>
 				</div>
 				<div class="profile-info">
 					<h5 class="profile-identity"><?php echo $this->escape($writer['identity']); ?></h5>
 					<div class="profile-email"><?php echo $this->escape($writer['email']); ?></div>
 					<div class="profile-link">
-						<a title="<?php _e('All stores'); ?>" href="<?php echo $this->url('.news', array('module' => $module ,'controller' => 'writer' ,'action' => 'index' ,'slug' => $this->escape($writer['identity']))); ?>"><?php _e('All stores'); ?></a>
+						<a title="<?php _e('All stores'); ?>" href="<?php echo $this->escape($writer['url']); ?>"><?php _e('All stores'); ?></a>
 					</div>
 				</div>
 				<div class="clearfix"></div>

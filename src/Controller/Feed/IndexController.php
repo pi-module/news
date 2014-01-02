@@ -1,23 +1,15 @@
 <?php
 /**
- * Feed controller class
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @subpackage      Controller
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Feed;
 
 use Pi\Mvc\Controller\FeedController;
@@ -29,7 +21,7 @@ use Pi;
 class IndexController extends FeedController
 {
     /**
-     * Create feeds for recent module updates
+     * time_create feeds for recent module time_updates
      *
      * @return array
      */
@@ -37,11 +29,11 @@ class IndexController extends FeedController
     {
         $feed = $this->getDataModel(array(
             'title'         => __('News feed'),
-            'description'   => __('Recent News.'),
-            'date_created'  => time(),
+            'seo_description'   => __('Recent News.'),
+            'date_time_created'  => time(),
         ));
-        $columns = array('id', 'title', 'slug', 'short', 'publish');
-        $order = array('publish DESC', 'id DESC');
+        $columns = array('id', 'title', 'slug', 'short', 'time_publish');
+        $order = array('time_publish DESC', 'id DESC');
         $where = array('status' => 1);
         $limit = intval($this->config('feed_num'));
         $select = $this->getModel('story')->select()->columns($columns)->where($where)->order($order)->limit($limit);
@@ -49,8 +41,8 @@ class IndexController extends FeedController
         foreach ($rowset as $row) {
             $entry = array();
             $entry['title'] = $row->title;
-            $entry['description'] = $row->short;
-            $entry['date_modified'] = (int)$row->publish;
+            $entry['seo_description'] = $row->short;
+            $entry['date_modified'] = (int)$row->time_publish;
             $entry['link'] = $this->getHref($row);
             $feed->entry = $entry;
         }

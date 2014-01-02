@@ -1,23 +1,15 @@
 <?php
 /**
- * News admin topic controller
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\News
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
+/**
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
+ */
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -31,7 +23,7 @@ class AttachController extends ActionController
 {
     protected $FilePrefix = 'attach_';
     protected $attachColumns = array(
-        'id', 'title', 'file', 'path', 'story', 'create', 'size', 'type', 'status', 'hits'
+        'id', 'title', 'file', 'path', 'story', 'time_create', 'size', 'type', 'status', 'hits'
     );
 
     public function indexAction()
@@ -41,7 +33,7 @@ class AttachController extends ActionController
         $story = $this->params('story');
         $module = $this->params('module');
         // Set info
-        $order = array('create DESC', 'id DESC');
+        $order = array('time_create DESC', 'id DESC');
         $offset = (int)($page - 1) * $this->config('admin_perpage');
         $limit = intval($this->config('admin_perpage'));
         // Get info
@@ -51,7 +43,7 @@ class AttachController extends ActionController
         foreach ($rowset as $row) {
             $file[$row->id] = $row->toArray();
             $story = $this->getModel('story')->find($file[$row->id]['story'])->toArray();
-            $file[$row->id]['create'] = _date($file[$row->id]['create']);
+            $file[$row->id]['time_create'] = _date($file[$row->id]['time_create']);
             $file[$row->id]['storytitle'] = $story['title'];
             $file[$row->id]['preview'] = $this->filePreview($file[$row->id]['type'], $file[$row->id]['path'], $file[$row->id]['file']);
             if ($file[$row->id]['type'] == 'image') {
@@ -60,7 +52,7 @@ class AttachController extends ActionController
                 $file[$row->id]['link'] = Pi::url('upload/' . $this->config('file_path') . '/' . $file[$row->id]['type'] . '/' . $file[$row->id]['path'] . '/' . $file[$row->id]['file']);
             }
         }
-        // Go to update page if empty
+        // Go to time_update page if empty
         if (empty($file)) {
             $this->jump(array('controller' => 'story', 'action' => 'index'), __('No file attached'));
         }
@@ -107,7 +99,7 @@ class AttachController extends ActionController
         $contents = array();
         foreach ($rowset as $row) {
             $content[$row->id] = $row->toArray();
-            $content[$row->id]['create'] = _date($content[$row->id]['create']);
+            $content[$row->id]['time_create'] = _date($content[$row->id]['time_create']);
             $content[$row->id]['preview'] = $this->filePreview($content[$row->id]['type'], $content[$row->id]['path'], $content[$row->id]['file']);
             $contents[] = $content[$row->id];
         }
@@ -171,7 +163,7 @@ class AttachController extends ActionController
         Pi::service('log')->active(false);
         // Set return
         $return = array(
-            'status' => 1, 'message' => '', 'id' => '', 'title' => '', 'create' => '',
+            'status' => 1, 'message' => '', 'id' => '', 'title' => '', 'time_create' => '',
             'type' => '', 'status' => '', 'hits' => '', 'size' => '', 'preview' => '',
         );
         // Get id
@@ -206,7 +198,7 @@ class AttachController extends ActionController
                     $values['title'] = '';
                     $values['path'] = $path;
                     $values['story'] = $story['id'];
-                    $values['create'] = time();
+                    $values['time_create'] = time();
                     $values['type'] = $type;
                     $values['status'] = 1;
                     $values['size'] = '';
@@ -217,7 +209,7 @@ class AttachController extends ActionController
                     // Set erturn array
                     $return['id'] = $row->id;
                     $return['title'] = $row->title;
-                    $return['create'] = _date($row->create);
+                    $return['time_create'] = _date($row->time_create);
                     $return['type'] = $row->type;
                     $return['status'] = $row->status;
                     $return['size'] = $row->size;
