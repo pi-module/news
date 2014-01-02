@@ -150,9 +150,6 @@ class SpotlightController extends ActionController
 
     public function deleteAction()
     {
-        /*
-           * not completed and need confirm option
-           */
         // Get information
         $this->view()->setTemplate(false);
         $id = $this->params('id');

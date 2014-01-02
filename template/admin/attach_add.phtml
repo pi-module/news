@@ -11,80 +11,63 @@
     $this->js($this->assetModule('script/system-msg.js', 'system'));
     $this->Backbone();
 ?>
-<div class="news">
-	<p>
-	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="fa fa-file"></i> <?php _e('Add Story'); ?></a>
-	</p>
-	<div class="row">
-		<div class="col-md-3">
-			<h5><?php _e('Levels'); ?></h5>
-			<div class="sub-nav">
-				<ul class="nav nav-tabs nav-stacked">
-					<li><a title="<?php _e('1- Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'id' => $story['id'])); ?>"><?php _e('1- Story'); ?></a></li>
-					<li class="active"><a title="<?php _e('2- Attach'); ?>"><?php _e('2- Attach'); ?></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-md-9">
-			<h4><?php echo $this->escape($title); ?></h4>
-			<div id="attach-form">
-				<div class="controls" id="js-carousel" style="overflow:hidden;">
-				   <div class="upload-carousel-btn">
-				       <div class="upload-carousel-add">
-				         <i class="fa fa-plus fileinput-button">
-				            <input type="file" name="file" multiple style="width: 100%;">
-				         </i>
-				       </div>
-				   </div>
-				</div>
-			   <div class="form-actions">
-				   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'id' => $story['id'])); ?>"><?php _e('Back'); ?></a>
-		         <a class="btn btn-primary" title="<?php _e('Finish'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><?php _e('Finish'); ?></a>
-		      </div>
-			</div>
-		</div>
-	</div>
+<div class="shop">
+    <h4><?php echo $this->escape($title); ?></h4>
+    <div id="attach-form">
+        <div class="controls" id="js-carousel" style="overflow:hidden;">
+            <div class="upload-carousel-btn">
+                <div class="upload-carousel-add">
+                    <i class="fa fa-plus fileinput-button">
+                        <input type="file" name="file" multiple style="width: 100%;">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'id' => $story['id'])); ?>"><?php _e('Back'); ?></a>
+            <a class="btn btn-primary" title="<?php _e('Finish'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><?php _e('Finish'); ?></a>
+        </div>
+    </div>
 </div>
 <script id="temp-carousel" type="text/template">
-   <div class="well">
-		<div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>" /></div>
-		<p><%= data.title %></p>
-	   <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></button>
-	   <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></button>
-   </div>
-	<div id="info-attach-<%= data.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-label label-defaultledby="myModallabel label-default" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModallabel label-default"><?php _e('Title'); ?> : <%= data.title %></h3>
-		</div>
-			<div class="modal-body">
-			  <div class="pull-right upload-carousel-item-img"><img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>" /></div>
-				<div class="mr10">
-					<strong><?php _e('time_create'); ?> </strong>
-					<span> <%= data.time_create %> </span>
-				</div>
-				<div class="mr10">
-					<strong><?php _e('Type'); ?> </strong>
-					<span> <%= data.type %> </span>
-				</div>
-				<div class="mr10">
-					<strong><?php _e('Status'); ?> </strong>
-					<span> <%= data.status %> </span>
-				</div>
-				<div class="mr10">
-					<strong><?php _e('Hits'); ?> </strong>
-					<span> <%= data.hits %> </span>
-				</div>
-				<div class="mr10">
-					<strong><?php _e('Size'); ?> </strong>
-					<span> <%= data.size %> </span>
-				</div>
-			</div>
-			<div class="modal-footer">
-			<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"><?php _e('Close'); ?></button>
-		</div>
-	</div>
+    <div id="file-<%= data.id %>" class="well">
+        <div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>" /></div>
+        <p><%= data.title %></p>
+        <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="fa fa-eye-open fa fa-white"></i> <?php _e('Preview'); ?></button>
+        <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
+    </div>
+    <div id="info-attach-<%= data.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel"><?php _e('Title'); ?> : <%= data.title %></h3>
+        </div>
+        <div class="modal-body">
+            <div class="pull-right upload-carousel-item-img"><img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>" /></div>
+            <div class="mr10">
+                <strong><?php _e('Create'); ?> </strong>
+                <span> <%= data.create %> </span>
+            </div>
+            <div class="mr10">
+                <strong><?php _e('Type'); ?> </strong>
+                <span> <%= data.type %> </span>
+            </div>
+            <div class="mr10">
+                <strong><?php _e('Status'); ?> </strong>
+                <span> <%= data.status %> </span>
+            </div>
+            <div class="mr10">
+                <strong><?php _e('Hits'); ?> </strong>
+                <span> <%= data.hits %> </span>
+            </div>
+            <div class="mr10">
+                <strong><?php _e('Size'); ?> </strong>
+                <span> <%= data.size %> </span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"><?php _e('Close'); ?></button>
+        </div>
+    </div>
 </script>
 <script type="text/javascript">
 var page={
@@ -94,16 +77,16 @@ var page={
             var content=[];
             page.form.find(".upload-carousel-item").each(function(){
                 var el=$(this);
-                 content.push({
-                   "id":el.find("[name=id]").val(),
-                   "title":el.find("[name=title]").val(),
-                   "time_create":el.find("[name=time_create]").val(),
-                   "type":el.find("[name=type]").val(),
-                   "size":el.find("[name=size]").val(),
-                   "status":el.find("[name=status]").val(),
-                   "hits":el.find("[name=hits]").val(),
-                   "preview":el.find("[name=preview]").val(),
-                 });
+                content.push({
+                    "id":el.find("[name=id]").val(),
+                    "title":el.find("[name=title]").val(),
+                    "create":el.find("[name=create]").val(),
+                    "type":el.find("[name=type]").val(),
+                    "size":el.find("[name=size]").val(),
+                    "status":el.find("[name=status]").val(),
+                    "hits":el.find("[name=hits]").val(),
+                    "preview":el.find("[name=preview]").val(),
+                });
             });
             page.form.find("[name=content]").val(JSON.stringify(content));
         });
@@ -111,9 +94,9 @@ var page={
 }
 var carouselCollection = new Backbone.Collection(<?php echo $content ?: '[]'; ?>);
 var carouselItemView = Backbone.View.extend({
-    className:"upload-carousel-item",
+    className: "upload-carousel-item",
     events: {
-       "click .remove-attach":"cancel",
+        "click .remove-attach": "cancel",
     },
     render: function () {
         this.$el.html(_.template($("#temp-carousel").html(), this.model.toJSON(), {
@@ -122,21 +105,22 @@ var carouselItemView = Backbone.View.extend({
         return this.el;
     },
     cancel: function () {
-	    $("#attach-form").on("click","button",function(){
-	       systemMessage.wait("<?php _e('In process'); ?>");
-	       $.getJSON($(this).attr("data-link")).done(function(result){
-	          if(result.status==1){
-	             systemMessage.succ(result.message);
-	          }else{
-	             systemMessage.fail(result.message);
-	          }
-	       });
-	    });
+        $("#attach-form").on("click","button",function(){
+            systemMessage.wait("<?php _e('In process'); ?>");
+            $.getJSON($(this).attr("data-link")).done(function(result){
+                if(result.status==1){
+                    systemMessage.succ(result.message);
+                    $('#info-attach-' + result.id).remove();
+                    $('#file-' + result.id).remove();
+                }else{
+                    systemMessage.fail(result.message);
+                }
+            });
+        });
     },
 });
 var carouselListView = Backbone.View.extend({
     el: $("#js-carousel"),
-    
     initialize: function () {
         carouselCollection.on("add", this.addOne, this);
         this.btn=this.$(".upload-carousel-btn");
@@ -145,50 +129,50 @@ var carouselListView = Backbone.View.extend({
     },
     fileupload: function () {
         var obj={
-          url:"<?php echo $this->url('', array('action' => 'upload', 'id' => $story['id'])); ?>",
-          formData:function(){
-              return [];
-          }
+            url: "<?php echo $this->url('', array('action' => 'upload', 'id' => $story['id'])); ?>",
+            formData:function(){
+                return [];
+            }
         };
         if ($.support.xhrFileUpload) { //html5 upload
             this.$("[name=file]").fileupload(_.extend(obj,{
                 done:function(e,data){
-                     var resp = $.parseJSON(data.jqXHR.responseText);
-                        if (resp.status == 1) {
-                             carouselCollection.add({
-                                   id: resp.id,
-					                    title: resp.title,
-					                    time_create: resp.time_create,
-					                    type: resp.type,
-					                    status: resp.status,
-					                    hits: resp.hits,
-					                    size: resp.size,
-					                    preview: resp.preview,
-                              });
-                        } else {
-                            alert(resp.message);
-                       }
+                    var resp = $.parseJSON(data.jqXHR.responseText);
+                    if (resp.status == 1) {
+                        carouselCollection.add({
+                            id: resp.id,
+                            title: resp.title,
+                            create: resp.create,
+                            type: resp.type,
+                            status: resp.status,
+                            hits: resp.hits,
+                            size: resp.size,
+                            preview: resp.preview,
+                        });
+                    } else {
+                        alert(resp.message);
+                    }
                 }
             }));
         } else { //ie upload
-           this.$("[name=file]").fileupload(_.extend(obj,{
-               forceIframeTransport:true,
-               done:function(e,data){
-                     var resp = $.parseJSON($.trim(data.result.contents().find('body').html()));
-                         if (resp.status == 1) {
-                                carouselCollection.add({
-                                   id: resp.id,
-					                    title: resp.title,
-					                    time_create: resp.time_create,
-					                    type: resp.type,
-					                    status: resp.status,
-					                    hits: resp.hits,
-					                    size: resp.size,
-					                    preview: resp.preview,
-                                 });
-                           } else {
-                               alert(resp.message);
-                          }
+            this.$("[name=file]").fileupload(_.extend(obj,{
+                forceIframeTransport:true,
+                done:function(e,data){
+                    var resp = $.parseJSON($.trim(data.result.contents().find('body').html()));
+                    if (resp.status == 1) {
+                        carouselCollection.add({
+                            id: resp.id,
+                            title: resp.title,
+                            create: resp.create,
+                            type: resp.type,
+                            status: resp.status,
+                            hits: resp.hits,
+                            size: resp.size,
+                            preview: resp.preview,
+                        });
+                    } else {
+                        alert(resp.message);
+                    }
                 }
            }));
         }

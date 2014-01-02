@@ -35,11 +35,11 @@ class PruneForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'value' => date('Y-m-d'),
+                'value' => date('Y-m-d', strtotime('-48 week')),
             )
         ));
         // topic
-        $this->add(array(
+        /* $this->add(array(
             'name' => 'topic',
             'type' => 'Module\News\Form\Element\Topic',
             'options' => array(
@@ -47,7 +47,7 @@ class PruneForm extends BaseForm
                 'module' => $this->module,
                 'topic' => '',
             ),
-        ));
+        )); */
         // Save
         $this->add(array(
             'name' => 'submit',

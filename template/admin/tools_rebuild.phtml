@@ -1,11 +1,12 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
 	<p>
-	   <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="fa fa-repeat"></i> <?php _e('Rebuild'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Prune'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Writer'); ?>" href="<?php echo $this->url('', array('action' => 'writer')); ?>"><i class="fa fa-user"></i> <?php _e('Writer'); ?></a>
-	   <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="fa fa-user"></i> <?php _e('Spotlight'); ?></a>
+		<a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="fa fa-repeat"></i> <?php _e('Rebuild'); ?></a>
+		<a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Prune'); ?></a>
+		<a class="btn btn-danger" title="<?php _e('Writer'); ?>" href="<?php echo $this->url('', array('action' => 'writer')); ?>"><i class="fa fa-user"></i> <?php _e('Writer'); ?></a>
+		<a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="fa fa-user"></i> <?php _e('Spotlight'); ?></a>
 	</p>
-	<h2><?php echo $this->escape($title); ?></h2>
+	<h3><?php echo $this->escape($title); ?></h3>
+	<div class="alert alert-success"><?php echo $this->escape($message); ?></div>
 	<?php include $this->templateComponent('forms'); ?>
 </div> 

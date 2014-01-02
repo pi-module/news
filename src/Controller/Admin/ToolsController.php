@@ -30,9 +30,11 @@ class ToolsController extends ActionController
         $select = $this->getModel('story')->select()->columns(array('uid'))->group('uid');
         $rowset = $this->getModel('story')->selectWith($select)->toArray();
         foreach ($rowset as $row) {
-            $select = $this->getModel('story')->select()->columns(array('id'))->where(array('uid' => $row['uid']));
-            $rowset = $this->getModel('story')->selectWith($select);
-            $writers[] = Pi::service('api')->news(array('Writer', 'Reset'), $row['uid'], $rowset->count());
+            $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $where = array('uid' => $row['uid']);
+            $select = $this->getModel('story')->select()->columns($count)->where($where);
+            $count = $this->getModel('story')->selectWith($select)->current()->count;
+            $writers[] = Pi::api('news', 'writer')->Reset($row['uid'], $count);
         }
         // Set view
         $this->view()->setTemplate('tools_writer');
@@ -43,15 +45,16 @@ class ToolsController extends ActionController
 
     public function rebuildAction()
     {
+        // Set message
+        $message = __('You can rebuild all your added stores, after rebuild all your old data update to new. And you must set start and end publish time.');
+        // Set form
         $form = new RebuildForm('rebuild');
-        $message = __('You can rebuild all your added stores, after rebuild all your old data time_update to new.
-		                 And you must set start and end time_publish time.');
         if ($this->request->isPost()) {
             // Set form date
             $values = $this->request->getPost();
             // Get all story
             $where = array('time_publish > ?' => strtotime($values['start']), 'time_publish < ?' => strtotime($values['end']));
-            $columns = array('id', 'title', 'slug', 'seo_keywords', 'seo_description');
+            $columns = array('id', 'title', 'slug', 'seo_title', 'seo_keywords', 'seo_description');
             $order = array('id ASC');
             $select = $this->getModel('story')->select()->where($where)->columns($columns)->order($order);
             $rowset = $this->getModel('story')->selectWith($select);
@@ -59,29 +62,38 @@ class ToolsController extends ActionController
             switch ($values['rebuild']) {
                 case 'slug':
                     foreach ($rowset as $row) {
-                        $values['slug'] = Pi::service('api')->news(array('Text', 'slug'), $row->title, $row->id, $this->getModel('story'));
+                        $values['slug'] = Pi::api('news', 'text')->slug($row->title);
                         $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild slug, all story slug time_update');
+                    $message = __('Finish Rebuild slug, all story slug update');
+                    break;
+
+                case 'seo_title':
+                    foreach ($rowset as $row) {
+                        $seo_title = Pi::api('news', 'text')->title($row->title);
+                        $this->getModel('story')->update(array('seo_keywords' => $seo_title), array('id' => $row->id));
+                    }
+                    $message = __('Finish Rebuild SEO title, all story SEO title update');
                     break;
 
                 case 'seo_keywords':
                     foreach ($rowset as $row) {
-                        $seo_keywords = Pi::service('api')->news(array('Text', 'seo_keywords'), $row->title);
+                        $seo_keywords = Pi::api('news', 'text')->keywords($row->title);
                         $this->getModel('story')->update(array('seo_keywords' => $seo_keywords), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild Meta seo_keywords, all story Meta seo_keywords time_update');
-                    break;
+                    $message = __('Finish Rebuild SEO keywords, all story SEO keywords update');
+                    break;    
 
                 case 'seo_description':
                     foreach ($rowset as $row) {
-                        $seo_description = Pi::service('api')->news(array('Text', 'seo_description'), $row->title);
+                        $seo_description = Pi::api('news', 'text')->description($row->title);
                         $this->getModel('story')->update(array('seo_description' => $seo_description), array('id' => $row->id));
                     }
-                    $message = __('Finish Rebuild Meta seo_description, all story Meta seo_description time_update');
+                    $message = __('Finish Rebuild SEO description, all story SEO description update');
                     break;
             }
         }
+        // Set view
         $this->view()->setTemplate('tools_rebuild');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Rebuild stores'));
@@ -98,11 +110,12 @@ class ToolsController extends ActionController
             // Set where date
             $where = array('time_publish < ?' => strtotime($values['date']));
             // Set topics if select
-            if ($values['topic'] && is_array($values['topic'])) {
-                $where['topic'] = $values['topic'];
-            }
+            //if ($values['topic'] && is_array($values['topic'])) {
+            //    $where['topic'] = $values['topic'];
+            //}
             // Delete storys
             $number = $this->getModel('story')->delete($where);
+            $number = $this->getModel('link')->delete($where);
             if ($number) {
                 // Set class
                 $message = sprintf(__('<strong>%s</strong> old stores removed'), $number);

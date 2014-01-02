@@ -26,9 +26,10 @@ class RebuildForm extends BaseForm
                 'label' => __('Rebuild'),
                 'value' => 'slug',
                 'value_options' => array(
-                    'slug' => __('slug'),
-                    'seo_keywords' => __('Meta seo_keywords'),
-                    'description' => __('Meta seo_description'),
+                    'slug' => __('Slug'),
+                    'seo_title' => __('Seo title'),
+                    'seo_keywords' => __('Seo keywords'),
+                    'seo_description' => __('Seo description'),
                 ),
             ),
         ));
@@ -40,7 +41,7 @@ class RebuildForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'date',
-                'value' => date('Y-m-d'),
+                'value' => date('Y-m-d', strtotime('-1 week')),
                 'description' => '',
             )
         ));
