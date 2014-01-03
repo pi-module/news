@@ -151,10 +151,6 @@ class News extends Standard
             }
         }
 
-        echo '<pre>';
-        print_r($matches);
-        echo '</pre>';
-
         return $matches;
     }
 

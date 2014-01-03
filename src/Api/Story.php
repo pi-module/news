@@ -17,6 +17,7 @@ use Pi\Application\AbstractApi;
 use Zend\Json\Json;
 
 /*
+ * Pi::api('news', 'story')->getStory($parameter, $type);
  * Pi::api('news', 'story')->AttachCount($id);
  * Pi::api('news', 'story')->AttachList($id);
  * Pi::api('news', 'story')->ExtraCount($id);
@@ -30,6 +31,14 @@ use Zend\Json\Json;
 
 class Story extends AbstractApi
 {
+    public function getStory($parameter, $type = 'id')
+    {
+        // Get product
+        $story = Pi::model('story', $this->getModule())->find($parameter, $type);
+        $story = $this->canonizeStory($story);
+        return $story;
+    }
+
     /**
      * Set number of attach files for selected story
      */

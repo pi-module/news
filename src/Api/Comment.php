@@ -34,14 +34,14 @@ class Comment extends AbstractComment
         $items = (array) $item;
 
         // Set options
-        $products = Pi::api('news', 'story')->getListFromId($items);
+        $story = Pi::api('news', 'story')->getListFromId($items);
 
         foreach ($items as $id) {
             $result[$id] = array(
-                'title' => $products[$id]['title'],
-                'url'   => $products[$id]['storyUrl'],
-                'uid'   => $products[$id]['uid'],
-                'time'  => $products[$id]['time_create'],
+                'title' => $story[$id]['title'],
+                'url'   => $story[$id]['storyUrl'],
+                'uid'   => $story[$id]['uid'],
+                'time'  => $story[$id]['time_create'],
             );
         }
 
@@ -70,8 +70,8 @@ class Comment extends AbstractComment
         if ('news' == $params['module']
             && !empty($params['slug'])
         ) {
-            $product = Pi::api('news', 'story')->getStory($params['slug'], 'slug');
-            $item = $product['id'];
+            $story = Pi::api('news', 'story')->getStory($params['slug'], 'slug');
+            $item = $story['id'];
         } else {
             $item = false;
         }
