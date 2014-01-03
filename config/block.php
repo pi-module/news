@@ -15,12 +15,12 @@ return array(
     'item' => array(
         'title' => __('Item'),
         'description' => '',
-        'render' => array('block', 'item'),
+        'render' => 'block::item',
         'template' => 'item',
         'config' => array(
             'topicid' => array(
                 'title' => __('Topic'),
-                'description' => __(''),
+                'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
@@ -82,22 +82,18 @@ return array(
                 'value' => '',
             ),
         ),
-        'access' => array(
-            'guest' => 1,
-            'member' => 1,
-        ),
     ),
 
     // List block
     'list' => array(
         'title' => __('list'),
         'description' => '',
-        'render' => array('block', 'item'),
+        'render' => 'block::item',
         'template' => 'list',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
@@ -138,22 +134,18 @@ return array(
                 'value' => '',
             ),
         ),
-        'access' => array(
-            'guest' => 1,
-            'member' => 1,
-        ),
     ),
 
     // Table block
     'table' => array(
         'title' => __('Table'),
         'description' => '',
-        'render' => array('block', 'item'),
+        'render' => 'block::item',
         'template' => 'table',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
@@ -201,10 +193,6 @@ return array(
                 'value' => '',
             ),
         ),
-        'access' => array(
-            'guest' => 1,
-            'member' => 1,
-        ),
     ),
 
 
@@ -212,12 +200,12 @@ return array(
     'spotlight' => array(
         'title' => __('Spotlight'),
         'description' => '',
-        'render' => array('block', 'spotlight'),
+        'render' => 'block::spotlight',
         'template' => 'spotlight',
         'config' => array(
             'topicid' => array(
                 'title' => __('topic'),
-                'description' => __(''),
+                'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
@@ -279,22 +267,18 @@ return array(
                 'value' => '',
             ),
         ),
-        'access' => array(
-            'guest' => 1,
-            'member' => 1,
-        ),
     ),
 
     // topic block
     'topic' => array(
         'title' => __('List of topic'),
         'description' => '',
-        'render' => array('block', 'topic'),
+        'render' => 'block::topic',
         'template' => 'topic',
         'config' => array(
             'topicid' => array(
                 'title' => __('Topic'),
-                'description' => __(''),
+                'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
                 'value' => 0,
@@ -327,10 +311,6 @@ return array(
                 'filter' => 'string',
                 'value' => '',
             ),
-        ),
-        'access' => array(
-            'guest' => 1,
-            'member' => 1,
         ),
     ),
 );

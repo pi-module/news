@@ -4,7 +4,7 @@
 		<ul>
 		<?php foreach($block['resources'] as $topic) { ?>
 			<li>
-				<span class="itemTitle"><a href="<?php echo $this->url($module . '-news', array('module' => $module ,'controller' => 'topic' ,'slug' => $this->escape($topic['slug']))); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a></span>
+				<span class="itemTitle"><a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a></span>
 			</li>
 		<?php } ?>
 		<div class="clearfix"></div>
