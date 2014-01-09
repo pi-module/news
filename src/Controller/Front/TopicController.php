@@ -32,7 +32,7 @@ class TopicController extends IndexController
             $this->jump(array('', 'module' => $module, 'controller' => 'topic', 'action' => 'list'), __('Got to topic list.'));
         }
         // Get topic or homepage setting
-        $topic = Pi::api('news', 'topic')->canonizeTopic($topic);
+        $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Set story info
         $where = array('status' => 1, 'topic' => $topic['id'], 'time_publish <= ?' => time());
         // Get story List
@@ -46,7 +46,7 @@ class TopicController extends IndexController
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
+        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set view
         $this->view()->headTitle($topic['seo_title']);
         $this->view()->headdescription($topic['seo_description'], 'set');
@@ -71,7 +71,7 @@ class TopicController extends IndexController
         $select = $this->getModel('topic')->select()->where($where)->order($order);
         $rowset = $this->getModel('topic')->selectWith($select);
         foreach ($rowset as $row) {
-            $topics[$row->id] = Pi::api('news', 'topic')->canonizeTopic($row);
+            $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
         // Set view
         $this->view()->headTitle(__('List of all topics'));

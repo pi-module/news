@@ -34,7 +34,7 @@ class ToolsController extends ActionController
             $where = array('uid' => $row['uid']);
             $select = $this->getModel('story')->select()->columns($count)->where($where);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
-            $writers[] = Pi::api('news', 'writer')->Reset($row['uid'], $count);
+            $writers[] = Pi::api('writer', 'news')->Reset($row['uid'], $count);
         }
         // Set view
         $this->view()->setTemplate('tools_writer');
@@ -62,7 +62,7 @@ class ToolsController extends ActionController
             switch ($values['rebuild']) {
                 case 'slug':
                     foreach ($rowset as $row) {
-                        $values['slug'] = Pi::api('news', 'text')->slug($row->title);
+                        $values['slug'] = Pi::api('text', 'news')->slug($row->title);
                         $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
@@ -70,7 +70,7 @@ class ToolsController extends ActionController
 
                 case 'seo_title':
                     foreach ($rowset as $row) {
-                        $seo_title = Pi::api('news', 'text')->title($row->title);
+                        $seo_title = Pi::api('text', 'news')->title($row->title);
                         $this->getModel('story')->update(array('seo_keywords' => $seo_title), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO title, all story SEO title update');
@@ -78,7 +78,7 @@ class ToolsController extends ActionController
 
                 case 'seo_keywords':
                     foreach ($rowset as $row) {
-                        $seo_keywords = Pi::api('news', 'text')->keywords($row->title);
+                        $seo_keywords = Pi::api('text', 'news')->keywords($row->title);
                         $this->getModel('story')->update(array('seo_keywords' => $seo_keywords), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO keywords, all story SEO keywords update');
@@ -86,7 +86,7 @@ class ToolsController extends ActionController
 
                 case 'seo_description':
                     foreach ($rowset as $row) {
-                        $seo_description = Pi::api('news', 'text')->description($row->title);
+                        $seo_description = Pi::api('text', 'news')->description($row->title);
                         $this->getModel('story')->update(array('seo_description' => $seo_description), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO description, all story SEO description update');

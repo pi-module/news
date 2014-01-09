@@ -42,13 +42,13 @@ class Block
         // Set info
         $whereStory = array('status' => 1, 'id' => $storyId);
         // Get topic list
-        $topicList = Pi::api('news', 'topic')->topicList();
+        $topicList = Pi::api('topic', 'news')->topicList();
         // Get list of story
         $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
         $rowset = Pi::model('story', $module)->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('news', 'story')->canonizeStory($row, $topicList);
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
         }
         // Set block array
         $block['resources'] = $story;

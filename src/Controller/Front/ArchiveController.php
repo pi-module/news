@@ -28,7 +28,7 @@ class ArchiveController extends IndexController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Set year and month
         $start = mktime(0, 0, 0, $month, 1, $year);
         $end = mktime(0, 0, 0, $month + 1, 1, $year);
@@ -63,7 +63,7 @@ class ArchiveController extends IndexController
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
+        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set view
         $this->view()->headTitle($archive['title']);
         $this->view()->headdescription($archive['description'], 'set');

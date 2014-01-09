@@ -27,7 +27,7 @@ class IndexController extends ActionController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Set story info
         $where = array('status' => 1, 'time_publish <= ?' => time());
         // Get story List
@@ -40,7 +40,7 @@ class IndexController extends ActionController
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
+        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set view
         $this->view()->headTitle($topic['seo_title']);
         $this->view()->headdescription($topic['seo_description'], 'set');
@@ -77,12 +77,12 @@ class IndexController extends ActionController
         // Set info
         $where = array('status' => 1, 'id' => $storyId);
         // Get topic list
-        $topicList = Pi::api('news', 'topic')->topicList();
+        $topicList = Pi::api('topic', 'news')->topicList();
         // Get list of story
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('news', 'story')->canonizeStory($row, $topicList);
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
         }
         // return product
         return $story;

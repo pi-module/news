@@ -211,7 +211,7 @@ class StoryController extends ActionController
             }
         }
         // Get extra field
-        $fields = Pi::api('news', 'extra')->Get();
+        $fields = Pi::api('extra', 'news')->Get();
         $option['field'] = $fields['extra'];
         // Set form
         $form = new StoryForm('story', $option);
@@ -221,7 +221,7 @@ class StoryController extends ActionController
             $file = $this->request->getFiles();
             // Set slug
             $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $data['slug'] = Pi::api('news', 'text')->slug($slug);
+            $data['slug'] = Pi::api('text', 'news')->slug($slug);
             // Form filter
             $form->setInputFilter(new StoryFilter($option['field']));
             $form->setData($data);
@@ -254,7 +254,7 @@ class StoryController extends ActionController
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
                         // process image
-                        Pi::api('news', 'image')->process($values['image'], $values['path']);
+                        Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
@@ -271,13 +271,13 @@ class StoryController extends ActionController
                 $values['topic'] = Json::encode(array_unique($values['topic']));
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $values['seo_title'] = Pi::api('news', 'text')->title($title);
+                $values['seo_title'] = Pi::api('text', 'news')->title($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
-                $values['seo_keywords'] = Pi::api('news', 'text')->keywords($keywords);
+                $values['seo_keywords'] = Pi::api('text', 'news')->keywords($keywords);
                 // Set seo_description
                 $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $values['seo_description'] = Pi::api('news', 'text')->description($description);
+                $values['seo_description'] = Pi::api('text', 'news')->description($description);
                 // Set time
                 if (empty($values['id'])) {
                     $values['time_create'] = time();
@@ -294,7 +294,7 @@ class StoryController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Topic
-                Pi::api('news', 'topic')->setLink($row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
+                Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {
@@ -305,11 +305,11 @@ class StoryController extends ActionController
                 }
                 // Writer
                 if (empty($values['id'])) {
-                    Pi::api('news', 'writer')->Add($values['uid']);
+                    Pi::api('writer', 'news')->Add($values['uid']);
                 }
                 // Extra
                 if (!empty($extra)) {
-                    Pi::api('news', 'extra')->Set($extra, $row->id);
+                    Pi::api('extra', 'news')->Set($extra, $row->id);
                 }
                 // Add to sitemap
                 if (empty($values['id']) && Pi::service('module')->isActive('sitemap')) {
@@ -334,7 +334,7 @@ class StoryController extends ActionController
         } else {
             if ($id) {
                 // Get Extra
-                $story = Pi::api('news', 'extra')->Form($story);
+                $story = Pi::api('extra', 'news')->Form($story);
                 // Get tag list
                 if (Pi::service('module')->isActive('tag')) {
                     $tag = Pi::service('tag')->get($module, $story['id'], '');

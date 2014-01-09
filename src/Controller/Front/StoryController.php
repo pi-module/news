@@ -26,7 +26,7 @@ class StoryController extends ActionController
         $config = Pi::service('registry')->config->read($module);
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
-        $story = Pi::api('news', 'story')->canonizeStory($story);
+        $story = Pi::api('story', 'news')->canonizeStory($story);
         // Check status
         if (!$story || $story['status'] != 1) {
             $this->jump(array('', 'module' => $module, 'controller' => 'index'), __('The story not found.'));
@@ -48,12 +48,12 @@ class StoryController extends ActionController
         }
         // Links
         if ($config['show_nav']) {
-            $link = Pi::api('news', 'story')->Link($story['id'], $story['topic']);
+            $link = Pi::api('story', 'news')->Link($story['id'], $story['topic']);
             $this->view()->assign('link', $link);
         }
         // Related
         if ($config['show_related']) {
-            $related = Pi::api('news', 'story')->Related($story['id'], $story['topic']);
+            $related = Pi::api('story', 'news')->Related($story['id'], $story['topic']);
             $this->view()->assign('relateds', $related);
         }
         // Tag
@@ -63,12 +63,12 @@ class StoryController extends ActionController
         }
         // Attached
         if ($config['show_attach'] && $story['attach']) {
-            $attach = Pi::api('news', 'story')->AttachList($story['id']);
+            $attach = Pi::api('story', 'news')->AttachList($story['id']);
             $this->view()->assign('attach', $attach);
         } 
         // Extra
         if ($config['show_extra'] && $story['extra']) {
-            $extra = Pi::api('news', 'extra')->Story($story['id']);
+            $extra = Pi::api('extra', 'news')->Story($story['id']);
             $this->view()->assign('extra', $extra);
         }
         // Set vote

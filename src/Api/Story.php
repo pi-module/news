@@ -17,16 +17,16 @@ use Pi\Application\AbstractApi;
 use Zend\Json\Json;
 
 /*
- * Pi::api('news', 'story')->getStory($parameter, $type);
- * Pi::api('news', 'story')->AttachCount($id);
- * Pi::api('news', 'story')->AttachList($id);
- * Pi::api('news', 'story')->ExtraCount($id);
- * Pi::api('news', 'story')->Related($id, $topic;
- * Pi::api('news', 'story')->Link($id, $topic);
- * Pi::api('news', 'story')->getListFromId($id);
- * Pi::api('news', 'story')->getListFromIdLight($id);
- * Pi::api('news', 'story')->canonizeStory($story, $ctopicList);
- * Pi::api('news', 'story')->canonizeStoryLight($story);
+ * Pi::api('story', 'news')->getStory($parameter, $type);
+ * Pi::api('story', 'news')->AttachCount($id);
+ * Pi::api('story', 'news')->AttachList($id);
+ * Pi::api('story', 'news')->ExtraCount($id);
+ * Pi::api('story', 'news')->Related($id, $topic;
+ * Pi::api('story', 'news')->Link($id, $topic);
+ * Pi::api('story', 'news')->getListFromId($id);
+ * Pi::api('story', 'news')->getListFromIdLight($id);
+ * Pi::api('story', 'news')->canonizeStory($story, $ctopicList);
+ * Pi::api('story', 'news')->canonizeStoryLight($story);
  */
 
 class Story extends AbstractApi
@@ -223,7 +223,7 @@ class Story extends AbstractApi
         $story['topic'] = Json::decode($story['topic']);
         // Get topic list
         $topicList = (empty($topicList)) ? 
-                      Pi::api('news', 'topic')->topicList($story['topic']) : $topicList;
+                      Pi::api('topic','news')->topicList($story['topic']) : $topicList;
         foreach ($story['topic'] as $topic) {
             $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
             $story['topics'][$topic]['url'] = Pi::service('url')->assemble('news', array(

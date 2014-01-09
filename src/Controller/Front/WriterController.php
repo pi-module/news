@@ -27,7 +27,7 @@ class WriterController extends IndexController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
-        $topic = Pi::api('news', 'topic')->canonizeTopic();
+        $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Check slug
         if (!isset($slug) || empty($slug)) {
             $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
@@ -53,7 +53,7 @@ class WriterController extends IndexController
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
-        $spotlight = Pi::api('news', 'spotlight')->getSpotlight();
+        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set view
         $this->view()->headTitle(sprintf(__('All stores from %s'), $writer['user']['identity']));
         $this->view()->headdescription(sprintf(__('All stores from %s'), $writer['user']['identity']), 'set');

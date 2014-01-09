@@ -47,7 +47,7 @@ class News extends Standard
         // Set controller
         $matches = array_merge($this->defaults, $matches);
         if (isset($parts[0]) && in_array($parts[0], $this->controllerList)) {
-            $matches['controller'] = urldecode($parts[0]);
+            $matches['controller'] = $this->decode($parts[0]);
         }
 
         // Make Match
@@ -64,9 +64,9 @@ class News extends Standard
                     if (!empty($parts[1])) {
                         if ($parts[1] == 'print') {
                             $matches['action'] = 'print';
-                            $matches['slug'] = urldecode($parts[2]);
+                            $matches['slug'] = $this->decode($parts[2]);
                         } else {
-                            $matches['slug'] = urldecode($parts[1]);
+                            $matches['slug'] = $this->decode($parts[1]);
                         }
                     }
                     break;
@@ -76,7 +76,7 @@ class News extends Standard
                         if ($parts[1] == 'list') {
                             $matches['action'] = 'list';
                         } else {
-                            $matches['action'] = urldecode($parts[1]);
+                            $matches['action'] = $this->decode($parts[1]);
                         }
                         if (isset($parts[2]) && $parts[2] == 'page') {
                             $matches['page'] = intval($parts[3]);
@@ -90,12 +90,12 @@ class News extends Standard
                             $matches['action'] = 'list';
                         } elseif ($parts[1] == 'profile') {
                             $matches['action'] = 'profile';
-                            $matches['slug'] = urldecode($parts[2]);
+                            $matches['slug'] = $this->decode($parts[2]);
                             if (isset($parts[3]) && $parts[3] == 'page') {
                                 $matches['page'] = intval($parts[4]);
                             }
                         } else {
-                            $matches['slug'] = urldecode($parts[1]);
+                            $matches['slug'] = $this->decode($parts[1]);
                             if (isset($parts[2]) && $parts[2] == 'page') {
                                 $matches['page'] = intval($parts[3]);
                             }
@@ -121,7 +121,7 @@ class News extends Standard
                     if (!empty($parts[1])) {
                         if ($parts[1] == 'term') {
                             $matches['action'] = 'term';
-                            $matches['slug'] = urldecode($parts[2]);
+                            $matches['slug'] = $this->decode($parts[2]);
                             // Set page
                             if (isset($parts[3]) && $parts[3] == 'page') {
                                 $matches['page'] = intval($parts[4]);
@@ -142,7 +142,7 @@ class News extends Standard
 
                 case 'json':
                     if (!empty($parts[1])) {
-                         $matches['topic'] = urldecode($parts[1]);
+                         $matches['topic'] = $this->decode($parts[1]);
                         if (isset($parts[2]) && $parts[2] == 'page') {
                             $matches['page'] = intval($parts[3]);
                         }

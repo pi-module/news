@@ -12,25 +12,18 @@
  */
 namespace Module\News\Controller\Feed;
 
-use Pi\Mvc\Controller\FeedController;
 use Pi;
+use Pi\Mvc\Controller\FeedController;
+use Pi\Feed\Model as DataModel;
 
-/**
- * Index action controller
- */
 class IndexController extends FeedController
 {
-    /**
-     * time_create feeds for recent module time_updates
-     *
-     * @return array
-     */
     public function indexAction()
     {
         $feed = $this->getDataModel(array(
             'title'         => __('News feed'),
-            'seo_description'   => __('Recent News.'),
-            'date_time_created'  => time(),
+            'description'   => __('Recent News.'),
+            'date_created'  => time(),
         ));
         $columns = array('id', 'title', 'slug', 'short', 'time_publish');
         $order = array('time_publish DESC', 'id DESC');
@@ -41,22 +34,11 @@ class IndexController extends FeedController
         foreach ($rowset as $row) {
             $entry = array();
             $entry['title'] = $row->title;
-            $entry['seo_description'] = $row->short;
+            $entry['description'] = $row->short;
             $entry['date_modified'] = (int)$row->time_publish;
-            $entry['link'] = $this->getHref($row);
+            //$entry['link'] = '';
             $feed->entry = $entry;
         }
         return $feed;
-    }
-
-    protected function getHref($row)
-    {
-        $uri = $this->url('.news', array(
-            'module' => $this->getModule(),
-            'controller' => 'story',
-            'action' => 'index',
-            'slug' => $row['slug']
-        ));
-        return Pi::url($uri, false);
     }
 }

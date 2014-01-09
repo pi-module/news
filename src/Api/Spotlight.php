@@ -16,7 +16,7 @@ use Pi;
 use Pi\Application\AbstractApi;
 
 /*
- * Pi::api('news', 'spotlight')->getSpotlight($topic);
+ * Pi::api('spotlight', 'news')->getSpotlight($topic);
  */
 
 class Spotlight extends AbstractApi

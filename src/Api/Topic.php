@@ -17,10 +17,10 @@ use Pi\Application\AbstractApi;
 use Zend\Json\Json;
 
 /*
- * Pi::api('news', 'topic')->canonizeTopic($topic);
- * Pi::api('news', 'topic')->setLink($story, $topics, $time_publish, $status, $uid);
- * Pi::api('news', 'topic')->topicList($id);
- * Pi::api('news', 'topic')->topicCount();
+ * Pi::api('topic', 'news')->canonizeTopic($topic);
+ * Pi::api('topic', 'news')->setLink($story, $topics, $time_publish, $status, $uid);
+ * Pi::api('topic', 'news')->topicList($id);
+ * Pi::api('topic', 'news')->topicCount();
  */
 
 class Topic extends AbstractApi

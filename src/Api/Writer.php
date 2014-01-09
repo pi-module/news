@@ -16,10 +16,10 @@ use Pi;
 use Pi\Application\AbstractApi;
 
 /*
- * Pi::api('news', 'writer')->Add($uid);
- * Pi::api('news', 'writer')->Delete($uid);
- * Pi::api('news', 'writer')->Reset($uid, $count);
- * Pi::api('news', 'writer')->DeleteTopic($topic);
+ * Pi::api('writer', 'news')->Add($uid);
+ * Pi::api('writer', 'news')->Delete($uid);
+ * Pi::api('writer', 'news')->Reset($uid, $count);
+ * Pi::api('writer', 'news')->DeleteTopic($topic);
  */
 
 class Writer extends AbstractApi

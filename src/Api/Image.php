@@ -16,7 +16,7 @@ use Pi;
 use Pi\Application\AbstractApi;
 
 /*
- * Pi::api('shop', 'image')->process($image, $path);
+ * Pi::api('image', 'news')->process($image, $path);
  */
 
 class Image extends AbstractApi

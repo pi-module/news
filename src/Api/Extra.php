@@ -16,10 +16,10 @@ use Pi;
 use Pi\Application\AbstractApi;
 
 /*
- * Pi::api('news', 'extra')->Get();
- * Pi::api('news', 'extra')->Set($extra, $story);
- * Pi::api('news', 'extra')->Form($values);
- * Pi::api('news', 'extra')->Story($id);
+ * Pi::api('extra', 'news')->Get();
+ * Pi::api('extra', 'news')->Set($extra, $story);
+ * Pi::api('extra', 'news')->Form($values);
+ * Pi::api('extra', 'news')->Story($id);
  */
 
 class Extra extends AbstractApi
@@ -69,7 +69,7 @@ class Extra extends AbstractApi
             }
         }
         // Set story Extra Count
-        Pi::api('news', 'story')->ExtraCount($story);
+        Pi::api('story', 'news')->ExtraCount($story);
     }
 
     /*

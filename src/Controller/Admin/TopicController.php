@@ -130,7 +130,7 @@ class TopicController extends ActionController
             $file = $this->request->getFiles();
             // Set slug
             $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $data['slug'] = Pi::api('news', 'text')->slug($slug);
+            $data['slug'] = Pi::api('text', 'news')->slug($slug);
             // Form filter
             $form->setInputFilter(new TopicFilter);
             $form->setData($data);
@@ -152,7 +152,7 @@ class TopicController extends ActionController
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
                         // process image
-                        Pi::api('news', 'image')->process($values['image'], $values['path']);
+                        Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
@@ -182,13 +182,13 @@ class TopicController extends ActionController
                 }
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $values['seo_title'] = Pi::api('news', 'text')->title($title);
+                $values['seo_title'] = Pi::api('text', 'news')->title($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
-                $values['seo_keywords'] = Pi::api('news', 'text')->keywords($keywords);
+                $values['seo_keywords'] = Pi::api('text', 'news')->keywords($keywords);
                 // Set seo_description
                 $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $values['seo_description'] = Pi::api('news', 'text')->description($description);
+                $values['seo_description'] = Pi::api('text', 'news')->description($description);
                 // Set if new
                 if (empty($values['id'])) {
                     // Set time
