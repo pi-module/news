@@ -201,6 +201,10 @@ class Story extends AbstractApi
 
     public function canonizeStory($story, $topicList = array())
     {
+        // Check
+        if (empty($story)) {
+            return '';
+        }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // boject to array
@@ -269,6 +273,10 @@ class Story extends AbstractApi
 
     public function canonizeStoryLight($story)
     {
+        // Check
+        if (empty($story)) {
+            return '';
+        }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // boject to array
