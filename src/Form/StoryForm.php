@@ -22,7 +22,7 @@ class StoryForm extends BaseForm
         $this->module = Pi::service('module')->current();
         $this->field = $options['field'];
         $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
-        $this->removeurl = empty($options['removeurl']) ? '' : $options['removeurl'];
+        $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
     }
 
@@ -99,7 +99,6 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '5',
                 'cols' => '40',
-                
                 'description' => '',
             )
         ));
@@ -138,6 +137,7 @@ class StoryForm extends BaseForm
                     2 => __('Pending review'),
                     3 => __('Draft'),
                     4 => __('Private'),
+                    5 => __('Remove'),
                 ),
             ),
         ));
@@ -145,39 +145,35 @@ class StoryForm extends BaseForm
         if ($this->thumbUrl) {
             $this->add(array(
                 'name' => 'imageview',
+                'type' => 'Module\News\Form\Element\Image',
                 'options' => array(
-                    'label' => __('Image'),
+                    //'label' => __('Image'),
                 ),
                 'attributes' => array(
-                    'type' => 'image',
                     'src' => $this->thumbUrl,
-                    'disabled' => true,
-                    'description' => '',
-                )
+                ),
             ));
             $this->add(array(
                 'name' => 'remove',
+                'type' => 'Module\News\Form\Element\Remove',
                 'options' => array(
                     'label' => __('Remove image'),
                 ),
                 'attributes' => array(
-                    'type' => 'button',
-                    'class' => 'btn btn-danger btn-sm',
-                    'data-toggle' => 'button',
-                    'data-link' => $this->removeUrl,
-                )
+                    'link' => $this->removeUrl,
+                ),
             ));
             $this->add(array(
                 'name' => 'image',
                 'attributes' => array(
                     'type' => 'hidden',
                 ),
-             ));
+            ));
         } else {
             $this->add(array(
                 'name' => 'image',
                 'options' => array(
-                    'label' => __('Image'),
+                    'label' => __('Upload image'),
                 ),
                 'attributes' => array(
                     'type' => 'file',
@@ -239,16 +235,17 @@ class StoryForm extends BaseForm
                 )
             ));
         }
-        // extra_field
-        $this->add(array(
-            'name' => 'extra_field',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('Extra fields'),
-            ),
-        ));
         // Set extra field
         if (!empty($this->field)) {
+            // extra_field
+            $this->add(array(
+                'name' => 'extra_field',
+                'type' => 'fieldset',
+                'options' => array(
+                    'label' => __('Extra fields'),
+                ),
+            ));
+            // generate
             foreach ($this->field as $field) {
                 if ($field['type'] == 'select') {
                     $this->add(array(

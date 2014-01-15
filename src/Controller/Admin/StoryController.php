@@ -246,7 +246,7 @@ class StoryController extends ActionController
                     // Upload
                     $uploader = new Upload;
                     $uploader->setDestination($originalPath);
-                    $uploader->setRename($this->ImageProductPrefix . '%random%');
+                    $uploader->setRename($this->ImageStoryPrefix . '%random%');
                     $uploader->setExtension($this->config('image_extension'));
                     $uploader->setSize($this->config('image_size'));
                     if ($uploader->isValid()) {

@@ -104,7 +104,7 @@ class SpotlightForm extends BaseForm
             'options' => array(
                 'label' => __('Status'),
                 'value_options' => array(
-                    1 => __('time_published'),
+                    1 => __('Published'),
                     2 => __('Pending review'),
                     3 => __('Draft'),
                     4 => __('Private'),

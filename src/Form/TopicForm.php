@@ -145,27 +145,23 @@ class TopicForm extends BaseForm
         if ($this->thumbUrl) {
             $this->add(array(
                 'name' => 'imageview',
+                'type' => 'Module\News\Form\Element\Image',
                 'options' => array(
-                    'label' => __('Image'),
+                    //'label' => __('Image'),
                 ),
                 'attributes' => array(
-                    'type' => 'image',
                     'src' => $this->thumbUrl,
-                    'disabled' => true,
-                    'description' => '',
-                )
+                ),
             ));
             $this->add(array(
                 'name' => 'remove',
+                'type' => 'Module\News\Form\Element\Remove',
                 'options' => array(
                     'label' => __('Remove image'),
                 ),
                 'attributes' => array(
-                    'type' => 'button',
-                    'class' => 'btn btn-danger btn-sm',
-                    'data-toggle' => 'button',
-                    'data-link' => $this->removeUrl,
-                )
+                    'link' => $this->removeUrl,
+                ),
             ));
             $this->add(array(
                 'name' => 'image',
