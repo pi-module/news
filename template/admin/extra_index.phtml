@@ -40,11 +40,11 @@
 </div>
 <script type="text/javascript" >
 $(document).ready(function() {
-   $('#extra-sort .extra-field').sortable({
-       update: function(event, ui) {
-           var list = $(this).sortable('serialize');
-           $.post("<?php echo $this->url('', array('action' => 'extraSort')); ?>", list);
-       }
-   });
+	$('#extra-sort .extra-field').sortable({
+    	update: function(event, ui) {
+        	var list = $(this).sortable('serialize');
+        	$.post("<?php echo $this->url('', array('action' => 'extraSort')); ?>", list);
+    	}
+	});
 });
 </script>

@@ -14,6 +14,7 @@ namespace Module\News\Controller\Admin;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
+use Pi\Paginator\Paginator;
 use Module\News\Form\SpotlightForm;
 use Module\News\Form\SpotlightFilter;
 
@@ -26,9 +27,11 @@ class SpotlightController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page = $this->params('p', 1);
+        $page = $this->params('page', 1);
+        $whereSpotlight = array('time_expire > ?' => time());
         // Get story and topic
-        $select = $this->getModel('spotlight')->select()->where(array('time_expire > ?' => time()))->columns(array('story', 'topic'));
+        $columns = array('story', 'topic');
+        $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($columns);
         $idSet = $this->getModel('spotlight')->selectWith($select)->toArray();
         if (empty($idSet)) {
             return $this->redirect()->toRoute('', array('action' => 'update'));
@@ -39,23 +42,36 @@ class SpotlightController extends ActionController
             $storyArr[] = $spotlight['story'];
         }
         // Get topics
-        $select = $this->getModel('topic')->select()->where(array('id' => array_unique($topicArr)))->columns(array('id', 'title', 'slug'));
+        $whereTopic = array('id' => array_unique($topicArr));
+        $columns = array('id', 'title', 'slug');
+        $select = $this->getModel('topic')->select()->where($whereTopic)->columns($columns);
         $topicSet = $this->getModel('topic')->selectWith($select);
         // Make topic list
         foreach ($topicSet as $row) {
             $topicList[$row->id] = $row->toArray();
         }
-        $topicList[-1] = array('id' => -1, 'title' => __('Home Page'), 'slug' => '');
-        $topicList[0] = array('id' => 0, 'title' => __('All Topics'), 'slug' => '');
+        $topicList[-1] = array(
+            'id'     => -1, 
+            'title'  => __('Home Page'), 
+            'slug'   => ''
+        );
+        $topicList[0] = array(
+            'id'     => 0, 
+            'title'  => __('All Topics'), 
+            'slug'   => ''
+        );
         // Get stores
-        $select = $this->getModel('story')->select()->where(array('id' => array_unique($storyArr)))->columns(array('id', 'title', 'slug'));
+        $whereStory = array('id' => array_unique($storyArr));
+        $columns = array('id', 'title', 'slug');
+        $select = $this->getModel('story')->select()->where($whereStory)->columns($columns);
         $storySet = $this->getModel('story')->selectWith($select);
         // Make story list
         foreach ($storySet as $row) {
             $storyList[$row->id] = $row->toArray();
         }
         // Get spotlights
-        $select = $this->getModel('spotlight')->select()->where(array('time_expire > ?' => time()))->order(array('id DESC', 'time_publish DESC'));
+        $order = array('id DESC', 'time_publish DESC');
+        $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->order($order);
         $spotlightSet = $this->getModel('spotlight')->selectWith($select);
         // Make spotlight list
         foreach ($spotlightSet as $row) {
@@ -68,27 +84,25 @@ class SpotlightController extends ActionController
             $spotlightList[$row->id]['time_expire'] = _date($spotlightList[$row->id]['time_expire']);
         }
         // Set paginator
-        $paginator = \Pi\Paginator\Paginator::factory($spotlightList);
+        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($count);
+        $count = $this->getModel('spotlight')->selectWith($select)->current()->count;
+        $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            // Use router to build URL for each page
-            'pageParam' => 'p',
-            'totalParam' => 't',
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array(
-                'module' => $this->getModule(),
-                'controller' => 'spotlight',
-                'action' => 'index',
-            ),
-            // Or use a URL template to time_create URLs
-            //'template'      => '/url/p/%page%/t/%total%',
-
+            'router'    => $this->getEvent()->getRouter(),
+            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params'    => array_filter(array(
+                'module'        => $this->getModule(),
+                'controller'    => 'spotlight',
+                'action'        => 'index',
+            )),
         ));
         // Set view
         $this->view()->setTemplate('spotlight_index');
-        $this->view()->assign('spotlights', $paginator);
+        $this->view()->assign('spotlightList', $spotlightList);
+        $this->view()->assign('paginator', $paginator);
     }
 
     public function updateAction()
@@ -136,6 +150,8 @@ class SpotlightController extends ActionController
         } else {
             if ($id) {
                 $values = $this->getModel('spotlight')->find($id)->toArray();
+                $values['time_publish'] = date('Y-m-d', $values['time_publish']);
+                $values['time_expire'] = date('Y-m-d', $values['time_expire']);
                 $form->setData($values);
                 $message = 'You can edit this spotlight';
             } else {

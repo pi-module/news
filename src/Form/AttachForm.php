@@ -60,7 +60,7 @@ class AttachForm extends BaseForm
             'options' => array(
                 'label' => __('Story'),
                 'module' => $this->module,
-                'story' => $this->story,
+                'value' => $this->story,
             ),
             'attributes' => array(
                 'size' => 1,

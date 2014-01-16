@@ -10,7 +10,6 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -23,7 +22,8 @@ use Zend\Json\Json;
 
 class AttachController extends ActionController
 {
-    protected $FilePrefix = 'attach_';
+    protected $AttachPrefix = 'attach_';
+    
     protected $attachColumns = array(
         'id', 'title', 'file', 'path', 'story', 'time_create', 'size', 'type', 'status', 'hits'
     );
@@ -196,7 +196,7 @@ class AttachController extends ActionController
                 // Upload
                 $uploader = new Upload;
                 $uploader->setDestination($destination);
-                $uploader->setRename($this->FilePrefix . '%random%');
+                $uploader->setRename($this->AttachPrefix . '%random%');
                 $uploader->setExtension($this->config('file_extension'));
                 $uploader->setSize($this->config('file_size'));
                 if ($uploader->isValid()) {

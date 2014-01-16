@@ -17,8 +17,6 @@ use Pi\Form\Form as BaseForm;
 
 class PruneForm extends BaseForm
 {
-    protected $options;
-
     public function __construct($name = null, $module)
     {
         $this->module = $module;

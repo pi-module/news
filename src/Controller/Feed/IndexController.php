@@ -36,7 +36,11 @@ class IndexController extends FeedController
             $entry['title'] = $row->title;
             $entry['description'] = $row->short;
             $entry['date_modified'] = (int)$row->time_publish;
-            //$entry['link'] = '';
+            $entry['link'] = Pi::url(Pi::service('url')->assemble('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'story',
+                'slug'          => $row->slug,
+            )));
             $feed->entry = $entry;
         }
         return $feed;

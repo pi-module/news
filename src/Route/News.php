@@ -27,7 +27,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'archive', 'favorite', 'index', 'json', 'story', 'tag', 'topic', 'writer'
+        'archive', 'index', 'json', 'story', 'tag', 'topic', 'writer'
     );
 
 
@@ -131,14 +131,6 @@ class News extends Standard
                         }
                     }
                     break; 
-                    
-                case 'favorite':
-                    if (!empty($parts[1])) {
-                        if (isset($parts[1]) && $parts[1] == 'page') {
-                            $matches['page'] = intval($parts[2]);
-                        }
-                    }
-                    break;
 
                 case 'json':
                     if (!empty($parts[1])) {

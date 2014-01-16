@@ -17,7 +17,6 @@ use Zend\Form\Element\Select;
 
 class Topic extends Select
 {
-
     /**
      * @return array
      */

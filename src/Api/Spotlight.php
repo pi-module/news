@@ -48,12 +48,31 @@ class Spotlight extends AbstractApi
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 $story[$row->id] = $row->toArray();
-                $story[$row->id]['short'] = mb_strlen($story[$row->id]['short'], 'utf-8') > 140 ? mb_substr($story[$row->id]['short'], 0, 140, 'utf-8') . "..." : $story[$row->id]['short'];
+                $story[$row->id]['short'] = (mb_strlen($story[$row->id]['short'], 'utf-8') > 140) ? 
+                                             mb_substr($story[$row->id]['short'], 0, 140, 'utf-8') . "..." : 
+                                             $story[$row->id]['short'];
+                // Set story url
+                $story[$row->id]['storyUrl'] = Pi::service('url')->assemble('news', array(
+                    'module'        => $this->getModule(),
+                    'controller'    => 'story',
+                    'slug'          => $story[$row->id]['slug'],
+                ));
+                // Set image url
                 if ($story[$row->id]['image']) {
-                    $story[$row->id]['originalurl'] = Pi::url('upload/' . $config['image_path'] . '/original/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                    $story[$row->id]['largeurl'] = Pi::url('upload/' . $config['image_path'] . '/large/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                    $story[$row->id]['mediumurl'] = Pi::url('upload/' . $config['image_path'] . '/medium/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
-                    $story[$row->id]['thumburl'] = Pi::url('upload/' . $config['image_path'] . '/thumb/' . $story[$row->id]['path'] . '/' . $story[$row->id]['image']);
+                    // Set image medium url
+                    $story[$row->id]['mediumUrl'] = Pi::url(
+                        sprintf('upload/%s/medium/%s/%s', 
+                            $config['image_path'], 
+                            $story[$row->id]['path'], 
+                            $story[$row->id]['image']
+                        ));
+                    // Set image thumb url
+                    $story[$row->id]['thumbUrl'] = Pi::url(
+                        sprintf('upload/%s/thumb/%s/%s', 
+                            $config['image_path'], 
+                            $story[$row->id]['path'], 
+                            $story[$row->id]['image']
+                        ));
                 }
             }
             $spotlight['top'] = array_shift($story);

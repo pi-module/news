@@ -34,7 +34,8 @@ class ExtraController extends ActionController
         // Make list
         foreach ($rowset as $row) {
             $field[$row->id] = $row->toArray();
-            $field[$row->id]['imageUrl'] = Pi::url(sprintf('upload/%s/icon/%s', $this->config('file_path'), $field[$row->id]['image']));
+            $field[$row->id]['imageUrl'] = Pi::url(
+                sprintf('upload/%s/icon/%s', $this->config('file_path'), $field[$row->id]['image']));
         }
         // Go to update page if empty
         if (empty($field)) {
@@ -91,7 +92,9 @@ class ExtraController extends ActionController
                     }
                 }
                 // Set order
-                $select = $this->getModel('field')->select()->columns(array('order'))->order(array('order DESC'))->limit(1);
+                $columns = array('order');
+                $order = array('order DESC');
+                $select = $this->getModel('field')->select()->columns($columns)->order($order)->limit(1);
                 $values['order'] = $this->getModel('field')->selectWith($select)->current()->order + 1;
                 // Save values
                 if (!empty($values['id'])) {

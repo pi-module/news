@@ -17,7 +17,6 @@ use Zend\Form\Element\Select;
 
 class Story extends Select
 {
-
     /**
      * @return array
      */

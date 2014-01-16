@@ -77,7 +77,7 @@ class SpotlightForm extends BaseForm
         $this->add(array(
             'name' => 'time_publish',
             'options' => array(
-                'label' => __('time_publish date'),
+                'label' => __('Publish date'),
             ),
             'attributes' => array(
                 'type' => 'date',
@@ -89,7 +89,7 @@ class SpotlightForm extends BaseForm
         $this->add(array(
             'name' => 'time_expire',
             'options' => array(
-                'label' => __('time_expire date'),
+                'label' => __('Expire date'),
             ),
             'attributes' => array(
                 'type' => 'date',

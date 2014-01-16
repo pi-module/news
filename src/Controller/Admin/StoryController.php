@@ -97,7 +97,6 @@ class StoryController extends ActionController
         $this->view()->setTemplate('story_index');
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);
-
     }
 
     public function viewAction()
@@ -152,7 +151,6 @@ class StoryController extends ActionController
             $return['id'] = 0;
             $return['storystatus'] = 0;
         }
-
         return $return;
     }
 
@@ -356,9 +354,6 @@ class StoryController extends ActionController
 
     public function deleteAction()
     {
-        /*
-           * not completed and need confirm option
-           */
         // Get information
         $this->view()->setTemplate(false);
         $id = $this->params('id');
@@ -371,7 +366,7 @@ class StoryController extends ActionController
             // Attach
             $this->getModel('attach')->delete(array('story' => $row->id));
             // Extra
-            $this->getModel('field_data')->delete(array(story => $row->id));
+            $this->getModel('field_data')->delete(array('story' => $row->id));
             // Spotlight
             $this->getModel('spotlight')->delete(array('story' => $row->id));
             // Remove page

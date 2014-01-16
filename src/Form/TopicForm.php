@@ -17,12 +17,10 @@ use Pi\Form\Form as BaseForm;
 
 class TopicForm extends BaseForm
 {
-    protected $options;
-
     public function __construct($name = null, $options = array())
     {
-        $this->category = array(0 => 'Root');
         $this->module = Pi::service('module')->current();
+        $this->category = array(0 => 'Root');
         $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);

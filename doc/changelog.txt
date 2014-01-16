@@ -1,6 +1,13 @@
 News module changelog
 
-Cersion 1.0.3
+Version 1.0.4
+=============================
+1. Update module code for new version of PI
+2. Update templates for support BS3
+3. Fix bugs
+4. Change some filed names on DB
+
+Version 1.0.3
 =============================
 1. time_update version to 1.0.3
 2. Fix translation

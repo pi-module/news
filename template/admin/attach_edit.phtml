@@ -1,11 +1,8 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
-	<p>
-	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
-	</p>
 	<h3><?php echo $this->escape($title); ?></h3>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<div class="well well-small">
 			<div class="view-file">
 			<?php if($file['type'] == 'video') { ?>
@@ -44,6 +41,9 @@
 			<p><strong><?php _e('Story title'); ?></strong> <?php echo $this->escape($story['title']); ?></p>
 		</div>
 		</div>
-		<div class="col-md-6"><?php include $this->templateComponent('forms'); ?></div>
+		<div class="col-md-7"><?php include $this->templateComponent('forms'); ?></div>
 	</div>
+	<p>
+	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+	</p>
 </div>

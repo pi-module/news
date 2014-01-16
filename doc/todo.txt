@@ -3,18 +3,10 @@ News module todo
 General
 =============================
 1. remove topic manager system from admin 
-2. disable managment conroller on front side and improve it 
-3. Add visit tabale (Like article module)
-4. Improve media / file / attach system (Like article module)
-5. Improve DB filed names
-6. Add draft system
-7. Improve topic system like article module category system
-8. Improve uid system and add two filed for uid and submiter (or manager)
-9. Add markup for story 
-
-When Pi-user ready
-=============================
-1. Add support for new Pi Image Service 
-2. Add support for new Pi User
-3. Add support for new Pi Route 
-4. Add support for new Pi permission system
+2. Add visit tabale (Like article module)
+3. Improve media / file / attach system (Like article module)
+4. Add draft system
+5. Improve topic system like article module category system
+6. Improve uid system and add two filed for uid and submiter (or manager)
+7. Add markup for story
+8. Use remout upload / download system

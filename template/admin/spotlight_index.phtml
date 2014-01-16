@@ -13,7 +13,7 @@
 			<th><?php _e('time_expire'); ?></th>
 			<th><?php _e('Action'); ?></th>
 		</tr>
-		<?php foreach($spotlights as $spotlight) { ?>
+		<?php foreach($spotlightList as $spotlight) { ?>
 		<tr>
 			<td><?php echo $this->escape($spotlight['id']); ?></td>
 			<td><?php echo $this->escape($spotlight['storytitle']); ?></a></td>
@@ -21,12 +21,12 @@
 			<td><?php echo $this->escape($spotlight['time_publish']); ?></td>
 			<td><?php echo $this->escape($spotlight['time_expire']); ?></td>
 			<td>
-				   <a class="btn btn-primary" title="<?php _e('Veiw story'); ?>" href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug']))); ?>"><i class="fa fa-edit"></i> <?php _e('Veiw story'); ?></a>
-					<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $spotlight['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-					<a class="btn btn-primary" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $spotlight['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+				<a class="btn btn-primary" title="<?php _e('Veiw story'); ?>" href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug']))); ?>"><i class="fa fa-edit"></i> <?php _e('Veiw story'); ?></a>
+				<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $spotlight['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+				<a class="btn btn-danger" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $spotlight['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
 			</td>
 		</tr>
 		<?php } ?>
 	</table>
-	<div class="paginator"><?php echo $this->paginationControl($spotlights, 'Sliding', 'paginator'); ?></div>
+	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>

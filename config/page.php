@@ -66,11 +66,6 @@ return array(
             'block'         => 1,
         ),
         array(
-            'controller'    => 'favorite',
-            'permission'    => 'favorite',
-            'block'         => 1,
-        ),
-        array(
             'controller'    => 'archive',
             'permission'    => 'archive',
             'block'         => 1,

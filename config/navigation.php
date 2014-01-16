@@ -24,7 +24,7 @@ return array(
         ),
 
         'topic' => array(
-            'label'         => _t('Tolic list'),
+            'label'         => _t('Topic list'),
             'permission'    => array(
                 'resource'  => 'public',
             ),

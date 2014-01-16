@@ -8,13 +8,17 @@
 ?>
 <div class="news">
 	<div class="well well-sm nav nav-tabs">
-	   <a class="btn btn-success" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="fa fa-file"></i> <?php _e('Add Story'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a>
-	   <a class="btn btn-primary" title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a>
+		<div class="col-md-2 text-left">
+			<a class="btn btn-primary" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="fa fa-file"></i> <?php _e('Add Story'); ?></a>
+		</div>
+		<div class="col-md-10 text-right">
+			<a class="btn btn-primary" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a>
+			<a class="btn btn-primary" title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a>
+			<a class="btn btn-primary" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a>
+			<a class="btn btn-primary" title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a>
+			<a class="btn btn-primary" title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a>
+			<a class="btn btn-primary" title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a>
+		</div>
 	</div>
 	<h3><?php _e('List of stories'); ?></h3>
 	<table id="story-list" class="table table-striped table-bordered table-condensed">
@@ -70,26 +74,26 @@
 <script type="text/javascript" >
 (function($){
     $("#story-list").on("click","button",function(){
-       systemMessage.wait("<?php _e('Accept story in process'); ?>");
-       $.getJSON($(this).attr("data-link")).done(function(result){
-          if(result.ajaxstatus==1){
-          	 if(result.storystatus==1){
-	          	 var labelClass = 'label label label-success';
-	          	 var buttonClass = 'btn btn-warning btn-xs disabled';
-	          	 var buttonText = '<i class="fa fa-trash-o"></i> <?php _e("Reject"); ?>';
-          	 }
-          	 if(result.storystatus==2){
-	          	 var labelClass = 'label label label-warning';
-	          	 var buttonClass = 'btn btn-success btn-xs disabled';
-	          	 var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
-          	 }
-          	 $('#label label-' + result.id).attr('class', labelClass);
-          	 $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
-             systemMessage.succ(result.message);
-          }else{
-             systemMessage.fail(result.message);
-          }
-       });
+        systemMessage.wait("<?php _e('Accept story in process'); ?>");
+        $.getJSON($(this).attr("data-link")).done(function(result){
+            if(result.ajaxstatus==1){
+          	    if(result.storystatus==1){
+	          	    var labelClass = 'label label label-success';
+	          	    var buttonClass = 'btn btn-warning btn-xs disabled';
+	          	    var buttonText = '<i class="fa fa-trash-o"></i> <?php _e("Reject"); ?>';
+          	    }
+          	    if(result.storystatus==2){
+	          	    var labelClass = 'label label label-warning';
+	          	    var buttonClass = 'btn btn-success btn-xs disabled';
+	          	    var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
+          	    }
+          	    $('#label label-' + result.id).attr('class', labelClass);
+          	    $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
+                systemMessage.succ(result.message);
+            }else{
+                systemMessage.fail(result.message);
+            }
+        });
     });
 })(jQuery)
 </script>

@@ -3,7 +3,7 @@
 	<div class="item">
 		<div class="itemHead">
 			<span class="itemTitle">
-				<h2><?php echo $this->escape($story['title']); ?></h2>
+				<h3><?php echo $this->escape($story['title']); ?></h3>
 			</span>
 		</div>
 		<div class="itemInfo">
@@ -19,23 +19,23 @@
 		   <div class="clearfix"></div>
 		</div>
 		<div class="itemBody">
-		   <?php if($story['image']){ ?>
-		   <div class="itemImage gallery">
-			   <a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['imagedes']); ?>"><img src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-		   </div>
-		   <?php } ?>
-		   <div class="itemText"><?php echo $story['short']; ?></div>
-		   <div class="itemText"><?php echo $story['body']; ?></div>
+			<?php if($story['image']){ ?>
+			<div class="itemImage gallery">
+				<a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['imagedes']); ?>"><img src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+			</div>
+			<?php } ?>
+			<div class="itemText"><?php echo $story['short']; ?></div>
+			<div class="itemText"><?php echo $story['body']; ?></div>
 			<div class="clearfix"></div>
 		</div>
 		<div class="itemFoot">
-		   <p>
+			<p>
 				<a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i>  <?php _e('Back'); ?></a>
 				<a class="btn btn-primary" title="<?php _e('View'); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><i class="fa fa-eye"></i> <?php _e('View'); ?></a>
 				<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
 				<a class="btn btn-primary" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Attach'); ?></a>
 				<a class="btn btn-primary" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
-	      </p>
+	    	</p>
 		</div>
 	</div>
 </div>
