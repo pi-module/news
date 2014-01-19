@@ -13,14 +13,14 @@
 return array(
     // Module meta
     'meta' => array(
-        'title'         => _a('News'),
-        'seo_description'   => _a('Manage News and Blog'),
+        'title'         => __('News'),
+        'description'   => __('Manage News and Blog'),
         'version'       => '1.1.0',
         'license'       => 'New BSD',
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',
         'demo'          => 'http://demo.xoopsengine.org/news',
-        'icon'          => 'fa fa fa-book',
+        'icon'          => 'fa fa-book',
         'clonable'      => true,
     ),
     // uid information
@@ -41,5 +41,4 @@ return array(
         'route'         => 'route.php',
         'comment'       => 'comment.php',
     )
-
 );

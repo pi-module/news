@@ -91,6 +91,9 @@ class StoryController extends ActionController
                 'module'        => $this->getModule(),
                 'controller'    => 'story',
                 'action'        => 'index',
+                'status'        => $status,
+                'topic'         => $topic,
+                'uid'           => $uid,
             )),
         ));
         // Set view

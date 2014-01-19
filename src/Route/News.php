@@ -21,7 +21,7 @@ class News extends Standard
      * @var array
      */
     protected $defaults = array(
-        'module'        => 'shop',
+        'module'        => 'news',
         'controller'    => 'index',
         'action'        => 'index'
     );
@@ -29,7 +29,6 @@ class News extends Standard
     protected $controllerList = array(
         'archive', 'index', 'json', 'story', 'tag', 'topic', 'writer'
     );
-
 
     /**
      * {@inheritDoc}
