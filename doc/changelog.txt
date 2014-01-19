@@ -1,11 +1,12 @@
 News module changelog
 
-Version 1.0.4
+Version 1.1.0
 =============================
 1. Update module code for new version of PI
 2. Update templates for support BS3
 3. Fix bugs
 4. Change some filed names on DB
+5. Add custom setting for change Url to /blog
 
 Version 1.0.3
 =============================
