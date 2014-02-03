@@ -315,11 +315,15 @@ class StoryController extends ActionController
                 // Add to sitemap
                 if (empty($values['id']) && Pi::service('module')->isActive('sitemap')) {
                     $link = array();
-                    $link['loc'] = Pi::url($this->url('.news', array('module' => $module, 'controller' => 'story', 'slug' => $values['slug'])));
+                    $link['loc'] = Pi::url($this->url('', array(
+                        'module' => $module, 
+                        'controller' => 'story', 
+                        'slug' => $values['slug']
+                    )));
                     $link['lastmod'] = date("Y-m-d H:i:s"); // Or set empty
                     $link['changefreq'] = 'daily'; // Or set empty
                     $link['priority'] = ''; // Or set empty
-                    Pi::service('api')->sitemap(array('Sitemap', 'add'), 'news', 'story', $link);
+                    Pi::api('sitemap', 'sitemap')->add('news', 'story', $link);
                 }
                 // Check it save or not
                 if ($row->id) {
@@ -372,6 +376,15 @@ class StoryController extends ActionController
             $this->getModel('field_data')->delete(array('story' => $row->id));
             // Spotlight
             $this->getModel('spotlight')->delete(array('story' => $row->id));
+            // Remove sitemap
+            if (Pi::service('module')->isActive('sitemap')) {
+                $loc = Pi::url($this->url('', array(
+                        'module' => $module, 
+                        'controller' => 'product', 
+                        'slug' => $row->slug
+                    )));
+                Pi::api('sitemap', 'sitemap')->remove('news', 'story', $loc);
+            } 
             // Remove page
             $row->delete();
             $this->jump(array('action' => 'index'), __('This story deleted'));
