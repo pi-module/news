@@ -312,18 +312,18 @@ class StoryController extends ActionController
                 if (!empty($extra)) {
                     Pi::api('extra', 'news')->Set($extra, $row->id);
                 }
-                // Add to sitemap
-                if (empty($values['id']) && Pi::service('module')->isActive('sitemap')) {
-                    $link = array();
-                    $link['loc'] = Pi::url($this->url('', array(
+                // Add / Edit sitemap
+                if (Pi::service('module')->isActive('sitemap')) {
+                    $loc = Pi::url($this->url('news', array(
                         'module' => $module, 
                         'controller' => 'story', 
                         'slug' => $values['slug']
                     )));
-                    $link['lastmod'] = date("Y-m-d H:i:s"); // Or set empty
-                    $link['changefreq'] = 'daily'; // Or set empty
-                    $link['priority'] = ''; // Or set empty
-                    Pi::api('sitemap', 'sitemap')->add('news', 'story', $link);
+                    if (empty($values['id'])) {
+                        Pi::api('sitemap', 'sitemap')->add('news', 'story', $row->id, $loc);
+                    } else {
+                        Pi::api('sitemap', 'sitemap')->update('news', 'story', $row->id, $loc);
+                    }              
                 }
                 // Check it save or not
                 if ($row->id) {
@@ -378,12 +378,12 @@ class StoryController extends ActionController
             $this->getModel('spotlight')->delete(array('story' => $row->id));
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
-                $loc = Pi::url($this->url('', array(
+                $loc = Pi::url($this->url('news', array(
                         'module' => $module, 
-                        'controller' => 'product', 
+                        'controller' => 'story', 
                         'slug' => $row->slug
                     )));
-                Pi::api('sitemap', 'sitemap')->remove('news', 'story', $loc);
+                Pi::api('sitemap', 'sitemap')->remove($loc);
             } 
             // Remove page
             $row->delete();

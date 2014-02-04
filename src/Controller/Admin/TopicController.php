@@ -206,20 +206,28 @@ class TopicController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
-                // Check it save or not
-                if ($row->id) {
-                	  // Set topic as page for dress up block 
-                	  if(empty($values['id'])) {
-	                	  $this->setPage($row->slug, $row->title);
-                	  } else {	
-                	  	  $this->updatePage($topic['slug'], $row->slug, $row->title);
-                    }
-                    Pi::service('registry')->page->clear($this->getModule());
-                    $message = __('Topic data saved successfully.');
-                    $this->jump(array('action' => 'index'), $message);
-                } else {
-                    $message = __('Topic data not saved.');
+                // Set topic as page for dress up block 
+                if(empty($values['id'])) {
+	                $this->setPage($row->slug, $row->title);
+                } else {	
+                	$this->updatePage($topic['slug'], $row->slug, $row->title);
                 }
+                Pi::service('registry')->page->clear($this->getModule());
+                // Add / Edit sitemap
+                if (Pi::service('module')->isActive('sitemap')) {
+                    $loc = Pi::url($this->url('news', array(
+                        'module' => $module, 
+                        'controller' => 'topic', 
+                        'slug' => $values['slug']
+                    )));
+                    if (empty($values['id'])) {
+                        Pi::api('sitemap', 'sitemap')->add('news', 'topic', $row->id, $loc);
+                    } else {
+                        Pi::api('sitemap', 'sitemap')->update('news', 'topic', $row->id, $loc);
+                    }              
+                }
+                $message = __('Topic data saved successfully.');
+                $this->jump(array('action' => 'index'), $message);
             } else {
                 $message = __('Invalid data, please check and re-submit.');
             }
@@ -241,12 +249,10 @@ class TopicController extends ActionController
 
     public function deleteAction()
     {
-        /*
-           * not completed and need confirm option
-           */
         // Get information
         $this->view()->setTemplate(false);
         $id = $this->params('id');
+        $module = $this->params('module');
         $row = $this->getModel('topic')->find($id);
         if ($row) {
             // Delete writers
@@ -289,6 +295,15 @@ class TopicController extends ActionController
             // Remove page
             $this->removePage($row->slug);
             Pi::service('registry')->page->clear($this->getModule());
+            // Remove sitemap
+            if (Pi::service('module')->isActive('sitemap')) {
+                $loc = Pi::url($this->url('news', array(
+                        'module' => $module, 
+                        'controller' => 'topic', 
+                        'slug' => $row->slug
+                    )));
+                Pi::api('sitemap', 'sitemap')->remove($loc);
+            } 
             // Remove topic
             $row->delete();
             $this->jump(array('action' => 'index'), __('This topic and all of stores deleted'));
