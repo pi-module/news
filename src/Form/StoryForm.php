@@ -226,12 +226,13 @@ class StoryForm extends BaseForm
         if (Pi::service('module')->isActive('tag')) {
             $this->add(array(
                 'name' => 'tag',
+                'type' => 'tag',
                 'options' => array(
                     'label' => __('Tags'),
                 ),
                 'attributes' => array(
-                    'type' => 'text',
-                    'description' => '',
+                    'id'          => 'tag',
+                    'description' => __('Use `|` as delimiter to separate tag terms'),
                 )
             ));
         }

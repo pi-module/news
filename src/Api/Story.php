@@ -212,7 +212,7 @@ class Story extends AbstractApi
         // Set short text
         $story['short'] = Pi::service('markup')->render($story['short'], 'text', 'html');
         // Set body text
-        $story['body'] = Pi::service('markup')->render($story['body'], 'text', 'html');
+        $story['body'] = Pi::service('markup')->render($story['body'], 'html', 'html');
         // Set times
         $story['time_create_view'] = _date($story['time_create']);
         $story['time_publish_view'] = _date($story['time_publish']);

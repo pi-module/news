@@ -167,13 +167,13 @@ class StoryController extends ActionController
         // Check
         if ($story && !empty($id)) {
             // remove file
-            $files = array(
+            /* $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/large/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/medium/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/thumb/' . $story->path . '/' . $story->image),
             );
-            Pi::service('file')->remove($files);
+            Pi::service('file')->remove($files); */
             // clear DB
             $story->image = '';
             $story->path = '';
@@ -237,7 +237,7 @@ class StoryController extends ActionController
                 }
                 // Tag
                 if (!empty($values['tag'])) {
-                    $tag = explode(' ', $values['tag']);
+                    $tag = explode('|', $values['tag']);
                 }
                 // upload image
                 if (!empty($file['image']['name'])) {
@@ -344,7 +344,7 @@ class StoryController extends ActionController
                 if (Pi::service('module')->isActive('tag')) {
                     $tag = Pi::service('tag')->get($module, $story['id'], '');
                     if (is_array($tag)) {
-                        $story['tag'] = implode(' ', $tag);
+                        $story['tag'] = implode('|', $tag);
                     }
                 }
                 $form->setData($story);

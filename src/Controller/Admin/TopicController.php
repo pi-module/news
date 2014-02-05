@@ -79,13 +79,13 @@ class TopicController extends ActionController
         // Check
         if ($topic && !empty($id)) {
             // remove file
-            $files = array(
+            /* $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/large/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/medium/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/thumb/' . $topic->path . '/' . $topic->image),
             );
-            Pi::service('file')->remove($files);
+            Pi::service('file')->remove($files); */
             // clear DB
             $topic->image = '';
             $topic->path = '';
