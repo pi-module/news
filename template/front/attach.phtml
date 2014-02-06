@@ -57,17 +57,15 @@
 	</div>
 <?php } ?>
 <?php if(!empty($attach['image'])) { ?>
-	<div class="attach-image">
+	<div class="attach-image gallery">
 		<h4><?php _e('Attached images'); ?></h4>
-		<ul class="thumbnails gallery list-unstyled">
 		<?php foreach($attach['image'] as $image) { ?>
-			<li class="col-md-2">
-				<div class="thumbnail">
-					<a href="<?php echo $image['mediumUrl']; ?>" title="<?php echo $this->escape($image['title']); ?>"><img src="<?php echo $image['thumbUrl']; ?>" alt="<?php echo $this->escape($image['title']); ?>" /></a>
-				</div>		
-			</li>
+		<div class="col-sm-3 col-md-2">
+			<div class="thumbnail">
+				<a href="<?php echo $image['mediumUrl']; ?>" title="<?php echo $this->escape($image['title']); ?>"><img src="<?php echo $image['thumbUrl']; ?>" alt="<?php echo $this->escape($image['title']); ?>" /></a>
+			</div>
+		</div>		
 		<?php } ?>
-		</ul>
 	</div>	
 <?php } ?>
 <?php if(!empty($attach['archive'])) { ?>
@@ -108,7 +106,7 @@
 <?php } ?>
 <?php if(!empty($attach['other'])) { ?>
 	<div class="attach-other">
-		<h4><?php _e('Attached pdfs'); ?></h4>
+		<h4><?php _e('Attached files'); ?></h4>
 		<ul>
 		<?php foreach($attach['other'] as $other) { ?>
 			<li>
