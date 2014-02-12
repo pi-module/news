@@ -53,7 +53,7 @@ class TagController extends IndexController
         $template = array(
             'controller' => 'tag',
             'action' => 'term',
-            'slug' => $topic['slug'],
+            'slug' => $slug,
             );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);

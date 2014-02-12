@@ -20,92 +20,92 @@ if($config['image_lightbox']){
 <div class="news">
 	<?php include $this->template('front/feed'); ?>
 	<?php include $this->template('front/advertisement'); ?>
-	<div class="item">
-		<div class="itemHead">
-			<span class="itemTitle">
-				<h3><?php echo $this->escape($story['title']); ?></h3>
-			</span>
-		</div>
-		<div class="itemInfo">
-			<?php if($story['important']) { ?>
-			<span class="label label label-important"><?php _e('Important'); ?></span>
-			<?php } ?>
-			<?php if($config['show_writer']) { ?>
-			<span class="itemPoster"><?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['identity']); ?></a></span>
-			<?php } ?>
-			<?php if($config['show_date']) { ?>
-			<span class="itemPostDate"><?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?></span>
-			<?php } ?>
-			<?php if($config['show_hits']) { ?>
-			<span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span>
-			<?php } ?>
-			<?php if($config['show_topic']) { ?><span class="itemtopics"><?php _e('Topics'); ?> : 
-			<?php foreach($story['topics'] as $storyTopic) { ?>
-				<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
-			<?php } ?></span><?php } ?>
-			<div class="clearfix"></div>
-		</div>
-		<div class="itemBody">
-			<h4 class="itemRotator"><?php echo $this->escape($story['subtitle']); ?></h4>
-			<?php if($story['image']) { ?>
-		 	<div class="itemImage gallery <?php echo $config['image_float']; ?>">
-				<?php if($config['image_lightbox']){ ?>
-				<a href="<?php echo $story['mediumurl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-thumbnail" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-				<?php } else { ?>
-				<img class="<?php echo $config['image_float']; ?> ItemStoryImg img-thumbnail" src="<?php echo $story['thumburl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+  			<h3 class="panel-title"><?php echo $this->escape($story['title']); ?></h3>
+  		</div>
+		<div class="panel-body">
+			<div class="itemInfo clearfix">
+				<?php if($story['important']) { ?>
+				<span class="label label label-important"><?php _e('Important'); ?></span>
 				<?php } ?>
+				<?php if($config['show_writer']) { ?>
+				<span class="itemPoster"><?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['identity']); ?></a></span>
+				<?php } ?>
+				<?php if($config['show_date']) { ?>
+				<span class="itemPostDate"><?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?></span>
+				<?php } ?>
+				<?php if($config['show_hits']) { ?>
+				<span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span>
+				<?php } ?>
+				<?php if($config['show_topic']) { ?><span class="itemtopics"><?php _e('Topics'); ?> : 
+				<?php foreach($story['topics'] as $storyTopic) { ?>
+				<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+				<?php } ?></span><?php } ?>
 			</div>
-		    <?php } ?>
-		    <div class="itemText"><?php echo $story['short']; ?></div>
-		    <div class="itemText"><?php echo $story['body']; ?></div>
-			<div class="clearfix"></div>
-		</div>
-		<?php include $this->template('front/extra'); ?>
-		<?php include $this->template('front/tag'); ?>
-		<?php include $this->template('front/attach'); ?>
-		<div class="itemFoot">
-		    <?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
-		    <?php if (!empty($favorite)) { include $this->template('module/favorite:front/favoritebar'); } ?>
-		    <?php if($config['show_nav']) { ?>
-				<div class="itemPager">
-	    	    	<ul class="pager">
-		            <?php if(!empty($link['previous'])) { ?>
-		      			<li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>" href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a></li>
-		        	<?php } ?>
-		        	<?php if(!empty($link['next'])) { ?>
-		      			<li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>" href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a></li>
-		      		<?php } ?>
-	        		</ul>
-            	</div>
-		    <?php } ?>
-		    <div class="clearfix"></div>
-		    <div class="itemIcons">
-				<?php if($config['show_pdf']) { ?><span class="itemPdf"></span><?php } ?>
-			    <?php if($config['show_print']) { ?><span class="itemPrint"></span><?php } ?>
-		        <?php if($config['show_mail']) { ?><span class="itemMail"></span><?php } ?>
-	    	</div>
-	    	<div class="itemSocial">
-		    	<?php if($config['social_facebook']) { ?>
-		    	<span class="itemFacebook"><?php echo $this->facebook(); ?></span>
+			<div class="itemBody">
+				<h4 class="itemRotator"><?php echo $this->escape($story['subtitle']); ?></h4>
+				<?php if($story['image']) { ?>
+		 		<div class="pull-left itemImage gallery <?php echo $config['image_float']; ?>">
+					<?php if($config['image_lightbox']){ ?>
+					<a href="<?php echo $story['mediumUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="<?php echo $config['image_float']; ?> ItemStoryImg img-thumbnail" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+					<?php } else { ?>
+					<img class="<?php echo $config['image_float']; ?> ItemStoryImg img-thumbnail" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+					<?php } ?>
+				</div>
 		    	<?php } ?>
-		    	<?php if($config['social_twitter']) { ?>
-		    	<span class="itemTwitter"><?php echo $this->twitter(); ?></span>
+		    	<div class="itemText"><?php echo $story['short']; ?></div>
+		    	<div class="itemText"><?php echo $story['body']; ?></div>
+				<div class="clearfix"></div>
+			</div>
+			<?php include $this->template('front/extra'); ?>
+			<?php include $this->template('front/tag'); ?>
+			<?php include $this->template('front/attach'); ?>
+			<div class="itemFoot">
+		    	<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
+		    	<?php if (!empty($favorite)) { include $this->template('module/favorite:front/favoritebar'); } ?>
+		    	<?php if($config['show_nav']) { ?>
+					<div class="itemPager">
+	    	    		<ul class="pager">
+		            	<?php if(!empty($link['previous'])) { ?>
+		      				<li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>" href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a></li>
+		        		<?php } ?>
+		        		<?php if(!empty($link['next'])) { ?>
+		      				<li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>" href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a></li>
+		      			<?php } ?>
+	        			</ul>
+            		</div>
 		    	<?php } ?>
-		    	<?php if($config['social_gplus']) { ?>
-		    	<span class="itemPlusone"><?php echo $this->plusone(); ?></span>
-		    	<?php } ?>
-	    	</div>
-			<div class="clearfix"></div>
+		    	<div class="clearfix"></div>
+		    	<div class="itemIcons">
+					<?php if($config['show_pdf']) { ?><span class="itemPdf"></span><?php } ?>
+			    	<?php if($config['show_print']) { ?><span class="itemPrint"></span><?php } ?>
+		        	<?php if($config['show_mail']) { ?><span class="itemMail"></span><?php } ?>
+	    		</div>
+	    		<div class="itemSocial">
+		    		<?php if($config['social_facebook']) { ?>
+		    		<span class="itemFacebook"><?php echo $this->facebook(); ?></span>
+		    		<?php } ?>
+		    		<?php if($config['social_twitter']) { ?>
+		    		<span class="itemTwitter"><?php echo $this->twitter(); ?></span>
+		    		<?php } ?>
+		    		<?php if($config['social_gplus']) { ?>
+		    		<span class="itemPlusone"><?php echo $this->plusone(); ?></span>
+		    		<?php } ?>
+	    		</div>
+				<div class="clearfix"></div>
+			</div>
+			<?php if($relateds) { ?>
+			<div class="itemList itemRelated">
+				<h3><?php _e('Related storys'); ?></h3>
+				<ul>
+				<?php foreach($relateds as $related) { ?>
+					<li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a></li>
+				<?php }?>
+				</ul>
+			</div>
+			<?php } ?>
+
 		</div>
-		<?php if($relateds) { ?>
-		<div class="itemList itemRelated">
-			<h3><?php _e('Related storys'); ?></h3>
-			<ul>
-			<?php foreach($relateds as $related) { ?>
-				<li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a></li>
-			<?php }?>
-			</ul>
-		</div>
-		<?php } ?>
 	</div>
 </div>

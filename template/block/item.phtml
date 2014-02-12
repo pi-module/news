@@ -11,20 +11,20 @@
         	<h4 class="media-heading"><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h4>
         	<?php if($block['showdate'] || $block['showhits']){ ?>
 			<div class="itemInfo">
-				<?php if($block['showdate']){ ?><span class="itemPostDate"><?php _e('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?></span><?php } ?>
-				<?php if($block['showhits']){ ?><span class="itemStats"><?php _e('Read'); ?> : <?php echo $this->escape($story['hits']); ?></span><?php } ?>
+				<?php if($block['showdate']){ ?><span class="itemPostDate"><?php _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?></span><?php } ?>
+				<?php if($block['showhits']){ ?><span class="itemStats"><?php _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?></span><?php } ?>
 			</div>
 			<?php } ?>
         	<?php if($block['showdesc']){ echo $story['short']; } ?>
         	<?php if($block['showmore']){ ?>
-            <p><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _e('Read More'); ?></a></p>
+            <p><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php _b('Read More'); ?></a></p>
         	<?php } ?>
         </div>	
     </div>
 	<?php } ?>
 	<?php if ($block['showblockmore']) { ?>
     <div class="itemBlockLink">
-    	<a title="<?php _e('read more'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php _e('read more'); ?></a>
+    	<a title="<?php _b('Read More'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php _b('Read More'); ?></a>
     </div>
 	<?php } ?>
 </div>

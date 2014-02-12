@@ -60,10 +60,14 @@ class Topic extends Select
         $branch = array();
         // Set default category options
         if ($parentId == 0) {
-            if (!isset($this->options['topic'])) {
-                $branch[0] = __('All Topics');
+            if (isset($this->options['topic'])) {
+                if (empty($this->options['topic'])) {
+                    $branch[0] = '';
+                } else {
+                    $branch = $this->options['topic'];
+                }
             } else {
-                $branch = $this->options['topic'];
+                $branch[0] = __('All Topics');
             }
         }
         // Set category list as tree

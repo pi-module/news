@@ -65,16 +65,6 @@ class TopicFilter extends InputFilter
                 ),
             ),
         ));
-        // description_footer
-        $this->add(array(
-            'name' => 'description_footer',
-            'required' => false,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
         // image
         $this->add(array(
             'name' => 'image',

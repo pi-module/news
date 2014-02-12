@@ -50,7 +50,7 @@ class TopicForm extends BaseForm
             'options' => array(
                 'label' => __('Parent Topic'),
                 'module' => $this->module,
-                'topic' => $this->topic,
+                'topic' => '',
             ),
             'attributes' => array(
                 'size' => 1,
@@ -84,26 +84,11 @@ class TopicForm extends BaseForm
             'name' => 'description',
             'options' => array(
                 'label' => __('Description'),
+                'editor' => 'html',
+                'set' => '',
             ),
             'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '5',
-                'cols' => '40',
-                
-                'description' => '',
-            )
-        ));
-        // description_footer
-        $this->add(array(
-            'name' => 'description_footer',
-            'options' => array(
-                'label' => __('Footer description'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '5',
-                'cols' => '40',
-                
+                'type' => 'editor',
                 'description' => '',
             )
         ));

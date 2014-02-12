@@ -39,7 +39,6 @@ CREATE TABLE `{topic}` (
     `title` varchar(255) NOT NULL,
     `slug` varchar(255) NOT NULL,
     `description` text,
-    `description_footer` text,
     `image` varchar(255) NOT NULL,
     `path` varchar(16) NOT NULL,
     `seo_title` varchar(255) NOT NULL,

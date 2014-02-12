@@ -26,10 +26,10 @@ class RebuildForm extends BaseForm
                 'label' => __('Rebuild'),
                 'value' => 'slug',
                 'value_options' => array(
-                    'slug' => __('Slug'),
-                    'seo_title' => __('Seo title'),
-                    'seo_keywords' => __('Seo keywords'),
-                    'seo_description' => __('Seo description'),
+                    'slug' => __('slug'),
+                    'seo_title' => __('SEO Title'),
+                    'seo_keywords' => __('SEO Keywords'),
+                    'seo_description' => __('SEO Description'),
                 ),
             ),
         ));

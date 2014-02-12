@@ -16,21 +16,21 @@ if($config['image_lightbox']){
 	$this->css($this->assetModule('css/lightbox.css'));
 } 
 ?>
-<div class="topicinfo page-header">
-	<div class="media">
-		<?php if(!empty($topic['image'])) {  ?>
-		<div class="pull-left gallery itemImageList">
-		   <?php if($config['image_lightbox']){ ?>
-			<a href="<?php echo $topic['mediumurl']; ?>" title="<?php echo $this->escape($topic['title']); ?>">
-				<img class="media-object ItemStoryImg img-thumbnail" src="<?php echo $topic['thumburl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-			</a>
-			<?php } else { ?>
-			<img class="media-object ItemStoryImg img-thumbnail" src="<?php echo $topic['thumburl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-			<?php } ?>
-		</div>
-		<?php } ?>
-		<div class="media-body">
-			<h4 class="media-heading"><?php echo $this->escape($topic['title']); ?></h4>
+<div class="topicinfo">
+	<div class="panel panel-default">
+  		<div class="panel-heading"><?php echo $this->escape($topic['title']); ?></div>
+		<div class="panel-body">
+			<?php if(!empty($topic['image'])) {  ?>
+			<div class="pull-left gallery itemImageList">
+		   		<?php if($config['image_lightbox']){ ?>
+				<a href="<?php echo $topic['mediumUrl']; ?>" title="<?php echo $this->escape($topic['title']); ?>">
+					<img class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+				</a>
+				<?php } else { ?>
+				<img class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+				<?php } ?>
+			</div>
+			<?php } ?>  
 			<?php echo $topic['description']; ?>
 		</div>
 	</div>

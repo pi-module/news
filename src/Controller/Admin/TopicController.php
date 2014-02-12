@@ -25,7 +25,7 @@ class TopicController extends ActionController
     protected $ImageTopicPrefix = 'topic_';
 
     protected $topicColumns = array(
-        'id', 'pid', 'title', 'slug', 'description', 'description_footer', 'image', 'path',
+        'id', 'pid', 'title', 'slug', 'description', 'image', 'path',
         'seo_title', 'seo_keywords', 'seo_description', 'uid', 'time_create', 'time_update', 
         'setting', 'status', 'style',
     );
