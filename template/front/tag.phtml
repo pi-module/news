@@ -1,9 +1,9 @@
 <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
-<div class="tagbar">
-<?php foreach($tag as $term) { ?>
-	<span class="label label-default">
+<div class="clearfix tagList">
+	<?php foreach($tag as $term) { ?>
+	<span class="tagItem">
 		<a title="<?php echo $this->escape($term); ?>" href="<?php echo $this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urldecode($term))); ?>"><i class="fa fa-tag"></i> <?php echo $this->escape($term); ?></a>
 	</span>
-<?php } ?>
+	<?php } ?>
 </div>
 <?php } ?>

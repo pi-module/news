@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -31,17 +32,21 @@ class TagController extends IndexController
         // Check slug
         if (!isset($slug) || empty($slug)) {
             $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The tag not found.'));
+            $this->jump($url, __('The tag not set.'), 'error');
         }
         // Get id from tag module
-        $tags = Pi::service('tag')->getList($module, $slug);
+        $tagId = array();
+        $tags = Pi::service('tag')->getList($slug, $module);
+        foreach ($tags as $tag) {
+            $tagId[] = $tag['item'];
+        }
         // Check slug
-        if (empty($tags)) {
+        if (empty($tagId)) {
             $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The tag not found.'));
+            $this->jump($url, __('The tag not found.'), 'error');
         }
         // Set story info
-        $where = array('status' => 1, 'story' => $tags, 'time_publish <= ?' => time());
+        $where = array('status' => 1, 'story' => $tagId, 'time_publish <= ?' => time());
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info

@@ -111,16 +111,6 @@
 .itemMore {
 }
 
-.tagbar a span {
-    color: #fff;
-    padding: 2px 5px;
-}
-
-.tagbar a:hover {
-    color: #f0f0f0;
-    text-decoration: none;
-}
-
 /* spotlight */
 .spotlightTitle h2 {
     padding: 0;
