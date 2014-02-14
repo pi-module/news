@@ -25,7 +25,7 @@ class IndexController extends FeedController
             'description'   => __('Recent News.'),
             'date_created'  => time(),
         ));
-        $columns = array('id', 'title', 'slug', 'short', 'time_publish');
+        $columns = array('id', 'title', 'slug', 'short', 'body', 'time_publish');
         $order = array('time_publish DESC', 'id DESC');
         $where = array('status' => 1);
         $limit = intval($this->config('feed_num'));
@@ -34,7 +34,8 @@ class IndexController extends FeedController
         foreach ($rowset as $row) {
             $entry = array();
             $entry['title'] = $row->title;
-            $entry['description'] = $row->short;
+            $description = (empty($row->short)) ? $row->body : $row->short;
+            $entry['description'] = strtolower(trim($description));
             $entry['date_modified'] = (int)$row->time_publish;
             $entry['link'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $this->getModule(),
