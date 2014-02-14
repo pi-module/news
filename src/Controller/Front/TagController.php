@@ -53,8 +53,8 @@ class TagController extends IndexController
         $template = array(
             'controller' => 'tag',
             'action' => 'term',
-            'slug' => $slug,
-            );
+            'slug' => urlencode($slug),
+        );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight

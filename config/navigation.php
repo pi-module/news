@@ -48,7 +48,7 @@ return array(
         'writer' => array(
             'label'         => _t('Writer list'),
             'permission'    => array(
-                'resource'  => 'public',
+                'resource'  => 'writer',
             ),
             'route'         => 'news',
             'module'        => 'news',

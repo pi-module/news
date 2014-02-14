@@ -27,52 +27,46 @@ if($config['image_lightbox']){
 	<div class="index-news">
 	    <?php foreach($stores as $story) { ?>
 		<div class="<?php echo $topic['column_class']; ?>">
-			<div class="item">
-				<div class="itemHead">
-					<span class="itemTitle">
-						<h4><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h4>
-					</span>
-				</div>
-				<div class="itemInfo">
-					<?php if($topic['show_date']){ ?>
-					<span class="itemPostDate">
-						<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
-					</span>
-					<?php } ?>
-					<?php if($topic['show_hits']){ ?>
-					<span class="itemStats">
-						<?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?>
-					</span>
-					<?php } ?>
-					<?php if($topic['show_topic']) { ?>
-					<span class="itemtopics"><?php _e('Topics'); ?> : 
-					<?php foreach($story['topics'] as $storyTopic) { ?>
-						<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
-					<?php } ?>
-					</span>
-					<?php } ?>
-					<div class="clearfix"></div>
-				</div>
-				<div class="itemBody">
-					<?php if($story['image']){ ?>
-			    	<div class="itemImageList gallery">
-			    		<?php if($config['image_lightbox']){ ?>
-						<a href="<?php echo $this->escape($story['mediumUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
-							<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
-						</a>
-					<?php } else { ?>
-						<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+  					<h3 class="panel-title"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+  				</div>
+				<div class="panel-body">
+					<div class="itemInfo">
+						<?php if($topic['show_date']){ ?>
+						<span class="itemPostDate">
+							<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
+						</span>
 						<?php } ?>
+						<?php if($topic['show_hits']){ ?>
+						<span class="itemStats">
+							<?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?>
+						</span>
+						<?php } ?>
+						<?php if($topic['show_topic']) { ?>
+						<span class="itemtopics"><?php _e('Topics'); ?> : 
+						<?php foreach($story['topics'] as $storyTopic) { ?>
+							<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
+						<?php } ?>
+						</span>
+						<?php } ?>
+						<div class="clearfix"></div>
 					</div>
-					<?php } ?>
-			    	<div class="itemText"><?php echo $story['short']; ?></div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="itemFoot">
-            		<div class="itemMore">
-            			<a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>"><?php _e('More'); ?></a>
-            		</div>
-					<div class="clearfix"></div>
+					<div class="itemBody">
+						<?php if($story['image']){ ?>
+			    		<div class="itemImageList gallery">
+			    			<?php if($config['image_lightbox']){ ?>
+							<a href="<?php echo $this->escape($story['mediumUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+								<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+							</a>
+							<?php } else { ?>
+							<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+							<?php } ?>
+						</div>
+						<?php } ?>
+			    		<div class="itemText"><?php echo $story['short']; ?></div>
+						<div class="clearfix"></div>
+					</div>
 				</div>
 			</div>
 		</div>

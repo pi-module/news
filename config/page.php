@@ -42,22 +42,22 @@ return array(
     'front' => array(
         array(
             'controller'    => 'index',
-            'permission'    => 'index',
+            'permission'    => 'public',
             'block'         => 1,
         ),
         array(
             'controller'    => 'topic',
-            'permission'    => 'topic',
+            'permission'    => 'public',
             'block'         => 1,
         ),
         array(
             'controller'    => 'story',
-            'permission'    => 'story',
+            'permission'    => 'public',
             'block'         => 1,
         ),
         array(
             'controller'    => 'tag',
-            'permission'    => 'tag',
+            'permission'    => 'public',
             'block'         => 1,
         ),
         array(
@@ -67,7 +67,19 @@ return array(
         ),
         array(
             'controller'    => 'archive',
-            'permission'    => 'archive',
+            'permission'    => 'public',
+            'block'         => 1,
+        ),
+        array(
+            'controller'    => 'topic',
+            'action'        => 'list',
+            'permission'    => 'public',
+            'block'         => 1,
+        ),
+        array(
+            'controller'    => 'tag',
+            'action'        => 'list',
+            'permission'    => 'public',
             'block'         => 1,
         ),
     ),

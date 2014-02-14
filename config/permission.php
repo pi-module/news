@@ -20,6 +20,12 @@ return array(
                 'member',
             ),
         ),
+        'writer' => array(
+            'title'         => _t('Writer'),
+            'access'        => array(
+                'member',
+            ),
+        ),
     ),
     // Admin section
     'admin' => array(

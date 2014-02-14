@@ -9,7 +9,7 @@
 	<div class="index-list">
 		<div class="list-group">
 		<?php foreach($stores as $story) { ?>
-			<a class="list-group-item" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+			<a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><img src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" /><?php echo $this->escape($story['title']); ?></a>
 		<?php } ?>
 		</div>
 	    <div class="clearfix"></div>

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-12 15:18+0330\n"
+"POT-Creation-Date: 2014-02-14 10:00+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -155,7 +155,7 @@ msgstr "متن اصلی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:123
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:18
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:33
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:32
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:30
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_media.phtml:20
 msgid "Important"
@@ -1113,7 +1113,7 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:12
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:44
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:43
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:39
 msgid "Read"
 msgstr "نمایش"
@@ -1123,7 +1123,7 @@ msgid "Comments"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:48
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:47
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
 msgid "Topics"
 msgstr "شاخه"
@@ -1343,14 +1343,10 @@ msgstr ""
 msgid "Story title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:39
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:38
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
 msgid "Time"
 msgstr "زمان"
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:73
-msgid "More"
-msgstr "ادامه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:21
 msgid "Attached video"
@@ -1380,9 +1376,9 @@ msgstr ""
 msgid "Attached files"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:100
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:96
 msgid "Related storys"
-msgstr ""
+msgstr "مطالب مشابه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/writer_list.phtml:11
 msgid "List of Writers"
@@ -1403,3 +1399,6 @@ msgstr "خوراک"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
+
+#~ msgid "More"
+#~ msgstr "ادامه"

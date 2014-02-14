@@ -120,7 +120,7 @@ class News extends Standard
                     if (!empty($parts[1])) {
                         if ($parts[1] == 'term') {
                             $matches['action'] = 'term';
-                            $matches['slug'] = $this->decode($parts[2]);
+                            $matches['slug'] = urldecode($parts[2]);
                             // Set page
                             if (isset($parts[3]) && $parts[3] == 'page') {
                                 $matches['page'] = intval($parts[4]);
