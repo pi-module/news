@@ -13,7 +13,7 @@
 namespace Module\News\Api;
 
 use Pi;
-use Pi\Application\AbstractApi;
+use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('writer', 'news')->Add($uid);

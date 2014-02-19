@@ -92,7 +92,7 @@ return array(
         'template' => 'list',
         'config' => array(
             'topicid' => array(
-                'title' => __('topic'),
+                'title' => __('Topic'),
                 'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
@@ -144,7 +144,7 @@ return array(
         'template' => 'table',
         'config' => array(
             'topicid' => array(
-                'title' => __('topic'),
+                'title' => __('Topic'),
                 'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',
@@ -204,7 +204,7 @@ return array(
         'template' => 'spotlight',
         'config' => array(
             'topicid' => array(
-                'title' => __('topic'),
+                'title' => __('Topic'),
                 'description' => '',
                 'edit' => 'Module\News\Form\Element\Topic',
                 'filter' => 'string',

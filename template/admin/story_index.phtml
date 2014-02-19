@@ -47,7 +47,7 @@
 						<strong><?php _e('Published'); ?></strong> : <?php echo $this->escape($story['time_publish']); ?>
 					</div>
 					<div class="col-md-7">
-						<strong><?php _e('Actions'); ?></strong> : 
+						<strong><?php _e('Action'); ?></strong> : 
 						<?php if($story['status'] == 1) { ?>
 						<button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
 						<?php } else { ?>
@@ -66,7 +66,7 @@
 	</table>
 	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
 	<p>
-		<span class="label label-success"><?php _e('time_published'); ?></span>
+		<span class="label label-success"><?php _e('Published'); ?></span>
 		<span class="label label-warning"><?php _e('Pending review'); ?></span>
 		<span class="label label-danger"><?php _e('Trash'); ?></span>
 	</p>

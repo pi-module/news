@@ -34,7 +34,7 @@
     <div id="file-<%= data.id %>" class="well">
         <div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>" /></div>
         <p><%= data.title %></p>
-        <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="fa fa-eye-open fa fa-white"></i> <?php _e('Preview'); ?></button>
+        <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal" data-target="#info-attach-<%= data.id %>"><i class="fa fa-eye-open fa fa-white"></i> <?php _e('PerView'); ?></button>
         <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
     </div>
     <div id="info-attach-<%= data.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

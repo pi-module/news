@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-14 10:00+0330\n"
+"POT-Creation-Date: 2014-02-19 10:45+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,31 +19,31 @@ msgstr ""
 "X-Poedit-SearchPath-2: /var/www/html/local/pi/pi-develop/usr/module/news/"
 "config\n"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/topic.phtml:15
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:20
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:27
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:21
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/topic.phtml:14
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:19
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:26
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:20
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/list.phtml:14
 msgid "Read More"
 msgstr "ادامه"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:7
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:13
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:6
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/list.phtml:6
 msgid "Time"
 msgstr "زمان"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:15
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:8
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/item.phtml:14
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:7
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/list.phtml:7
 msgid "Read"
 msgstr "نمایش"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:5
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:4
 msgid "Title"
 msgstr "عنوان"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:6
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/block/table.phtml:5
 msgid "Short Info"
 msgstr "اطلاعات"
 

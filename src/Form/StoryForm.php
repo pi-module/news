@@ -253,7 +253,7 @@ class StoryForm extends BaseForm
                         'name' => $field['id'],
                         'type' => 'select',
                         'options' => array(
-                            'label' => sprintf('%s (%s)', $field['title'], $field['type']),
+                            'label' => $field['title'],
                             'value_options' => $this->makeArray($field['value']),
                         ),
                     ));
@@ -261,7 +261,7 @@ class StoryForm extends BaseForm
                     $this->add(array(
                         'name' => $field['id'],
                         'options' => array(
-                            'label' => sprintf('%s (%s)', $field['title'], $field['type']),
+                            'label' => $field['title'],
                         ),
                         'attributes' => array(
                             'type' => 'text',

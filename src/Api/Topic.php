@@ -13,7 +13,7 @@
 namespace Module\News\Api;
 
 use Pi;
-use Pi\Application\AbstractApi;
+use Pi\Application\Api\AbstractApi;
 use Zend\Json\Json;
 
 /*
@@ -75,7 +75,7 @@ class Topic extends AbstractApi
                         $topic['image']
                     ));
             }
-        }    
+        }  
         // Set topic config
         if (!isset($topic) || $topic['show_config'] == 'module') {
             $topic['style'] = $config['style'];
@@ -126,8 +126,9 @@ class Topic extends AbstractApi
     public function Column($columns)
     {
         switch ($columns) {
+            default:
             case 1:
-                $class = 'col-md-12';
+                $class = '';
                 break;
 
             case 2:
@@ -152,6 +153,7 @@ class Topic extends AbstractApi
     public function Template($type)
     {
         switch ($type) {
+            default:
             case 'news':
                 $template = 'index_news';
                 break;

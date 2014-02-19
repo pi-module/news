@@ -8,7 +8,7 @@
     <?php include $this->template('front/advertisement'); ?>
 	<div class="index-media">
 	    <?php foreach($stores as $story) { ?>
-		<div class="<?php echo $topic['column_class']; ?>">
+		<?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
 		<div class="item">
 			<?php if($story['image']){ ?>
 			<div class="itemImageList gallery">
@@ -20,7 +20,7 @@
 				<h3><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
 			</div>
 		</div>
-		</div>
+		<?php if ($topic['column_class']) { ?></div><?php } ?>
 	    <?php } ?>
 	    <div class="clearfix"></div>
 	</div>

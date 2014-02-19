@@ -2,13 +2,13 @@
 <div class="news">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/archive'); ?>
-    <?php include $this->template('front/topicinfo'); ?>
+    <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/writer'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
 	<div class="index-news">
 	    <?php foreach($stores as $story) { ?>
-		<div class="<?php echo $topic['column_class']; ?>">
+		<?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
 			<div class="panel panel-default">
   				<div class="panel-heading">
   					<h3 class="panel-title"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		<?php if ($topic['column_class']) { ?></div><?php } ?>
 	    <?php } ?>
 	    <div class="clearfix"></div>
 	</div>

@@ -29,7 +29,7 @@ class TopicController extends IndexController
         $topic = $this->getModel('topic')->find($slug, 'slug');
         // Check slug set
         if(empty($topic)) {
-            $this->jump(array('', 'module' => $module, 'controller' => 'topic', 'action' => 'list'), __('Got to topic list.'));
+            $this->jump(array('', 'module' => $module, 'controller' => 'topic', 'action' => 'list'), __('Go to topic list.'));
         }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);

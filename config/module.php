@@ -12,7 +12,7 @@
  */
 return array(
     // Module meta
-    'meta' => array(
+    'meta'         => array(
         'title'         => __('News'),
         'description'   => __('Manage News and Blog'),
         'version'       => '1.1.1',
@@ -20,15 +20,15 @@ return array(
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',
         'demo'          => 'http://demo.xoopsengine.org/news',
-        'icon'          => 'fa fa-book',
+        'icon'          => 'fa-book',
         'clonable'      => true,
     ),
-    // uid information
-    'uid' => array(
-        'name'    => 'Hossein Azizabadi',
-        'email'   => 'azizabadi@faragostaresh.com',
-        'website' => 'http://www.xoopsengine.org',
-        'credits' => 'Pi Engine Team'
+    // Author information
+    'author'        => array(
+        'Name'          => 'Hossein Azizabadi',
+        'email'         => 'azizabadi@faragostaresh.com',
+        'website'       => 'http://www.xoopsengine.org',
+        'credits'       => 'Pi Engine Team'
     ),
     // resource
     'resource' => array(

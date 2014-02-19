@@ -59,9 +59,9 @@ class Install extends BasicInstall
             'title' => __('Default'),
             'slug' => 'default',
             'description' => __('This is a default topic for news module'),
-            'seo_title' => 'default topic',
-            'seo_keywords' => 'default,topic',
-            'seo_description' => 'default topic',
+            'seo_title' => __('default topic'),
+            'seo_keywords' => __('default,topic'),
+            'seo_description' => __('default topic'),
             'time_create' => time(),
             'time_update' => time(),
             'status' => '1',
@@ -85,8 +85,8 @@ class Install extends BasicInstall
         
         // Add story
         $storyData = array(
-            'title' => __('Hello world !'),
-            'subtitle' => __('Hello World'),
+            'title' => __('Hello World'),
+            'subtitle' => __('This is subtitle for this story'),
             'slug' => 'hello-world',
             'topic' => Json::encode(array('1')),
             'short' => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),

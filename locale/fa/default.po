@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-14 10:00+0330\n"
+"POT-Creation-Date: 2014-02-19 11:22+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,12 +50,15 @@ msgstr "نمایش در"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:71
 msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
 msgstr ""
+"انتخاب موضوع برای اسپات لایت، اسپات لایت شما در این موضوع نمایش داده می شود."
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:80
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:12
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:92
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:13
 msgid "Expire date"
 msgstr "تاریخ ابطال"
 
@@ -74,6 +77,7 @@ msgstr "وضعیت"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:102
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:16
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:47
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:69
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:38
 msgid "Published"
 msgstr "منتشر شده"
@@ -141,9 +145,12 @@ msgstr "اسلاگ"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:87
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:81
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:22
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:95
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:147
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:207
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:280
 msgid "Topic"
-msgstr "تاپیک"
+msgstr "موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:96
 msgid "Short"
@@ -155,7 +162,7 @@ msgstr "متن اصلی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:123
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:18
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:32
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:30
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_media.phtml:20
 msgid "Important"
@@ -218,117 +225,117 @@ msgstr "فیلد های اضافی"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:4
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:4
 msgid "Rebuild"
-msgstr ""
+msgstr "دوباره سازی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:40
 msgid "Start date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:52
 msgid "End date"
-msgstr ""
+msgstr "تاریخ پایان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:60
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:78
 msgid "Online"
-msgstr ""
+msgstr "آنلاین"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:61
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:79
 msgid "Offline"
-msgstr ""
+msgstr "آفلاین"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:70
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:26
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:52
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:11
 msgid "Type"
-msgstr ""
+msgstr "نوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:72
 msgid "Text : type text content"
-msgstr ""
+msgstr "متن : نوشتن محتوای متنی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:73
 msgid "Link : add url for click"
-msgstr ""
+msgstr "لینک : اضافه کردن لینک برای کلیک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:74
 msgid "Video : add flv or mp4 url for play on video player"
-msgstr ""
+msgstr "ویدیو : درج لینک flv یا mp4 برای نمایش در پخش کننده ویدیو"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:75
 msgid "Audio : add mp3 url for play on audio player"
-msgstr ""
+msgstr "صدا : درج لینک mp3 برای پخش در پخش کننده صوتی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:76
 msgid "File : add file link for download"
-msgstr ""
+msgstr "فایل : درج لینک فایل برای دانلود"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:77
 msgid "Currency : add view price for anything"
-msgstr ""
+msgstr "قیمت : درج قیمت برای نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:78
 msgid "Date : add date for view"
-msgstr ""
+msgstr "تاریخ : درج تاریخ برای نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:79
 msgid "Number : add number"
-msgstr ""
+msgstr "عدد : درج عدد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:80
 msgid "Select : add select box for choose"
-msgstr ""
+msgstr "انتخاب : درج باکس انتخاب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:88
 msgid "Value"
-msgstr ""
+msgstr "مقدار"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:103
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:32
 msgid "Search"
-msgstr ""
+msgstr "جستجو"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:113
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:159
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:28
 msgid "Image"
-msgstr ""
+msgstr "تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:51
 msgid "Parent Topic"
-msgstr ""
+msgstr "موضوع والد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:86
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:114
 msgid "Topic Style"
-msgstr ""
+msgstr "سبک موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:116
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/module.php:16
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:79
 msgid "News"
-msgstr ""
+msgstr "خبر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:117
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:80
 msgid "List"
-msgstr ""
+msgstr "فهرست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:118
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:141
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:81
 msgid "Table"
-msgstr ""
+msgstr "جدول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:119
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:82
 msgid "Media"
-msgstr ""
+msgstr "مدیا"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:120
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:90
@@ -342,171 +349,187 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:7
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:7
 msgid "Spotlight"
-msgstr ""
+msgstr "اسپات لایت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:213
 msgid "Extra options"
-msgstr ""
+msgstr "گزینه های اضافی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:221
 msgid "Extra Config Options Type"
-msgstr ""
+msgstr "نوع تنظیمات اضافی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:223
 msgid "Use topic options"
-msgstr ""
+msgstr "استفاده از تنظیمات موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:224
 msgid "Use module options"
-msgstr ""
+msgstr "استفاده از تنظیمات ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:228
 msgid ""
 "Use topic option whit select topic options or set it to module to use module "
 "option"
 msgstr ""
+"برای استفاده از تنظیمات اختصاصی موضوع گزینه ؛استفاده از تنظیمات موضوع؛ را "
+"انتخاب کنید و یا با انتخاب گزینه ؛استفاده از تنظیمات ماژول؛ از تنظیمات پیش "
+"فرض ماژول استفاده کنید."
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:235
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:65
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:93
 msgid "Perpage"
-msgstr ""
+msgstr "تعداد در صفحه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:247
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:100
 msgid "Columns"
-msgstr ""
+msgstr "ستون"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:249
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:106
 msgid "One column"
-msgstr ""
+msgstr "یک ستون"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:250
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:107
 msgid "Two columns"
-msgstr ""
+msgstr "دو ستون"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:251
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:108
 msgid "Three columns"
-msgstr ""
+msgstr "سه ستون"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:252
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:109
 msgid "Four columns"
-msgstr ""
+msgstr "چهار ستون"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:264
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:119
 msgid "Show Topic"
-msgstr ""
+msgstr "نمایش موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:275
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:127
 msgid "Show Topic Information"
-msgstr ""
+msgstr "نمایش اطلاعات موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:286
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:135
 msgid "Show writer"
-msgstr ""
+msgstr "نمایش نویسنده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:297
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:143
 msgid "Show Date"
-msgstr ""
+msgstr "نمایش تاریخ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:308
 msgid "Show DPF"
-msgstr ""
+msgstr "نمایش پی دی اف"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:319
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:159
 msgid "Show Print"
-msgstr ""
+msgstr "نمایش چاپ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:330
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:167
 msgid "Show Mail"
-msgstr ""
+msgstr "نمایش ایمیل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:341
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:175
 msgid "Show Hits"
-msgstr ""
+msgstr "نمایش بازدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:352
 msgid "Show Tags"
-msgstr ""
+msgstr "نمایش برچسب ها"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:59
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:79
 msgid "Default"
-msgstr ""
+msgstr "پیش فرض"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:61
 msgid "This is a default topic for news module"
-msgstr ""
+msgstr "موضوع پیش فرض برای ماژول"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:62
+#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:64
+msgid "default topic"
+msgstr "موضوع پیش فرض"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:63
+msgid "default,topic"
+msgstr "موضوع,پیش فرض"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:88
-msgid "Hello world !"
-msgstr ""
+msgid "Hello World"
+msgstr "سلام جهان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:89
-msgid "Hello World"
-msgstr ""
+msgid "This is subtitle for this story"
+msgstr "این یک زیر عنوان است برای این مطلب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:92
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
 msgstr ""
+"این متن کوتاه مطلب شما است و شما می توانید به سادگی آن را ویرایش کنید. برای "
+"مطالعه اطلاعات بیشتر برای روی عنوان یا دکمه ادامه کلیک کنید."
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:93
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
 msgstr ""
+"این متن ادامه مطلب است، شما این بخش را هم به سادگی میتوانید ویرایش کنید. و "
+"اگر بخواهید میتوانید موضوعات و مطالب جدیدی را به سیستم اضافه کنید."
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:125
 msgid "Default information added."
-msgstr ""
+msgstr "اطلاعات پیش فرض اضافه شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Feed/IndexController.php:24
 msgid "News feed"
-msgstr ""
+msgstr "خوراک مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Feed/IndexController.php:25
 msgid "Recent News."
-msgstr ""
+msgstr "آخرین مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:59
 msgid "No file attached"
-msgstr ""
+msgstr "هیچ فایلی پیوست نشده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:88
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:182
 msgid "You must select story"
-msgstr ""
+msgstr "شما باید یک مطلب انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:93
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:190
 msgid "Your selected story not exist"
-msgstr ""
+msgstr "مطلب انتخاب شده شما موجود نیست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:110
 #, php-format
 msgid "Attach files to %s"
-msgstr ""
+msgstr "پیوست فایل به %s"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:119
 msgid "You must select file"
-msgstr ""
+msgstr "شما باید یک فایل انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:142
 msgid "All changes in file saved successfully."
-msgstr ""
+msgstr "تمام تغییرات در فایل انتخابی با موفقیت ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:145
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:116
@@ -514,112 +537,118 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:232
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
-msgstr ""
+msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:154
 msgid "Edit file"
-msgstr ""
+msgstr "ویرایش فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:254
 msgid "Your attached file remove successfully"
-msgstr ""
+msgstr "فایل پیوست شده شما با موفقیت حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:259
 msgid "Please select file"
-msgstr ""
+msgstr "لطفا یک فایل انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:42
 msgid "Reset write info"
-msgstr ""
+msgstr "بازسازی اطلاعات نویسندگان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:43
 msgid "All information saved"
-msgstr ""
+msgstr "همه اطلاعات ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:49
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "update to new. And you must set start and end publish time."
 msgstr ""
+"شما می توانید همه مطالب درج شده را دوباره سازی کنید، بعد از دوباره سازی همه "
+"اطلاعات قدیمی شما به روز می شود، و شما باید تاریخ شروع و آغاز مطالب را برای "
+"دوباره سازی درج کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:68
 msgid "Finish Rebuild slug, all story slug update"
-msgstr ""
+msgstr "پایان دوباره سازی اسلاگ، همه اسلاگ مطالب به روز شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:76
 msgid "Finish Rebuild SEO title, all story SEO title update"
-msgstr ""
+msgstr "پایان دوباره سازی عنوان سئو، همهعنوان های سئو به روز شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:84
 msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
-msgstr ""
+msgstr "پایان دوباره سازی کلمات کلیدی سئو، همه کلمات کلیدی سئو به روز شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:92
 msgid "Finish Rebuild SEO description, all story SEO description update"
-msgstr ""
+msgstr "پایان دوباره سازی توضیحات سئو، همه توضیحات سئو به روز شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:99
 msgid "Rebuild stores"
-msgstr ""
+msgstr "دوباره سازی مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:106
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:14
 msgid "You can prune all old stores, from selected topic."
-msgstr ""
+msgstr "شما میتوانید مطالب قدیمی را از شاخه انتخابی حذف کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:121
 #, php-format
 msgid "<strong>%s</strong> old stores removed"
-msgstr ""
+msgstr "<strong>%s</strong> مطلب قدیمی حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:124
 msgid ""
 "Error in pruned old stores. perhaps no stroy exist whit your select query"
 msgstr ""
+"خطا در پاکسازی مطالب قدیمی، احتمالا هیچ مطلبی در بازه زمانی انتخابی شما "
+"موجود نیست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:129
 msgid "Prune stores"
-msgstr ""
+msgstr "پاکسازی مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:140
 #, php-format
 msgid "<strong>%s</strong> old spotlights removed"
-msgstr ""
+msgstr "<strong>%s</strong> اسپات لایت قدیمی حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:143
 msgid "Error in remove old spotlights. perhaps no spotlights exist"
 msgstr ""
+"خطا در حذف اسپات لایت های قدیمی، احتمالا هیچ اسپات لایت قدیمی موجود نیست."
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:146
 msgid "Prune spotlights"
-msgstr ""
+msgstr "پاکسازی اسپات لایت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:83
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:260
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:157
 msgid "Problem in upload image. please try again"
-msgstr ""
+msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:109
 msgid "Extra field data saved successfully."
-msgstr ""
+msgstr "اطلاعات فیلد اضافی با موفقیت ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:113
 msgid "Extra field data not saved."
-msgstr ""
+msgstr "اطلاعات فیلد اضافی ذخیره نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:129
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:10
 msgid "Add Extra"
-msgstr ""
+msgstr "فیلد جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:162
 msgid "Selected field delete"
-msgstr ""
+msgstr "فیلد انتخابی حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:164
 msgid "Please select field"
-msgstr ""
+msgstr "لطفا یک فیلد انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:117
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:152
@@ -627,95 +656,95 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:392
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:101
 msgid "Please select story"
-msgstr ""
+msgstr "لطفا یک مطلب انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:141
 #, php-format
 msgid "%s story accept successfully"
-msgstr ""
+msgstr "مطلب %s با موفقیت تایید شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:146
 #, php-format
 msgid "Error in accept %s story"
-msgstr ""
+msgstr "خطا در تایید %s"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:182
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:94
 #, php-format
 msgid "Image of %s removed"
-msgstr ""
+msgstr "تصویر مربوطز به %s حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:185
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:97
 msgid "Image not remove"
-msgstr ""
+msgstr "تصویر حذف نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:330
 msgid "Story data saved successfully."
-msgstr ""
+msgstr "اطلاعات مطلب با موفقیت ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:334
 msgid "Story data not saved."
-msgstr ""
+msgstr "مطلب ذخیره نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:358
 msgid "Add a Story"
-msgstr ""
+msgstr "مطلب جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:390
 msgid "This story deleted"
-msgstr ""
+msgstr "مطلب انتخابی حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:229
 msgid "Topic data saved successfully."
-msgstr ""
+msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:246
 msgid "Add a Topic"
-msgstr ""
+msgstr "موضوع جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:309
 msgid "This topic and all of stores deleted"
-msgstr ""
+msgstr "این موضوع و همه مطالب وابسته به آن حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:311
 msgid "Please select topic"
-msgstr ""
+msgstr "لطفا یک موضوع انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:142
 msgid "Spotlight data saved successfully."
-msgstr ""
+msgstr "اطلاعات اسپات لایت با موفقیت ذخیره شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:145
 msgid "Spotlight data not saved."
-msgstr ""
+msgstr "اطلاعات اسپات لایت ذخیره نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:163
 msgid "Add a Spotlight"
-msgstr ""
+msgstr "اسپات لایت جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:176
 msgid "Selected spotlight delete"
-msgstr ""
+msgstr "اسپات لایت انتخابی حذف شد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:178
 msgid "Please select spotlight"
-msgstr ""
+msgstr "لطفا یک اسپات لایت انتخاب کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:48
 #, php-format
 msgid "Archive - %s - %s"
-msgstr ""
+msgstr "آرشیو - %s - %s"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:49
 #, php-format
 msgid "Archive of all stores in - %s - %s"
-msgstr ""
+msgstr "آرشیو تمام مطالب در  - %s - %s"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:50
 #, php-format
 msgid "Archive,stores,topic,%s,%s"
-msgstr ""
+msgstr "آرشیو,مطالب,موضوعات,,%s,%s"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:51
 #, php-format
@@ -723,36 +752,38 @@ msgid ""
 "List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
 "next or prev month and year"
 msgstr ""
+"فهرست تمام مطالب در <strong>%s / %s </strong>، شما می توانید تمام مطالب "
+"مربوط به ماه و سال قبل و بعد را مشاهده کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/StoryController.php:32
 msgid "The story not found."
-msgstr ""
+msgstr "مطلب پیدا نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/StoryController.php:36
 msgid "The Story not publish."
-msgstr ""
+msgstr "این مطلب هنوز منتشر نشده است"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:32
-msgid "Got to topic list."
-msgstr ""
+msgid "Go to topic list."
+msgstr "به فهرست موضوعات منتقل می شوید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:77
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List of all topics"
-msgstr ""
+msgstr "فهرست همه موضوعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:79
 msgid "List,topics"
-msgstr ""
+msgstr "فهرست,موضوعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:35
 msgid "The tag not set."
-msgstr ""
+msgstr "برچسب تنظیم نشده است"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:46
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:34
 msgid "The tag not found."
-msgstr ""
+msgstr "برچسب یافت نشد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:63
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:64
@@ -765,65 +796,65 @@ msgstr "همه مطالب از %s"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:93
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:94
 msgid "List of all writers"
-msgstr ""
+msgstr "فهرست همه نویسندگان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:95
 msgid "List,writers"
-msgstr ""
+msgstr "فهرست,نویسندگان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:99
 msgid "Attaced"
-msgstr ""
+msgstr "پیوست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:108
 msgid "Extra"
-msgstr ""
+msgstr "فیلد اضافی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:117
 msgid "Tools"
-msgstr ""
+msgstr "ابزار"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:16
 msgid "Item"
-msgstr ""
+msgstr "آیتم"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:29
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:102
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:154
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:214
 msgid "Number"
-msgstr ""
+msgstr "تعداد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:36
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:161
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:228
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:287
 msgid "Shwo text"
-msgstr ""
+msgstr "نمایش متن"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:43
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:109
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:168
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:235
 msgid "Show date"
-msgstr ""
+msgstr "نمایش تاریخ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:50
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:116
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:175
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:242
 msgid "Show hits"
-msgstr ""
+msgstr "نمایش بازدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:57
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:249
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:294
 msgid "Show Images"
-msgstr ""
+msgstr "نمایش تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:64
 msgid "Show More link for each story"
-msgstr ""
+msgstr "نمایش لینک ادامه برای هر مطلب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:71
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:123
@@ -831,7 +862,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:256
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:301
 msgid "Show More link to module page"
-msgstr ""
+msgstr "نمایش لینک ادامه به ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:78
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:130
@@ -839,245 +870,241 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:263
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:308
 msgid "Set More link to module page"
-msgstr ""
+msgstr "درج لینک ادامه به ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:89
 msgid "list"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:95
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:147
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:207
-msgid "topic"
-msgstr ""
+msgstr "فهرست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:221
 msgid "Number of sub spotlight"
-msgstr ""
+msgstr "تعداد زیر اسپات لایت ها"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:274
 msgid "List of topic"
-msgstr ""
+msgstr "فهرست موضوعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/module.php:17
 msgid "Manage News and Blog"
-msgstr ""
+msgstr "مدیریت اخبار و وبلاگ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:16
 msgid "Admin"
-msgstr ""
+msgstr "مدیریت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:20
 msgid "Show"
-msgstr ""
+msgstr "نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:24
 msgid "Feed"
-msgstr ""
+msgstr "خوارک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:32
 msgid "Social"
-msgstr ""
+msgstr "شبکه های اجتماعی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:40
 msgid "Vote"
-msgstr ""
+msgstr "رای"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:44
 msgid "Texts"
-msgstr ""
+msgstr "متن ها"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:48
 msgid "File"
-msgstr ""
+msgstr "فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:52
 msgid "Favorite"
-msgstr ""
+msgstr "محبوب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:59
 msgid "Advertisement"
-msgstr ""
+msgstr "تبلیغ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:73
 msgid "Show Style"
-msgstr ""
+msgstr "سبک نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:151
 msgid "Show Pdf"
-msgstr ""
+msgstr "نمایش پی دی اف"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:184
 msgid "Number of tags in tag controller"
-msgstr ""
+msgstr "تعداد برچسب ها در کنترلر برچسب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:191
 msgid "Show attach files"
-msgstr ""
+msgstr "نمایش فایل های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:199
 msgid "Show extra information"
-msgstr ""
+msgstr "نمایش اطلاعات فیلد های اضافی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:207
 msgid "Show navigation"
-msgstr ""
+msgstr "نمایش ناوبری"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:215
 msgid "Show spotlight"
-msgstr ""
+msgstr "نمایش اسپات لایت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:223
 msgid "Show related news"
-msgstr ""
+msgstr "نمایش مطالب مشابه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:231
 msgid "related number"
-msgstr ""
+msgstr "تعداد مطالب مشابه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:239
 msgid "Just show news from X days ago"
-msgstr ""
+msgstr "فقط نمایش اخبار X روز پیش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:240
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr ""
+"تنظیم 0 برای نمایش همه اخبار یا تنظیم روز به صورت عدد برای محدود کردن اخبار "
+"به این بازه زمانی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:248
 msgid "Show feed icon"
-msgstr ""
+msgstr "نمایش آیکن خوراک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:256
 msgid "Feed number"
-msgstr ""
+msgstr "تعداد مطالب در خوارک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:265
 msgid "Image Size"
-msgstr ""
+msgstr "حجم تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:273
 msgid "Image path"
-msgstr ""
+msgstr "مسیر ذخیره تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:281
 msgid "Image Extension"
-msgstr ""
+msgstr "پسوند های مجار برای تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:289
 msgid "Large Image height"
-msgstr ""
+msgstr "ارتفاع تصویر بزرگ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:297
 msgid "Large Image width"
-msgstr ""
+msgstr "عرض تصویر بزرگ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:305
 msgid "Medium Image height"
-msgstr ""
+msgstr "ارتفاع تصویر متوسط"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:313
 msgid "Medium Image width"
-msgstr ""
+msgstr "عرض تصویر متوسط"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:321
 msgid "Thumb Image height"
-msgstr ""
+msgstr "ارتفاع تصویر بندانگشتی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:329
 msgid "Thumb Image width"
-msgstr ""
+msgstr "عرض تصویر بندانگشتی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:337
 msgid "Use lightbox"
-msgstr ""
+msgstr "استفاده از لایت باکس"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:345
 msgid "Add Watermark"
-msgstr ""
+msgstr "اضافه کردن واترمارک به تصویر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:353
 msgid "Watermark Image"
-msgstr ""
+msgstr "تصویر واترمارک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:360
 msgid "Watermark Positio"
-msgstr ""
+msgstr "موقعیت واترمارک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:366
 msgid "Top Left"
-msgstr ""
+msgstr "بالا چپ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:367
 msgid "Top Right"
-msgstr ""
+msgstr "بالا راست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:368
 msgid "Bottom Left"
-msgstr ""
+msgstr "پایین چپ"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:369
 msgid "Bottom Right"
-msgstr ""
+msgstr "پایین راست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:472
 msgid "Show Google Plus"
-msgstr ""
+msgstr "نمایش گوگل پلاس"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:480
 msgid "Show facebook"
-msgstr ""
+msgstr "نمایش فیسبوک"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:488
 msgid "Show Twitter"
-msgstr ""
+msgstr "نمایش تویتر"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:497
 msgid "Number of stories"
-msgstr ""
+msgstr "تعداد مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:505
 msgid "Show Image for sub spotlights"
-msgstr ""
+msgstr "نمایش تصویر برای زیر اسپات لایت ها"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:514
 msgid "Use vote system"
-msgstr ""
+msgstr "استفاده از سیستم رای"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:523
 msgid "Module main title"
-msgstr ""
+msgstr "عنوان اصلی ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:524
 msgid "Title for main page and all non-title pages"
-msgstr ""
+msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:531
 msgid "Module main description"
-msgstr ""
+msgstr "توضیحات صفحه اصلی ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:539
 msgid "Module main keywords"
-msgstr ""
+msgstr "کلمات کلیدی صفحه اصلی ماژول"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
 msgid "File Size"
-msgstr ""
+msgstr "حجم فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:556
 msgid "File path"
-msgstr ""
+msgstr "مسیر ذخیره فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:564
 msgid "File Extension"
-msgstr ""
+msgstr "پسوند های مجاز برای فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:573
 msgid "Use favorite system"
-msgstr ""
+msgstr "استفاده از سیستم محبوب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:12
 msgid "List of extra fields"
-msgstr ""
+msgstr "پسوند های مجار برای فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:28
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:35
@@ -1086,7 +1113,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:25
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:29
 msgid "Edit"
-msgstr ""
+msgstr "ویرایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:29
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:37
@@ -1095,11 +1122,11 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:26
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:30
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_update.phtml:18
 msgid "Remove image story in process"
-msgstr ""
+msgstr "حذف تصویر مطلب در حال انجام است"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:10
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:33
@@ -1108,71 +1135,73 @@ msgstr "به وسیله"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:11
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:13
-msgid "time_update Time"
-msgstr ""
+msgid "Update Time"
+msgstr "زمان به روز رسانی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:12
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:43
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:39
 msgid "Read"
 msgstr "نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:13
 msgid "Comments"
-msgstr ""
+msgstr "نظرات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:47
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:29
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
 msgid "Topics"
-msgstr "شاخه"
+msgstr "موضوع"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:33
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:28
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_update.phtml:4
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:47
 msgid "Back"
-msgstr ""
+msgstr "بازگشت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:34
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:27
 msgid "View"
-msgstr ""
+msgstr "نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:36
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:58
 msgid "Attach"
-msgstr ""
+msgstr "پیوست"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:29
 msgid "Finish"
-msgstr ""
+msgstr "پایان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:37
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:56
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:7
-msgid "Preview"
-msgstr ""
+msgid "PerView"
+msgstr "پیش نمایش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:48
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:9
 msgid "Create"
-msgstr ""
+msgstr "تاریخ ایجاد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:60
 msgid "Hits"
-msgstr ""
+msgstr "بازدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:64
 msgid "Size"
-msgstr ""
+msgstr "اندازه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:69
 msgid "Close"
-msgstr ""
+msgstr "بستن"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:110
 msgid "In process"
-msgstr ""
+msgstr "در حال پردازش"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:5
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_prune.phtml:5
@@ -1181,7 +1210,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:5
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:5
 msgid "Prune"
-msgstr ""
+msgstr "پاکسازی"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:6
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:13
@@ -1191,29 +1220,29 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:6
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:6
 msgid "Writer"
-msgstr ""
+msgstr "نویسنده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:14
 msgid "Count"
-msgstr ""
+msgstr "تعداد"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:12
 msgid "Add Story"
-msgstr ""
+msgstr "مطلب جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:15
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:28
 msgid "All stories"
-msgstr ""
+msgstr "همه مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:20
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:71
 msgid "Trash"
-msgstr ""
+msgstr "حذف شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:23
 msgid "List of stories"
-msgstr ""
+msgstr "فهرست مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:26
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:6
@@ -1225,156 +1254,135 @@ msgstr "شناسه"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:27
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:8
 msgid "Information"
-msgstr ""
+msgstr "اطلاعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:50
-msgid "Actions"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:52
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:83
-msgid "Reject"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:54
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:88
-msgid "Accept"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:56
-msgid "PerView"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:69
-msgid "time_published"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:77
-msgid "Accept story in process"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_update.phtml:16
-msgid "Remove image topic in process"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:3
-msgid "List of attached files"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:9
-msgid "create"
-msgstr ""
-
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:10
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:12
 msgid "Action"
-msgstr ""
+msgstr "عملکرد"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:52
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:83
+msgid "Reject"
+msgstr "رد کردن"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:54
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:88
+msgid "Accept"
+msgstr "تایید"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:77
+msgid "Accept story in process"
+msgstr "تایید مطلب در حال انجام است"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_update.phtml:16
+msgid "Remove image topic in process"
+msgstr "حذف تصویر موضوع در حال انجام است"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:3
+msgid "List of attached files"
+msgstr "فهرست فایل های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:29
 msgid "Get"
-msgstr ""
+msgstr "دریافت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:31
 msgid "Edit from story"
-msgstr ""
+msgstr "ویرایش از مطلب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:10
 msgid "How this part work?"
-msgstr ""
+msgstr "این بخش چگونه کار می کند؟"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:11
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
 msgstr ""
+"ابزار ها، به شما برای مدیریت ماژول کمک میکند، با به روز رسانی پایگاه داده ها "
+"و حذف اطلاعات قدیمی. در این مقطع ابزار های زیر در دسترس شما است : "
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:13
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
-msgstr ""
+msgstr "شما می توانبد همه مطالب درج شده را دوباره سازی کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:15
 msgid "You can reset all write info"
-msgstr ""
+msgstr "شما میتوانید تمام اطلاعات نویسندگان را به روز کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:16
 msgid "You can remove old spotlights"
-msgstr ""
+msgstr "شما میتوانید اپات لایت های قدیمی را حذف کنید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:4
 msgid "Add Spotlight"
-msgstr ""
+msgstr "اسپات لایت جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:6
 msgid "List of spotlights"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:12
-msgid "time_publish"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:13
-msgid "time_expire"
-msgstr ""
+msgstr "فهرست اسپات لایت ها"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:24
 msgid "Veiw story"
-msgstr ""
+msgstr "نمایش مطلب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:4
 msgid "Add Topic"
-msgstr ""
+msgstr "موضوع جدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:6
 msgid "List of topics"
-msgstr ""
+msgstr "فهرست موضوعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:37
 msgid "Get it"
-msgstr ""
+msgstr "دریافت"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:40
 msgid "File title"
-msgstr ""
+msgstr "عنوان فایل"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:41
 msgid "Story title"
-msgstr ""
+msgstr "عنوان مطلب"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:38
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:20
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
 msgid "Time"
 msgstr "زمان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:21
 msgid "Attached video"
-msgstr ""
+msgstr "ویدیو های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:45
 msgid "Attached audio"
-msgstr ""
+msgstr "صدا های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:61
 msgid "Attached images"
-msgstr ""
+msgstr "تصاویر پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:73
 msgid "Attached archives"
-msgstr ""
+msgstr "آرشیو های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:85
 msgid "Attached docs"
-msgstr ""
+msgstr "داکیومنت های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:97
 msgid "Attached pdfs"
-msgstr ""
+msgstr "پی دی اف های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:109
 msgid "Attached files"
-msgstr ""
+msgstr "فایل های پیوست شده"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:96
 msgid "Related storys"
@@ -1382,7 +1390,7 @@ msgstr "مطالب مشابه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/writer_list.phtml:11
 msgid "List of Writers"
-msgstr ""
+msgstr "فهرست نویسندگان"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/writer_list.phtml:22
 msgid "All stores"
@@ -1390,7 +1398,7 @@ msgstr "همه مطالب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/topic_list.phtml:8
 msgid "List of Topics"
-msgstr "فهرست شاخه ها"
+msgstr "فهرست موضوعات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/feed.phtml:3
 msgid "Rss Feed"
@@ -1399,6 +1407,24 @@ msgstr "خوراک"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
+
+#~ msgid "topic"
+#~ msgstr "موضوع"
+
+#, fuzzy
+#~ msgid "PreView"
+#~ msgstr "پیش نمایش"
+
+#, fuzzy
+#~ msgid "Publish"
+#~ msgstr "منتشر شده"
+
+#, fuzzy
+#~ msgid "Expire"
+#~ msgstr "تاریخ ابطال"
+
+#~ msgid "Actions"
+#~ msgstr "عملکرد"
 
 #~ msgid "More"
 #~ msgstr "ادامه"
