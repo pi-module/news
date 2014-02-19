@@ -22,7 +22,7 @@
 						<?php } ?>
 						<?php if($topic['show_hits']){ ?>
 						<span class="itemStats">
-							<?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?>
+							<?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
 						</span>
 						<?php } ?>
 						<?php if($topic['show_topic']) { ?>

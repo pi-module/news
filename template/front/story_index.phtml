@@ -27,21 +27,32 @@ if($config['image_lightbox']){
 		<div class="panel-body">
 			<div class="itemInfo clearfix">
 				<?php if($story['important']) { ?>
-				<span class="label label label-important"><?php _e('Important'); ?></span>
+				<span class="label label label-important">
+					<?php _e('Important'); ?>
+				</span>
 				<?php } ?>
 				<?php if($config['show_writer']) { ?>
-				<span class="itemPoster"><?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['name']); ?></a></span>
+				<span class="itemPoster">
+					<?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['name']); ?></a>
+				</span>
 				<?php } ?>
 				<?php if($config['show_date']) { ?>
-				<span class="itemPostDate"><?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?></span>
+				<span class="itemPostDate">
+					<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
+				</span>
 				<?php } ?>
 				<?php if($config['show_hits']) { ?>
-				<span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span>
+				<span class="itemStats">
+					<?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+				</span>
 				<?php } ?>
-				<?php if($config['show_topic']) { ?><span class="itemtopics"><?php _e('Topics'); ?> : 
+				<?php if($config['show_topic']) { ?>
+				<span class="itemtopics"><?php _e('Topics'); ?> : 
 				<?php foreach($story['topics'] as $storyTopic) { ?>
-				<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
-				<?php } ?></span><?php } ?>
+					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+				<?php } ?>
+			    </span>
+			    <?php } ?>
 			</div>
 			<div class="itemBody">
 				<h4 class="itemRotator"><?php echo $this->escape($story['subtitle']); ?></h4>
@@ -61,9 +72,9 @@ if($config['image_lightbox']){
 			<?php include $this->template('front/extra'); ?>
 			<?php include $this->template('front/tag'); ?>
 			<?php include $this->template('front/attach'); ?>
+			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
+		    <?php if (!empty($favorite)) { include $this->template('module/favorite:front/favoritebar'); } ?>
 			<div class="itemFoot">
-		    	<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
-		    	<?php if (!empty($favorite)) { include $this->template('module/favorite:front/favoritebar'); } ?>
 		    	<?php if($config['show_nav']) { ?>
 					<div class="itemPager">
 	    	    		<ul class="pager">

@@ -72,17 +72,17 @@ class StoryController extends ActionController
             $this->view()->assign('extra', $extra);
         }
         // Set vote
-        /* if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
+        if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
             $vote['point'] = $story['point'];
             $vote['count'] = $story['count'];
             $vote['item'] = $story['id'];
-            $vote['module'] = $module;
-            $vote['type'] = $config['vote_type'];
             $vote['table'] = 'story';
+            $vote['module'] = $module;
+            $vote['type'] = 'plus';
             $this->view()->assign('vote', $vote);
         }
         // favorite
-        if ($config['favorite_bar'] && Pi::service('module')->isActive('favorite')) {
+        /* if ($config['favorite_bar'] && Pi::service('module')->isActive('favorite')) {
             $favorite['is'] = Pi::service('api')->favorite(array('Favorite', 'loadFavorite'), $module, $story['id']);
             $favorite['item'] = $story['id'];
             $favorite['module'] = $module;

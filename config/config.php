@@ -180,11 +180,11 @@ return array(
         ),
         'show_tag' => array(
             'category' => 'show',
-            'title' => __('Tags'),
-            'description' => __('Number of tags in tag controller'),
-            'edit' => 'text',
+            'title' => __('Show Tags'),
+            'description' => '',
+            'edit' => 'checkbox',
             'filter' => 'number_int',
-            'value' => 50
+            'value' => 1
         ),
         'show_attach' => array(
             'category' => 'show',

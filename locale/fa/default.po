@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-19 11:22+0330\n"
+"POT-Creation-Date: 2014-02-19 14:56+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -163,7 +163,7 @@ msgstr "متن اصلی"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:123
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:18
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:30
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:31
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_media.phtml:20
 msgid "Important"
 msgstr "مهم"
@@ -205,7 +205,6 @@ msgid "SEO Description"
 msgstr "توضیح سئو"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:231
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:183
 msgid "Tags"
 msgstr "برچسب ها"
 
@@ -447,6 +446,7 @@ msgid "Show Hits"
 msgstr "نمایش بازدید"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:352
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:183
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
@@ -932,10 +932,6 @@ msgstr "سبک نمایش"
 msgid "Show Pdf"
 msgstr "نمایش پی دی اف"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:184
-msgid "Number of tags in tag controller"
-msgstr "تعداد برچسب ها در کنترلر برچسب"
-
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:191
 msgid "Show attach files"
 msgstr "نمایش فایل های پیوست شده"
@@ -1129,7 +1125,7 @@ msgid "Remove image story in process"
 msgstr "حذف تصویر مطلب در حال انجام است"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:10
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:33
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
 msgid "By"
 msgstr "به وسیله"
 
@@ -1141,7 +1137,7 @@ msgstr "زمان به روز رسانی"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:12
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:39
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
 msgid "Read"
 msgstr "نمایش"
 
@@ -1151,7 +1147,7 @@ msgstr "نظرات"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:50
 msgid "Topics"
 msgstr "موضوع"
 
@@ -1352,9 +1348,14 @@ msgid "Story title"
 msgstr "عنوان مطلب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:20
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
 msgid "Time"
 msgstr "زمان"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
+msgid "Times"
+msgstr "دفعه"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:21
 msgid "Attached video"
@@ -1384,7 +1385,7 @@ msgstr "پی دی اف های پیوست شده"
 msgid "Attached files"
 msgstr "فایل های پیوست شده"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:96
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:107
 msgid "Related storys"
 msgstr "مطالب مشابه"
 
@@ -1407,6 +1408,9 @@ msgstr "خوراک"
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
+
+#~ msgid "Number of tags in tag controller"
+#~ msgstr "تعداد برچسب ها در کنترلر برچسب"
 
 #~ msgid "topic"
 #~ msgstr "موضوع"

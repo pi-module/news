@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-19 10:45+0330\n"
+"POT-Creation-Date: 2014-02-19 14:58+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -162,7 +162,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:123
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:18
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:30
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:31
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_media.phtml:20
 msgid "Important"
 msgstr ""
@@ -204,7 +204,6 @@ msgid "SEO Description"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:231
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:183
 msgid "Tags"
 msgstr ""
 
@@ -443,6 +442,7 @@ msgid "Show Hits"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:352
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:183
 msgid "Show Tags"
 msgstr ""
 
@@ -916,10 +916,6 @@ msgstr ""
 msgid "Show Pdf"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:184
-msgid "Number of tags in tag controller"
-msgstr ""
-
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:191
 msgid "Show attach files"
 msgstr ""
@@ -1111,7 +1107,7 @@ msgid "Remove image story in process"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:10
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:33
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
 msgid "By"
 msgstr ""
 
@@ -1123,7 +1119,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:12
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:39
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
 msgid "Read"
 msgstr ""
 
@@ -1133,7 +1129,7 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:14
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:50
 msgid "Topics"
 msgstr ""
 
@@ -1332,8 +1328,13 @@ msgid "Story title"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:20
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
 msgid "Time"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
+msgid "Times"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:21
@@ -1364,7 +1365,7 @@ msgstr ""
 msgid "Attached files"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:96
+#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:107
 msgid "Related storys"
 msgstr ""
 
