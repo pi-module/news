@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-19 14:56+0330\n"
+"POT-Creation-Date: 2014-02-19 17:26+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -909,16 +909,16 @@ msgid "Vote"
 msgstr "رای"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:44
+msgid "Favourite"
+msgstr "مورد علاقه"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:48
 msgid "Texts"
 msgstr "متن ها"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:48
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:52
 msgid "File"
 msgstr "فایل"
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:52
-msgid "Favorite"
-msgstr "محبوب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:59
 msgid "Advertisement"
@@ -1067,36 +1067,36 @@ msgid "Use vote system"
 msgstr "استفاده از سیستم رای"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:523
+msgid "Use favourite system"
+msgstr "استفاده از سیستم مورد علاقه"
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:532
 msgid "Module main title"
 msgstr "عنوان اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:524
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:533
 msgid "Title for main page and all non-title pages"
 msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:531
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:540
 msgid "Module main description"
 msgstr "توضیحات صفحه اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:539
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
 msgid "Module main keywords"
 msgstr "کلمات کلیدی صفحه اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:557
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:556
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:565
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:564
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:573
 msgid "File Extension"
 msgstr "پسوند های مجاز برای فایل"
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:573
-msgid "Use favorite system"
-msgstr "استفاده از سیستم محبوب"
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:12
 msgid "List of extra fields"

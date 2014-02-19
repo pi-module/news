@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-19 14:58+0330\n"
+"POT-Creation-Date: 2014-02-19 17:28+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -893,15 +893,15 @@ msgid "Vote"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:44
-msgid "Texts"
+msgid "Favourite"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:48
-msgid "File"
+msgid "Texts"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:52
-msgid "Favorite"
+msgid "File"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:59
@@ -1049,35 +1049,35 @@ msgid "Use vote system"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:523
+msgid "Use favourite system"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:532
 msgid "Module main title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:524
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:533
 msgid "Title for main page and all non-title pages"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:531
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:540
 msgid "Module main description"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:539
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
 msgid "Module main keywords"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:557
 msgid "File Size"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:556
+#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:565
 msgid "File path"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:564
-msgid "File Extension"
-msgstr ""
-
 #: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:573
-msgid "Use favorite system"
+msgid "File Extension"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:12

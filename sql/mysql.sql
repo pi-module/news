@@ -20,7 +20,7 @@ CREATE TABLE `{story}` (
     `path` varchar(16) NOT NULL,
     `point` int(10) NOT NULL,
     `count` int(10) unsigned NOT NULL,
-    `favorite` int(10) unsigned NOT NULL,
+    `favourite` int(10) unsigned NOT NULL,
     `attach` tinyint(3) unsigned NOT NULL,
     `extra` tinyint(3) unsigned NOT NULL,
     PRIMARY KEY (`id`),

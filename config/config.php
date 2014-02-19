@@ -41,16 +41,16 @@ return array(
             'name' => 'vote'
         ),
         array(
+            'title' => __('Favourite'),
+            'name' => 'favourite'
+        ),
+        array(
             'title' => __('Texts'),
             'name' => 'text'
         ),
         array(
             'title' => __('File'),
             'name' => 'file'
-        ),
-        array(
-            'title' => __('Favorite'),
-            'name' => 'favorite'
         ),
     ),
     'item' => array(
@@ -517,6 +517,15 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
+        // favourite
+        'favourite_bar' => array(
+            'category' => 'favourite',
+            'title' => __('Use favourite system'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
         // Texts
         'text_title' => array(
             'category' => 'text',
@@ -566,15 +575,6 @@ return array(
             'edit' => 'textarea',
             'filter' => 'string',
             'value' => 'jpg,png,gif,avi,flv,mp3,mp4,pdf,docs,xdocs,zip,rar'
-        ),
-        // favorite
-        'favorite_bar' => array(
-            'category' => 'favorite',
-            'title' => __('Use favorite system'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
         ),
     ),
 );

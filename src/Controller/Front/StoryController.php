@@ -81,14 +81,14 @@ class StoryController extends ActionController
             $vote['type'] = 'plus';
             $this->view()->assign('vote', $vote);
         }
-        // favorite
-        /* if ($config['favorite_bar'] && Pi::service('module')->isActive('favorite')) {
-            $favorite['is'] = Pi::service('api')->favorite(array('Favorite', 'loadFavorite'), $module, $story['id']);
-            $favorite['item'] = $story['id'];
-            $favorite['module'] = $module;
-            $favorite['table'] = 'story';
-            $this->view()->assign('favorite', $favorite);
-        }  */
+        // favourite
+        if ($config['favourite_bar'] && Pi::service('module')->isActive('favourite')) {
+            $favourite['is'] = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
+            $favourite['item'] = $story['id'];
+            $favourite['table'] = 'story';
+            $favourite['module'] = $module;
+            $this->view()->assign('favourite', $favourite);
+        }
         // Set view
         $this->view()->headTitle($story['seo_title']);
         $this->view()->headdescription($story['seo_description'], 'set');
