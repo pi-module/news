@@ -1,21 +1,4 @@
-<?php if ($config['show_spotlight'] && isset($spotlight) && !empty($spotlight)) { 
-if($config['image_lightbox']){ 
-	$this->jQuery();
-	$this->js($this->assetModule('js/lightbox.js'));
-	$this->footScript()->appendScript("$(function() {
-		$('.gallery a').lightBox({
-	        imageLoading: '" . $this->assetModule('image/lightbox-ico-loading.gif') ."',
-	        imageBtnClose:'" . $this->assetModule('image/lightbox-btn-close.gif') ."',
-	        imageBtnNext:'" . $this->assetModule('image/lightbox-btn-next.gif') ."',
-	        imageBtnPrev:'" . $this->assetModule('image/lightbox-btn-prev.gif') ."',
-	        imageBlank:'" . $this->assetModule('image/lightbox-blank.gif') ."',
-	        overlayOpacity: 0.6,
-		    containerResizeSpeed: 350,
-		});
-	});");
-	$this->css($this->assetModule('css/lightbox.css'));
-} 
-?>
+<?php if ($config['show_spotlight'] && isset($spotlight) && !empty($spotlight)) { ?>
 <div class="spotlight">
 	<div class="row">
 	   <?php if(!empty($spotlight['top'])) { ?>
@@ -27,7 +10,7 @@ if($config['image_lightbox']){
 			</div>
 			<div class="spotlightBody">
 				<?php if($spotlight['top']['image']){ ?>
-			    <div class="itemImageList gallery left">
+			    <div class="itemImageList left">
 			    	<?php if($config['image_lightbox']){ ?>
 					<a href="<?php echo $spotlight['top']['mediumUrl']; ?>" title="<?php echo $this->escape($spotlight['top']['title']); ?>"><img class="left ItemStoryImg img-thumbnail" src="<?php echo $spotlight['top']['thumbUrl']; ?>" alt="<?php echo $this->escape($spotlight['top']['title']); ?>" /></a>
 					<?php } else { ?>
@@ -51,7 +34,7 @@ if($config['image_lightbox']){
 				</div>
 				<div class="spotlightBody">
 					<?php if($story['image'] && $config['spotlight_image']){ ?>
-				    <div class="itemImageList gallery left">
+				    <div class="itemImageList left">
 						<?php if($config['image_lightbox']){ ?>
 						<a href="<?php echo $story['mediumUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img class="left ItemStoryImg img-thumbnail" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
 				    	<?php } else { ?>
