@@ -1,0 +1,18 @@
+<?php if(isset($extra['audio']) && !empty($extra['audio'])) { ?>
+<div class="clearfix">
+	<?php 
+		$this->jQuery();
+		$this->js($this->assetModule('player/audiojs/audio.min.js'));
+		$this->footScript()->appendScript("audiojs.events.ready(function(){var as = audiojs.createAll();});");
+	?>
+	<div class="extra-audio">
+	    <?php foreach($extra['audio'] as $field) { ?>
+		<?php if(!empty($field['data'])) { ?>
+		<div class="player-media col-md-12">
+			<audio src="<?php echo $field['data']; ?>" preload="auto" />
+		</div>
+		<?php } ?>
+	    <?php } ?>
+	</div>
+</div>
+<?php } ?>

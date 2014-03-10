@@ -1,6 +1,8 @@
-<?php if ($config['show_extra'] && isset($extra) && !empty($extra)) { ?>
-<div class="productExtra">
-	<?php foreach($extra as $field) { ?>
+<?php if(isset($extra['all']) && !empty($extra['all'])) { ?>
+<div class="storyInfoBox well clearfix">
+	<div class="storyExtra">
+	<?php foreach($extra['all'] as $field) { ?>
+		<?php if(!empty($field['data'])) { ?>
 		<div class="field-<?php echo $field['id']; ?>">
 			<?php if($field['image']) { ?>
 			<img src="<?php echo $field['imageUrl']; ?>" alt="<?php echo $field['title']; ?>" />
@@ -21,36 +23,10 @@
 			<?php } elseif($field['type'] == 'number') { ?>
 			<strong><?php echo $field['title']; ?></strong>
 			<span><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></span>
-			<?php } elseif($field['type'] == 'video') { ?>
-			<div class="attach-audio-video col-md-12">
-				<?php 
-					$this->jQuery();
-					$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
-				?>
-				<div id="mediaspace<?php echo $field['id']; ?>"></div>
-				<script type='text/javascript'>
-				jwplayer("mediaspace<?php echo $field['id']; ?>").setup({
-					"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
-				    "file": "<?php echo $field['data']; ?>",
-				    "title": "<?php echo $field['title']; ?>",
-				    "controlbar": "bottom",
-				    "width": 640,
-				    "height": 480,
-				});
-				</script>
-			</div>
-			<?php } elseif($field['type'] == 'audio') { ?>
-			<div class="attach-audio-file col-md-12">
-				<object class="col-md-11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
-					<param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
-					<param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $field['data']; ?>">
-					<param name="quality" value="high">
-					<param name="menu" value="false">
-					<param name="wmode" value="transparent">
-				</object> 
-			</div>
 			<?php } ?>
 		</div>
+		<?php } ?>
 	<?php } ?>
+	</div>
 </div>
 <?php } ?>

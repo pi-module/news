@@ -1,0 +1,25 @@
+<?php if(isset($attach['video']) && !empty($attach['video'])) { ?>
+<div class="clearfix">
+	<?php 
+		$this->jQuery();
+		$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
+	?>
+	<div class="attach-video">
+	    <?php foreach($attach['video'] as $video) { ?>
+		<div class="player-media col-md-12">
+			<div id="mediaspace<?php echo $video['id']; ?>"></div>
+			<script type='text/javascript'>
+			jwplayer("mediaspace<?php echo $video['id']; ?>").setup({
+				"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+			    "file": "<?php echo $video['link']; ?>",
+			    "title": "<?php echo $video['title']; ?>",
+			    "controlbar": "bottom",
+			    "width": 640,
+			    "height": 480,
+			});
+			</script>
+		</div>
+	    <?php } ?>
+	</div>
+</div>
+<?php } ?>

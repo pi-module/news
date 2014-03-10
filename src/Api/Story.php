@@ -72,6 +72,12 @@ class Story extends AbstractApi
             $file[$row->type][$row->id] = $row->toArray();
             $file[$row->type][$row->id]['time_create'] = _date($file[$row->type][$row->id]['time_create']);
             if ($file[$row->type][$row->id]['type'] == 'image') {
+                $file[$row->type][$row->id]['largeUrl'] = Pi::url(
+                    sprintf('upload/%s/large/%s/%s', 
+                        $config['image_path'], 
+                        $file[$row->type][$row->id]['path'], 
+                        $file[$row->type][$row->id]['file']
+                    )); 
                 $file[$row->type][$row->id]['mediumUrl'] = Pi::url(
                     sprintf('upload/%s/medium/%s/%s', 
                         $config['image_path'], 

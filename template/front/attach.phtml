@@ -1,57 +1,5 @@
 <?php if ($config['show_attach'] && isset($attach) && !empty($attach)) { ?>
 <div class="storyAttach clearfix">
-<?php if(!empty($attach['video'])) { ?>
-	<div class="attach-video">
-		<h4><?php _e('Attached video'); ?></h4>
-		<?php foreach($attach['video'] as $video) { ?>
-			<div class="attach-audio-video col-md-12">
-				<?php 
-					$this->jQuery();
-					$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
-				?>
-				<div id="mediaspace<?php echo $video['id']; ?>"></div>
-				<script type='text/javascript'>
-				jwplayer("mediaspace<?php echo $video['id']; ?>").setup({
-					"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
-				    "file": "<?php echo $video['link']; ?>",
-				    "title": "<?php echo $video['title']; ?>",
-				    "controlbar": "bottom",
-				    "width": 640,
-				    "height": 480,
-				});
-				</script>
-			</div>
-		<?php } ?>
-	</div>
-<?php } ?>
-<?php if(!empty($attach['audio'])) { ?>
-	<div class="attach-audio">
-		<h4><?php _e('Attached audio'); ?></h4>
-		<?php foreach($attach['audio'] as $audio) { ?>
-		<div class="attach-audio-file col-md-12">
-			<object class="col-md-11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
-				<param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
-				<param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $audio['link']; ?>">
-				<param name="quality" value="high">
-				<param name="menu" value="false">
-				<param name="wmode" value="transparent">
-			</object> 
-		</div>
-		<?php } ?>
-	</div>
-<?php } ?>
-<?php if(!empty($attach['image'])) { ?>
-	<div class="attach-image gallery">
-		<h4><?php _e('Attached images'); ?></h4>
-		<?php foreach($attach['image'] as $image) { ?>
-		<div class="col-sm-3 col-md-2">
-			<div class="thumbnail">
-				<a href="<?php echo $image['mediumUrl']; ?>" title="<?php echo $this->escape($image['title']); ?>"><img src="<?php echo $image['thumbUrl']; ?>" alt="<?php echo $this->escape($image['title']); ?>" /></a>
-			</div>
-		</div>		
-		<?php } ?>
-	</div>	
-<?php } ?>
 <?php if(!empty($attach['archive'])) { ?>
 	<div class="attach-archive">
 		<h4><?php _e('Attached archives'); ?></h4>

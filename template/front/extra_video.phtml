@@ -1,0 +1,27 @@
+<?php if(isset($extra['video']) && !empty($extra['video'])) { ?>
+<div class="clearfix">
+	<?php 
+		$this->jQuery();
+		$this->js($this->assetModule('player/jwplayer/jwplayer.js')); 
+	?>
+	<div class="extra-video">
+	    <?php foreach($extra['video'] as $field) { ?>
+		<?php if(!empty($field['data'])) { ?>
+		<div class="player-media col-md-12">
+			<div id="mediaspace<?php echo $field['id']; ?>"></div>
+			<script type='text/javascript'>
+			jwplayer("mediaspace<?php echo $field['id']; ?>").setup({
+				"flashplayer": "<?php echo $this->assetModule('player/jwplayer/player.swf'); ?>",
+				"file": "<?php echo $field['data']; ?>",
+				"title": "<?php echo $field['title']; ?>",
+				"controlbar": "bottom",
+				"width": 640,
+				"height": 480,
+			});
+			</script>
+		</div>
+		<?php } ?>
+	    <?php } ?>
+	</div>
+</div>
+<?php } ?>

@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -109,11 +110,31 @@ class Extra extends AbstractApi
             $select = Pi::model('field', $this->getModule())->select()->where($whereField)->columns($columnField)->order($orderField);
             $rowset = Pi::model('field', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
-                $field[$row->id] = $row->toArray();
-                $field[$row->id]['data'] = $data[$field[$row->id]['id']]['data'];
-                if ($field[$row->id]['image']) {
-                    $field[$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field[$row->id]['image']);
-                }
+                switch ($row->type) {
+                    case 'audio':
+                        $field['audio'][$row->id] = $row->toArray();
+                        $field['audio'][$row->id]['data'] = $data[$row->id]['data'];
+                        if ($field['audio'][$row->id]['image']) {
+                            $field['audio'][$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field['audio'][$row->id]['image']);
+                        }
+                        break;
+
+                    case 'video':
+                        $field['video'][$row->id] = $row->toArray();
+                        $field['video'][$row->id]['data'] = $data[$row->id]['data'];
+                        if ($field['video'][$row->id]['image']) {
+                            $field['video'][$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field['video'][$row->id]['image']);
+                        }
+                        break;
+                    
+                    default:
+                        $field['all'][$row->id] = $row->toArray();
+                        $field['all'][$row->id]['data'] = $data[$row->id]['data'];
+                        if ($field['all'][$row->id]['image']) {
+                            $field['all'][$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field['all'][$row->id]['image']);
+                        }
+                        break;
+                }             
             }
         }
         // return

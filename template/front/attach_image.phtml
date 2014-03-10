@@ -1,0 +1,15 @@
+<?php if (isset($attach['image']) && !empty($attach['image'])) { ?> 
+<div class="clearfix">
+	<div class="attach-image">
+		<?php foreach($attach['image'] as $image) { ?>
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<a href="<?php echo $image['largeUrl']; ?>" title="<?php echo $this->escape($image['title']); ?>">
+					<img src="<?php echo $image['mediumUrl']; ?>" alt="<?php echo $this->escape($image['title']); ?>" />
+				</a>
+			</div>
+		</div>	
+		<?php } ?>
+	</div>	
+</div>
+<?php } ?>

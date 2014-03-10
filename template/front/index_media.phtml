@@ -9,18 +9,16 @@
 	<div class="index-media">
 	    <?php foreach($stores as $story) { ?>
 		<?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-		<div class="item">
+		<div class="thumbnail">
 			<?php if($story['image']){ ?>
-			<div class="itemImageList gallery">
-				<a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><img class="img-thumbnail ItemStoryImg" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-		    </div>
-			<div class="clearfix"></div>
-		    <?php } ?>
-			<div class="itemTitle">
+			<a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+			<?php } ?>
+			<div class="caption">
 				<h3><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+				<div class="text-justify"><?php echo $story['short']; ?></div>
 			</div>
 		</div>
-		<?php if ($topic['column_class']) { ?></div><?php } ?>
+	    <?php if ($topic['column_class']) { ?></div><?php } ?>
 	    <?php } ?>
 	    <div class="clearfix"></div>
 	</div>

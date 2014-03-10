@@ -14,7 +14,16 @@
   					<h3 class="panel-title"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
   				</div>
 				<div class="panel-body">
-					<div class="itemInfo">
+					<?php if($story['image']){ ?>
+					<div class="col-md-3">
+						<div class="thumbnail">
+							<a href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+						</div>
+					</div>
+		    		<?php } ?>
+			   	   	<div class="text-justify"><?php echo $story['short']; ?></div>
+			   	   	<div class="clearfix">
+						<div class="pull-right">
 						<?php if($topic['show_date']){ ?>
 						<span class="itemPostDate">
 							<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
@@ -25,26 +34,16 @@
 							<?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
 						</span>
 						<?php } ?>
+						</div>
 						<?php if($topic['show_topic']) { ?>
-						<span class="itemtopics"><?php _e('Topics'); ?> : 
+						<div class="pull-left"><?php _e('Topics'); ?> : 
 						<?php foreach($story['topics'] as $storyTopic) { ?>
 							<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
 						<?php } ?>
-						</span>
-						<?php } ?>
-						<div class="clearfix"></div>
-					</div>
-					<div class="itemBody">
-						<?php if($story['image']){ ?>
-			    		<div class="itemImageList">
-							<a href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>">
-								<img class="itemStoryImg pull-left" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
-							</a>
 						</div>
 						<?php } ?>
-			    		<div class="itemText"><?php echo $story['short']; ?></div>
-						<div class="clearfix"></div>
 					</div>
+				   	<div class="clearfix"></div>
 				</div>
 			</div>
 		<?php if ($topic['column_class']) { ?></div><?php } ?>
