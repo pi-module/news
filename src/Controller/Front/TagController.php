@@ -59,16 +59,22 @@ class TagController extends IndexController
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+        // Set header and title
+        $title = sprintf(__('All stores from %s'), $slug);
+        $seoTitle = Pi::api('text', 'news')->title($title);
+        $seoDescription = Pi::api('text', 'news')->description($title);
+        $seoKeywords = Pi::api('text', 'news')->keywords($title);
         // Set view
-        $this->view()->headTitle(sprintf(__('All stores from %s'), $slug));
-        $this->view()->headdescription(sprintf(__('All stores from %s'), $slug), 'set');
-        $this->view()->headkeywords($slug, 'set');
+        $this->view()->headTitle($seoTitle);
+        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
+        $this->view()->assign('title', $title);
     }
 
     public function listAction()
@@ -89,8 +95,16 @@ class TagController extends IndexController
                 'slug' => urldecode($tag['term'])
                 ));
         }
+        // Set header and title
+        $title = __('List of all used tags');
+        $seoTitle = Pi::api('text', 'news')->title($title);
+        $seoDescription = Pi::api('text', 'news')->description($title);
+        $seoKeywords = Pi::api('text', 'news')->keywords($title);
         // Set view
-        $this->view()->setTemplate('tag_list');
+        $this->view()->headTitle($seoTitle);
+        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headKeywords($seoKeywords, 'set');
+        $this->view()->assign('title', $title);
         $this->view()->assign('tagList', $tagList);
     }
 }	

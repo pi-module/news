@@ -54,10 +54,15 @@ class WriterController extends IndexController
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+        // Set header and title
+        $title = sprintf(__('All stores from %s'), $writer['user']['identity']);
+        $seoTitle = Pi::api('text', 'news')->title($title);
+        $seoDescription = Pi::api('text', 'news')->description($title);
+        $seoKeywords = Pi::api('text', 'news')->keywords($title);
         // Set view
-        $this->view()->headTitle(sprintf(__('All stores from %s'), $writer['user']['identity']));
-        $this->view()->headdescription(sprintf(__('All stores from %s'), $writer['user']['identity']), 'set');
-        $this->view()->headkeywords($writer['user']['identity'], 'set');
+        $this->view()->headTitle($seoTitle);
+        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
@@ -65,6 +70,7 @@ class WriterController extends IndexController
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
         $this->view()->assign('writer', $writer);
+        $this->view()->assign('title', $title);
     }
 
     public function listAction()
@@ -89,12 +95,18 @@ class WriterController extends IndexController
                 'slug' => $list[$row->id]['identity'],
             ));
         }
+        // Set header and title
+        $title = __('List of all writers');
+        $seoTitle = Pi::api('text', 'news')->title($title);
+        $seoDescription = Pi::api('text', 'news')->description($title);
+        $seoKeywords = Pi::api('text', 'news')->keywords($title);
         // Set view
-        $this->view()->headTitle(__('List of all writers'));
-        $this->view()->headdescription(__('List of all writers'), 'set');
-        $this->view()->headkeywords(__('List,writers'), 'set');
+        $this->view()->headTitle($seoTitle);
+        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate('writer_list');
         $this->view()->assign('writers', $list);
         $this->view()->assign('config', $config);
+        $this->view()->assign('title', $title);
     }
 }
