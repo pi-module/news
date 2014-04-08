@@ -13,7 +13,7 @@
 return array(
     'front'   => array(
         'index' => array(
-            'label'         => _t('Index'),
+            'label'         => _a('Index'),
             'permission'    => array(
                 'resource'  => 'public',
             ),
@@ -24,7 +24,7 @@ return array(
         ),
 
         'topic' => array(
-            'label'         => _t('Topic list'),
+            'label'         => _a('Topic list'),
             'permission'    => array(
                 'resource'  => 'public',
             ),
@@ -35,7 +35,7 @@ return array(
         ),
 
         'tag' => array(
-            'label'         => _t('Tag list'),
+            'label'         => _a('Tag list'),
             'permission'    => array(
                 'resource'  => 'public',
             ),
@@ -46,7 +46,7 @@ return array(
         ),
 
         'writer' => array(
-            'label'         => _t('Writer list'),
+            'label'         => _a('Writer list'),
             'permission'    => array(
                 'resource'  => 'writer',
             ),
@@ -57,7 +57,7 @@ return array(
         ),
 
         'archive' => array(
-            'label'         => _t('Archive'),
+            'label'         => _a('Archive'),
             'permission'    => array(
                 'resource'  => 'public',
             ),
@@ -69,7 +69,7 @@ return array(
     ),
     'admin' => array(
         'story' => array(
-            'label' => __('Story'),
+            'label' => _a('Story'),
             'permission' => array(
                 'resource' => 'story',
             ),
@@ -78,7 +78,7 @@ return array(
             'action' => 'index',
         ),
         'topic' => array(
-            'label' => __('Topic'),
+            'label' => _a('Topic'),
             'permission' => array(
                 'resource' => 'topic',
             ),
@@ -87,7 +87,7 @@ return array(
             'action' => 'index',
         ),
         'spotlight' => array(
-            'label' => __('Spotlight'),
+            'label' => _a('Spotlight'),
             'permission' => array(
                 'resource' => 'spotlight',
             ),
@@ -96,7 +96,7 @@ return array(
             'action' => 'index',
         ),
         'attach' => array(
-            'label' => __('Attaced'),
+            'label' => _a('Attaced'),
             'permission' => array(
                 'resource' => 'attach',
             ),
@@ -105,7 +105,7 @@ return array(
             'action' => 'index',
         ),
         'extra' => array(
-            'label' => __('Extra'),
+            'label' => _a('Extra'),
             'permission' => array(
                 'resource' => 'extra',
             ),
@@ -114,7 +114,7 @@ return array(
             'action' => 'index',
         ),
         'tools' => array(
-            'label' => __('Tools'),
+            'label' => _a('Tools'),
             'permission' => array(
                 'resource' => 'tools',
             ),

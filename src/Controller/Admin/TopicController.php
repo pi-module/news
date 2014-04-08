@@ -38,7 +38,9 @@ class TopicController extends ActionController
         // Get info
         $columns = array('id', 'title', 'slug', 'style', 'status');
         $order = array('id DESC', 'time_create DESC');
-        $select = $this->getModel('topic')->select()->columns($columns)->order($order);
+        $limit = intval($this->config('admin_perpage'));
+        $offset = (int)($page - 1) * $this->config('admin_perpage');
+        $select = $this->getModel('topic')->select()->columns($columns)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('topic')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
@@ -53,7 +55,7 @@ class TopicController extends ActionController
         $select = $this->getModel('topic')->select()->columns($count);
         $count = $this->getModel('topic')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
-        $paginator->setItemCountPerPage($this->config('admin_perpage'));
+        $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
             'router'    => $this->getEvent()->getRouter(),

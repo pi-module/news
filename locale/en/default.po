@@ -1,1390 +1,1045 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: 2014-02-19 17:28+0330\n"
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2014-04-08 16:24+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: /var/www/html/local/pi/pi-develop/usr/module/news/\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-develop/usr/module/news/"
-"template\n"
-"X-Poedit-SearchPath-1: /var/www/html/local/pi/pi-develop/usr/module/news/"
-"src\n"
-"X-Poedit-SearchPath-2: /var/www/html/local/pi/pi-develop/usr/module/news/"
-"config\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
+"news\n"
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:24
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:55
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:24
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:55
 msgid "Home Page"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/Element/Topic.php:70
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:60
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/Element/Topic.php:70
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:60
 msgid "All Topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:52
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:61
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:72
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:52
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:61
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:10
 msgid "Story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:56
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:56
 msgid "Select story for add to Spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:66
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:66
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:11
 msgid "Show in"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:71
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:71
 msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:80
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:80
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:12
 msgid "Publish date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:92
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:92
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:13
 msgid "Expire date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:105
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:134
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:58
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:100
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:76
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:31
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:56
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:134
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:58
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:100
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:76
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:31
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:56
 msgid "Status"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:107
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:136
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:102
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:16
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:47
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:69
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:38
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:107
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:136
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:102
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:47
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:69
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:38
 msgid "Published"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:108
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:137
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:103
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:17
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:70
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:39
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:108
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:137
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:103
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:17
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:70
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:39
 msgid "Pending review"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:109
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:138
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:104
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:18
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:138
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:104
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:18
 msgid "Draft"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:110
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:139
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:105
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:19
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:139
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:19
 msgid "Private"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/SpotlightForm.php:119
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/PruneForm.php:54
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:278
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:65
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:125
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:363
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:119
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:54
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:278
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:65
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:363
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
 msgid "Submit"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/PruneForm.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:32
 msgid "All contacts Before"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:50
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:46
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:64
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:49
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:43
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:44
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:24
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:10
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:64
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:49
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:43
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:44
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:24
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:12
 msgid "Title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:62
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:62
 msgid "Subtitle"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:74
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:75
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:74
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:75
 msgid "slug"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:87
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:81
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:22
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:95
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:147
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:207
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:280
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:87
 msgid "Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:96
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:96
 msgid "Short"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:109
 msgid "Text"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:123
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:18
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:31
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_media.phtml:20
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:123
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:18
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:26
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_media.phtml:17
 msgid "Important"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:140
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:140
 msgid "Remove"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:160
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:143
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:160
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:143
 msgid "Remove image"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:176
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:176
 msgid "Upload image"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:189
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:172
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:189
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:172
 msgid "SEO options"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:196
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:30
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:179
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:196
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:30
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:179
 msgid "SEO Title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:207
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:31
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:190
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:207
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:31
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:190
 msgid "SEO Keywords"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:218
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:32
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:201
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:218
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:201
 msgid "SEO Description"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:231
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:231
 msgid "Tags"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:235
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:235
 msgid "Use `|` as delimiter to separate tag terms"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/StoryForm.php:246
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:246
 msgid "Extra fields"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:26
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:4
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_prune.phtml:4
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:4
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:13
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:4
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:26
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:4
 msgid "Rebuild"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:40
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:40
 msgid "Start date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/RebuildForm.php:52
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:52
 msgid "End date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:60
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:60
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:78
 msgid "Online"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:61
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/AttachForm.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:61
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:79
 msgid "Offline"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:70
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:26
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:52
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:70
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:26
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:52
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:11
 msgid "Type"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:72
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:72
 msgid "Text : type text content"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:73
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:73
 msgid "Link : add url for click"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:74
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:74
 msgid "Video : add flv or mp4 url for play on video player"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:75
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:75
 msgid "Audio : add mp3 url for play on audio player"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:76
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:76
 msgid "File : add file link for download"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:77
 msgid "Currency : add view price for anything"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:78
 msgid "Date : add date for view"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:79
 msgid "Number : add number"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:80
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:80
 msgid "Select : add select box for choose"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:88
 msgid "Value"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:103
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:103
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:32
 msgid "Search"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/ExtraForm.php:113
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:159
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:28
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:113
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:159
 msgid "Image"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:51
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:51
 msgid "Parent Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:86
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:86
 msgid "Description"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:114
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:114
 msgid "Topic Style"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:116
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/module.php:16
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:116
 msgid "News"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:117
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:80
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:117
 msgid "List"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:118
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:141
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:81
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:118
 msgid "Table"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:119
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:82
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:119
 msgid "Media"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:120
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:90
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:201
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:36
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:83
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:7
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_prune.phtml:7
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:7
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:16
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:7
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:120
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:7
 msgid "Spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:213
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:213
 msgid "Extra options"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:221
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:221
 msgid "Extra Config Options Type"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:223
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:223
 msgid "Use topic options"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:224
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:224
 msgid "Use module options"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:228
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:228
 msgid ""
 "Use topic option whit select topic options or set it to module to use module "
 "option"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:235
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:65
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:93
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:235
 msgid "Perpage"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:247
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:100
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:247
 msgid "Columns"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:249
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:106
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:249
 msgid "One column"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:250
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:107
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:250
 msgid "Two columns"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:251
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:108
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:251
 msgid "Three columns"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:252
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:252
 msgid "Four columns"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:264
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:119
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:264
 msgid "Show Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:275
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:127
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:275
 msgid "Show Topic Information"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:286
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:135
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:286
 msgid "Show writer"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:297
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:143
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:297
 msgid "Show Date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:308
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:308
 msgid "Show DPF"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:319
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:159
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:319
 msgid "Show Print"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:330
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:167
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:330
 msgid "Show Mail"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:341
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:175
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:341
 msgid "Show Hits"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Form/TopicForm.php:352
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:183
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:352
 msgid "Show Tags"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:59
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:59
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:79
 msgid "Default"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:61
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:61
 msgid "This is a default topic for news module"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:62
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:64
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:62
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:64
 msgid "default topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:63
 msgid "default,topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:88
 msgid "Hello World"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:89
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:89
 msgid "This is subtitle for this story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:92
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:92
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:93
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:93
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Installer/Action/Install.php:125
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:125
 msgid "Default information added."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Feed/IndexController.php:24
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:24
 msgid "News feed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Feed/IndexController.php:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:25
 msgid "Recent News."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:59
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:59
 msgid "No file attached"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:88
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:182
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:182
 msgid "You must select story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:93
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:190
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:93
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:190
 msgid "Your selected story not exist"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:110
 #, php-format
 msgid "Attach files to %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:119
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:119
 msgid "You must select file"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:142
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:142
 msgid "All changes in file saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:145
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:337
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:232
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:148
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:145
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:337
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:234
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:154
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:154
 msgid "Edit file"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:254
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:254
 msgid "Your attached file remove successfully"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/AttachController.php:259
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:259
 msgid "Please select file"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:42
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:42
 msgid "Reset write info"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:43
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:43
 msgid "All information saved"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:49
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:49
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "update to new. And you must set start and end publish time."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:68
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:68
 msgid "Finish Rebuild slug, all story slug update"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:76
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:76
 msgid "Finish Rebuild SEO title, all story SEO title update"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:84
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:84
 msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:92
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:92
 msgid "Finish Rebuild SEO description, all story SEO description update"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:99
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:99
 msgid "Rebuild stores"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:106
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:106
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:14
 msgid "You can prune all old stores, from selected topic."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:121
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:121
 #, php-format
 msgid "<strong>%s</strong> old stores removed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:124
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:124
 msgid ""
 "Error in pruned old stores. perhaps no stroy exist whit your select query"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:129
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:129
 msgid "Prune stores"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:140
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:140
 #, php-format
 msgid "<strong>%s</strong> old spotlights removed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:143
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:143
 msgid "Error in remove old spotlights. perhaps no spotlights exist"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ToolsController.php:146
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:146
 msgid "Prune spotlights"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:260
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:157
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:260
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:159
 msgid "Problem in upload image. please try again"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:109
 msgid "Extra field data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:113
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:113
 msgid "Extra field data not saved."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:129
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:129
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:10
 msgid "Add Extra"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:162
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:162
 msgid "Selected field delete"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/ExtraController.php:164
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:164
 msgid "Please select field"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:117
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:152
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:189
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:392
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:101
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:117
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:152
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:189
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:392
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:103
 msgid "Please select story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:141
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:141
 #, php-format
 msgid "%s story accept successfully"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:146
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:146
 #, php-format
 msgid "Error in accept %s story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:182
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:94
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:182
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:96
 #, php-format
 msgid "Image of %s removed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:185
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:97
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:185
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:99
 msgid "Image not remove"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:330
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:330
 msgid "Story data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:334
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:334
 msgid "Story data not saved."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:358
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:358
 msgid "Add a Story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/StoryController.php:390
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:390
 msgid "This story deleted"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:229
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:231
 msgid "Topic data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:246
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:248
 msgid "Add a Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:309
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:311
 msgid "This topic and all of stores deleted"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/TopicController.php:311
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:313
 msgid "Please select topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:142
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:142
 msgid "Spotlight data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:145
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:145
 msgid "Spotlight data not saved."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:163
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:163
 msgid "Add a Spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:176
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:176
 msgid "Selected spotlight delete"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Admin/SpotlightController.php:178
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:178
 msgid "Please select spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:48
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
 #, php-format
 msgid "Archive - %s - %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:49
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
 #, php-format
 msgid "Archive of all stores in - %s - %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
 #, php-format
 msgid "Archive,stores,topic,%s,%s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/ArchiveController.php:51
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:51
 #, php-format
 msgid ""
 "List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
 "next or prev month and year"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/StoryController.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:32
 msgid "The story not found."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/StoryController.php:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
 msgid "The Story not publish."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
 msgid "Go to topic list."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:77
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List of all topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TopicController.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:79
 msgid "List,topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:35
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:35
 msgid "The tag not set."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:46
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:34
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:34
 msgid "The tag not found."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:63
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/TagController.php:64
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:58
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:59
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:58
 #, php-format
 msgid "All stores from %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:93
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:94
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:99
+msgid "List of all used tags"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:99
 msgid "List of all writers"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/src/Controller/Front/WriterController.php:95
-msgid "List,writers"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:99
-msgid "Attaced"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:108
-msgid "Extra"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/navigation.php:117
-msgid "Tools"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:16
-msgid "Item"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:102
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:154
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:214
-msgid "Number"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:36
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:161
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:228
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:287
-msgid "Shwo text"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:43
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:109
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:168
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:235
-msgid "Show date"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:50
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:116
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:175
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:242
-msgid "Show hits"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:57
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:249
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:294
-msgid "Show Images"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:64
-msgid "Show More link for each story"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:71
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:123
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:182
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:256
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:301
-msgid "Show More link to module page"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:78
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:130
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:189
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:263
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:308
-msgid "Set More link to module page"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:89
-msgid "list"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:221
-msgid "Number of sub spotlight"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/block.php:274
-msgid "List of topic"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/module.php:17
-msgid "Manage News and Blog"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:16
-msgid "Admin"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:20
-msgid "Show"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:24
-msgid "Feed"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:32
-msgid "Social"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:40
-msgid "Vote"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:44
-msgid "Favourite"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:48
-msgid "Texts"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:52
-msgid "File"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:59
-msgid "Advertisement"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:73
-msgid "Show Style"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:151
-msgid "Show Pdf"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:191
-msgid "Show attach files"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:199
-msgid "Show extra information"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:207
-msgid "Show navigation"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:215
-msgid "Show spotlight"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:223
-msgid "Show related news"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:231
-msgid "related number"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:239
-msgid "Just show news from X days ago"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:240
-msgid "Set 0 for show all news, Or set day number for limit news in days"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:248
-msgid "Show feed icon"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:256
-msgid "Feed number"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:265
-msgid "Image Size"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:273
-msgid "Image path"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:281
-msgid "Image Extension"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:289
-msgid "Large Image height"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:297
-msgid "Large Image width"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:305
-msgid "Medium Image height"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:313
-msgid "Medium Image width"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:321
-msgid "Thumb Image height"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:329
-msgid "Thumb Image width"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:337
-msgid "Use lightbox"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:345
-msgid "Add Watermark"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:353
-msgid "Watermark Image"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:360
-msgid "Watermark Positio"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:366
-msgid "Top Left"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:367
-msgid "Top Right"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:368
-msgid "Bottom Left"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:369
-msgid "Bottom Right"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:472
-msgid "Show Google Plus"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:480
-msgid "Show facebook"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:488
-msgid "Show Twitter"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:497
-msgid "Number of stories"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:505
-msgid "Show Image for sub spotlights"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:514
-msgid "Use vote system"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:523
-msgid "Use favourite system"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:532
-msgid "Module main title"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:533
-msgid "Title for main page and all non-title pages"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:540
-msgid "Module main description"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:548
-msgid "Module main keywords"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:557
-msgid "File Size"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:565
-msgid "File path"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/config/config.php:573
-msgid "File Extension"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:12
 msgid "List of extra fields"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:28
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:35
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:57
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:30
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:28
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:35
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:57
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:30
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:29
 msgid "Edit"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/extra_index.phtml:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:37
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:38
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:59
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:26
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:30
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:37
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:38
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:59
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:26
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:30
 msgid "Delete"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_update.phtml:18
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_update.phtml:18
 msgid "Remove image story in process"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:10
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:37
 msgid "By"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:11
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:13
 msgid "Update Time"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:12
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_table.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:34
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:47
 msgid "Read"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:13
 msgid "Comments"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:29
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:39
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:52
 msgid "Topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:33
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:28
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_update.phtml:4
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:47
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:33
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:28
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_update.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:47
 msgid "Back"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:34
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:27
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:34
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:27
 msgid "View"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_view.phtml:36
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:58
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:58
 msgid "Attach"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:29
 msgid "Finish"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:37
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:56
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:37
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:56
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:7
 msgid "PerView"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:48
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:9
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:48
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:9
 msgid "Create"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:60
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:60
 msgid "Hits"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:64
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:64
 msgid "Size"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:69
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:69
 msgid "Close"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_add.phtml:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:110
 msgid "In process"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:5
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_prune.phtml:5
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:5
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:5
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:5
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:5
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:5
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:5
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:5
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:5
 msgid "Prune"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:6
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:13
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_prune.phtml:6
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:6
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:15
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_spotlight.phtml:6
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_rebuild.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:6
 msgid "Writer"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_writer.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:14
 msgid "Count"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:12
 msgid "Add Story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:15
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:28
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:15
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:28
 msgid "All stories"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:20
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:71
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:20
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:71
 msgid "Trash"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:23
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:23
 msgid "List of stories"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:26
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:6
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:9
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:9
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:26
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:9
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:9
 msgid "ID"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:27
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:8
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:27
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:8
 msgid "Information"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:50
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:10
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:14
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:12
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:12
 msgid "Action"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:52
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:83
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:52
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:83
 msgid "Reject"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:54
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:54
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:88
 msgid "Accept"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/story_index.phtml:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:77
 msgid "Accept story in process"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_update.phtml:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_update.phtml:16
 msgid "Remove image topic in process"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:3
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:3
 msgid "List of attached files"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:29
 msgid "Get"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_index.phtml:31
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:31
 msgid "Edit from story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:10
 msgid "How this part work?"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:11
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:13
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:13
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:15
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
 msgid "You can reset all write info"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/tools_index.phtml:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
 msgid "You can remove old spotlights"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:4
 msgid "Add Spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:6
 msgid "List of spotlights"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/spotlight_index.phtml:24
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:24
 msgid "Veiw story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:4
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:4
 msgid "Add Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/topic_index.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:6
 msgid "List of topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:37
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:37
 msgid "Get it"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:40
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:40
 msgid "File title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/admin/attach_edit.phtml:41
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:41
 msgid "Story title"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:20
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:41
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:42
 msgid "Time"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/index_news.phtml:25
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:34
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:47
 msgid "Times"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:21
-msgid "Attached video"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:45
-msgid "Attached audio"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:61
-msgid "Attached images"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:73
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:5
 msgid "Attached archives"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:85
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:17
 msgid "Attached docs"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:97
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:29
 msgid "Attached pdfs"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/attach.phtml:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:41
 msgid "Attached files"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/story_index.phtml:107
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:119
 msgid "Related storys"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/writer_list.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:11
 msgid "List of Writers"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/writer_list.phtml:22
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:22
 msgid "All stores"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/topic_list.phtml:8
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/topic_list.phtml:8
 msgid "List of Topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/feed.phtml:3
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/feed.phtml:3
 msgid "Rss Feed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-develop/usr/module/news/template/front/tag_list.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr ""

@@ -13,56 +13,56 @@
 return array(
     'category' => array(
         array(
-            'title' => __('Admin'),
+            'title' => _a('Admin'),
             'name' => 'admin'
         ),
         array(
-            'title' => __('Show'),
+            'title' => _a('Show'),
             'name' => 'show'
         ),
         array(
-            'title' => __('Feed'),
+            'title' => _a('Feed'),
             'name' => 'feed'
         ),
         array(
-            'title' => __('Image'),
+            'title' => _a('Image'),
             'name' => 'image'
         ),
         array(
-            'title' => __('Social'),
+            'title' => _a('Social'),
             'name' => 'social'
         ),
         array(
-            'title' => __('Spotlight'),
+            'title' => _a('Spotlight'),
             'name' => 'spotlight'
         ),
         array(
-            'title' => __('Vote'),
+            'title' => _a('Vote'),
             'name' => 'vote'
         ),
         array(
-            'title' => __('Favourite'),
+            'title' => _a('Favourite'),
             'name' => 'favourite'
         ),
         array(
-            'title' => __('Texts'),
+            'title' => _a('Texts'),
             'name' => 'text'
         ),
         array(
-            'title' => __('File'),
+            'title' => _a('File'),
             'name' => 'file'
         ),
     ),
     'item' => array(
         // Generic
         'advertisement' => array(
-            'title' => __('Advertisement'),
+            'title' => _a('Advertisement'),
             'edit' => 'textarea',
         ),
         // Admin
         'admin_perpage' => array(
             'category' => 'admin',
-            'title' => __('Perpage'),
+            'title' => _a('Perpage'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -70,17 +70,17 @@ return array(
         ),
         // Show
         'style' => array(
-            'title' => __('Show Style'),
+            'title' => _a('Show Style'),
             'description' => ' ',
             'edit' => array(
                 'type' => 'select',
                 'options' => array(
                     'options' => array(
-                        'news' => __('News'),
-                        'list' => __('List'),
-                        'table' => __('Table'),
-                        'media' => __('Media'),
-                        'spotlight' => __('Spotlight'),
+                        'news' => _a('News'),
+                        'list' => _a('List'),
+                        'table' => _a('Table'),
+                        'media' => _a('Media'),
+                        'spotlight' => _a('Spotlight'),
                     ),
                 ),
             ),
@@ -90,23 +90,23 @@ return array(
         ),
         'show_perpage' => array(
             'category' => 'show',
-            'title' => __('Perpage'),
+            'title' => _a('Perpage'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
             'value' => 5
         ),
         'show_columns' => array(
-            'title' => __('Columns'),
+            'title' => _a('Columns'),
             'description' => ' ',
             'edit' => array(
                 'type' => 'select',
                 'options' => array(
                     'options' => array(
-                        1 => __('One column'),
-                        2 => __('Two columns'),
-                        3 => __('Three columns'),
-                        4 => __('Four columns'),
+                        1 => _a('One column'),
+                        2 => _a('Two columns'),
+                        3 => _a('Three columns'),
+                        4 => _a('Four columns'),
                     ),
                 ),
             ),
@@ -116,7 +116,7 @@ return array(
         ),
         'show_topic' => array(
             'category' => 'show',
-            'title' => __('Show Topic'),
+            'title' => _a('Show Topic'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -124,7 +124,7 @@ return array(
         ),
         'show_topicinfo' => array(
             'category' => 'show',
-            'title' => __('Show Topic Information'),
+            'title' => _a('Show Topic Information'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -132,7 +132,7 @@ return array(
         ),
         'show_writer' => array(
             'category' => 'show',
-            'title' => __('Show writer'),
+            'title' => _a('Show writer'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -140,7 +140,7 @@ return array(
         ),
         'show_date' => array(
             'category' => 'show',
-            'title' => __('Show Date'),
+            'title' => _a('Show Date'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -148,7 +148,7 @@ return array(
         ),
         'show_pdf' => array(
             'category' => 'show',
-            'title' => __('Show Pdf'),
+            'title' => _a('Show Pdf'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -156,7 +156,7 @@ return array(
         ),
         'show_print' => array(
             'category' => 'show',
-            'title' => __('Show Print'),
+            'title' => _a('Show Print'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -164,7 +164,7 @@ return array(
         ),
         'show_mail' => array(
             'category' => 'show',
-            'title' => __('Show Mail'),
+            'title' => _a('Show Mail'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -172,7 +172,7 @@ return array(
         ),
         'show_hits' => array(
             'category' => 'show',
-            'title' => __('Show Hits'),
+            'title' => _a('Show Hits'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -180,7 +180,7 @@ return array(
         ),
         'show_tag' => array(
             'category' => 'show',
-            'title' => __('Show Tags'),
+            'title' => _a('Show Tags'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -188,7 +188,7 @@ return array(
         ),
         'show_attach' => array(
             'category' => 'show',
-            'title' => __('Show attach files'),
+            'title' => _a('Show attach files'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -196,7 +196,7 @@ return array(
         ),
         'show_extra' => array(
             'category' => 'show',
-            'title' => __('Show extra information'),
+            'title' => _a('Show extra information'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -204,7 +204,7 @@ return array(
         ),
         'show_nav' => array(
             'category' => 'show',
-            'title' => __('Show navigation'),
+            'title' => _a('Show navigation'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -212,7 +212,7 @@ return array(
         ),
         'show_spotlight' => array(
             'category' => 'show',
-            'title' => __('Show spotlight'),
+            'title' => _a('Show spotlight'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -220,7 +220,7 @@ return array(
         ),
         'show_related' => array(
             'category' => 'show',
-            'title' => __('Show related news'),
+            'title' => _a('Show related news'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -228,7 +228,7 @@ return array(
         ),
         'related_num' => array(
             'category' => 'show',
-            'title' => __('related number'),
+            'title' => _a('related number'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -236,8 +236,8 @@ return array(
         ),
         'daylimit' => array(
             'category' => 'show',
-            'title' => __('Just show news from X days ago'),
-            'description' => __('Set 0 for show all news, Or set day number for limit news in days'),
+            'title' => _a('Just show news from X days ago'),
+            'description' => _a('Set 0 for show all news, Or set day number for limit news in days'),
             'edit' => 'text',
             'filter' => 'number_int',
             'value' => 0
@@ -245,7 +245,7 @@ return array(
         // Feed 
         'feed_icon' => array(
             'category' => 'feed',
-            'title' => __('Show feed icon'),
+            'title' => _a('Show feed icon'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -253,7 +253,7 @@ return array(
         ),
         'feed_num' => array(
             'category' => 'feed',
-            'title' => __('Feed number'),
+            'title' => _a('Feed number'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -262,7 +262,7 @@ return array(
         // Image
         'image_size' => array(
             'category' => 'image',
-            'title' => __('Image Size'),
+            'title' => _a('Image Size'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -270,7 +270,7 @@ return array(
         ),
         'image_path' => array(
             'category' => 'image',
-            'title' => __('Image path'),
+            'title' => _a('Image path'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
@@ -278,7 +278,7 @@ return array(
         ),
         'image_extension' => array(
             'category' => 'image',
-            'title' => __('Image Extension'),
+            'title' => _a('Image Extension'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
@@ -286,7 +286,7 @@ return array(
         ),
         'image_largeh' => array(
             'category' => 'image',
-            'title' => __('Large Image height'),
+            'title' => _a('Large Image height'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -294,7 +294,7 @@ return array(
         ),
         'image_largew' => array(
             'category' => 'image',
-            'title' => __('Large Image width'),
+            'title' => _a('Large Image width'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -302,7 +302,7 @@ return array(
         ),
         'image_mediumh' => array(
             'category' => 'image',
-            'title' => __('Medium Image height'),
+            'title' => _a('Medium Image height'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -310,7 +310,7 @@ return array(
         ),
         'image_mediumw' => array(
             'category' => 'image',
-            'title' => __('Medium Image width'),
+            'title' => _a('Medium Image width'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -318,7 +318,7 @@ return array(
         ),
         'image_thumbh' => array(
             'category' => 'image',
-            'title' => __('Thumb Image height'),
+            'title' => _a('Thumb Image height'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -326,7 +326,7 @@ return array(
         ),
         'image_thumbw' => array(
             'category' => 'image',
-            'title' => __('Thumb Image width'),
+            'title' => _a('Thumb Image width'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -334,7 +334,7 @@ return array(
         ),
         'image_lightbox' => array(
             'category' => 'image',
-            'title' => __('Use lightbox'),
+            'title' => _a('Use lightbox'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -342,7 +342,7 @@ return array(
         ),
         'image_watermark' => array(
             'category' => 'image',
-            'title' => __('Add Watermark'),
+            'title' => _a('Add Watermark'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -350,23 +350,23 @@ return array(
         ),
         'image_watermark_source' => array(
             'category' => 'image',
-            'title' => __('Watermark Image'),
+            'title' => _a('Watermark Image'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
             'value' => ''
         ),
         'image_watermark_position' => array(
-            'title' => __('Watermark Positio'),
+            'title' => _a('Watermark Positio'),
             'description' => '',
             'edit' => array(
                 'type' => 'select',
                 'options' => array(
                     'options' => array(
-                        'top-left' => __('Top Left'),
-                        'top-right' => __('Top Right'),
-                        'bottom-left' => __('Bottom Left'),
-                        'bottom-right' => __('Bottom Right'),
+                        'top-left' => _a('Top Left'),
+                        'top-right' => _a('Top Right'),
+                        'bottom-left' => _a('Bottom Left'),
+                        'bottom-right' => _a('Bottom Right'),
                     ),
                 ),
             ),
@@ -378,22 +378,22 @@ return array(
         /*
         'print_logo' => array(
             'category'      => 'print',
-            'title'         => __('Show logo'),
+            'title'         => _a('Show logo'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
             'value'       => 1
         ),
         'print_float' => array(
-           'title'         => __('Image float'),
+           'title'         => _a('Image float'),
 	        'description'   => ' ',
 	        'edit'          => array(
                 'type'      => 'select',
                 'options'   => array(
                     'options' => array(
-	                    'center' => __('Center'),
-	                    'left' => __('Left'),
-	                    'right' => __('Right'),
+	                    'center' => _a('Center'),
+	                    'left' => _a('Left'),
+	                    'right' => _a('Right'),
 	                ),
                 ),
             ),
@@ -403,7 +403,7 @@ return array(
         ),
         'print_path' => array(
             'category'      => 'print',
-            'title'         => __('Logo path'),
+            'title'         => _a('Logo path'),
             'description'   => '',
             'edit'          => 'text',
             'filter'        => 'string',
@@ -411,7 +411,7 @@ return array(
         ),
         'print_title' => array(
             'category'      => 'print',
-            'title'         => __('Show title'),
+            'title'         => _a('Show title'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -419,7 +419,7 @@ return array(
         ),
         'print_image' => array(
             'category'      => 'print',
-            'title'         => __('Show image'),
+            'title'         => _a('Show image'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -427,7 +427,7 @@ return array(
         ),
          'print_short' => array(
             'category'      => 'print',
-            'title'         => __('Show short'),
+            'title'         => _a('Show short'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -435,7 +435,7 @@ return array(
         ),
         'print_text' => array(
             'category'      => 'print',
-            'title'         => __('Show text'),
+            'title'         => _a('Show text'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -443,15 +443,15 @@ return array(
         ),
         'print_date' => array(
             'category'      => 'print',
-            'title'         => __('Show date'),
+            'title'         => _a('Show date'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
             'value'       => 1
         ),
-        'print__uthor' => array(
+        'print_author' => array(
             'category'      => 'print',
-            'title'         => __('Show uid'),
+            'title'         => _a('Show uid'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -459,7 +459,7 @@ return array(
         ),
         'print_link' => array(
             'category'      => 'print',
-            'title'         => __('Show link'),
+            'title'         => _a('Show link'),
             'description'   => '',
             'edit'          => 'checkbox',
             'filter'        => 'number_int',
@@ -469,7 +469,7 @@ return array(
         // Social
         'social_gplus' => array(
             'category' => 'social',
-            'title' => __('Show Google Plus'),
+            'title' => _a('Show Google Plus'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -477,7 +477,7 @@ return array(
         ),
         'social_facebook' => array(
             'category' => 'social',
-            'title' => __('Show facebook'),
+            'title' => _a('Show facebook'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -485,7 +485,7 @@ return array(
         ),
         'social_twitter' => array(
             'category' => 'social',
-            'title' => __('Show Twitter'),
+            'title' => _a('Show Twitter'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -494,7 +494,7 @@ return array(
         // Spotlight
         'spotlight_number' => array(
             'category' => 'spotlight',
-            'title' => __('Number of stories'),
+            'title' => _a('Number of stories'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -502,7 +502,7 @@ return array(
         ),
         'spotlight_image' => array(
             'category' => 'spotlight',
-            'title' => __('Show Image for sub spotlights'),
+            'title' => _a('Show Image for sub spotlights'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -511,7 +511,7 @@ return array(
         // Vote
         'vote_bar' => array(
             'category' => 'vote',
-            'title' => __('Use vote system'),
+            'title' => _a('Use vote system'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -520,7 +520,7 @@ return array(
         // favourite
         'favourite_bar' => array(
             'category' => 'favourite',
-            'title' => __('Use favourite system'),
+            'title' => _a('Use favourite system'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',
@@ -529,15 +529,15 @@ return array(
         // Texts
         'text_title' => array(
             'category' => 'text',
-            'title' => __('Module main title'),
-            'description' => __('Title for main page and all non-title pages'),
+            'title' => _a('Module main title'),
+            'description' => _a('Title for main page and all non-title pages'),
             'edit' => 'text',
             'filter' => 'string',
             'value' => 'Latest News from this website'
         ),
         'text_description' => array(
             'category' => 'text',
-            'title' => __('Module main description'),
+            'title' => _a('Module main description'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
@@ -545,7 +545,7 @@ return array(
         ),
         'text_keywords' => array(
             'category' => 'text',
-            'title' => __('Module main keywords'),
+            'title' => _a('Module main keywords'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
@@ -554,7 +554,7 @@ return array(
         // File
         'file_size' => array(
             'category' => 'file',
-            'title' => __('File Size'),
+            'title' => _a('File Size'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
@@ -562,7 +562,7 @@ return array(
         ),
         'file_path' => array(
             'category' => 'file',
-            'title' => __('File path'),
+            'title' => _a('File path'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'string',
@@ -570,7 +570,7 @@ return array(
         ),
         'file_extension' => array(
             'category' => 'file',
-            'title' => __('File Extension'),
+            'title' => _a('File Extension'),
             'description' => '',
             'edit' => 'textarea',
             'filter' => 'string',

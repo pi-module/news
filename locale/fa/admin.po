@@ -1,0 +1,595 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2014-04-08 16:32+0330\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
+"news\n"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:17
+msgid "Global public resource"
+msgstr "دسترسی های عمومی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:24
+msgid "Writer"
+msgstr "نویسنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:33
+msgid "Attach"
+msgstr "پیوست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:39
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:108
+msgid "Extra"
+msgstr "فیلد اضافی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:45
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:90
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:246
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:83
+msgid "Spotlight"
+msgstr "اسپات لایت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:51
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:72
+msgid "Story"
+msgstr "مطلب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:57
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:81
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:22
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:177
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:252
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:340
+msgid "Topic"
+msgstr "موضوع"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:117
+msgid "Tools"
+msgstr "ابزار ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:16
+msgid "Index"
+msgstr "صفحه اصلی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:27
+msgid "Topic list"
+msgstr "فهرست موضوع ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:38
+msgid "Tag list"
+msgstr "فهرست برچسب ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:49
+msgid "Writer list"
+msgstr "فهرست نویسنده ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:60
+msgid "Archive"
+msgstr "آرشیو"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:99
+msgid "Attaced"
+msgstr "پیوست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:16
+msgid "Item"
+msgstr "مورد"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:29
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:117
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:184
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:259
+msgid "Number"
+msgstr "تعداد"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:191
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:273
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:347
+msgid "Shwo text"
+msgstr "نمایش متن"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:43
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:124
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:198
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:280
+msgid "Show date"
+msgstr "نمایش تاریخ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:131
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:205
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:287
+msgid "Show hits"
+msgstr "نمایش بازدید"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:57
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:294
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:354
+msgid "Show Images"
+msgstr "نمایش تصاویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:64
+msgid "Show More link for each story"
+msgstr "نمایش لینک ادامه برای هر مطلب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:71
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:138
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:212
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:301
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:361
+msgid "Show More link to module page"
+msgstr "نمایش لینک ادامه به ماژول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:145
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:219
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:308
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:368
+msgid "Set More link to module page"
+msgstr "درج لینک ادامه به ماژول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:85
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:152
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:226
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:315
+msgid "List order"
+msgstr "مرتب سازی فهرست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:91
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:158
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:232
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:321
+msgid "Latest"
+msgstr "جدیدترین"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:92
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:159
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:233
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:322
+msgid "Random"
+msgstr "تصادفی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:104
+msgid "list"
+msgstr "فهرست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:171
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:81
+msgid "Table"
+msgstr "جدول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:266
+msgid "Number of sub spotlight"
+msgstr "تعداد زیر اسپات لایت ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:334
+msgid "List of topic"
+msgstr "فهرست موضوعات"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:79
+msgid "News"
+msgstr "اخبار"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:17
+msgid "Manage News and Blog"
+msgstr "مدیریت اخبار و بلاگ و مطالب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:16
+msgid "Admin"
+msgstr "بخش مدیر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:20
+msgid "Show"
+msgstr "نمایش"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:24
+msgid "Feed"
+msgstr "خوراک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:28
+msgid "Image"
+msgstr "تصویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:32
+msgid "Social"
+msgstr "شبکه های اجتماعی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:40
+msgid "Vote"
+msgstr "رای"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:44
+msgid "Favourite"
+msgstr "علاقه مندی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:48
+msgid "Texts"
+msgstr "متن ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:52
+msgid "File"
+msgstr "فایل"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:59
+msgid "Advertisement"
+msgstr "تبلیغات"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:65
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:93
+msgid "Perpage"
+msgstr "تعداد در هر صفحه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:73
+msgid "Show Style"
+msgstr "نسبک نمایش"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:80
+msgid "List"
+msgstr "فهرست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:82
+msgid "Media"
+msgstr "مدیا"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:100
+msgid "Columns"
+msgstr "ستون"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:106
+msgid "One column"
+msgstr "یک ستون"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:107
+msgid "Two columns"
+msgstr "دو ستون"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:108
+msgid "Three columns"
+msgstr "سه ستون"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:109
+msgid "Four columns"
+msgstr "چهار ستون"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:119
+msgid "Show Topic"
+msgstr "نمایش موضوع"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:127
+msgid "Show Topic Information"
+msgstr "نمایش اطلاعات شاخه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:135
+msgid "Show writer"
+msgstr "نمایش نویسنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:143
+msgid "Show Date"
+msgstr "نمایش تاریخ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:151
+msgid "Show Pdf"
+msgstr "نمایش پی دی اف"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:159
+msgid "Show Print"
+msgstr "نمایش چاپ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:167
+msgid "Show Mail"
+msgstr "نمایش معرفی به دوستان"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:175
+msgid "Show Hits"
+msgstr "نمایش بازدید"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:183
+msgid "Show Tags"
+msgstr "نمایش برچسب ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:191
+msgid "Show attach files"
+msgstr "نمایش فایل های پیوست شده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:199
+msgid "Show extra information"
+msgstr "نمایش فیلد های اضافی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:207
+msgid "Show navigation"
+msgstr "نمایش ناوبری"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:215
+msgid "Show spotlight"
+msgstr "نمایش اسپات لایت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:223
+msgid "Show related news"
+msgstr "نمایش مطالب مشابه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:231
+msgid "related number"
+msgstr "تعداد مطالب مشابه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:239
+msgid "Just show news from X days ago"
+msgstr "فقط نمایش مطالب مربوط به X روز گذشته"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:240
+msgid "Set 0 for show all news, Or set day number for limit news in days"
+msgstr "برای نمایش همه مطالب ۰ وارد کنید و یا محدوده روز های اخیر را مشخص کنید"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:248
+msgid "Show feed icon"
+msgstr "نمایش آیکن خوراک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:256
+msgid "Feed number"
+msgstr "تعداد در صفحه خوراک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:265
+msgid "Image Size"
+msgstr "حجم تصویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:273
+msgid "Image path"
+msgstr "مسیر ذخیره تصویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:281
+msgid "Image Extension"
+msgstr "پسوند های مجار برای تصویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:289
+msgid "Large Image height"
+msgstr "ارتفاع تصویر بزرگ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:297
+msgid "Large Image width"
+msgstr "عرض تصویر بزرگ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:305
+msgid "Medium Image height"
+msgstr "ارتفاع تصویر متوسط"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:313
+msgid "Medium Image width"
+msgstr "عرض تصویر متوسط"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:321
+msgid "Thumb Image height"
+msgstr "ارتفاع تصویر بندانگشتی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:329
+msgid "Thumb Image width"
+msgstr "عرض تصویر بندانگشتی"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:337
+msgid "Use lightbox"
+msgstr "استفاده از لایت باکس"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:345
+msgid "Add Watermark"
+msgstr "اضافه کردن واترمارک به تصویر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:353
+msgid "Watermark Image"
+msgstr "تصویر واترمارک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:360
+msgid "Watermark Positio"
+msgstr "موقعیت واترمارک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:366
+msgid "Top Left"
+msgstr "بالا چپ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:367
+msgid "Top Right"
+msgstr "بالا راست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:368
+msgid "Bottom Left"
+msgstr "پایین چپ"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:369
+msgid "Bottom Right"
+msgstr "پایین راست"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:472
+msgid "Show Google Plus"
+msgstr "نمایش گوگل پلاس"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:480
+msgid "Show facebook"
+msgstr "نمایش فیسبوک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:488
+msgid "Show Twitter"
+msgstr "نمایش تویتر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:497
+msgid "Number of stories"
+msgstr "تعداد مطالب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:505
+msgid "Show Image for sub spotlights"
+msgstr "نمایش تصویر برای زیر اسپات لایت ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:514
+msgid "Use vote system"
+msgstr "استفاده از سیستم رای"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:523
+msgid "Use favourite system"
+msgstr "استفاده از سیستم مورد علاقه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:532
+msgid "Module main title"
+msgstr "عنوان اصلی ماژول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:533
+msgid "Title for main page and all non-title pages"
+msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:540
+msgid "Module main description"
+msgstr "توضیحات اصلی ماژول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:548
+msgid "Module main keywords"
+msgstr "کلمات کلیدی اصلی ماژول"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:557
+msgid "File Size"
+msgstr "حجم فایل"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:565
+msgid "File path"
+msgstr "مسیر ذخیره فایل"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:573
+msgid "File Extension"
+msgstr "سوند های مجار برای فایل"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/comment.php:15
+msgid "News comments"
+msgstr "نظرات اخبار"
+
+#~ msgid "Manage"
+#~ msgstr "مدیریت"
+
+#~ msgid "Category"
+#~ msgstr "شاخه"
+
+#~ msgid "Location"
+#~ msgstr "مکان"
+
+#~ msgid "Service"
+#~ msgstr "خدمات"
+
+#~ msgid "Special"
+#~ msgstr "ویژه"
+
+#~ msgid "Review"
+#~ msgstr "بررسی"
+
+#~ msgid "Score"
+#~ msgstr "امتیاز دهی"
+
+#~ msgid "Package"
+#~ msgstr "بسته ها"
+
+#~ msgid "Orders"
+#~ msgstr "سفارش ها"
+
+#~ msgid "Logs"
+#~ msgstr "گزارش ها"
+
+#~ msgid "Search"
+#~ msgstr "جستجو"
+
+#~ msgid "New Items"
+#~ msgstr "موارد جدید"
+
+#~ msgid "New Items list"
+#~ msgstr "فهرست موارد جدید"
+
+#~ msgid "Show just recommended"
+#~ msgstr "فقط نمایش موارد پیشنهاد شده"
+
+#~ msgid "Random Item list"
+#~ msgstr "فهرست موارد تصادفی"
+
+#~ msgid "Category show type"
+#~ msgstr "نوع نمایش شاخه بندی"
+
+#~ msgid "Simple list"
+#~ msgstr "فهرست ساده"
+
+#~ msgid "Advanced list"
+#~ msgstr "فهرست پیشرفته"
+
+#~ msgid "Item search form"
+#~ msgstr "فرم جستجو"
+
+#~ msgid "Guide"
+#~ msgstr "اصناف"
+
+#~ msgid "Introducing guides."
+#~ msgstr "مرجع معرفی اصناف"
+
+#~ msgid "View"
+#~ msgstr "نمایش"
+
+#~ msgid "Show incategory items"
+#~ msgstr "نمایش موارد مشابه در این شاخه"
+
+#~ msgid "Show user review"
+#~ msgstr "نمایش بررسی تخصصی کاربران"
+
+#~ msgid "Show submit review"
+#~ msgstr "نمایش دکمه ارسال بررسی"
+
+#~ msgid "Show category list"
+#~ msgstr "نمایش فهرست شاخه ها"
+
+#~ msgid "Show search type"
+#~ msgstr "نمایش نوع جستجوی عنوان"
+
+#~ msgid "Show search category"
+#~ msgstr "نمایش شاخه در جستجو"
+
+#~ msgid "Module search page title"
+#~ msgstr "عنوان صفحه جستجو ماژول"
+
+#~ msgid "Module search page description"
+#~ msgstr "توضیحات صفحه جستجو ماژول"
+
+#~ msgid "Module search page keywords"
+#~ msgstr "کلمات کلیدی صفحه جستجو ماژول"
+
+#~ msgid "Level 1 name"
+#~ msgstr "نام برای طرح ۱"
+
+#~ msgid "Level 1"
+#~ msgstr "سطح ۱"
+
+#~ msgid "Level 2 name"
+#~ msgstr "نام برای طرح ۲"
+
+#~ msgid "Level 2"
+#~ msgstr "سطح ۲"
+
+#~ msgid "Level 3 name"
+#~ msgstr "نام برای طرح ۳"
+
+#~ msgid "Level 3"
+#~ msgstr "سطح ۳"
+
+#~ msgid "Level 4 name"
+#~ msgstr "نام برای طرح ۴"
+
+#~ msgid "Level 4"
+#~ msgstr "سطح ۴"
+
+#~ msgid "Level 5 name"
+#~ msgstr "نام برای طرح ۵"
+
+#~ msgid "Level 5"
+#~ msgstr "سطح ۵"

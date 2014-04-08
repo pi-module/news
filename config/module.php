@@ -13,9 +13,9 @@
 return array(
     // Module meta
     'meta'         => array(
-        'title'         => __('News'),
-        'description'   => __('Manage News and Blog'),
-        'version'       => '1.1.1',
+        'title'         => _a('News'),
+        'description'   => _a('Manage News and Blog'),
+        'version'       => '1.1.2',
         'license'       => 'New BSD',
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',

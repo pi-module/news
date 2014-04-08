@@ -30,7 +30,11 @@ class Block
         // Set model and get information
         $whereLink['status'] = 1;
         $columns = array('story' => new Expression('DISTINCT story'));
-        $order = array('time_publish DESC', 'id DESC');
+        if ($block['order'] == 'random') {
+            $order = array(new \Zend\Db\Sql\Predicate\Expression('RAND()'));
+        } else {
+            $order = array('time_publish DESC', 'id DESC');
+        }
         $limit = intval($block['number']);
         // Get info from link table
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
