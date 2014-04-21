@@ -66,7 +66,7 @@ return array(
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 10
+            'value' => 50
         ),
         // Show
         'style' => array(

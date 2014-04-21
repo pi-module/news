@@ -68,7 +68,7 @@ class StoryFilter extends InputFilter
         // short
         $this->add(array(
             'name' => 'short',
-            'required' => true,
+            'required' => false,
             'filters' => array(
                 array(
                     'name' => 'StringTrim',

@@ -263,8 +263,6 @@ class TopicController extends ActionController
             $this->getModel('topic')->update(array('pid' => $row->pid), array('pid' => $row->id));
             // remove topic links
             $this->getModel('link')->delete(array('topic' => $row->id));
-            // remove moderator
-            $this->getModel('moderator')->delete(array('topic' => $row->id));
             // Get this topic stores and remove
             $select = $this->getModel('story')->select()->columns(array('id', 'path', 'image'))->where(array('topic' => Json::encode(array($row->id))));
             $rowset = $this->getModel('story')->selectWith($select)->toArray();
