@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-08 16:23+0330\n"
+"POT-Creation-Date: 2014-04-21 20:43+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -667,11 +667,11 @@ msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 msgid "Add a Topic"
 msgstr "موضوع جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:311
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:309
 msgid "This topic and all of stores deleted"
 msgstr "این موضوع و همه مطالب وابسته به آن حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:313
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:311
 msgid "Please select topic"
 msgstr "لطفا یک موضوع انتخاب کنید"
 
