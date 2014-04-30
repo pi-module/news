@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 14:36+0330\n"
+"POT-Creation-Date: 2014-04-30 15:48+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -113,6 +113,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:117
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:184
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:259
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:385
 msgid "Number"
 msgstr ""
 
@@ -152,6 +153,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:212
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:301
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:361
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:392
 msgid "Show More link to module page"
 msgstr ""
 
@@ -199,6 +201,10 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:334
 msgid "List of topic"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:379
+msgid "Top writers"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:16

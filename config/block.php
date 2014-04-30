@@ -373,4 +373,28 @@ return array(
             ),
         ),
     ),
+
+    // writer block
+    'writer'      => array(
+        'title'         => _a('Top writers'),
+        'description'   => '',
+        'render'        => 'block::writer',
+        'template'      => 'writer',
+        'config'        => array(
+            'number'         => array(
+                'title'        => _a('Number'),
+                'description'  => '',
+                'edit'         => 'text',
+                'filter'       => 'number_int',
+                'value'        => 10,
+            ),
+            'showblockmore'  => array(
+                'title'        => _a('Show More link to module page'),
+                'description'  => '',
+                'edit'         => 'checkbox',
+                'filter'       => 'number_int',
+                'value'        => 0,
+            ),
+        ),
+    ),
 );

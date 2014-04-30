@@ -1,0 +1,19 @@
+<div class="news-block news-writer-block">
+	<div class="list-group">
+		<?php foreach($block['resources'] as $writer) { ?>
+		<div class="list-group-item">
+			<div class="pull-left"><?php echo $writer['avatar']; ?></div>
+            <div class="pull-right">
+				<div class="profile-identity"><strong><?php echo $this->escape($writer['name']); ?></strong></div>
+				<div class="profile-link"><a title="<?php echo _b('All stores'); ?>" href="<?php echo $this->escape($writer['url']); ?>"><?php echo _b('All stores'); ?></a></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<?php } ?>
+	</div>
+	<?php if ($block['showblockmore']) { ?>
+    <div class="itemBlockLink">
+    	<a title="<?php echo _b('Full writer list'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('Full writer list'); ?></a>
+    </div>
+	<?php } ?>
+</div>

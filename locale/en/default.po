@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 14:36+0330\n"
+"POT-Creation-Date: 2014-04-30 15:48+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -767,22 +767,22 @@ msgstr ""
 msgid "Please select spotlight"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:47
 #, php-format
 msgid "Archive - %s - %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
 #, php-format
 msgid "Archive of all stores in - %s - %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
 #, php-format
 msgid "Archive,stores,topic,%s,%s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:51
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
 #, php-format
 msgid ""
 "List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
@@ -797,34 +797,34 @@ msgstr ""
 msgid "The Story not publish."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:31
 msgid "Go to topic list."
 msgstr ""
 
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:76
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List of all topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List,topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:35
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:34
 msgid "The tag not set."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:45
 msgid "The tag not found."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:62
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:55
 #, php-format
 msgid "All stores from %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:99
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:98
 msgid "List of all used tags"
 msgstr ""
 
@@ -1114,12 +1114,12 @@ msgid "Story title"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:20
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:15
 msgid "Writer email"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:21
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:16
 msgid "Story count"
 msgstr ""
 
@@ -1169,11 +1169,11 @@ msgstr ""
 msgid "Related storys"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:6
 msgid "List of Writers"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:22
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:17
 msgid "All stores"
 msgstr ""
 

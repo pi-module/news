@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 14:36+0330\n"
+"POT-Creation-Date: 2014-04-30 15:48+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,6 +15,14 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
 "news\n"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/writer.phtml:8
+msgid "All stores"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/writer.phtml:16
+msgid "Full writer list"
+msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:14
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:19

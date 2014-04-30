@@ -6,6 +6,7 @@ Version 1.2.0
 2. Add story type
 3. Add load subtopics stories on main topic
 4. Improve templates
+5. Improve route
 
 Version 1.1.0
 =============================

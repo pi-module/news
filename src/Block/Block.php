@@ -94,4 +94,34 @@ class Block
         $block['resources'] = $topic;
         return $block;
     }
+
+    public static function writer($options = array(), $module = null)
+    {
+        // Set options
+        $block = array();
+        $block = array_merge($block, $options);
+        // Set model and get information
+        $select = Pi::model('writer', $module)->select()->order(array('count DESC'));
+        $rowset = Pi::model('writer', $module)->selectWith($select);
+        // Make list
+        foreach ($rowset as $row) {
+            $list[$row->id] = $row->toArray();
+            $user = Pi::user()->get($row->uid, array('id', 'identity', 'name', 'email'));
+            $user['avatar'] = Pi::service('user')->avatar($list[$row->id]['uid'], 'medium');
+            $list[$row->id] = array_merge($user, $list[$row->id]);
+            $list[$row->id]['url'] = Pi::service('url')->assemble('news', array(
+                'module'      => $module,
+                'controller'  => 'writer',
+                'id'          => $row->uid,
+            ));
+        }
+        // Set block array
+        $block['resources'] = $list;
+        $block['linkblockmore'] = Pi::service('url')->assemble('news', array(
+                'module'      => $module,
+                'controller'  => 'writer',
+                'action'      => 'list',
+        ));
+        return $block;
+    }
 }
