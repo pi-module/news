@@ -397,4 +397,36 @@ return array(
             ),
         ),
     ),
+
+    // gallery block
+    'gallery'     => array(
+        'title'         => _a('Gallery'),
+        'description'   => '',
+        'render'        => 'block::gallery',
+        'template'      => 'gallery',
+        'config'        => array(
+            'number'         => array(
+                'title'        => _a('Number'),
+                'description'  => '',
+                'edit'         => 'text',
+                'filter'       => 'number_int',
+                'value'        => 12,
+            ),
+            'showeffect'      => array(
+                'title'        => _a('Show gallery effect'),
+                'description'  => '',
+                'edit'         => 'checkbox',
+                'filter'       => 'number_int',
+                'value'        => 1,
+            ),
+            'widthclass'  => array(
+                'title'        => _a('Image width class'),
+                'description'  => _a('Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3'),
+                'edit'         => 'text',
+                'filter'       => 'string',
+                'value'        => 'col-xs-6 col-sm-6 col-md-3',
+            ),
+        ),
+    ),
+
 );

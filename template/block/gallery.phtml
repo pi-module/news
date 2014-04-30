@@ -1,0 +1,33 @@
+<?php 
+// Set width
+$width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
+// Set ajax effect
+if($block['showeffect']){ 
+	$this->jQuery();
+	$this->js($this->assetModule('js/jquery.magnific-popup.min.js', 'news'));
+	$this->footScript()->appendScript("$('.gallery').each(function() {
+    	$(this).magnificPopup({
+        	delegate: 'a',
+        	type: 'image',
+        	gallery: {
+          	enabled:true
+        	}
+    	});
+	});");
+	$this->css($this->assetModule('css/magnific-popup.css', 'news'));
+}
+?>
+<div class="news-block news-gallery-block gallery">
+	<?php foreach($block['resources'] as $gallery) { ?>
+	<?php if($block['showeffect']) {
+		$hrefLink = $this->escape($gallery['largeUrl']);
+	} else {
+        $hrefLink = $this->escape($gallery['mediaUrl']);
+	} ?>
+	<div class="<?php echo $width; ?>">
+		<a class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
+			<img src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
+		</a>
+	</div>
+	<?php } ?>
+</div>

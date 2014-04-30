@@ -124,4 +124,48 @@ class Block
         ));
         return $block;
     }
+
+    public static function gallery($options = array(), $module = null)
+    {
+        // Set options
+        $block = array();
+        $block = array_merge($block, $options);
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Set info
+        $where = array('type' => 'image');
+        $order = array('time_create DESC', 'id DESC');
+        $limit = intval($block['number']);
+        // Select
+        $select = Pi::model('attach', $module)->select()->where($where)->order($order)->limit($limit);
+        $rowset = Pi::model('attach', $module)->selectWith($select);
+        // Make list
+        foreach ($rowset as $row) {
+            $list[$row->id] = $row->toArray();
+            // Set image links
+            $list[$row->id]['largeUrl'] = Pi::url(
+                sprintf('upload/%s/large/%s/%s', 
+                    $config['image_path'], 
+                    $list[$row->id]['path'], 
+                    $list[$row->id]['file']
+            )); 
+            $list[$row->id]['mediumUrl'] = Pi::url(
+                sprintf('upload/%s/medium/%s/%s', 
+                    $config['image_path'], 
+                    $list[$row->id]['path'], 
+                    $list[$row->id]['file']
+            )); 
+            $list[$row->id]['thumbUrl'] = Pi::url(
+                sprintf('upload/%s/thumb/%s/%s', 
+                    $config['image_path'], 
+                    $list[$row->id]['path'], 
+                    $list[$row->id]['file']
+            ));
+            // Set mediaUrl
+            $list[$row->id]['mediaUrl'] = '#';
+        }
+        // Set block array
+        $block['resources'] = $list;
+        return $block;
+    }
 }
