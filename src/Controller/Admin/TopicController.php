@@ -168,13 +168,14 @@ class TopicController extends ActionController
                 $setting['show_columns'] = $values['show_columns'];
                 $setting['show_topic'] = $values['show_topic'];
                 $setting['show_topicinfo'] = $values['show_topicinfo'];
-                //$setting['show_uid'] = $values['show_uid'];
+                $setting['show_writer'] = $values['show_writer'];
                 $setting['show_date'] = $values['show_date'];
                 $setting['show_pdf'] = $values['show_pdf'];
                 $setting['show_print'] = $values['show_print'];
                 $setting['show_mail'] = $values['show_mail'];
                 $setting['show_hits'] = $values['show_hits'];
                 $setting['show_tag'] = $values['show_tag'];
+                $setting['show_subid'] = $values['show_subid'];
                 $values['setting'] = Json::encode($setting);
                 // Set just category fields
                 foreach (array_keys($values) as $key) {

@@ -155,5 +155,10 @@ class TopicFilter extends InputFilter
             'name' => 'show_tag',
             'required' => false,
         ));
+        // show_subid
+        $this->add(array(
+            'name' => 'show_subid',
+            'required' => false,
+        ));
     }
 }

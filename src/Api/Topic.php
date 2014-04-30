@@ -111,6 +111,12 @@ class Topic extends AbstractApi
         if (empty($topic['seo_keywords'])) {
             $topic['seo_keywords'] = $config['text_keywords'];
         }
+        // Show sub id
+        if ($topic['show_subid']) {
+            $topic['ids'] = $this->topicSubId($topic['id']);
+        } else {
+            $topic['ids'] = $topic['id'];
+        }
         // Template
         $topic['template'] = $this->Template($topic['style']);
         // column class
@@ -225,5 +231,33 @@ class Topic extends AbstractApi
         $select = Pi::model('topic', $this->getModule())->select()->columns($columns);
         $count = Pi::model('topic', $this->getModule())->selectWith($select)->current()->count;
         return $count;
+    }
+
+    public function topicSubId($id)
+    {
+        $list = array();
+        $where = array('status' => 1);
+        $columns = array('id', 'pid');
+        $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where);
+        $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            $list[$row->id] = $row->toArray();
+        }
+        $ids = $this->getTree($list, $id);
+        $ids = array_unique($ids);
+        return $ids;
+    }
+
+    public function getTree($elements, $id, $ids = array())
+    {
+        $ids[$id] = $id;
+        foreach ($elements as $element) {
+            if ($element['pid'] == $id) {
+                $ids[$element['id']] = $element['id'];
+                $ids = $this->getTree($elements, $element['id'], $ids);
+                unset($elements[$element['id']]);
+            }
+        }
+        return $ids;
     }
 }

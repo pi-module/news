@@ -355,6 +355,17 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // show_subid
+        $this->add(array(
+            'name' => 'show_subid',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Show Subtopic stories on main topic'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
         // Save
         $this->add(array(
             'name' => 'submit',

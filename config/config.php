@@ -114,6 +114,14 @@ return array(
             'value'        => 1,
             'category'     => 'show',
         ),
+        'show_subid' => array(
+            'category'     => 'show',
+            'title'        => _a('Show Subtopic stories on main topic'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
         'show_topic' => array(
             'category'     => 'show',
             'title'        => _a('Show Topic'),

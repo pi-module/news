@@ -34,7 +34,7 @@ class TopicController extends IndexController
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Set story info
-        $where = array('status' => 1, 'topic' => $topic['id'], 'time_publish <= ?' => time());
+        $where = array('status' => 1, 'topic' => $topic['ids'], 'time_publish <= ?' => time());
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
