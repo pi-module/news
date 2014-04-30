@@ -36,4 +36,44 @@ class MediaController extends ActionController
         // redirect
         return $this->redirect()->toUrl($story['storyUrl']);
     }
+
+    public function downloadAction()
+    {
+        // Get info from url
+        $id = $this->params('id');
+        $module = $this->params('module');
+        // Get Module Config
+        $config = Pi::service('registry')->config->read($module);
+        // Check id
+        if (!isset($id) || empty($id)) {
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('The media not set.'), 'error');
+        }
+        // find attach and story
+        $attach = $this->getModel('attach')->find($id)->toArray();
+        // update
+        $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
+        // Make download link
+        if($attach['type'] == 'other') {
+            $url = sprintf('%s?%s/%s/%s/%s/%s',
+                Pi::url('www/script/download.php'),
+                'upload',
+                $config['file_path'],
+                'file',
+                $attach['path'],
+                $attach['file']
+            );
+        } else {   
+            $url = sprintf('%s?%s/%s/%s/%s/%s',
+                Pi::url('www/script/download.php'),
+                'upload',
+                $config['file_path'], 
+                $attach['type'],
+                $attach['path'],
+                $attach['file']
+            );
+        } 
+        // redirect
+        return $this->redirect()->toUrl($url);
+    }
 }

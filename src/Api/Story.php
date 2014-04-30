@@ -71,6 +71,7 @@ class Story extends AbstractApi
         foreach ($rowset as $row) {
             $file[$row->type][$row->id] = $row->toArray();
             $file[$row->type][$row->id]['time_create'] = _date($file[$row->type][$row->id]['time_create']);
+            // Set file link
             if ($file[$row->type][$row->id]['type'] == 'image') {
                 $file[$row->type][$row->id]['largeUrl'] = Pi::url(
                     sprintf('upload/%s/large/%s/%s', 
@@ -107,6 +108,13 @@ class Story extends AbstractApi
                         $file[$row->type][$row->id]['file']
                     ));
             }
+            // Set download url
+            $file[$row->type][$row->id]['downloadUrl'] = Pi::service('url')->assemble('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'media',
+                'action'        => 'download',
+                'id'            => $row->id,
+            ));
         }
         // return
         return $file;
