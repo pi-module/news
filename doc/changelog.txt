@@ -1,5 +1,12 @@
 News module changelog
 
+Version 1.2.0
+=============================
+1. Fix bugs
+2. Add story type
+3. Add load subtopics stories on main topic
+4. Improve templates
+
 Version 1.1.0
 =============================
 1. Update module code for new version of PI

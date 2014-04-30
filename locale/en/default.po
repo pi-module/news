@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 13:12+0330\n"
+"POT-Creation-Date: 2014-04-30 14:36+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -815,12 +815,11 @@ msgid "The tag not set."
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:34
 msgid "The tag not found."
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:63
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:58
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:55
 #, php-format
 msgid "All stores from %s"
 msgstr ""
@@ -829,7 +828,11 @@ msgstr ""
 msgid "List of all used tags"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:99
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:33
+msgid "The user not found."
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:95
 msgid "List of all writers"
 msgstr ""
 
@@ -1108,6 +1111,16 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:41
 msgid "Story title"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:8
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:20
+msgid "Writer email"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:9
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:21
+msgid "Story count"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:27

@@ -89,12 +89,12 @@ class News extends Standard
                             $matches['action'] = 'list';
                         } elseif ($parts[1] == 'profile') {
                             $matches['action'] = 'profile';
-                            $matches['slug'] = $this->decode($parts[2]);
+                            $matches['id'] = intval($parts[2]);
                             if (isset($parts[3]) && $parts[3] == 'page') {
                                 $matches['page'] = intval($parts[4]);
                             }
                         } else {
-                            $matches['slug'] = $this->decode($parts[1]);
+                            $matches['id'] = intval($parts[1]);
                             if (isset($parts[2]) && $parts[2] == 'page') {
                                 $matches['page'] = intval($parts[3]);
                             }
@@ -180,6 +180,9 @@ class News extends Standard
         }
         if (!empty($mergedParams['slug'])) {
             $url['slug'] = $mergedParams['slug'];
+        }
+        if (!empty($mergedParams['id'])) {
+            $url['id'] = $mergedParams['id'];
         }
         if (!empty($mergedParams['page'])) {
             $url['page'] = 'page' . $this->paramDelimiter . $mergedParams['page'];

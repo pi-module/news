@@ -41,9 +41,9 @@ class StoryController extends ActionController
         if ($config['show_writer']) {
             $story['user'] = Pi::user()->get($story['uid'], array('id', 'identity', 'name', 'email'));
             $story['user']['url'] = $this->url('', array(
-                'module' => $module,
-                'controller' => 'writer',
-                'slug' => $story['user']['identity'],
+                'module'      => $module,
+                'controller'  => 'writer',
+                'id'          => $story['user']['id'],
             ));
         }
         // Links

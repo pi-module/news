@@ -1,11 +1,12 @@
 <?php if(!empty($writer)) { ?>
 <div class="profile well">
-	<div class="profile-avatar">
-		<?php echo $this->escape($writer['avatar']); ?>
+	<div class="col-sm-4 col-md-2">
+		<div class="text-center"><?php echo $writer['avatar']; ?></div>
 	</div>
-	<div class="profile-info">
+	<div class="col-sm-8 col-md-10">
 		<h5 class="profile-identity"><?php echo $this->escape($writer['name']); ?></h5>
-		<div class="profile-email"><?php echo $this->escape($writer['email']); ?></div>
+		<div class="profile-email"><strong><?php _e('Writer email'); ?></strong> : <?php echo $this->escape($writer['email']); ?></div>
+		<div class="profile-count"><strong><?php _e('Story count'); ?></strong> : <?php echo _number($this->escape($writer['count'])); ?></div>
 	</div>
 	<div class="clearfix"></div>
 </div>

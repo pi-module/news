@@ -2,11 +2,14 @@ News module todo
 
 General
 =============================
+1. Add visit tabale (Like article module)
+2. Improve media / file / attach system (Like article module)
+3. Add draft system
+4. Improve topic system like article module category system
+5. Improve uid system and add two filed for uid and submiter (or manager)
+6. Add markup for story
+7. Use remout upload / download system
+
+down
+=============================
 1. remove topic manager system from admin 
-2. Add visit tabale (Like article module)
-3. Improve media / file / attach system (Like article module)
-4. Add draft system
-5. Improve topic system like article module category system
-6. Improve uid system and add two filed for uid and submiter (or manager)
-7. Add markup for story
-8. Use remout upload / download system

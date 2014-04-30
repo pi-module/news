@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 13:20+0330\n"
+"POT-Creation-Date: 2014-04-30 14:35+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -846,12 +846,11 @@ msgid "The tag not set."
 msgstr "برچسب تنظیم نشده است"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:34
 msgid "The tag not found."
 msgstr "برچسب یافت نشد"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:63
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:58
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:55
 #, php-format
 msgid "All stores from %s"
 msgstr "همه مطالب از %s"
@@ -860,7 +859,11 @@ msgstr "همه مطالب از %s"
 msgid "List of all used tags"
 msgstr "فهرست همه برچسب ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:99
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:33
+msgid "The user not found."
+msgstr "نویسنده پیدا نشد"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:95
 msgid "List of all writers"
 msgstr "فهرست همه نویسندگان"
 
@@ -1142,6 +1145,16 @@ msgstr "عنوان فایل"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:41
 msgid "Story title"
 msgstr "عنوان مطلب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:8
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:20
+msgid "Writer email"
+msgstr "ایمیل نویسنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:9
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:21
+msgid "Story count"
+msgstr "تعداد مطالب ارسالی"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:27
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:42
