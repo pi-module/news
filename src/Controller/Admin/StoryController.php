@@ -27,7 +27,7 @@ class StoryController extends ActionController
     protected $storyColumns = array(
         'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'seo_keywords', 
         'seo_description', 'important', 'status', 'time_create', 'time_update', 'time_publish', 
-        'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra'
+        'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra', 'type'
     );
 
     public function indexAction()
@@ -63,7 +63,7 @@ class StoryController extends ActionController
             $storyId[] = $id['story'];
         }
         // Set info
-        $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid');
+        $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
         $whereStory = array('id' => $storyId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
@@ -72,6 +72,25 @@ class StoryController extends ActionController
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
             $story[$row->id]['time_publish'] = _date($story[$row->id]['time_publish']);
+            // Set story type view
+            switch ($row->type) {
+                case 'download':
+                    $story[$row->id]['type_view'] = __('Download');
+                    break;
+                    
+                case 'media':
+                    $story[$row->id]['type_view'] = __('Media');
+                    break;
+                    
+                case 'spotlight':
+                    $story[$row->id]['type_view'] = __('Spotlight');
+                    break;           
+
+                case 'text':
+                default:
+                    $story[$row->id]['type_view'] = __('Text');
+                    break;
+            }
         }
         // Go to time_update page if empty
         if (empty($story) && empty($status)) {

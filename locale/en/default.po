@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 10:39+0330\n"
+"POT-Creation-Date: 2014-04-30 11:11+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -142,11 +142,11 @@ msgid "Topic"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:96
-msgid "Short"
+msgid "Short text"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:109
-msgid "Text"
+msgid "Main text"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:123
@@ -317,12 +317,13 @@ msgid "Table"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:119
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:82
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:59
 msgid "Media"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:120
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:86
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:7
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:7
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:7
@@ -514,7 +515,7 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:145
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:337
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:356
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:258
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
@@ -599,7 +600,7 @@ msgid "Prune spotlights"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:260
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:279
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:182
 msgid "Problem in upload image. please try again"
 msgstr ""
@@ -625,49 +626,61 @@ msgstr ""
 msgid "Please select field"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:117
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:152
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:189
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:392
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:78
+msgid "Download"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:91
+msgid "Text"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:136
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:171
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:208
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:411
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:126
 msgid "Please select story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:141
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:160
 #, php-format
 msgid "%s story accept successfully"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:146
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:165
 #, php-format
 msgid "Error in accept %s story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:182
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:201
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:119
 #, php-format
 msgid "Image of %s removed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:185
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:204
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:122
 msgid "Image not remove"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:330
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:349
 msgid "Story data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:334
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:353
 msgid "Story data not saved."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:358
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:377
 msgid "Add a Story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:390
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:409
 msgid "This story deleted"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:63
+msgid "Gallery"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:255

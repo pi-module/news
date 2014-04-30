@@ -93,7 +93,7 @@ class StoryForm extends BaseForm
         $this->add(array(
             'name' => 'short',
             'options' => array(
-                'label' => __('Short'),
+                'label' => __('Short text'),
             ),
             'attributes' => array(
                 'type' => 'textarea',
@@ -106,7 +106,7 @@ class StoryForm extends BaseForm
         $this->add(array(
             'name' => 'body',
             'options' => array(
-                'label' => __('Text'),
+                'label' => __('Main text'),
                 'editor' => 'html',
                 'set' => '',
             ),

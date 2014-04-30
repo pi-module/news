@@ -23,6 +23,7 @@ CREATE TABLE `{story}` (
     `favourite` int(10) unsigned NOT NULL,
     `attach` tinyint(3) unsigned NOT NULL,
     `extra` tinyint(3) unsigned NOT NULL,
+    `type` enum('text','gallery','media','download') NOT NULL default 'text',
     PRIMARY KEY (`id`),
     UNIQUE KEY `slug` (`slug`),
     KEY `title` (`title`),
@@ -59,7 +60,7 @@ CREATE TABLE `{topic}` (
 );
 
 CREATE TABLE `{link}` (
-    `id` int (10) unsigned NOT NULL    auto_increment,
+    `id` int (10) unsigned NOT NULL auto_increment,
     `story` int(10) unsigned NOT NULL,
     `topic` int(10) unsigned NOT NULL,
     `time_publish` int(10) unsigned NOT NULL,
@@ -78,7 +79,7 @@ CREATE TABLE `{link}` (
 );
 
 CREATE TABLE `{writer}` (
-    `id` int(10) unsigned NOT NULL    auto_increment,
+    `id` int(10) unsigned NOT NULL auto_increment,
     `uid` int(10) unsigned NOT NULL,
     `count` int(10) unsigned NOT NULL,
     PRIMARY KEY (`id`),
@@ -87,7 +88,7 @@ CREATE TABLE `{writer}` (
 );
 
 CREATE TABLE `{spotlight}` (
-    `id` int(10) unsigned NOT NULL    auto_increment,
+    `id` int(10) unsigned NOT NULL auto_increment,
     `story` int(10) unsigned NOT NULL,
     `topic` int(10) NOT NULL,
     `uid` int(10) unsigned NOT NULL,
@@ -104,7 +105,7 @@ CREATE TABLE `{spotlight}` (
 );
 
 CREATE TABLE `{attach}` (
-    `id` int (10) unsigned NOT NULL    auto_increment,
+    `id` int (10) unsigned NOT NULL auto_increment,
     `title` varchar (255) NOT NULL,
     `file` varchar (255) NOT NULL,
     `path` varchar(16) NOT NULL,

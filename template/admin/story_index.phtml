@@ -41,7 +41,7 @@
 			<td>
 				<div class="row">
 					<div class="col-md-12">
-						<strong><?php _e('Title'); ?></strong> : <a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a>
+						<strong><?php _e('Title'); ?></strong> : ( <?php echo $this->escape($story['type_view']); ?> ) <a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><?php echo $this->escape($story['title']); ?></a>
 					</div>
 					<div class="col-md-5">
 						<strong><?php _e('Published'); ?></strong> : <?php echo $this->escape($story['time_publish']); ?>

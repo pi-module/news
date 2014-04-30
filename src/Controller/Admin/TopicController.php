@@ -59,8 +59,8 @@ class TopicController extends ActionController
                     $list[$row->id]['style_view'] = __('Media');
                     break;
                     
-                case 'spotlight':
-                    $list[$row->id]['style_view'] = __('Spotlight');
+                case 'gallery':
+                    $list[$row->id]['style_view'] = __('Gallery');
                     break;           
 
                 case 'news':
