@@ -12,7 +12,7 @@
  */
 return array(
     // Module meta
-    'meta'         => array(
+    'meta'          => array(
         'title'         => _a('News'),
         'description'   => _a('Manage News and Blog'),
         'version'       => '1.1.3',
@@ -31,7 +31,7 @@ return array(
         'credits'       => 'Pi Engine Team'
     ),
     // resource
-    'resource' => array(
+    'resource'      => array(
         'database'      => 'database.php',
         'config'        => 'config.php',
         'permission'    => 'permission.php',

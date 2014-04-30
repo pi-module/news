@@ -69,58 +69,58 @@ return array(
     ),
     'admin' => array(
         'story' => array(
-            'label' => _a('Story'),
-            'permission' => array(
-                'resource' => 'story',
+            'label'         => _a('Story'),
+            'permission'    => array(
+                'resource'  => 'story',
             ),
-            'route' => 'admin',
-            'controller' => 'story',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'story',
+            'action'        => 'index',
         ),
         'topic' => array(
-            'label' => _a('Topic'),
-            'permission' => array(
-                'resource' => 'topic',
+            'label'         => _a('Topic'),
+            'permission'    => array(
+                'resource'  => 'topic',
             ),
-            'route' => 'admin',
-            'controller' => 'topic',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'topic',
+            'action'        => 'index',
         ),
         'spotlight' => array(
-            'label' => _a('Spotlight'),
-            'permission' => array(
-                'resource' => 'spotlight',
+            'label'         => _a('Spotlight'),
+            'permission'    => array(
+                'resource'  => 'spotlight',
             ),
-            'route' => 'admin',
-            'controller' => 'spotlight',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'spotlight',
+            'action'        => 'index',
         ),
         'attach' => array(
-            'label' => _a('Attaced'),
-            'permission' => array(
-                'resource' => 'attach',
+            'label'         => _a('Attaced'),
+            'permission'    => array(
+                'resource'  => 'attach',
             ),
-            'route' => 'admin',
-            'controller' => 'attach',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'attach',
+            'action'        => 'index',
         ),
         'extra' => array(
-            'label' => _a('Extra'),
-            'permission' => array(
-                'resource' => 'extra',
+            'label'         => _a('Extra'),
+            'permission'    => array(
+                'resource'  => 'extra',
             ),
-            'route' => 'admin',
-            'controller' => 'extra',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'extra',
+            'action'        => 'index',
         ),
         'tools' => array(
-            'label' => _a('Tools'),
-            'permission' => array(
-                'resource' => 'tools',
+            'label'         => _a('Tools'),
+            'permission'    => array(
+                'resource'  => 'tools',
             ),
-            'route' => 'admin',
-            'controller' => 'tools',
-            'action' => 'index',
+            'route'         => 'admin',
+            'controller'    => 'tools',
+            'action'        => 'index',
         ),
     ),
 );
