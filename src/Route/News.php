@@ -52,12 +52,6 @@ class News extends Standard
         // Make Match
         if (isset($matches['controller'])) {
             switch ($matches['controller']) {
-                case 'index':
-                    if (isset($parts[0]) && $parts[0] == 'page') {
-                        $matches['page'] = intval($parts[1]);
-                    }
-                     
-                    break;
 
                 case 'story':
                     if (!empty($parts[1])) {
