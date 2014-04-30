@@ -45,6 +45,29 @@ class TopicController extends ActionController
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
+            // Set topic style view
+            switch ($row->style) {
+                case 'list':
+                    $list[$row->id]['style_view'] = __('List');
+                    break;
+
+                case 'table':
+                    $list[$row->id]['style_view'] = __('Table');
+                    break;
+                    
+                case 'media':
+                    $list[$row->id]['style_view'] = __('Media');
+                    break;
+                    
+                case 'spotlight':
+                    $list[$row->id]['style_view'] = __('Spotlight');
+                    break;           
+
+                case 'news':
+                default:
+                    $list[$row->id]['style_view'] = __('News');
+                    break;
+            }
         }
         // Go to time_update page if empty
         if (empty($list)) {
