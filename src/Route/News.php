@@ -50,92 +50,53 @@ class News extends Standard
         }
 
         // Make Match
-        if (isset($matches['controller'])) {
+        if (isset($matches['controller']) && !empty($parts[1])) {
             switch ($matches['controller']) {
-
                 case 'story':
-                    if (!empty($parts[1])) {
-                        if ($parts[1] == 'print') {
-                            $matches['action'] = 'print';
-                            $matches['slug'] = $this->decode($parts[2]);
-                        } else {
-                            $matches['slug'] = $this->decode($parts[1]);
-                        }
-                    }
+                    $matches['slug'] = $this->decode($parts[1]);
                     break;
 
                 case 'topic':
-                    if (!empty($parts[1])) {
-                        if ($parts[1] == 'list') {
-                            $matches['action'] = 'list';
-                        } else {
-                            $matches['action'] = $this->decode($parts[1]);
-                        }
-                        if (isset($parts[2]) && $parts[2] == 'page') {
-                            $matches['page'] = intval($parts[3]);
-                        }
+                    if ($parts[1] == 'list') {
+                        $matches['action'] = 'list';
+                    } else {
+                        $matches['action'] = $this->decode($parts[1]);
                     }
                     break;
 
                 case 'writer':
-                    if (!empty($parts[1])) {
-                        if ($parts[1] == 'list') {
-                            $matches['action'] = 'list';
-                        } elseif ($parts[1] == 'profile') {
-                            $matches['action'] = 'profile';
-                            $matches['id'] = intval($parts[2]);
-                            if (isset($parts[3]) && $parts[3] == 'page') {
-                                $matches['page'] = intval($parts[4]);
-                            }
-                        } else {
-                            $matches['id'] = intval($parts[1]);
-                            if (isset($parts[2]) && $parts[2] == 'page') {
-                                $matches['page'] = intval($parts[3]);
-                            }
-                        }
+                    if ($parts[1] == 'list') {
+                        $matches['action'] = 'list';
+                    } else {
+                        $matches['id'] = intval($parts[1]);
                     }
                     break;
 
                 case 'archive':
-                    if (!empty($parts[1])) {
-                        if (2100 > $parts[1] || 1900 < $parts[1]) {
-                            $matches['year'] = intval($parts[1]);
-                            if (isset($parts[2]) && in_array($parts[2], array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))) {
-                                $matches['month'] = intval($parts[2]);
-                                if (isset($parts[3]) && $parts[3] == 'page') {
-                                    $matches['page'] = intval($parts[4]);
-                                }
-                            }
+                    if (2100 > $parts[1] || 1900 < $parts[1]) {
+                        $matches['year'] = intval($parts[1]);
+                        if (isset($parts[2]) && in_array($parts[2], 
+                            array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+                        ) {
+                            $matches['month'] = intval($parts[2]);
                         }
                     }
                     break;
 
                 case 'tag':
-                    if (!empty($parts[1])) {
-                        if ($parts[1] == 'term') {
-                            $matches['action'] = 'term';
-                            $matches['slug'] = urldecode($parts[2]);
-                            // Set page
-                            if (isset($parts[3]) && $parts[3] == 'page') {
-                                $matches['page'] = intval($parts[4]);
-                            }
-                        } elseif ($parts[1] == 'list') {
-                            $matches['action'] = 'list';
-                        }
+                    if ($parts[1] == 'term') {
+                        $matches['action'] = 'term';
+                        $matches['slug'] = urldecode($parts[2]);
+                    } elseif ($parts[1] == 'list') {
+                        $matches['action'] = 'list';
                     }
                     break; 
 
                 case 'json':
-                    if (!empty($parts[1])) {
-                         $matches['topic'] = $this->decode($parts[1]);
-                        if (isset($parts[2]) && $parts[2] == 'page') {
-                            $matches['page'] = intval($parts[3]);
-                        }
-                    }
+                    $matches['topic'] = $this->decode($parts[1]);
                     break;
             }
         }
-
         return $matches;
     }
 
