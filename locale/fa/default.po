@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 14:35+0330\n"
+"POT-Creation-Date: 2014-04-30 16:55+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -796,22 +796,22 @@ msgstr "اسپات لایت انتخابی حذف شد"
 msgid "Please select spotlight"
 msgstr "لطفا یک اسپات لایت انتخاب کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:47
 #, php-format
 msgid "Archive - %s - %s"
 msgstr "آرشیو - %s - %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
 #, php-format
 msgid "Archive of all stores in - %s - %s"
 msgstr "آرشیو تمام مطالب در  - %s - %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
 #, php-format
 msgid "Archive,stores,topic,%s,%s"
 msgstr "آرشیو,مطالب,موضوعات,,%s,%s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:51
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
 #, php-format
 msgid ""
 "List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
@@ -828,34 +828,38 @@ msgstr "مطلب پیدا نشد"
 msgid "The Story not publish."
 msgstr "این مطلب هنوز منتشر نشده است"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:28
+msgid "The media not set."
+msgstr "مدیا تنظیم نشده است"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:31
 msgid "Go to topic list."
 msgstr "به فهرست موضوعات منتقل می شوید"
 
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:76
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List of all topics"
 msgstr "فهرست همه موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:78
 msgid "List,topics"
 msgstr "فهرست,موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:35
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:34
 msgid "The tag not set."
 msgstr "برچسب تنظیم نشده است"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:45
 msgid "The tag not found."
 msgstr "برچسب یافت نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:63
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:62
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:55
 #, php-format
 msgid "All stores from %s"
 msgstr "همه مطالب از %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:99
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:98
 msgid "List of all used tags"
 msgstr "فهرست همه برچسب ها"
 
@@ -1147,12 +1151,12 @@ msgid "Story title"
 msgstr "عنوان مطلب"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:20
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:15
 msgid "Writer email"
 msgstr "ایمیل نویسنده"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:21
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:16
 msgid "Story count"
 msgstr "تعداد مطالب ارسالی"
 
@@ -1202,11 +1206,11 @@ msgstr "فایل های پیوست شده"
 msgid "Related storys"
 msgstr "مطالب مشابه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:11
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:6
 msgid "List of Writers"
 msgstr "فهرست نویسندگان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:22
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:17
 msgid "All stores"
 msgstr "همه مطالب"
 

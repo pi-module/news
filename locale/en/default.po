@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 15:48+0330\n"
+"POT-Creation-Date: 2014-04-30 16:53+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -795,6 +795,10 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
 msgid "The Story not publish."
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:28
+msgid "The media not set."
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:31

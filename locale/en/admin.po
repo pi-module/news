@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 15:48+0330\n"
+"POT-Creation-Date: 2014-04-30 16:53+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -114,6 +114,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:184
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:259
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:385
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:409
 msgid "Number"
 msgstr ""
 
@@ -205,6 +206,22 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:379
 msgid "Top writers"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:403
+msgid "Gallery"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:416
+msgid "Show gallery effect"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:423
+msgid "Image width class"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:424
+msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:16
