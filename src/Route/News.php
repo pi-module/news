@@ -27,7 +27,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'archive', 'index', 'json', 'story', 'tag', 'topic', 'writer'
+        'archive', 'index', 'json', 'media', 'story', 'tag', 'topic', 'writer'
     );
 
     /**
@@ -95,6 +95,11 @@ class News extends Standard
                 case 'json':
                     $matches['topic'] = $this->decode($parts[1]);
                     break;
+
+                case 'media':
+                    $matches['action'] = $this->decode($parts[1]);
+                    $matches['id'] = intval($parts[2]);
+                    break;    
             }
         }
         return $matches;

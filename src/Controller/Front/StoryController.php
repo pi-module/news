@@ -36,7 +36,7 @@ class StoryController extends ActionController
             $this->jump(array('', 'module' => $module, 'controller' => 'index'), __('The Story not publish.'));
         }
         // Update Hits
-        $this->getModel('story')->update(array('hits' => $story['hits'] + 1), array('id' => $story['id']));
+        $this->getModel('story')->increment('hits', array('id' => $story['id']));
         // Writer
         if ($config['show_writer']) {
             $story['user'] = Pi::user()->get($story['uid'], array('id', 'identity', 'name', 'email'));

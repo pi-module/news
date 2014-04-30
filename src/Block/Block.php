@@ -162,7 +162,12 @@ class Block
                     $list[$row->id]['file']
             ));
             // Set mediaUrl
-            $list[$row->id]['mediaUrl'] = '#';
+            $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
+                'module'      => $module,
+                'controller'  => 'media',
+                'action'      => 'explorer',
+                'id'          => $list[$row->id]['id'],
+            ));
         }
         // Set block array
         $block['resources'] = $list;
