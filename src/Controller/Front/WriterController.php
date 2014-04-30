@@ -43,9 +43,9 @@ class WriterController extends IndexController
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
         $template = array(
-            'controller' => 'writer',
-            'action' => 'term',
-            'id' => $writer['id'],
+            'controller'  => 'writer',
+            'action'      => 'term',
+            'id'          => $writer['id'],
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);

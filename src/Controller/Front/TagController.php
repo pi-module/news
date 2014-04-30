@@ -15,7 +15,6 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-use Zend\Json\Json;
 
 class TagController extends IndexController
 {
@@ -51,9 +50,9 @@ class TagController extends IndexController
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
         $template = array(
-            'controller' => 'tag',
-            'action' => 'term',
-            'slug' => urlencode($slug),
+            'controller'  => 'tag',
+            'action'      => 'term',
+            'slug'        => urlencode($slug),
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
@@ -90,10 +89,10 @@ class TagController extends IndexController
             $tagList[$row->id] = $row->toArray();
             $tagList[$row->id]['term'] = $tag['term'];
             $tagList[$row->id]['url'] = $this->url('', array(
-                'controller' => 'tag', 
-                'action' => 'term', 
-                'slug' => urldecode($tag['term'])
-                ));
+                'controller'  => 'tag', 
+                'action'      => 'term', 
+                'slug'        => urldecode($tag['term'])
+            ));
         }
         // Set header and title
         $title = __('List of all used tags');

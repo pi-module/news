@@ -14,7 +14,6 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-use Zend\Json\Json;
 
 class TopicController extends IndexController
 {
@@ -39,10 +38,10 @@ class TopicController extends IndexController
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
         $template = array(
-            'controller' => 'topic',
-            'action' => 'index',
-            'slug' => $topic['slug'],
-            );
+            'controller'  => 'topic',
+            'action'      => 'index',
+            'slug'        => $topic['slug'],
+        );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight

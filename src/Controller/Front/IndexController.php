@@ -16,7 +16,6 @@ use Pi;
 use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Zend\Db\Sql\Predicate\Expression;
-use Zend\Json\Json;
 
 class IndexController extends ActionController
 {
@@ -34,9 +33,9 @@ class IndexController extends ActionController
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
         $template = array(
-            'controller' => 'index',
-            'action' => 'index',
-            );
+            'controller'  => 'index',
+            'action'      => 'index',
+        );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         // Spotlight
