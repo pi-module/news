@@ -41,7 +41,7 @@ class WriterController extends IndexController
         $writer['email'] = $user->email;
         $writer['avatar'] = '';
         // Set story info
-        $where = array('status' => 1, 'time_publish <= ?' => time(), 'uid' => $writer['uid']);
+        $where = array('status' => 1, /*'time_publish <= ?' => time(),*/ 'uid' => $writer['uid']);
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info

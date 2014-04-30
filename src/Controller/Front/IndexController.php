@@ -29,7 +29,7 @@ class IndexController extends ActionController
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Set story info
-        $where = array('status' => 1, 'time_publish <= ?' => time());
+        $where = array('status' => 1, /*'time_publish <= ?' => time(),*/);
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info
@@ -56,7 +56,7 @@ class IndexController extends ActionController
     public function storyList($where, $limit)
     {
         // Set info
-        $id = array();
+        $story = array();
         $page = $this->params('page', 1);
         $module = $this->params('module');
         $offset = (int)($page - 1) * $limit;
@@ -74,6 +74,9 @@ class IndexController extends ActionController
         foreach ($rowset as $id) {
             $storyId[] = $id['story'];
         }
+        if (empty($storyId)) {
+            return $story;
+        }
         // Set info
         $where = array('status' => 1, 'id' => $storyId);
         // Get topic list
@@ -84,7 +87,7 @@ class IndexController extends ActionController
         foreach ($rowset as $row) {
             $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
         }
-        // return product
+        // return story
         return $story;
     }
 

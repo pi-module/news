@@ -46,7 +46,7 @@ class TagController extends IndexController
             $this->jump($url, __('The tag not found.'), 'error');
         }
         // Set story info
-        $where = array('status' => 1, 'story' => $tagId, 'time_publish <= ?' => time());
+        $where = array('status' => 1, 'story' => $tagId, /*'time_publish <= ?' => time(),*/);
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage']);
         // Set paginator info

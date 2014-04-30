@@ -50,7 +50,7 @@ class JsonController extends IndexController
         // Set info
         $offset = (int)($page - 1) * $topic['perpage'];
         $limit = intval($topic['perpage']);
-        $where = array('status' => 1, 'topic' => $topicId, 'time_publish <= ?' => time());
+        $where = array('status' => 1, 'topic' => $topicId, /*'time_publish <= ?' => time(),*/);
         // Story
         $story = $this->StoryList($where, $offset, $limit);
         // echo json
