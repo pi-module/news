@@ -141,6 +141,20 @@ class StoryForm extends BaseForm
                 ),
             ),
         ));
+        // type
+        $this->add(array(
+            'name' => 'type',
+            'type' => 'select',
+            'options' => array(
+                'label' => __('Type'),
+                'value_options' => array(
+                    'text' => __('Text'),
+                    'gallery' => __('Gallery'),
+                    'media' => __('Media'),
+                    'download' => __('Download'),
+                ),
+            ),
+        ));
         // Image
         if ($this->thumbUrl) {
             $this->add(array(

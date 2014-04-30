@@ -7,17 +7,30 @@
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="news">
-	<div class="well well-sm nav nav-tabs">
-		<div class="col-md-2 text-left">
-			<a class="btn btn-primary" title="<?php _e('Add Story'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update')); ?>"><i class="fa fa-file"></i> <?php _e('Add Story'); ?></a>
+	<div class="nav">
+		<div class="btn-group">
+			<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+				<i class="fa fa-plus"></i> <?php _e('Add new story'); ?> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a title="<?php _e('Add new text'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'text')); ?>"><i class="fa fa-book"></i> <?php _e('Add new text'); ?></a></li>
+				<li><a title="<?php _e('Add new gallery'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'gallery')); ?>"><i class="fa fa-camera"></i> <?php _e('Add new gallery'); ?></a></li>
+				<li><a title="<?php _e('Add new media'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'media')); ?>"><i class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
+				<li><a title="<?php _e('Add new download'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'download')); ?>"><i class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+			</ul>
 		</div>
-		<div class="col-md-10 text-right">
-			<a class="btn btn-primary" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<i class="fa fa-eye"></i> <?php _e('View'); ?> <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
+				<li><a title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
+				<li><a title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
+				<li><a title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
+				<li><a title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
+				<li><a title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a></li>
+			</ul>
 		</div>
 	</div>
 	<h3><?php _e('List of stories'); ?></h3>

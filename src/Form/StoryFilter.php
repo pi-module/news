@@ -95,6 +95,11 @@ class StoryFilter extends InputFilter
             'name' => 'status',
             'required' => true,
         ));
+        // type
+        $this->add(array(
+            'name' => 'type',
+            'required' => true,
+        ));
         // image
         $this->add(array(
             'name' => 'image',

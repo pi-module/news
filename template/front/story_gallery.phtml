@@ -1,0 +1,127 @@
+<?php 
+$this->css($this->assetModule('css/front.css'));
+if($config['image_lightbox']){ 
+	$this->jQuery();
+	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
+	$this->footScript()->appendScript("$('.gallery').each(function() {
+    	$(this).magnificPopup({
+        	delegate: 'a',
+        	type: 'image',
+        	gallery: {
+          	enabled:true
+        	}
+    	});
+	});");
+	$this->css($this->assetModule('css/magnific-popup.css'));
+} 
+?>
+<div class="news">
+	<?php include $this->template('front/feed'); ?>
+	<?php include $this->template('front/advertisement'); ?>
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+  			<h3 class="panel-title">
+  				<?php if($story['important']) { ?>
+				<span class="label label label-important">
+					<?php _e('Important'); ?>
+				</span>
+				<?php } ?>
+  				<?php echo $this->escape($story['title']); ?>
+  			</h3>
+  		</div>
+		<div class="panel-body">
+			<div class="clearfix">
+				<div class="pull-right">
+                    <?php if($config['show_writer']) { ?>
+				    <span class="itemPoster">
+					    <?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['name']); ?></a>
+				    </span>
+				    <?php } ?>
+				    <?php if($config['show_date']) { ?>
+				    <span class="itemPostDate">
+					    <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
+				    </span>
+				    <?php } ?>
+				    <?php if($config['show_hits']) { ?>
+				    <span class="itemStats">
+					    <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+				    </span>
+				    <?php } ?>
+				</div>
+				<?php if($config['show_topic']) { ?>
+				<div class="pull-left"><?php _e('Topics'); ?> : 
+				<?php foreach($story['topics'] as $storyTopic) { ?>
+					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+				<?php } ?>
+			    </div>
+			    <?php } ?>
+			</div>
+			<?php if($story['subtitle']) { ?>
+			<h4><?php echo $this->escape($story['subtitle']); ?></h4>
+			<?php } ?>
+			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
+			<div class="gallery col-md-12">
+				<div class="storyImageMain">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+						</div>
+					</div>
+				</div>
+				<div class="storyImageAttach"><?php include $this->template('front/attach_image'); ?></div>
+			</div>
+		    <?php } ?>
+			<div class="text-justify"><?php echo $story['short']; ?></div>
+		    <div class="text-justify"><?php echo $story['body']; ?></div>
+		    <div class="clearfix"></div>
+		    <?php include $this->template('front/extra'); ?>
+			<?php include $this->template('front/tag'); ?>
+			<?php include $this->template('front/attach'); ?>
+			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
+		    <?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?>
+		    <div class="storyMedia">
+				<?php include $this->template('front/attach_audio'); ?>
+				<?php include $this->template('front/extra_audio'); ?>
+				<?php include $this->template('front/attach_video'); ?>
+				<?php include $this->template('front/extra_video'); ?>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="social-list text-left">
+				<ul class="list-inline">
+					<?php if($config['social_facebook']) { ?>
+					<li class="social-facebook"><?php echo $this->facebook(); ?></li>
+					<?php } ?>
+					<?php if($config['social_twitter']) { ?>
+					<li class="social-twitter"><?php echo $this->twitter(); ?></li>
+					<?php } ?>
+					<?php if($config['social_gplus']) { ?>
+					<li class="social-gplus"><?php echo $this->plusone(); ?></li>
+					<?php } ?>
+				</ul>
+	    	</div>
+		</div>
+    </div>
+    <?php if($config['show_nav']) { ?>
+    <div class="itemPager">
+        <ul class="pager">
+            <?php if(!empty($link['previous'])) { ?>
+		    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>" href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a></li>
+            <?php } ?>
+            <?php if(!empty($link['next'])) { ?>
+		    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>" href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a></li>
+            <?php } ?>
+        </ul>
+    </div>
+    <?php } ?>
+    <?php if($relateds) { ?>
+	<div class="itemList itemRelated">
+		<h3><?php _e('Related storys'); ?></h3>
+		<ul class="list-unstyled">
+			<?php foreach($relateds as $related) { ?>
+			<li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a></li>
+			<?php }?>
+		</ul>
+	</div>
+	<?php } ?>
+</div>

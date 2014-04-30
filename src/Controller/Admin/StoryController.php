@@ -82,8 +82,8 @@ class StoryController extends ActionController
                     $story[$row->id]['type_view'] = __('Media');
                     break;
                     
-                case 'spotlight':
-                    $story[$row->id]['type_view'] = __('Spotlight');
+                case 'gallery':
+                    $story[$row->id]['type_view'] = __('Gallery');
                     break;           
 
                 case 'text':
@@ -219,6 +219,7 @@ class StoryController extends ActionController
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
+        $type = $this->params('type');
         $option = array();
         // Find Product
         if ($id) {
@@ -346,8 +347,30 @@ class StoryController extends ActionController
                 }
                 // Check it save or not
                 if ($row->id) {
-                    $message = __('Story data saved successfully.');
-                    $url = array('controller' => 'story', 'action' => 'index');
+                    // Make jump information
+                    switch ($row->type) {
+                        case 'download':
+                            $message = __('Download data saved successfully. Please attach your files');
+                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                            break;
+                    
+                        case 'media':
+                            $message = __('Media data saved successfully. Please attach your medias');
+                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                            break;
+                    
+                        case 'gallery':
+                            $message = __('Gallery data saved successfully. Please attach your images');
+                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                            break;           
+
+                        case 'text':
+                        default:
+                            $message = __('Text data saved successfully.');
+                            $url = array('controller' => 'story', 'action' => 'index');
+                            break;
+                    }
+                    // Do jump
                     $this->jump($url, $message);
                 } else {
                     $message = __('Story data not saved.');
@@ -367,11 +390,32 @@ class StoryController extends ActionController
                     }
                 }
                 $form->setData($story);
-                $message = 'You can edit this Story';
+                $type = $story['type'];
             } else {
-                $message = 'You can add new Story';
+                $story = array('type' => $type);
+                $form->setData($story);
             }
         }
+        // Set type message
+        switch ($type) {
+            case 'download':
+                $message = __('Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page');
+                break;
+                   
+            case 'media':
+                $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
+                break;
+                    
+            case 'gallery':
+                $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
+                break;           
+
+            case 'text':
+            default:
+                $message = __('Your story type is <strong>Text</strong> and you shuold add text information on form fields');
+                break;
+        }
+
         $this->view()->setTemplate('story_update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Story'));

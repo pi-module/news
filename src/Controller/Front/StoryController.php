@@ -56,11 +56,6 @@ class StoryController extends ActionController
             $related = Pi::api('story', 'news')->Related($story['id'], $story['topic']);
             $this->view()->assign('relateds', $related);
         }
-        // Tag
-        if ($config['show_tag']) {
-            $tag = Pi::service('tag')->get($module, $story['id'], '');
-            $this->view()->assign('tag', $tag);  
-        }
         // Attached
         if ($config['show_attach'] && $story['attach']) {
             $attach = Pi::api('story', 'news')->AttachList($story['id']);
@@ -70,6 +65,11 @@ class StoryController extends ActionController
         if ($config['show_extra'] && $story['extra']) {
             $extra = Pi::api('extra', 'news')->Story($story['id']);
             $this->view()->assign('extra', $extra);
+        }
+        // Tag
+        if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {
+            $tag = Pi::service('tag')->get($module, $story['id'], '');
+            $this->view()->assign('tag', $tag);  
         }
         // Set vote
         if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
@@ -89,11 +89,30 @@ class StoryController extends ActionController
             $favourite['module'] = $module;
             $this->view()->assign('favourite', $favourite);
         }
+        // Set template
+        switch ($story['type']) {
+            case 'download':
+                $template = 'story_download';
+                break;
+                    
+            case 'media':
+                $template = 'story_media';
+                break;
+                    
+            case 'gallery':
+                $template = 'story_gallery';
+                break;           
+
+            case 'text':
+            default:
+                $template = 'story_index';
+                break;
+        }
         // Set view
         $this->view()->headTitle($story['seo_title']);
         $this->view()->headdescription($story['seo_description'], 'set');
         $this->view()->headkeywords($story['seo_keywords'], 'set');
-        $this->view()->setTemplate('story_index');
+        $this->view()->setTemplate($template);
         $this->view()->assign('story', $story);
         $this->view()->assign('config', $config);
     }
