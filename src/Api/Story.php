@@ -90,9 +90,17 @@ class Story extends AbstractApi
                         $file[$row->type][$row->id]['path'], 
                         $file[$row->type][$row->id]['file']
                     ));
+            } elseif($file[$row->type][$row->id]['type'] == 'other') {
+                $file[$row->type][$row->id]['link'] = Pi::url(
+                    sprintf('upload/%s/%s/%s/%s', 
+                        $config['file_path'], 
+                        'file', 
+                        $file[$row->type][$row->id]['path'], 
+                        $file[$row->type][$row->id]['file']
+                    ));
             } else {
                 $file[$row->type][$row->id]['link'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s/%s', 
+                    sprintf('upload/%s/%s/%s/%s', 
                         $config['file_path'], 
                         $file[$row->type][$row->id]['type'], 
                         $file[$row->type][$row->id]['path'], 

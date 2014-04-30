@@ -126,6 +126,14 @@ class Extra extends AbstractApi
                             $field['video'][$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field['video'][$row->id]['image']);
                         }
                         break;
+
+                    case 'file':
+                        $field['file'][$row->id] = $row->toArray();
+                        $field['file'][$row->id]['data'] = isset($data[$row->id]['data']) ? $data[$row->id]['data'] : '';
+                        if ($field['file'][$row->id]['image']) {
+                            $field['file'][$row->id]['imageUrl'] = Pi::url('upload/' . $this->getModule() . '/extra/' . $field['file'][$row->id]['image']);
+                        }
+                        break;    
                     
                     default:
                         $field['all'][$row->id] = $row->toArray();

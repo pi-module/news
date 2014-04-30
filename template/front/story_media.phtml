@@ -59,6 +59,14 @@ if($config['image_lightbox']){
 			<?php if($story['subtitle']) { ?>
 			<h4><?php echo $this->escape($story['subtitle']); ?></h4>
 			<?php } ?>
+			<div class="storyMedia text-center">
+				<?php include $this->template('front/attach_video'); ?>
+				<?php include $this->template('front/extra_video'); ?>
+				<?php include $this->template('front/attach_audio'); ?>
+				<?php include $this->template('front/extra_audio'); ?>
+			</div>
+			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
+		    <?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?>
 			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
 			<div class="gallery col-md-4">
 				<div class="storyImageMain">
@@ -75,16 +83,9 @@ if($config['image_lightbox']){
 		    <div class="text-justify"><?php echo $story['body']; ?></div>
 		    <div class="clearfix"></div>
 		    <?php include $this->template('front/extra'); ?>
+		    <?php include $this->template('front/extra_file'); ?>
 			<?php include $this->template('front/tag'); ?>
 			<?php include $this->template('front/attach'); ?>
-			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
-		    <?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?>
-		    <div class="storyMedia">
-				<?php include $this->template('front/attach_audio'); ?>
-				<?php include $this->template('front/extra_audio'); ?>
-				<?php include $this->template('front/attach_video'); ?>
-				<?php include $this->template('front/extra_video'); ?>
-			</div>
 		</div>
 		<div class="panel-footer">
 			<div class="social-list text-left">

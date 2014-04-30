@@ -16,9 +16,7 @@
 				<div class="panel-body">
 					<?php if($story['image']){ ?>
 					<div class="col-md-3">
-						<div class="thumbnail">
-							<a href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-						</div>
+						<a class="thumbnail" href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
 					</div>
 		    		<?php } ?>
 			   	   	<div class="text-justify"><?php echo $story['short']; ?></div>

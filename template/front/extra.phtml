@@ -12,8 +12,6 @@
 			<span><?php echo $field['data']; ?></span>
 			<?php } elseif($field['type'] == 'link') { ?>
 			<span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
-			<?php } elseif($field['type'] == 'file') { ?>
-			<span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
 			<?php } elseif($field['type'] == 'currency') { ?>
 			<strong><?php echo $field['title']; ?></strong>
 			<span><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></span>

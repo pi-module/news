@@ -339,6 +339,7 @@ class AttachController extends ActionController
             case 'audio':
             case 'pdf':
             case 'doc':
+            case 'archive':
                 $newPach = Pi::path(sprintf('upload/%s/%s/%s/%s', $this->config('file_path'), $type, $path, $file));
                 Pi::service('file')->copy($oldPath, $newPach);
                 Pi::service('file')->remove($oldPath);
