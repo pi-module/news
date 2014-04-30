@@ -1,4 +1,4 @@
-<?php if($topic['show_topicinfo'] && (!empty($topic['description']) || !empty($topic['image']))) { 
+<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']))) { 
 if($config['image_lightbox']){ 
 	$this->jQuery();
 	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
@@ -35,10 +35,10 @@ if($config['image_lightbox']){
 		</div>
 	</div>
 </div>
-<?php } elseif($topic['show_topicinfo']) { ?>
+<?php } elseif($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
 <div class="topicinfo">
 	<div class="page-header">
-		
+		<h2><?php echo $this->escape($topic['title']); ?></h2>
 	</div>
 </div>
 <?php } ?>

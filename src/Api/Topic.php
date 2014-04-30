@@ -75,6 +75,12 @@ class Topic extends AbstractApi
                         $topic['image']
                     ));
             }
+            // Show sub id
+            if ($topic['show_subid']) {
+                $topic['ids'] = $this->topicSubId($topic['id']);
+            } else {
+                $topic['ids'] = $topic['id'];
+            }
         }  
         // Set topic config
         if (!isset($topic) || $topic['show_config'] == 'module') {
@@ -110,12 +116,6 @@ class Topic extends AbstractApi
         // seo_keywords
         if (empty($topic['seo_keywords'])) {
             $topic['seo_keywords'] = $config['text_keywords'];
-        }
-        // Show sub id
-        if ($topic['show_subid']) {
-            $topic['ids'] = $this->topicSubId($topic['id']);
-        } else {
-            $topic['ids'] = $topic['id'];
         }
         // Template
         $topic['template'] = $this->Template($topic['style']);
