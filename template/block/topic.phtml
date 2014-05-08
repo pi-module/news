@@ -1,17 +1,13 @@
 <div class="news-topic-block">
-	<div class="itemList">
-		<ul>
+	<div class="list-group">
 		<?php foreach($block['resources'] as $topic) { ?>
-			<li>
-				<span class="itemTitle"><a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a></span>
-			</li>
+		<a class="list-group-item" href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a>
 		<?php } ?>
-		<div class="clearfix"></div>
-		</ul>
 	</div>
+	<div class="clearfix"></div>
 	<?php if ($block['showblockmore']) { ?>
     <div class="itemBlockLink">
     	<a title="<?php echo _b('Read More'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('Read More'); ?></a>
     </div>
 	<?php } ?>
-</div> 
+</div>

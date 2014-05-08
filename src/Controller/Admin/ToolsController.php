@@ -71,7 +71,7 @@ class ToolsController extends ActionController
                 case 'seo_title':
                     foreach ($rowset as $row) {
                         $seo_title = Pi::api('text', 'news')->title($row->title);
-                        $this->getModel('story')->update(array('seo_keywords' => $seo_title), array('id' => $row->id));
+                        $this->getModel('story')->update(array('seo_title' => $seo_title), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO title, all story SEO title update');
                     break;
