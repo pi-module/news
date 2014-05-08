@@ -256,60 +256,25 @@ return array(
                 'value'        => 0,
             ),
             'number'         => array(
-                'title'        => _a('Number'),
+                'title'        => _a('Number of stroies for each topic'),
                 'description'  => '',
                 'edit'         => 'text',
                 'filter'       => 'number_int',
                 'value'        => 5,
             ),
-            'subspotlight'  => array(
-                'title'        => _a('Number of sub spotlight'),
-                'description'  => '',
-                'edit'         => 'text',
-                'filter'       => 'number_int',
-                'value'        => 4,
-            ),
-            'showdesc'       => array(
+            'showtopicdesc'       => array(
                 'title'        => _a('Shwo text'),
                 'description'  => '',
                 'edit'         => 'checkbox',
                 'filter'       => 'number_int',
                 'value'        => 1,
             ),
-            'showdate'       => array(
-                'title'        => _a('Show date'),
-                'description'  => '',
-                'edit'         => 'checkbox',
-                'filter'       => 'number_int',
-                'value'        => 1,
-            ),
-            'showhits'       => array(
-                'title'        => _a('Show hits'),
-                'description'  => '',
-                'edit'         => 'checkbox',
-                'filter'       => 'number_int',
-                'value'        => 1,
-            ),
-            'showimage'      => array(
+            'showtopicimage'      => array(
                 'title'        => _a('Show Images'),
                 'description'  => '',
                 'edit'         => 'checkbox',
                 'filter'       => 'number_int',
                 'value'        => 1,
-            ),
-            'showblockmore'  => array(
-                'title'        => _a('Show More link to module page'),
-                'description'  => '',
-                'edit'         => 'checkbox',
-                'filter'       => 'number_int',
-                'value'        => 0,
-            ),
-            'linkblockmore'  => array(
-                'title'        => _a('Set More link to module page'),
-                'description'  => '',
-                'edit'         => 'text',
-                'filter'       => 'string',
-                'value'        => '',
             ),
             'order'          => array(
                 'title'        => _a('List order'),

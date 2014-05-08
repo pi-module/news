@@ -61,10 +61,77 @@ class Block
 
     public static function spotlight($options = array(), $module = null)
     {
-      // Set options
-      $block = array();
-      $block = array_merge($block, $options);
-      return $block;
+        // Set options
+        $block = array();
+        $block = array_merge($block, $options);
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Ckeck block ids
+        if (empty($block['topicid'])) {
+            return $block;
+        }
+        // Make Block lope
+        foreach ($block['topicid'] as $topicId) {
+            $topic = Pi::model('topic', $module)->find($topicId)->toArray();
+            // Set topic url
+            $topic['topicUrl'] = Pi::service('url')->assemble('news', array(
+                'module'        => $module,
+                'controller'    => 'topic',
+                'slug'          => $topic['slug'],
+            ));
+            // Set image url
+            if ($topic['image']) {
+                // Set image medium url
+                $topic['mediumUrl'] = Pi::url(
+                    sprintf('upload/%s/medium/%s/%s', 
+                        $config['image_path'], 
+                        $topic['path'], 
+                        $topic['image']
+                    ));
+                // Set image thumb url
+                $topic['thumbUrl'] = Pi::url(
+                    sprintf('upload/%s/thumb/%s/%s', 
+                        $config['image_path'], 
+                        $topic['path'], 
+                        $topic['image']
+                    ));
+            }
+            // Set link model and get information
+            $whereLink = array('status' => 1, 'topic' => $topic['id']);
+            $columns = array('story' => new Expression('DISTINCT story'));
+            if ($block['order'] == 'random') {
+                $order = array(new \Zend\Db\Sql\Predicate\Expression('RAND()'));
+            } else {
+                $order = array('time_publish DESC', 'id DESC');
+            }
+            $limit = intval($block['number']);
+            // Get info from link table
+            $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
+            $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
+            // Make list
+            foreach ($rowset as $id) {
+                $storyId[] = $id['story'];
+            }
+            // Set info
+            $whereStory = array('status' => 1, 'id' => $storyId);
+            // Get list of story
+            $select = Pi::model('story', $module)->select()->where($whereStory);
+            $rowset = Pi::model('story', $module)->selectWith($select);
+            // Make list
+            $story = array();
+            foreach ($rowset as $row) {
+                $story[$row->id] = Pi::api('story', 'news')->canonizeStoryLight($row);
+            }
+            //
+            $spotlight[$topicId]['topic'] = $topic;
+            $spotlight[$topicId]['story'] = $story;
+            unset($topic);
+            unset($story);
+            unset($storyId);
+        }
+        // Set block array
+        $block['resources'] = $spotlight;
+        return $block;
     }
 
     public static function topic($options = array(), $module = null)
