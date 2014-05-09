@@ -35,6 +35,7 @@ class AttachController extends ActionController
         $story = $this->params('story');
         $module = $this->params('module');
         // Set info
+        $file = array();
         $order = array('time_create DESC', 'id DESC');
         $offset = (int)($page - 1) * $this->config('admin_perpage');
         $limit = intval($this->config('admin_perpage'));
@@ -54,13 +55,9 @@ class AttachController extends ActionController
                 $file[$row->id]['link'] = Pi::url('upload/' . $this->config('file_path') . '/' . $file[$row->id]['type'] . '/' . $file[$row->id]['path'] . '/' . $file[$row->id]['file']);
             }
         }
-        // Go to update page if empty
-        if (empty($file)) {
-            $this->jump(array('controller' => 'story', 'action' => 'index'), __('No file attached'));
-        }
         // Set paginator
         $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
-        $select = $this->getModel('attach')->select()->columns($columns)->where($where);
+        $select = $this->getModel('attach')->select()->columns($columns);
         $count = $this->getModel('attach')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));

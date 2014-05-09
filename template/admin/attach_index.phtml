@@ -1,6 +1,7 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
 	<h3><?php _e('List of attached files'); ?></h3>
+	<?php if (!empty($files)) { ?>
 	<table class="table table-striped table-bordered table-condensed">
 		<tr>
 			<th><?php _e('ID'); ?></th>
@@ -38,4 +39,10 @@
 		<span class="label label-success"><?php _e('Published'); ?></span>
 		<span class="label label-warning"><?php _e('Pending review'); ?></span>
 	</p>
+	<?php } else { ?>
+    <div class="alert alert-danger">
+        <h4><?php _e('Error'); ?></h4>
+        <p><?php _e('No file upload yet'); ?></p>
+    </div>
+	<?php } ?>
 </div>
