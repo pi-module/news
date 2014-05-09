@@ -340,6 +340,54 @@ return array(
             'filter'       => 'number_int',
             'value'        => 150
         ),
+        'image_topic_largeh' => array(
+            'category'     => 'image',
+            'title'        => _a('Large Image height for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 800
+        ),
+        'image_topic_largew' => array(
+            'category'     => 'image',
+            'title'        => _a('Large Image width for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 560
+        ),
+        'image_topic_mediumh' => array(
+            'category'     => 'image',
+            'title'        => _a('Medium Image height for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 300
+        ),
+        'image_topic_mediumw' => array(
+            'category'     => 'image',
+            'title'        => _a('Medium Image width for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 210
+        ),
+        'image_topic_thumbh' => array(
+            'category'     => 'image',
+            'title'        => _a('Thumb Image height for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 200
+        ),
+        'image_topic_thumbw' => array(
+            'category'     => 'image',
+            'title'        => _a('Thumb Image width for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 140
+        ),
         'image_lightbox' => array(
             'category'     => 'image',
             'title'        => _a('Use lightbox'),

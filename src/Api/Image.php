@@ -16,13 +16,13 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
- * Pi::api('image', 'news')->process($image, $path);
+ * Pi::api('image', 'news')->process($image, $path, $topic);
  */
 
 class Image extends AbstractApi
 {  
 
-	public function process($image, $path)
+	public function process($image, $path, $topic = false)
 	{
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
         
@@ -46,24 +46,45 @@ class Image extends AbstractApi
         	sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $image)
         );
 
+        // Set large size
+        if ($topic) {
+            $sizeLarge = array($config['image_topic_largew'], $config['image_topic_largeh']);
+        } else {
+            $sizeLarge = array($config['image_largew'], $config['image_largeh']);
+        }
+
         // Resize to large
         Pi::service('image')->resize(
         	$original, 
-        	array($config['image_largew'], $config['image_largeh']), 
+        	$sizeLarge, 
         	$large
         );
+
+        // Set medium size
+        if ($topic) {
+            $sizeMedium = array($config['image_topic_mediumw'], $config['image_topic_mediumh']);
+        } else {
+            $sizeMedium = array($config['image_mediumw'], $config['image_mediumh']);
+        }
 
         // Resize to medium
         Pi::service('image')->resize(
         	$original, 
-        	array($config['image_mediumw'], $config['image_mediumh']), 
+        	$sizeMedium, 
         	$medium
         );
+
+        // Set thumb size
+        if ($topic) {
+            $sizeThumb = array($config['image_topic_thumbw'], $config['image_topic_thumbh']);
+        } else {
+            $sizeThumb = array($config['image_thumbw'], $config['image_thumbh']);
+        }
 
         // Resize to thumb
         Pi::service('image')->resize(
         	$original, 
-        	array($config['image_thumbw'], $config['image_thumbh']), 
+        	$sizeThumb, 
         	$thumb
         );
 
