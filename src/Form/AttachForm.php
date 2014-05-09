@@ -54,7 +54,7 @@ class AttachForm extends BaseForm
             )
         ));
         // story
-        $this->add(array(
+        /* $this->add(array(
             'name' => 'story',
             'type' => 'Module\News\Form\Element\Story',
             'options' => array(
@@ -67,7 +67,7 @@ class AttachForm extends BaseForm
                 'multiple' => 0,
             ),
 
-        ));
+        )); */
         // status
         $this->add(array(
             'name' => 'status',
