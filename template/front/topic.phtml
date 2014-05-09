@@ -1,4 +1,4 @@
-<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']))) { 
+<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']) || !empty($topic['show_attach']))) { 
 if($config['image_lightbox']){ 
 	$this->jQuery();
 	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
@@ -32,7 +32,7 @@ if($config['image_lightbox']){
 			</div>
 			<?php } ?>  
 			<?php echo $topic['description']; ?>
-            <?php if(isset($topic['attach']) && !empty($topic['attach'])) {  ?>
+            <?php if(!empty($topic['attach'])) {  ?>
 			<div class="attach-list">
 				<?php foreach($topic['attach'] as $attach) { ?>
 				<p class="text-center">

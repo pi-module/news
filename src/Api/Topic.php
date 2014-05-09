@@ -83,7 +83,8 @@ class Topic extends AbstractApi
                 $topic['ids'] = $topic['id'];
             }
             // Show attach
-            if ($topic['show_attach']) {
+            $topic['attach'] = array();
+            if ($topic['show_attach'] && $topic['show_topicinfo']) {
                 $topic['attach'] = $this->topicAttach($topic['id']);
             }
         }  
