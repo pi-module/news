@@ -49,11 +49,12 @@ class AttachController extends ActionController
             $file[$row->id]['time_create'] = _date($file[$row->id]['time_create']);
             $file[$row->id]['storyTitle'] = $story['title'];
             $file[$row->id]['preview'] = $this->filePreview($file[$row->id]['type'], $file[$row->id]['path'], $file[$row->id]['file']);
-            if ($file[$row->id]['type'] == 'image') {
-                $file[$row->id]['link'] = Pi::url('upload/' . $this->config('image_path') . '/original/' . $file[$row->id]['path'] . '/' . $file[$row->id]['file']);
-            } else {
-                $file[$row->id]['link'] = Pi::url('upload/' . $this->config('file_path') . '/' . $file[$row->id]['type'] . '/' . $file[$row->id]['path'] . '/' . $file[$row->id]['file']);
-            }
+            $file[$row->id]['downloadUrl'] = $this->url('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'media',
+                'action'        => 'download',
+                'id'            => $row->id,
+            ));
         }
         // Set paginator
         $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
@@ -97,7 +98,21 @@ class AttachController extends ActionController
         foreach ($rowset as $row) {
             $content[$row->id] = $row->toArray();
             $content[$row->id]['time_create'] = _date($content[$row->id]['time_create']);
-            $content[$row->id]['preview'] = $this->filePreview($content[$row->id]['type'], $content[$row->id]['path'], $content[$row->id]['file']);
+            $content[$row->id]['downloadUrl'] = $this->url('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'media',
+                'action'        => 'download',
+                'id'            => $row->id,
+            ));
+            $content[$row->id]['editUrl'] = $this->url('', array(
+                'action'  => 'edit', 
+                'id'      => $row->id,
+            ));
+            $content[$row->id]['preview'] = $this->filePreview(
+                $content[$row->id]['type'], 
+                $content[$row->id]['path'], 
+                $content[$row->id]['file']
+            );
             $contents[] = $content[$row->id];
         }
         // Set view
@@ -118,6 +133,12 @@ class AttachController extends ActionController
         //Get file and story
         $file = $this->getModel('attach')->find($id)->toArray();
         $file['view'] = $this->fileView($file['type'], $file['path'], $file['file']);
+        $file['downloadUrl'] = $this->url('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'media',
+                'action'        => 'download',
+                'id'            => $file['id'],
+            ));
         $story = $this->getModel('story')->find($file['story'])->toArray();
         // Set form
         $form = new AttachForm('attach', $story['id']);

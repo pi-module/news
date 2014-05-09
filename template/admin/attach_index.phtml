@@ -27,9 +27,9 @@
 			</td>
 			<td><?php echo $this->escape($file['time_create']); ?></td>
 			<td>
-					<a class="btn btn-primary" rel="external" title="<?php _e('Get'); ?>" href="<?php echo $file['link']; ?>"><i class="fa fa-download-alt"></i> <?php _e('Get'); ?></a>
-					<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'edit', 'id' => $file['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-					<a class="btn btn-primary" title="<?php _e('Edit from story'); ?>" href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['story'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
+				<a class="btn btn-primary" rel="external" title="<?php _e('Get'); ?>" href="<?php echo $file['downloadUrl']; ?>"><i class="fa fa-download-alt"></i> <?php _e('Get'); ?></a>
+				<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'edit', 'id' => $file['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+				<a class="btn btn-primary" title="<?php _e('Edit from story'); ?>" href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['story'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
 			</td>
 		</tr>
 		<?php } ?>

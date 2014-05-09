@@ -34,7 +34,7 @@
 			<?php } elseif($file['type'] == 'image') { ?>
 				<div class="attach-image text-center"><img class="img-thumbnail" src="<?php echo $this->escape($file['view']); ?>" alt="<?php echo $this->escape($file['title']); ?>" /></div>
 			<?php } else { ?>
-	          <div class="attach-image text-center"><a class="btn btn-primary" rel="external" title="<?php echo $this->escape($file['title']); ?>" href="<?php echo $this->escape($file['view']); ?>"><i class="fa fa-download-alt"></i> <?php _e('Get it'); ?></a></div>
+	          <div class="attach-image text-center"><a class="btn btn-primary" rel="external" title="<?php echo $this->escape($file['title']); ?>" href="<?php echo $this->escape($file['downloadUrl']); ?>"><i class="fa fa-download-alt"></i> <?php _e('Get it'); ?></a></div>
 	      <?php } ?>
 			</div>
 			<p><strong><?php _e('File title'); ?></strong> <?php echo $this->escape($file['title']); ?></p>
