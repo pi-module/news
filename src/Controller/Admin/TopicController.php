@@ -199,6 +199,7 @@ class TopicController extends ActionController
                 $setting['show_hits'] = $values['show_hits'];
                 $setting['show_tag'] = $values['show_tag'];
                 $setting['show_subid'] = $values['show_subid'];
+                $setting['show_attach'] = $values['show_attach'];
                 $values['setting'] = Json::encode($setting);
                 // Set just category fields
                 foreach (array_keys($values) as $key) {

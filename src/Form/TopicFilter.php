@@ -160,5 +160,10 @@ class TopicFilter extends InputFilter
             'name' => 'show_subid',
             'required' => false,
         ));
+        // show_attach
+        $this->add(array(
+            'name' => 'show_attach',
+            'required' => false,
+        ));
     }
 }

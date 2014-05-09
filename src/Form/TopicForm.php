@@ -366,6 +366,17 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // show_attach
+        $this->add(array(
+            'name' => 'show_attach',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Show attached files to stories'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
         // Save
         $this->add(array(
             'name' => 'submit',

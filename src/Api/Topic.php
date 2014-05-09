@@ -14,6 +14,7 @@ namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
+use Zend\Db\Sql\Predicate\Expression;
 use Zend\Json\Json;
 
 /*
@@ -80,6 +81,10 @@ class Topic extends AbstractApi
                 $topic['ids'] = $this->topicSubId($topic['id']);
             } else {
                 $topic['ids'] = $topic['id'];
+            }
+            // Show attach
+            if ($topic['show_attach']) {
+                $topic['attach'] = $this->topicAttach($topic['id']);
             }
         }  
         // Set topic config
@@ -259,5 +264,84 @@ class Topic extends AbstractApi
             }
         }
         return $ids;
+    }
+
+    public function topicAttach($id)
+    {
+        // Get config
+        $config = Pi::service('registry')->config->read($this->getModule());
+        // Set info
+        $where = array('status' => 1, 'topic' => $id);
+        $columns = array('story' => new Expression('DISTINCT story'));
+        $order = array('time_publish DESC', 'id DESC');
+        $limit = 50;
+        // Get info from link table
+        $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
+        $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
+        // Make list
+        foreach ($rowset as $id) {
+            $storyId[] = $id['story'];
+        }
+        if (empty($storyId)) {
+            return '';
+        }
+        // Set info
+        $file = array();
+        $where = array('story' => $storyId, 'status' => 1, 'type' => array('archive','pdf','doc','other'));
+        $order = array('time_create DESC', 'id DESC');
+        // Get all attach files
+        $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
+        $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
+        // Make list
+        foreach ($rowset as $row) {
+            $file[$row->id] = $row->toArray();
+            $file[$row->id]['time_create'] = _date($file[$row->id]['time_create']);
+            // Set file link
+            if ($file[$row->id]['type'] == 'image') {
+                $file[$row->id]['largeUrl'] = Pi::url(
+                    sprintf('upload/%s/large/%s/%s', 
+                        $config['image_path'], 
+                        $file[$row->id]['path'], 
+                        $file[$row->id]['file']
+                    )); 
+                $file[$row->id]['mediumUrl'] = Pi::url(
+                    sprintf('upload/%s/medium/%s/%s', 
+                        $config['image_path'], 
+                        $file[$row->id]['path'], 
+                        $file[$row->id]['file']
+                    )); 
+                $file[$row->id]['thumbUrl'] = Pi::url(
+                    sprintf('upload/%s/thumb/%s/%s', 
+                        $config['image_path'], 
+                        $file[$row->id]['path'], 
+                        $file[$row->id]['file']
+                    ));
+            } elseif($file[$row->id]['type'] == 'other') {
+                $file[$row->id]['link'] = Pi::url(
+                    sprintf('upload/%s/%s/%s/%s', 
+                        $config['file_path'], 
+                        'file', 
+                        $file[$row->id]['path'], 
+                        $file[$row->id]['file']
+                    ));
+            } else {
+                $file[$row->id]['link'] = Pi::url(
+                    sprintf('upload/%s/%s/%s/%s', 
+                        $config['file_path'], 
+                        $file[$row->id]['type'], 
+                        $file[$row->id]['path'], 
+                        $file[$row->id]['file']
+                    ));
+            }
+            // Set download url
+            $file[$row->id]['downloadUrl'] = Pi::service('url')->assemble('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'media',
+                'action'        => 'download',
+                'id'            => $row->id,
+            ));
+        }
+        // return
+        return $file;
     }
 }
