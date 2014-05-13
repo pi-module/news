@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-04-30 16:53+0330\n"
+"POT-Creation-Date: 2014-05-13 17:29+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,23 +24,24 @@ msgstr ""
 msgid "Full writer list"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:10
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:19
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:26
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/spotlight.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:24
 msgid "Read More"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:13
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:10
 msgid "Time"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:14
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:15
 msgid "Read"
 msgstr ""
 

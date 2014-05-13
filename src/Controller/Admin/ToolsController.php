@@ -159,13 +159,19 @@ class ToolsController extends ActionController
             // Set form date
             $values = $this->request->getPost()->toArray();
             if ($values['confirm']) {
-                $where = array(
+                $where1 = array(
                     'section'       => 'front',
                     'module'        => $this->getModule(),
                     'controller'    => 'topic',
-                    'action != ?'    => 'list',
+                    'action != ?'   => 'list',
                 );
-                Pi::model('page')->delete($where);
+                $select = Pi::model('page')->select()->where($where1);
+                $rowset = Pi::model('page')->selectWith($select);
+                foreach ($rowset as $row) {
+                    if (!in_array($row->action, array('list', ''))) {
+                        $row->delete();
+                    }
+                }
                 Pi::service('registry')->page->clear($this->getModule());
                 $message = __('All other pages removed');
             } else {
