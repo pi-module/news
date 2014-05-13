@@ -68,6 +68,14 @@ return array(
             'filter'       => 'number_int',
             'value'        => 50
         ),
+        'admin_setpage' => array(
+            'category'     => 'admin',
+            'title'        => _a('Set topic as system page for support customise layout for blocks'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 0
+        ),
         // Show
         'style' => array(
             'title'        => _a('Show Style'),

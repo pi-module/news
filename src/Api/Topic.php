@@ -22,6 +22,7 @@ use Zend\Json\Json;
  * Pi::api('topic', 'news')->setLink($story, $topics, $time_publish, $status, $uid);
  * Pi::api('topic', 'news')->topicList($id);
  * Pi::api('topic', 'news')->topicCount();
+ * Pi::api('topic', 'news')->sitemap();
  */
 
 class Topic extends AbstractApi
@@ -344,5 +345,28 @@ class Topic extends AbstractApi
         }
         // return
         return $file;
+    }
+
+    public function sitemap()
+    {
+        if (Pi::service('module')->isActive('sitemap')) {
+            // Remove old links
+            Pi::model('url_list', 'sitemap')->delete(array('module' => $this->getModule(), 'table' => 'topic'));
+            // find and import
+            $where = array('status' => 1);
+            $columns = array('id', 'slug');
+            $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where);
+            $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
+            foreach ($rowset as $row) {
+                // Make url
+                $loc = Pi::service('url')->assemble('news', array(
+                    'module'        => $this->getModule(),
+                    'controller'    => 'topic',
+                    'slug'          => $row->slug,
+                ));
+                // Add to sitemap
+                Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'topic', $row->id, $loc);
+            }
+        }
     }
 }

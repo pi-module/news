@@ -18,6 +18,8 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\StoryForm;
 use Module\News\Form\StoryFilter;
+use Module\News\Form\StorySearchForm;
+use Module\News\Form\StorySearchFilter;
 use Zend\Json\Json;
 
 class StoryController extends ActionController
@@ -38,33 +40,41 @@ class StoryController extends ActionController
         $status = $this->params('status');
         $topic = $this->params('topic');
         $uid = $this->params('uid');
+        $title = $this->params('title');
         // Set info
         $offset = (int)($page - 1) * $this->config('admin_perpage');
         $order = array('time_publish DESC', 'id DESC');
         $limit = intval($this->config('admin_perpage'));
-        // Set where
-        $whereLink = array();
-        if (!empty($status)) {
-            $whereLink['status'] = $status;
-        }
-        if (!empty($topic)) {
-            $whereLink['topic'] = $topic;
-        }
-        if (!empty($uid)) {
-            $whereLink['uid'] = $uid;
-        }
-        // Set columns
-        $columnsLink = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
-        // Get info from link table
-        $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
-        $rowset = $this->getModel('link')->selectWith($select)->toArray();
-        // Make list
-        foreach ($rowset as $id) {
-            $storyId[] = $id['story'];
+        // Get
+        if (empty($title)) {
+            // Set where
+            $whereLink = array();
+            if (!empty($status)) {
+                $whereLink['status'] = $status;
+            }
+            if (!empty($topic)) {
+                $whereLink['topic'] = $topic;
+            }
+            if (!empty($uid)) {
+                $whereLink['uid'] = $uid;
+            }
+            // Set columns
+            $columnsLink = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
+            // Get info from link table
+            $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
+            $rowset = $this->getModel('link')->selectWith($select)->toArray();
+            // Make list
+            foreach ($rowset as $id) {
+                $storyId[] = $id['story'];
+            }
+            // Set info
+            $whereStory = array('id' => $storyId);
+        } else {
+            $whereStory = array();
+            $whereStory['title LIKE ?'] = '%' . $title . '%';
         }
         // Set info
         $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
-        $whereStory = array('id' => $storyId);
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
@@ -113,12 +123,50 @@ class StoryController extends ActionController
                 'status'        => $status,
                 'topic'         => $topic,
                 'uid'           => $uid,
+                'title'         => $title,
             )),
         ));
+        // Set form
+        $values = array(
+            'title' => $title,
+        );
+        $form = new StorySearchForm('search');
+        $form->setAttribute('action', $this->url('', array('action' => 'process')));
+        $form->setData($values);
         // Set view
         $this->view()->setTemplate('story_index');
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);
+        $this->view()->assign('form', $form);
+    }
+
+    public function processAction()
+    {
+        if ($this->request->isPost()) {
+            $data = $this->request->getPost();
+            $form = new StorySearchForm('search');
+            $form->setInputFilter(new StorySearchFilter());
+            $form->setData($data);
+            if ($form->isValid()) {
+                $values = $form->getData();
+                $message = __('View filtered stores');
+                $url = array(
+                    'action' => 'index',
+                    'title' => $values['title'],
+                );
+            } else {
+                $message = __('Not valid');
+                $url = array(
+                    'action' => 'index',
+                );
+            }
+        } else {
+            $message = __('Not set');
+            $url = array(
+                'action' => 'index',
+            );
+        } 
+        return $this->jump($url, $message);  
     }
 
     public function viewAction()

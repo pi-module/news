@@ -234,12 +234,15 @@ class TopicController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Set topic as page for dress up block 
-                if(empty($values['id'])) {
-	                $this->setPage($row->slug, $row->title);
-                } else {	
-                	$this->updatePage($topic['slug'], $row->slug, $row->title);
+                if ($this->config('admin_setpage')) {
+                    $pageName = sprintf('topic-%s', $row->id);
+                    if(empty($values['id'])) {
+                        $this->setPage($pageName, $row->title);
+                    } else { 
+                        $this->updatePage($pageName, $row->title);
+                    }
+                    Pi::service('registry')->page->clear($this->getModule());
                 }
-                Pi::service('registry')->page->clear($this->getModule());
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     $loc = Pi::url($this->url('news', array(
@@ -284,7 +287,7 @@ class TopicController extends ActionController
         if ($row) {
             // Delete writers
             Pi::service('api')->news(array('Writer', 'DeleteTopic'), $row->id);
-            // time_update sub topics
+            // update sub topics
             $this->getModel('topic')->update(array('pid' => $row->pid), array('pid' => $row->id));
             // remove topic links
             $this->getModel('link')->delete(array('topic' => $row->id));
@@ -295,7 +298,7 @@ class TopicController extends ActionController
                 // Attach
                 $this->getModel('attach')->delete(array('story' => $story['id']));
                 // Extra
-                $this->getModel('field_data')->delete(array(story => $story['id']));
+                $this->getModel('field_data')->delete(array('story' => $story['id']));
                 // Spotlight
                 $this->getModel('spotlight')->delete(array('story' => $story['id']));
                 // Remove story images
@@ -318,7 +321,8 @@ class TopicController extends ActionController
             );
             Pi::service('file')->remove($files);
             // Remove page
-            $this->removePage($row->slug);
+            $pageName = sprintf('topic-%s', $row->id);
+            $this->removePage($pageName);
             Pi::service('registry')->page->clear($this->getModule());
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
@@ -385,15 +389,15 @@ class TopicController extends ActionController
      * @param stinr $name
      * @return int
      */
-    protected function updatePage($old_action, $new_action, $new_title)
+    protected function updatePage($action, $title)
     {
         $where = array(
             'section'       => 'front',
             'module'        => $this->getModule(),
             'controller'    => 'topic',
-            'action'        => $old_action,
+            'action'        => $action,
         );
-        $count = Pi::model('page')->update(array('action' => $new_action, 'title' => $new_title), $where);
+        $count = Pi::model('page')->update(array('action' => $action, 'title' => $title), $where);
         return $count;
     }
 }

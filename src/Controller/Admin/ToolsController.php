@@ -16,6 +16,8 @@ use Pi;
 use Pi\Mvc\Controller\ActionController;
 use Module\News\Form\RebuildForm;
 use Module\News\Form\PruneForm;
+use Module\News\Form\SitemapForm;
+use Module\News\Form\PageForm;
 
 class ToolsController extends ActionController
 {
@@ -124,6 +126,7 @@ class ToolsController extends ActionController
                 $message = __('Error in pruned old stores. perhaps no stroy exist whit your select query');
             }
         }
+        // Set view
         $this->view()->setTemplate('tools_prune');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Prune stores'));
@@ -142,8 +145,67 @@ class ToolsController extends ActionController
             // Set class
             $message = __('Error in remove old spotlights. perhaps no spotlights exist');
         }
+        // Set view
         $this->view()->setTemplate('tools_spotlight');
         $this->view()->assign('title', __('Prune spotlights'));
+        $this->view()->assign('message', $message);
+    }
+
+    public function pageAction()
+    {
+        $form = new PageForm('page');
+        $message = __('Remove all topic pages from system page table. and keep just module default pages');
+        if ($this->request->isPost()) {
+            // Set form date
+            $values = $this->request->getPost()->toArray();
+            if ($values['confirm']) {
+                $where = array(
+                    'section'       => 'front',
+                    'module'        => $this->getModule(),
+                    'controller'    => 'topic',
+                    'action != ?'    => 'list',
+                );
+                Pi::model('page')->delete($where);
+                Pi::service('registry')->page->clear($this->getModule());
+                $message = __('All other pages removed');
+            } else {
+                $message = __('No pages were removed');
+            }    
+        }    
+        // Set view
+        $this->view()->setTemplate('tools_page');
+        $this->view()->assign('form', $form);
+        $this->view()->assign('title', __('Remove topic pages'));
+        $this->view()->assign('message', $message);
+    }
+
+    public function sitemapAction()
+    {
+        $form = new SitemapForm('sitemap');
+        $message = __('Rebuild thie module links on sitemap module tabels');
+        if ($this->request->isPost()) {
+            // Set form date
+            $values = $this->request->getPost()->toArray();
+            switch ($values['type']) {
+                case '1':
+                    Pi::api('story', 'news')->sitemap();
+                    break;
+
+                case '2':
+                    Pi::api('topic', 'news')->sitemap();
+                    break;
+                
+                case '3':
+                    Pi::api('story', 'news')->sitemap();
+                    Pi::api('topic', 'news')->sitemap();
+                    break;
+            }
+            $message = __('Sitemap rebuild finished');
+        }    
+        // Set view
+        $this->view()->setTemplate('tools_sitemap');
+        $this->view()->assign('form', $form);
+        $this->view()->assign('title', __('Rebuild sitemap links'));
         $this->view()->assign('message', $message);
     }
 }

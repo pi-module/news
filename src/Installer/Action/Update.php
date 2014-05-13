@@ -60,6 +60,35 @@ class Update extends BasicUpdate
             }
         }
 
+        // Update to version 1.2.3
+        if (version_compare($moduleVersion, '1.2.3', '<')) {
+            // Alter table field `short`
+            $sql = sprintf("ALTER TABLE %s CHANGE `short` `short` mediumtext", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Alter table field `body`
+            $sql = sprintf("ALTER TABLE %s CHANGE `body` `body` mediumtext", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+        
         return true;
     }    
 }

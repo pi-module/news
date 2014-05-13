@@ -27,6 +27,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->getListFromIdLight($id);
  * Pi::api('story', 'news')->canonizeStory($story, $ctopicList);
  * Pi::api('story', 'news')->canonizeStoryLight($story);
+ * Pi::api('story', 'news')->sitemap();
  */
 
 class Story extends AbstractApi
@@ -232,7 +233,7 @@ class Story extends AbstractApi
         // boject to array
         $story = $story->toArray();
         // Set short text
-        $story['short'] = Pi::service('markup')->render($story['short'], 'text', 'html');
+        $story['short'] = Pi::service('markup')->render($story['short'], 'html', 'html');
         // Set body text
         $story['body'] = Pi::service('markup')->render($story['body'], 'html', 'html');
         // Set times
@@ -329,5 +330,28 @@ class Story extends AbstractApi
         unset($story['topic']);
         // return story
         return $story; 
+    }
+
+    public function sitemap()
+    {
+        if (Pi::service('module')->isActive('sitemap')) {
+            // Remove old links
+            Pi::model('url_list', 'sitemap')->delete(array('module' => $this->getModule(), 'table' => 'story'));
+            // find and import
+            $where = array('status' => 1);
+            $columns = array('id', 'slug');
+            $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where);
+            $rowset = Pi::model('story', $this->getModule())->selectWith($select);
+            foreach ($rowset as $row) {
+                // Make url
+                $loc = Pi::service('url')->assemble('news', array(
+                    'module'        => $this->getModule(),
+                    'controller'    => 'story',
+                    'slug'          => $row->slug,
+                ));
+                // Add to sitemap
+                Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'story', $row->id, $loc);
+            }
+        }
     }
 }
