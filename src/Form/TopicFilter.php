@@ -110,6 +110,11 @@ class TopicFilter extends InputFilter
             'name' => 'show_columns',
             'required' => false,
         ));
+        // set_page
+        $this->add(array(
+            'name' => 'set_page',
+            'required' => false,
+        ));
         // show_topic
         $this->add(array(
             'name' => 'show_topic',

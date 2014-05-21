@@ -256,6 +256,17 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // set_page
+        $this->add(array(
+            'name' => 'set_page',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Set as system page'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
         // show_topic
         $this->add(array(
             'name' => 'show_topic',

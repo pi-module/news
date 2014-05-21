@@ -200,6 +200,7 @@ class TopicController extends ActionController
                 $setting['show_tag'] = $values['show_tag'];
                 $setting['show_subid'] = $values['show_subid'];
                 $setting['show_attach'] = $values['show_attach'];
+                $setting['set_page'] = $values['set_page'];
                 $values['setting'] = Json::encode($setting);
                 // Set just category fields
                 foreach (array_keys($values) as $key) {
@@ -234,7 +235,7 @@ class TopicController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Set topic as page for dress up block 
-                if ($this->config('admin_setpage')) {
+                if ($this->config('admin_setpage') && $setting['set_page']) {
                     $pageName = sprintf('topic-%s', $row->id);
                     if(empty($values['id'])) {
                         $this->setPage($pageName, $row->title);
@@ -389,15 +390,24 @@ class TopicController extends ActionController
      * @param stinr $name
      * @return int
      */
-    protected function updatePage($action, $title)
+    protected function updatePage($name, $title)
     {
+        // Set where
         $where = array(
             'section'       => 'front',
             'module'        => $this->getModule(),
             'controller'    => 'topic',
-            'action'        => $action,
+            'action'        => $name,
         );
-        $count = Pi::model('page')->update(array('action' => $action, 'title' => $title), $where);
-        return $count;
+        // Get count
+        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $select = Pi::model('page')->select()->where($where)->columns($columns);
+        $count = Pi::model('page')->selectWith($select)->current()->count;
+        // Set page
+        if ($count == 0) {
+            $this->setPage($name, $title);
+        } else {
+            Pi::model('page')->update(array('action' => $name, 'title' => $title), $where);
+        }
     }
 }
