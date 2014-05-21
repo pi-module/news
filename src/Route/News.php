@@ -27,7 +27,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'archive', 'index', 'json', 'media', 'story', 'tag', 'topic', 'writer'
+        'archive', 'author', 'index', 'json', 'media', 'story', 'tag', 'topic', 'writer'
     );
 
     /**
@@ -69,6 +69,14 @@ class News extends Standard
                         $matches['action'] = 'list';
                     } else {
                         $matches['id'] = intval($parts[1]);
+                    }
+                    break;
+
+                case 'author':
+                    if ($parts[1] == 'list') {
+                        $matches['action'] = 'list';
+                    } else {
+                        $matches['slug'] = $this->decode($parts[1]);
                     }
                     break;
 

@@ -27,7 +27,7 @@ class StoryController extends ActionController
     protected $ImageStoryPrefix = 'image_';
 
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'seo_keywords', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'seo_title', 'seo_keywords', 
         'seo_description', 'important', 'status', 'time_create', 'time_update', 'time_publish', 
         'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra', 'type'
     );
@@ -282,6 +282,14 @@ class StoryController extends ActionController
         // Get extra field
         $fields = Pi::api('extra', 'news')->Get();
         $option['field'] = $fields['extra'];
+        // Set author
+        if ($this->config('admin_setauthor')) {
+            $option['author'] = Pi::api('author', 'news')->getFormAuthor();
+            $option['role'] = Pi::api('author', 'news')->getFormRole();
+        } else {
+            $option['author'] = '';
+            $option['role'] = '';
+        }
         // Set form
         $form = new StoryForm('story', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
@@ -292,10 +300,18 @@ class StoryController extends ActionController
             $slug = ($data['slug']) ? $data['slug'] : $data['title'];
             $data['slug'] = Pi::api('text', 'news')->slug($slug);
             // Form filter
-            $form->setInputFilter(new StoryFilter($option['field']));
+            $form->setInputFilter(new StoryFilter($option));
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
+                // Set author
+                $author =  array();
+                if (!empty($option['role'])) {
+                    foreach ($option['role'] as $role) {
+                        $author[$role['id']]['role'] = $role['id'];
+                        $author[$role['id']]['author'] = $values[$role['name']];
+                    }
+                }
                 // Set extra data array
                 if (!empty($fields['field'])) {
                     foreach ($fields['field'] as $field) {
@@ -364,6 +380,8 @@ class StoryController extends ActionController
                 $row->save();
                 // Topic
                 Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
+                // Author
+                Pi::api('author', 'news')->setAuthorStory($row->id, $row->time_publish, $row->status, $author);
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {
@@ -393,43 +411,40 @@ class StoryController extends ActionController
                         Pi::api('sitemap', 'sitemap')->update('news', 'story', $row->id, $loc);
                     }              
                 }
-                // Check it save or not
-                if ($row->id) {
-                    // Make jump information
-                    switch ($row->type) {
-                        case 'download':
-                            $message = __('Download data saved successfully. Please attach your files');
-                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                            break;
+                // Make jump information
+                switch ($row->type) {
+                    case 'download':
+                        $message = __('Download data saved successfully. Please attach your files');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;
                     
-                        case 'media':
-                            $message = __('Media data saved successfully. Please attach your medias');
-                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                            break;
+                    case 'media':
+                        $message = __('Media data saved successfully. Please attach your medias');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;
                     
-                        case 'gallery':
-                            $message = __('Gallery data saved successfully. Please attach your images');
-                            $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                            break;           
+                    case 'gallery':
+                        $message = __('Gallery data saved successfully. Please attach your images');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;           
 
-                        case 'text':
-                        default:
-                            $message = __('Text data saved successfully.');
-                            $url = array('controller' => 'story', 'action' => 'index');
-                            break;
-                    }
-                    // Do jump
-                    $this->jump($url, $message);
-                } else {
-                    $message = __('Story data not saved.');
+                    case 'text':
+                    default:
+                        $message = __('Text data saved successfully.');
+                        $url = array('controller' => 'story', 'action' => 'index');
+                        break;
                 }
+                // Do jump
+                $this->jump($url, $message);
             } else {
                 $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             if ($id) {
                 // Get Extra
-                $story = Pi::api('extra', 'news')->Form($story);
+                $story = Pi::api('extra', 'news')->setFormValues($story);
+                // Get author
+                $story = Pi::api('author', 'news')->setFormValues($story);
                 // Get tag list
                 if (Pi::service('module')->isActive('tag')) {
                     $tag = Pi::service('tag')->get($module, $story['id'], '');

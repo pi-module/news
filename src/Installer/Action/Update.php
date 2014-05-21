@@ -88,6 +88,106 @@ class Update extends BasicUpdate
                 return false;
             }
         }
+
+        // Update to version 1.2.5
+        if (version_compare($moduleVersion, '1.2.5', '<')) {
+
+            // Add table of author
+            $sql =<<<'EOD'
+CREATE TABLE `{author}` (
+    `id` int (10) unsigned NOT NULL auto_increment,
+    `title` varchar (255) NOT NULL,
+    `slug` varchar(255) NOT NULL,
+    `description` text,
+    `seo_title` varchar(255) NOT NULL,
+    `seo_keywords` varchar(255) NOT NULL,
+    `seo_description` varchar(255) NOT NULL,
+    `time_create` int(10) unsigned NOT NULL,
+    `time_update` int(10) unsigned NOT NULL,
+    `uid` int(10) unsigned NOT NULL,
+    `hits` int(10) unsigned NOT NULL,
+    `image` varchar(255) NOT NULL,
+    `path` varchar(16) NOT NULL,
+    `status` tinyint(1) unsigned NOT NULL default '1',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `slug` (`slug`),
+    KEY `status` (`status`),
+    KEY `title` (`title`),
+    KEY `time_create` (`time_create`),
+    KEY `order` (`title`, `id`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'SQL schema query for author table failed: '
+                                   . $exception->getMessage(),
+                ));
+
+                return false;
+            }
+
+            // Add table of author
+            $sql =<<<'EOD'
+CREATE TABLE `{author_role}` (
+    `id` int (10) unsigned NOT NULL auto_increment,
+    `title` varchar (255) NOT NULL,
+    `status` tinyint(1) unsigned NOT NULL default '1',
+    PRIMARY KEY (`id`),
+    KEY `status` (`status`),
+    KEY `title` (`title`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'SQL schema query for author table failed: '
+                                   . $exception->getMessage(),
+                ));
+
+                return false;
+            }
+
+            // Add table of author
+            $sql =<<<'EOD'
+CREATE TABLE `{author_story}` (
+    `id` int (10) unsigned NOT NULL auto_increment,
+    `story` int(10) unsigned NOT NULL,
+    `author` int(10) unsigned NOT NULL,
+    `role` int(10) unsigned NOT NULL,
+    `time_publish` int(10) unsigned NOT NULL,
+    `status` tinyint(1) unsigned NOT NULL default '1',
+    PRIMARY KEY (`id`),
+    KEY `story` (`story`),
+    KEY `author` (`author`),
+    KEY `role` (`role`),
+    KEY `status` (`status`),
+    KEY `time_publish` (`time_publish`),
+    KEY `select` (`author`, `role`, `story`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'SQL schema query for author table failed: '
+                                   . $exception->getMessage(),
+                ));
+
+                return false;
+            }
+        }
         
         return true;
     }    

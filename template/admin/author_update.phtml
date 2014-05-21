@@ -1,0 +1,26 @@
+<?php
+    $this->css(array(
+        $this->assetModule('css/admin.css'),
+        $this->assetModule('script/system-ui.css', 'system'),
+    ));
+    $this->jQuery();
+    $this->js($this->assetModule('script/system-msg.js', 'system'));
+?>
+<div id="author-form" class="news">
+    <h3><?php echo $this->escape($title); ?></h3>
+    <?php include $this->templateComponent('forms'); ?>
+</div>
+<script type="text/javascript">
+(function($){
+    $("#author-form").on("click","button",function(){
+        systemMessage.wait("<?php _e('Remove image author in process'); ?>");
+        $.getJSON($(this).attr("data-link")).done(function(result){
+            if(result.status==1){
+                systemMessage.succ(result.message);
+            }else{
+                systemMessage.fail(result.message);
+            }
+        });
+    });
+})(jQuery)
+</script>

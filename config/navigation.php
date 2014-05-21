@@ -56,6 +56,17 @@ return array(
             'action'        => 'list',
         ),
 
+        'author' => array(
+            'label'         => _a('Author list'),
+            'permission'    => array(
+                'resource'  => 'author',
+            ),
+            'route'         => 'news',
+            'module'        => 'news',
+            'controller'    => 'author',
+            'action'        => 'list',
+        ),
+
         'archive' => array(
             'label'         => _a('Archive'),
             'permission'    => array(
@@ -111,6 +122,15 @@ return array(
             ),
             'route'         => 'admin',
             'controller'    => 'extra',
+            'action'        => 'index',
+        ),
+        'author' => array(
+            'label'         => _a('Authors'),
+            'permission'    => array(
+                'resource'  => 'author',
+            ),
+            'route'         => 'admin',
+            'controller'    => 'author',
             'action'        => 'index',
         ),
         'tools' => array(

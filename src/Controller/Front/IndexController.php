@@ -60,6 +60,7 @@ class IndexController extends ActionController
         $module = $this->params('module');
         $offset = (int)($page - 1) * $limit;
         $order = array('time_publish DESC', 'id DESC');
+        $limit = intval($limit);
         // Set day limit
         if ($this->config('daylimit')) {
             $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
@@ -67,7 +68,7 @@ class IndexController extends ActionController
         // Set info
         $columns = array('story' => new Expression('DISTINCT story'));
         // Get info from link table
-        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit(intval($limit));
+        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('link')->selectWith($select)->toArray();
         // Make list
         foreach ($rowset as $id) {

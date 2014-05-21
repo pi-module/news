@@ -33,4 +33,9 @@
 		<?php } ?>
 	</table>
 	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
+	<p>
+		<span class="label label-success"><?php _e('Published'); ?></span>
+		<span class="label label-warning"><?php _e('Pending review'); ?></span>
+		<span class="label label-danger"><?php _e('Trash'); ?></span>
+	</p>
 </div>

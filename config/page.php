@@ -19,6 +19,11 @@ return array(
             'permission'    => 'attach',
         ),
         array(
+            'title'         => _a('Authors'),
+            'controller'    => 'author',
+            'permission'    => 'author',
+        ),
+        array(
             'title'         => _a('Extra'),
             'controller'    => 'extra',
             'permission'    => 'extra',
@@ -94,6 +99,12 @@ return array(
             'controller'    => 'tag',
             'action'        => 'list',
             'permission'    => 'public',
+            'block'         => 1,
+        ),
+        array(
+            'title'         => _a('Authors'),
+            'controller'    => 'author',
+            'permission'    => 'author',
             'block'         => 1,
         ),
     ),

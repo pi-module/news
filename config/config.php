@@ -76,6 +76,14 @@ return array(
             'filter'       => 'number_int',
             'value'        => 0
         ),
+        'admin_setauthor' => array(
+            'category'     => 'admin',
+            'title'        => _a('Set story authors'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
         // Show
         'style' => array(
             'title'        => _a('Show Style'),
@@ -149,6 +157,14 @@ return array(
         'show_writer' => array(
             'category'     => 'show',
             'title'        => _a('Show writer'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
+        'show_author' => array(
+            'category'     => 'show',
+            'title'        => _a('Show author'),
             'description'  => '',
             'edit'         => 'checkbox',
             'filter'       => 'number_int',

@@ -17,7 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class StoryFilter extends InputFilter
 {
-    public function __construct($extra = null)
+    public function __construct($option = array())
     {
         // id
         $this->add(array(
@@ -128,10 +128,19 @@ class StoryFilter extends InputFilter
             ));
         }
         // Set extra field
-        if (!empty($extra)) {
-            foreach ($extra as $field) {
+        if (!empty($option['field'])) {
+            foreach ($option['field'] as $field) {
                 $this->add(array(
                     'name' => $field['id'],
+                    'required' => false,
+                ));
+            }
+        }
+        // Set role
+        if (!empty($option['role'])) {
+            foreach ($option['role'] as $role) {
+                $this->add(array(
+                    'name' => $role['name'],
                     'required' => false,
                 ));
             }

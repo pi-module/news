@@ -19,7 +19,7 @@ use Pi\Application\Api\AbstractApi;
 /*
  * Pi::api('extra', 'news')->Get();
  * Pi::api('extra', 'news')->Set($extra, $story);
- * Pi::api('extra', 'news')->Form($values);
+ * Pi::api('extra', 'news')->setFormValues($values);
  * Pi::api('extra', 'news')->Story($id);
  */
 
@@ -76,7 +76,7 @@ class Extra extends AbstractApi
     /*
       * Get and Set extra field data valuse to form
       */
-    public function Form($values)
+    public function setFormValues($values)
     {
         $where = array('story' => $values['id']);
         $select = Pi::model('field_data', $this->getModule())->select()->where($where);

@@ -21,6 +21,8 @@ class StoryForm extends BaseForm
     {
         $this->module = Pi::service('module')->current();
         $this->field = $options['field'];
+        $this->author = $options['author'];
+        $this->role = $options['role'];
         $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
@@ -284,6 +286,27 @@ class StoryForm extends BaseForm
                 }
             }
         }
+        // Set extra author
+        if (!empty($this->role)) {
+            // extra_author
+            $this->add(array(
+                'name' => 'extra_author',
+                'type' => 'fieldset',
+                'options' => array(
+                    'label' => __('Authors'),
+                ),
+            ));
+            foreach ($this->role as $role) {
+                $this->add(array(
+                    'name' => $role['name'],
+                    'type' => 'Module\News\Form\Element\Author',
+                    'options' => array(
+                        'label' => $role['title'],
+                        'list' => $this->author,
+                    ),
+                ));
+            }
+        }    
         // Save
         $this->add(array(
             'name' => 'submit',

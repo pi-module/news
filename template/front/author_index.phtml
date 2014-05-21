@@ -1,0 +1,37 @@
+<?php $this->css($this->assetModule('css/front.css')); ?>
+<div class="news">
+	<?php include $this->template('front/feed'); ?>
+    <?php include $this->template('front/topic'); ?>
+    <?php include $this->template('front/advertisement'); ?>
+    <div class="news-author">
+        <div class="media">
+            <img class="pull-left" class="media-object" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>">
+            <div class="media-body">
+            	<h4 class="media-heading"><?php echo $this->escape($author['title']); ?></h4>
+            	<?php echo $author['description']; ?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+	<div class="index-list">
+		<div class="news-role">
+			<?php foreach($roles as $role) { ?>
+			<?php if (!empty($stores[$role['id']])) { ?>
+			<h4><?php echo $this->escape($role['title']); ?></h4>
+			<div class="list-group">
+			<?php foreach($stores[$role['id']] as $story) { ?>
+				<a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>">
+					<?php if ($story['image']) { ?>
+					<img src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+					<?php } ?>
+					<?php echo $this->escape($story['title']); ?>
+				</a>
+            <?php } ?>
+            <?php } ?>
+			</div>
+            <div class="clearfix"></div>
+			<?php } ?>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

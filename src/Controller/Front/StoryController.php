@@ -71,6 +71,11 @@ class StoryController extends ActionController
             $tag = Pi::service('tag')->get($module, $story['id'], '');
             $this->view()->assign('tag', $tag);  
         }
+        // Author
+        if ($config['show_author']) {
+            $author = Pi::api('author', 'news')->getStorySingle($story['id']);
+            $this->view()->assign('authors', $author);
+        }
         // Set vote
         if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
             $vote['point'] = $story['point'];
