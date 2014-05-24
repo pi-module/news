@@ -36,7 +36,7 @@ class TopicController extends IndexController
         if ($topic['style'] == 'topic') {
             // Get topic list
             $where = array('status' => 1, 'pid' => $topic['id']);
-            $order = array('time_create DESC', 'id DESC');
+            $order = array('id DESC');
             $select = $this->getModel('topic')->select()->where($where)->order($order);
             $rowset = $this->getModel('topic')->selectWith($select);
             foreach ($rowset as $row) {

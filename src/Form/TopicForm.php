@@ -118,6 +118,7 @@ class TopicForm extends BaseForm
                     'table' => __('Table'),
                     'media' => __('Media'),
                     'spotlight' => __('Spotlight'),
+                    'topic' => __('Topic'),
                 ),
             ),
             'attributes' => array(

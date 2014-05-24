@@ -70,6 +70,8 @@ class Block
         if (empty($block['topicid'])) {
             return $block;
         }
+        // sort
+        rsort($block['topicid']);
         // Make Block lope
         foreach ($block['topicid'] as $topicId) {
             $topic = Pi::model('topic', $module)->find($topicId)->toArray();
