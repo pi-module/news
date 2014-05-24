@@ -43,6 +43,11 @@ class Update extends BasicUpdate
         $storyTable    = $storyModel->getTable();
         $storyAdapter  = $storyModel->getAdapter();
 
+        // Set topic model
+        $topicModel    = Pi::model('topic', $this->module);
+        $topicTable    = $topicModel->getTable();
+        $topicAdapter  = $topicModel->getAdapter();
+
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
@@ -188,7 +193,25 @@ EOD;
                 return false;
             }
         }
-        
+
+        // Update to version 1.2.7
+        if (version_compare($moduleVersion, '1.2.7', '<')) {
+            // Alter table field `type`
+            $sql = sprintf("ALTER TABLE %s CHANGE `style` `style` 
+                ENUM( 'news', 'list', 'table', 'media', 'spotlight', 'topic' ) NOT NULL", $topicTable);
+
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+            
         return true;
     }    
 }

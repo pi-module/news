@@ -11,12 +11,11 @@
 				<?php foreach($topics as $topic) { ?>
 				<tr>
 					<td class="top">
-							<?php if($topic['image']){ ?>
-							<img class="itemStoryImg img-thumbnail pull-left" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-							<?php } ?>
-							<h4><a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a></h4>
-							<?php echo $topic['description']; ?>
-						</div>
+						<?php if($topic['image']){ ?>
+						<img class="img-thumbnail pull-right" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+						<?php } ?>
+						<h4><a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a></h4>
+						<?php echo $topic['description']; ?>
 					</td>
 				</tr>
 				<?php } ?>

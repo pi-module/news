@@ -50,7 +50,7 @@ CREATE TABLE `{topic}` (
     `time_update` int(10) unsigned NOT NULL,
     `setting` text,
     `status` tinyint(1) unsigned NOT NULL,
-    `style` enum('news','list','table','media','spotlight') NOT NULL,
+    `style` enum('news','list','table','media','spotlight','topic') NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `slug` (`slug`),
     KEY `pid` (`pid`),

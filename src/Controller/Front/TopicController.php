@@ -32,30 +32,45 @@ class TopicController extends IndexController
         }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
-        // Set story info
-        $where = array('status' => 1, 'topic' => $topic['ids'], /*'time_publish <= ?' => time(),*/);
-        // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage']);
-        // Set paginator info
-        $template = array(
-            'controller'  => 'topic',
-            'action'      => 'index',
-            'slug'        => $topic['slug'],
-        );
-        // Get paginator
-        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
-        // Spotlight
-        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+        // Check topic style
+        if ($topic['style'] == 'topic') {
+            // Get topic list
+            $where = array('status' => 1, 'pid' => $topic['id']);
+            $order = array('time_create DESC', 'id DESC');
+            $select = $this->getModel('topic')->select()->where($where)->order($order);
+            $rowset = $this->getModel('topic')->selectWith($select);
+            foreach ($rowset as $row) {
+                $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
+            }
+            // Set view
+            $this->view()->assign('topics', $topics);
+        } else {
+            // Set story info
+            $where = array('status' => 1, 'topic' => $topic['ids'], /*'time_publish <= ?' => time(),*/);
+            // Get story List
+            $storyList = $this->storyList($where, $topic['show_perpage']);
+            // Set paginator info
+            $template = array(
+                'controller'  => 'topic',
+                'action'      => 'index',
+                'slug'        => $topic['slug'],
+            );
+            // Get paginator
+            $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
+            // Spotlight
+            $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+            // Set view
+            $this->view()->assign('stores', $storyList);
+            $this->view()->assign('paginator', $paginator);
+            $this->view()->assign('spotlight', $spotlight);
+        }
         // Set view
         $this->view()->headTitle($topic['seo_title']);
         $this->view()->headdescription($topic['seo_description'], 'set');
         $this->view()->headkeywords($topic['seo_keywords'], 'set');
         $this->view()->setTemplate($topic['template']);
-        $this->view()->assign('stores', $storyList);
-        $this->view()->assign('paginator', $paginator);
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
-        $this->view()->assign('spotlight', $spotlight);
     }
 
     public function listAction()

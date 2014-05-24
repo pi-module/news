@@ -97,6 +97,7 @@ return array(
                         'table'         => _a('Table'),
                         'media'         => _a('Media'),
                         'spotlight'     => _a('Spotlight'),
+                        'topic'         => _a('Topic'),
                     ),
                 ),
             ),

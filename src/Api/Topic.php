@@ -163,9 +163,9 @@ class Topic extends AbstractApi
      * Set page template
      * By shwotype option
      */
-    public function Template($type)
+    public function Template($style)
     {
-        switch ($type) {
+        switch ($style) {
             default:
             case 'news':
                 $template = 'index_news';
@@ -186,6 +186,11 @@ class Topic extends AbstractApi
             case 'spotlight':
                 $template = 'index_spotlight';
                 break;
+            
+            case 'topic':
+                $template = 'topic_list';
+                break;
+
         }
         return $template;
     }
