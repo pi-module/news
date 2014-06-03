@@ -252,24 +252,27 @@ class Story extends AbstractApi
         $topicList = (empty($topicList)) ? 
                       Pi::api('topic','news')->topicList($story['topic']) : $topicList;
         foreach ($story['topic'] as $topic) {
-            $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
-            $story['topics'][$topic]['url'] = Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'topic',
-                'slug'          => $topicList[$topic]['slug'],
-            ));
+            if (!empty($topicList[$topic]['title'])) {
+                $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
+                $story['topics'][$topic]['url'] = Pi::service('url')->assemble('news', array(
+                    'module'        => $this->getModule(),
+                    'controller'    => 'topic',
+                    'slug'          => $topicList[$topic]['slug'],
+                ));
+            }
         }
         // Get author list
         $story['authors'] = array();
         if ($config['show_author'] && !empty($authorList) && !empty($story['author'])) {
             $story['author'] = Json::decode($story['author'], true);
-            
             foreach ($story['author'] as $author) {
-                $authors = array();
-                $authors['authorName'] = $authorList['author'][$author['author']]['title'];
-                $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
-                $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
-                $story['authors'][] = $authors;
+                if (!empty($author['author'])) {
+                    $authors = array();
+                    $authors['authorName'] = $authorList['author'][$author['author']]['title'];
+                    $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
+                    $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
+                    $story['authors'][] = $authors;
+                }
             }
         }
         // Set image url
