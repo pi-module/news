@@ -12,6 +12,7 @@
  */
 namespace Module\News\Route;
 
+use Pi;
 use Pi\Mvc\Router\Http\Standard;
 
 class News extends Standard
@@ -60,7 +61,15 @@ class News extends Standard
                     if ($parts[1] == 'list') {
                         $matches['action'] = 'list';
                     } else {
-                        $matches['action'] = $this->decode($parts[1]);
+                        $slug = $this->decode($parts[1]);
+                        $topicList = Pi::registry('topic', 'news')->read();
+                        foreach ($topicList as $topic) {
+                            if ($topic['slug'] == $slug) {
+                                $action = $topic['name'];
+                            }
+                        }
+                        $matches['action'] = $action;
+                        $matches['slug'] = $slug;
                     }
                     break;
 

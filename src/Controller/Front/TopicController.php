@@ -21,7 +21,7 @@ class TopicController extends IndexController
     {
         // Get info from url
         $module = $this->params('module');
-        $slug = $this->params('action');
+        $slug = $this->params('slug');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic information from model

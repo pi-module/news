@@ -263,15 +263,17 @@ class Story extends AbstractApi
         }
         // Get author list
         $story['authors'] = array();
-        if ($config['show_author'] && !empty($authorList) && !empty($story['author'])) {
+        if ($config['show_author'] && !empty($authorList)) {
             $story['author'] = Json::decode($story['author'], true);
-            foreach ($story['author'] as $author) {
-                if (!empty($author['author'])) {
-                    $authors = array();
-                    $authors['authorName'] = $authorList['author'][$author['author']]['title'];
-                    $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
-                    $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
-                    $story['authors'][] = $authors;
+            if (!empty($story['author'])) {
+                foreach ($story['author'] as $author) {
+                    if (!empty($author['author'])) {
+                        $authors = array();
+                        $authors['authorName'] = $authorList['author'][$author['author']]['title'];
+                        $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
+                        $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
+                        $story['authors'][] = $authors;
+                    }
                 }
             }
         }

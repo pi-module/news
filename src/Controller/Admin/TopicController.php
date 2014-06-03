@@ -239,15 +239,17 @@ class TopicController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Set topic as page for dress up block 
+                $pageName = sprintf('topic-%s', $row->id);
                 if ($this->config('admin_setpage') && $setting['set_page']) {
-                    $pageName = sprintf('topic-%s', $row->id);
                     if(empty($values['id'])) {
-                        $this->setPage($pageName, $row->title);
+                        $this->setPage($pageName, sprintf(__('Page : %s') , $row->title));
                     } else { 
-                        $this->updatePage($pageName, $row->title);
+                        $this->updatePage($pageName, sprintf(__('Page : %s') , $row->title));
                     }
-                    Pi::service('registry')->page->clear($this->getModule());
+                } else {
+                    $this->removePage($pageName);
                 }
+                Pi::service('registry')->page->clear($this->getModule());
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     $loc = Pi::url($this->url('news', array(

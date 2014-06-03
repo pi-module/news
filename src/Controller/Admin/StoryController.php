@@ -308,8 +308,10 @@ class StoryController extends ActionController
                 $author =  array();
                 if (!empty($option['role'])) {
                     foreach ($option['role'] as $role) {
-                        $author[$role['id']]['role'] = $role['id'];
-                        $author[$role['id']]['author'] = $values[$role['name']];
+                        if ($values[$role['name']] > 0) {
+                            $author[$role['id']]['role'] = $role['id'];
+                            $author[$role['id']]['author'] = $values[$role['name']];
+                        }
                     }
                 }
                 // Set extra data array
@@ -355,7 +357,7 @@ class StoryController extends ActionController
                 // Topics
                 $values['topic'] = Json::encode(array_unique($values['topic']));
                 // Author
-                $values['author'] = Json::encode($author);
+                $values['author'] = (empty($author)) ? '' : Json::encode($author);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $values['seo_title'] = Pi::api('text', 'news')->title($title);

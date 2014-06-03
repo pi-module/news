@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-05-24 18:31+0330\n"
+"POT-Creation-Date: 2014-06-03 16:55+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -123,8 +123,8 @@ msgstr "خصوصی"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:72
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:179
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:45
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:396
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:46
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:397
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:43
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
 msgid "Submit"
@@ -163,6 +163,7 @@ msgid "slug"
 msgstr "اسلاگ"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:89
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:121
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:67
 msgid "Topic"
 msgstr "موضوع"
@@ -222,7 +223,7 @@ msgstr "دانلود"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:176
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:143
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:144
 msgid "Remove image"
 msgstr "حذف تصویر"
 
@@ -232,28 +233,28 @@ msgstr "بارگذاری تصویر"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:205
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:138
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:172
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:173
 msgid "SEO options"
 msgstr "گزینه های سئو"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:212
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:30
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:145
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:179
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:180
 msgid "SEO Title"
 msgstr "عنوان سئو"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:223
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:31
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:156
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:190
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:191
 msgid "SEO Keywords"
 msgstr "کلمات کلیدی سئو"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:234
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:32
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:167
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:201
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:202
 msgid "SEO Description"
 msgstr "توضیح سئو"
 
@@ -300,7 +301,7 @@ msgstr "توضیحات"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:125
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:113
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:159
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:160
 msgid "Image"
 msgstr "تصویر"
 
@@ -365,16 +366,20 @@ msgid "Select for rebuild"
 msgstr "انتخاب برای دوباره سازی"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:34
+msgid "All of tables"
+msgstr "همه جدول ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:35
 msgid "Just story table"
 msgstr "فقط جدول مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:35
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:36
 msgid "Just topic table"
 msgstr "فقط جدول موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:36
-msgid "Both of story and topic"
-msgstr "هم موضوعات و هم مطالب"
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:37
+msgid "Just author table"
+msgstr "فقط جدول پدید آورندگان"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:51
 msgid "Parent Topic"
@@ -412,23 +417,23 @@ msgstr "جدول"
 msgid "Spotlight"
 msgstr "اسپات لایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:213
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:214
 msgid "Extra options"
 msgstr "گزینه های اضافی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:221
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:222
 msgid "Extra Config Options Type"
 msgstr "نوع تنظیمات اضافی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:223
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:224
 msgid "Use topic options"
 msgstr "استفاده از تنظیمات موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:224
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:225
 msgid "Use module options"
 msgstr "استفاده از تنظیمات ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:228
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:229
 msgid ""
 "Use topic option whit select topic options or set it to module to use module "
 "option"
@@ -437,75 +442,75 @@ msgstr ""
 "انتخاب کنید و یا با انتخاب گزینه ؛استفاده از تنظیمات ماژول؛ از تنظیمات پیش "
 "فرض ماژول استفاده کنید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:235
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:236
 msgid "Perpage"
 msgstr "تعداد در صفحه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:247
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:248
 msgid "Columns"
 msgstr "ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:249
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:250
 msgid "One column"
 msgstr "یک ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:250
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:251
 msgid "Two columns"
 msgstr "دو ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:251
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:252
 msgid "Three columns"
 msgstr "سه ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:252
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:253
 msgid "Four columns"
 msgstr "چهار ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:264
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:265
 msgid "Set as system page"
 msgstr "تنظیم به عنوان یک صفحه سیستم"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:275
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:276
 msgid "Show Topic"
 msgstr "نمایش موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:286
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:287
 msgid "Show Topic Information"
 msgstr "نمایش اطلاعات موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:297
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:298
 msgid "Show writer"
 msgstr "نمایش نویسنده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:308
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:309
 msgid "Show Date"
 msgstr "نمایش تاریخ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:319
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:320
 msgid "Show DPF"
 msgstr "نمایش پی دی اف"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:330
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:331
 msgid "Show Print"
 msgstr "نمایش چاپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:341
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:342
 msgid "Show Mail"
 msgstr "نمایش ایمیل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:352
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:353
 msgid "Show Hits"
 msgstr "نمایش بازدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:363
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:364
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:374
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:375
 msgid "Show Subtopic stories on main topic"
 msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:385
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:386
 msgid "Show attached files to stories"
 msgstr "نمایش فهرست فایل های پیوست شده در مطالب در توضیحات شاخه"
 
@@ -601,7 +606,7 @@ msgstr "هنوز تنظیم نشده"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:170
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:344
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:346
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:186
 msgid "Problem in upload image. please try again"
 msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
@@ -614,8 +619,8 @@ msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:288
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:440
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:267
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:444
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:269
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
 msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
@@ -784,11 +789,11 @@ msgstr "حذف صفحات موضوع"
 msgid "Rebuild thie module links on sitemap module tabels"
 msgstr "دوباره سازی لینک ای ماژول در جدول ماژول نقشه سایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:209
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:214
 msgid "Sitemap rebuild finished"
 msgstr "دوباره سازی نقشه سایت پایان یافت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:214
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:219
 msgid "Rebuild sitemap links"
 msgstr "دوباره سازی لینک های نقشه سایت"
 
@@ -816,7 +821,7 @@ msgstr "لطفا یک فیلد انتخاب کنید"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:184
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:219
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:256
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:518
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:522
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:130
 msgid "Please select story"
 msgstr "لطفا یک مطلب انتخاب کنید"
@@ -831,23 +836,23 @@ msgstr "مطلب %s با موفقیت تایید شد"
 msgid "Error in accept %s story"
 msgstr "خطا در تایید %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:417
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:421
 msgid "Download data saved successfully. Please attach your files"
 msgstr "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:422
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:426
 msgid "Media data saved successfully. Please attach your medias"
 msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:427
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:431
 msgid "Gallery data saved successfully. Please attach your images"
 msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:433
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:437
 msgid "Text data saved successfully."
 msgstr "اطلاعات متنی با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:465
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:469
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -860,7 +865,7 @@ msgstr ""
 "سایت نمایش داده شود ، و سپس بعد از کلیک بر روی دکمه ارسال ، در صفحه بعد در "
 "صورت تمایل میتوانید فایل خود را بارگذاری کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:469
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:473
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -874,7 +879,7 @@ msgstr ""
 "دکمه ارسال ، در صفحه بعد در صورت تمایل میتوانید ویدیو یا صدای خود را "
 "بارگذاری کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:473
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:477
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -882,7 +887,7 @@ msgstr ""
 "نوع مطلب شما <strong>گالری</strong> است. لطفا فرم زیر را تکمیل نمایید ، پس "
 "از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:478
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:482
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -890,27 +895,33 @@ msgstr ""
 "نوع مطلب شما <strong>متن</strong> است. لطفا اطلاعات مورد نظر خود را در فرم "
 "زیر درج نمایید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:484
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:488
 msgid "Add a Story"
 msgstr "مطلب جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:516
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:520
 msgid "This story deleted"
 msgstr "مطلب انتخابی حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:264
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:245
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:247
+#, php-format
+msgid "Page : %s"
+msgstr "صفحه : %s"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:266
 msgid "Topic data saved successfully."
 msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:281
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:283
 msgid "Add a Topic"
 msgstr "موضوع جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:343
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:345
 msgid "This topic and all of stores deleted"
 msgstr "این موضوع و همه مطالب وابسته به آن حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:345
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:347
 msgid "Please select topic"
 msgstr "لطفا یک موضوع انتخاب کنید"
 
@@ -1123,6 +1134,7 @@ msgid "Comments"
 msgstr "نظرات"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:14
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_list.phtml:19
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:37
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:59
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:52
@@ -1456,6 +1468,9 @@ msgstr "خوراک"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
+
+#~ msgid "Both of story and topic"
+#~ msgstr "هم موضوعات و هم مطالب"
 
 #~ msgid "Story data not saved."
 #~ msgstr "مطلب ذخیره نشد"
