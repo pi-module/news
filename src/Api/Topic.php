@@ -188,7 +188,7 @@ class Topic extends AbstractApi
                 break;
             
             case 'topic':
-                $template = 'topic_list';
+                $template = 'index_topic';
                 break;
 
         }
