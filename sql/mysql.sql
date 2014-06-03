@@ -4,6 +4,7 @@ CREATE TABLE `{story}` (
     `subtitle` varchar(255) NOT NULL,
     `slug` varchar(255) NOT NULL,
     `topic` varchar(255) NOT NULL,
+    `author` varchar(255) NOT NULL,
     `short` mediumtext,
     `body` mediumtext,
     `seo_title` varchar(255) NOT NULL,

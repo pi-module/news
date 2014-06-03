@@ -31,9 +31,10 @@ class SitemapForm extends BaseForm
             'options' => array(
                 'label' => __('Select for rebuild'),
                 'value_options' => array(
-                    1 => __('Just story table'),
-                    2 => __('Just topic table'),
-                    3 => __('Both of story and topic'),
+                    1 => __('All of tables'),
+                    2 => __('Just story table'),
+                    3 => __('Just topic table'),
+                    4 => __('Just author table'),
                 ),
             ),
         ));

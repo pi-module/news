@@ -195,16 +195,21 @@ class ToolsController extends ActionController
             switch ($values['type']) {
                 case '1':
                     Pi::api('story', 'news')->sitemap();
+                    Pi::api('topic', 'news')->sitemap();
+                    Pi::api('author', 'news')->sitemap();
                     break;
 
                 case '2':
-                    Pi::api('topic', 'news')->sitemap();
-                    break;
-                
-                case '3':
                     Pi::api('story', 'news')->sitemap();
+                    break;
+
+                case '3':
                     Pi::api('topic', 'news')->sitemap();
                     break;
+
+                case '4':
+                    Pi::api('author', 'news')->sitemap();
+                    break;    
             }
             $message = __('Sitemap rebuild finished');
         }    

@@ -81,11 +81,13 @@ class IndexController extends ActionController
         $where = array('status' => 1, 'id' => $storyId);
         // Get topic list
         $topicList = Pi::api('topic', 'news')->topicList();
+        // Get author list
+        $authorList = Pi::api('author', 'news')->authorList();
         // Get list of story
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
         }
         // return story
         return $story;

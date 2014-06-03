@@ -40,6 +40,13 @@
 						<?php } ?>
 						</div>
 						<?php } ?>
+						<?php if(!empty($story['authors'])) { ?>
+						<div class="pull-left">
+						<?php foreach($story['authors'] as $author) { ?>
+							<span><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span> 
+						<?php } ?>
+						</div>
+						<?php } ?>
 					</div>
 				   	<div class="clearfix"></div>
 				</div>

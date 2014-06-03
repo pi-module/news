@@ -364,11 +364,11 @@ class Topic extends AbstractApi
             $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
-                $loc = Pi::service('url')->assemble('news', array(
+                $loc = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),
                     'controller'    => 'topic',
                     'slug'          => $row->slug,
-                ));
+                )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'topic', $row->id, $loc);
             }

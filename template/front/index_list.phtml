@@ -7,16 +7,31 @@
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
 	<div class="index-list">
-		<div class="list-group">
+		<ul class="list-group">
 		<?php foreach($stores as $story) { ?>
-			<a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>">
-				<?php if ($story['image']) { ?>
+		    <li class="list-group-item <?php echo $topic['column_class']; ?>">
+		    	<?php if ($story['image']) { ?>
 				<img src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
 				<?php } ?>
-				<?php echo $this->escape($story['title']); ?>
-			</a>
+			    <a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>
+
+				<?php if($topic['show_topic']) { ?>
+				<div class="pull-left"> <?php _e('Topics'); ?> : 
+				<?php foreach($story['topics'] as $storyTopic) { ?>
+					<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
+				<?php } ?> 
+				</div> 
+				<?php } ?>
+				<?php if(!empty($story['authors'])) { ?>
+				<div class="pull-left">
+				<?php foreach($story['authors'] as $author) { ?>
+					<span><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>  
+				<?php } ?> 
+				</div> 
+				<?php } ?>
+			</li>	
 		<?php } ?>
-		</div>
+		</ul>
 	    <div class="clearfix"></div>
 	</div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>

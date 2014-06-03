@@ -27,7 +27,7 @@ class StoryController extends ActionController
     protected $ImageStoryPrefix = 'image_';
 
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'short', 'body', 'seo_title', 'seo_keywords', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'author', 'short', 'body', 'seo_title', 'seo_keywords', 
         'seo_description', 'important', 'status', 'time_create', 'time_update', 'time_publish', 
         'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra', 'type'
     );
@@ -354,6 +354,8 @@ class StoryController extends ActionController
                 }
                 // Topics
                 $values['topic'] = Json::encode(array_unique($values['topic']));
+                // Author
+                $values['author'] = Json::encode($author);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $values['seo_title'] = Pi::api('text', 'news')->title($title);

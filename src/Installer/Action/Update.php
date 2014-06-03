@@ -211,6 +211,24 @@ EOD;
                 return false;
             }
         }
+
+        // Update to version 1.2.8
+        if (version_compare($moduleVersion, '1.2.8', '<')) {
+            // Alter table field `type`
+            $sql = sprintf("ALTER TABLE %s ADD `author` 
+                VARCHAR( 255 ) NOT NULL AFTER `topic` ", $storyTable);
+
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
             
         return true;
     }    

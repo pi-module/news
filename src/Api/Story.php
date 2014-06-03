@@ -25,7 +25,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->Link($id, $topic);
  * Pi::api('story', 'news')->getListFromId($id);
  * Pi::api('story', 'news')->getListFromIdLight($id);
- * Pi::api('story', 'news')->canonizeStory($story, $ctopicList);
+ * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
  * Pi::api('story', 'news')->canonizeStoryLight($story);
  * Pi::api('story', 'news')->sitemap();
  */
@@ -222,7 +222,7 @@ class Story extends AbstractApi
         return $list;
     }
 
-    public function canonizeStory($story, $topicList = array())
+    public function canonizeStory($story, $topicList = array(), $authorList = array())
     {
         // Check
         if (empty($story)) {
@@ -258,6 +258,19 @@ class Story extends AbstractApi
                 'controller'    => 'topic',
                 'slug'          => $topicList[$topic]['slug'],
             ));
+        }
+        // Get author list
+        $story['authors'] = array();
+        if ($config['show_author'] && !empty($authorList) && !empty($story['author'])) {
+            $story['author'] = Json::decode($story['author'], true);
+            
+            foreach ($story['author'] as $author) {
+                $authors = array();
+                $authors['authorName'] = $authorList['author'][$author['author']]['title'];
+                $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
+                $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
+                $story['authors'][] = $authors;
+            }
         }
         // Set image url
         if ($story['image']) {
@@ -344,11 +357,11 @@ class Story extends AbstractApi
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
-                $loc = Pi::service('url')->assemble('news', array(
+                $loc = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),
                     'controller'    => 'story',
                     'slug'          => $row->slug,
-                ));
+                )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'story', $row->id, $loc);
             }
