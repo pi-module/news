@@ -1,22 +1,19 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="news">
 <?php if (isset($authors) && !empty($authors)) { ?>
-<div class="tagList clearfix">
-	<div class="page-header">
-		<h4><?php _e('Author list'); ?></h4>
-	</div>
-	<div class="row">
-		<?php foreach($authors as $author) { ?>
-		<div class="col-md-3">
-			<div class="well well-small">
-				<a title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>">
-					<?php echo $this->escape($author['title']); ?>
-				</a>
-			</div>
+	<div class="authorList clearfix">
+		<div class="page-header">
+			<h4><?php _e('Author list'); ?></h4>
 		</div>
-		<?php } ?>
-   </div>
-</div>
-<div class="clearfix"></div>
+		<ul class="list-group">
+			<?php foreach($authors as $author) { ?>
+			<li class="list-group-item col-md-3">
+				<img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+				<a title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>"><?php echo $this->escape($author['title']); ?></a>
+			</li>
+			<?php } ?>
+   		</ul>
+	</div>
+	<div class="clearfix"></div>
 <?php } ?>
 </div>

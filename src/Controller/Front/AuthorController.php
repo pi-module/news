@@ -58,7 +58,7 @@ class AuthorController extends ActionController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Set info
-        $order = array('title DESC', 'id DESC');
+        $order = array('title ASC', 'id ASC');
         $where = array('status' => 1);
         // Get list of author
         $select = $this->getModel('author')->select()->where($where)->order($order);
