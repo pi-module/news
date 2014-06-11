@@ -53,6 +53,9 @@ class Block
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
+            if ($block['showauthor']) {
+                $story[$row->id]['author'] = Pi::api('author', 'news')->getStorySingle($row->id);
+            }
         }
         // Set block array
         $block['resources'] = $story;

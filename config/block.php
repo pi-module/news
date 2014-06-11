@@ -67,6 +67,13 @@ return array(
                 'filter'       => 'number_int',
                 'value'        => 1,
             ),
+            'showauthor'     => array(
+                'title'        => _a('Show authors'),
+                'description'  => '',
+                'edit'         => 'checkbox',
+                'filter'       => 'number_int',
+                'value'        => 0,
+            ),
             'showblockmore'  => array(
                 'title'        => _a('Show More link to module page'),
                 'description'  => '',
