@@ -32,6 +32,10 @@ class TopicController extends IndexController
         }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
+        // Check topic
+        if ($topic['status'] != 1) {
+            $this->jump(array('', 'module' => $module, 'controller' => 'index', 'action' => 'index'), __('Topic not active.'));
+        }
         // Check topic style
         if ($topic['style'] == 'topic') {
             // Get topic list
