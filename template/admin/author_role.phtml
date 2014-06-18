@@ -1,13 +1,13 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="news">
 	<div class="admin-header clearfix well well-sm">
-		<div class="col-md-6">
+		<div class="col-md-7">
 			<a class="btn btn-primary" title="<?php _e('Author list'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'index')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Author list'); ?></a>
 			<a class="btn btn-primary" title="<?php _e('Add Author'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'update')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Add Author'); ?></a>
 			<a class="btn btn-success" title="<?php _e('Role list'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'role')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Role list'); ?></a>
 			<a class="btn btn-primary" title="<?php _e('Add Role'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'roleUpdate')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Add Role'); ?></a>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<div class="form-inline"><?php include $this->templateComponent('forms'); ?></div>
 		</div>
 	</div>
