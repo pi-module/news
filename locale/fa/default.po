@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-11 11:55+0330\n"
+"POT-Creation-Date: 2014-06-18 12:02+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgstr "صفحه اصلی"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/Element/Topic.php:70
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:60
 msgid "All Topics"
-msgstr "همه شاخه ها"
+msgstr "همه موضوع ها"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:52
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:26
@@ -512,7 +512,7 @@ msgstr "نمایش مطالب مربوط به موضع های زیر مجموع�
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:386
 msgid "Show attached files to stories"
-msgstr "نمایش فهرست فایل های پیوست شده در مطالب در توضیحات شاخه"
+msgstr "نمایش فهرست فایل های پیوست شده در مطالب در توضیحات موضوع"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:32
 msgid "Confirm to remove all topic pages"
@@ -733,7 +733,7 @@ msgstr "دوباره سازی مطالب"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:108
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
 msgid "You can prune all old stores, from selected topic."
-msgstr "شما میتوانید مطالب قدیمی را از شاخه انتخابی حذف کنید"
+msgstr "شما میتوانید مطالب قدیمی را از موضوع انتخابی حذف کنید"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:123
 #, php-format
@@ -994,12 +994,16 @@ msgstr "مدیا تنظیم نشده است"
 msgid "Go to topic list."
 msgstr "به فهرست موضوعات منتقل می شوید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:91
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:92
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:37
+msgid "Topic not active."
+msgstr "موضوع غیر فعال است"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:95
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:96
 msgid "List of all topics"
 msgstr "فهرست همه موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:93
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:97
 msgid "List,topics"
 msgstr "فهرست,موضوعات"
 

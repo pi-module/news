@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-11 11:55+0330\n"
+"POT-Creation-Date: 2014-06-18 12:02+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -210,7 +210,7 @@ msgstr "جدول"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:266
 msgid "Number of stroies for each topic"
-msgstr "تعداد مطالب برای هر شاخه"
+msgstr "تعداد مطالب برای هر موضوع"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:306
 msgid "List of topic"
@@ -342,7 +342,7 @@ msgstr "نمایش موضوع"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:152
 msgid "Show Topic Information"
-msgstr "نمایش اطلاعات شاخه"
+msgstr "نمایش اطلاعات موضوع"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:160
 msgid "Show writer"
