@@ -96,7 +96,6 @@ class Topic extends AbstractApi
             $topic['show_columns'] = $config['show_columns'];
             $topic['show_topic'] = $config['show_topic'];
             $topic['show_topicinfo'] = $config['show_topicinfo'];
-            $topic['show_writer'] = $config['show_writer'];
             $topic['show_date'] = $config['show_date'];
             $topic['show_print'] = $config['show_print'];
             $topic['show_pdf'] = $config['show_pdf'];

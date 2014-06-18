@@ -20,12 +20,6 @@ return array(
                 'member',
             ),
         ),
-        'writer' => array(
-            'title'         => _a('Writer'),
-            'access'        => array(
-                'member',
-            ),
-        ),
         'author' => array(
             'title'         => _a('Authors'),
             'access'        => array(

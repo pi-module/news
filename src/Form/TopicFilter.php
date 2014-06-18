@@ -125,11 +125,6 @@ class TopicFilter extends InputFilter
             'name' => 'show_topicinfo',
             'required' => false,
         ));
-        // show_writer
-        $this->add(array(
-            'name' => 'show_writer',
-            'required' => false,
-        ));
         // show_date
         $this->add(array(
             'name' => 'show_date',

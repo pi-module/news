@@ -394,10 +394,6 @@ class StoryController extends ActionController
                         Pi::service('tag')->update($module, $row->id, '', $tag);
                     }
                 }
-                // Writer
-                if (empty($values['id'])) {
-                    Pi::api('writer', 'news')->Add($values['uid']);
-                }
                 // Extra
                 if (!empty($extra)) {
                     Pi::api('extra', 'news')->Set($extra, $row->id);
@@ -496,8 +492,6 @@ class StoryController extends ActionController
         $id = $this->params('id');
         $row = $this->getModel('story')->find($id);
         if ($row) {
-            // Writer
-            Pi::service('api')->news(array('Writer', 'Delete'), $row->uid);
             // Topic
             $this->getModel('link')->delete(array('story' => $row->id));
             // Attach

@@ -198,7 +198,6 @@ class TopicController extends ActionController
                 $setting['show_columns'] = $values['show_columns'];
                 $setting['show_topic'] = $values['show_topic'];
                 $setting['show_topicinfo'] = $values['show_topicinfo'];
-                $setting['show_writer'] = $values['show_writer'];
                 $setting['show_date'] = $values['show_date'];
                 $setting['show_pdf'] = $values['show_pdf'];
                 $setting['show_print'] = $values['show_print'];
@@ -291,8 +290,6 @@ class TopicController extends ActionController
         $module = $this->params('module');
         $row = $this->getModel('topic')->find($id);
         if ($row) {
-            // Delete writers
-            Pi::service('api')->news(array('Writer', 'DeleteTopic'), $row->id);
             // update sub topics
             $this->getModel('topic')->update(array('pid' => $row->pid), array('pid' => $row->id));
             // remove topic links

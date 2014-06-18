@@ -32,11 +32,6 @@ if($config['image_lightbox']){
 		<div class="panel-body">
 			<div class="clearfix">
 				<div class="pull-right">
-                    <?php if($config['show_writer']) { ?>
-				    <span class="itemPoster">
-					    <?php _e('By'); ?>: <a title="<?php echo $this->escape($story['user']['identity']); ?>" href="<?php echo $this->escape($story['user']['url']); ?>"><?php echo $this->escape($story['user']['name']); ?></a>
-				    </span>
-				    <?php } ?>
 				    <?php if($config['show_date']) { ?>
 				    <span class="itemPostDate">
 					    <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>

@@ -45,17 +45,6 @@ return array(
             'action'        => 'list',
         ),
 
-        'writer' => array(
-            'label'         => _a('Writer list'),
-            'permission'    => array(
-                'resource'  => 'writer',
-            ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'writer',
-            'action'        => 'list',
-        ),
-
         'author' => array(
             'label'         => _a('Author list'),
             'permission'    => array(

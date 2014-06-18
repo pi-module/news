@@ -76,12 +76,6 @@ return array(
             'block'         => 1,
         ),
         array(
-            'title'         => _a('Writer'),
-            'controller'    => 'writer',
-            'permission'    => 'writer',
-            'block'         => 1,
-        ),
-        array(
             'title'         => _a('Archive'),
             'controller'    => 'archive',
             'permission'    => 'public',

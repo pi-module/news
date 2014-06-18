@@ -37,15 +37,6 @@ class StoryController extends ActionController
         }
         // Update Hits
         $this->getModel('story')->increment('hits', array('id' => $story['id']));
-        // Writer
-        if ($config['show_writer']) {
-            $story['user'] = Pi::user()->get($story['uid'], array('id', 'identity', 'name', 'email'));
-            $story['user']['url'] = $this->url('', array(
-                'module'      => $module,
-                'controller'  => 'writer',
-                'id'          => $story['user']['id'],
-            ));
-        }
         // Links
         if ($config['show_nav']) {
             $link = Pi::api('story', 'news')->Link($story['id'], $story['topic']);

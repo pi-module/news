@@ -27,24 +27,6 @@ class ToolsController extends ActionController
         $this->view()->setTemplate('tools_index');
     }
 
-    public function writerAction()
-    {
-        $select = $this->getModel('story')->select()->columns(array('uid'))->group('uid');
-        $rowset = $this->getModel('story')->selectWith($select)->toArray();
-        foreach ($rowset as $row) {
-            $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
-            $where = array('uid' => $row['uid']);
-            $select = $this->getModel('story')->select()->columns($count)->where($where);
-            $count = $this->getModel('story')->selectWith($select)->current()->count;
-            $writers[] = Pi::api('writer', 'news')->Reset($row['uid'], $count);
-        }
-        // Set view
-        $this->view()->setTemplate('tools_writer');
-        $this->view()->assign('writers', $writers);
-        $this->view()->assign('title', __('Reset write info'));
-        $this->view()->assign('message', __('All information saved'));
-    }
-
     public function rebuildAction()
     {
         // Set message

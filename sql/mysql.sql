@@ -79,15 +79,6 @@ CREATE TABLE `{link}` (
     KEY `link_order` (`time_publish`, `id`)
 );
 
-CREATE TABLE `{writer}` (
-    `id` int(10) unsigned NOT NULL auto_increment,
-    `uid` int(10) unsigned NOT NULL,
-    `count` int(10) unsigned NOT NULL,
-    PRIMARY KEY (`id`),
-    UNIQUE KEY `uid` (`uid`),
-    KEY `count` (`count`)
-);
-
 CREATE TABLE `{spotlight}` (
     `id` int(10) unsigned NOT NULL auto_increment,
     `story` int(10) unsigned NOT NULL,

@@ -291,17 +291,6 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
-        // show_writer
-        $this->add(array(
-            'name' => 'show_writer',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show writer'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
         // show_date
         $this->add(array(
             'name' => 'show_date',

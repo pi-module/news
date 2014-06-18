@@ -51,7 +51,6 @@ class Install extends BasicInstall
         // Set model
         $storyModel = Pi::model($module . '/story');
         $topicModel = Pi::model($module . '/topic');
-        $writerModel = Pi::model($module . '/writer');
         $linkModel = Pi::model($module . '/link');
 
         // Set topic setting
@@ -62,7 +61,6 @@ class Install extends BasicInstall
         $setting['show_topic'] = 1;
         $setting['show_topicinfo'] = 1;
         $setting['show_date'] = 1;
-        $setting['show_writer'] = 1;
         $setting['show_pdf'] = 1;
         $setting['show_print'] = 1;
         $setting['show_mail'] = 1;
@@ -118,13 +116,6 @@ class Install extends BasicInstall
             'uid'              => Pi::user()->getId(),
         );
         $storyModel->insert($storyData);
-
-        // Add writer
-        $writerData = array(
-            'uid'              => Pi::user()->getId(),
-            'count'            => '1',
-        );
-        $writerModel->insert($writerData);
 
         // Add link
         $linkData = array(
