@@ -46,16 +46,15 @@ class Block
         // Set info
         $whereStory = array('status' => 1, 'id' => $storyId);
         // Get topic list
-        $topicList = Pi::api('topic', 'news')->topicList();
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
         // Get list of story
         $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
         $rowset = Pi::model('story', $module)->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList);
-            if ($block['showauthor']) {
-                $story[$row->id]['author'] = Pi::api('author', 'news')->getStorySingle($row->id);
-            }
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
         }
         // Set block array
         $block['resources'] = $story;

@@ -217,6 +217,9 @@ class AuthorController extends ActionController
                         Pi::api('sitemap', 'sitemap')->update('news', 'author', $row->id, $loc);
                     }              
                 }
+                // Clear registry
+                Pi::registry('authorList', 'news')->clear();
+                // jump
                 $message = __('Author data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
             } else {
@@ -282,6 +285,9 @@ class AuthorController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
+                // Clear registry
+                Pi::registry('authorList', 'news')->clear();
+                // jump
                 $message = __('Role data saved successfully.');
                 $this->jump(array('action' => 'role'), $message);
             } else {

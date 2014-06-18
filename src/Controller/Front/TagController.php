@@ -10,7 +10,6 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-
 namespace Module\News\Controller\Front;
 
 use Pi;

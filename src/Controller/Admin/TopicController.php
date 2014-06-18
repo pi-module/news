@@ -265,6 +265,9 @@ class TopicController extends ActionController
                         Pi::api('sitemap', 'sitemap')->update('news', 'topic', $row->id, $loc);
                     }              
                 }
+                // Clear registry
+                Pi::registry('topicList', 'news')->clear();
+                // jump
                 $message = __('Topic data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
             } else {

@@ -17,9 +17,9 @@ use Pi;
 use Pi\Application\Registry\AbstractRegistry;
 
 /**
- * Topic page for route
+ * Topic list
  */
-class Topic extends AbstractRegistry
+class TopicList extends AbstractRegistry
 {
     /** @var string Module name */
     protected $module = 'news';
@@ -29,19 +29,20 @@ class Topic extends AbstractRegistry
      */
     protected function loadDynamic($options = array())
     {
-        $list = array();
+        $return = array();
         $where = array('status' => 1);
-        $columns = array('id', 'slug');
-        $select = Pi::model('topic', $this->module)->select()->where($where)->columns($columns);
+        $order = array('title DESC', 'id DESC');
+        $select = Pi::model('topic', $this->module)->select()->where($where)->order($order);
         $rowset = Pi::model('topic', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
-            $item = array(
-                'name'  => sprintf('topic-%s', $row->id),
-                'slug'  => $row->slug,
-            );
-            $list[$row->id] = $item;
+            $return[$row->id] = $row->toArray();
+            $return[$row->id]['url'] = Pi::service('url')->assemble('news', array(
+                'module'        => $this->module,
+                'controller'    => 'topic',
+                'slug'          => $return[$row->id]['slug'],
+            ));
         }
-        return $list;
+        return $return;
     }
 
     /**

@@ -249,8 +249,7 @@ class Story extends AbstractApi
         // Set topic information
         $story['topic'] = Json::decode($story['topic']);
         // Get topic list
-        $topicList = (empty($topicList)) ? 
-                      Pi::api('topic','news')->topicList($story['topic']) : $topicList;
+        $topicList = (empty($topicList)) ? Pi::registry('topicList', 'news')->read() : $topicList;
         foreach ($story['topic'] as $topic) {
             if (!empty($topicList[$topic]['title'])) {
                 $story['topics'][$topic]['title'] = $topicList[$topic]['title'];

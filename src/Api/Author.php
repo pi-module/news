@@ -146,7 +146,7 @@ class Author extends AbstractApi
         return $list;
     }
 
-    public function authorList()
+    /* public function authorList()
     {
         $author = array();
         // Get author list
@@ -172,7 +172,7 @@ class Author extends AbstractApi
             $author['role'][$row->id] = $row->toArray();
         }
         return $author;
-    }  
+    } */
 
     public function canonizeAuthor($author)
     {

@@ -80,9 +80,9 @@ class IndexController extends ActionController
         // Set info
         $where = array('status' => 1, 'id' => $storyId);
         // Get topic list
-        $topicList = Pi::api('topic', 'news')->topicList();
+        $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
-        $authorList = Pi::api('author', 'news')->authorList();
+        $authorList = Pi::registry('authorList', 'news')->read();
         // Get list of story
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
@@ -156,9 +156,9 @@ class IndexController extends ActionController
         // Set info
         $where = array('status' => 1, 'id' => $storyId);
         // Get topic list
-        $topicList = Pi::api('topic', 'news')->topicList();
+        $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
-        $authorList = Pi::api('author', 'news')->authorList();
+        $authorList = Pi::registry('authorList', 'news')->read();
         // Get list of story
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);

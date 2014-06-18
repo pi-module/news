@@ -214,7 +214,7 @@ class Topic extends AbstractApi
         }
     }
 
-    public function topicList($id = null)
+    /* public function topicList($id = null)
     {
         $return = array();
         if (is_null($id)) {
@@ -234,7 +234,7 @@ class Topic extends AbstractApi
             ));
         }
         return $return;
-    }  
+    } */
 
     public function topicCount()
     {

@@ -249,7 +249,7 @@ return array(
             'description'  => '',
             'edit'         => 'checkbox',
             'filter'       => 'number_int',
-            'value'        => 1
+            'value'        => 0
         ),
         'show_related' => array(
             'category'     => 'show',

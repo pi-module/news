@@ -17,9 +17,9 @@ use Pi;
 use Pi\Application\Registry\AbstractRegistry;
 
 /**
- * Topic page for route
+ * Author list
  */
-class Topic extends AbstractRegistry
+class AuthorList extends AbstractRegistry
 {
     /** @var string Module name */
     protected $module = 'news';
@@ -29,19 +29,30 @@ class Topic extends AbstractRegistry
      */
     protected function loadDynamic($options = array())
     {
-        $list = array();
+        $author = array();
+        // Get author list
         $where = array('status' => 1);
-        $columns = array('id', 'slug');
-        $select = Pi::model('topic', $this->module)->select()->where($where)->columns($columns);
-        $rowset = Pi::model('topic', $this->module)->selectWith($select);
+        $order = array('title DESC', 'id DESC');
+        $columns = array('id', 'title', 'slug');
+        $select = Pi::model('author', $this->module)->select()->where($where)->columns($columns)->order($order);
+        $rowset = Pi::model('author', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
-            $item = array(
-                'name'  => sprintf('topic-%s', $row->id),
-                'slug'  => $row->slug,
-            );
-            $list[$row->id] = $item;
+            $author['author'][$row->id] = $row->toArray();
+            $author['author'][$row->id]['url'] = Pi::service('url')->assemble('news', array(
+                'module'        => $this->getModule(),
+                'controller'    => 'author',
+                'slug'          => $author['author'][$row->id]['slug'],
+            ));
         }
-        return $list;
+        // Get role list
+        $where = array('status' => 1);
+        $order = array('title DESC', 'id DESC');
+        $select = Pi::model('author_role', $this->module)->select()->where($where)->order($order);
+        $rowset = Pi::model('author_role', $this->module)->selectWith($select);
+        foreach ($rowset as $row) {
+            $author['role'][$row->id] = $row->toArray();
+        }
+        return $author;
     }
 
     /**

@@ -25,6 +25,9 @@ class Spotlight extends AbstractApi
     {
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
+        if (!$config['show_spotlight']) {
+            return false;
+        }
 
         $where1 = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()); 
         $where2 = array('topic' => 0);
