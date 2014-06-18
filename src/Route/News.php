@@ -111,6 +111,14 @@ class News extends Standard
 
                 case 'json':
                     $matches['topic'] = $this->decode($parts[1]);
+                    if (isset($parts[2]) && $parts[2] == 'start' && isset($parts[4]) && $parts[4] == 'limit') {
+                        $matches['start'] = $parts[3];
+                        $matches['limit'] = $parts[5];
+                    } elseif (isset($parts[2]) &&$parts[2] == 'start') {
+                        $matches['start'] = $parts[3];
+                    } elseif (isset($parts[2]) &&$parts[2] == 'limit') {
+                        $matches['limit'] = $parts[3];
+                    }
                     break;
 
                 case 'media':
@@ -161,7 +169,13 @@ class News extends Standard
         if (!empty($mergedParams['id'])) {
             $url['id'] = $mergedParams['id'];
         }
-        if (!empty($mergedParams['page'])) {
+        if (!empty($mergedParams['start'])) {
+            $url['start'] = 'start' . $this->paramDelimiter . $mergedParams['start'];
+        }
+        if (!empty($mergedParams['limit'])) {
+            $url['limit'] = 'limit' . $this->paramDelimiter . $mergedParams['limit'];
+        }
+        /* if (!empty($mergedParams['page'])) {
             $url['page'] = 'page' . $this->paramDelimiter . $mergedParams['page'];
         }
         if (!empty($mergedParams['topic'])) {
@@ -169,7 +183,7 @@ class News extends Standard
         }
         if (!empty($mergedParams['status'])) {
             $url['status'] = 'status' . $this->paramDelimiter . $mergedParams['status'];
-        }
+        } */
 
         // Make url
         $url = implode($this->paramDelimiter, $url);

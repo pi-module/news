@@ -103,6 +103,7 @@ class TopicForm extends BaseForm
                     2 => __('Pending review'),
                     3 => __('Draft'),
                     4 => __('Private'),
+                    5 => __('Delete'),
                 ),
             ),
         ));

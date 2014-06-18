@@ -84,6 +84,14 @@ return array(
             'filter'       => 'number_int',
             'value'        => 1
         ),
+        'admin_json' => array(
+            'category'     => 'admin',
+            'title'        => _a('Active json output'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
         // Show
         'style' => array(
             'title'        => _a('Show Style'),

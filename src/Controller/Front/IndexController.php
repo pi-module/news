@@ -122,4 +122,50 @@ class IndexController extends ActionController
         ));
         return $paginator;
     }
+
+    public function jsonList($topic, $start, $limit)
+    {
+        // Set story info
+        if ($start) {
+            $where = array('status' => 1, 'topic' => $topic['ids'], 'story < ?' => $start);
+        } else {
+            $where = array('status' => 1, 'topic' => $topic['ids']);
+        }
+        // Set info
+        $story = array();
+        $module = $this->params('module');
+        $order = array('time_publish DESC', 'id DESC');
+        $limit = ($limit) ? $limit : $topic['show_perpage'];
+        $limit = intval($limit);
+        // Set day limit
+        if ($this->config('daylimit')) {
+            $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
+        }
+        // Set info
+        $columns = array('story' => new Expression('DISTINCT story'));
+        // Get info from link table
+        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->limit($limit);
+        $rowset = $this->getModel('link')->selectWith($select)->toArray();
+        // Make list
+        foreach ($rowset as $id) {
+            $storyId[] = $id['story'];
+        }
+        if (empty($storyId)) {
+            return $story;
+        }
+        // Set info
+        $where = array('status' => 1, 'id' => $storyId);
+        // Get topic list
+        $topicList = Pi::api('topic', 'news')->topicList();
+        // Get author list
+        $authorList = Pi::api('author', 'news')->authorList();
+        // Get list of story
+        $select = $this->getModel('story')->select()->where($where)->order($order);
+        $rowset = $this->getModel('story')->selectWith($select);
+        foreach ($rowset as $row) {
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+        }
+        // return story
+        return $story;
+    }
 }

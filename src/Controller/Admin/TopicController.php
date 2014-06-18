@@ -35,6 +35,8 @@ class TopicController extends ActionController
         // Get page
         $page = $this->params('page', 1);
         $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
         // Get info
         $columns = array('id', 'title', 'slug', 'style', 'status');
         $order = array('id DESC', 'time_create DESC');
@@ -97,6 +99,7 @@ class TopicController extends ActionController
         $this->view()->setTemplate('topic_index');
         $this->view()->assign('topics', $list);
         $this->view()->assign('paginator', $paginator);
+        $this->view()->assign('config', $config);
     }
 
     public function removeAction()
@@ -108,13 +111,13 @@ class TopicController extends ActionController
         // Check
         if ($topic && !empty($id)) {
             // remove file
-            /* $files = array(
+            $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/large/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/medium/' . $topic->path . '/' . $topic->image),
                 Pi::path('upload/' . $this->config('image_path') . '/thumb/' . $topic->path . '/' . $topic->image),
             );
-            Pi::service('file')->remove($files); */
+            Pi::service('file')->remove($files);
             // clear DB
             $topic->image = '';
             $topic->path = '';
@@ -273,18 +276,14 @@ class TopicController extends ActionController
                 $setting = Json::decode($topic['setting']);
                 $topic = array_merge($topic, (array) $setting);
                 $form->setData($topic);
-                $message = 'You can edit this Topic';
-            } else {
-                $message = 'You can add new Topic';
             }
         }
         $this->view()->setTemplate('topic_update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Topic'));
-        $this->view()->assign('message', $message);
     }
 
-    public function deleteAction()
+    /* public function deleteAction()
     {
         // Get information
         $this->view()->setTemplate(false);
@@ -345,7 +344,7 @@ class TopicController extends ActionController
             $this->jump(array('action' => 'index'), __('This topic and all of stores deleted'));
         }
         $this->jump(array('action' => 'index'), __('Please select topic'));
-    }
+    } */
     
     /**
      * Add page settings to system
