@@ -40,11 +40,11 @@ class Install extends BasicInstall
     public function postInstall(Event $e)
     {
         // Make path
-        $dir = Pi::path('upload/' . $e->getParam('module'));
+        /* $dir = Pi::path('upload/' . $e->getParam('module'));
         if (!is_dir($dir)) {
             mkdir($dir, 0777);
             chmod($dir, 0777);
-        }
+        } */
         
         $module = $e->getParam('module');
         

@@ -16,13 +16,13 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
- * Pi::api('image', 'news')->process($image, $path, $topic);
+ * Pi::api('image', 'news')->process($image, $path, $part);
  */
 
 class Image extends AbstractApi
 {  
 
-	public function process($image, $path, $topic = false)
+	public function process($image, $path, $part = 'story')
 	{
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
         
@@ -46,46 +46,45 @@ class Image extends AbstractApi
         	sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $image)
         );
 
-        // Set large size
-        if ($topic) {
-            $sizeLarge = array($config['image_topic_largew'], $config['image_topic_largeh']);
-        } else {
-            $sizeLarge = array($config['image_largew'], $config['image_largeh']);
+        switch ($part) {
+            case 'story':
+                $sizeLarge = array($config['image_largew'], $config['image_largeh']);
+                $sizeMedium = array($config['image_mediumw'], $config['image_mediumh']);
+                $sizeThumb = array($config['image_thumbw'], $config['image_thumbh']);
+                break;
+
+            case 'topic':
+                $sizeLarge = array($config['image_topic_largew'], $config['image_topic_largeh']);
+                $sizeMedium = array($config['image_topic_mediumw'], $config['image_topic_mediumh']);
+                $sizeThumb = array($config['image_topic_thumbw'], $config['image_topic_thumbh']);
+                break;
+
+            case 'author':
+                $sizeLarge = array($config['image_author_largew'], $config['image_author_largeh']);
+                $sizeMedium = array($config['image_author_mediumw'], $config['image_author_mediumh']);
+                $sizeThumb = array($config['image_author_thumbw'], $config['image_author_thumbh']);
+                break;
         }
 
         // Resize to large
         Pi::service('image')->resize(
-        	$original, 
-        	$sizeLarge, 
-        	$large
+            $original, 
+            $sizeLarge, 
+            $large
         );
-
-        // Set medium size
-        if ($topic) {
-            $sizeMedium = array($config['image_topic_mediumw'], $config['image_topic_mediumh']);
-        } else {
-            $sizeMedium = array($config['image_mediumw'], $config['image_mediumh']);
-        }
 
         // Resize to medium
         Pi::service('image')->resize(
-        	$original, 
-        	$sizeMedium, 
-        	$medium
+            $original, 
+            $sizeMedium, 
+            $medium
         );
-
-        // Set thumb size
-        if ($topic) {
-            $sizeThumb = array($config['image_topic_thumbw'], $config['image_topic_thumbh']);
-        } else {
-            $sizeThumb = array($config['image_thumbw'], $config['image_thumbh']);
-        }
 
         // Resize to thumb
         Pi::service('image')->resize(
-        	$original, 
-        	$sizeThumb, 
-        	$thumb
+            $original, 
+            $sizeThumb, 
+            $thumb
         );
 
         // Watermark

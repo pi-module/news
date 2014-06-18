@@ -29,6 +29,10 @@ return array(
             'name'   => 'image'
         ),
         array(
+            'title'  => _a('File'),
+            'name'   => 'file'
+        ),
+        array(
             'title'  => _a('Social'),
             'name'   => 'social'
         ),
@@ -47,10 +51,6 @@ return array(
         array(
             'title'  => _a('Texts'),
             'name'   => 'text'
-        ),
-        array(
-            'title'  => _a('File'),
-            'name'   => 'file'
         ),
     ),
     'item' => array(
@@ -323,7 +323,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 800
+            'value'        => 600
         ),
         'image_largew' => array(
             'category'     => 'image',
@@ -347,7 +347,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 300
+            'value'        => 400
         ),
         'image_thumbh' => array(
             'category'     => 'image',
@@ -363,7 +363,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 150
+            'value'        => 200
         ),
         'image_topic_largeh' => array(
             'category'     => 'image',
@@ -408,6 +408,54 @@ return array(
         'image_topic_thumbw' => array(
             'category'     => 'image',
             'title'        => _a('Thumb Image width for topic'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 140
+        ),
+        'image_author_largeh' => array(
+            'category'     => 'image',
+            'title'        => _a('Large Image height for author'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 800
+        ),
+        'image_author_largew' => array(
+            'category'     => 'image',
+            'title'        => _a('Large Image width for author'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 560
+        ),
+        'image_author_mediumh' => array(
+            'category'     => 'image',
+            'title'        => _a('Medium Image height for author'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 300
+        ),
+        'image_author_mediumw' => array(
+            'category'     => 'image',
+            'title'        => _a('Medium Image width for author'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 210
+        ),
+        'image_author_thumbh' => array(
+            'category'     => 'image',
+            'title'        => _a('Thumb Image height for author'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 200
+        ),
+        'image_author_thumbw' => array(
+            'category'     => 'image',
+            'title'        => _a('Thumb Image width for author'),
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
@@ -614,7 +662,7 @@ return array(
             'description'  => _a('Title for main page and all non-title pages'),
             'edit'         => 'text',
             'filter'       => 'string',
-            'value'        => 'Latest News from this website'
+            'value'        => _a('Latest News from this website'),
         ),
         'text_description' => array(
             'category'     => 'text',
@@ -622,7 +670,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'string',
-            'value'        => 'Latest News from this website'
+            'value'        => _a('Latest News from this website'),
         ),
         'text_keywords' => array(
             'category'     => 'text',
@@ -630,7 +678,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'string',
-            'value'        => 'news,topic,story,website'
+            'value'        => _a('news,topic,story,website'),
         ),
         // File
         'file_size' => array(

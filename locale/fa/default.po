@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-18 14:22+0330\n"
+"POT-Creation-Date: 2014-06-18 16:24+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -276,7 +276,6 @@ msgstr "پدیدآورنده ها"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:26
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:4
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:4
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:4
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:14
@@ -417,7 +416,6 @@ msgstr "جدول"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:121
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:65
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:7
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:6
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:6
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
@@ -524,41 +522,41 @@ msgstr "نمایش فهرست فایل های پیوست شده در مطالب 
 msgid "Confirm to remove all topic pages"
 msgstr "تایید برای حذف تمام صفحات موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:73
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:94
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:95
 msgid "Default"
 msgstr "پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
 msgid "default"
 msgstr "پیش-فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:76
 msgid "This is a default topic for news module"
 msgstr "موضوع پیش فرض برای ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:79
 msgid "default topic"
 msgstr "موضوع پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:78
 msgid "default,topic"
 msgstr "موضوع,پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:103
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
 msgid "Hello World"
 msgstr "سلام جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
 msgid "This is subtitle for this story"
 msgstr "این یک زیر عنوان است برای این مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
 msgid "hello-world"
 msgstr "سلام-جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:108
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
@@ -566,7 +564,7 @@ msgstr ""
 "این متن کوتاه مطلب شما است و شما می توانید به سادگی آن را ویرایش کنید. برای "
 "مطالعه اطلاعات بیشتر برای روی عنوان یا دکمه ادامه کلیک کنید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:108
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:109
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
@@ -574,16 +572,16 @@ msgstr ""
 "این متن ادامه مطلب است، شما این بخش را هم به سادگی میتوانید ویرایش کنید. و "
 "اگر بخواهید میتوانید موضوعات و مطالب جدیدی را به سیستم اضافه کنید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:111
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:112
 msgid "hello world"
 msgstr "سلام جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:111
 msgid "hello,world"
 msgstr "سلام,جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:133
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:134
 msgid "Default information added."
 msgstr "اطلاعات پیش فرض اضافه شد"
 
@@ -617,50 +615,50 @@ msgstr "هنوز تنظیم نشده"
 msgid "Problem in upload image. please try again"
 msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:220
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:223
 msgid "Author data saved successfully."
 msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:223
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:288
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:226
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:294
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:440
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:271
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:274
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
 msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:233
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:236
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:6
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:6
 msgid "Add Author"
 msgstr "پدیدآورنده جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:285
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:291
 msgid "Role data saved successfully."
 msgstr "اطلاعات نقش با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:299
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:305
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:8
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:8
 msgid "Add Role"
 msgstr "نقش جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:323
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:329
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:249
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:126
 #, php-format
 msgid "Image of %s removed"
 msgstr "تصویر مربوطز به %s حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:326
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:332
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:252
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:129
 msgid "Image not remove"
 msgstr "تصویر حذف نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:330
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:336
 msgid "Please select author"
 msgstr "لطفا یک پدیدآورنده انتخاب کنید"
 
@@ -907,11 +905,11 @@ msgstr "مطلب انتخابی حذف شد"
 msgid "Page : %s"
 msgstr "صفحه : %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:268
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:271
 msgid "Topic data saved successfully."
 msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:282
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:285
 msgid "Add a Topic"
 msgstr "موضوع جدید"
 
@@ -967,11 +965,11 @@ msgstr ""
 "فهرست تمام مطالب در <strong>%s / %s </strong>، شما می توانید تمام مطالب "
 "مربوط به ماه و سال قبل و بعد را مشاهده کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:32
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
 msgid "The story not found."
 msgstr "مطلب پیدا نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:40
 msgid "The Story not publish."
 msgstr "این مطلب هنوز منتشر نشده است"
 
@@ -997,31 +995,22 @@ msgstr "فهرست همه موضوعات"
 msgid "List,topics"
 msgstr "فهرست,موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:34
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:33
 msgid "The tag not set."
 msgstr "برچسب تنظیم نشده است"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:45
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:44
 msgid "The tag not found."
 msgstr "برچسب یافت نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:62
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:55
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:61
 #, php-format
 msgid "All stores from %s"
 msgstr "همه مطالب از %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:98
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:97
 msgid "List of all used tags"
 msgstr "فهرست همه برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:33
-msgid "The user not found."
-msgstr "نویسنده پیدا نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/WriterController.php:95
-msgid "List of all writers"
-msgstr "فهرست همه نویسندگان"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:12
 msgid "List of extra fields"
@@ -1118,9 +1107,9 @@ msgstr "نظرات"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_list.phtml:18
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:36
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:47
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:54
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:54
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:54
 msgid "Topics"
 msgstr "موضوع"
 
@@ -1141,7 +1130,6 @@ msgid "Remove image author in process"
 msgstr "حذف تصویر پدیدآورنده در حال انجام است"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:5
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:5
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:5
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
@@ -1152,7 +1140,6 @@ msgid "Prune"
 msgstr "پاکسازی"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:8
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:7
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:7
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:17
@@ -1163,7 +1150,6 @@ msgid "Page"
 msgstr "صفحه"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:9
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:8
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:8
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:18
@@ -1207,15 +1193,6 @@ msgstr "بستن"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:125
 msgid "In process"
 msgstr "در حال پردازش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:15
-msgid "Writer"
-msgstr "نویسنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_writer.phtml:16
-msgid "Count"
-msgstr "تعداد"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:15
 msgid "Add new story"
@@ -1363,16 +1340,6 @@ msgstr "عنوان فایل"
 msgid "Story title"
 msgstr "عنوان مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:15
-msgid "Writer email"
-msgstr "ایمیل نویسنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:16
-msgid "Story count"
-msgstr "تعداد مطالب ارسالی"
-
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:26
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:37
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:37
@@ -1413,19 +1380,11 @@ msgid "Attached files"
 msgstr "فایل های پیوست شده"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:122
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:120
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:115
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:115
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:127
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:122
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:122
 msgid "Related storys"
 msgstr "مطالب مشابه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:6
-msgid "List of Writers"
-msgstr "فهرست نویسندگان"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/writer_list.phtml:17
-msgid "All stores"
-msgstr "همه مطالب"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/topic_list.phtml:8
 msgid "List of Topics"
@@ -1442,6 +1401,30 @@ msgstr "خوراک"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/tag_list.phtml:6
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
+
+#~ msgid "The user not found."
+#~ msgstr "نویسنده پیدا نشد"
+
+#~ msgid "List of all writers"
+#~ msgstr "فهرست همه نویسندگان"
+
+#~ msgid "Writer"
+#~ msgstr "نویسنده"
+
+#~ msgid "Count"
+#~ msgstr "تعداد"
+
+#~ msgid "Writer email"
+#~ msgstr "ایمیل نویسنده"
+
+#~ msgid "Story count"
+#~ msgstr "تعداد مطالب ارسالی"
+
+#~ msgid "List of Writers"
+#~ msgstr "فهرست نویسندگان"
+
+#~ msgid "All stores"
+#~ msgstr "همه مطالب"
 
 #~ msgid "Show writer"
 #~ msgstr "نمایش نویسنده"

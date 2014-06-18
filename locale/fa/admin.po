@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-18 14:21+0330\n"
+"POT-Creation-Date: 2014-06-18 16:24+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -43,7 +43,7 @@ msgstr "فیلد اضافی"
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:90
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:32
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:253
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:36
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:40
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:107
 msgid "Spotlight"
 msgstr "اسپات لایت"
@@ -248,24 +248,24 @@ msgid "Image"
 msgstr "تصویر"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:32
+msgid "File"
+msgstr "فایل"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:36
 msgid "Social"
 msgstr "شبکه های اجتماعی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:40
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:44
 msgid "Vote"
 msgstr "رای"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:44
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:48
 msgid "Favourite"
 msgstr "علاقه مندی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:48
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:52
 msgid "Texts"
 msgstr "متن ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:52
-msgid "File"
-msgstr "فایل"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:59
 msgid "Advertisement"
@@ -462,90 +462,123 @@ msgid "Thumb Image width for topic"
 msgstr "عرض تصویر بندانگشتی برای موضوع"
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:418
+msgid "Large Image height for author"
+msgstr "ارتفاع تصویر بزرگ برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:426
+msgid "Large Image width for author"
+msgstr "عرض تصویر بزرگ برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:434
+msgid "Medium Image height for author"
+msgstr "ارتفاع تصویر متوسط برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:442
+msgid "Medium Image width for author"
+msgstr "عرض تصویر متوسط برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:450
+msgid "Thumb Image height for author"
+msgstr "ارتفاع تصویر بندانگشتی برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:458
+msgid "Thumb Image width for author"
+msgstr "عرض تصویر بندانگشتی برای پدیدآورنده"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:466
 msgid "Use lightbox"
 msgstr "استفاده از لایت باکس"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:426
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:474
 msgid "Add Watermark"
 msgstr "اضافه کردن واترمارک به تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:434
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:482
 msgid "Watermark Image"
 msgstr "تصویر واترمارک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:441
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:489
 msgid "Watermark Positio"
 msgstr "موقعیت واترمارک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:447
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:495
 msgid "Top Left"
 msgstr "بالا چپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:448
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:496
 msgid "Top Right"
 msgstr "بالا راست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:449
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:497
 msgid "Bottom Left"
 msgstr "پایین چپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:450
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:498
 msgid "Bottom Right"
 msgstr "پایین راست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:553
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:601
 msgid "Show Google Plus"
 msgstr "نمایش گوگل پلاس"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:561
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:609
 msgid "Show facebook"
 msgstr "نمایش فیسبوک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:569
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:617
 msgid "Show Twitter"
 msgstr "نمایش تویتر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:578
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:626
 msgid "Number of stories"
 msgstr "تعداد مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:586
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:634
 msgid "Show Image for sub spotlights"
 msgstr "نمایش تصویر برای زیر اسپات لایت ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:595
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:643
 msgid "Use vote system"
 msgstr "استفاده از سیستم رای"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:604
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:652
 msgid "Use favourite system"
 msgstr "استفاده از سیستم مورد علاقه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:613
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:661
 msgid "Module main title"
 msgstr "عنوان اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:614
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:662
 msgid "Title for main page and all non-title pages"
 msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:621
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:665
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:673
+msgid "Latest News from this website"
+msgstr "آخرین مطالب این وب سایت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:669
 msgid "Module main description"
 msgstr "توضیحات اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:629
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:677
 msgid "Module main keywords"
 msgstr "کلمات کلیدی اصلی ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:638
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:681
+msgid "news,topic,story,website"
+msgstr "خبر,موضوع,مطلب,وب سایت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:686
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:646
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:694
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:654
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:702
 msgid "File Extension"
 msgstr "سوند های مجار برای فایل"
 
