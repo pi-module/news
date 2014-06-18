@@ -24,9 +24,13 @@ class StoryController extends ActionController
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+        // Get topic list
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
-        $story = Pi::api('story', 'news')->canonizeStory($story);
+        $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check status
         if (!$story || $story['status'] != 1) {
             $this->jump(array('', 'module' => $module, 'controller' => 'index'), __('The story not found.'));
@@ -63,10 +67,10 @@ class StoryController extends ActionController
             $this->view()->assign('tag', $tag);  
         }
         // Author
-        if ($config['show_author']) {
+        /* if ($config['show_author']) {
             $author = Pi::api('author', 'news')->getStorySingle($story['id']);
             $this->view()->assign('authors', $author);
-        }
+        } */
         // Set vote
         if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
             $vote['point'] = $story['point'];

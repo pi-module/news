@@ -43,12 +43,12 @@ if($config['image_lightbox']){
 				    </span>
 				    <?php } ?>
 				</div>
-				<?php if($config['show_author']) { ?>
+				<?php if(!empty($story['authors']) && $config['show_author']) { ?>
 				<div class="pull-left">
-				<?php foreach($authors as $author) { ?>
-					<span><?php echo $author['role']; ?> : <a title="<?php echo $author['name']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['name']; ?></a></span> 
-				<?php } ?>
-                </div>
+				<?php foreach($story['authors'] as $author) { ?>
+					<span><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>  
+				<?php } ?> 
+				</div> 
 				<?php } ?>
 				<?php if($config['show_topic']) { ?>
 				<div class="pull-left"><?php _e('Topics'); ?> : 

@@ -67,6 +67,7 @@ class Install extends BasicInstall
         $setting['show_hits'] = 1;
         $setting['show_tag'] = 1;
         $setting['show_subid'] = 1;
+        $setting['show_attach'] = 0;
 
         // Add topic
         $topicData = array(
