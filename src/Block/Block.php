@@ -30,12 +30,22 @@ class Block
         // Set model and get information
         $whereLink['status'] = 1;
         $columns = array('story' => new Expression('DISTINCT story'));
-        if ($block['order'] == 'random') {
-            $order = array(new \Zend\Db\Sql\Predicate\Expression('RAND()'));
-        } else {
-            $order = array('time_publish DESC', 'id DESC');
-        }
         $limit = intval($block['number']);
+        // Set order
+        switch ($block['order']) {
+            case 'random':
+                $order = array(new Expression('RAND()'));
+                break;
+
+            case 'publishASC':
+                $order = array('time_publish ASC', 'id ASC');;
+                break;
+
+            case 'publishDESC':
+            default:
+                $order = array('time_publish DESC', 'id DESC');;
+                break;
+        } 
         // Get info from link table
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
@@ -103,12 +113,22 @@ class Block
             // Set link model and get information
             $whereLink = array('status' => 1, 'topic' => $topic['id']);
             $columns = array('story' => new Expression('DISTINCT story'));
-            if ($block['order'] == 'random') {
-                $order = array(new \Zend\Db\Sql\Predicate\Expression('RAND()'));
-            } else {
-                $order = array('time_publish DESC', 'id DESC');
-            }
             $limit = intval($block['number']);
+            // Set order
+            switch ($block['order']) {
+                case 'random':
+                    $order = array(new Expression('RAND()'));
+                    break;
+
+                case 'publishASC':
+                    $order = array('time_publish ASC', 'id ASC');;
+                    break;
+
+                case 'publishDESC':
+                default:
+                    $order = array('time_publish DESC', 'id DESC');;
+                    break;
+            } 
             // Get info from link table
             $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
             $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
@@ -149,7 +169,26 @@ class Block
         if (!in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
         }
-        $order = array('time_create DESC', 'id DESC');
+        // Set order
+        switch ($block['order']) {
+            case 'titleASC':
+                $order = array('title ASC', 'id ASC');;
+                break;
+
+            case 'titleDESC':
+                $order = array('title DESC', 'id DESC');;
+                break;
+
+            case 'createASC':
+                $order = array('time_create ASC', 'id ASC');;
+                break;
+
+            case 'createDESC':
+            default:
+                $order = array('time_create DESC', 'id DESC');;
+                break;
+        } 
+        // Get info from topic table
         $select = Pi::model('topic', $module)->select()->columns($columns)->where($where)->order($order);
         $rowset = Pi::model('topic', $module)->selectWith($select);
         // Process information
