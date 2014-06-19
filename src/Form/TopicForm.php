@@ -274,15 +274,15 @@ class TopicForm extends BaseForm
             'name' => 'show_order_link',
             'type' => 'select',
             'options' => array(
-                'label' => __('Order'),
+                'label' => __('Story order'),
                 'value_options' => array(
-                    'publishDESC'  => _a('Publish time DESC'),
-                    'publishASC'   => _a('Publish time ASC'),
-                    'random'       => _a('Random'),
+                    'publishDESC'  => __('Publish time DESC'),
+                    'publishASC'   => __('Publish time ASC'),
+                    'random'       => __('Random'),
                 ),
             ),
             'attributes' => array(
-                'description' => __('Order story list options'),
+                'description' => __('Story list order options'),
             )
         ));
         // show_topic

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-18 16:23+0330\n"
+"POT-Creation-Date: 2014-06-19 15:28+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -123,7 +123,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:179
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:387
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:403
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:43
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
 msgid "Submit"
@@ -475,42 +475,62 @@ msgid "Set as system page"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:277
+msgid "Story order"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:279
+msgid "Publish time DESC"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:280
+msgid "Publish time ASC"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:281
+msgid "Random"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:285
+msgid "Story list order options"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:293
 msgid "Show Topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:288
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:304
 msgid "Show Topic Information"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:299
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:315
 msgid "Show Date"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:310
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:326
 msgid "Show DPF"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:321
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:337
 msgid "Show Print"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:332
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:348
 msgid "Show Mail"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:343
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:359
 msgid "Show Hits"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:354
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:370
 msgid "Show Tags"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:365
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:381
 msgid "Show Subtopic stories on main topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:376
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:392
 msgid "Show attached files to stories"
 msgstr ""
 
@@ -518,62 +538,62 @@ msgstr ""
 msgid "Confirm to remove all topic pages"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:95
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:96
 msgid "Default"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:76
 msgid "default"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:76
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:77
 msgid "This is a default topic for news module"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:80
 msgid "default topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:78
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:79
 msgid "default,topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
 msgid "Hello World"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
 msgid "This is subtitle for this story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
 msgid "hello-world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:108
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:109
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:110
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:110
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:112
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:111
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:113
 msgid "hello world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:111
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:112
 msgid "hello,world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:134
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:135
 msgid "Default information added."
 msgstr ""
 
@@ -616,7 +636,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:440
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:274
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:275
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
 msgstr ""
@@ -868,17 +888,17 @@ msgstr ""
 msgid "This story deleted"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:247
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:249
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:248
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:250
 #, php-format
 msgid "Page : %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:271
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:272
 msgid "Topic data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:285
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:286
 msgid "Add a Topic"
 msgstr ""
 

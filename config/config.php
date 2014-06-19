@@ -140,8 +140,8 @@ return array(
             'category'     => 'show',
         ),
         'show_order_link' => array(
-            'title'        => _a('Order'),
-            'description'  => _a('Order story list options'),
+            'title'        => _a('Story order'),
+            'description'  => _a('Story list order options'),
             'edit'         => array(
                 'type'         => 'select',
                 'options'      => array(
