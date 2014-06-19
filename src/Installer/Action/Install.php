@@ -56,6 +56,7 @@ class Install extends BasicInstall
         // Set topic setting
         $setting = array();
         $setting['show_config'] = 'topic';
+        $setting['show_order_link'] = 'publishDESC';
         $setting['show_perpage'] = 5;
         $setting['show_columns'] = 1;
         $setting['show_topic'] = 1;

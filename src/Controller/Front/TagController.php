@@ -46,7 +46,7 @@ class TagController extends IndexController
         // Set story info
         $where = array('status' => 1, 'story' => $tagId, /*'time_publish <= ?' => time(),*/);
         // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage']);
+        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
             'controller'  => 'tag',

@@ -115,6 +115,11 @@ class TopicFilter extends InputFilter
             'name' => 'set_page',
             'required' => false,
         ));
+        // show_order_link
+        $this->add(array(
+            'name' => 'show_order_link',
+            'required' => false,
+        ));
         // show_topic
         $this->add(array(
             'name' => 'show_topic',

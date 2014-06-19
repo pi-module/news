@@ -30,7 +30,7 @@ class IndexController extends ActionController
         // Set story info
         $where = array('status' => 1, /*'time_publish <= ?' => time(),*/);
         // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage']);
+        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
             'controller'  => 'index',
@@ -52,14 +52,14 @@ class IndexController extends ActionController
         $this->view()->assign('spotlight', $spotlight);
     }
     
-    public function storyList($where, $limit)
+    public function storyList($where, $limit, $orderLink = 'publishDESC')
     {
         // Set info
         $story = array();
         $page = $this->params('page', 1);
         $module = $this->params('module');
         $offset = (int)($page - 1) * $limit;
-        $order = array('time_publish DESC', 'id DESC');
+        $order = $this->setLinkOrder($orderLink);
         $limit = intval($limit);
         // Set day limit
         if ($this->config('daylimit')) {
@@ -134,7 +134,7 @@ class IndexController extends ActionController
         // Set info
         $story = array();
         $module = $this->params('module');
-        $order = array('time_publish DESC', 'id DESC');
+        $order = $this->setLinkOrder($topic['show_order_link']);
         $limit = ($limit) ? $limit : $topic['show_perpage'];
         $limit = intval($limit);
         // Set day limit
@@ -167,5 +167,25 @@ class IndexController extends ActionController
         }
         // return story
         return $story;
+    }
+
+    public function setLinkOrder($sort = 'publishDESC')
+    {
+        // Set order
+        switch ($sort) {
+            case 'random':
+                $order = array(new Expression('RAND()'));
+                break;
+
+            case 'publishASC':
+                $order = array('time_publish ASC', 'id ASC');;
+                break;
+
+            case 'publishDESC':
+            default:
+                $order = array('time_publish DESC', 'id DESC');;
+                break;
+        } 
+        return $order;
     }
 }

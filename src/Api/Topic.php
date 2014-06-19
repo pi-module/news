@@ -94,6 +94,7 @@ class Topic extends AbstractApi
             $topic['style'] = $config['style'];
             $topic['show_perpage'] = $config['show_perpage'];
             $topic['show_columns'] = $config['show_columns'];
+            $topic['show_order_link'] = $config['show_order_link'];
             $topic['show_topic'] = $config['show_topic'];
             $topic['show_topicinfo'] = $config['show_topicinfo'];
             $topic['show_date'] = $config['show_date'];
@@ -102,6 +103,25 @@ class Topic extends AbstractApi
             $topic['show_mail'] = $config['show_mail'];
             $topic['show_hits'] = $config['show_hits'];
             $topic['show_tag'] = $config['show_tag'];
+        } else {
+            if (!isset($topic['show_order_link'])) {
+                $topic['show_order_link'] = $config['show_order_link'];
+            }
+            if (!isset($topic['show_topic'])) {
+                $topic['show_topic'] = $config['show_topic'];
+            }
+            if (!isset($topic['show_topicinfo'])) {
+                $topic['show_topicinfo'] = $config['show_topicinfo'];
+            }
+            if (!isset($topic['show_date'])) {
+                $topic['show_date'] = $config['show_date'];
+            }
+            if (!isset($topic['show_hits'])) {
+                $topic['show_hits'] = $config['show_hits'];
+            }
+            if (!isset($topic['show_tag'])) {
+                $topic['show_tag'] = $config['show_tag'];
+            }
         }
         // Set perpage
         if (empty($topic['show_perpage'])) {

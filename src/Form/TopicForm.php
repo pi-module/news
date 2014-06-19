@@ -269,6 +269,22 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // show_order_link
+        $this->add(array(
+            'name' => 'show_order_link',
+            'type' => 'select',
+            'options' => array(
+                'label' => __('Order'),
+                'value_options' => array(
+                    'publishDESC'  => _a('Publish time DESC'),
+                    'publishASC'   => _a('Publish time ASC'),
+                    'random'       => _a('Random'),
+                ),
+            ),
+            'attributes' => array(
+                'description' => __('Order story list options'),
+            )
+        ));
         // show_topic
         $this->add(array(
             'name' => 'show_topic',

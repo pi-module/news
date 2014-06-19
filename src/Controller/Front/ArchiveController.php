@@ -51,7 +51,7 @@ class ArchiveController extends IndexController
         // Set story info
         $where = array('status' => 1, 'time_publish > ?' => $start, 'time_publish <= ?' => $end);
         // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage']);
+        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
             'controller'  => 'archive',

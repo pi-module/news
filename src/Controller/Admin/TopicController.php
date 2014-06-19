@@ -196,6 +196,7 @@ class TopicController extends ActionController
                 $setting['show_config'] = $values['show_config'];
                 $setting['show_perpage'] = ($values['show_perpage']) ? $values['show_perpage'] : $this->config('show_perpage');
                 $setting['show_columns'] = $values['show_columns'];
+                $setting['show_order_link'] = $values['show_order_link'];
                 $setting['show_topic'] = $values['show_topic'];
                 $setting['show_topicinfo'] = $values['show_topicinfo'];
                 $setting['show_date'] = $values['show_date'];

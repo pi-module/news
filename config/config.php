@@ -139,6 +139,22 @@ return array(
             'value'        => 1,
             'category'     => 'show',
         ),
+        'show_order_link' => array(
+            'title'        => _a('Order'),
+            'description'  => _a('Order story list options'),
+            'edit'         => array(
+                'type'         => 'select',
+                'options'      => array(
+                    'options'  => array(
+                        'publishDESC'          => _a('Publish time DESC'),
+                        'publishASC'           => _a('Publish time ASC'),
+                    ),
+                ),
+            ),
+            'filter'       => 'string',
+            'value'        => 'publishDESC',
+            'category'     => 'show',
+        ),
         'show_subid' => array(
             'category'     => 'show',
             'title'        => _a('Show Subtopic stories on main topic'),

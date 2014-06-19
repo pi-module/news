@@ -52,7 +52,7 @@ class TopicController extends IndexController
             // Set story info
             $where = array('status' => 1, 'topic' => $topic['ids'], /*'time_publish <= ?' => time(),*/);
             // Get story List
-            $storyList = $this->storyList($where, $topic['show_perpage']);
+            $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
             // Set paginator info
             $template = array(
                 'controller'  => 'topic',
