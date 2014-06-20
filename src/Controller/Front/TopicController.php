@@ -14,6 +14,7 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
+use Zend\Json\Json;
 
 class TopicController extends IndexController
 {
@@ -44,6 +45,14 @@ class TopicController extends IndexController
             $select = $this->getModel('topic')->select()->where($where)->order($order);
             $rowset = $this->getModel('topic')->selectWith($select);
             foreach ($rowset as $row) {
+                // Reset topic setting
+                if (!empty($row) && is_object($row)) {
+                    $setting = Json::decode($row->setting, true);
+                    $setting['show_attach'] = 0;
+                    $setting['show_subid'] = 0;
+                    $row->setting = Json::encode($setting);
+                }
+                // Canonize topic
                 $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
             }
             // Set view
