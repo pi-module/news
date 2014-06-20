@@ -117,7 +117,7 @@ if($config['image_lightbox']){
         </ul>
     </div>
     <?php } ?>
-    <?php if($relateds) { ?>
+    <?php if(isset($relateds) && !empty($relateds)) { ?>
 	<div class="itemList itemRelated">
 		<h3><?php _e('Related storys'); ?></h3>
 		<ul class="list-unstyled">
