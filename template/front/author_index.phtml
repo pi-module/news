@@ -1,19 +1,43 @@
-<?php $this->css($this->assetModule('css/front.css')); ?>
+<?php 
+$this->css($this->assetModule('css/front.css'));
+if($config['image_lightbox']){ 
+	$this->jQuery();
+	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
+	$this->footScript()->appendScript("$('.gallery').each(function() {
+    	$(this).magnificPopup({
+        	delegate: 'a',
+        	type: 'image',
+        	gallery: {
+          	enabled:true
+        	}
+    	});
+	});");
+	$this->css($this->assetModule('css/magnific-popup.css'));
+}
+?>
 <div class="news">
 	<?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="news-author">
-        <div class="media">
-            <img class="pull-left" class="media-object" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>">
-            <div class="media-body">
-            	<h4 class="media-heading"><?php echo $this->escape($author['title']); ?></h4>
-            	<?php echo $author['description']; ?>
-            </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php echo $this->escape($author['title']); ?></h3>
         </div>
-        <div class="clearfix"></div>
+        <div class="panel-body">
+			<div class="pull-left gallery itemImageList">
+		   		<?php if($config['image_lightbox']){ ?>
+				<a href="<?php echo $this->escape($author['mediumUrl']); ?>" title="<?php echo $this->escape($author['title']); ?>">
+					<img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+				</a>
+				<?php } else { ?>
+				<img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+				<?php } ?>
+			</div>
+			<?php echo $author['description']; ?>
+			<div class="clearfix"></div>
+        </div>
     </div>
-	<div class="index-list">
+	<div class="index-list-author">
 		<div class="news-role">
 			<?php foreach($roles as $role) { ?>
 			<?php if (!empty($stores[$role['id']])) { ?>

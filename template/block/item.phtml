@@ -14,7 +14,9 @@
 				<?php if($block['showhits']){ ?><span class="itemStats"><?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?></span><?php } ?>
 			</div>
 			<?php } ?>
-        	<?php if($block['showdesc']){ echo $story['short']; } ?>
+        	<?php if($block['showdesc']){  ?>
+            <div class="storyText"><?php echo $story['short']; ?></div>
+            <?php } ?>
         	<?php if($block['showmore']){ ?>
             <p><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a></p>
         	<?php } ?>
