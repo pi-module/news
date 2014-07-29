@@ -1,0 +1,1626 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2014-07-29 19:28+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc Desrousseaux\n"
+"Language-Team: Marc-Pi\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\news\n"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:86
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:200
+msgid "You must select story"
+msgstr "Vous devez sélectionner une actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:91
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:208
+msgid "Your selected story not exist"
+msgstr "L'actualité sélectionnée n'existe pas"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:122
+#, php-format
+msgid "Attach files to %s"
+msgstr "Attacher des fichiers à %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:131
+msgid "You must select file"
+msgstr "Vous devez sélectionner un fichier"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:160
+msgid "All changes in file saved successfully."
+msgstr ""
+"Toutes les modifications apportées au fichier ont été enregistrées avec "
+"succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:163
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:226
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:294
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:116
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:148
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:440
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:275
+msgid "Invalid data, please check and re-submit."
+msgstr "Données non valides, merci de vérifier et de re-soumettre."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:172
+msgid "Edit file"
+msgstr "Editer le fichier"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:272
+msgid "Your attached file remove successfully"
+msgstr "Le fichier attaché a été supprimé avec succès"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AttachController.php:277
+msgid "Please select file"
+msgstr "Merci de sélectionner le fichier"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:103
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:152
+msgid "View filtered stores"
+msgstr "Voir les actualités filtrées"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:109
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:158
+msgid "Not valid"
+msgstr "Non valide"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:115
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:164
+msgid "Not set"
+msgstr "Non défini"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:170
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:83
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:346
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:189
+msgid "Problem in upload image. please try again"
+msgstr ""
+"Une erreur est survenue lors de l'upload de l'image, merci d'essayer de "
+"nouveau"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:223
+msgid "Author data saved successfully."
+msgstr "Les données Auteur ont été enregistrées avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:236
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:6
+msgid "Add Author"
+msgstr "Ajouter un Auteur"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:291
+msgid "Role data saved successfully."
+msgstr "Les données de Rôles-Permissions ont été enregistrées avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:305
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:8
+msgid "Add Role"
+msgstr "Ajouter un Rôle"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:329
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:249
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:126
+#, php-format
+msgid "Image of %s removed"
+msgstr "L'image de %s a été supprimée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:332
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:252
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:129
+msgid "Image not remove"
+msgstr "L'image n'a pas été supprimée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/AuthorController.php:336
+msgid "Please select author"
+msgstr "Merci de sélectionner l'auteur"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:109
+msgid "Extra field data saved successfully."
+msgstr "La valeur du champ supplémentaire a été enregistrée avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:113
+msgid "Extra field data not saved."
+msgstr "La valeur du champ supplémentaire n'a pas été enregistrée."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:129
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:10
+msgid "Add Extra"
+msgstr "Ajouter un Champ"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:162
+msgid "Selected field delete"
+msgstr "Sélectionner un champ à supprimer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ExtraController.php:164
+msgid "Please select field"
+msgstr "Merci de sélectionner le champ"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:55
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:24
+msgid "Home Page"
+msgstr "Accueil"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:60
+#: MARC\Documents\GitHub\news/src/Form/Element/Topic.php:70
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:25
+msgid "All Topics"
+msgstr "Tous les sujets"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:142
+msgid "Spotlight data saved successfully."
+msgstr "Les données de Spotlight ont été enregistrées avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:145
+msgid "Spotlight data not saved."
+msgstr "Les données de Spotlight n'ont pas été enregistrées."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:163
+msgid "Add a Spotlight"
+msgstr "Ajouter un Spotlight"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:176
+msgid "Selected spotlight delete"
+msgstr "Le Spotlight sélectionné a été supprimé"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/SpotlightController.php:178
+msgid "Please select spotlight"
+msgstr "Merci de sélectionner le Spotlight"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:88
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:156
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:53
+msgid "Download"
+msgstr "Télécharger"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:92
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:61
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:155
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:120
+msgid "Media"
+msgstr "Media"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:96
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:154
+msgid "Gallery"
+msgstr "Galerie"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:101
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:153
+msgid "Text"
+msgstr "Texte"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:184
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:219
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:256
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:516
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:133
+msgid "Please select story"
+msgstr "Merci de sélectionner un actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:208
+#, php-format
+msgid "%s story accept successfully"
+msgstr "L'actualité %s a été acceptée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:213
+#, php-format
+msgid "Error in accept %s story"
+msgstr "Erreur dans la validation de l'actualité %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:417
+msgid "Download data saved successfully. Please attach your files"
+msgstr ""
+"Les données de téléchargement ont été enregistrées avec succès. Merci "
+"d'attacher vos fichiers"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:422
+msgid "Media data saved successfully. Please attach your medias"
+msgstr ""
+"Les données Media ont été enregistrées avec succès. Merci d'attacher vos "
+"fichiers medias"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:427
+msgid "Gallery data saved successfully. Please attach your images"
+msgstr ""
+"Les données galerie ont été enregistrées avec succès. Merci d'attacher vos "
+"images."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:433
+msgid "Text data saved successfully."
+msgstr "Les données Texte ont été enregistrées avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:465
+msgid ""
+"Your story type is <strong>Download</strong> , first please completion this "
+"form , after that if you see extra file fields, you can add your file urls , "
+"and after click on submit button , you can upload your download files on "
+"next page"
+msgstr ""
+"Votre actualité est de type <strong>Téléchargement</strong> , merci d'abord "
+"de compléter ce formulaire, ensuite si vous voyez des champs additionnels "
+"pour fichier, vous pourrez ajouter les urls de vos fichiers, et ensuite "
+"après avoir cliqué sur le bouton Soumettre, vous pourrez uploader vos "
+"fichiers de téléchargement sur la page suivante."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:469
+msgid ""
+"Your story type is <strong>Media</strong> , first please completion this "
+"form , after that if you see extra video or audio fields, you can add your "
+"video or audio urls for play on website media player, and after click on "
+"submit button , you can upload your media on next page"
+msgstr ""
+"Votre actualité est de type <strong>Media</strong> , merci d'abord de "
+"compléter ce formulaire, ensuite si vous voyez les champs additonnels video "
+"ou audio, vous pourrez ajouter vos urls audio/video à lire sur le lecteur "
+"media du site, et après avoir cliqué sur le bouton Soumettre, vous pourrez "
+"ajouter vos médias sur la page suivante"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:473
+msgid ""
+"Your story type is <strong>Gallery</strong> , first please completion this "
+"form , after click on submit button , you can upload your images on next page"
+msgstr ""
+"Votre actualité est de type <strong>Galerie</strong> , merci d'abord de "
+"compléter ce formulaire, ensuite après avoir cliqué sur le bouton "
+"Soumetttre, vous pourrez uploader vos images sur la page suivante"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:478
+msgid ""
+"Your story type is <strong>Text</strong> and you shuold add text information "
+"on form fields"
+msgstr ""
+"Votre actualité est de type <strong>Texte</strong>, et vous pouvez ajouter "
+"du contenu texte dans les champs du formulaire"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:484
+msgid "Add a Story"
+msgstr "Ajouter une actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/StoryController.php:514
+msgid "This story deleted"
+msgstr "Cette actualité a été supprimée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:33
+msgid ""
+"You can rebuild all your added stores, after rebuild all your old data "
+"update to new. And you must set start and end publish time."
+msgstr ""
+"Vous pouvez reconstruire toutes vos actualités ajoutées, après "
+"reconstruction, toutes les anciennes données seront mises à jour vers les "
+"nouvelles. Et vous pourrez définir la date de début et de fin de publication."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:52
+msgid "Finish Rebuild slug, all story slug update"
+msgstr ""
+"Fin de reconstruction des slugs, tous les slugs des actualités ont été mis à "
+"jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:60
+msgid "Finish Rebuild SEO title, all story SEO title update"
+msgstr ""
+"Fin de reconstruction des titres SEO, toutes les titres SEO des actualités "
+"ont été mis à jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:68
+msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
+msgstr ""
+"Fin de reconstruction des mots clefs SEO, tous les mots clefs SEO des "
+"actualités ont été mis à jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:76
+msgid "Finish Rebuild SEO description, all story SEO description update"
+msgstr ""
+"Fin de reconstruction des descriptions SEO, toutes les descriptons SEO ont "
+"été mises à jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:83
+msgid "Rebuild stores"
+msgstr "Reconstruire les actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:90
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:15
+msgid "You can prune all old stores, from selected topic."
+msgstr ""
+"Vous pouvez purger les anciennes actualités d'un sujet donné, en "
+"sélectionnant le sujet."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:105
+#, php-format
+msgid "<strong>%s</strong> old stores removed"
+msgstr "<strong>%s</strong> anciennes actualités ont été supprimées"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:108
+msgid ""
+"Error in pruned old stores. perhaps no stroy exist whit your select query"
+msgstr ""
+"Erreur dans les anciennes données purgées, il semble qu'il n'y ait aucune "
+"actualité associée à votre requête"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:114
+msgid "Prune stores"
+msgstr "Purger les actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:125
+#, php-format
+msgid "<strong>%s</strong> old spotlights removed"
+msgstr "<strong>%s</strong> anciens Spotlights ont été supprimés"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:128
+msgid "Error in remove old spotlights. perhaps no spotlights exist"
+msgstr ""
+"Erreur dans la suppression des anciens Spotlights. Il semble qu'aucun "
+"Spotlight n'existe."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:132
+msgid "Prune spotlights"
+msgstr "Purger les Spotlights"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:139
+msgid ""
+"Remove all topic pages from system page table. and keep just module default "
+"pages"
+msgstr ""
+"Supprimer toutes les pages Sujet du tableau des pages système. Conserver "
+"seulement les pages par défaut du module."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:158
+msgid "All other pages removed"
+msgstr "Toutes les autres pages ont été supprimées"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:160
+msgid "No pages were removed"
+msgstr "Aucune page n'a été supprimée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:166
+msgid "Remove topic pages"
+msgstr "Supprimer les pages Sujet"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:173
+msgid "Rebuild thie module links on sitemap module tabels"
+msgstr "Reconstruire les liens du module dans les tables du module SiteMap"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:196
+msgid "Sitemap rebuild finished"
+msgstr "Reconstruction SiteMap terminée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/ToolsController.php:201
+msgid "Rebuild sitemap links"
+msgstr "Reconstruire les liens SiteMap"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:53
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:118
+msgid "List"
+msgstr "Liste"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:57
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:119
+msgid "Table"
+msgstr "Table"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:65
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:121
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:16
+#: MARC\Documents\GitHub\news/template/admin/tools_page.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/tools_prune.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/tools_rebuild.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/tools_sitemap.phtml:6
+#: MARC\Documents\GitHub\news/template/admin/tools_spotlight.phtml:6
+msgid "Spotlight"
+msgstr "Spotlight"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:69
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:89
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:122
+msgid "Topic"
+msgstr "Sujet"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:74
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:117
+msgid "News"
+msgstr "Actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:248
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:250
+#, php-format
+msgid "Page : %s"
+msgstr "Page : %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:272
+msgid "Topic data saved successfully."
+msgstr "Les données Sujet ont été enregistrées avec succès."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Admin/TopicController.php:286
+msgid "Add a Topic"
+msgstr "Ajouter un Sujet"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Feed/IndexController.php:24
+msgid "News feed"
+msgstr "Flux actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Feed/IndexController.php:25
+msgid "Recent News."
+msgstr "Actualités Récentes"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/ArchiveController.php:47
+#, php-format
+msgid "Archive - %s - %s"
+msgstr "Archiver - %s - %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/ArchiveController.php:48
+#, php-format
+msgid "Archive of all stores in - %s - %s"
+msgstr "Archiver toutes les actualités dans - %s - %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/ArchiveController.php:49
+#, php-format
+msgid "Archive,stores,topic,%s,%s"
+msgstr "Archiver, actualités, sujet, %s,%s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/ArchiveController.php:50
+#, php-format
+msgid ""
+"List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
+"next or prev month and year"
+msgstr ""
+"Affichier toutes les actualités si <strong>%s / %s </strong>, vous pouvez "
+"voir toutes les actualités des mois et années suivantes/précédentes"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/AuthorController.php:35
+msgid "The author not found."
+msgstr "L'auteur n'a pas été trouvé."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/AuthorController.php:71
+msgid "List of all authors"
+msgstr "Liste de tous les auteurs"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/MediaController.php:28
+#: MARC\Documents\GitHub\news/src/Controller/Front/MediaController.php:50
+msgid "The media not set."
+msgstr "Le media n'a pas été paramétré."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/StoryController.php:36
+msgid "The story not found."
+msgstr "L'actualité n'a pas été trouvée."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/StoryController.php:40
+msgid "The Story not publish."
+msgstr "L'actualité n'a pas été publiée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TagController.php:33
+msgid "The tag not set."
+msgstr "Le tag n'a pas été défini"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TagController.php:44
+msgid "The tag not found."
+msgstr "Le tag n'a pas été trouvé"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TagController.php:61
+#, php-format
+msgid "All stores from %s"
+msgstr "Toutes les actualités de %s"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TagController.php:97
+msgid "List of all used tags"
+msgstr "Liste des tous les tags utilisés"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TopicController.php:32
+msgid "Go to topic list."
+msgstr "Aller à la liste des sujets."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TopicController.php:38
+msgid "Topic not active."
+msgstr "Le sujet n'est pas actif."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TopicController.php:104
+#: MARC\Documents\GitHub\news/src/Controller/Front/TopicController.php:105
+msgid "List of all topics"
+msgstr "Liste de tous les sujets"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Controller/Front/TopicController.php:106
+msgid "List,topics"
+msgstr "Liste, sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AttachForm.php:49
+#: MARC\Documents\GitHub\news/src/Form/AuthorForm.php:48
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:46
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:46
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:52
+#: MARC\Documents\GitHub\news/src/Form/StorySearchForm.php:40
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:64
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:25
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:18
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:18
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:25
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:64
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:10
+#: MARC\Documents\GitHub\news/template/front/index_table.phtml:11
+msgid "Title"
+msgstr "Titre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AttachForm.php:76
+#: MARC\Documents\GitHub\news/src/Form/AuthorForm.php:84
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:58
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:58
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:105
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:136
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:100
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:68
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:31
+msgid "Status"
+msgstr "Statut"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AttachForm.php:78
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:60
+msgid "Online"
+msgstr "En Ligne"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AttachForm.php:79
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:61
+msgid "Offline"
+msgstr "Hors Ligne"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AttachForm.php:88
+#: MARC\Documents\GitHub\news/src/Form/AuthorForm.php:179
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:72
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:125
+#: MARC\Documents\GitHub\news/src/Form/PageForm.php:43
+#: MARC\Documents\GitHub\news/src/Form/PruneForm.php:54
+#: MARC\Documents\GitHub\news/src/Form/RebuildForm.php:65
+#: MARC\Documents\GitHub\news/src/Form/SitemapForm.php:46
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:119
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:315
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:403
+msgid "Submit"
+msgstr "Soumettre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:59
+#: MARC\Documents\GitHub\news/src/Form/RebuildForm.php:29
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:76
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:75
+msgid "slug"
+msgstr "slug"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:70
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:86
+msgid "Description"
+msgstr "Description"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:86
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:60
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:107
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:138
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:102
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:39
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:41
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:39
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:30
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:67
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:89
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:40
+msgid "Published"
+msgstr "Publié"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:87
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:61
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:108
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:139
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:103
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:40
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:42
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:40
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:31
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:90
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:41
+msgid "Pending review"
+msgstr "En attente validation"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:88
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:62
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:109
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:140
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:104
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:32
+msgid "Draft"
+msgstr "Brouillon"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:89
+#: MARC\Documents\GitHub\news/src/Form/AuthorRoleForm.php:63
+#: MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:110
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:141
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:105
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:33
+msgid "Private"
+msgstr "Privé"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:109
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:176
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:145
+msgid "Remove image"
+msgstr "Supprimer l'image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:125
+#: MARC\Documents\GitHub\news/src/Form/ExtraForm.php:113
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:161
+msgid "Image"
+msgstr "Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:138
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:205
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:174
+msgid "SEO options"
+msgstr "Options SEO"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:145
+#: MARC\Documents\GitHub\news/src/Form/RebuildForm.php:30
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:212
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:181
+msgid "SEO Title"
+msgstr "Titre SEO"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:156
+#: MARC\Documents\GitHub\news/src/Form/RebuildForm.php:31
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:223
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:192
+msgid "SEO Keywords"
+msgstr "Mots clefs SEO"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/AuthorForm.php:167
+#: MARC\Documents\GitHub\news/src/Form/RebuildForm.php:32
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:234
+#: MARC\Documents\GitHub\news/src/Form/TopicForm.php:203
+msgid "SEO Description"
+msgstr "Description SEO"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:70
+#: MARC\Documents\GitHub\news/src/Form/StoryForm.php:151
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:64
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:26
+msgid "Type"
+msgstr "Type"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:72
+msgid "Text : type text content"
+msgstr "Texte : type de contenu texte"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:73
+msgid "Link : add url for click"
+msgstr "Lien  : ajouter une url à cliquer"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:74
+msgid "Video : add flv or mp4 url for play on video player"
+msgstr "Video : ajouter des url flv ou mp4 à lire dans le lecteur video"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:75
+msgid "Audio : add mp3 url for play on audio player"
+msgstr "Audio : ajouter des url mp3 à lire sur le lecteur audio"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:76
+msgid "File : add file link for download"
+msgstr "Fichier : ajouter un lien fichier à télécharger"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:77
+msgid "Currency : add view price for anything"
+msgstr "Devise : ajouter la monnaie pour afficher un prix"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:78
+msgid "Date : add date for view"
+msgstr "Date : ajouter une date à afficher"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:79
+msgid "Number : add number"
+msgstr "Nombre : ajouter un nombre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:80
+msgid "Select : add select box for choose"
+msgstr "Select : ajouter une boite de sélection à choisir"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:88
+msgid "Value"
+msgstr "Valeur"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/ExtraForm.php:103
+#: MARC\Documents\GitHub\news/src/Form/StorySearchForm.php:52
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:32
+msgid "Search"
+msgstr "Recherchable"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/PageForm.php:32
+msgid "Confirm to remove all topic pages"
+msgstr "Confirmer pour supprimer toutes les pages Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/PruneForm.php:32
+msgid "All contacts Before"
+msgstr "Tous les contacts avant"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/RebuildForm.php:26
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:14
+#: MARC\Documents\GitHub\news/template/admin/tools_page.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/tools_prune.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/tools_rebuild.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/tools_sitemap.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/tools_spotlight.phtml:4
+msgid "Rebuild"
+msgstr "Reconstruire"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/RebuildForm.php:40
+msgid "Start date"
+msgstr "Date de départ"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/RebuildForm.php:52
+msgid "End date"
+msgstr "Date de fin"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SitemapForm.php:32
+msgid "Select for rebuild"
+msgstr "Sélectionner pour reconstruire"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SitemapForm.php:34
+msgid "All of tables"
+msgstr "Toutes les tables"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SitemapForm.php:35
+msgid "Just story table"
+msgstr "Uniquement la table Story"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SitemapForm.php:36
+msgid "Just topic table"
+msgstr "Uniquement la table Topic"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SitemapForm.php:37
+msgid "Just author table"
+msgstr "Uniquement la table Author"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:52
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:26
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:10
+msgid "Story"
+msgstr "Actualité"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:56
+msgid "Select story for add to Spotlight"
+msgstr "Sélectionner l'actualité à ajouter au Spotlight"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:66
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:11
+msgid "Show in"
+msgstr "Afficher dans"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:71
+msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
+msgstr ""
+"Sélectionner le sujet Spotlight, votre Spotlight sera montré dans la page du "
+"Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:80
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:12
+msgid "Publish date"
+msgstr "Date publication"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/SpotlightForm.php:92
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:13
+msgid "Expire date"
+msgstr "Date expiration"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:64
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:98
+msgid "Short text"
+msgstr "Texte introductif"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:111
+msgid "Main text"
+msgstr "Corps de texte"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:125
+#: MARC\Documents\GitHub\news/template/front/index_media.phtml:16
+#: MARC\Documents\GitHub\news/template/front/index_news.phtml:13
+#: MARC\Documents\GitHub\news/template/front/index_table.phtml:17
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:26
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:26
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:26
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:26
+msgid "Important"
+msgstr "Important"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:142
+msgid "Remove"
+msgstr "Supprimer"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:192
+msgid "Upload image"
+msgstr "Uploader l'image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:247
+msgid "Tags"
+msgstr "Tags"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:251
+msgid "Use `|` as delimiter to separate tag terms"
+msgstr "Utiliser `|` comme délimiteur pour séparer les mots tags"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:262
+msgid "Extra fields"
+msgstr "Champs additionnels"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/StoryForm.php:296
+msgid "Authors"
+msgstr "Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:51
+msgid "Parent Topic"
+msgstr "Sujet Parent"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:106
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:38
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:29
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:26
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:79
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:37
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:33
+msgid "Delete"
+msgstr "Supprimer"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:115
+msgid "Topic Style"
+msgstr "Style d'actualité"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:215
+msgid "Extra options"
+msgstr "Autres options"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:223
+msgid "Extra Config Options Type"
+msgstr "Autres type de configuration des options"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:225
+msgid "Use topic options"
+msgstr "Utiliser les options des Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:226
+msgid "Use module options"
+msgstr "Utiliser les options du Module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:230
+msgid ""
+"Use topic option whit select topic options or set it to module to use module "
+"option"
+msgstr ""
+"Utiliser l'option Sujet en sélectionnant les options Sujet, ou indiquer "
+"d'utiliser les options globales module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:237
+msgid "Perpage"
+msgstr "Par Page"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:249
+msgid "Columns"
+msgstr "Colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:251
+msgid "One column"
+msgstr "Une colonne"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:252
+msgid "Two columns"
+msgstr "Deux colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:253
+msgid "Three columns"
+msgstr "Trois colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:254
+msgid "Four columns"
+msgstr "Quatre colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:266
+msgid "Set as system page"
+msgstr "Définir comme page système"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:277
+msgid "Story order"
+msgstr "Ordre des actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:279
+msgid "Publish time DESC"
+msgstr "Date de publication DESC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:280
+msgid "Publish time ASC"
+msgstr "Date de publication ASC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:281
+msgid "Random"
+msgstr "Aléatoire"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:285
+msgid "Story list order options"
+msgstr "Options de tri des listes d'actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:293
+msgid "Show Topic"
+msgstr "Afficher le sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:304
+msgid "Show Topic Information"
+msgstr "Afficher les informations Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:315
+msgid "Show Date"
+msgstr "Afficher la Date"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:326
+msgid "Show DPF"
+msgstr "Afficher le PDF"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:337
+msgid "Show Print"
+msgstr "Afficher Impression"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:348
+msgid "Show Mail"
+msgstr "Afficher le Mail"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:359
+msgid "Show Hits"
+msgstr "Afficher les Hits"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:370
+msgid "Show Tags"
+msgstr "Affichers les Tags"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:381
+msgid "Show Subtopic stories on main topic"
+msgstr "Afficher le sujets enfants en dessous du sujet principal"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/src/Form/TopicForm.php:392
+msgid "Show attached files to stories"
+msgstr "Afficher les fichiers atttachés des actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:75
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:96
+msgid "Default"
+msgstr "Défaut"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:76
+msgid "default"
+msgstr "défaut"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:77
+msgid "This is a default topic for news module"
+msgstr "Sujet par défaut du module News"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:78
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:80
+msgid "default topic"
+msgstr "Sujet par défaut"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:79
+msgid "default,topic"
+msgstr "defaut, sujet"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:105
+msgid "Hello World"
+msgstr "Bonjour le monde"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:106
+msgid "This is subtitle for this story"
+msgstr "Ceci est le sous-titre pour une actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:107
+msgid "hello-world"
+msgstr "bonjour-le-monde"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:109
+msgid ""
+"This is a short text and you can edit this part easy. for read more infor "
+"please click on title or more link"
+msgstr ""
+"Ceci est le texte introductif et vous pouvez éditer cette partie simplement. "
+"Pour lire le détail, cliquez sur le titre ou le lien Plus"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:110
+msgid ""
+"This is more text. you can edit this part easy too and if you want you can "
+"add new topics and new storys"
+msgstr ""
+"Ceci est texte étendu. Vous pouvez éditer cette partie simplement également, "
+"et si vous le souhaitez vous pouvez ajouter de nouveaux sujets et de "
+"nouvelles actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:111
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:113
+msgid "hello world"
+msgstr "Bonjour le Monde"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:112
+msgid "hello,world"
+msgstr "Bonjour, monde"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/src/Installer/Action/Install.php:135
+msgid "Default information added."
+msgstr "Information par défaut ajoutée"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:28
+#: MARC\Documents\GitHub\news/template/admin/attach_edit.phtml:47
+#: MARC\Documents\GitHub\news/template/admin/spotlight_update.phtml:4
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:33
+msgid "Back"
+msgstr "Retour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:29
+msgid "Finish"
+msgstr "Terminer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:37
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:76
+msgid "PerView"
+msgstr "Par Page"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:56
+msgid "Id"
+msgstr "N°"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:60
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:10
+msgid "Create"
+msgstr "Créer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:72
+msgid "Hits"
+msgstr "Hits"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:76
+msgid "Size"
+msgstr "Taille"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:81
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:31
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:34
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:33
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:28
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:25
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:77
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:35
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:29
+msgid "Edit"
+msgstr "Editer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:82
+msgid "Close"
+msgstr "Fermer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_add.phtml:125
+msgid "In process"
+msgstr "En cours"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_edit.phtml:37
+msgid "Get it"
+msgstr "Télécharger"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_edit.phtml:40
+msgid "File title"
+msgstr "Nom du fichier"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_edit.phtml:41
+msgid "Story title"
+msgstr "Titre de l'actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:3
+msgid "List of attached files"
+msgstr "Liste des fichiers attachés"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:17
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:17
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:9
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:46
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:9
+msgid "ID"
+msgstr "N°"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:9
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:47
+msgid "Information"
+msgstr "Information"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:11
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:19
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:19
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:14
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:70
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:12
+msgid "Action"
+msgstr "Action"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:30
+msgid "Get"
+msgstr "Récupérer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:32
+msgid "Edit from story"
+msgstr "Editer depuis l'actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:44
+msgid "Error"
+msgstr "Erreur"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/attach_index.phtml:45
+msgid "No file upload yet"
+msgstr "Aucun fichier uploadé à ce jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:5
+#: MARC\Documents\GitHub\news/template/front/author_list.phtml:6
+msgid "Author list"
+msgstr "Liste des auteurs"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:7
+msgid "Role list"
+msgstr "Liste des rôles"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:14
+msgid "List of authors"
+msgstr "Liste des auteurs"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:33
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:26
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:34
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:27
+msgid "View"
+msgstr "Voir"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_index.phtml:43
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:41
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:34
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:91
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:42
+msgid "Trash"
+msgstr "Corbeille"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_role.phtml:14
+msgid "List of roles"
+msgstr "Liste des rôles"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/author_update.phtml:16
+msgid "Remove image author in process"
+msgstr "Suppression de l'auteur de l'image en cours"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/extra_index.phtml:12
+msgid "List of extra fields"
+msgstr "Liste des champs supplémentaires"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:4
+msgid "Add Spotlight"
+msgstr "Ajouter un Spotlight"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:6
+msgid "List of spotlights"
+msgstr "Liste des Spotlights"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/spotlight_index.phtml:24
+msgid "Veiw story"
+msgstr "Voir l'actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:15
+msgid "Add new story"
+msgstr "Ajouter une nouvelle actualité"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:18
+msgid "Add new text"
+msgstr "Ajouter un nouveau texte"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:19
+msgid "Add new gallery"
+msgstr "Ajouter une nouvelle galerie"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:20
+msgid "Add new media"
+msgstr "Ajouter un nouveau media"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:21
+msgid "Add new download"
+msgstr "Ajouter un nouveau téléchargement"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:29
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:28
+msgid "All stories"
+msgstr "Toutes les actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:43
+msgid "List of stories"
+msgstr "Liste des actualités"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:72
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:103
+msgid "Reject"
+msgstr "Refuser"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:74
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:108
+msgid "Accept"
+msgstr "Accepter"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:78
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:36
+msgid "Attach"
+msgstr "Attacher"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_index.phtml:97
+msgid "Accept story in process"
+msgstr "La validation de l'actualité est en cours"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_update.phtml:19
+msgid "Remove image story in process"
+msgstr "La suppression de l'image de l'actualité est en cours"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:10
+msgid "By"
+msgstr "De"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:11
+#: MARC\Documents\GitHub\news/template/front/index_table.phtml:12
+msgid "Update Time"
+msgstr "Date mise à jour"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:12
+#: MARC\Documents\GitHub\news/template/front/index_news.phtml:31
+#: MARC\Documents\GitHub\news/template/front/index_table.phtml:13
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:42
+msgid "Read"
+msgstr "Lu"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:13
+msgid "Comments"
+msgstr "Commentaires"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/story_view.phtml:14
+#: MARC\Documents\GitHub\news/template/front/index_list.phtml:18
+#: MARC\Documents\GitHub\news/template/front/index_news.phtml:36
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:54
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:54
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:54
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:54
+msgid "Topics"
+msgstr "Sujets"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:15
+#: MARC\Documents\GitHub\news/template/admin/tools_page.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/tools_prune.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/tools_rebuild.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/tools_sitemap.phtml:5
+#: MARC\Documents\GitHub\news/template/admin/tools_spotlight.phtml:5
+msgid "Prune"
+msgstr "Purger"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:17
+#: MARC\Documents\GitHub\news/template/admin/tools_page.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/tools_prune.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/tools_rebuild.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/tools_sitemap.phtml:7
+#: MARC\Documents\GitHub\news/template/admin/tools_spotlight.phtml:7
+msgid "Page"
+msgstr "Page"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:18
+#: MARC\Documents\GitHub\news/template/admin/tools_page.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/tools_prune.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/tools_rebuild.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/tools_sitemap.phtml:8
+#: MARC\Documents\GitHub\news/template/admin/tools_spotlight.phtml:8
+msgid "Sitemap"
+msgstr "SiteMap"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:11
+msgid "How this part work?"
+msgstr "Comment cette fonctionnalité fonctionne?"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:12
+msgid ""
+"Tools system, help you to manage your module, Update database and remove "
+"unused information. At this moment, we ready 4 tools for you : "
+msgstr ""
+"Les outils systèmes vous aide à gérer votre module, mettre à jour la base de "
+"données et supprimer les informations inutiles. Actuellement, 4 outils sont "
+"disponibles :"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:14
+msgid ""
+"You can rebuild all your added stores, after rebuild all your old data "
+"time_update to new. And you must set start and end time_publish time."
+msgstr ""
+"Vous pouvez reconstruire toutes vos actualités ajoutées, toutes les données "
+"Date seront mises à jour vers les nouvelles. Et vous devez définir les dates "
+"de début et de fin de publication."
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:16
+msgid "You can remove old spotlights"
+msgstr "Vous pouvez supprimer les anciens Spotlights"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:17
+msgid "Manage system page"
+msgstr "Gérer la page système"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/tools_index.phtml:18
+msgid "Manage links on sitemap module"
+msgstr "Gérer les liens dans le module Sitemap"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:4
+msgid "Add Topic"
+msgstr "Ajouter un sujet"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:6
+msgid "List of topics"
+msgstr "Liste des Sujets"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:11
+msgid "Show type"
+msgstr "Afficher le type"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/topic_index.phtml:31
+msgid "Json"
+msgstr "Json"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/admin/topic_update.phtml:16
+msgid "Remove image topic in process"
+msgstr "Suppression l'image du sujet en cours"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/attach.phtml:5
+msgid "Attached archives"
+msgstr "Archives des pièces jointes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/attach.phtml:9
+#: MARC\Documents\GitHub\news/template/front/attach.phtml:20
+#: MARC\Documents\GitHub\news/template/front/attach.phtml:31
+#: MARC\Documents\GitHub\news/template/front/attach.phtml:42
+msgid "Download file"
+msgstr "Fichier de Téléchargement"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/attach.phtml:16
+msgid "Attached docs"
+msgstr "Docs attachés"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/attach.phtml:27
+msgid "Attached pdfs"
+msgstr "PDFs attachés"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/attach.phtml:38
+msgid "Attached files"
+msgstr "Fichiers attachés"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/front/extra_file.phtml:4
+msgid "Extra links"
+msgstr "Liens supplémentaires"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/feed.phtml:3
+msgid "Rss Feed"
+msgstr "Flux RSS"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/front/index_news.phtml:26
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:37
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:37
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:37
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:37
+msgid "Time"
+msgstr "Date"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/front/index_news.phtml:31
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:42
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:42
+msgid "Times"
+msgstr "Fois"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/front/story_download.phtml:127
+#: MARC\Documents\GitHub\news/template/front/story_gallery.phtml:122
+#: MARC\Documents\GitHub\news/template/front/story_index.phtml:122
+#: MARC\Documents\GitHub\news/template/front/story_media.phtml:122
+msgid "Related storys"
+msgstr "Actualités connexes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/front/tag_list.phtml:6
+msgid "Tag list"
+msgstr "Liste Tag"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\news/template/front/topic_list.phtml:8
+msgid "List of Topics"
+msgstr "Liste des sujets"

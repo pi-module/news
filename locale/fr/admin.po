@@ -1,0 +1,631 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2014-07-29 18:46+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc Desrousseaux\n"
+"Language-Team: Marc-Pi\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\news\n"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:16
+msgid "Item"
+msgstr "Elément"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:22
+#: MARC\Documents\GitHub\news/config/block.php:118
+#: MARC\Documents\GitHub\news/config/block.php:186
+#: MARC\Documents\GitHub\news/config/block.php:262
+#: MARC\Documents\GitHub\news/config/block.php:316
+#: MARC\Documents\GitHub\news/config/config.php:108
+#: MARC\Documents\GitHub\news/config/navigation.php:81
+#: MARC\Documents\GitHub\news/config/page.php:47
+#: MARC\Documents\GitHub\news/config/page.php:61
+#: MARC\Documents\GitHub\news/config/permission.php:64
+msgid "Topic"
+msgstr "Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:29
+#: MARC\Documents\GitHub\news/config/block.php:125
+#: MARC\Documents\GitHub\news/config/block.php:193
+#: MARC\Documents\GitHub\news/config/block.php:378
+msgid "Number"
+msgstr "Nombre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:36
+#: MARC\Documents\GitHub\news/config/block.php:200
+#: MARC\Documents\GitHub\news/config/block.php:276
+#: MARC\Documents\GitHub\news/config/block.php:323
+msgid "Shwo text"
+msgstr "Afficher le texte"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:43
+#: MARC\Documents\GitHub\news/config/block.php:132
+#: MARC\Documents\GitHub\news/config/block.php:207
+msgid "Show date"
+msgstr "Afficher la date"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:50
+#: MARC\Documents\GitHub\news/config/block.php:139
+#: MARC\Documents\GitHub\news/config/block.php:214
+msgid "Show hits"
+msgstr "Afficher les hits"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:57
+#: MARC\Documents\GitHub\news/config/block.php:283
+#: MARC\Documents\GitHub\news/config/block.php:330
+msgid "Show Images"
+msgstr "Afficher les images"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:64
+msgid "Show More link for each story"
+msgstr "Afficher le lien Plus... pour chaque actualité"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:71
+msgid "Show authors"
+msgstr "Afficher les auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:78
+#: MARC\Documents\GitHub\news/config/block.php:146
+#: MARC\Documents\GitHub\news/config/block.php:221
+#: MARC\Documents\GitHub\news/config/block.php:337
+msgid "Show More link to module page"
+msgstr "Afficher le lien Plus... dans la page module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:85
+#: MARC\Documents\GitHub\news/config/block.php:153
+#: MARC\Documents\GitHub\news/config/block.php:228
+#: MARC\Documents\GitHub\news/config/block.php:344
+msgid "Set More link to module page"
+msgstr "Définir le lien Plus... sur Page module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:92
+#: MARC\Documents\GitHub\news/config/block.php:160
+#: MARC\Documents\GitHub\news/config/block.php:235
+#: MARC\Documents\GitHub\news/config/block.php:290
+#: MARC\Documents\GitHub\news/config/config.php:143
+msgid "Story order"
+msgstr "Ordre des actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:93
+#: MARC\Documents\GitHub\news/config/block.php:161
+#: MARC\Documents\GitHub\news/config/block.php:236
+#: MARC\Documents\GitHub\news/config/block.php:291
+#: MARC\Documents\GitHub\news/config/config.php:144
+msgid "Story list order options"
+msgstr "Options de tri de la liste des actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:98
+#: MARC\Documents\GitHub\news/config/block.php:166
+#: MARC\Documents\GitHub\news/config/block.php:241
+#: MARC\Documents\GitHub\news/config/block.php:296
+#: MARC\Documents\GitHub\news/config/config.php:149
+msgid "Publish time DESC"
+msgstr "Date de publication DESC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:99
+#: MARC\Documents\GitHub\news/config/block.php:167
+#: MARC\Documents\GitHub\news/config/block.php:242
+#: MARC\Documents\GitHub\news/config/block.php:297
+#: MARC\Documents\GitHub\news/config/config.php:150
+msgid "Publish time ASC"
+msgstr "Date publication ASC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:100
+#: MARC\Documents\GitHub\news/config/block.php:168
+#: MARC\Documents\GitHub\news/config/block.php:243
+#: MARC\Documents\GitHub\news/config/block.php:298
+msgid "Random"
+msgstr "Aléatoire"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:112
+msgid "list"
+msgstr "liste"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:180
+#: MARC\Documents\GitHub\news/config/config.php:105
+msgid "Table"
+msgstr "Table"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:256
+#: MARC\Documents\GitHub\news/config/config.php:40
+#: MARC\Documents\GitHub\news/config/config.php:107
+#: MARC\Documents\GitHub\news/config/navigation.php:90
+#: MARC\Documents\GitHub\news/config/page.php:32
+#: MARC\Documents\GitHub\news/config/permission.php:52
+msgid "Spotlight"
+msgstr "Spotlight"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:269
+msgid "Number of stroies for each topic"
+msgstr "Nombre d'actualités pour chaque sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:310
+msgid "List of topic"
+msgstr "Liste des sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:351
+msgid "Topic order"
+msgstr "Ordre des sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:352
+msgid "Topic list order options"
+msgstr "Options de tri de la liste de sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:357
+msgid "Create DESC"
+msgstr "Date création DESC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:358
+msgid "Create ASC"
+msgstr "Date création ASC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:359
+msgid "Title DESC"
+msgstr "Titre DESC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:360
+msgid "Title ASC"
+msgstr "Titre ASC"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:372
+msgid "Gallery"
+msgstr "Galerie"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:385
+msgid "Show gallery effect"
+msgstr "Afficher les effets galerie"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:392
+msgid "Image width class"
+msgstr "Image width class"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/block.php:393
+msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
+msgstr "Options de grille Boostrap 3 comme : col-xs-6 col-sm-6 col-md-3"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/comment.php:15
+msgid "News comments"
+msgstr "Commentaires sur actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:16
+msgid "Admin"
+msgstr "Admin"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:20
+msgid "Show"
+msgstr "Afficher"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:24
+msgid "Feed"
+msgstr "Flux"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:28
+msgid "Image"
+msgstr "Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:32
+msgid "File"
+msgstr "Fichier"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:36
+msgid "Social"
+msgstr "Social"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:44
+msgid "Vote"
+msgstr "Appréciation"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:48
+msgid "Favourite"
+msgstr "Favoris"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:52
+msgid "Texts"
+msgstr "Textes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:59
+msgid "Advertisement"
+msgstr "Avertissement"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:65
+#: MARC\Documents\GitHub\news/config/config.php:118
+msgid "Perpage"
+msgstr "Par Page"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:73
+msgid "Set topic as system page for support customise layout for blocks"
+msgstr ""
+"Définir le sujet comme page système pour permettre la personnalisation du "
+"design des blocks"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:81
+msgid "Set story authors"
+msgstr "Définir les auteurs de l'actualité"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:89
+msgid "Active json output"
+msgstr "Sortie JSON active"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:97
+msgid "Show Style"
+msgstr "Afficher le Style"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:103
+#: MARC\Documents\GitHub\news/config/module.php:16
+msgid "News"
+msgstr "Actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:104
+msgid "List"
+msgstr "Liste"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:106
+msgid "Media"
+msgstr "Media"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:125
+msgid "Columns"
+msgstr "Colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:131
+msgid "One column"
+msgstr "Une colonne"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:132
+msgid "Two columns"
+msgstr "Deux colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:133
+msgid "Three columns"
+msgstr "Trois colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:134
+msgid "Four columns"
+msgstr "Quatre colonnes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:160
+msgid "Show Subtopic stories on main topic"
+msgstr "Afficher le Sous-Titre des actualités sur le sujet principal"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:168
+msgid "Show Topic"
+msgstr "Afficher le Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:176
+msgid "Show Topic Information"
+msgstr "Afficher les informations Sujet"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:184
+msgid "Show author"
+msgstr "Afficher l'auteur"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:192
+msgid "Show Date"
+msgstr "Afficher la date"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:200
+msgid "Show Pdf"
+msgstr "Afficher le PDF"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:208
+msgid "Show Print"
+msgstr "Afficher Impression"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:216
+msgid "Show Mail"
+msgstr "Afficher le Mail"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:224
+msgid "Show Hits"
+msgstr "Afficher les Hits"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:232
+msgid "Show Tags"
+msgstr "Affichers les Tags"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:240
+msgid "Show attach files"
+msgstr "Afficher les fichiers attachés"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:248
+msgid "Show extra information"
+msgstr "Affichers les informations supplémentaires"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:256
+msgid "Show navigation"
+msgstr "Afficher la navigation"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:264
+msgid "Show spotlight"
+msgstr "Afficher le Spotlight"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:272
+msgid "Show related news"
+msgstr "Afficher les actualités connexes"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:280
+msgid "related number"
+msgstr "nombre éléments"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:288
+msgid "Just show news from X days ago"
+msgstr "Afficher uniquement les actualités des X derniers jours"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:289
+msgid "Set 0 for show all news, Or set day number for limit news in days"
+msgstr ""
+"Définir à 0 pour afficher toutes les actualités, ou définir un nombre de "
+"jour pour limiter le nombre d'actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:297
+msgid "Show feed icon"
+msgstr "Afficher l'icône Flux RSS"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:305
+msgid "Feed number"
+msgstr "Nombre de flux"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:314
+msgid "Image Size"
+msgstr "Poids de l'image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:322
+msgid "Image path"
+msgstr "Chemin Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:330
+msgid "Image Extension"
+msgstr "Extensions Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:338
+msgid "Large Image height"
+msgstr "Hauteur des Images Larges"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:346
+msgid "Large Image width"
+msgstr "Largeur des Images Larges"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:354
+msgid "Medium Image height"
+msgstr "Hauteur des Images Medium"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:362
+msgid "Medium Image width"
+msgstr "Largeur des Images Medium"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:370
+msgid "Thumb Image height"
+msgstr "Hauteur des Images Miniatures"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:378
+msgid "Thumb Image width"
+msgstr "Largeur des Images Miniatures"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:386
+msgid "Large Image height for topic"
+msgstr "Hauteur des Images Larges pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:394
+msgid "Large Image width for topic"
+msgstr "Largeur des Images Larges pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:402
+msgid "Medium Image height for topic"
+msgstr "Hauteur des Images Medium pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:410
+msgid "Medium Image width for topic"
+msgstr "Largeur des Images Medium pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:418
+msgid "Thumb Image height for topic"
+msgstr "Hauteur des Images Miniatures pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:426
+msgid "Thumb Image width for topic"
+msgstr "Largeur des Images Miniatures pour les Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:434
+msgid "Large Image height for author"
+msgstr "Hauteur des Images Larges pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:442
+msgid "Large Image width for author"
+msgstr "Largeur des Images Larges pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:450
+msgid "Medium Image height for author"
+msgstr "Hauteur des Images Medium pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:458
+msgid "Medium Image width for author"
+msgstr "Largeur des Images Medium pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:466
+msgid "Thumb Image height for author"
+msgstr "Hauteur des Images Miniatures pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:474
+msgid "Thumb Image width for author"
+msgstr "Largeurs des Images Miniature pour les Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:482
+msgid "Use lightbox"
+msgstr "Utiliser Lightbox"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:490
+msgid "Add Watermark"
+msgstr "Ajouter un Watemark"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:498
+msgid "Watermark Image"
+msgstr "Image Watermark"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:505
+msgid "Watermark Positio"
+msgstr "Position Watermark"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:511
+msgid "Top Left"
+msgstr "En haut à gauche"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:512
+msgid "Top Right"
+msgstr "En haut à droite"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:513
+msgid "Bottom Left"
+msgstr "En bas à gauche"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:514
+msgid "Bottom Right"
+msgstr "En bas à droite"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:617
+msgid "Show Google Plus"
+msgstr "Afficher Google Plus"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:625
+msgid "Show facebook"
+msgstr "Afficher Facebook"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:633
+msgid "Show Twitter"
+msgstr "Afficher Twitter"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:642
+msgid "Number of stories"
+msgstr "Nombre d'actualités"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:650
+msgid "Show Image for sub spotlights"
+msgstr "Afficher l'image pour les sous-Spotlights"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:659
+msgid "Use vote system"
+msgstr "Utiliser le système d'appréciation Vote"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:668
+msgid "Use favourite system"
+msgstr "Utiliser le système de favoris Favorite"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:677
+msgid "Module main title"
+msgstr "Titre principal du module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:678
+msgid "Title for main page and all non-title pages"
+msgstr "Titre pour la page principale et toutes les pages sans titre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:681
+#: MARC\Documents\GitHub\news/config/config.php:689
+msgid "Latest News from this website"
+msgstr "Dernières actualités du site"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:685
+msgid "Module main description"
+msgstr "Description principale du site"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:693
+msgid "Module main keywords"
+msgstr "Mots clefs principaux du module"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:697
+msgid "news,topic,story,website"
+msgstr "actualités, sujets, nouvelles, site web"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:702
+msgid "File Size"
+msgstr "Poids Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:710
+msgid "File path"
+msgstr "Chemin Image"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/config.php:718
+msgid "File Extension"
+msgstr "Extensions Fichier"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/module.php:17
+msgid "Manage News and Blog"
+msgstr "Gestionnaire d'actualités et de blog"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:16
+msgid "Index"
+msgstr "Index"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:27
+#: MARC\Documents\GitHub\news/config/page.php:85
+msgid "Topic list"
+msgstr "Liste des Sujets"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:38
+#: MARC\Documents\GitHub\news/config/page.php:92
+msgid "Tag list"
+msgstr "Liste des Tags"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:49
+msgid "Author list"
+msgstr "Liste des Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:60
+#: MARC\Documents\GitHub\news/config/page.php:79
+msgid "Archive"
+msgstr "Archiver"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:72
+#: MARC\Documents\GitHub\news/config/page.php:37
+#: MARC\Documents\GitHub\news/config/page.php:67
+#: MARC\Documents\GitHub\news/config/permission.php:58
+msgid "Story"
+msgstr "Actualité"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:99
+msgid "Attaced"
+msgstr "Attachements"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:108
+#: MARC\Documents\GitHub\news/config/page.php:27
+#: MARC\Documents\GitHub\news/config/permission.php:46
+msgid "Extra"
+msgstr "Extra"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:117
+#: MARC\Documents\GitHub\news/config/page.php:22
+#: MARC\Documents\GitHub\news/config/page.php:99
+#: MARC\Documents\GitHub\news/config/permission.php:24
+#: MARC\Documents\GitHub\news/config/permission.php:40
+msgid "Authors"
+msgstr "Auteurs"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/navigation.php:126
+#: MARC\Documents\GitHub\news/config/page.php:42
+#: MARC\Documents\GitHub\news/config/permission.php:70
+msgid "Tools"
+msgstr "Outils"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/page.php:17
+#: MARC\Documents\GitHub\news/config/permission.php:34
+msgid "Attach"
+msgstr "Attacher"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/page.php:55
+msgid "Index page"
+msgstr "Page Index"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/page.php:73
+msgid "Tag"
+msgstr "Tag"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/config/permission.php:17
+msgid "Global public resource"
+msgstr "Ressource globale publique"
