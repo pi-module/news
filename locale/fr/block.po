@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2014-07-29 19:06+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc Desrousseaux\n"
+"Language-Team: Marc-Pi\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _b\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\news\n"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/block/item.phtml:13
+#: MARC\Documents\GitHub\news/template/block/list.phtml:10
+#: MARC\Documents\GitHub\news/template/block/table.phtml:6
+msgid "Time"
+msgstr "Date"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/block/item.phtml:14
+#: MARC\Documents\GitHub\news/template/block/list.phtml:15
+#: MARC\Documents\GitHub\news/template/block/table.phtml:7
+msgid "Read"
+msgstr "Lu"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/block/item.phtml:21
+#: MARC\Documents\GitHub\news/template/block/item.phtml:28
+#: MARC\Documents\GitHub\news/template/block/list.phtml:24
+#: MARC\Documents\GitHub\news/template/block/spotlight.phtml:14
+#: MARC\Documents\GitHub\news/template/block/table.phtml:20
+#: MARC\Documents\GitHub\news/template/block/topic.phtml:10
+msgid "Read More"
+msgstr "Plus..."
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/block/table.phtml:4
+msgid "Title"
+msgstr "Titre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\news/template/block/table.phtml:5
+msgid "Short Info"
+msgstr "Texte Intro"
