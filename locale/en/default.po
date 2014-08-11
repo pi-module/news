@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-06-19 16:34+0330\n"
+"POT-Creation-Date: 2014-08-11 12:27+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,6 +15,13 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
 "news\n"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Api/Topic.php:87
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:156
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:88
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:53
+msgid "Download"
+msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:24
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:55
@@ -123,7 +130,7 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:179
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:403
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:414
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:43
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
 msgid "Submit"
@@ -212,12 +219,6 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:92
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:61
 msgid "Media"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:156
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:53
-msgid "Download"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:176
@@ -530,70 +531,74 @@ msgstr ""
 msgid "Show Subtopic stories on main topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:392
-msgid "Show attached files to stories"
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:391
+msgid "Attach file link"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:402
+msgid "Attach file title"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:32
 msgid "Confirm to remove all topic pages"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:96
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:69
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:90
 msgid "Default"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:76
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:70
 msgid "default"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:77
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:71
 msgid "This is a default topic for news module"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:78
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:80
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:72
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
 msgid "default topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:79
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:73
 msgid "default,topic"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:99
 msgid "Hello World"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:100
 msgid "This is subtitle for this story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:101
 msgid "hello-world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:109
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:103
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:110
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:111
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:113
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
 msgid "hello world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:112
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
 msgid "hello,world"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:135
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:129
 msgid "Default information added."
 msgstr ""
 
@@ -622,55 +627,55 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:170
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:346
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:360
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:189
 msgid "Problem in upload image. please try again"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:223
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:221
 msgid "Author data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:226
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:294
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:224
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:292
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:440
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:275
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:452
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:274
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
 msgid "Invalid data, please check and re-submit."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:236
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:234
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:6
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:6
 msgid "Add Author"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:291
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:289
 msgid "Role data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:305
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:303
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:8
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:8
 msgid "Add Role"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:329
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:249
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:327
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:263
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:126
 #, php-format
 msgid "Image of %s removed"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:332
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:252
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:330
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:266
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:129
 msgid "Image not remove"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:336
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:334
 msgid "Please select author"
 msgstr ""
 
@@ -819,40 +824,40 @@ msgid "Please select field"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:184
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:219
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:256
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:516
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:233
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:270
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:528
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:133
 msgid "Please select story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:208
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:222
 #, php-format
 msgid "%s story accept successfully"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:213
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:227
 #, php-format
 msgid "Error in accept %s story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:417
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:429
 msgid "Download data saved successfully. Please attach your files"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:422
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:434
 msgid "Media data saved successfully. Please attach your medias"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:427
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:439
 msgid "Gallery data saved successfully. Please attach your images"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:433
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:445
 msgid "Text data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:465
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:477
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -860,7 +865,7 @@ msgid ""
 "next page"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:469
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:481
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -868,37 +873,37 @@ msgid ""
 "submit button , you can upload your media on next page"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:473
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:485
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:478
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:490
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:484
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:496
 msgid "Add a Story"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:514
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:526
 msgid "This story deleted"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:248
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:250
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:249
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:251
 #, php-format
 msgid "Page : %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:272
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:271
 msgid "Topic data saved successfully."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:286
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:285
 msgid "Add a Topic"
 msgstr ""
 
@@ -965,20 +970,20 @@ msgstr ""
 msgid "The media not set."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:31
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
 msgid "Go to topic list."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:37
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:38
 msgid "Topic not active."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:95
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:96
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:103
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:104
 msgid "List of all topics"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:97
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:105
 msgid "List,topics"
 msgstr ""
 

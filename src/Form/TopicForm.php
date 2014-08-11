@@ -384,14 +384,25 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
-        // show_attach
+        // attach_link
         $this->add(array(
-            'name' => 'show_attach',
-            'type' => 'checkbox',
+            'name' => 'attach_link',
             'options' => array(
-                'label' => __('Show attached files to stories'),
+                'label' => __('Attach file link'),
             ),
             'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
+        ));
+        // attach_title
+        $this->add(array(
+            'name' => 'attach_title',
+            'options' => array(
+                'label' => __('Attach file title'),
+            ),
+            'attributes' => array(
+                'type' => 'text',
                 'description' => '',
             )
         ));

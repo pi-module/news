@@ -48,7 +48,6 @@ class TopicController extends IndexController
                 // Reset topic setting
                 if (!empty($row) && is_object($row)) {
                     $setting = Json::decode($row->setting, true);
-                    $setting['show_attach'] = 0;
                     $setting['show_subid'] = 0;
                     $row->setting = Json::encode($setting);
                 }

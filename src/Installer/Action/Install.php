@@ -39,13 +39,6 @@ class Install extends BasicInstall
 
     public function postInstall(Event $e)
     {
-        // Make path
-        /* $dir = Pi::path('upload/' . $e->getParam('module'));
-        if (!is_dir($dir)) {
-            mkdir($dir, 0777);
-            chmod($dir, 0777);
-        } */
-        
         $module = $e->getParam('module');
         
         // Set model
@@ -68,7 +61,8 @@ class Install extends BasicInstall
         $setting['show_hits'] = 1;
         $setting['show_tag'] = 1;
         $setting['show_subid'] = 1;
-        $setting['show_attach'] = 0;
+        $setting['attach_link'] = '';
+        $setting['attach_title'] = '';
 
         // Add topic
         $topicData = array(

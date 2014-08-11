@@ -22,7 +22,6 @@ use Pi\Application\Api\AbstractApi;
  * Pi::api('author', 'news')->getStoryList($author);
  * Pi::api('author', 'news')->getStorySingle($story);
  * Pi::api('author', 'news')->setAuthorStory($story, $time_publish, $status, $authors);
- * Pi::api('author', 'news')->authorList();
  * Pi::api('author', 'news')->canonizeAuthor($author);
  * Pi::api('author', 'news')->sitemap();
  */
@@ -145,34 +144,6 @@ class Author extends AbstractApi
         }
         return $list;
     }
-
-    /* public function authorList()
-    {
-        $author = array();
-        // Get author list
-        $where = array('status' => 1);
-        $order = array('title DESC', 'id DESC');
-        $columns = array('id', 'title', 'slug');
-        $select = Pi::model('author', $this->getModule())->select()->where($where)->columns($columns)->order($order);
-        $rowset = Pi::model('author', $this->getModule())->selectWith($select);
-        foreach ($rowset as $row) {
-            $author['author'][$row->id] = $row->toArray();
-            $author['author'][$row->id]['url'] = Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'author',
-                'slug'          => $author['author'][$row->id]['slug'],
-            ));
-        }
-        // Get role list
-        $where = array('status' => 1);
-        $order = array('title DESC', 'id DESC');
-        $select = Pi::model('author_role', $this->getModule())->select()->where($where)->order($order);
-        $rowset = Pi::model('author_role', $this->getModule())->selectWith($select);
-        foreach ($rowset as $row) {
-            $author['role'][$row->id] = $row->toArray();
-        }
-        return $author;
-    } */
 
     public function canonizeAuthor($author)
     {

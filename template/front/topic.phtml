@@ -1,4 +1,4 @@
-<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']) || !empty($topic['show_attach']))) { 
+<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']))) { 
 if($config['image_lightbox']){ 
 	$this->jQuery();
 	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
@@ -32,13 +32,11 @@ if($config['image_lightbox']){
 			</div>
 			<?php } ?>  
 			<?php echo $topic['description']; ?>
-            <?php if(!empty($topic['attach'])) {  ?>
+            <?php if(!empty($topic['attach_link'])) {  ?>
 			<div class="attach-list">
-				<?php foreach($topic['attach'] as $attach) { ?>
 				<p class="text-center">
-					<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($attach['title']); ?>" href="<?php echo $this->escape($attach['downloadUrl']); ?>"><i class="fa fa-download"></i> <?php echo $this->escape($attach['title']); ?></a>
+					<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($topic['attach_title']); ?>" href="<?php echo $this->escape($topic['attach_link']); ?>"><i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?></a>
 				</p>
-				<?php } ?>
 			</div>
 			<?php } ?>
 		</div>
@@ -47,7 +45,7 @@ if($config['image_lightbox']){
 <?php } elseif($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
 <div class="topicinfo">
 	<div class="page-header">
-		<h2><?php echo $this->escape($topic['title']); ?></h2>
+		<h3><?php echo $this->escape($topic['title']); ?></h3>
 	</div>
 </div>
 <?php } ?>
