@@ -211,17 +211,24 @@ class AttachController extends ActionController
                 // start upload
                 $path = sprintf('%s/%s', date('Y'), date('m'));
                 $destination = Pi::path(sprintf('upload/%s/file/%s', $this->config('file_path'), $path));
+                // Get file type
+                $file = $this->request->getFiles();
+                $type = $this->fileType($file['file']['name']);
+                if ($type == 'image') {
+                    $fileName = Pi::api('image', 'news')->rename($file['file']['name'], $this->AttachPrefix);
+                } else {
+                    $fileName = $this->AttachPrefix . '%random%';
+                }
                 // Upload
                 $uploader = new Upload;
                 $uploader->setDestination($destination);
-                $uploader->setRename($this->AttachPrefix . '%random%');
+                $uploader->setRename($fileName);
                 $uploader->setExtension($this->config('file_extension'));
                 $uploader->setSize($this->config('file_size'));
                 if ($uploader->isValid()) {
                     $uploader->receive();
                     // Set info
                     $file = $uploader->getUploaded('file');
-                    $type = $this->fileType($file);
                     $title = $this->fileTitle($story['title'], $file);
                     $this->filePath($type, $path, $file);
                     // Set save array
@@ -288,8 +295,10 @@ class AttachController extends ActionController
     protected function fileTitle($title, $file)
     {
         $file = pathinfo($file, PATHINFO_FILENAME);
+        $file = array_filter(explode('-', $file));
+        $file = implode(' ', $file);
         return sprintf('%s %s', $title, $file);
-    }  
+    }
 
     protected function fileType($file)
     {

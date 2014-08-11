@@ -8,12 +8,12 @@
 	<div class="index-media">
 	    <?php foreach($stores as $story) { ?>
 		<?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-		<div class="thumbnail">
+		<div class="thumbnail text-center">
 			<?php if($story['image']){ ?>
 			<a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
 			<?php } ?>
 			<div class="caption">
-				<h3><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+				<h4><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h4>
 				<div class="storyText"><?php echo $story['short']; ?></div>
 			</div>
 		</div>

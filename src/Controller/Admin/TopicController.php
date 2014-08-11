@@ -173,10 +173,12 @@ class TopicController extends ActionController
                     // Set upload path
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
                     $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+                    // Image name
+                    $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageTopicPrefix);
                     // Upload
                     $uploader = new Upload;
                     $uploader->setDestination($originalPath);
-                    $uploader->setRename($this->ImageTopicPrefix . '%random%');
+                    $uploader->setRename($imageName);
                     $uploader->setExtension($this->config('image_extension'));
                     $uploader->setSize($this->config('image_size'));
                     if ($uploader->isValid()) {
