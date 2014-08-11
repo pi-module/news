@@ -216,7 +216,7 @@ class Author extends AbstractApi
             // Remove old links
             Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'author');
             // find and import
-            $columns = array('id', 'slug');
+            $columns = array('id', 'slug', 'status');
             $select = Pi::model('author', $this->getModule())->select()->columns($columns);
             $rowset = Pi::model('author', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
