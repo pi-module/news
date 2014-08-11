@@ -391,7 +391,7 @@ class AttachController extends ActionController
 
     protected function removeFile($file, $type, $path)
     {
-        if ($type == 'image') {
+        /* if ($type == 'image') {
             $remove = array(
                 Pi::path(sprintf('upload/%s/original/%s/%s', $this->config('image_path'), $path, $file)),
                 Pi::path(sprintf('upload/%s/large/%s/%s', $this->config('image_path'), $path, $file)),
@@ -401,6 +401,6 @@ class AttachController extends ActionController
         } else {
             $remove = Pi::path(sprintf('upload/%s/%s/%s/%s', $this->config('file_path'), $type, $path, $file));
         }
-        Pi::service('file')->remove($remove);
+        Pi::service('file')->remove($remove); */
     }
 }

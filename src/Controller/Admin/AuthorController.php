@@ -312,13 +312,13 @@ class AuthorController extends ActionController
         // Check
         if ($author && !empty($id)) {
             // remove file
-            $files = array(
+            /* $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $author->path . '/' . $author->image),
                 Pi::path('upload/' . $this->config('image_path') . '/large/' . $author->path . '/' . $author->image),
                 Pi::path('upload/' . $this->config('image_path') . '/medium/' . $author->path . '/' . $author->image),
                 Pi::path('upload/' . $this->config('image_path') . '/thumb/' . $author->path . '/' . $author->image),
             );
-            Pi::service('file')->remove($files);
+            Pi::service('file')->remove($files); */
             // clear DB
             $author->image = '';
             $author->path = '';

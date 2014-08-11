@@ -248,13 +248,13 @@ class StoryController extends ActionController
         // Check
         if ($story && !empty($id)) {
             // remove file
-            $files = array(
+            /* $files = array(
                 Pi::path('upload/' . $this->config('image_path') . '/original/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/large/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/medium/' . $story->path . '/' . $story->image),
                 Pi::path('upload/' . $this->config('image_path') . '/thumb/' . $story->path . '/' . $story->image),
             );
-            Pi::service('file')->remove($files);
+            Pi::service('file')->remove($files); */
             // clear DB
             $story->image = '';
             $story->path = '';
