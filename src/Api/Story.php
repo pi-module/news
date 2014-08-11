@@ -353,11 +353,10 @@ class Story extends AbstractApi
     {
         if (Pi::service('module')->isActive('sitemap')) {
             // Remove old links
-            Pi::model('url_list', 'sitemap')->delete(array('module' => $this->getModule(), 'table' => 'story'));
+            Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'story');
             // find and import
-            $where = array('status' => 1);
             $columns = array('id', 'slug');
-            $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where);
+            $select = Pi::model('story', $this->getModule())->select()->columns($columns);
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
@@ -367,7 +366,7 @@ class Story extends AbstractApi
                     'slug'          => $row->slug,
                 )));
                 // Add to sitemap
-                Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'story', $row->id, $loc);
+                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'story', $row->id);
             }
         }
     }

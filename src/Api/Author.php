@@ -243,11 +243,10 @@ class Author extends AbstractApi
     {
         if (Pi::service('module')->isActive('sitemap')) {
             // Remove old links
-            Pi::model('url_list', 'sitemap')->delete(array('module' => $this->getModule(), 'table' => 'author'));
+            Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'author');
             // find and import
-            $where = array('status' => 1);
             $columns = array('id', 'slug');
-            $select = Pi::model('author', $this->getModule())->select()->columns($columns)->where($where);
+            $select = Pi::model('author', $this->getModule())->select()->columns($columns);
             $rowset = Pi::model('author', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
@@ -257,7 +256,7 @@ class Author extends AbstractApi
                     'slug'          => $row->slug,
                 )));
                 // Add to sitemap
-                Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'author', $row->id, $loc);
+                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'author', $row->id);
             }
         }
     }

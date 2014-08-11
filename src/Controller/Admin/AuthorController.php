@@ -206,16 +206,14 @@ class AuthorController extends ActionController
                 $row->save();
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
+                    // Set loc
                     $loc = Pi::url($this->url('news', array(
                         'module'      => $module, 
                         'controller'  => 'author', 
                         'slug'        => $values['slug']
                     )));
-                    if (empty($values['id'])) {
-                        Pi::api('sitemap', 'sitemap')->add('news', 'author', $row->id, $loc);
-                    } else {
-                        Pi::api('sitemap', 'sitemap')->update('news', 'author', $row->id, $loc);
-                    }              
+                    // Update sitemap
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);         
                 }
                 // Clear registry
                 Pi::registry('authorList', 'news')->clear();

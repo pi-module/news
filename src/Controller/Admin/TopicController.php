@@ -255,16 +255,14 @@ class TopicController extends ActionController
                 Pi::service('registry')->page->clear($this->getModule());
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
+                    // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module' => $module, 
-                        'controller' => 'topic', 
-                        'slug' => $values['slug']
+                        'module'      => $module, 
+                        'controller'  => 'topic', 
+                        'slug'        => $values['slug']
                     )));
-                    if (empty($values['id'])) {
-                        Pi::api('sitemap', 'sitemap')->add('news', 'topic', $row->id, $loc);
-                    } else {
-                        Pi::api('sitemap', 'sitemap')->update('news', 'topic', $row->id, $loc);
-                    }              
+                    // Update sitemap
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);         
                 }
                 // Clear registry
                 Pi::registry('topicList', 'news')->clear();

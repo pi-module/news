@@ -193,6 +193,7 @@ class StoryController extends ActionController
     public function acceptAction()
     {
         // Get id and status
+        $module = $this->params('module');
         $id = $this->params('id');
         $status = $this->params('status');
         $return = array();
@@ -204,7 +205,20 @@ class StoryController extends ActionController
             $story->status = $status;
             // Save
             if ($story->save()) {
+                // Update link table
                 $this->getModel('link')->update(array('status' => $story->status), array('story' => $story->id));
+                // Add / Edit sitemap
+                if (Pi::service('module')->isActive('sitemap')) {
+                    // Set loc
+                    $loc = Pi::url($this->url('news', array(
+                        'module'      => $module, 
+                        'controller'  => 'story', 
+                        'slug'        => $story->slug
+                    )));
+                    // Update sitemap
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $story->status, $module, 'story', $story->id);         
+                }
+                // Set return
                 $return['message'] = sprintf(__('%s story accept successfully'), $story->title);
                 $return['ajaxstatus'] = 1;
                 $return['id'] = $story->id;
@@ -400,16 +414,14 @@ class StoryController extends ActionController
                 }
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
+                    // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module' => $module, 
-                        'controller' => 'story', 
-                        'slug' => $values['slug']
+                        'module'      => $module, 
+                        'controller'  => 'story', 
+                        'slug'        => $values['slug']
                     )));
-                    if (empty($values['id'])) {
-                        Pi::api('sitemap', 'sitemap')->add('news', 'story', $row->id, $loc);
-                    } else {
-                        Pi::api('sitemap', 'sitemap')->update('news', 'story', $row->id, $loc);
-                    }              
+                    // Update sitemap
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);         
                 }
                 // Make jump information
                 switch ($row->type) {
@@ -503,9 +515,9 @@ class StoryController extends ActionController
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url($this->url('news', array(
-                        'module' => $module, 
-                        'controller' => 'story', 
-                        'slug' => $row->slug
+                        'module'      => $module, 
+                        'controller'  => 'story', 
+                        'slug'        => $row->slug
                     )));
                 Pi::api('sitemap', 'sitemap')->remove($loc);
             } 

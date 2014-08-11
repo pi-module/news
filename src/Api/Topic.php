@@ -375,11 +375,10 @@ class Topic extends AbstractApi
     {
         if (Pi::service('module')->isActive('sitemap')) {
             // Remove old links
-            Pi::model('url_list', 'sitemap')->delete(array('module' => $this->getModule(), 'table' => 'topic'));
+            Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'topic');
             // find and import
-            $where = array('status' => 1);
             $columns = array('id', 'slug');
-            $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where);
+            $select = Pi::model('topic', $this->getModule())->select()->columns($columns);
             $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
@@ -389,7 +388,7 @@ class Topic extends AbstractApi
                     'slug'          => $row->slug,
                 )));
                 // Add to sitemap
-                Pi::api('sitemap', 'sitemap')->add($this->getModule(), 'topic', $row->id, $loc);
+                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'topic', $row->id);
             }
         }
     }
