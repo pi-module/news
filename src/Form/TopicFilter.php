@@ -175,5 +175,10 @@ class TopicFilter extends InputFilter
             'name' => 'attach_title',
             'required' => false,
         ));
+        // attach_download_count
+        $this->add(array(
+            'name' => 'attach_download_count',
+            'required' => false,
+        ));
     }
 }

@@ -63,6 +63,7 @@ class Install extends BasicInstall
         $setting['show_subid'] = 1;
         $setting['attach_link'] = '';
         $setting['attach_title'] = '';
+        $setting['attach_download_count'] = '';
 
         // Add topic
         $topicData = array(

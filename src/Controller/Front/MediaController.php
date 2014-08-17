@@ -14,6 +14,7 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
+use Zend\Json\Json;
 
 class MediaController extends ActionController
 {
@@ -75,5 +76,25 @@ class MediaController extends ActionController
         } 
         // redirect
         return $this->redirect()->toUrl($url);
+    }
+
+    public function topicAction()
+    {
+        // Get info from url
+        $id = $this->params('id');
+        $module = $this->params('module');
+        // Check id
+        if (!isset($id) || empty($id)) {
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('The media not set.'), 'error');
+        }
+        // find topic anhd update cint
+        $topic = $this->getModel('topic')->find($id);
+        $setting = Json::decode($topic->setting, true);
+        $setting['attach_download_count'] = $setting['attach_download_count'] + 1;
+        $topic->setting = Json::encode($setting);
+        $topic->save();
+        // redirect
+        return $this->redirect()->toUrl($setting['attach_link']);
     }
 }

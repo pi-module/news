@@ -32,10 +32,10 @@ if($config['image_lightbox']){
 			</div>
 			<?php } ?>  
 			<?php echo $topic['description']; ?>
-            <?php if(!empty($topic['attach_link'])) {  ?>
+            <?php if(isset($topic['attach_download_link']) && !empty($topic['attach_download_link'])) {  ?>
 			<div class="attach-list">
 				<p class="text-center">
-					<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($topic['attach_title']); ?>" href="<?php echo $this->escape($topic['attach_link']); ?>"><i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?></a>
+					<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($topic['attach_title']); ?>" href="<?php echo $this->escape($topic['attach_download_link']); ?>"><i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?></a>
 				</p>
 			</div>
 			<?php } ?>

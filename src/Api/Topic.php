@@ -83,8 +83,17 @@ class Topic extends AbstractApi
                 $topic['ids'] = $topic['id'];
             }
             // Check attach
-            if (!empty($topic['attach_link']) && empty($topic['attach_title'])) {
-                $topic['attach_title'] = __('Download');
+            if (!empty($topic['attach_link'])) {
+                $topic['attach_download_link'] = Pi::url(Pi::service('url')->assemble('news', array(
+                    'module'        => $this->getModule(),
+                    'controller'    => 'media',
+                    'action'        => 'topic',
+                    'id'            => $topic['id'],
+                )));
+                // Check attach title
+                if (empty($topic['attach_title'])) {
+                    $topic['attach_title'] = __('Download');
+                }
             }
         }  
         // Set topic config

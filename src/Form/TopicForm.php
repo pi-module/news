@@ -406,6 +406,13 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // attach_download_count
+        $this->add(array(
+            'name' => 'attach_download_count',
+            'attributes' => array(
+                'type' => 'hidden',
+            ),
+        ));
         // Save
         $this->add(array(
             'name' => 'submit',

@@ -210,6 +210,7 @@ class TopicController extends ActionController
                 $setting['show_subid'] = $values['show_subid'];
                 $setting['attach_link'] = $values['attach_link'];
                 $setting['attach_title'] = $values['attach_title'];
+                $setting['attach_download_count'] = $values['attach_download_count'];
                 $setting['set_page'] = $values['set_page'];
                 $values['setting'] = Json::encode($setting);
                 // Set just category fields
