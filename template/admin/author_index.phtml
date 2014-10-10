@@ -3,14 +3,14 @@
 	<div class="admin-header clearfix well well-sm">
 		<div class="col-md-7">
 			<a class="btn btn-success" title="<?php _e('Author list'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'index')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Author list'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Add Author'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'update')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Add Author'); ?></a>
 			<a class="btn btn-primary" title="<?php _e('Role list'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'role')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Role list'); ?></a>
-			<a class="btn btn-primary" title="<?php _e('Add Role'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'roleUpdate')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Add Role'); ?></a>
 		</div>
 		<div class="col-md-5">
 			<div class="form-inline"><?php include $this->templateComponent('forms'); ?></div>
 		</div>
 	</div>
+	<p><a class="btn btn-primary" title="<?php _e('Add Author'); ?>" href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'update')); ?>"><i class="fa fa-plus"></i> <?php _e('Add Author'); ?></a></p>
+	<?php if (!empty($authors)) {  ?>
 	<h3><?php _e('List of authors'); ?></h3>
 	<table class="table table-striped table-bordered table-condensed">
 		<tr>
@@ -42,4 +42,5 @@
 		<span class="label label-warning"><?php _e('Pending review'); ?></span>
 		<span class="label label-danger"><?php _e('Trash'); ?></span>
 	</p>
+	<?php } ?>
 </div>
