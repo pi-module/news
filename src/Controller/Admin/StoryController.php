@@ -172,21 +172,20 @@ class StoryController extends ActionController
     public function viewAction()
     {
         // Get info
-        $module = $this->params('module');
-        // Set template
-        $this->view()->setTemplate('story_view');
-        // Get story
         $id = $this->params('id');
-        $story = $this->getModel('story')->find($id)->toArray();
-        $story['time_publish'] = _date($story['time_publish']);
+        // Get topic list
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
+        // Find story
+        $story = $this->getModel('story')->find($id);
+        $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check message
-        if (!$story['id']) {
+        if (!$story) {
             $this->jump(array('action' => 'index'), __('Please select story'));
         }
-        // Get topic
-        $topics = Pi::service('api')->news(array('Story', 'Topic'), $story['topic']);
         // Set view
-        $this->view()->assign('topics', $topics);
+        $this->view()->setTemplate('story_view');
         $this->view()->assign('story', $story);
     }
 
@@ -499,7 +498,7 @@ class StoryController extends ActionController
         $this->view()->assign('message', $message);
     }
 
-    public function deleteAction()
+    /* public function deleteAction()
     {
         // Get information
         $this->view()->setTemplate(false);
@@ -528,5 +527,5 @@ class StoryController extends ActionController
             $this->jump(array('action' => 'index'), __('This story deleted'));
         }
         $this->jump(array('action' => 'index'), __('Please select story'));
-    }
+    } */
 }
