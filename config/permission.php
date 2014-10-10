@@ -27,6 +27,19 @@ return array(
                 'member',
             ),
         ),
+        'archive' => array(
+            'title'         => _a('Archive'),
+            'access'        => array(
+                'guest',
+                'member',
+            ),
+        ),
+        'favourite' => array(
+            'title'         => _a('Favourite'),
+            'access'        => array(
+                'member',
+            ),
+        ),
     ),
     // Admin section
     'admin' => array(

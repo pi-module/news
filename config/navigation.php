@@ -23,6 +23,17 @@ return array(
             'action'        => 'index',
         ),
 
+        'favourite' => array(
+            'label'         => _a('Favourite'),
+            'permission'    => array(
+                'resource'  => 'public',
+            ),
+            'route'         => 'news',
+            'module'        => 'news',
+            'controller'    => 'favourite',
+            'action'        => 'index',
+        ),
+
         'topic' => array(
             'label'         => _a('Topic list'),
             'permission'    => array(

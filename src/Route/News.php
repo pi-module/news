@@ -28,7 +28,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'archive', 'author', 'index', 'json', 'media', 'story', 'tag', 'topic'
+        'archive', 'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic'
     );
 
     /**

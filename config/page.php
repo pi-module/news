@@ -78,7 +78,7 @@ return array(
         array(
             'title'         => _a('Archive'),
             'controller'    => 'archive',
-            'permission'    => 'public',
+            'permission'    => 'archive',
             'block'         => 1,
         ),
         array(
@@ -99,6 +99,12 @@ return array(
             'title'         => _a('Authors'),
             'controller'    => 'author',
             'permission'    => 'author',
+            'block'         => 1,
+        ),
+        array(
+            'title'         => _a('Favourite'),
+            'controller'    => 'favourite',
+            'permission'    => 'favourite',
             'block'         => 1,
         ),
     ),
