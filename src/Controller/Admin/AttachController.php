@@ -215,7 +215,7 @@ class AttachController extends ActionController
                 $file = $this->request->getFiles();
                 $type = $this->fileType($file['file']['name']);
                 if ($type == 'image') {
-                    $fileName = Pi::api('image', 'news')->rename($file['file']['name'], $this->AttachPrefix);
+                    $fileName = Pi::api('image', 'news')->rename($file['file']['name'], $this->AttachPrefix, $path);
                 } else {
                     $fileName = $this->AttachPrefix . '%random%';
                 }

@@ -20,8 +20,8 @@ return array(
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',
         'demo'          => 'http://demo.xoopsengine.org/news',
-        'icon'          => 'fa-book',
-        'clonable'      => true,
+        'icon'          => 'fa-rocket',
+        //'clonable'      => true,
     ),
     // Author information
     'author'        => array(

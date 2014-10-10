@@ -155,7 +155,7 @@ class AuthorController extends ActionController
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
                     $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
                     // Image name
-                    $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageAuthorPrefix);
+                    $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageAuthorPrefix, $values['path']);
                     // Upload
                     $uploader = new Upload;
                     $uploader->setDestination($originalPath);
