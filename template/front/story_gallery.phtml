@@ -90,15 +90,23 @@
 		    <?php include $this->template('front/extra_file'); ?>
 			<?php include $this->template('front/tag'); ?>
 			<?php include $this->template('front/attach'); ?>
-			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
-		    <?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?>
 		    <div class="storyMedia">
 				<?php include $this->template('front/attach_audio'); ?>
 				<?php include $this->template('front/extra_audio'); ?>
 				<?php include $this->template('front/attach_video'); ?>
 				<?php include $this->template('front/extra_video'); ?>
 			</div>
-			<?php include $this->template('front/rrssb'); ?>
+			<div class="clearfix">
+				<div class="col-md-6">
+					<ul class="list-inline">
+						<li><?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?></li>
+						<li><?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<?php include $this->template('front/rrssb'); ?>
+				</div>
+			</div>
 		</div>
     </div>
     <?php if($config['show_nav']) { ?>

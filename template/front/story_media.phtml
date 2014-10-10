@@ -77,8 +77,6 @@
 				<?php include $this->template('front/attach_audio'); ?>
 				<?php include $this->template('front/extra_audio'); ?>
 			</div>
-			<?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?>
-		    <?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?>
 			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
 			<div class="gallery col-md-4">
 				<div class="storyImageMain">
@@ -98,8 +96,18 @@
 		    <?php include $this->template('front/extra_file'); ?>
 			<?php include $this->template('front/tag'); ?>
 			<?php include $this->template('front/attach'); ?>
+			<div class="clearfix">
+				<div class="col-md-6">
+					<ul class="list-inline">
+						<li><?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?></li>
+						<li><?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?></li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<?php include $this->template('front/rrssb'); ?>
+				</div>
+			</div>
 		</div>
-		<?php include $this->template('front/rrssb'); ?>
     </div>
     <?php if($config['show_nav']) { ?>
     <div class="itemPager">
