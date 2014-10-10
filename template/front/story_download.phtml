@@ -1,19 +1,29 @@
 <?php 
-$this->css($this->assetModule('css/front.css'));
-if($config['image_lightbox']){ 
-	$this->jQuery();
-	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
-	$this->footScript()->appendScript("$('.gallery').each(function() {
-    	$(this).magnificPopup({
-        	delegate: 'a',
-        	type: 'image',
-        	gallery: {
-          	enabled:true
-        	}
-    	});
-	});");
-	$this->css($this->assetModule('css/magnific-popup.css'));
-} 
+	// Load front.css
+	$this->css($this->assetModule('css/front.css'));
+	// Image lightbox
+	if($config['image_lightbox']){ 
+		$this->jQuery();
+		$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
+		$this->footScript()->appendScript("$('.gallery').each(function() {
+    		$(this).magnificPopup({
+        		delegate: 'a',
+        		type: 'image',
+        		gallery: {
+          		enabled:true
+        		}
+    		});
+		});");
+		$this->css($this->assetModule('css/magnific-popup.css'));
+	}
+    // Open Graph tags
+    $this->doctype('XHTML1_RDFA');
+    $this->headMeta($this->escape($story['title']), 'og:title', 'property');
+    $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
+    $this->headMeta($this->escape($story['short']), 'og:description', 'property');
+    if (isset($story['originalUrl']) && !empty($story['originalUrl'])) {
+	    $this->headMeta($this->escape($story['originalUrl']), 'og:image', 'property');
+    }
 ?>
 <div class="news">
 	<?php include $this->template('front/feed'); ?>
