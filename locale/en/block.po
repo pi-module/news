@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-08-11 12:27+0330\n"
+"POT-Creation-Date: 2014-10-10 20:09+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,31 +16,31 @@ msgstr ""
 "X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
 "news\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:10
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:21
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/spotlight.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:24
-msgid "Read More"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:10
-msgid "Time"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:15
-msgid "Read"
-msgstr ""
-
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:4
 msgid "Title"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:5
 msgid "Short Info"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:6
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:13
+msgid "Time"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:7
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:15
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:14
+msgid "Read"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:20
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:24
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:21
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:28
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:10
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/spotlight.phtml:14
+msgid "Read More"
 msgstr ""
