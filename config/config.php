@@ -612,29 +612,37 @@ return array(
         ),
         */
         // Social
-        'social_gplus' => array(
-            'category'     => 'social',
-            'title'        => _a('Show Google Plus'),
-            'description'  => '',
-            'edit'         => 'checkbox',
-            'filter'       => 'number_int',
-            'value'        => 1
-        ),
         'social_facebook' => array(
-            'category'     => 'social',
-            'title'        => _a('Show facebook'),
-            'description'  => '',
-            'edit'         => 'checkbox',
-            'filter'       => 'number_int',
-            'value'        => 1
+            'category' => 'social',
+            'title' => _a('Show facebook'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
         ),
         'social_twitter' => array(
-            'category'     => 'social',
-            'title'        => _a('Show Twitter'),
-            'description'  => '',
-            'edit'         => 'checkbox',
-            'filter'       => 'number_int',
-            'value'        => 1
+            'category' => 'social',
+            'title' => _a('Show Twitter'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
+        'social_gplus' => array(
+            'category' => 'social',
+            'title' => _a('Show Google Plus'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
+        'social_pinterest' => array(
+            'category' => 'social',
+            'title' => _a('Show Pinterest'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
         ),
         // Spotlight
         'spotlight_number' => array(
