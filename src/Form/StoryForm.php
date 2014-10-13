@@ -212,7 +212,9 @@ class StoryForm extends BaseForm
                 'label' => __('SEO Title'),
             ),
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => '2',
+                'cols' => '40',
                 'description' => '',
             )
         ));
@@ -223,7 +225,9 @@ class StoryForm extends BaseForm
                 'label' => __('SEO Keywords'),
             ),
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => '2',
+                'cols' => '40',
                 'description' => '',
             )
         ));
@@ -234,7 +238,9 @@ class StoryForm extends BaseForm
                 'label' => __('SEO Description'),
             ),
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => '3',
+                'cols' => '40',
                 'description' => '',
             )
         ));
