@@ -704,6 +704,14 @@ return array(
             'filter'       => 'string',
             'value'        => _a('news,topic,story,website'),
         ),
+        'text_seo_keywords' => array(
+            'category'     => 'text',
+            'title'        => _a('Number of SEO keywords'),
+            'description'  => '',
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 10
+        ),
         // File
         'file_size' => array(
             'category'     => 'file',

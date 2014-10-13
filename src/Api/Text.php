@@ -34,9 +34,12 @@ class Text extends AbstractApi
      * @param  number
      * @return string
      */
-	public function keywords($keywords, $number = '6') 
+	public function keywords($keywords) 
 	{
-		$keywords = _strip($keywords);
+        $config = Pi::service('registry')->config->read($this->getModule(), 'text');
+        $number = (intval($config['text_seo_keywords']) > 0) ? intval($config['text_seo_keywords']) : 10;
+        
+        $keywords = _strip($keywords);
 		$keywords = strtolower(trim($keywords));
 		$keywords = array_unique(array_filter(explode(' ', $keywords)));
 		$keywords = array_slice($keywords, 0, $number);
@@ -70,8 +73,9 @@ class Text extends AbstractApi
      */
     public function title($title) 
     {
-        $title = _strip($title); 
-        $title = strtolower(trim($title));
+        $title = strip_tags($title);
+        $title = _escape($title);
+        $title = trim($title);
         $title = preg_replace('/[\s]+/', ' ', $title);
         return $title;
     }   
