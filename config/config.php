@@ -712,6 +712,22 @@ return array(
             'filter'       => 'number_int',
             'value'        => 10
         ),
+        'text_seo_generate' => array(
+            'title'        => _a('SEO items generate method'),
+            'description'  => '',
+            'edit'         => array(
+                'type'         => 'select',
+                'options'      => array(
+                    'options'  => array(
+                        'hard'          => _a('Hard'),
+                        'soft'          => _a('Soft'),
+                    ),
+                ),
+            ),
+            'filter'       => 'string',
+            'value'        => 'hard',
+            'category'     => 'text',
+        ),
         // File
         'file_size' => array(
             'category'     => 'file',

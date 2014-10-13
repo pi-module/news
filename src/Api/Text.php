@@ -38,8 +38,11 @@ class Text extends AbstractApi
 	{
         $config = Pi::service('registry')->config->read($this->getModule(), 'text');
         $number = (intval($config['text_seo_keywords']) > 0) ? intval($config['text_seo_keywords']) : 10;
+
+        if ($config['text_seo_generate'] == 'hard') {
+            $keywords = _strip($keywords);
+        }
         
-        $keywords = _strip($keywords);
 		$keywords = strtolower(trim($keywords));
 		$keywords = array_unique(array_filter(explode(' ', $keywords)));
 		$keywords = array_slice($keywords, 0, $number);
@@ -57,8 +60,13 @@ class Text extends AbstractApi
      */
     public function description($description) 
     {
-        $description = _strip($description); 
-        $description = strtolower(trim($description));
+        $config = Pi::service('registry')->config->read($this->getModule(), 'text');
+
+        if ($config['text_seo_generate'] == 'hard') {
+            $description = _strip($description);
+            $description = strtolower(trim($description));
+        }
+
         $description = preg_replace('/[\s]+/', ' ', $description);
         return $description;
     }   
@@ -73,9 +81,13 @@ class Text extends AbstractApi
      */
     public function title($title) 
     {
-        $title = strip_tags($title);
-        $title = _escape($title);
-        $title = trim($title);
+        $config = Pi::service('registry')->config->read($this->getModule(), 'text');
+
+        if ($config['text_seo_generate'] == 'hard') {
+            $title = _strip($title);
+            $title = strtolower(trim($title));
+        }
+
         $title = preg_replace('/[\s]+/', ' ', $title);
         return $title;
     }   
@@ -87,7 +99,12 @@ class Text extends AbstractApi
      */
 	public function slug($slug)
 	{
-		$slug = _strip($slug);
+		$config = Pi::service('registry')->config->read($this->getModule(), 'text');
+
+        if ($config['text_seo_generate'] == 'hard') {
+            $slug = _strip($slug);
+        }
+
         $slug = strtolower(trim($slug));
         $slug = array_filter(explode(' ', $slug));
         $slug = implode('-', $slug);

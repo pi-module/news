@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-10-13 12:54+0330\n"
+"POT-Creation-Date: 2014-10-13 14:20+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -626,14 +626,26 @@ msgstr ""
 msgid "Number of SEO keywords"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:718
-msgid "File Size"
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:716
+msgid "SEO items generate method"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:726
-msgid "File path"
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:722
+msgid "Hard"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:723
+msgid "Soft"
 msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:734
+msgid "File Size"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:742
+msgid "File path"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:750
 msgid "File Extension"
 msgstr ""

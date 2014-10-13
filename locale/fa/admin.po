@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-10-13 12:54+0330\n"
+"POT-Creation-Date: 2014-10-13 14:20+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -628,15 +628,27 @@ msgstr "خبر,موضوع,مطلب,وب سایت"
 msgid "Number of SEO keywords"
 msgstr "تعداد کلمات کلیدی برای سئو"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:718
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:716
+msgid "SEO items generate method"
+msgstr "روش تولید موراد سئو"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:722
+msgid "Hard"
+msgstr "سخت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:723
+msgid "Soft"
+msgstr "نرم"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:734
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:726
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:742
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:734
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:750
 msgid "File Extension"
 msgstr "سوند های مجار برای فایل"
 
