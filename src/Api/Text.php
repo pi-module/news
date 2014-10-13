@@ -41,12 +41,11 @@ class Text extends AbstractApi
 
         if ($config['text_seo_generate'] == 'hard') {
             $keywords = _strip($keywords);
+            $keywords = strtolower(trim($keywords));
+            $keywords = array_unique(array_filter(explode(' ', $keywords)));
+            $keywords = array_slice($keywords, 0, $number);
+            $keywords = implode(',', $keywords);
         }
-        
-		$keywords = strtolower(trim($keywords));
-		$keywords = array_unique(array_filter(explode(' ', $keywords)));
-		$keywords = array_slice($keywords, 0, $number);
-		$keywords = implode(',', $keywords);
 		return $keywords;
 	}	
 	 
