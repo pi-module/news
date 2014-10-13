@@ -241,11 +241,11 @@ class Story extends AbstractApi
         $story['time_publish_view'] = _date($story['time_publish']);
         $story['time_update_view'] = _date($story['time_update']);
         // Set story url
-        $story['storyUrl'] = Pi::service('url')->assemble('news', array(
+        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
             'module'        => $this->getModule(),
             'controller'    => 'story',
             'slug'          => $story['slug'],
-        ));
+        )));
         // Set topic information
         $story['topic'] = Json::decode($story['topic']);
         // Get topic list
@@ -324,11 +324,11 @@ class Story extends AbstractApi
         // Set times
         $story['time_publish_view'] = _date($story['time_publish']);
         // Set story url
-        $story['storyUrl'] = Pi::service('url')->assemble('news', array(
+        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
             'module'        => $this->getModule(),
             'controller'    => 'story',
             'slug'          => $story['slug'],
-        ));
+        )));
         // Set image url
         if ($story['image']) {
             // Set image thumb url

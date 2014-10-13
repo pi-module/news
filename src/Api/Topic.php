@@ -40,11 +40,11 @@ class Topic extends AbstractApi
             $setting = Json::decode($topic['setting']);
             $topic = array_merge($topic, (array) $setting);
             // Set topic url
-            $topic['topicUrl'] = Pi::service('url')->assemble('news', array(
+            $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $this->getModule(),
                 'controller'    => 'topic',
                 'slug'          => $topic['slug'],
-            ));
+            )));
             // Set image url
             if ($topic['image']) {
                 // Set image original url

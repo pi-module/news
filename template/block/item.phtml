@@ -1,18 +1,26 @@
 <div class="news-block news-item-block">
 	<?php foreach($block['resources'] as $story) { ?>
 	<div class="media">
-		<?php if($block['showimage'] && !empty($story['thumbUrl'])){ ?>
-		<a class="pull-left itemImage" href="<?php echo $this->escape($story['storyUrl']); ?>">
-			<img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-thumbnail"  />
-        </a>
-        <?php } ?>
         <div class="media-body">
-        	<h4 class="media-heading"><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></h4>
+        <?php if($block['showimage'] && !empty($story['thumbUrl'])){ ?>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                <img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="img-responsive img-rounded" />
+            </a>
+        </div>
+        <?php } ?>
+        	<h4 class="media-heading">
+                <a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+            </h4>
         	<?php if($block['showdate'] || $block['showhits']){ ?>
-			<div class="itemInfo">
-				<?php if($block['showdate']){ ?><span class="itemPostDate"><?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?></span><?php } ?>
-				<?php if($block['showhits']){ ?><span class="itemStats"><?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?></span><?php } ?>
-			</div>
+            <ul class="text-muted list-inline">
+                <?php if($block['showdate']){ ?>
+                <li><i class="fa fa-calendar"></i> <?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                <?php } ?>
+                <?php if($block['showhits']){ ?>
+                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?></li>
+                <?php } ?>
+            </ul>
 			<?php } ?>
         	<?php if($block['showdesc']){  ?>
             <div class="storyText"><?php echo $story['short']; ?></div>
