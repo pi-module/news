@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-10-13 12:54+0330\n"
+"POT-Creation-Date: 2014-10-13 13:59+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,9 +38,12 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:20
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:24
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:29
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:36
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:10
+msgid "More stories"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:29
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/spotlight.phtml:14
 msgid "Read More"
 msgstr ""
