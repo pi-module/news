@@ -93,6 +93,39 @@ class IndexController extends ActionController
         return $story;
     }
 
+    public function storyJsonList($where)
+    {
+        // Set info
+        $story = array();
+        $limit = 10;
+        $page = $this->params('page', 1);
+        $module = $this->params('module');
+        $offset = (int)($page - 1) * $limit;
+        $order = array('time_publish DESC', 'id DESC');
+        // Set info
+        $columns = array('story' => new Expression('DISTINCT story'));
+        // Get info from link table
+        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit($limit);
+        $rowset = $this->getModel('link')->selectWith($select)->toArray();
+        // Make list
+        foreach ($rowset as $id) {
+            $storyId[] = $id['story'];
+        }
+        if (empty($storyId)) {
+            return $story;
+        }
+        // Set info
+        $where = array('status' => 1, 'id' => $storyId);
+        // Get list of story
+        $select = $this->getModel('story')->select()->where($where)->order($order);
+        $rowset = $this->getModel('story')->selectWith($select);
+        foreach ($rowset as $row) {
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStoryJson($row);
+        }
+        // return story
+        return $story;
+    }
+
     public function storyPaginator($template, $where, $limit)
     {
         $page = $this->params('page', 1);
@@ -123,7 +156,7 @@ class IndexController extends ActionController
         return $paginator;
     }
 
-    public function jsonList($topic, $start, $limit)
+    /* public function jsonList($topic, $start, $limit)
     {
         // Set story info
         if ($start) {
@@ -167,7 +200,7 @@ class IndexController extends ActionController
         }
         // return story
         return $story;
-    }
+    } */
 
     public function setLinkOrder($sort = 'publishDESC')
     {
@@ -178,12 +211,12 @@ class IndexController extends ActionController
                 break;
 
             case 'publishASC':
-                $order = array('time_publish ASC', 'id ASC');;
+                $order = array('time_publish ASC', 'id ASC');
                 break;
 
             case 'publishDESC':
             default:
-                $order = array('time_publish DESC', 'id DESC');;
+                $order = array('time_publish DESC', 'id DESC');
                 break;
         } 
         return $order;

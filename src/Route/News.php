@@ -102,16 +102,11 @@ class News extends Standard
                     break; 
 
                 case 'json':
-                    $matches['topic'] = $this->decode($parts[1]);
-                    if (isset($parts[2]) && $parts[2] == 'start' && isset($parts[4]) && $parts[4] == 'limit') {
-                        $matches['start'] = $parts[3];
-                        $matches['limit'] = $parts[5];
-                    } elseif (isset($parts[2]) &&$parts[2] == 'start') {
-                        $matches['start'] = $parts[3];
-                    } elseif (isset($parts[2]) &&$parts[2] == 'limit') {
-                        $matches['limit'] = $parts[3];
+                    $matches['action'] = $this->decode($parts[1]);
+                    if (isset($parts[2]) && $parts[2] == 'id') {
+                        $matches['id'] = intval($parts[3]);
                     }
-                    break;
+                    break; 
 
                 case 'media':
                     $matches['action'] = $this->decode($parts[1]);

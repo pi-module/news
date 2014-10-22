@@ -27,6 +27,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->getListFromIdLight($id);
  * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
  * Pi::api('story', 'news')->canonizeStoryLight($story);
+ * Pi::api('story', 'news')->canonizeStoryJson($story);
  * Pi::api('story', 'news')->sitemap();
  */
 
@@ -347,6 +348,47 @@ class Story extends AbstractApi
         unset($story['topic']);
         // return story
         return $story; 
+    }
+
+    public function canonizeStoryJson($story)
+    {
+        // Check
+        if (empty($story)) {
+            return '';
+        }
+        // Get config
+        $config = Pi::service('registry')->config->read($this->getModule());
+        // boject to array
+        $story = $story->toArray();
+        // Set story url
+        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
+            'module'        => $this->getModule(),
+            'controller'    => 'story',
+            'slug'          => $story['slug'],
+        )));
+        // Set image url
+        if ($story['image']) {
+            // Set image thumb url
+            $story['thumbUrl'] = Pi::url(
+                sprintf('upload/%s/thumb/%s/%s', 
+                    $config['image_path'], 
+                    $story['path'], 
+                    $story['image']
+                ));
+        } else {
+            $story['thumbUrl'] = '';
+        }
+        // Set return array
+        $storyJson = array(
+            'id'                   => $story['id'],
+            'title'                => $story['title'],
+            'time_publish'         => $story['time_publish'],
+            'thumbUrl'             => $story['thumbUrl'],
+            'storyUrl'             => $story['storyUrl'],
+            'topic'                => Json::decode($story['topic']),
+        );
+        // return item
+        return $storyJson; 
     }
 
     public function sitemap()

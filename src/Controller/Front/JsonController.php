@@ -18,7 +18,7 @@ use Zend\Json\Json;
 
 class JsonController extends IndexController
 {
-    public function indexAction()
+    /* public function indexAction()
     {
         // Set view
         $this->view()->setTemplate(false)->setLayout('layout-content');
@@ -67,5 +67,97 @@ class JsonController extends IndexController
             echo Json::encode($storyList);
             exit;
         }
+    } */
+
+    public function indexAction()
+    {
+        // Set return
+        $return = array(
+            'website' => Pi::url(),
+            'module' => $this->params('module'),
+        );
+        // Set view
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        return Json::encode($return);
+    }
+
+    public function storyAllAction()
+    {
+        // Get info from url
+        $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Get topic or homepage setting
+        $topic = Pi::api('topic', 'news')->canonizeTopic();
+        // Set story info
+        $where = array('status' => 1);
+        // Get story List
+        $storyList = $this->storyJsonList($where);
+        // Set view
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        return Json::encode($storyList);
+    }
+
+    public function storyTopicAction()
+    {
+        // Get info from url
+        $id = $this->params('id');
+        $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Get topic information from model
+        $topic = $this->getModel('topic')->find($id);
+        $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
+        // Check category
+        if (!$topic || $topic['status'] != 1) {
+            $storyList = array();
+        } else {
+            // Set story info
+            $where = array('status' => 1, 'topic' => $topic['ids']);
+            // Get story List
+            $storyList = $this->storyJsonList($where);
+        }
+        // Set view
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        return Json::encode($storyList);
+    }
+
+    public function storySingleAction()
+    {
+        // Get info from url
+        $id = $this->params('id');
+        $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Get topic list
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
+        // Find story
+        $story = $this->getModel('story')->find($id);
+        $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
+        // Check item
+        if (!$story || $story['status'] != 1) {
+            $storySingle = array();
+        } else {
+            $storySingle = $story;
+            // Attached
+            if ($config['show_attach'] && $story['attach']) {
+                $attach = Pi::api('story', 'news')->AttachList($story['id']);
+                $storySingle['attachList'] = $attach;
+            } else {
+                $storySingle['attachList'] = array();
+            }
+            // Extra
+            if ($config['show_extra'] && $story['extra']) {
+                $extra = Pi::api('extra', 'news')->Story($story['id']);
+                $storySingle['extraList'] = $extra;
+            } else {
+                $storySingle['extraList'] = array();
+            }
+        }
+        // Set view
+        $this->view()->setTemplate(false)->setLayout('layout-content');
+        return Json::encode($storySingle);
     }
 }
