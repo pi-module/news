@@ -28,7 +28,7 @@
 				<a class="btn btn-primary" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('All stories'); ?></a>
 				<a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
 				<?php if($config['admin_json']) { ?>
-				<a class="btn btn-primary" title="<?php _e('Json'); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'json', 'id' => $this->escape($topic['id']))); ?>"><i class="fa fa-code"></i> <?php _e('Json'); ?></a>
+				<a class="btn btn-primary" title="<?php _e('Json'); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'json', 'action' => 'storyTopic', 'id' => $this->escape($topic['id']))); ?>"><i class="fa fa-code"></i> <?php _e('Json'); ?></a>
 				<?php } ?>
 				<!-- <a class="btn btn-danger" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $topic['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a> -->
 			</td>

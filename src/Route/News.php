@@ -138,39 +138,40 @@ class News extends Standard
         if (!empty($mergedParams['module'])) {
             $url['module'] = $mergedParams['module'];
         }
+
         if (!empty($mergedParams['controller']) && $mergedParams['controller'] != 'index') {
             $url['controller'] = $mergedParams['controller'];
         }
+
         if (!empty($mergedParams['action']) && $mergedParams['action'] != 'index') {
             $url['action'] = $mergedParams['action'];
         }
+
         if (!empty($mergedParams['year'])) {
             $url['year'] = $mergedParams['year'];
         }
+
         if (!empty($mergedParams['month'])) {
             $url['month'] = $mergedParams['month'];
         }
+
         if (!empty($mergedParams['slug'])) {
             $url['slug'] = $mergedParams['slug'];
         }
-        if (!empty($mergedParams['id'])) {
+
+        if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {
+            $url['id'] = 'id' . $this->paramDelimiter . $mergedParams['id'];
+        } elseif(!empty($mergedParams['id'])) {
             $url['id'] = $mergedParams['id'];
         }
+
         if (!empty($mergedParams['start'])) {
             $url['start'] = 'start' . $this->paramDelimiter . $mergedParams['start'];
         }
+
         if (!empty($mergedParams['limit'])) {
             $url['limit'] = 'limit' . $this->paramDelimiter . $mergedParams['limit'];
         }
-        /* if (!empty($mergedParams['page'])) {
-            $url['page'] = 'page' . $this->paramDelimiter . $mergedParams['page'];
-        }
-        if (!empty($mergedParams['topic'])) {
-            $url['topic'] = 'topic' . $this->paramDelimiter . $mergedParams['topic'];
-        }
-        if (!empty($mergedParams['status'])) {
-            $url['status'] = 'status' . $this->paramDelimiter . $mergedParams['status'];
-        } */
 
         // Make url
         $url = implode($this->paramDelimiter, $url);

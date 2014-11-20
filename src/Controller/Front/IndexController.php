@@ -97,7 +97,7 @@ class IndexController extends ActionController
     {
         // Set info
         $story = array();
-        $limit = 10;
+        $limit = 150;
         $page = $this->params('page', 1);
         $module = $this->params('module');
         $offset = (int)($page - 1) * $limit;
@@ -120,7 +120,7 @@ class IndexController extends ActionController
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStoryJson($row);
+            $story[] = Pi::api('story', 'news')->canonizeStoryJson($row);
         }
         // return story
         return $story;

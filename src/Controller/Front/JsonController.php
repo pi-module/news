@@ -142,7 +142,7 @@ class JsonController extends IndexController
         } else {
             $storySingle = $story;
             // Attached
-            if ($config['show_attach'] && $story['attach']) {
+            /* if ($config['show_attach'] && $story['attach']) {
                 $attach = Pi::api('story', 'news')->AttachList($story['id']);
                 $storySingle['attachList'] = $attach;
             } else {
@@ -154,7 +154,7 @@ class JsonController extends IndexController
                 $storySingle['extraList'] = $extra;
             } else {
                 $storySingle['extraList'] = array();
-            }
+            } */
         }
         // Set view
         $this->view()->setTemplate(false)->setLayout('layout-content');
