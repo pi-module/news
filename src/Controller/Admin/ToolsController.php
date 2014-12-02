@@ -18,6 +18,7 @@ use Module\News\Form\RebuildForm;
 use Module\News\Form\PruneForm;
 use Module\News\Form\SitemapForm;
 use Module\News\Form\PageForm;
+use Module\News\Form\RegenerateImageForm;
 
 class ToolsController extends ActionController
 {
@@ -199,6 +200,42 @@ class ToolsController extends ActionController
         $this->view()->setTemplate('tools_sitemap');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Rebuild sitemap links'));
+        $this->view()->assign('message', $message);
+    }
+
+    public function imageAction()
+    {
+        $form = new RegenerateImageForm('image');
+        $message = __('Regenerate all images by new setting. Please make backup from youe files on upload folder , before use this tools');
+        if ($this->request->isPost()) {
+            // Set form date
+            $values = $this->request->getPost()->toArray();
+            switch ($values['type']) {
+                case '1':
+                    Pi::api('story', 'news')->regenerateImage();
+                    Pi::api('topic', 'news')->regenerateImage();
+                    Pi::api('author', 'news')->regenerateImage();
+                    break;
+
+                case '2':
+                    Pi::api('story', 'news')->regenerateImage();
+                    break;
+
+                case '3':
+                    Pi::api('topic', 'news')->regenerateImage();
+                    break;
+
+                case '4':
+                    Pi::api('author', 'news')->regenerateImage();
+                    break;
+
+            }
+            $message = __('Regenerate images finished');
+        }    
+        // Set view
+        $this->view()->setTemplate('tools_image');
+        $this->view()->assign('form', $form);
+        $this->view()->assign('title', __('Regenerate images'));
         $this->view()->assign('message', $message);
     }
 }

@@ -22,6 +22,7 @@ use Zend\Json\Json;
  * Pi::api('topic', 'news')->setLink($story, $topics, $time_publish, $status, $uid);
  * Pi::api('topic', 'news')->topicCount();
  * Pi::api('topic', 'news')->sitemap();
+ * Pi::api('topic', 'news')->regenerateImage();
  */
 
 class Topic extends AbstractApi
@@ -295,6 +296,60 @@ class Topic extends AbstractApi
                 )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'topic', $row->id);
+            }
+        }
+    }
+
+    public function regenerateImage()
+    {
+        // Get config
+        $config = Pi::service('registry')->config->read($this->getModule());
+        // Set info
+        $columns = array('id', 'image', 'path');
+        $order = array('id ASC');
+        $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->order($order);
+        $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            if (!empty($row->image) && !empty($row->path)) {
+                // Set image original path
+                $original = Pi::path(
+                    sprintf('upload/%s/large/%s/%s', 
+                        $config['image_path'], 
+                        $row->path,
+                        $row->image
+                    ));
+                // Set image large path
+                $images['large'] = Pi::path(
+                    sprintf('upload/%s/large/%s/%s', 
+                        $config['image_path'], 
+                        $row->path,
+                        $row->image
+                    ));
+                // Set image medium path
+                $images['medium'] = Pi::path(
+                    sprintf('upload/%s/medium/%s/%s', 
+                        $config['image_path'], 
+                        $row->path, 
+                        $row->image
+                    ));
+                // Set image thumb path
+                $images['thumb'] = Pi::path(
+                    sprintf('upload/%s/thumb/%s/%s', 
+                        $config['image_path'], 
+                        $row->path, 
+                        $row->image
+                    ));
+                // Check original exist of not
+                if (file_exists($original)) {
+                    // Remove old images
+                    foreach ($images as $image) {
+                        if (file_exists($image)) {
+                            Pi::service('file')->remove($image);
+                        }
+                    }
+                    // regenerate
+                    Pi::api('image', 'news')->process($row->image, $row->path, 'topic');
+                }
             }
         }
     }
