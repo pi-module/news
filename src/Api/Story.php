@@ -271,7 +271,8 @@ class Story extends AbstractApi
                     if (!empty($author['author'])) {
                         $authors = array();
                         $authors['authorName'] = $authorList['author'][$author['author']]['title'];
-                        $authors['authorUrl'] =  $authorList['author'][$author['author']]['url'];
+                        $authors['authorUrl'] = $authorList['author'][$author['author']]['url'];
+                        $authors['authorThumbUrl'] = $authorList['author'][$author['author']]['thumbUrl'];
                         $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
                         $story['authors'][] = $authors;
                     }

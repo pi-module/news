@@ -1,0 +1,13 @@
+<?php if(!empty($story['authors']) && $config['show_author']) { ?>
+<div class="pull-left authorStory">
+	<?php foreach($story['authors'] as $author) { ?>
+	<span>
+		<?php echo $author['authorRole']; ?> : 
+		<a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+			<img src="<?php echo $author['authorThumbUrl']; ?>" alt="<?php echo $author['authorName']; ?>">
+			<?php echo $author['authorName']; ?>
+	    </a>
+	</span>  
+	<?php } ?> 
+</div> 
+<?php } ?> 

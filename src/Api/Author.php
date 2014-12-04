@@ -201,11 +201,11 @@ class Author extends AbstractApi
             // Set image original url
             $author['originalUrl'] = Pi::url('static/avatar/local/origin.png');
             // Set image large url
-            $author['largeUrl'] = Pi::url('static/avatar/local/xxlarge.png');;
+            $author['largeUrl'] = Pi::url('static/avatar/local/xxlarge.png');
             // Set image medium url
-            $author['mediumUrl'] = Pi::url('static/avatar/local/xlarge.png');;
+            $author['mediumUrl'] = Pi::url('static/avatar/local/xlarge.png');
             // Set image thumb url
-            $author['thumbUrl'] = Pi::url('static/avatar/local/large.png');;
+            $author['thumbUrl'] = Pi::url('static/avatar/local/large.png');
         }
         // return author
         return $author; 
