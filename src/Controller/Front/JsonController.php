@@ -140,22 +140,22 @@ class JsonController extends IndexController
         if (!$story || $story['status'] != 1) {
             $storySingle = array();
         } else {
-            $storySingle = $story;
-            // Attached
-            /* if ($config['show_attach'] && $story['attach']) {
-                $attach = Pi::api('story', 'news')->AttachList($story['id']);
-                $storySingle['attachList'] = $attach;
-            } else {
-                $storySingle['attachList'] = array();
-            }
-            // Extra
-            if ($config['show_extra'] && $story['extra']) {
-                $extra = Pi::api('extra', 'news')->Story($story['id']);
-                $storySingle['extraList'] = $extra;
-            } else {
-                $storySingle['extraList'] = array();
-            } */
+            $storySingle = array(
+                'id'                 => $story['id'],
+                'title'              => $story['title'],
+                'subtitle'           => $story['subtitle'],
+                'topic'              => $story['topic'][0],
+                'short'              => $story['short'],
+                'body'               => $story['body'],
+                'time_publish'       => $story['time_publish'],
+                'time_publish_view'  => $story['time_publish_view'],
+                'storyUrl'           => $story['storyUrl'],
+                'largeUrl'           => $story['largeUrl'],
+                'mediumUrl'          => $story['mediumUrl'],
+                'thumbUrl'           => $story['thumbUrl'],
+            );
         }
+        $storySingle = array($storySingle);
         // Set view
         $this->view()->setTemplate(false)->setLayout('layout-content');
         return Json::encode($storySingle);

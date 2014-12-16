@@ -380,14 +380,17 @@ class Story extends AbstractApi
         } else {
             $story['thumbUrl'] = '';
         }
+
+        $topic = Json::decode($story['topic']);
         // Set return array
         $storyJson = array(
             'id'                   => $story['id'],
             'title'                => $story['title'],
             'time_publish'         => $story['time_publish'],
+            'time_publish_view'    => _date($story['time_publish']),
             'thumbUrl'             => $story['thumbUrl'],
-            'storyUrl'             => $story['storyUrl'],
-            'topic'                => Json::decode($story['topic']),
+            //'storyUrl'           => $story['storyUrl'],
+            'topic'                => $topic[0],
         );
         // return item
         return $storyJson; 
