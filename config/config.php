@@ -291,6 +291,14 @@ return array(
             'filter'       => 'number_int',
             'value'        => 0
         ),
+        'view_breadcrumbs' => array(
+            'category'     => 'show',
+            'title'        => _a('Show breadcrumbs'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
         // Feed 
         'feed_icon' => array(
             'category'     => 'feed',
