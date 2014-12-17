@@ -16,13 +16,23 @@
 		});");
 		$this->css($this->assetModule('css/magnific-popup.css'));
 	}
-    // Open Graph tags
-    $this->doctype('XHTML1_RDFA');
+    // Set Open Graph tags for meta
+    $this->doctype('HTML5');
     $this->headMeta($this->escape($story['title']), 'og:title', 'property');
     $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
-    $this->headMeta($this->escape($story['short']), 'og:description', 'property');
-    if (isset($story['originalUrl']) && !empty($story['originalUrl'])) {
-	    $this->headMeta($this->escape($story['originalUrl']), 'og:image', 'property');
+    if (isset($story['short']) && !empty($story['short'])) {
+	    $this->headMeta($this->escape($story['short']), 'og:description', 'property');
+    }
+    if (!empty($story['largeUrl'])) {
+	    $this->headMeta($this->escape($story['largeUrl']), 'og:image', 'property');
+    }
+    // Set twitter for meta
+    $this->headMeta($this->escape($story['title']), 'twitter:title');
+    if (isset($story['short']) && !empty($story['short'])) {
+	    $this->headMeta($this->escape($story['short']), 'twitter:description');
+    }
+    if (!empty($story['largeUrl'])) {
+	    $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
     }
 ?>
 <div class="clearfix">
