@@ -6,11 +6,11 @@
     $this->jQuery();
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
-<div class="news">
+<div class="clearfix">
     <div class="alert alert-success"><?php echo $message; ?></div>
     <h3><?php echo $this->escape($title); ?></h3>
     <div id="story-form">
-        <?php include $this->templateComponent('forms'); ?>
+        <?php echo $this->form($form); ?>
     </div>
 </div> 
 <script type="text/javascript">

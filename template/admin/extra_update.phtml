@@ -1,5 +1,7 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
-<div class="news">
+<div class="clearfix">
 	<h3><?php echo $this->escape($title); ?></h3>
-	<div id="extra-form"><?php include $this->templateComponent('forms'); ?></div>
+	<div id="extra-form">
+		<?php echo $this->form($form); ?>
+	</div>
 </div>

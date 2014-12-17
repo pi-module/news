@@ -15,13 +15,13 @@ if($config['image_lightbox']){
 	$this->css($this->assetModule('css/magnific-popup.css'));
 }
 ?>
-<div class="news">
+<div class="clearfix">
 	<?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><?php echo $this->escape($author['title']); ?></h3>
+            <h1 class="panel-title"><?php echo $this->escape($author['title']); ?></h1>
         </div>
         <div class="panel-body">
 			<div class="pull-left gallery itemImageList">

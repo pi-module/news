@@ -17,7 +17,7 @@ if($config['image_lightbox']){
 <div class="topicinfo">
 	<div class="panel panel-default">
   		<div class="panel-heading">
-  			<h2 class="panel-title"><?php echo $this->escape($topic['title']); ?></h2>
+  			<h1 class="panel-title"><?php echo $this->escape($topic['title']); ?></h1>
   		</div>
 		<div class="panel-body">
 			<?php if(!empty($topic['image'])) {  ?>
@@ -45,7 +45,7 @@ if($config['image_lightbox']){
 <?php } elseif($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
 <div class="topicinfo">
 	<div class="page-header">
-		<h3><?php echo $this->escape($topic['title']); ?></h3>
+		<h1><?php echo $this->escape($topic['title']); ?></h1>
 	</div>
 </div>
 <?php } ?>

@@ -6,7 +6,7 @@
     $this->jQuery();
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
-<div class="news">
+<div class="clearfix">
 	<div class="admin-header clearfix well well-sm">
 		<div class="col-md-7">
 			<div class="nav">
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<div class="form-inline"><?php include $this->templateComponent('forms'); ?></div>
+			<?php echo $this->form($form, 'inline'); ?>
 		</div>
 	</div>
 	<h3><?php _e('List of stories'); ?></h3>

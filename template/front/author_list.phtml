@@ -1,9 +1,9 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
-<div class="news">
+<div class="clearfix">
 <?php if (isset($authors) && !empty($authors)) { ?>
 	<div class="authorList clearfix">
 		<div class="page-header">
-			<h4><?php _e('Author list'); ?></h4>
+			<h1><?php _e('Author list'); ?></h1>
 		</div>
 		<ul class="list-group">
 			<?php foreach($authors as $author) { ?>

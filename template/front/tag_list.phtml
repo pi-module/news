@@ -1,9 +1,9 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
-<div class="news">
+<div class="clearfix">
 <?php if (isset($tagList) && !empty($tagList)) { ?>
 <div class="tagList clearfix">
 	<div class="page-header">
-		<h4><?php _e('Tag list'); ?></h4>
+		<h1><?php _e('Tag list'); ?></h1>
 	</div>
 	<div class="row">
 		<?php foreach($tagList as $tag) { ?>

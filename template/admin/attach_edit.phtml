@@ -1,5 +1,5 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
-<div class="news">
+<div class="clearfix">
 	<h3><?php echo $this->escape($title); ?></h3>
 	<div class="row">
 		<div class="col-md-5">
@@ -41,7 +41,7 @@
 			<p><strong><?php _e('Story title'); ?></strong> <?php echo $this->escape($story['title']); ?></p>
 		</div>
 		</div>
-		<div class="col-md-7"><?php include $this->templateComponent('forms'); ?></div>
+		<div class="col-md-7"><?php echo $this->form($form); ?></div>
 	</div>
 	<p>
 	   <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>

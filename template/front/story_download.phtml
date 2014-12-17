@@ -25,19 +25,19 @@
 	    $this->headMeta($this->escape($story['originalUrl']), 'og:image', 'property');
     }
 ?>
-<div class="news">
+<div class="clearfix">
 	<?php include $this->template('front/feed'); ?>
 	<?php include $this->template('front/advertisement'); ?>
 	<div class="panel panel-default">
   		<div class="panel-heading">
-  			<h3 class="panel-title">
+  			<h1 class="panel-title">
   				<?php if($story['important']) { ?>
 				<span class="label label label-important">
 					<?php _e('Important'); ?>
 				</span>
 				<?php } ?>
   				<?php echo $this->escape($story['title']); ?>
-  			</h3>
+  			</h1>
   		</div>
 		<div class="panel-body">
 			<div class="clearfix">
@@ -69,7 +69,7 @@
 			    <?php } ?>
 			</div>
 			<?php if($story['subtitle']) { ?>
-			<h4><?php echo $this->escape($story['subtitle']); ?></h4>
+			<h2><?php echo $this->escape($story['subtitle']); ?></h2>
 			<?php } ?>
 			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
 			<div class="gallery col-md-4">

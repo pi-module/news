@@ -6,9 +6,9 @@
     $this->jQuery();
     $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
-<div id="topic-form" class="news">
+<div id="topic-form" class="clearfix">
     <h3><?php echo $this->escape($title); ?></h3>
-    <?php include $this->templateComponent('forms'); ?>
+    <?php echo $this->form($form); ?>
 </div>
 <script type="text/javascript">
 (function($){
