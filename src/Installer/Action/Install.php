@@ -42,9 +42,9 @@ class Install extends BasicInstall
         $module = $e->getParam('module');
         
         // Set model
-        $storyModel = Pi::model($module . '/story');
-        $topicModel = Pi::model($module . '/topic');
-        $linkModel = Pi::model($module . '/link');
+        $storyModel = Pi::model('story', $module);
+        $topicModel = Pi::model('topic', $module);
+        $linkModel = Pi::model('link', $module);
 
         // Set topic setting
         $setting = array();
