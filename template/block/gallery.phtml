@@ -24,7 +24,7 @@ if($block['showeffect']){
 	} else {
         $hrefLink = $this->escape($gallery['mediaUrl']);
 	} ?>
-	<div class="<?php echo $width; ?>">
+	<div class="<?php echo $width; ?> h-entry">
 		<a class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
 			<img src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
 		</a>

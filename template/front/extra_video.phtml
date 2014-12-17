@@ -7,7 +7,7 @@
 	<div class="extra-video">
 	    <?php foreach($extra['video'] as $field) { ?>
 		<?php if(!empty($field['data'])) { ?>
-		<div class="player-media col-md-12">
+		<div class="player-media col-md-12 u-video">
 			<div id="mediaspace<?php echo $field['id']; ?>"></div>
 			<script type='text/javascript'>
 			jwplayer("mediaspace<?php echo $field['id']; ?>").setup({

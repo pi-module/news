@@ -6,7 +6,7 @@
 	?>
 	<div class="attach-video">
 	    <?php foreach($attach['video'] as $video) { ?>
-		<div class="player-media col-md-12">
+		<div class="player-media col-md-12 u-video">
 			<div id="mediaspace<?php echo $video['id']; ?>"></div>
 			<script type='text/javascript'>
 			jwplayer("mediaspace<?php echo $video['id']; ?>").setup({

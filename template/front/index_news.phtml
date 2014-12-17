@@ -8,13 +8,13 @@
 	<div class="index-news">
 	    <?php foreach($stores as $story) { ?>
 		<?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-			<div class="panel panel-default">
+			<div class="panel panel-default h-entry">
   				<div class="panel-heading">
-  					<h3 class="panel-title"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+  					<h3 class="panel-title p-name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
   				</div>
 				<div class="panel-body">
 					<?php if($story['image']){ ?>
-					<div class="col-md-3">
+					<div class="col-md-3 u-photo">
 						<a class="thumbnail" href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
 					</div>
 		    		<?php } ?>
@@ -22,7 +22,7 @@
 			   	   	<div class="clearfix">
 						<div class="pull-right">
 						<?php if($topic['show_date']){ ?>
-						<span class="itemPostDate">
+						<span class="itemPostDate dt-published">
 							<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
 						</span>
 						<?php } ?>
@@ -35,14 +35,14 @@
 						<?php if($topic['show_topic']) { ?>
 						<div class="pull-left"><?php _e('Topics'); ?> : 
 						<?php foreach($story['topics'] as $storyTopic) { ?>
-							<a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> , 
+					        <span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
 						<?php } ?>
 						</div>
 						<?php } ?>
 						<?php if(!empty($story['authors'])) { ?>
 						<div class="pull-left">
 						<?php foreach($story['authors'] as $author) { ?>
-							<span><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span> 
+							<span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span> 
 						<?php } ?>
 						</div>
 						<?php } ?>

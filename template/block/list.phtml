@@ -1,12 +1,12 @@
 <div class="news-block news-list-block">
 	<ul class="list-unstyled">
 		<?php foreach($block['resources'] as $story) { ?>
-		<li>
-			<span class="itemTitle">
+		<li class="h-entry">
+			<span class="itemTitle p-name">
 				<a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
 			</span>
 			<?php if($block['showdate']){ ?>
-			<span class="itemPostDate">
+			<span class="itemPostDate dt-published">
 				<?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
 			</span>
 			<?php } ?>

@@ -8,7 +8,7 @@
 	<div class="extra-audio">
 	    <?php foreach($extra['audio'] as $field) { ?>
 		<?php if(!empty($field['data'])) { ?>
-		<div class="player-media col-md-12">
+		<div class="player-media col-md-12 u-audio">
 			<audio src="<?php echo $field['data']; ?>" preload="auto" />
 		</div>
 		<?php } ?>
