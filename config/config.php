@@ -519,130 +519,18 @@ return array(
             'value'        => 'bottom-right',
             'category'     => 'image',
         ),
-        // Print
-        /*
-        'print_logo' => array(
-            'category'      => 'print',
-            'title'         => _a('Show logo'),
+        // Social
+        'social_sharing'    => array(
+            'title'         => _t('Social sharing items'),
             'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_float' => array(
-           'title'         => _a('Image float'),
-	        'description'   => ' ',
-	        'edit'          => array(
-                'type'      => 'select',
+            'edit'          => array(
+                'type'      => 'multi_checkbox',
                 'options'   => array(
-                    'options' => array(
-	                    'center' => _a('Center'),
-	                    'left' => _a('Left'),
-	                    'right' => _a('Right'),
-	                ),
+                    'options'   => Pi::service('social_sharing')->getList(),
                 ),
             ),
-	        'filter'        => 'string',
-	        'value'         => 'center',
-	        'category'      => 'print',
-        ),
-        'print_path' => array(
-            'category'      => 'print',
-            'title'         => _a('Logo path'),
-            'description'   => '',
-            'edit'          => 'text',
-            'filter'        => 'string',
-            'value'       => 'static/image/logo.ong'
-        ),
-        'print_title' => array(
-            'category'      => 'print',
-            'title'         => _a('Show title'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_image' => array(
-            'category'      => 'print',
-            'title'         => _a('Show image'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-         'print_short' => array(
-            'category'      => 'print',
-            'title'         => _a('Show short'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_text' => array(
-            'category'      => 'print',
-            'title'         => _a('Show text'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_date' => array(
-            'category'      => 'print',
-            'title'         => _a('Show date'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_author' => array(
-            'category'      => 'print',
-            'title'         => _a('Show uid'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        'print_link' => array(
-            'category'      => 'print',
-            'title'         => _a('Show link'),
-            'description'   => '',
-            'edit'          => 'checkbox',
-            'filter'        => 'number_int',
-            'value'       => 1
-        ),
-        */
-        // Social
-        'social_facebook' => array(
-            'category' => 'social',
-            'title' => _a('Show facebook'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
-        'social_twitter' => array(
-            'category' => 'social',
-            'title' => _a('Show Twitter'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
-        'social_gplus' => array(
-            'category' => 'social',
-            'title' => _a('Show Google Plus'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
-        'social_pinterest' => array(
-            'category' => 'social',
-            'title' => _a('Show Pinterest'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
+            'filter'        => 'array',
+            'category'      => 'social',
         ),
         // Spotlight
         'spotlight_number' => array(

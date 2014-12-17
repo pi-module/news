@@ -101,15 +101,22 @@
 				<?php include $this->template('front/extra_video'); ?>
 			</div>
 			<div class="clearfix">
-				<div class="col-md-6">
+				<div class="col-md-7 col-sm-10 col-xs-12">
 					<ul class="list-inline">
-						<li><?php if (!empty($vote)) { include $this->template('module/vote:front/votebar'); } ?></li>
-						<li><?php if (!empty($favourite)) { include $this->template('module/favourite:front/favouritebar'); } ?></li>
+						<li><?php if (!empty($vote)) { include $this->template('votebar.phtml', 'front', 'vote'); } ?></li>
+						<li><?php if (!empty($favourite)) { include $this->template('favouritebar.phtml', 'front', 'favourite'); } ?></li>
 					</ul>
 				</div>
-				<div class="col-md-6">
-					<?php include $this->template('front/rrssb'); ?>
-				</div>
+        		<?php if ($config['social_sharing']) { ?>
+            	<div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
+                	<?php echo $this->socialSharing(
+                		$config['social_sharing'], 
+                		$this->escape($story['title']),
+                		$this->escape($story['storyUrl']),
+                		$this->escape($story['largeUrl'])
+                	); ?>
+            	</div>
+        		<?php } ?>
 			</div>
 		</div>
     </div>

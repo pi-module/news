@@ -13,14 +13,14 @@
 return array(
     // route name
     'news' => array(
-        'name' => 'news',
-        'type' => 'Module\News\Route\News',
-        'options' => array(
-            'route' => '/news',
-            'defaults' => array(
-                'module' => 'news',
-                'controller' => 'index',
-                'action' => 'index'
+        'name'     => 'news',
+        'type'     => 'Module\News\Route\News',
+        'options'  => array(
+            'route'     => '/news',
+            'defaults'  => array(
+                'module'      => 'news',
+                'controller'  => 'index',
+                'action'      => 'index'
             )
         ),
     )
