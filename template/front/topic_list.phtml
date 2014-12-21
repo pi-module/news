@@ -2,26 +2,29 @@
 <div class="clearfix">
 	<?php include $this->template('front/feed'); ?>
 	<?php include $this->template('front/advertisement'); ?>
-	<div class="topic-list">
-		<table class="table table-striped table-bordered table-condensed">
-			<thead>
-				<th>
-					<h1><?php _e('List of Topics'); ?></h1>
-				</th>
-			</thead>
-			<tbody>
-				<?php foreach($topics as $topic) { ?>
-				<tr>
-					<td class="top">
-						<?php if($topic['image']){ ?>
-						<img class="img-thumbnail pull-right" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-						<?php } ?>
-						<h4><a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a></h4>
-						<?php echo $topic['description']; ?>
-					</td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>
+	<div class="page-header">
+		<h1><?php _e('Topic list'); ?></h1>
 	</div>
+	<?php if (isset($topics) && !empty($topics)) { ?>
+	<div class="categories clearfix">
+		<?php foreach($topics as $topic) { ?>
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+					<img src="<?php echo $this->escape($topic['mediumUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>">
+				</a>
+				<div class="caption">
+					<a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+						<h3><?php echo $this->escape($topic['title']); ?></h3>
+					</a>
+				</div>
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+	<?php } else { ?>
+	<div class="alert alert-warning" role="alert">
+		<?php _e('No topic has been made on this part yet. please check this page later'); ?>
+	</div>
+	<?php } ?>
 </div>

@@ -22,7 +22,11 @@ class TagController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $slug = $this->params('slug');
-        $action = $this->params('action');
+        // Check tag
+        if (!Pi::service('module')->isActive('tag')) {
+            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
+            $this->jump($url, __('Tag module not installed.'), 'error');
+        }
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
@@ -44,7 +48,10 @@ class TagController extends IndexController
             $this->jump($url, __('The tag not found.'), 'error');
         }
         // Set story info
-        $where = array('status' => 1, 'story' => $tagId, /*'time_publish <= ?' => time(),*/);
+        $where = array(
+            'status'      => 1, 
+            'story'       => $tagId
+        );
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
@@ -79,19 +86,23 @@ class TagController extends IndexController
     {
         // Get info from url
         $module = $this->params('module');
-        $where = array('module' => $module);
-        $order = array('count DESC', 'id DESC');
-        $select = Pi::model('stats', 'tag')->select()->where($where)->order($order);
-        $rowset = Pi::model('stats', 'tag')->selectWith($select);
-        foreach ($rowset as $row) {
-            $tag = Pi::model('tag', 'tag')->find($row->term, 'term');
-            $tagList[$row->id] = $row->toArray();
-            $tagList[$row->id]['term'] = $tag['term'];
-            $tagList[$row->id]['url'] = $this->url('', array(
-                'controller'  => 'tag', 
-                'action'      => 'term', 
-                'slug'        => urldecode($tag['term'])
-            ));
+        $tagList = array();
+        // Check tag module install or not
+        if (!Pi::service('module')->isActive('tag')) {
+            $where = array('module' => $module);
+            $order = array('count DESC', 'id DESC');
+            $select = Pi::model('stats', 'tag')->select()->where($where)->order($order);
+            $rowset = Pi::model('stats', 'tag')->selectWith($select);
+            foreach ($rowset as $row) {
+                $tag = Pi::model('tag', 'tag')->find($row->term, 'term');
+                $tagList[$row->id] = $row->toArray();
+                $tagList[$row->id]['term'] = $tag['term'];
+                $tagList[$row->id]['url'] = Pi::url($this->url('', array(
+                    'controller'  => 'tag', 
+                    'action'      => 'term', 
+                    'slug'        => urldecode($tag['term'])
+                )));
+            }
         }
         // Set header and title
         $title = __('List of all used tags');

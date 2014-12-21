@@ -60,7 +60,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         break;
 
                     case 'tag':
-                        if ($params['slug']) {
+                        if (!empty($params['slug'])) {
                             $result[] = array(
                                 'label' => __('Tag list'),
                                 'href'  => Pi::url(Pi::service('url')->assemble('news', array(
@@ -79,7 +79,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         break;
 
                     case 'topic':
-                        if ($params['slug']) {
+                        if (!empty($params['slug'])) {
                             $topic = Pi::api('topic', 'news')->getTopic($params['slug'], 'slug');
                             $result[] = array(
                                 'label' => $topic['title'],
