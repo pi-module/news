@@ -112,12 +112,12 @@ class Story extends AbstractApi
                     ));
             }
             // Set download url
-            $file[$row->type][$row->id]['downloadUrl'] = Pi::service('url')->assemble('news', array(
+            $file[$row->type][$row->id]['downloadUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $this->getModule(),
                 'controller'    => 'media',
                 'action'        => 'download',
                 'id'            => $row->id,
-            ));
+            )));
         }
         // return
         return $file;
@@ -177,11 +177,11 @@ class Story extends AbstractApi
             $row = $row->toArray();
             $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['next']['title'] = $story['title'];
-            $link['next']['url'] = Pi::service('url')->assemble('news', array(
+            $link['next']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $this->getModule(),
                 'controller'    => 'story',
                 'slug'          => $story['slug'],
-            ));
+            )));
         }
         // Select Prev
         $where = array('status' => 1, 'story <  ?' => $id, 'time_publish <= ?' => time(), 'topic' => $topic);
@@ -191,11 +191,11 @@ class Story extends AbstractApi
             $row = $row->toArray();
             $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['previous']['title'] = $story['title'];
-            $link['previous']['url'] = Pi::service('url')->assemble('news', array(
+            $link['previous']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $this->getModule(),
                 'controller'    => 'story',
                 'slug'          => $story['slug'],
-            ));
+            )));
         }
         return $link;
     }
@@ -255,11 +255,11 @@ class Story extends AbstractApi
         foreach ($story['topic'] as $topic) {
             if (!empty($topicList[$topic]['title'])) {
                 $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
-                $story['topics'][$topic]['url'] = Pi::service('url')->assemble('news', array(
+                $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),
                     'controller'    => 'topic',
                     'slug'          => $topicList[$topic]['slug'],
-                ));
+                )));
             }
         }
         // Get author list

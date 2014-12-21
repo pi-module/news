@@ -55,11 +55,11 @@ class Search extends AbstractSearch
      */
     protected function buildUrl(array $item)
     {
-        $link = Pi::service('url')->assemble('news', array(
+        $link = Pi::url(Pi::service('url')->assemble('news', array(
             'module'        => $this->getModule(),
             'controller'    => 'story',
             'slug'          => $item['slug'],
-        ));
+        )));
 
         return $link;
     }

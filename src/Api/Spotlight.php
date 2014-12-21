@@ -55,11 +55,11 @@ class Spotlight extends AbstractApi
                                              mb_substr($story[$row->id]['short'], 0, 140, 'utf-8') . "..." : 
                                              $story[$row->id]['short'];
                 // Set story url
-                $story[$row->id]['storyUrl'] = Pi::service('url')->assemble('news', array(
+                $story[$row->id]['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),
                     'controller'    => 'story',
                     'slug'          => $story[$row->id]['slug'],
-                ));
+                )));
                 // Set image url
                 if ($story[$row->id]['image']) {
                     // Set image medium url

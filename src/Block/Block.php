@@ -88,11 +88,11 @@ class Block
         foreach ($block['topicid'] as $topicId) {
             $topic = Pi::model('topic', $module)->find($topicId)->toArray();
             // Set topic url
-            $topic['topicUrl'] = Pi::service('url')->assemble('news', array(
+            $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $module,
                 'controller'    => 'topic',
                 'slug'          => $topic['slug'],
-            ));
+            )));
             // Set image url
             if ($topic['image']) {
                 // Set image medium url
@@ -194,11 +194,11 @@ class Block
         // Process information
         foreach ($rowset as $row) {
             $topic[$row->id] = $row->toArray();
-            $topic[$row->id]['topicUrl'] = Pi::service('url')->assemble('news', array(
+            $topic[$row->id]['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module'        => $module,
                 'controller'    => 'topic',
                 'slug'          => $topic[$row->id]['slug'],
-            ));
+            )));
         }
         // Set block array
         $block['resources'] = $topic;

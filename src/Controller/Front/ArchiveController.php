@@ -39,10 +39,10 @@ class ArchiveController extends IndexController
         $archive['date-prev-year'] = strftime('%Y', mktime(0, 0, 0, 1, 1, $year - 1));
         $archive['date-this-year'] = $year;
         // Set date url
-        $archive['url-next-month'] = $this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, $month + 1, 1, $year)), 'month' => strftime('%m', mktime(0, 0, 0, $month + 1, 1, $year))));
-        $archive['url-prev-month'] = $this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, $month - 1, 1, $year)), 'month' => strftime('%m', mktime(0, 0, 0, $month - 1, 1, $year))));
-        $archive['url-next-year'] = $this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, 1, 1, $year + 1))));
-        $archive['url-prev-year'] = $this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, 1, 1, $year - 1))));
+        $archive['url-next-month'] = Pi::url($this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, $month + 1, 1, $year)), 'month' => strftime('%m', mktime(0, 0, 0, $month + 1, 1, $year)))));
+        $archive['url-prev-month'] = Pi::url($this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, $month - 1, 1, $year)), 'month' => strftime('%m', mktime(0, 0, 0, $month - 1, 1, $year))));
+        $archive['url-next-year'] = Pi::url($this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, 1, 1, $year + 1)))));
+        $archive['url-prev-year'] = Pi::url($this->url('', array('module' => $module, 'controller' => 'archive', 'year' => strftime('%Y', mktime(0, 0, 0, 1, 1, $year - 1)))));
         // Set text
         $archive['title'] = sprintf(__('Archive - %s - %s'), $month, $year);
         $archive['description'] = sprintf(__('Archive of all stores in - %s - %s'), $month, $year);
