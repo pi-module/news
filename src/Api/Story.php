@@ -25,6 +25,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->Link($id, $topic);
  * Pi::api('story', 'news')->getListFromId($id);
  * Pi::api('story', 'news')->getListFromIdLight($id);
+ * Pi::api('story', 'news')->FavoriteList();
  * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
  * Pi::api('story', 'news')->canonizeStoryLight($story);
  * Pi::api('story', 'news')->canonizeStoryJson($story);
@@ -222,6 +223,50 @@ class Story extends AbstractApi
             $list[$row->id] = $this->canonizeStoryLight($row);
         }
         return $list;
+    }
+
+    public function favoriteList()
+    {
+        // Get user id
+        $uid = Pi::user()->getId();
+        // Check user
+        if ($uid > 0) {
+            $favoriteIds = Pi::api('favourite', 'favourite')->userFavourite($uid, $this->getModule(), 10);
+            // Check list of ides
+            if (!empty($favoriteIds)) {
+                // Get config
+                $config = Pi::service('registry')->config->read($this->getModule());
+                // Set list
+                $list =  array();
+                $where = array('id' => $favoriteIds, 'status' => 1);
+                $select = Pi::model('story', $this->getModule())->select()->where($where);
+                $rowset = Pi::model('story', $this->getModule())->selectWith($select);
+                foreach ($rowset as $row) {
+                    $story =  array();
+                    $story['title'] = $row->title;
+                    $story['url'] = Pi::url(Pi::service('url')->assemble('news', array(
+                        'module'        => $this->getModule(),
+                        'controller'    => 'story',
+                        'slug'          => $row->slug,
+                    )));
+                    $story['image'] = '';
+                    if ($row->image) {
+                        $story['image'] = Pi::url(
+                            sprintf('upload/%s/thumb/%s/%s', 
+                            $config['image_path'], 
+                            $row->path, 
+                            $row->image
+                        ));
+                    }    
+                    $list[$row->id] = $story;
+                }
+                return $list;
+            } else {
+                return '';
+            }
+        } else {
+            return '';
+        }
     }
 
     public function canonizeStory($story, $topicList = array(), $authorList = array())
