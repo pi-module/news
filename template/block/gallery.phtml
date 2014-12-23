@@ -3,18 +3,22 @@
 $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
 // Set ajax effect
 if($block['showeffect']){ 
-	$this->jQuery();
-	$this->js($this->assetModule('js/jquery.magnific-popup.min.js', 'news'));
-	$this->footScript()->appendScript("$('.gallery').each(function() {
-    	$(this).magnificPopup({
-        	delegate: 'a',
-        	type: 'image',
-        	gallery: {
-          	enabled:true
-        	}
-    	});
-	});");
-	$this->css($this->assetModule('css/magnific-popup.css', 'news'));
+        $script =<<<'EOT'
+        $('.gallery').each(function() {
+    		$(this).magnificPopup({
+        		delegate: 'a',
+        		type: 'image',
+        		gallery: {
+          			enabled:true
+        		}
+    		});
+		});
+EOT;
+		$this->jQuery(array(
+			'extension/jquery.magnific-popup.min.js',
+			'extension/magnific-popup.css',
+		));
+		$this->footScript()->appendScript($script);
 }
 ?>
 <div class="news-block news-gallery-block gallery">

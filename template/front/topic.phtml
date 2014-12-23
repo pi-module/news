@@ -1,18 +1,23 @@
 <?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']))) { 
-if($config['image_lightbox']){ 
-	$this->jQuery();
-	$this->js($this->assetModule('js/jquery.magnific-popup.min.js'));
-	$this->footScript()->appendScript("$('.gallery').each(function() {
-    	$(this).magnificPopup({
-        	delegate: 'a',
-        	type: 'image',
-        	gallery: {
-          	enabled:true
-        	}
-    	});
-	});");
-	$this->css($this->assetModule('css/magnific-popup.css'));
-}
+	// Image lightbox
+	if($config['image_lightbox']){ 
+        $script =<<<'EOT'
+        $('.gallery').each(function() {
+    		$(this).magnificPopup({
+        		delegate: 'a',
+        		type: 'image',
+        		gallery: {
+          			enabled:true
+        		}
+    		});
+		});
+EOT;
+		$this->jQuery(array(
+			'extension/jquery.magnific-popup.min.js',
+			'extension/magnific-popup.css',
+		));
+		$this->footScript()->appendScript($script);
+	}
 ?>
 <div class="topicinfo">
 	<div class="panel panel-default">
