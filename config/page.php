@@ -76,12 +76,6 @@ return array(
             'block'         => 1,
         ),
         array(
-            'title'         => _a('Archive'),
-            'controller'    => 'archive',
-            'permission'    => 'archive',
-            'block'         => 1,
-        ),
-        array(
             'title'         => _a('Topic list'),
             'controller'    => 'topic',
             'action'        => 'list',

@@ -66,17 +66,6 @@ return array(
             'controller'    => 'author',
             'action'        => 'list',
         ),
-
-        'archive' => array(
-            'label'         => _a('Archive'),
-            'permission'    => array(
-                'resource'  => 'public',
-            ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'archive',
-            'action'        => 'index',
-        ),
     ),
     'admin' => array(
         'story' => array(

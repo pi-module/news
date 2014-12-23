@@ -28,7 +28,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'archive', 'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic'
+        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic'
     );
 
     /**
@@ -78,17 +78,6 @@ class News extends Standard
                         $matches['action'] = 'list';
                     } else {
                         $matches['slug'] = $this->decode($parts[1]);
-                    }
-                    break;
-
-                case 'archive':
-                    if (2100 > $parts[1] || 1900 < $parts[1]) {
-                        $matches['year'] = intval($parts[1]);
-                        if (isset($parts[2]) && in_array($parts[2], 
-                            array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
-                        ) {
-                            $matches['month'] = intval($parts[2]);
-                        }
                     }
                     break;
 
@@ -145,14 +134,6 @@ class News extends Standard
 
         if (!empty($mergedParams['action']) && $mergedParams['action'] != 'index') {
             $url['action'] = $mergedParams['action'];
-        }
-
-        if (!empty($mergedParams['year'])) {
-            $url['year'] = $mergedParams['year'];
-        }
-
-        if (!empty($mergedParams['month'])) {
-            $url['month'] = $mergedParams['month'];
         }
 
         if (!empty($mergedParams['slug'])) {
