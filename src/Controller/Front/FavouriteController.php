@@ -13,6 +13,7 @@
 namespace Module\News\Controller\Front;
 
 use Pi;
+use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 
 class FavouriteController extends IndexController
@@ -56,16 +57,16 @@ class FavouriteController extends IndexController
 
         // Set header and title
         $title = __('All favourite stories by you');
-        $seoTitle = Pi::api('text', 'news')->title($title);
-        $seoDescription = Pi::api('text', 'news')->description($title);
-        $seoKeywords = Pi::api('text', 'news')->keywords($title);
+        // Set seo_keywords
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace' => true
+        ));
+        $seoKeywords = $filter($title);
         // Set view
-        $this->view()->headTitle($seoTitle);
-        $this->view()->headDescription($seoDescription, 'set');
-        $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->headTitle($title);
-        $this->view()->headdescription($title, 'set');
-        $this->view()->headkeywords($title, 'set');
+        $this->view()->headDescription($title, 'set');
+        $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);

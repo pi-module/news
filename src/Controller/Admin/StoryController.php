@@ -13,6 +13,7 @@
 namespace Module\News\Controller\Admin;
 
 use Pi;
+use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
@@ -311,7 +312,8 @@ class StoryController extends ActionController
             $file = $this->request->getFiles();
             // Set slug
             $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $data['slug'] = Pi::api('text', 'news')->slug($slug);
+            $filter = new Filter\Slug;
+            $data['slug'] = $filter($slug);
             // Form filter
             $form->setInputFilter(new StoryFilter($option));
             $form->setData($data);
@@ -375,13 +377,18 @@ class StoryController extends ActionController
                 $values['author'] = (empty($author)) ? '' : Json::encode($author);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $values['seo_title'] = Pi::api('text', 'news')->title($title);
+                $filter = new Filter\HeadTitle;
+                $values['seo_title'] = $filter($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
-                $values['seo_keywords'] = Pi::api('text', 'news')->keywords($keywords);
+                $keywordsOptions = array('force_replace' => true);
+                $filter = new Filter\HeadKeywords;
+                $filter->setOptions($keywordsOptions);
+                $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
                 $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $values['seo_description'] = Pi::api('text', 'news')->description($description);
+                $filter = new Filter\HeadDescription;
+                $values['seo_description'] = $filter($description);
                 // Set time
                 if (empty($values['id'])) {
                     $values['time_create'] = time();

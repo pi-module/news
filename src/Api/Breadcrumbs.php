@@ -45,11 +45,32 @@ class Breadcrumbs extends AbstractBreadcrumbs
                 // Set
         		switch ($params['controller']) {
                     case 'author':
-
+                        if (!empty($params['slug'])) {
+                            // Set link
+                            $result[] = array(
+                                'label' => __('Author list'),
+                                'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                                    'controller' => 'author',
+                                    'action'     => 'list',
+                                ))),
+                            );
+                            // Set link
+                            $author = Pi::api('author', 'news')->getAuthor($params['slug'], 'slug');
+                            $result[] = array(
+                                'label' => $author['title'],
+                            );
+                        } else {
+                            $result[] = array(
+                                'label' => __('Author list'),
+                            );
+                        }
+                        break;
                         break;
 
                     case 'favourite':
-
+                        $result[] = array(
+                            'label' => __('Favourite list'),
+                        );
                         break;
 
                     case 'story':
@@ -61,6 +82,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
                     case 'tag':
                         if (!empty($params['slug'])) {
+                            // Set link
                             $result[] = array(
                                 'label' => __('Tag list'),
                                 'href'  => Pi::url(Pi::service('url')->assemble('news', array(
@@ -68,6 +90,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                     'action'     => 'list',
                                 ))),
                             );
+                            // Set link
                             $result[] = array(
                                 'label' => $params['slug'],
                             );
@@ -80,6 +103,15 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
                     case 'topic':
                         if (!empty($params['slug'])) {
+                            // Set link
+                            $result[] = array(
+                                'label' => __('Topic list'),
+                                'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                                    'controller' => 'topic',
+                                    'action'     => 'list',
+                                ))),
+                            );
+                            // Set link
                             $topic = Pi::api('topic', 'news')->getTopic($params['slug'], 'slug');
                             $result[] = array(
                                 'label' => $topic['title'],

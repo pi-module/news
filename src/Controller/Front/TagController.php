@@ -13,6 +13,7 @@
 namespace Module\News\Controller\Front;
 
 use Pi;
+use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 
 class TagController extends IndexController
@@ -66,12 +67,15 @@ class TagController extends IndexController
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set header and title
         $title = sprintf(__('All stores from %s'), $slug);
-        $seoTitle = Pi::api('text', 'news')->title($title);
-        $seoDescription = Pi::api('text', 'news')->description($title);
-        $seoKeywords = Pi::api('text', 'news')->keywords($title);
+        // Set seo_keywords
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace' => true
+        ));
+        $seoKeywords = $filter($title);
         // Set view
-        $this->view()->headTitle($seoTitle);
-        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headTitle($title);
+        $this->view()->headDescription($title, 'set');
         $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
@@ -106,12 +110,15 @@ class TagController extends IndexController
         }
         // Set header and title
         $title = __('List of all used tags');
-        $seoTitle = Pi::api('text', 'news')->title($title);
-        $seoDescription = Pi::api('text', 'news')->description($title);
-        $seoKeywords = Pi::api('text', 'news')->keywords($title);
+        // Set seo_keywords
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace' => true
+        ));
+        $seoKeywords = $filter($title);
         // Set view
-        $this->view()->headTitle($seoTitle);
-        $this->view()->headDescription($seoDescription, 'set');
+        $this->view()->headTitle($title);
+        $this->view()->headDescription($title, 'set');
         $this->view()->headKeywords($seoKeywords, 'set');
         $this->view()->setTemplate('tag_list');
         $this->view()->assign('title', $title);

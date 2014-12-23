@@ -1,19 +1,26 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
-<?php if (isset($authors) && !empty($authors)) { ?>
+	<?php include $this->template('front/feed'); ?>
+	<?php include $this->template('front/advertisement'); ?>
+	<div class="page-header">
+		<h1><?php _e('Author list'); ?></h1>
+	</div>
+	<?php if (isset($authors) && !empty($authors)) { ?>
 	<div class="authorList clearfix">
-		<div class="page-header">
-			<h1><?php _e('Author list'); ?></h1>
-		</div>
 		<ul class="list-group">
 			<?php foreach($authors as $author) { ?>
 			<li class="list-group-item col-md-3">
 				<img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-				<a title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>"><?php echo $this->escape($author['title']); ?></a>
+				<a title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>">
+					<?php echo $this->escape($author['title']); ?>
+				</a>
 			</li>
 			<?php } ?>
    		</ul>
 	</div>
-	<div class="clearfix"></div>
-<?php } ?>
+	<?php } else { ?>
+	<div class="alert alert-warning" role="alert">
+		<?php _e('No author information has been added on this part yet. please check this page later'); ?>
+	</div>
+	<?php } ?>
 </div>

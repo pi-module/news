@@ -101,7 +101,7 @@ class TopicController extends IndexController
         }
         // Set view
         $this->view()->headTitle(__('List of all topics'));
-        $this->view()->headkeywords(__('List of all topics'), 'set');
+        $this->view()->headdescription(__('List of all topics'), 'set');
         $this->view()->headkeywords(__('List,topics'), 'set');
         $this->view()->setTemplate('topic_list');
         $this->view()->assign('topics', $topics);

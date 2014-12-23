@@ -24,9 +24,12 @@ class RebuildForm extends BaseForm
             'type' => 'select',
             'options' => array(
                 'label' => __('Rebuild'),
-                'value' => 'slug',
+                'value' => '',
                 'value_options' => array(
-                    'slug' => __('slug'),
+                    '' => '',
+                    'slug' => __('Slug'),
+                    'slug_title' => __('Replace slug by title'),
+                    'slug_id' => __('Replace slug by id'),
                     'seo_title' => __('SEO Title'),
                     'seo_keywords' => __('SEO Keywords'),
                     'seo_description' => __('SEO Description'),

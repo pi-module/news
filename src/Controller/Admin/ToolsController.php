@@ -13,6 +13,7 @@
 namespace Module\News\Controller\Admin;
 
 use Pi;
+use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 use Module\News\Form\RebuildForm;
 use Module\News\Form\PruneForm;
@@ -47,32 +48,54 @@ class ToolsController extends ActionController
             switch ($values['rebuild']) {
                 case 'slug':
                     foreach ($rowset as $row) {
-                        $values['slug'] = Pi::api('text', 'news')->slug($row->title);
+                        $filter = new Filter\Slug;
+                        $slug = $filter($row->slug);
                         $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
+                    }
+                    $message = __('Finish Rebuild slug, all story slug update');
+                    break;
+
+                case 'slug_title':
+                    foreach ($rowset as $row) {
+                        $filter = new Filter\Slug;
+                        $slug = $filter($row->title);
+                        $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
+                    }
+                    $message = __('Finish Rebuild slug, all story slug update');
+                    break;
+
+                case 'slug_id':
+                    foreach ($rowset as $row) {
+                          $this->getModel('story')->update(array('slug' => $row->id), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
                     break;
 
                 case 'seo_title':
                     foreach ($rowset as $row) {
-                        $seo_title = Pi::api('text', 'news')->title($row->title);
-                        $this->getModel('story')->update(array('seo_title' => $seo_title), array('id' => $row->id));
+                        $filter = new Filter\HeadTitle;
+                        $title = $filter($row->title);
+                        $this->getModel('story')->update(array('seo_title' => $title), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO title, all story SEO title update');
                     break;
 
                 case 'seo_keywords':
                     foreach ($rowset as $row) {
-                        $seo_keywords = Pi::api('text', 'news')->keywords($row->title);
-                        $this->getModel('story')->update(array('seo_keywords' => $seo_keywords), array('id' => $row->id));
+                        $keywordsOptions = array('force_replace' => true);
+                        $filter = new Filter\HeadKeywords;
+                        $filter->setOptions($keywordsOptions);
+                        $keywords = $filter($row->title);
+                        $this->getModel('story')->update(array('seo_keywords' => $keywords), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO keywords, all story SEO keywords update');
                     break;    
 
                 case 'seo_description':
                     foreach ($rowset as $row) {
-                        $seo_description = Pi::api('text', 'news')->description($row->title);
-                        $this->getModel('story')->update(array('seo_description' => $seo_description), array('id' => $row->id));
+                        $filter = new Filter\HeadDescription;
+                        $description = $filter($row->title);
+                        $this->getModel('story')->update(array('seo_description' => $description), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO description, all story SEO description update');
                     break;

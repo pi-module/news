@@ -16,6 +16,7 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
+ * Pi::api('author', 'news')->getAuthor($parameter, $type);
  * Pi::api('author', 'news')->getFormAuthor();
  * Pi::api('author', 'news')->getFormRole();
  * Pi::api('author', 'news')->setFormValues($story);
@@ -29,6 +30,14 @@ use Pi\Application\Api\AbstractApi;
 
 class Author extends AbstractApi
 {
+    public function getAuthor($parameter, $type = 'id')
+    {
+        // Get product
+        $author = Pi::model('author', $this->getModule())->find($parameter, $type);
+        $author = $this->canonizeAuthor($author);
+        return $author;
+    }
+
     public function getFormAuthor()
     {
         // set info
