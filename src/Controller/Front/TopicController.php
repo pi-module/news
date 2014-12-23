@@ -13,6 +13,7 @@
 namespace Module\News\Controller\Front;
 
 use Pi;
+use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 use Zend\Json\Json;
 
@@ -99,10 +100,18 @@ class TopicController extends IndexController
         foreach ($rowset as $row) {
             $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
+        // Set header and title
+        $title = __('List of all topics');
+        // Set seo_keywords
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace' => true
+        ));
+        $seoKeywords = $filter($title);
         // Set view
-        $this->view()->headTitle(__('List of all topics'));
-        $this->view()->headdescription(__('List of all topics'), 'set');
-        $this->view()->headkeywords(__('List,topics'), 'set');
+        $this->view()->headTitle($title);
+        $this->view()->headdescription($title, 'set');
+        $this->view()->headkeywords($seoKeywords, 'set');
         $this->view()->setTemplate('topic_list');
         $this->view()->assign('topics', $topics);
         $this->view()->assign('config', $config);
