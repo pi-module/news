@@ -33,6 +33,11 @@ class Topic extends AbstractApi
         // Get topic
         $topic = Pi::model('topic', $this->getModule())->find($parameter, $type);
         $topic = $topic->toArray();
+        $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
+            'module'        => $this->getModule(),
+            'controller'    => 'topic',
+            'slug'          => $topic['slug'],
+        )));
         return $topic;
     }
 

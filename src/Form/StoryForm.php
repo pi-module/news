@@ -91,6 +91,21 @@ class StoryForm extends BaseForm
                 'topic' => '',
             ),
         ));
+        // topic_main
+        $this->add(array(
+            'name' => 'topic_main',
+            'type' => 'Module\News\Form\Element\Topic',
+            'options' => array(
+                'label' => __('Main topic'),
+                'module' => $this->module,
+                'topic' => '',
+            ),
+            'attributes' => array(
+                'size' => 1,
+                'multiple' => 0,
+                'description' => __('Just use for breadcrumbs and mobile apps'),
+            ),
+        ));
         // text_summary
         $this->add(array(
             'name' => 'text_summary',

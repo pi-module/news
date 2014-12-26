@@ -41,7 +41,6 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         ))),
                     ),
                 );
-
                 // Set
         		switch ($params['controller']) {
                     case 'author':
@@ -65,7 +64,6 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             );
                         }
                         break;
-                        break;
 
                     case 'favourite':
                         $result[] = array(
@@ -75,6 +73,14 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
                     case 'story':
                         $story = Pi::api('story', 'news')->getStory($params['slug'], 'slug');
+                        // Check topic_mai
+                        if ($story['topic_main'] > 0) {
+                            $topic = Pi::api('topic', 'news')->getTopic($story['topic_main']);
+                            $result[] = array(
+                                'label' => $topic['title'],
+                                'href'  => $topic['topicUrl'],
+                            );
+                        }
                         $result[] = array(
                             'label' => $story['title'],
                         );

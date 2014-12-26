@@ -65,6 +65,11 @@ class StoryFilter extends InputFilter
             'name' => 'topic',
             'required' => true,
         ));
+        // topic_main
+        $this->add(array(
+            'name' => 'topic_main',
+            'required' => false,
+        ));
         // text_summary
         $this->add(array(
             'name' => 'text_summary',

@@ -291,6 +291,23 @@ EOD;
             }
         }
 
+        // Update to version 1.4.6
+        if (version_compare($moduleVersion, '1.4.6', '<')) {
+
+            // Alter table field add `topic_main`
+            $sql = sprintf("ALTER TABLE %s ADD `topic_main` int(10) unsigned NOT NULL default '0' AFTER `topic`", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }    
 }
