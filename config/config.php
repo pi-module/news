@@ -325,6 +325,14 @@ return array(
             'filter'       => 'number_int',
             'value'        => 1000000
         ),
+        'image_quality' => array(
+            'category'     => 'image',
+            'title'        => _a('Image quality'),
+            'description'  => _a('Between 0 to 100'),
+            'edit'         => 'text',
+            'filter'       => 'number_int',
+            'value'        => 100
+        ),
         'image_path' => array(
             'category'     => 'image',
             'title'        => _a('Image path'),
@@ -582,7 +590,7 @@ return array(
             'description'  => _a('Title for main page and all non-title pages'),
             'edit'         => 'text',
             'filter'       => 'string',
-            'value'        => _a('Latest News from this website'),
+            'value'        => '',
         ),
         'text_description' => array(
             'category'     => 'text',
@@ -600,29 +608,13 @@ return array(
             'filter'       => 'string',
             'value'        => _a('news,topic,story,website'),
         ),
-        'text_seo_keywords' => array(
+        'text_description_index' => array(
             'category'     => 'text',
-            'title'        => _a('Number of SEO keywords'),
+            'title'        => _a('Description for index page'),
             'description'  => '',
-            'edit'         => 'text',
-            'filter'       => 'number_int',
-            'value'        => 10
-        ),
-        'text_seo_generate' => array(
-            'title'        => _a('SEO items generate method'),
-            'description'  => '',
-            'edit'         => array(
-                'type'         => 'select',
-                'options'      => array(
-                    'options'  => array(
-                        'hard'          => _a('Hard'),
-                        'soft'          => _a('Soft'),
-                    ),
-                ),
-            ),
+            'edit'         => 'textarea',
             'filter'       => 'string',
-            'value'        => 'hard',
-            'category'     => 'text',
+            'value'        => ''
         ),
         // File
         'file_size' => array(

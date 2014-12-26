@@ -73,3 +73,15 @@ EOT;
 	</div>
 </div>
 <?php } ?>
+<?php if (isset($newsTitleH1) && !empty($newsTitleH1)) { ?>
+<div class="topicinfo">
+	<div class="page-header">
+		<h1><?php echo $newsTitleH1; ?></h1>
+	</div>
+	<?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
+	<div class="well guideIndexDescription">
+		<?php echo $config['text_description_index']; ?>
+	</div>
+	<?php } ?>
+</div>
+<?php } ?>

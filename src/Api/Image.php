@@ -80,6 +80,11 @@ class Image extends AbstractApi
             sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $image)
         );
 
+        // Set options
+        $options = array(
+            'quality' => empty($config['image_quality']) ? 100 : $config['image_quality'],
+        );
+
         // Set config size
         switch ($part) {
             case 'story':
@@ -105,21 +110,27 @@ class Image extends AbstractApi
         Pi::service('image')->resize(
             $original, 
             $sizeLarg,
-            $large
+            $large,
+            '',
+            $options
         );
 
         // Resize to medium
         Pi::service('image')->resize(
             $original, 
             $sizeMedium,
-            $medium
+            $medium,
+            '',
+            $options
         );
 
         // Resize to thumb
         Pi::service('image')->resize(
             $original, 
             $sizeThumb,
-            $thumb
+            $thumb,
+            '',
+            $options
         );
 
         // Watermark

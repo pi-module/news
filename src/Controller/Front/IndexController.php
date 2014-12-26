@@ -23,6 +23,7 @@ class IndexController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
+        $page = $this->params('page', 1);
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
@@ -50,6 +51,9 @@ class IndexController extends ActionController
         $this->view()->assign('topic', $topic);
         $this->view()->assign('config', $config);
         $this->view()->assign('spotlight', $spotlight);
+        $this->view()->assign('showIndexDesc', 1);
+        $this->view()->assign('page', $page);
+        $this->view()->assign('newsTitleH1', __('List of Latest stories'));
     }
     
     public function storyList($where, $limit, $orderLink = 'publishDESC')
