@@ -45,6 +45,7 @@ class Install extends BasicInstall
         $storyModel = Pi::model('story', $module);
         $topicModel = Pi::model('topic', $module);
         $linkModel = Pi::model('link', $module);
+        $fieldModel = Pi::model('field', $module);
 
         // Set topic setting
         $setting = array();
@@ -123,6 +124,16 @@ class Install extends BasicInstall
             'uid'              => Pi::user()->getId(),
         );
         $linkModel->insert($linkData);
+
+        // Add field
+        $fieldData = array(
+            'title'            => __('Source'),
+            'type'             => 'link',
+            'order'            => '1',
+            'status'           => '1',
+            'search'           => '1',
+        );
+        $fieldModel->insert($fieldData);
 
         // Result
         $result = array(
