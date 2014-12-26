@@ -107,7 +107,7 @@
 	          	    var buttonClass = 'btn btn-success btn-xs disabled';
 	          	    var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
           	    }
-          	    $('#label label-' + result.id).attr('class', labelClass);
+          	    $('#label-' + result.id).attr('class', labelClass);
           	    $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
                 systemMessage.succ(result.message);
             }else{
