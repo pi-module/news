@@ -166,7 +166,7 @@ class Author extends AbstractApi
         // boject to array
         $author = $author->toArray();
         // Set description
-        $author['description'] = Pi::service('markup')->render($author['description'], 'html', 'html');
+        $author['text_description'] = Pi::service('markup')->render($author['text_description'], 'html', 'html');
         // Set times
         $author['time_create_view'] = _date($author['time_create']);
         $author['time_update_view'] = _date($author['time_update']);

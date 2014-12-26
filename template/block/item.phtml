@@ -23,7 +23,7 @@
             </ul>
 			<?php } ?>
         	<?php if($block['showdesc']){  ?>
-            <div class="storyText p-summary"><?php echo $story['short']; ?></div>
+            <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
             <?php } ?>
         	<?php if($block['showmore']){ ?>
             <p><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a></p>

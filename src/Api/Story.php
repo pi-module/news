@@ -279,10 +279,10 @@ class Story extends AbstractApi
         $config = Pi::service('registry')->config->read($this->getModule());
         // boject to array
         $story = $story->toArray();
-        // Set short text
-        $story['short'] = Pi::service('markup')->render($story['short'], 'html', 'html');
-        // Set body text
-        $story['body'] = Pi::service('markup')->render($story['body'], 'html', 'html');
+        // Set text_summary
+        $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
+        // Set text_description
+        $story['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
         // Set times
         $story['time_create_view'] = _date($story['time_create']);
         $story['time_publish_view'] = _date($story['time_publish']);
@@ -393,8 +393,8 @@ class Story extends AbstractApi
                 ));
         }
         // unset
-        unset($story['short']);
-        unset($story['body']);
+        unset($story['text_summary']);
+        unset($story['text_description']);
         unset($story['time_create']);
         unset($story['time_update']);
         unset($story['topic']);

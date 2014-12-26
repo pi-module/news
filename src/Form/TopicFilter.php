@@ -55,9 +55,9 @@ class TopicFilter extends InputFilter
                 )),
             ),
         ));
-        // description
+        // text_description
         $this->add(array(
-            'name' => 'description',
+            'name' => 'text_description',
             'required' => false,
             'filters' => array(
                 array(

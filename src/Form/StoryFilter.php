@@ -65,9 +65,9 @@ class StoryFilter extends InputFilter
             'name' => 'topic',
             'required' => true,
         ));
-        // short
+        // text_summary
         $this->add(array(
-            'name' => 'short',
+            'name' => 'text_summary',
             'required' => false,
             'filters' => array(
                 array(
@@ -75,9 +75,9 @@ class StoryFilter extends InputFilter
                 ),
             ),
         ));
-        // body
+        // text_description
         $this->add(array(
-            'name' => 'body',
+            'name' => 'text_description',
             'required' => false,
             'filters' => array(
                 array(

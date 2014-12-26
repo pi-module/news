@@ -48,6 +48,11 @@ class Update extends BasicUpdate
         $topicTable    = $topicModel->getTable();
         $topicAdapter  = $topicModel->getAdapter();
 
+        // Set author model
+        $authorModel    = Pi::model('author', $this->module);
+        $authorTable    = $authorModel->getTable();
+        $authorAdapter  = $authorModel->getAdapter();
+
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
@@ -220,6 +225,62 @@ EOD;
 
             try {
                 $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        // Update to version 1.4.4
+        if (version_compare($moduleVersion, '1.4.4', '<')) {
+
+            // Alter table field `text_summary`
+            $sql = sprintf("ALTER TABLE %s CHANGE `short` `text_summary` text", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Alter table field `text_description`
+            $sql = sprintf("ALTER TABLE %s CHANGE `body` `text_description` text", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Alter table field `text_description`
+            $sql = sprintf("ALTER TABLE %s CHANGE `description` `text_description` text", $topicTable);
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                                   . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Alter table field `text_description`
+            $sql = sprintf("ALTER TABLE %s CHANGE `description` `text_description` text", $authorTable);
+            try {
+                $authorAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
                     'status'    => false,

@@ -53,21 +53,6 @@ class AttachForm extends BaseForm
                 'description' => '',
             )
         ));
-        // story
-        /* $this->add(array(
-            'name' => 'story',
-            'type' => 'Module\News\Form\Element\Story',
-            'options' => array(
-                'label' => __('Story'),
-                'module' => $this->module,
-                'value' => $this->story,
-            ),
-            'attributes' => array(
-                'size' => 1,
-                'multiple' => 0,
-            ),
-
-        )); */
         // status
         $this->add(array(
             'name' => 'status',

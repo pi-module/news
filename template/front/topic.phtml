@@ -1,4 +1,4 @@
-<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['description']) || !empty($topic['image']))) { 
+<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['image']))) { 
 	// Image lightbox
 	if($config['image_lightbox']){ 
         $script =<<<'EOT'
@@ -18,6 +18,25 @@ EOT;
 		));
 		$this->footScript()->appendScript($script);
 	}
+
+    // Set Open Graph tags for meta
+    $this->doctype('HTML5');
+    $this->headMeta($this->escape($topic['title']), 'og:title', 'property');
+    $this->headMeta($this->escape($topic['authorUrl']), 'og:url', 'property');
+    if (isset($topic['text_description']) && !empty($topic['text_description'])) {
+	    $this->headMeta($this->escape($topic['text_description']), 'og:description', 'property');
+    }
+    if (!empty($topic['largeUrl'])) {
+	    $this->headMeta($this->escape($topic['largeUrl']), 'og:image', 'property');
+    }
+    // Set twitter for meta
+    $this->headMeta($this->escape($topic['title']), 'twitter:title');
+    if (isset($topic['text_description']) && !empty($topic['text_description'])) {
+	    $this->headMeta($this->escape($topic['text_description']), 'twitter:description');
+    }
+    if (!empty($topic['largeUrl'])) {
+	    $this->headMeta($this->escape($topic['largeUrl']), 'twitter:image');
+    }
 ?>
 <div class="topicinfo">
 	<div class="panel panel-default">
@@ -36,7 +55,7 @@ EOT;
 				<?php } ?>
 			</div>
 			<?php } ?>  
-			<?php echo $topic['description']; ?>
+			<?php echo $topic['text_description']; ?>
             <?php if(isset($topic['attach_download_link']) && !empty($topic['attach_download_link'])) {  ?>
 			<div class="attach-list">
 				<p class="text-center">

@@ -30,7 +30,7 @@ class AuthorController extends ActionController
     protected $ImageAuthorPrefix = 'author_';
 
     protected $authorColumns = array(
-    	'id', 'title', 'slug', 'description', 'seo_title', 'seo_keywords', 'seo_description', 
+    	'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description', 
     	'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
     );
 

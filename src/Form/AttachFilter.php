@@ -34,11 +34,6 @@ class AttachFilter extends InputFilter
                 ),
             ),
         ));
-        // story
-        /* $this->add(array(
-            'name' => 'story',
-            'required' => true,
-        )); */
         // status
         $this->add(array(
             'name' => 'status',

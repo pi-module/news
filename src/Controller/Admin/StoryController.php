@@ -28,7 +28,7 @@ class StoryController extends ActionController
     protected $ImageStoryPrefix = 'image_';
 
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'author', 'short', 'body', 'seo_title', 'seo_keywords', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'author', 'text_summary', 'text_description', 'seo_title', 'seo_keywords', 
         'seo_description', 'important', 'status', 'time_create', 'time_update', 'time_publish', 
         'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra', 'type'
     );

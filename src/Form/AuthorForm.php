@@ -63,9 +63,9 @@ class AuthorForm extends BaseForm
                 'description' => '',
             )
         ));
-        // description
+        // text_description
         $this->add(array(
-            'name' => 'description',
+            'name' => 'text_description',
             'options' => array(
                 'label' => __('Description'),
                 'editor' => 'html',

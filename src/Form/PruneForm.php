@@ -36,16 +36,6 @@ class PruneForm extends BaseForm
                 'value' => date('Y-m-d', strtotime('-48 week')),
             )
         ));
-        // topic
-        /* $this->add(array(
-            'name' => 'topic',
-            'type' => 'Module\News\Form\Element\Topic',
-            'options' => array(
-                'label' => __('Topic'),
-                'module' => $this->module,
-                'topic' => '',
-            ),
-        )); */
         // Save
         $this->add(array(
             'name' => 'submit',

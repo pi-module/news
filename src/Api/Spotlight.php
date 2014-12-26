@@ -44,16 +44,16 @@ class Spotlight extends AbstractApi
             $spotlightId[] = $row['story'];
         }
         if (!empty($spotlightId)) {
-            $columns = array('id', 'title', 'slug', 'short', 'image', 'path');
+            $columns = array('id', 'title', 'slug', 'text_summary', 'image', 'path');
             $order = array('time_publish DESC', 'id DESC');
             $where = array('status' => 1, 'id' => $spotlightId);
             $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where)->order($order);
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 $story[$row->id] = $row->toArray();
-                $story[$row->id]['short'] = (mb_strlen($story[$row->id]['short'], 'utf-8') > 140) ? 
-                                             mb_substr($story[$row->id]['short'], 0, 140, 'utf-8') . "..." : 
-                                             $story[$row->id]['short'];
+                $story[$row->id]['text_summary'] = (mb_strlen($story[$row->id]['text_summary'], 'utf-8') > 140) ? 
+                                             mb_substr($story[$row->id]['text_summary'], 0, 140, 'utf-8') . "..." : 
+                                             $story[$row->id]['text_summary'];
                 // Set story url
                 $story[$row->id]['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),

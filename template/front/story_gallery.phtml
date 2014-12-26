@@ -24,16 +24,16 @@ EOT;
     $this->doctype('HTML5');
     $this->headMeta($this->escape($story['title']), 'og:title', 'property');
     $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
-    if (isset($story['short']) && !empty($story['short'])) {
-	    $this->headMeta($this->escape($story['short']), 'og:description', 'property');
+    if (isset($story['text_summary']) && !empty($story['text_summary'])) {
+	    $this->headMeta($this->escape($story['text_summary']), 'og:description', 'property');
     }
     if (!empty($story['largeUrl'])) {
 	    $this->headMeta($this->escape($story['largeUrl']), 'og:image', 'property');
     }
     // Set twitter for meta
     $this->headMeta($this->escape($story['title']), 'twitter:title');
-    if (isset($story['short']) && !empty($story['short'])) {
-	    $this->headMeta($this->escape($story['short']), 'twitter:description');
+    if (isset($story['text_summary']) && !empty($story['text_summary'])) {
+	    $this->headMeta($this->escape($story['text_summary']), 'twitter:description');
     }
     if (!empty($story['largeUrl'])) {
 	    $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
@@ -97,8 +97,8 @@ EOT;
 				<div class="storyImageAttach"><?php include $this->template('front/attach_image'); ?></div>
 			</div>
 		    <?php } ?>
-			<div class="storyText p-summary"><?php echo $story['short']; ?></div>
-		    <div class="storyText e-content"><?php echo $story['body']; ?></div>
+			<div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+		    <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
 		    <div class="clearfix"></div>
 		    <?php include $this->template('front/extra'); ?>
 		    <?php include $this->template('front/extra_file'); ?>

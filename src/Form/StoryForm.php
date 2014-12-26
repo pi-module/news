@@ -91,9 +91,9 @@ class StoryForm extends BaseForm
                 'topic' => '',
             ),
         ));
-        // short		  
+        // text_summary
         $this->add(array(
-            'name' => 'short',
+            'name' => 'text_summary',
             'options' => array(
                 'label' => __('Short text'),
             ),
@@ -104,9 +104,9 @@ class StoryForm extends BaseForm
                 'description' => '',
             )
         ));
-        // body
+        // text_description
         $this->add(array(
-            'name' => 'body',
+            'name' => 'text_description',
             'options' => array(
                 'label' => __('Main text'),
                 'editor' => 'html',
