@@ -80,140 +80,60 @@ class Image extends AbstractApi
             sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $image)
         );
 
-        // get image dimensions
-        list($width, $height) = getimagesize($original);
-        if ($width > $height) {
-            $type = 'landscape';
-        } elseif ($height > $width) {
-            $type = 'portrait';
-        } else {
-            $type = 'normal';
-        }
-
-        // Get config size
+        // Set config size
         switch ($part) {
             case 'story':
-                $configSize['large']['width'] = $config['image_largew'];
-                $configSize['large']['height'] = $config['image_largeh'];
-                $configSize['medium']['width'] = $config['image_mediumw'];
-                $configSize['medium']['height'] = $config['image_mediumh'];
-                $configSize['thumb']['width'] = $config['image_thumbw'];
-                $configSize['thumb']['height'] = $config['image_thumbh'];
+                $sizeLarg = array($config['image_largew'], $config['image_largeh'], true);
+                $sizeMedium = array($config['image_largew'], $config['image_largeh'], true);
+                $sizeThumb = array($config['image_largew'], $config['image_largeh'], true);
                 break;
 
             case 'topic':
-                $configSize['large']['width'] = $config['image_topic_largew'];
-                $configSize['large']['height'] = $config['image_topic_largeh'];
-                $configSize['medium']['width'] = $config['image_topic_mediumw'];
-                $configSize['medium']['height'] = $config['image_topic_mediumh'];
-                $configSize['thumb']['width'] = $config['image_topic_thumbw'];
-                $configSize['thumb']['height'] = $config['imag_topic_thumbh'];
+                $sizeLarg = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
+                $sizeMedium = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
+                $sizeThumb = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
                 break;
 
             case 'author':
-                $configSize['large']['width'] = $config['image_author_largew'];
-                $configSize['large']['height'] = $config['image_author_largeh'];
-                $configSize['medium']['width'] = $config['image_author_mediumw'];
-                $configSize['medium']['height'] = $config['image_author_mediumh'];
-                $configSize['thumb']['width'] = $config['image_author_thumbw'];
-                $configSize['thumb']['height'] = $config['image_author_thumbh'];
-                break;
-        }
-
-        // Set size
-        switch ($type) {
-            case 'landscape':
-            case 'normal':
-                if ($width > $configSize['large']['width']) {
-                    $sizeLarg = ($configSize['large']['width'] / $width);
-                } else {
-                    $sizeLarg = 1;
-                }
-
-                if ($width > $configSize['medium']['width']) {
-                    $sizeMedium = ($configSize['medium']['width'] / $width);
-                } else {
-                    $sizeMedium = 1;
-                }
-
-                if ($width > $configSize['thumb']['width']) {
-                    $sizeThumb = ($configSize['thumb']['width'] / $width);
-                } else {
-                    $sizeThumb = 1;
-                }
-                break;
-
-            case 'portrait':
-                if ($height > $configSize['large']['height']) {
-                    $sizeLarg = ($configSize['large']['height'] / $height);
-                } else {
-                    $sizeLarg = 1;
-                }
-
-                if ($height > $configSize['medium']['height']) {
-                    $sizeMedium = ($configSize['medium']['height'] / $height);
-                } else {
-                    $sizeMedium = 1;
-                }
-
-                if ($height > $configSize['thumb']['height']) {
-                    $sizeThumb = ($configSize['thumb']['height'] / $height);
-                } else {
-                    $sizeThumb = 1;
-                }
+                $sizeLarg = array($config['image_author_largew'], $config['image_author_largeh'], true);
+                $sizeMedium = array($config['image_author_largew'], $config['image_author_largeh'], true);
+                $sizeThumb = array($config['image_author_largew'], $config['image_author_largeh'], true);
                 break;
         }
 
         // Resize to large
-        if ($sizeLarg == 1) {
-            Pi::service('file')->copy($original, $large);
-        } else {
-            Pi::service('image')->resize(
-                $original, 
-                $sizeLarg,
-                $large
-            );
-        }
+        Pi::service('image')->resize(
+            $original, 
+            $sizeLarg,
+            $large
+        );
 
         // Resize to medium
-        if ($sizeMedium == 1) {
-            Pi::service('file')->copy($original, $medium);
-        } else {
-            Pi::service('image')->resize(
-                $original, 
-                $sizeMedium,
-                $medium
-            );
-        }
+        Pi::service('image')->resize(
+            $original, 
+            $sizeMedium,
+            $medium
+        );
 
         // Resize to thumb
-        if ($sizeThumb == 1) {
-            Pi::service('file')->copy($original, $thumb);
-        } else {
-            Pi::service('image')->resize(
-                $original, 
-                $sizeThumb,
-                $thumb
-            );
-        }
+        Pi::service('image')->resize(
+            $original, 
+            $sizeThumb,
+            $thumb
+        );
 
         // Watermark
         if ($config['image_watermark']) {
             // Set watermark image
             $watermarkImage = (empty($config['image_watermark_source'])) ? '' : Pi::path($config['image_watermark_source']);
-            $watermarkImage = (file_exists($watermarkImage)) ? $watermarkImage : '';
+            if (empty($watermarkImage) || !file_exists($watermarkImage)) {
+                $logoFile = Pi::service('asset')->logo();
+                $watermarkImage = Pi::path($logoFile);
+            }
             
             // Watermark large
             Pi::service('image')->watermark(
                 $large,
-                '',
-                $watermarkImage,
-                $config['image_watermark_position']
-            );
-
-            // Watermark item
-            Pi::service('image')->watermark(
-                $item,
                 '',
                 $watermarkImage,
                 $config['image_watermark_position']
