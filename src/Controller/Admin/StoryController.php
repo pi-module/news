@@ -381,9 +381,10 @@ class StoryController extends ActionController
                 $values['seo_title'] = $filter($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
-                $keywordsOptions = array('force_replace' => true);
                 $filter = new Filter\HeadKeywords;
-                $filter->setOptions($keywordsOptions);
+                $filter->setOptions(array(
+                    'force_replace_space' => true
+                ));
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
                 $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];

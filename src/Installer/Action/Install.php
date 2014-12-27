@@ -46,6 +46,8 @@ class Install extends BasicInstall
         $topicModel = Pi::model('topic', $module);
         $linkModel = Pi::model('link', $module);
         $fieldModel = Pi::model('field', $module);
+        $authorModel = Pi::model('author', $module);
+        $authorRoleModel = Pi::model('author_role', $module);
 
         // Set topic setting
         $setting = array();
@@ -134,6 +136,27 @@ class Install extends BasicInstall
             'search'           => '1',
         );
         $fieldModel->insert($fieldData);
+
+        // Add author
+        $authorData = array(
+            'title'            => __('The admin'),
+            'slug'             => 'admin',
+            'seo_title'        => __('Admin'),
+            'seo_keywords'     => __('author,admin'),
+            'seo_description'  => __('author is admin'),
+            'time_create'      => time(),
+            'time_update'      => time(),
+            'status'           => '1',
+            'uid'              => Pi::user()->getId(),
+        );
+        $authorModel->insert($authorData);
+
+        // Add author role
+        $authorRoleData = array(
+            'title'            => __('Writer'),
+            'status'           => '1',
+        );
+        $authorRoleModel->insert($authorRoleData);
 
         // Result
         $result = array(

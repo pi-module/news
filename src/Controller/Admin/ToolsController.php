@@ -82,9 +82,10 @@ class ToolsController extends ActionController
 
                 case 'seo_keywords':
                     foreach ($rowset as $row) {
-                        $keywordsOptions = array('force_replace' => true);
                         $filter = new Filter\HeadKeywords;
-                        $filter->setOptions($keywordsOptions);
+                        $filter->setOptions(array(
+                            'force_replace_space' => true
+                        ));
                         $keywords = $filter($row->title);
                         $this->getModel('story')->update(array('seo_keywords' => $keywords), array('id' => $row->id));
                     }
