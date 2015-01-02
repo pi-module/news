@@ -328,10 +328,10 @@ return array(
         'image_quality' => array(
             'category'     => 'image',
             'title'        => _a('Image quality'),
-            'description'  => _a('Between 0 to 100'),
+            'description'  => _a('Between 0 to 100 and support both of JPG and PNG, default is 75'),
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 100
+            'value'        => 75
         ),
         'image_path' => array(
             'category'     => 'image',
