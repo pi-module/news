@@ -616,6 +616,14 @@ return array(
             'filter'       => 'string',
             'value'        => ''
         ),
+        'force_replace_space' => array(
+            'category'     => 'text',
+            'title'        => _a('Force replace space by comma(,)'),
+            'description'  => '',
+            'edit'         => 'checkbox',
+            'filter'       => 'number_int',
+            'value'        => 1
+        ),
         // File
         'file_size' => array(
             'category'     => 'file',
