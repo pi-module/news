@@ -92,7 +92,7 @@ class TagController extends IndexController
         $module = $this->params('module');
         $tagList = array();
         // Check tag module install or not
-        if (!Pi::service('module')->isActive('tag')) {
+        if (Pi::service('module')->isActive('tag')) {
             $where = array('module' => $module);
             $order = array('count DESC', 'id DESC');
             $select = Pi::model('stats', 'tag')->select()->where($where)->order($order);
