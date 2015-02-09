@@ -25,7 +25,7 @@ EOT;
     $this->headMeta($this->escape($author['title']), 'og:title', 'property');
     $this->headMeta($this->escape($author['authorUrl']), 'og:url', 'property');
     if (isset($author['text_description']) && !empty($author['text_description'])) {
-	    $this->headMeta($this->escape($author['text_description']), 'og:description', 'property');
+	    $this->headMeta(_strip($author['text_description']), 'og:description', 'property');
     }
     if (!empty($author['largeUrl'])) {
 	    $this->headMeta($this->escape($author['largeUrl']), 'og:image', 'property');
@@ -33,7 +33,7 @@ EOT;
     // Set twitter for meta
     $this->headMeta($this->escape($author['title']), 'twitter:title');
     if (isset($author['text_description']) && !empty($author['text_description'])) {
-	    $this->headMeta($this->escape($author['text_description']), 'twitter:description');
+	    $this->headMeta(_strip($author['text_description']), 'twitter:description');
     }
     if (!empty($author['largeUrl'])) {
 	    $this->headMeta($this->escape($author['largeUrl']), 'twitter:image');
