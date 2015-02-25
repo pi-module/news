@@ -103,14 +103,17 @@ class StoryController extends ActionController
                     break;
             }
         }
-        // Go to time_update page if empty
-        if (empty($story) && empty($status)) {
-            return $this->redirect()->toRoute('', array('action' => 'update'));
-        }
+        // Set count
+        if (empty($title)) {
+            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(DISTINCT `story`)'));
+            $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink);
+            $count = $this->getModel('link')->selectWith($select)->current()->count;
+        } else {
+            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
+            $count = $this->getModel('story')->selectWith($select)->current()->count;
+        }   
         // Set paginator
-        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(DISTINCT `story`)'));
-        $select = $this->getModel('link')->select()->where($whereLink)->columns($count);
-        $count = $this->getModel('link')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
