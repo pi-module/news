@@ -516,7 +516,7 @@ class Story extends AbstractApi
                         }
                     }
                     // regenerate
-                    Pi::api('image', 'news')->process($row->image, $row->path, 'story');
+                    Pi::api('image', 'news')->process($row->image, $row->path);
                 }
             }
         }

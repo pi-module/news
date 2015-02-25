@@ -17,7 +17,7 @@ use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('image', 'news')->rename($image, $prefix, $path);
- * Pi::api('image', 'news')->process($image, $path, $part);
+ * Pi::api('image', 'news')->process($image, $path;
  */
 
 class Image extends AbstractApi
@@ -56,8 +56,8 @@ class Image extends AbstractApi
         return $name;
     }
 
-	public function process($image, $path, $part = 'story')
-	{
+    public function process($image, $path)
+    {
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
         
         // Set original path
@@ -82,34 +82,13 @@ class Image extends AbstractApi
 
         // Set options
         $options = array(
-            'quality' => empty($config['image_quality']) ? 100 : $config['image_quality'],
+            'quality' => empty($config['image_quality']) ? 75 : $config['image_quality'],
         );
-
-        // Set config size
-        switch ($part) {
-            case 'story':
-                $sizeLarg = array($config['image_largew'], $config['image_largeh'], true);
-                $sizeMedium = array($config['image_largew'], $config['image_largeh'], true);
-                $sizeThumb = array($config['image_largew'], $config['image_largeh'], true);
-                break;
-
-            case 'topic':
-                $sizeLarg = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
-                $sizeMedium = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
-                $sizeThumb = array($config['image_topic_largew'], $config['image_topic_largeh'], true);
-                break;
-
-            case 'author':
-                $sizeLarg = array($config['image_author_largew'], $config['image_author_largeh'], true);
-                $sizeMedium = array($config['image_author_largew'], $config['image_author_largeh'], true);
-                $sizeThumb = array($config['image_author_largew'], $config['image_author_largeh'], true);
-                break;
-        }
 
         // Resize to large
         Pi::service('image')->resize(
             $original, 
-            $sizeLarg,
+            array($config['image_largew'], $config['image_largeh'], true),
             $large,
             '',
             $options
@@ -118,7 +97,7 @@ class Image extends AbstractApi
         // Resize to medium
         Pi::service('image')->resize(
             $original, 
-            $sizeMedium,
+            array($config['image_mediumw'], $config['image_mediumh'], true),
             $medium,
             '',
             $options
@@ -127,7 +106,7 @@ class Image extends AbstractApi
         // Resize to thumb
         Pi::service('image')->resize(
             $original, 
-            $sizeThumb,
+            array($config['image_thumbw'], $config['image_thumbh'], true),
             $thumb,
             '',
             $options
@@ -141,7 +120,7 @@ class Image extends AbstractApi
                 $logoFile = Pi::service('asset')->logo();
                 $watermarkImage = Pi::path($logoFile);
             }
-            
+
             // Watermark large
             Pi::service('image')->watermark(
                 $large,
@@ -166,5 +145,5 @@ class Image extends AbstractApi
                 $config['image_watermark_position']
             );
         }
-	}
+    }
 }

@@ -290,7 +290,7 @@ class Author extends AbstractApi
                         }
                     }
                     // regenerate
-                    Pi::api('image', 'news')->process($row->image, $row->path, 'author');
+                    Pi::api('image', 'news')->process($row->image, $row->path);
                 }
             }
         }

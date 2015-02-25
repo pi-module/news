@@ -169,7 +169,7 @@ class AuthorController extends ActionController
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
                         // process image
-                        Pi::api('image', 'news')->process($values['image'], $values['path'], 'author');
+                        Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }

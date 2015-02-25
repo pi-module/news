@@ -48,10 +48,6 @@ return array(
             'title'  => _a('Favourite'),
             'name'   => 'favourite'
         ),
-        array(
-            'title'  => _a('Texts'),
-            'name'   => 'text'
-        ),
     ),
     'item' => array(
         // Generic
@@ -355,7 +351,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 600
+            'value'        => 800
         ),
         'image_largew' => array(
             'category'     => 'image',
@@ -371,7 +367,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 300
+            'value'        => 400
         ),
         'image_mediumw' => array(
             'category'     => 'image',
@@ -387,7 +383,7 @@ return array(
             'description'  => '',
             'edit'         => 'text',
             'filter'       => 'number_int',
-            'value'        => 150
+            'value'        => 200
         ),
         'image_thumbw' => array(
             'category'     => 'image',
@@ -397,7 +393,7 @@ return array(
             'filter'       => 'number_int',
             'value'        => 200
         ),
-        'image_topic_largeh' => array(
+        /* 'image_topic_largeh' => array(
             'category'     => 'image',
             'title'        => _a('Large Image height for topic'),
             'description'  => '',
@@ -492,7 +488,7 @@ return array(
             'edit'         => 'text',
             'filter'       => 'number_int',
             'value'        => 140
-        ),
+        ), */
         'image_lightbox' => array(
             'category'     => 'image',
             'title'        => _a('Use lightbox'),
@@ -584,32 +580,8 @@ return array(
             'value'        => 1
         ),
         // Texts
-        'text_title' => array(
-            'category'     => 'text',
-            'title'        => _a('Module main title'),
-            'description'  => _a('Title for main page and all non-title pages'),
-            'edit'         => 'text',
-            'filter'       => 'string',
-            'value'        => '',
-        ),
-        'text_description' => array(
-            'category'     => 'text',
-            'title'        => _a('Module main description'),
-            'description'  => '',
-            'edit'         => 'text',
-            'filter'       => 'string',
-            'value'        => _a('Latest News from this website'),
-        ),
-        'text_keywords' => array(
-            'category'     => 'text',
-            'title'        => _a('Module main keywords'),
-            'description'  => '',
-            'edit'         => 'text',
-            'filter'       => 'string',
-            'value'        => _a('news,topic,story,website'),
-        ),
         'text_description_index' => array(
-            'category'     => 'text',
+            'category'     => 'head_meta',
             'title'        => _a('Description for index page'),
             'description'  => '',
             'edit'         => 'textarea',
@@ -617,7 +589,7 @@ return array(
             'value'        => ''
         ),
         'force_replace_space' => array(
-            'category'     => 'text',
+            'category'     => 'head_meta',
             'title'        => _a('Force replace space by comma(,)'),
             'description'  => '',
             'edit'         => 'checkbox',

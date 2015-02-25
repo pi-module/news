@@ -359,7 +359,7 @@ class AttachController extends ActionController
                 Pi::service('file')->copy($oldPath, $newPach);
                 Pi::service('file')->remove($oldPath);
                 // process image
-                Pi::api('image', 'news')->process($file, $path, 'story');
+                Pi::api('image', 'news')->process($file, $path);
                 break;
 
             // Move video, audio, pdf, doc

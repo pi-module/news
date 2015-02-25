@@ -153,7 +153,7 @@ class Topic extends AbstractApi
         if (empty($topic['show_columns'])) {
             $topic['show_columns'] = $config['show_columns'];
         }
-        // title
+        /* // title
         if (empty($topic['seo_title'])) {
             $topic['seo_title'] = $config['text_title'];
         }
@@ -164,7 +164,7 @@ class Topic extends AbstractApi
         // seo_keywords
         if (empty($topic['seo_keywords'])) {
             $topic['seo_keywords'] = $config['text_keywords'];
-        }
+        } */
         // Template
         $topic['template'] = $this->Template($topic['style']);
         // column class
@@ -362,7 +362,7 @@ class Topic extends AbstractApi
                         }
                     }
                     // regenerate
-                    Pi::api('image', 'news')->process($row->image, $row->path, 'topic');
+                    Pi::api('image', 'news')->process($row->image, $row->path);
                 }
             }
         }

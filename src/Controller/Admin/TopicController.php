@@ -188,7 +188,7 @@ class TopicController extends ActionController
                         // Get image name
                         $values['image'] = $uploader->getUploaded('image');
                         // process image
-                        Pi::api('image', 'news')->process($values['image'], $values['path'], 'topic');
+                        Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }

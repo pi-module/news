@@ -42,9 +42,9 @@ class IndexController extends ActionController
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set view
-        $this->view()->headTitle($topic['seo_title']);
-        $this->view()->headdescription($topic['seo_description'], 'set');
-        $this->view()->headkeywords($topic['seo_keywords'], 'set');
+        //$this->view()->headTitle($topic['seo_title']);
+        //$this->view()->headdescription($topic['seo_description'], 'set');
+        //$this->view()->headkeywords($topic['seo_keywords'], 'set');
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
         $this->view()->assign('paginator', $paginator);
