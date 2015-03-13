@@ -1,16 +1,11 @@
 <?php if(isset($attach['audio']) && !empty($attach['audio'])) { ?>
 <div class="clearfix">
-	<?php 
-		$this->jQuery();
-		$this->js($this->assetModule('player/audiojs/audio.min.js'));
-		$this->footScript()->appendScript("audiojs.events.ready(function(){var as = audiojs.createAll();});");
-	?>
 	<div class="attach-audio">
-		<?php foreach($attach['audio'] as $audio) { ?>
-		<div class="player-media col-md-12 u-audio">
-			<audio src="<?php echo $audio['fileUrl']; ?>" preload="auto" />
+	<?php foreach($attach['audio'] as $audio) { ?>
+    	<div class="pi-player clearfix">
+		<?php echo $this->videojs($audio['fileUrl'], '', 640, 100); ?>
 		</div>
-		<?php } ?>
+	<?php } ?>
 	</div>
 </div>
 <?php } ?>
