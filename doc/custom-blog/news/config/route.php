@@ -13,15 +13,14 @@
 return array(
     // route name
     'news' => array(
-        'name' => 'news',
-        'type' => 'Custom\News\Route\Blog',
-        'options' => array(
-            'route' => '/news',
-            'prefix' => '/blog',
-            'defaults' => array(
-                'module' => 'news',
-                'controller' => 'index',
-                'action' => 'index'
+        'name'     => 'news',
+        'type'     => 'Module\News\Route\Blog',
+        'options'  => array(
+            'prefix'    => '/blog',
+            'defaults'  => array(
+                'module'      => 'news',
+                'controller'  => 'index',
+                'action'      => 'index'
             )
         ),
     )
