@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-12-02 10:46+0330\n"
+"POT-Creation-Date: 2015-03-25 19:32+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,781 +9,248 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
-"news\n"
+"X-Poedit-SearchPath-0: /home/voltan/Documents/git/news\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Api/Topic.php:96
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:156
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:53
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:50
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:63
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:5
+#: /home/voltan/Documents/git/news/template/front/author_list.phtml:6
+msgid "Author list"
+msgstr "فهرست پدیدآورنده ها"
+
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:70
+msgid "Favourite list"
+msgstr "فهرست مطالب مورد علاقه"
+
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:93
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:105
+#: /home/voltan/Documents/git/news/template/front/tag_list.phtml:4
+msgid "Tag list"
+msgstr "فهرست برچسب ها"
+
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:114
+#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:127
+#: /home/voltan/Documents/git/news/template/front/topic_list.phtml:6
+msgid "Topic list"
+msgstr "فهرست موضوع ها"
+
+#: /home/voltan/Documents/git/news/src/Api/Topic.php:110
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:89
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:171
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:53
 msgid "Download"
 msgstr "دانلود"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:51
-msgid "Parent Topic"
-msgstr "موضوع والد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:49
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:48
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StorySearchForm.php:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:11
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:10
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:64
-msgid "Title"
-msgstr "عنوان"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:75
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:59
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:29
-msgid "slug"
-msgstr "اسلاگ"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:86
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:70
-msgid "Description"
-msgstr "توضیحات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:100
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:58
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:84
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:136
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:58
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:68
-msgid "Status"
-msgstr "وضعیت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:102
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:60
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:86
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:138
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:107
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:39
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:41
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:39
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:30
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:67
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:89
-msgid "Published"
-msgstr "منتشر شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:61
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:87
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:139
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:108
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:41
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:90
-msgid "Pending review"
-msgstr "در انتظار تایید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:104
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:62
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:140
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:32
-msgid "Draft"
-msgstr "پیش نویس"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:63
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:89
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:141
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:110
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:33
-msgid "Private"
-msgstr "خصوصی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:106
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:33
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:38
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:79
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:39
-msgid "Delete"
-msgstr "حذف"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:115
-msgid "Topic Style"
-msgstr "سبک موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:117
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:74
-msgid "News"
-msgstr "خبر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:118
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:53
-msgid "List"
-msgstr "فهرست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:119
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:57
-msgid "Table"
-msgstr "جدول"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:120
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:155
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:61
-msgid "Media"
-msgstr "مدیا"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:121
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:6
-msgid "Spotlight"
-msgstr "اسپات لایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:122
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:89
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:69
-msgid "Topic"
-msgstr "موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:145
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:176
-msgid "Remove image"
-msgstr "حذف تصویر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:161
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:113
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:9
-msgid "Image"
-msgstr "تصویر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:174
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:138
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:205
-msgid "SEO options"
-msgstr "گزینه های سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:181
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:145
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:212
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:30
-msgid "SEO Title"
-msgstr "عنوان سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:194
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:158
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:225
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:31
-msgid "SEO Keywords"
-msgstr "کلمات کلیدی سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:207
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:171
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:238
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:32
-msgid "SEO Description"
-msgstr "توضیح سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:221
-msgid "Extra options"
-msgstr "گزینه های اضافی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:229
-msgid "Extra Config Options Type"
-msgstr "نوع تنظیمات اضافی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:231
-msgid "Use topic options"
-msgstr "استفاده از تنظیمات موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:232
-msgid "Use module options"
-msgstr "استفاده از تنظیمات ماژول"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:236
-msgid ""
-"Use topic option whit select topic options or set it to module to use module "
-"option"
-msgstr ""
-"برای استفاده از تنظیمات اختصاصی موضوع گزینه ؛استفاده از تنظیمات موضوع؛ را "
-"انتخاب کنید و یا با انتخاب گزینه ؛استفاده از تنظیمات ماژول؛ از تنظیمات پیش "
-"فرض ماژول استفاده کنید."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:243
-msgid "Perpage"
-msgstr "تعداد در صفحه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:255
-msgid "Columns"
-msgstr "ستون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:257
-msgid "One column"
-msgstr "یک ستون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:258
-msgid "Two columns"
-msgstr "دو ستون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:259
-msgid "Three columns"
-msgstr "سه ستون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:260
-msgid "Four columns"
-msgstr "چهار ستون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:272
-msgid "Set as system page"
-msgstr "تنظیم به عنوان یک صفحه سیستم"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:283
-msgid "Story order"
-msgstr "مرتب سازی مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:285
-msgid "Publish time DESC"
-msgstr "تاریخ انتشار - صعودی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:286
-msgid "Publish time ASC"
-msgstr "تاریخ انتشار - نزولی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:287
-msgid "Random"
-msgstr "تصادفی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:291
-msgid "Story list order options"
-msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:299
-msgid "Show Topic"
-msgstr "نمایش موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:310
-msgid "Show Topic Information"
-msgstr "نمایش اطلاعات موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:321
-msgid "Show Date"
-msgstr "نمایش تاریخ"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:332
-msgid "Show DPF"
-msgstr "نمایش پی دی اف"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:343
-msgid "Show Print"
-msgstr "نمایش چاپ"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:354
-msgid "Show Mail"
-msgstr "نمایش ایمیل"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:365
-msgid "Show Hits"
-msgstr "نمایش بازدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:376
-msgid "Show Tags"
-msgstr "نمایش برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:387
-msgid "Show Subtopic stories on main topic"
-msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:397
-msgid "Attach file link"
-msgstr "لینک فایل پیوست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:408
-msgid "Attach file title"
-msgstr "عنوان فایل پیوست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:427
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:185
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:321
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:119
-msgid "Submit"
-msgstr "ارسال"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:78
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:60
-msgid "Online"
-msgstr "آنلاین"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:79
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:61
-msgid "Offline"
-msgstr "آفلاین"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:32
-msgid "Select for regenerate"
-msgstr "برای دوباره سازی انتخاب کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:34
-msgid "All images"
-msgstr "همه تصاویر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:35
-msgid "Just story images"
-msgstr "فقط تصاویر مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:36
-msgid "Just topic images"
-msgstr "فقط تصاویر شاخه ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RegenerateImageForm.php:37
-msgid "Just author images"
-msgstr "فقط تصاویر پدید آورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:32
-msgid "Select for rebuild"
-msgstr "انتخاب برای دوباره سازی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:34
-msgid "All of tables"
-msgstr "همه جدول ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:35
-msgid "Just story table"
-msgstr "فقط جدول مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:36
-msgid "Just topic table"
-msgstr "فقط جدول موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:37
-msgid "Just author table"
-msgstr "فقط جدول پدید آورندگان"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:32
-msgid "Confirm to remove all topic pages"
-msgstr "تایید برای حذف تمام صفحات موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:32
-msgid "All contacts Before"
-msgstr "تمام مطالب قبل از"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:64
-msgid "Subtitle"
-msgstr "عنوان دوم"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:98
-msgid "Short text"
-msgstr "متن خلاصه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:111
-msgid "Main text"
-msgstr "متن اصلی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_media.phtml:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:8
-msgid "Important"
-msgstr "مهم"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:142
-msgid "Remove"
-msgstr "حذف"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:151
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:64
-msgid "Type"
-msgstr "نوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:153
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:101
-msgid "Text"
-msgstr "متن"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:154
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:96
-msgid "Gallery"
-msgstr "گالری"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:192
-msgid "Upload image"
-msgstr "بارگذاری تصویر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:253
-msgid "Tags"
-msgstr "برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:257
-msgid "Use `|` as delimiter to separate tag terms"
-msgstr "با استفاده از `|` کلمات را از هم جدا کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:268
-msgid "Extra fields"
-msgstr "فیلد های اضافی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:302
-msgid "Authors"
-msgstr "پدیدآورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:72
-msgid "Text : type text content"
-msgstr "متن : نوشتن محتوای متنی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:73
-msgid "Link : add url for click"
-msgstr "لینک : اضافه کردن لینک برای کلیک"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:74
-msgid "Video : add flv or mp4 url for play on video player"
-msgstr "ویدیو : درج لینک flv یا mp4 برای نمایش در پخش کننده ویدیو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:75
-msgid "Audio : add mp3 url for play on audio player"
-msgstr "صدا : درج لینک mp3 برای پخش در پخش کننده صوتی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:76
-msgid "File : add file link for download"
-msgstr "فایل : درج لینک فایل برای دانلود"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:77
-msgid "Currency : add view price for anything"
-msgstr "قیمت : درج قیمت برای نمایش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:78
-msgid "Date : add date for view"
-msgstr "تاریخ : درج تاریخ برای نمایش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:79
-msgid "Number : add number"
-msgstr "عدد : درج عدد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:80
-msgid "Select : add select box for choose"
-msgstr "انتخاب : درج باکس انتخاب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:88
-msgid "Value"
-msgstr "مقدار"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StorySearchForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:32
-msgid "Search"
-msgstr "جستجو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:4
-msgid "Rebuild"
-msgstr "دوباره سازی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:40
-msgid "Start date"
-msgstr "تاریخ شروع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:52
-msgid "End date"
-msgstr "تاریخ پایان"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:24
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:55
-msgid "Home Page"
-msgstr "صفحه اصلی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/Element/Topic.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:60
-msgid "All Topics"
-msgstr "همه موضوع ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:10
-msgid "Story"
-msgstr "مطلب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:56
-msgid "Select story for add to Spotlight"
-msgstr "انتخاب مطلب برای درج در اسپتلایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:66
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:11
-msgid "Show in"
-msgstr "نمایش در"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:71
-msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
-msgstr ""
-"انتخاب موضوع برای اسپات لایت، اسپات لایت شما در این موضوع نمایش داده می شود."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:80
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:12
-msgid "Publish date"
-msgstr "تاریخ انتشار"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:13
-msgid "Expire date"
-msgstr "تاریخ ابطال"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:33
-msgid "The tag not set."
-msgstr "برچسب تنظیم نشده است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:44
-msgid "The tag not found."
-msgstr "برچسب یافت نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:61
-#, php-format
-msgid "All stores from %s"
-msgstr "همه مطالب از %s"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:97
-msgid "List of all used tags"
-msgstr "فهرست همه برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
-msgid "The story not found."
-msgstr "مطلب پیدا نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:40
-msgid "The Story not publish."
-msgstr "این مطلب هنوز منتشر نشده است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:47
-#, php-format
-msgid "Archive - %s - %s"
-msgstr "آرشیو - %s - %s"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
-#, php-format
-msgid "Archive of all stores in - %s - %s"
-msgstr "آرشیو تمام مطالب در  - %s - %s"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
-#, php-format
-msgid "Archive,stores,topic,%s,%s"
-msgstr "آرشیو,مطالب,موضوعات,,%s,%s"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
-#, php-format
-msgid ""
-"List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
-"next or prev month and year"
-msgstr ""
-"فهرست تمام مطالب در <strong>%s / %s </strong>، شما می توانید تمام مطالب "
-"مربوط به ماه و سال قبل و بعد را مشاهده کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:51
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:89
-msgid "The media not set."
-msgstr "مدیا تنظیم نشده است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
-msgid "Go to topic list."
-msgstr "به فهرست موضوعات منتقل می شوید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:38
-msgid "Topic not active."
-msgstr "موضوع غیر فعال است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:104
-msgid "List of all topics"
-msgstr "فهرست همه موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:105
-msgid "List,topics"
-msgstr "فهرست,موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/FavouriteController.php:30
-msgid "The user not select"
-msgstr "کاربری انتخاب نشده است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/FavouriteController.php:41
-msgid "No favourite find by you"
-msgstr "شما هنوز هیچ مطلبی را به فهرست علاقه مندی ها اضافه نکرده اید."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/FavouriteController.php:58
-msgid "All favourite stories by you"
-msgstr "تمام مطالب محبوب شما"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/AuthorController.php:35
-msgid "The author not found."
-msgstr "پدیدآورنده پیدا نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/AuthorController.php:71
-msgid "List of all authors"
-msgstr "فهرست همه پدیدآورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:86
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:200
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:86
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:200
 msgid "You must select story"
 msgstr "شما باید یک مطلب انتخاب کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:91
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:208
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:91
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:208
 msgid "Your selected story not exist"
 msgstr "مطلب انتخاب شده شما موجود نیست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:122
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:122
 #, php-format
 msgid "Attach files to %s"
 msgstr "پیوست فایل به %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:131
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:131
 msgid "You must select file"
 msgstr "شما باید یک فایل انتخاب کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:160
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:160
 msgid "All changes in file saved successfully."
 msgstr "تمام تغییرات در فایل انتخابی با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:453
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:277
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:226
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:294
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:163
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:234
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:302
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:116
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:148
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:464
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:285
 msgid "Invalid data, please check and re-submit."
 msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:172
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:172
 msgid "Edit file"
 msgstr "ویرایش فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:279
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:279
 msgid "Your attached file remove successfully"
 msgstr "فایل پیوست شده شما با موفقیت حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:284
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:284
 msgid "Please select file"
 msgstr "لطفا یک فایل انتخاب کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:152
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:103
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:104
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:156
 msgid "View filtered stores"
 msgstr "نمایش مطالب فیلتر شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:158
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:109
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:110
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:162
 msgid "Not valid"
 msgstr "صحیح نیست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:164
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:115
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:116
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:168
 msgid "Not set"
 msgstr "هنوز تنظیم نشده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:185
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:232
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:269
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:133
-msgid "Please select story"
-msgstr "لطفا یک مطلب انتخاب کنید"
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:174
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:83
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:366
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:193
+msgid "Problem in upload image. please try again"
+msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:221
-#, php-format
-msgid "%s story accept successfully"
-msgstr "مطلب %s با موفقیت تایید شد"
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:231
+msgid "Author data saved successfully."
+msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:226
-#, php-format
-msgid "Error in accept %s story"
-msgstr "خطا در تایید %s"
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:244
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:12
+msgid "Add Author"
+msgstr "پدیدآورنده جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:262
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:126
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:329
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:299
+msgid "Role data saved successfully."
+msgstr "اطلاعات نقش با موفقیت ذخیره شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:313
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:12
+msgid "Add Role"
+msgstr "نقش جدید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:337
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:266
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:127
 #, php-format
 msgid "Image of %s removed"
 msgstr "تصویر مربوطز به %s حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:265
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:129
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:332
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:340
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:269
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:130
 msgid "Image not remove"
 msgstr "تصویر حذف نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:361
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:191
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:172
-msgid "Problem in upload image. please try again"
-msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
+#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:344
+msgid "Please select author"
+msgstr "لطفا یک پدیدآورنده انتخاب کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:430
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:109
+msgid "Extra field data saved successfully."
+msgstr "اطلاعات فیلد اضافی با موفقیت ذخیره شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:113
+msgid "Extra field data not saved."
+msgstr "اطلاعات فیلد اضافی ذخیره نشد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:129
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:10
+msgid "Add Extra"
+msgstr "فیلد جدید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:162
+msgid "Selected field delete"
+msgstr "فیلد انتخابی حذف شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:164
+msgid "Please select field"
+msgstr "لطفا یک فیلد انتخاب کنید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:55
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:24
+msgid "Home Page"
+msgstr "صفحه اصلی"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:60
+#: /home/voltan/Documents/git/news/src/Form/Element/Topic.php:70
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:25
+msgid "All Topics"
+msgstr "همه موضوع ها"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:142
+msgid "Spotlight data saved successfully."
+msgstr "اطلاعات اسپات لایت با موفقیت ذخیره شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:145
+msgid "Spotlight data not saved."
+msgstr "اطلاعات اسپات لایت ذخیره نشد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:163
+msgid "Add a Spotlight"
+msgstr "اسپات لایت جدید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:176
+msgid "Selected spotlight delete"
+msgstr "اسپات لایت انتخابی حذف شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:178
+msgid "Please select spotlight"
+msgstr "لطفا یک اسپات لایت انتخاب کنید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:93
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:62
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:170
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:120
+msgid "Media"
+msgstr "مدیا"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:97
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:169
+msgid "Gallery"
+msgstr "گالری"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:102
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:168
+msgid "Text"
+msgstr "متن"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:189
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:236
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:273
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:134
+msgid "Please select story"
+msgstr "لطفا یک مطلب انتخاب کنید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:225
+#, php-format
+msgid "%s story accept successfully"
+msgstr "مطلب %s با موفقیت تایید شد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:230
+#, php-format
+msgid "Error in accept %s story"
+msgstr "خطا در تایید %s"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:441
 msgid "Download data saved successfully. Please attach your files"
 msgstr "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:435
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:446
 msgid "Media data saved successfully. Please attach your medias"
 msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:440
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:451
 msgid "Gallery data saved successfully. Please attach your images"
 msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:446
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:457
 msgid "Text data saved successfully."
 msgstr "اطلاعات متنی با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:478
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:489
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -796,7 +263,7 @@ msgstr ""
 "سایت نمایش داده شود ، و سپس بعد از کلیک بر روی دکمه ارسال ، در صفحه بعد در "
 "صورت تمایل میتوانید فایل خود را بارگذاری کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:482
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:493
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -810,7 +277,7 @@ msgstr ""
 "دکمه ارسال ، در صفحه بعد در صورت تمایل میتوانید ویدیو یا صدای خود را "
 "بارگذاری کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:486
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:497
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -818,7 +285,7 @@ msgstr ""
 "نوع مطلب شما <strong>گالری</strong> است. لطفا فرم زیر را تکمیل نمایید ، پس "
 "از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:491
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:502
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -826,11 +293,11 @@ msgstr ""
 "نوع مطلب شما <strong>متن</strong> است. لطفا اطلاعات مورد نظر خود را در فرم "
 "زیر درج نمایید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:497
+#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:508
 msgid "Add a Story"
 msgstr "مطلب جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:34
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:35
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "update to new. And you must set start and end publish time."
@@ -839,62 +306,64 @@ msgstr ""
 "اطلاعات قدیمی شما به روز می شود، و شما باید تاریخ شروع و آغاز مطالب را برای "
 "دوباره سازی درج کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:53
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:55
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:64
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:71
 msgid "Finish Rebuild slug, all story slug update"
 msgstr "پایان دوباره سازی اسلاگ، همه اسلاگ مطالب به روز شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:61
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:80
 msgid "Finish Rebuild SEO title, all story SEO title update"
 msgstr "پایان دوباره سازی عنوان سئو، همهعنوان های سئو به روز شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:69
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:92
 msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
 msgstr "پایان دوباره سازی کلمات کلیدی سئو، همه کلمات کلیدی سئو به روز شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:77
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:101
 msgid "Finish Rebuild SEO description, all story SEO description update"
 msgstr "پایان دوباره سازی توضیحات سئو، همه توضیحات سئو به روز شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:84
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:108
 msgid "Rebuild stores"
 msgstr "دوباره سازی مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:91
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:115
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:16
 msgid "You can prune all old stores, from selected topic."
 msgstr "شما میتوانید مطالب قدیمی را از موضوع انتخابی حذف کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:106
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:130
 #, php-format
 msgid "<strong>%s</strong> old stores removed"
 msgstr "<strong>%s</strong> مطلب قدیمی حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:109
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:133
 msgid ""
 "Error in pruned old stores. perhaps no stroy exist whit your select query"
 msgstr ""
 "خطا در پاکسازی مطالب قدیمی، احتمالا هیچ مطلبی در بازه زمانی انتخابی شما "
 "موجود نیست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:115
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:139
 msgid "Prune stores"
 msgstr "پاکسازی مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:126
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:150
 #, php-format
 msgid "<strong>%s</strong> old spotlights removed"
 msgstr "<strong>%s</strong> اسپات لایت قدیمی حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:129
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:153
 msgid "Error in remove old spotlights. perhaps no spotlights exist"
 msgstr ""
 "خطا در حذف اسپات لایت های قدیمی، احتمالا هیچ اسپات لایت قدیمی موجود نیست."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:133
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:157
 msgid "Prune spotlights"
 msgstr "پاکسازی اسپات لایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:140
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:164
 msgid ""
 "Remove all topic pages from system page table. and keep just module default "
 "pages"
@@ -902,31 +371,31 @@ msgstr ""
 "حذف تمام صفحات موضوع ها از جدول صفحات سیستم ، فقط صفحات پیشفرض ماژول حفظ می "
 "شود"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:159
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:183
 msgid "All other pages removed"
 msgstr "تمام صفحات اضافی حذف شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:161
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:185
 msgid "No pages were removed"
 msgstr "هیچ صفحه ای حذف نشد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:167
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:191
 msgid "Remove topic pages"
 msgstr "حذف صفحات موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:174
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:198
 msgid "Rebuild thie module links on sitemap module tabels"
 msgstr "دوباره سازی لینک ای ماژول در جدول ماژول نقشه سایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:197
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:221
 msgid "Sitemap rebuild finished"
 msgstr "دوباره سازی نقشه سایت پایان یافت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:202
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:226
 msgid "Rebuild sitemap links"
 msgstr "دوباره سازی لینک های نقشه سایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:209
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:233
 msgid ""
 "Regenerate all images by new setting. Please make backup from youe files on "
 "upload folder , before use this tools"
@@ -934,134 +403,688 @@ msgstr ""
 "دوباره سازی تصاویر بر اساس تنظیمات جدید. لطفا قبل از استفاده از این ابزار از "
 "تمام فایل های خود در پوشه upload نسخه پشتیبان تهیه فرمایید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:233
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:257
 msgid "Regenerate images finished"
 msgstr "دوباره سازی تصاویر پایان یافت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:238
+#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:262
 msgid "Regenerate images"
 msgstr "دوباره سازی تصاویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:252
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:254
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:54
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:118
+msgid "List"
+msgstr "فهرست"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:58
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:119
+msgid "Table"
+msgstr "جدول"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:66
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:121
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:17
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:6
+msgid "Spotlight"
+msgstr "اسپات لایت"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:70
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:89
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:122
+msgid "Topic"
+msgstr "موضوع"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:75
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:117
+msgid "News"
+msgstr "خبر"
+
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:260
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:262
 #, php-format
 msgid "Page : %s"
 msgstr "صفحه : %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:274
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:282
 msgid "Topic data saved successfully."
 msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:288
+#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:296
 msgid "Add a Topic"
 msgstr "موضوع جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:142
-msgid "Spotlight data saved successfully."
-msgstr "اطلاعات اسپات لایت با موفقیت ذخیره شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:145
-msgid "Spotlight data not saved."
-msgstr "اطلاعات اسپات لایت ذخیره نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:163
-msgid "Add a Spotlight"
-msgstr "اسپات لایت جدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:176
-msgid "Selected spotlight delete"
-msgstr "اسپات لایت انتخابی حذف شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:178
-msgid "Please select spotlight"
-msgstr "لطفا یک اسپات لایت انتخاب کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:109
-msgid "Extra field data saved successfully."
-msgstr "اطلاعات فیلد اضافی با موفقیت ذخیره شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:113
-msgid "Extra field data not saved."
-msgstr "اطلاعات فیلد اضافی ذخیره نشد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:129
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:10
-msgid "Add Extra"
-msgstr "فیلد جدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:162
-msgid "Selected field delete"
-msgstr "فیلد انتخابی حذف شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:164
-msgid "Please select field"
-msgstr "لطفا یک فیلد انتخاب کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:223
-msgid "Author data saved successfully."
-msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:236
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:12
-msgid "Add Author"
-msgstr "پدیدآورنده جدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:291
-msgid "Role data saved successfully."
-msgstr "اطلاعات نقش با موفقیت ذخیره شد"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:305
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:12
-msgid "Add Role"
-msgstr "نقش جدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:336
-msgid "Please select author"
-msgstr "لطفا یک پدیدآورنده انتخاب کنید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:24
+#: /home/voltan/Documents/git/news/src/Controller/Feed/IndexController.php:24
 msgid "News feed"
 msgstr "خوراک مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:25
+#: /home/voltan/Documents/git/news/src/Controller/Feed/IndexController.php:25
 msgid "Recent News."
 msgstr "آخرین مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:91
+#: /home/voltan/Documents/git/news/src/Controller/Front/AuthorController.php:36
+msgid "The author not found."
+msgstr "پدیدآورنده پیدا نشد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/AuthorController.php:73
+msgid "List of all authors"
+msgstr "فهرست همه پدیدآورنده ها"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:31
+msgid "The user not select"
+msgstr "کاربری انتخاب نشده است"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:42
+msgid "No favourite find by you"
+msgstr "شما هنوز هیچ مطلبی را به فهرست علاقه مندی ها اضافه نکرده اید."
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:59
+msgid "All favourite stories by you"
+msgstr "تمام مطالب محبوب شما"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/IndexController.php:56
+msgid "List of Latest stories"
+msgstr "فهرست آخرین مطالب ارسالی"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:29
+#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:51
+#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:89
+msgid "The media not set."
+msgstr "مدیا تنظیم نشده است"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/StoryController.php:36
+msgid "The story not found."
+msgstr "مطلب پیدا نشد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/StoryController.php:40
+msgid "The Story not publish."
+msgstr "این مطلب هنوز منتشر نشده است"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:29
+msgid "Tag module not installed."
+msgstr "ماژول برچسب نصب نشده است."
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:38
+msgid "The tag not set."
+msgstr "برچسب تنظیم نشده است"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:49
+msgid "The tag not found."
+msgstr "برچسب یافت نشد"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:69
+#, php-format
+msgid "All stores from %s"
+msgstr "همه مطالب از %s"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:112
+msgid "List of all used tags"
+msgstr "فهرست همه برچسب ها"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:33
+msgid "Go to topic list."
+msgstr "به فهرست موضوعات منتقل می شوید"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:39
+msgid "Topic not active."
+msgstr "موضوع غیر فعال است"
+
+#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:104
+msgid "List of all topics"
+msgstr "فهرست همه موضوعات"
+
+#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:49
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:48
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:46
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:46
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:52
+#: /home/voltan/Documents/git/news/src/Form/StorySearchForm.php:40
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:64
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:25
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:18
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:18
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:25
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:64
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:10
+#: /home/voltan/Documents/git/news/template/front/index_table.phtml:10
+msgid "Title"
+msgstr "عنوان"
+
+#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:61
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:84
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:58
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:58
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:105
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:151
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:100
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:68
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:31
+msgid "Status"
+msgstr "وضعیت"
+
+#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:63
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:60
+msgid "Online"
+msgstr "آنلاین"
+
+#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:64
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:61
+msgid "Offline"
+msgstr "آفلاین"
+
+#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:73
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:185
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:72
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:125
+#: /home/voltan/Documents/git/news/src/Form/PageForm.php:43
+#: /home/voltan/Documents/git/news/src/Form/PruneForm.php:44
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:68
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:46
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:46
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:119
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:336
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:427
+msgid "Submit"
+msgstr "ارسال"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:59
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:76
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:75
+msgid "slug"
+msgstr "اسلاگ"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:70
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:86
+msgid "Description"
+msgstr "توضیحات"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:86
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:60
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:107
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:153
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:102
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:39
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:41
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:39
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:30
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:67
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:89
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:40
+msgid "Published"
+msgstr "منتشر شده"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:87
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:61
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:108
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:154
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:103
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:40
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:42
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:40
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:31
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:90
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:41
+msgid "Pending review"
+msgstr "در انتظار تایید"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:88
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:62
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:109
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:155
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:104
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:32
+msgid "Draft"
+msgstr "پیش نویس"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:89
+#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:63
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:110
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:156
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:105
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:33
+msgid "Private"
+msgstr "خصوصی"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:109
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:191
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:145
+msgid "Remove image"
+msgstr "حذف تصویر"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:125
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:113
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:161
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:9
+msgid "Image"
+msgstr "تصویر"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:138
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:220
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:174
+msgid "SEO options"
+msgstr "گزینه های سئو"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:145
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:33
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:227
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:181
+msgid "SEO Title"
+msgstr "عنوان سئو"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:158
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:34
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:240
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:194
+msgid "SEO Keywords"
+msgstr "کلمات کلیدی سئو"
+
+#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:171
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:35
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:253
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:207
+msgid "SEO Description"
+msgstr "توضیح سئو"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:70
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:166
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:64
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:26
+msgid "Type"
+msgstr "نوع"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:72
+msgid "Text : type text content"
+msgstr "متن : نوشتن محتوای متنی"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:73
+msgid "Link : add url for click"
+msgstr "لینک : اضافه کردن لینک برای کلیک"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:74
+msgid "Video : add flv or mp4 url for play on video player"
+msgstr "ویدیو : درج لینک flv یا mp4 برای نمایش در پخش کننده ویدیو"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:75
+msgid "Audio : add mp3 url for play on audio player"
+msgstr "صدا : درج لینک mp3 برای پخش در پخش کننده صوتی"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:76
+msgid "File : add file link for download"
+msgstr "فایل : درج لینک فایل برای دانلود"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:77
+msgid "Currency : add view price for anything"
+msgstr "قیمت : درج قیمت برای نمایش"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:78
+msgid "Date : add date for view"
+msgstr "تاریخ : درج تاریخ برای نمایش"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:79
+msgid "Number : add number"
+msgstr "عدد : درج عدد"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:80
+msgid "Select : add select box for choose"
+msgstr "انتخاب : درج باکس انتخاب"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:88
+msgid "Value"
+msgstr "مقدار"
+
+#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:103
+#: /home/voltan/Documents/git/news/src/Form/StorySearchForm.php:52
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:32
+msgid "Search"
+msgstr "جستجو"
+
+#: /home/voltan/Documents/git/news/src/Form/PageForm.php:32
+msgid "Confirm to remove all topic pages"
+msgstr "تایید برای حذف تمام صفحات موضوعات"
+
+#: /home/voltan/Documents/git/news/src/Form/PruneForm.php:32
+msgid "All contacts Before"
+msgstr "تمام مطالب قبل از"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:26
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:15
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:4
+msgid "Rebuild"
+msgstr "دوباره سازی"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:30
+msgid "Slug"
+msgstr "اسلاگ"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:31
+msgid "Replace slug by title"
+msgstr "جایگزین اسلاگ با عنوان"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:32
+msgid "Replace slug by id"
+msgstr "جایگزینی اسلاگ با آی دی"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:43
+msgid "Start date"
+msgstr "تاریخ شروع"
+
+#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:55
+msgid "End date"
+msgstr "تاریخ پایان"
+
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:32
+msgid "Select for regenerate"
+msgstr "برای دوباره سازی انتخاب کنید"
+
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:34
+msgid "All images"
+msgstr "همه تصاویر"
+
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:35
+msgid "Just story images"
+msgstr "فقط تصاویر مطالب"
+
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:36
+msgid "Just topic images"
+msgstr "فقط تصاویر شاخه ها"
+
+#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:37
+msgid "Just author images"
+msgstr "فقط تصاویر پدید آورنده ها"
+
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:32
+msgid "Select for rebuild"
+msgstr "انتخاب برای دوباره سازی"
+
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:34
+msgid "All of tables"
+msgstr "همه جدول ها"
+
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:35
+msgid "Just story table"
+msgstr "فقط جدول مطالب"
+
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:36
+msgid "Just topic table"
+msgstr "فقط جدول موضوعات"
+
+#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:37
+msgid "Just author table"
+msgstr "فقط جدول پدید آورندگان"
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:52
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:26
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:10
+msgid "Story"
+msgstr "مطلب"
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:56
+msgid "Select story for add to Spotlight"
+msgstr "انتخاب مطلب برای درج در اسپتلایت"
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:66
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:11
+msgid "Show in"
+msgstr "نمایش در"
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:71
+msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
+msgstr ""
+"انتخاب موضوع برای اسپات لایت، اسپات لایت شما در این موضوع نمایش داده می شود."
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:80
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:12
+msgid "Publish date"
+msgstr "تاریخ انتشار"
+
+#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:92
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:13
+msgid "Expire date"
+msgstr "تاریخ ابطال"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:64
+msgid "Subtitle"
+msgstr "عنوان دوم"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:99
+msgid "Main topic"
+msgstr "موضوع اصلی"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:106
+msgid "Just use for breadcrumbs and mobile apps"
+msgstr "فقط برای ناوبری و نرم افزار موبایل استفاده می شود"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:113
+msgid "Short text"
+msgstr "متن خلاصه"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:126
+msgid "Main text"
+msgstr "متن اصلی"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:140
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:8
+#: /home/voltan/Documents/git/news/template/front/index_media.phtml:15
+#: /home/voltan/Documents/git/news/template/front/index_news.phtml:12
+#: /home/voltan/Documents/git/news/template/front/index_table.phtml:16
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:50
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:50
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:50
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:50
+msgid "Important"
+msgstr "مهم"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:157
+msgid "Remove"
+msgstr "حذف"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:207
+msgid "Upload image"
+msgstr "بارگذاری تصویر"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:268
+msgid "Tags"
+msgstr "برچسب ها"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:272
+msgid "Use `|` as delimiter to separate tag terms"
+msgstr "با استفاده از `|` کلمات را از هم جدا کنید"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:283
+msgid "Extra fields"
+msgstr "فیلد های اضافی"
+
+#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:317
+msgid "Authors"
+msgstr "پدیدآورنده ها"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:51
+msgid "Parent Topic"
+msgstr "موضوع والد"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:106
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:38
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:29
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:26
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:79
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:39
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:33
+msgid "Delete"
+msgstr "حذف"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:115
+msgid "Topic Style"
+msgstr "سبک موضوع"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:221
+msgid "Extra options"
+msgstr "گزینه های اضافی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:229
+msgid "Extra Config Options Type"
+msgstr "نوع تنظیمات اضافی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:231
+msgid "Use topic options"
+msgstr "استفاده از تنظیمات موضوع"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:232
+msgid "Use module options"
+msgstr "استفاده از تنظیمات ماژول"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:236
+msgid ""
+"Use topic option whit select topic options or set it to module to use module "
+"option"
+msgstr ""
+"برای استفاده از تنظیمات اختصاصی موضوع گزینه ؛استفاده از تنظیمات موضوع؛ را "
+"انتخاب کنید و یا با انتخاب گزینه ؛استفاده از تنظیمات ماژول؛ از تنظیمات پیش "
+"فرض ماژول استفاده کنید."
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:243
+msgid "Perpage"
+msgstr "تعداد در صفحه"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:255
+msgid "Columns"
+msgstr "ستون"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:257
+msgid "One column"
+msgstr "یک ستون"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:258
+msgid "Two columns"
+msgstr "دو ستون"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:259
+msgid "Three columns"
+msgstr "سه ستون"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:260
+msgid "Four columns"
+msgstr "چهار ستون"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:272
+msgid "Set as system page"
+msgstr "تنظیم به عنوان یک صفحه سیستم"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:283
+msgid "Story order"
+msgstr "مرتب سازی مطالب"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:285
+msgid "Publish time DESC"
+msgstr "تاریخ انتشار - صعودی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:286
+msgid "Publish time ASC"
+msgstr "تاریخ انتشار - نزولی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:287
+msgid "Random"
+msgstr "تصادفی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:291
+msgid "Story list order options"
+msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:299
+msgid "Show Topic"
+msgstr "نمایش موضوع"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:310
+msgid "Show Topic Information"
+msgstr "نمایش اطلاعات موضوع"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:321
+msgid "Show Date"
+msgstr "نمایش تاریخ"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:332
+msgid "Show DPF"
+msgstr "نمایش پی دی اف"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:343
+msgid "Show Print"
+msgstr "نمایش چاپ"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:354
+msgid "Show Mail"
+msgstr "نمایش ایمیل"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:365
+msgid "Show Hits"
+msgstr "نمایش بازدید"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:376
+msgid "Show Tags"
+msgstr "نمایش برچسب ها"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:387
+msgid "Show Subtopic stories on main topic"
+msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:397
+msgid "Attach file link"
+msgstr "لینک فایل پیوست"
+
+#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:408
+msgid "Attach file title"
+msgstr "عنوان فایل پیوست"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:73
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:94
 msgid "Default"
 msgstr "پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:71
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:74
 msgid "default"
 msgstr "پیش-فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:72
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:75
 msgid "This is a default topic for news module"
 msgstr "موضوع پیش فرض برای ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:73
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:75
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:76
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:78
 msgid "default topic"
 msgstr "موضوع پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:77
 msgid "default,topic"
 msgstr "موضوع,پیش فرض"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:100
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:103
 msgid "Hello World"
 msgstr "سلام جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:101
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:104
 msgid "This is subtitle for this story"
 msgstr "این یک زیر عنوان است برای این مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:102
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:105
 msgid "hello-world"
 msgstr "سلام-جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:107
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
@@ -1069,7 +1092,7 @@ msgstr ""
 "این متن کوتاه مطلب شما است و شما می توانید به سادگی آن را ویرایش کنید. برای "
 "مطالعه اطلاعات بیشتر برای روی عنوان یا دکمه ادامه کلیک کنید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:108
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
@@ -1077,324 +1100,318 @@ msgstr ""
 "این متن ادامه مطلب است، شما این بخش را هم به سادگی میتوانید ویرایش کنید. و "
 "اگر بخواهید میتوانید موضوعات و مطالب جدیدی را به سیستم اضافه کنید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:108
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:109
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:111
 msgid "hello world"
 msgstr "سلام جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:110
 msgid "hello,world"
 msgstr "سلام,جهان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:130
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:132
+msgid "Source"
+msgstr "منبع"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:142
+msgid "The admin"
+msgstr "مدیر"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:144
+msgid "Admin"
+msgstr "مدیریت"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:145
+msgid "author,admin"
+msgstr "سازنده,مدیر"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:146
+msgid "author is admin"
+msgstr "سازنده مدیر"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:156
+msgid "Writer"
+msgstr "نویسنده"
+
+#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:164
 msgid "Default information added."
 msgstr "اطلاعات پیش فرض اضافه شد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:12
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:16
-msgid "Update Time"
-msgstr "زمان به روز رسانی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:17
-msgid "Read"
-msgstr "نمایش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/topic_list.phtml:8
-msgid "List of Topics"
-msgstr "فهرست موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/extra_file.phtml:4
-msgid "Extra links"
-msgstr "لینک های خارجی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:47
-msgid "Time"
-msgstr "زمان"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:52
-msgid "Times"
-msgstr "دفعه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_list.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:18
-msgid "Topics"
-msgstr "موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:130
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:126
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:126
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:126
-msgid "Related storys"
-msgstr "مطالب مشابه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:5
-msgid "Attached archives"
-msgstr "آرشیو های پیوست شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:42
-msgid "Download file"
-msgstr "دریافت فایل"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:16
-msgid "Attached docs"
-msgstr "داکیومنت های پیوست شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:27
-msgid "Attached pdfs"
-msgstr "پی دی اف های پیوست شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:38
-msgid "Attached files"
-msgstr "فایل های پیوست شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/feed.phtml:3
-msgid "Rss Feed"
-msgstr "خوراک"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/tag_list.phtml:6
-msgid "Tag list"
-msgstr "فهرست برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/author_list.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:5
-msgid "Author list"
-msgstr "فهرست پدیدآورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:12
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:14
-msgid "Facebook"
-msgstr "فیسبوک"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:22
-msgid "Twitter"
-msgstr "تویتر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:30
-msgid "Google +"
-msgstr "گوگل پلاس"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/rrssb.phtml:38
-msgid "Pinterest"
-msgstr "پین‌ترست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:5
-msgid "Prune"
-msgstr "پاکسازی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:7
-msgid "Page"
-msgstr "صفحه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_image.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:19
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:8
-msgid "Sitemap"
-msgstr "نقشه سایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_update.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:35
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:28
+#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:47
+#: /home/voltan/Documents/git/news/template/admin/spotlight_update.phtml:4
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:35
 msgid "Back"
 msgstr "بازگشت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_update.phtml:16
-msgid "Remove image author in process"
-msgstr "حذف تصویر پدیدآورنده در حال انجام است"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:29
+msgid "Finish"
+msgstr "پایان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:3
-msgid "List of attached files"
-msgstr "فهرست فایل های پیوست شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:46
-msgid "ID"
-msgstr "شناسه"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:76
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:37
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:8
 msgid "PerView"
 msgstr "پیش نمایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:47
-msgid "Information"
-msgstr "اطلاعات"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:56
+msgid "Id"
+msgstr "شناسه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:10
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:60
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:60
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:10
 msgid "Create"
 msgstr "تاریخ ایجاد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:11
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:12
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:19
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:19
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:70
-msgid "Action"
-msgstr "عملکرد"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:72
+msgid "Hits"
+msgstr "بازدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:30
-msgid "Get"
-msgstr "دریافت"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:76
+msgid "Size"
+msgstr "اندازه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:33
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:81
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:37
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:81
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:31
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:34
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:33
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:28
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:25
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:77
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:37
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:29
 msgid "Edit"
 msgstr "ویرایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:32
-msgid "Edit from story"
-msgstr "ویرایش از مطلب"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:82
+msgid "Close"
+msgstr "بستن"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:44
-msgid "Error"
-msgstr "خطا"
+#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:125
+msgid "In process"
+msgstr "در حال پردازش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:45
-msgid "No file upload yet"
-msgstr "هیچ فایلی هنوز بارگذاری نشده است"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:4
-msgid "Add Topic"
-msgstr "موضوع جدید"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:6
-msgid "List of topics"
-msgstr "فهرست موضوعات"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:11
-msgid "Show type"
-msgstr "سبک نمایش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:27
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:33
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:36
-msgid "View"
-msgstr "نمایش"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:29
-msgid "All stories"
-msgstr "همه مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:31
-msgid "Json"
-msgstr "جیسون"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:41
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:91
-msgid "Trash"
-msgstr "حذف شده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:37
+#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:37
 msgid "Get it"
 msgstr "دریافت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:40
+#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:40
 msgid "File title"
 msgstr "عنوان فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:41
+#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:41
 msgid "Story title"
 msgstr "عنوان مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:12
-msgid "List of extra fields"
-msgstr "پسوند های مجار برای فایل"
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:3
+msgid "List of attached files"
+msgstr "فهرست فایل های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:4
-msgid "Add Spotlight"
-msgstr "اسپات لایت جدید"
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:17
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:17
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:46
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:9
+msgid "ID"
+msgstr "شناسه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:6
-msgid "List of spotlights"
-msgstr "فهرست اسپات لایت ها"
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:9
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:47
+msgid "Information"
+msgstr "اطلاعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:24
-msgid "Veiw story"
-msgstr "نمایش مطلب"
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:11
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:19
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:19
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:14
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:70
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:12
+msgid "Action"
+msgstr "عملکرد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:30
+msgid "Get"
+msgstr "دریافت"
+
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:32
+msgid "Edit from story"
+msgstr "ویرایش از مطلب"
+
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:44
+msgid "Error"
+msgstr "خطا"
+
+#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:45
+msgid "No file upload yet"
+msgstr "هیچ فایلی هنوز بارگذاری نشده است"
+
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:6
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:6
 msgid "Role list"
 msgstr "فهرست نقش ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:14
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:14
 msgid "List of authors"
 msgstr "فهرست پدیدآورنده ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_update.phtml:16
-msgid "Remove image topic in process"
-msgstr "حذف تصویر موضوع در حال انجام است"
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:33
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:26
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:36
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:27
+msgid "View"
+msgstr "نمایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:12
+#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:43
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:41
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:34
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:91
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:42
+msgid "Trash"
+msgstr "حذف شده"
+
+#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:14
+msgid "List of roles"
+msgstr "فهرست نقش ها"
+
+#: /home/voltan/Documents/git/news/template/admin/author_update.phtml:16
+msgid "Remove image author in process"
+msgstr "حذف تصویر پدیدآورنده در حال انجام است"
+
+#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:12
+msgid "List of extra fields"
+msgstr "پسوند های مجار برای فایل"
+
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:4
+msgid "Add Spotlight"
+msgstr "اسپات لایت جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:6
+msgid "List of spotlights"
+msgstr "فهرست اسپات لایت ها"
+
+#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:24
+msgid "Veiw story"
+msgstr "نمایش مطلب"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:15
+msgid "Add new story"
+msgstr "مطلب جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:18
+msgid "Add new text"
+msgstr "متن جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:19
+msgid "Add new gallery"
+msgstr "گالری جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:20
+msgid "Add new media"
+msgstr "مدیا جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:21
+msgid "Add new download"
+msgstr "دانلود جدید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:29
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:28
+msgid "All stories"
+msgstr "همه مطالب"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:43
+msgid "List of stories"
+msgstr "فهرست مطالب"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:72
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:103
+msgid "Reject"
+msgstr "رد کردن"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:74
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:108
+msgid "Accept"
+msgstr "تایید"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:76
+msgid "Preview"
+msgstr "پیش نمایش"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:78
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:38
+msgid "Attach"
+msgstr "پیوست"
+
+#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:97
+msgid "Accept story in process"
+msgstr "تایید مطلب در حال انجام است"
+
+#: /home/voltan/Documents/git/news/template/admin/story_update.phtml:19
+msgid "Remove image story in process"
+msgstr "حذف تصویر مطلب در حال انجام است"
+
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:16
+#: /home/voltan/Documents/git/news/template/front/index_table.phtml:11
+msgid "Update Time"
+msgstr "زمان به روز رسانی"
+
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:17
+#: /home/voltan/Documents/git/news/template/front/index_news.phtml:30
+#: /home/voltan/Documents/git/news/template/front/index_table.phtml:12
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:66
+msgid "Read"
+msgstr "نمایش"
+
+#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:18
+#: /home/voltan/Documents/git/news/template/front/index_list.phtml:19
+#: /home/voltan/Documents/git/news/template/front/index_news.phtml:35
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:78
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:78
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:78
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:78
+msgid "Topics"
+msgstr "موضوع"
+
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:16
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:5
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:5
+msgid "Prune"
+msgstr "پاکسازی"
+
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:18
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:7
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:7
+msgid "Page"
+msgstr "صفحه"
+
+#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:19
+#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:8
+#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:8
+msgid "Sitemap"
+msgstr "نقشه سایت"
+
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:12
 msgid "How this part work?"
 msgstr "این بخش چگونه کار می کند؟"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:13
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:13
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
@@ -1402,98 +1419,153 @@ msgstr ""
 "ابزار ها، به شما برای مدیریت ماژول کمک میکند، با به روز رسانی پایگاه داده ها "
 "و حذف اطلاعات قدیمی. در این مقطع ابزار های زیر در دسترس شما است : "
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:15
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
 msgstr "شما می توانبد همه مطالب درج شده را دوباره سازی کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:17
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:17
 msgid "You can remove old spotlights"
 msgstr "شما میتوانید اپات لایت های قدیمی را حذف کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:18
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:18
 msgid "Manage system page"
 msgstr "مدیریت صفحات سیستم"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:19
+#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:19
 msgid "Manage links on sitemap module"
 msgstr "مدیریت لینک ها در ماژول نقشه سایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:14
-msgid "List of roles"
-msgstr "فهرست نقش ها"
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:4
+msgid "Add Topic"
+msgstr "موضوع جدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_update.phtml:19
-msgid "Remove image story in process"
-msgstr "حذف تصویر مطلب در حال انجام است"
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:6
+msgid "List of topics"
+msgstr "فهرست موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:29
-msgid "Finish"
-msgstr "پایان"
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:11
+msgid "Show type"
+msgstr "سبک نمایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:56
-msgid "Id"
-msgstr "شناسه"
+#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:31
+msgid "Json"
+msgstr "جیسون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:72
-msgid "Hits"
-msgstr "بازدید"
+#: /home/voltan/Documents/git/news/template/admin/topic_update.phtml:16
+msgid "Remove image topic in process"
+msgstr "حذف تصویر موضوع در حال انجام است"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:76
-msgid "Size"
-msgstr "اندازه"
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:5
+msgid "Attached archives"
+msgstr "آرشیو های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:82
-msgid "Close"
-msgstr "بستن"
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:9
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:20
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:31
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:42
+msgid "Download file"
+msgstr "دریافت فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:125
-msgid "In process"
-msgstr "در حال پردازش"
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:16
+msgid "Attached docs"
+msgstr "داکیومنت های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:15
-msgid "Add new story"
-msgstr "مطلب جدید"
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:27
+msgid "Attached pdfs"
+msgstr "پی دی اف های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:18
-msgid "Add new text"
-msgstr "متن جدید"
+#: /home/voltan/Documents/git/news/template/front/attach.phtml:38
+msgid "Attached files"
+msgstr "فایل های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:19
-msgid "Add new gallery"
-msgstr "گالری جدید"
+#: /home/voltan/Documents/git/news/template/front/author_list.phtml:23
+msgid ""
+"No author information has been added on this part yet. please check this "
+"page later"
+msgstr ""
+"هیچ اطلاعاتی از نویسندگان هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه "
+"را بررسی فرمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:20
-msgid "Add new media"
-msgstr "مدیا جدید"
+#: /home/voltan/Documents/git/news/template/front/extra_file.phtml:4
+msgid "Extra links"
+msgstr "لینک های خارجی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:21
-msgid "Add new download"
-msgstr "دانلود جدید"
+#: /home/voltan/Documents/git/news/template/front/feed.phtml:3
+msgid "Rss Feed"
+msgstr "خوراک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:43
-msgid "List of stories"
-msgstr "فهرست مطالب"
+#: /home/voltan/Documents/git/news/template/front/index_news.phtml:25
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:61
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:61
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:61
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:61
+msgid "Time"
+msgstr "زمان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:103
-msgid "Reject"
-msgstr "رد کردن"
+#: /home/voltan/Documents/git/news/template/front/index_news.phtml:30
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:66
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:66
+msgid "Times"
+msgstr "دفعه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:74
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:108
-msgid "Accept"
-msgstr "تایید"
+#: /home/voltan/Documents/git/news/template/front/story_download.phtml:151
+#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:147
+#: /home/voltan/Documents/git/news/template/front/story_index.phtml:147
+#: /home/voltan/Documents/git/news/template/front/story_media.phtml:147
+msgid "Related storys"
+msgstr "مطالب مشابه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:78
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:38
-msgid "Attach"
-msgstr "پیوست"
+#: /home/voltan/Documents/git/news/template/front/tag_list.phtml:18
+msgid ""
+"No keyword has been used as tag on this part yet. please check this page "
+"later"
+msgstr ""
+"هیچ اطلاعاتی از کلمات کلیدی به عنوان برچسب هنوز در سیستم درج نشده است. لطفا "
+"بعدا از این صفحه را بررسی فرمایید."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:97
-msgid "Accept story in process"
-msgstr "تایید مطلب در حال انجام است"
+#: /home/voltan/Documents/git/news/template/front/topic_list.phtml:27
+msgid "No topic has been made on this part yet. please check this page later"
+msgstr ""
+"هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "
+"بررسی فرمایید."
+
+#~ msgid "Archive - %s - %s"
+#~ msgstr "آرشیو - %s - %s"
+
+#~ msgid "Archive of all stores in - %s - %s"
+#~ msgstr "آرشیو تمام مطالب در  - %s - %s"
+
+#~ msgid "Archive,stores,topic,%s,%s"
+#~ msgstr "آرشیو,مطالب,موضوعات,,%s,%s"
+
+#~ msgid ""
+#~ "List if all stroes in <strong>%s / %s </strong>, You can see all stores "
+#~ "in next or prev month and year"
+#~ msgstr ""
+#~ "فهرست تمام مطالب در <strong>%s / %s </strong>، شما می توانید تمام مطالب "
+#~ "مربوط به ماه و سال قبل و بعد را مشاهده کنید"
+
+#~ msgid "List,topics"
+#~ msgstr "فهرست,موضوعات"
+
+#~ msgid "List of Topics"
+#~ msgstr "فهرست موضوعات"
+
+#~ msgid "Facebook"
+#~ msgstr "فیسبوک"
+
+#~ msgid "Twitter"
+#~ msgstr "تویتر"
+
+#~ msgid "Google +"
+#~ msgstr "گوگل پلاس"
+
+#~ msgid "Pinterest"
+#~ msgstr "پین‌ترست"
 
 #~ msgid "This story deleted"
 #~ msgstr "مطلب انتخابی حذف شد"
@@ -1512,9 +1584,6 @@ msgstr "تایید مطلب در حال انجام است"
 
 #~ msgid "List of all writers"
 #~ msgstr "فهرست همه نویسندگان"
-
-#~ msgid "Writer"
-#~ msgstr "نویسنده"
 
 #~ msgid "Count"
 #~ msgstr "تعداد"
@@ -1605,9 +1674,6 @@ msgstr "تایید مطلب در حال انجام است"
 
 #~ msgid "Manage News and Blog"
 #~ msgstr "مدیریت اخبار و وبلاگ"
-
-#~ msgid "Admin"
-#~ msgstr "مدیریت"
 
 #~ msgid "Show"
 #~ msgstr "نمایش"

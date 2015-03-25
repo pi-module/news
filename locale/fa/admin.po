@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-12-02 10:44+0330\n"
+"POT-Creation-Date: 2015-03-25 19:27+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,648 +9,638 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _a;_t\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
-"news\n"
+"X-Poedit-SearchPath-0: /home/voltan/Documents/git/news\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:17
-msgid "Global public resource"
-msgstr "دسترسی های عمومی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:24
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:53
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:128
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:22
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:99
-msgid "Authors"
-msgstr "پدیدآورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:71
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:79
-msgid "Archive"
-msgstr "آرشیو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:38
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:27
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:48
-msgid "Favourite"
-msgstr "علاقه مندی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:17
-msgid "Attach"
-msgstr "پیوست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:59
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:119
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:27
-msgid "Extra"
-msgstr "فیلد اضافی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:101
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:256
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:32
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:107
-msgid "Spotlight"
-msgstr "اسپات لایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:71
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:67
-msgid "Story"
-msgstr "مطلب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:22
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:118
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:186
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:262
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:316
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:61
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:108
-msgid "Topic"
-msgstr "موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:137
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:42
-msgid "Tools"
-msgstr "ابزار ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:16
-msgid "Index"
-msgstr "صفحه اصلی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:38
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:85
-msgid "Topic list"
-msgstr "فهرست موضوع ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:49
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:92
-msgid "Tag list"
-msgstr "فهرست برچسب ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:60
-msgid "Author list"
-msgstr "فهرست پدیدآورنده ها"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:110
-msgid "Attaced"
-msgstr "پیوست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:16
+#: /home/voltan/Documents/git/news/config/block.php:16
 msgid "Item"
 msgstr "مورد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:193
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:378
+#: /home/voltan/Documents/git/news/config/block.php:22
+#: /home/voltan/Documents/git/news/config/block.php:118
+#: /home/voltan/Documents/git/news/config/block.php:186
+#: /home/voltan/Documents/git/news/config/block.php:262
+#: /home/voltan/Documents/git/news/config/block.php:316
+#: /home/voltan/Documents/git/news/config/config.php:104
+#: /home/voltan/Documents/git/news/config/navigation.php:81
+#: /home/voltan/Documents/git/news/config/page.php:47
+#: /home/voltan/Documents/git/news/config/page.php:61
+#: /home/voltan/Documents/git/news/config/permission.php:70
+msgid "Topic"
+msgstr "موضوع"
+
+#: /home/voltan/Documents/git/news/config/block.php:29
+#: /home/voltan/Documents/git/news/config/block.php:125
+#: /home/voltan/Documents/git/news/config/block.php:193
+#: /home/voltan/Documents/git/news/config/block.php:378
 msgid "Number"
 msgstr "تعداد"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:200
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:276
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:323
+#: /home/voltan/Documents/git/news/config/block.php:36
+#: /home/voltan/Documents/git/news/config/block.php:200
+#: /home/voltan/Documents/git/news/config/block.php:276
+#: /home/voltan/Documents/git/news/config/block.php:323
 msgid "Shwo text"
 msgstr "نمایش متن"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:132
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:207
+#: /home/voltan/Documents/git/news/config/block.php:43
+#: /home/voltan/Documents/git/news/config/block.php:132
+#: /home/voltan/Documents/git/news/config/block.php:207
 msgid "Show date"
 msgstr "نمایش تاریخ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:50
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:139
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:214
+#: /home/voltan/Documents/git/news/config/block.php:50
+#: /home/voltan/Documents/git/news/config/block.php:139
+#: /home/voltan/Documents/git/news/config/block.php:214
 msgid "Show hits"
 msgstr "نمایش بازدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:57
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:283
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:330
+#: /home/voltan/Documents/git/news/config/block.php:57
+#: /home/voltan/Documents/git/news/config/block.php:283
+#: /home/voltan/Documents/git/news/config/block.php:330
 msgid "Show Images"
 msgstr "نمایش تصاویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:64
+#: /home/voltan/Documents/git/news/config/block.php:64
 msgid "Show More link for each story"
 msgstr "نمایش لینک ادامه برای هر مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:71
+#: /home/voltan/Documents/git/news/config/block.php:71
 msgid "Show authors"
 msgstr "نمایش پدیدآورنده ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:78
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:146
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:221
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:337
+#: /home/voltan/Documents/git/news/config/block.php:78
+#: /home/voltan/Documents/git/news/config/block.php:146
+#: /home/voltan/Documents/git/news/config/block.php:221
+#: /home/voltan/Documents/git/news/config/block.php:337
 msgid "Show More link to module page"
 msgstr "نمایش لینک ادامه به ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:85
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:153
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:228
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:344
+#: /home/voltan/Documents/git/news/config/block.php:85
+#: /home/voltan/Documents/git/news/config/block.php:153
+#: /home/voltan/Documents/git/news/config/block.php:228
+#: /home/voltan/Documents/git/news/config/block.php:344
 msgid "Set More link to module page"
 msgstr "درج لینک ادامه به ماژول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:160
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:235
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:290
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:143
+#: /home/voltan/Documents/git/news/config/block.php:92
+#: /home/voltan/Documents/git/news/config/block.php:160
+#: /home/voltan/Documents/git/news/config/block.php:235
+#: /home/voltan/Documents/git/news/config/block.php:290
+#: /home/voltan/Documents/git/news/config/config.php:139
 msgid "Story order"
 msgstr "مرتب سازی مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:93
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:161
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:236
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:291
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:144
+#: /home/voltan/Documents/git/news/config/block.php:93
+#: /home/voltan/Documents/git/news/config/block.php:161
+#: /home/voltan/Documents/git/news/config/block.php:236
+#: /home/voltan/Documents/git/news/config/block.php:291
+#: /home/voltan/Documents/git/news/config/config.php:140
 msgid "Story list order options"
 msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:98
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:166
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:241
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:296
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:149
+#: /home/voltan/Documents/git/news/config/block.php:98
+#: /home/voltan/Documents/git/news/config/block.php:166
+#: /home/voltan/Documents/git/news/config/block.php:241
+#: /home/voltan/Documents/git/news/config/block.php:296
+#: /home/voltan/Documents/git/news/config/config.php:145
 msgid "Publish time DESC"
 msgstr "تاریخ انتشار - صعودی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:99
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:167
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:242
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:297
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:150
+#: /home/voltan/Documents/git/news/config/block.php:99
+#: /home/voltan/Documents/git/news/config/block.php:167
+#: /home/voltan/Documents/git/news/config/block.php:242
+#: /home/voltan/Documents/git/news/config/block.php:297
+#: /home/voltan/Documents/git/news/config/config.php:146
 msgid "Publish time ASC"
 msgstr "تاریخ انتشار - نزولی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:100
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:168
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:243
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:298
+#: /home/voltan/Documents/git/news/config/block.php:100
+#: /home/voltan/Documents/git/news/config/block.php:168
+#: /home/voltan/Documents/git/news/config/block.php:243
+#: /home/voltan/Documents/git/news/config/block.php:298
 msgid "Random"
 msgstr "تصادفی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:112
+#: /home/voltan/Documents/git/news/config/block.php:112
 msgid "list"
 msgstr "فهرست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:180
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:105
+#: /home/voltan/Documents/git/news/config/block.php:180
+#: /home/voltan/Documents/git/news/config/config.php:101
 msgid "Table"
 msgstr "جدول"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:269
+#: /home/voltan/Documents/git/news/config/block.php:256
+#: /home/voltan/Documents/git/news/config/config.php:40
+#: /home/voltan/Documents/git/news/config/config.php:103
+#: /home/voltan/Documents/git/news/config/navigation.php:90
+#: /home/voltan/Documents/git/news/config/page.php:32
+#: /home/voltan/Documents/git/news/config/permission.php:58
+msgid "Spotlight"
+msgstr "اسپات لایت"
+
+#: /home/voltan/Documents/git/news/config/block.php:269
 msgid "Number of stroies for each topic"
 msgstr "تعداد مطالب برای هر موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:310
+#: /home/voltan/Documents/git/news/config/block.php:310
 msgid "List of topic"
 msgstr "فهرست موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:351
+#: /home/voltan/Documents/git/news/config/block.php:351
 msgid "Topic order"
 msgstr "مرتب سازی موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:352
+#: /home/voltan/Documents/git/news/config/block.php:352
 msgid "Topic list order options"
 msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش موضوعات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:357
+#: /home/voltan/Documents/git/news/config/block.php:357
 msgid "Create DESC"
 msgstr "تاریخ ایجاد صعودی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:358
+#: /home/voltan/Documents/git/news/config/block.php:358
 msgid "Create ASC"
 msgstr "تاریخ ایجاد نزولی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:359
+#: /home/voltan/Documents/git/news/config/block.php:359
 msgid "Title DESC"
 msgstr "عنوان صعودی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:360
+#: /home/voltan/Documents/git/news/config/block.php:360
 msgid "Title ASC"
 msgstr "عنوان نزولی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:372
+#: /home/voltan/Documents/git/news/config/block.php:372
 msgid "Gallery"
 msgstr "گالری"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:385
+#: /home/voltan/Documents/git/news/config/block.php:385
 msgid "Show gallery effect"
 msgstr "نمایش افکت گالری"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:392
+#: /home/voltan/Documents/git/news/config/block.php:392
 msgid "Image width class"
 msgstr "کلاس برای ابعدا تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:393
+#: /home/voltan/Documents/git/news/config/block.php:393
 msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
-msgstr ""
-"بر اساس سیستم گرید بوت استرپ ۳ ، به طور مثال : col-xs-6 col-sm-6 col-md-3"
+msgstr "بر اساس سیستم گرید بوت استرپ ۳ ، به طور مثال : col-xs-6 col-sm-6 col-md-3"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:103
-msgid "News"
-msgstr "اخبار"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:17
-msgid "Manage News and Blog"
-msgstr "مدیریت اخبار و بلاگ و مطالب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/comment.php:15
+#: /home/voltan/Documents/git/news/config/comment.php:15
 msgid "News comments"
 msgstr "نظرات اخبار"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:55
-msgid "Index page"
-msgstr "صفحه اصلی"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:73
-msgid "Tag"
-msgstr "برچسب"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:16
+#: /home/voltan/Documents/git/news/config/config.php:16
 msgid "Admin"
 msgstr "بخش مدیر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:20
+#: /home/voltan/Documents/git/news/config/config.php:20
 msgid "Show"
 msgstr "نمایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:24
+#: /home/voltan/Documents/git/news/config/config.php:24
 msgid "Feed"
 msgstr "خوراک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:28
+#: /home/voltan/Documents/git/news/config/config.php:28
 msgid "Image"
 msgstr "تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:32
+#: /home/voltan/Documents/git/news/config/config.php:32
 msgid "File"
 msgstr "فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:36
+#: /home/voltan/Documents/git/news/config/config.php:36
 msgid "Social"
 msgstr "شبکه های اجتماعی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:44
+#: /home/voltan/Documents/git/news/config/config.php:44
 msgid "Vote"
 msgstr "رای"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:52
-msgid "Texts"
-msgstr "متن ها"
+#: /home/voltan/Documents/git/news/config/config.php:48
+#: /home/voltan/Documents/git/news/config/navigation.php:27
+#: /home/voltan/Documents/git/news/config/page.php:99
+#: /home/voltan/Documents/git/news/config/permission.php:31
+msgid "Favourite"
+msgstr "علاقه مندی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:59
+#: /home/voltan/Documents/git/news/config/config.php:55
 msgid "Advertisement"
 msgstr "تبلیغات"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:118
+#: /home/voltan/Documents/git/news/config/config.php:61
+#: /home/voltan/Documents/git/news/config/config.php:114
 msgid "Perpage"
 msgstr "تعداد در هر صفحه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:73
+#: /home/voltan/Documents/git/news/config/config.php:69
 msgid "Set topic as system page for support customise layout for blocks"
-msgstr ""
-"قراردادن موضوعات به عنوان یک صفحه سیستم برای شخصی سازی تنظیم بلاک و ویجت"
+msgstr "قراردادن موضوعات به عنوان یک صفحه سیستم برای شخصی سازی تنظیم بلاک و ویجت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:81
+#: /home/voltan/Documents/git/news/config/config.php:77
 msgid "Set story authors"
 msgstr "تنظیم پدیدآورنده های مطلب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:89
+#: /home/voltan/Documents/git/news/config/config.php:85
 msgid "Active json output"
 msgstr "فعال کردن تولید خروجی جیسون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:97
+#: /home/voltan/Documents/git/news/config/config.php:93
 msgid "Show Style"
 msgstr "نسبک نمایش"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:104
+#: /home/voltan/Documents/git/news/config/config.php:99
+#: /home/voltan/Documents/git/news/config/module.php:16
+msgid "News"
+msgstr "اخبار"
+
+#: /home/voltan/Documents/git/news/config/config.php:100
 msgid "List"
 msgstr "فهرست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:106
+#: /home/voltan/Documents/git/news/config/config.php:102
 msgid "Media"
 msgstr "مدیا"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:125
+#: /home/voltan/Documents/git/news/config/config.php:121
 msgid "Columns"
 msgstr "ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:131
+#: /home/voltan/Documents/git/news/config/config.php:127
 msgid "One column"
 msgstr "یک ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:132
+#: /home/voltan/Documents/git/news/config/config.php:128
 msgid "Two columns"
 msgstr "دو ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:133
+#: /home/voltan/Documents/git/news/config/config.php:129
 msgid "Three columns"
 msgstr "سه ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:134
+#: /home/voltan/Documents/git/news/config/config.php:130
 msgid "Four columns"
 msgstr "چهار ستون"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:160
+#: /home/voltan/Documents/git/news/config/config.php:156
 msgid "Show Subtopic stories on main topic"
 msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:168
+#: /home/voltan/Documents/git/news/config/config.php:164
 msgid "Show Topic"
 msgstr "نمایش موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:176
+#: /home/voltan/Documents/git/news/config/config.php:172
 msgid "Show Topic Information"
 msgstr "نمایش اطلاعات موضوع"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:184
+#: /home/voltan/Documents/git/news/config/config.php:180
 msgid "Show author"
 msgstr "نمایش پدیدآورنده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:192
+#: /home/voltan/Documents/git/news/config/config.php:188
 msgid "Show Date"
 msgstr "نمایش تاریخ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:200
+#: /home/voltan/Documents/git/news/config/config.php:196
 msgid "Show Pdf"
 msgstr "نمایش پی دی اف"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:208
+#: /home/voltan/Documents/git/news/config/config.php:204
 msgid "Show Print"
 msgstr "نمایش چاپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:216
+#: /home/voltan/Documents/git/news/config/config.php:212
 msgid "Show Mail"
 msgstr "نمایش معرفی به دوستان"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:224
+#: /home/voltan/Documents/git/news/config/config.php:220
 msgid "Show Hits"
 msgstr "نمایش بازدید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:232
+#: /home/voltan/Documents/git/news/config/config.php:228
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:240
+#: /home/voltan/Documents/git/news/config/config.php:236
 msgid "Show attach files"
 msgstr "نمایش فایل های پیوست شده"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:248
+#: /home/voltan/Documents/git/news/config/config.php:244
 msgid "Show extra information"
 msgstr "نمایش فیلد های اضافی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:256
+#: /home/voltan/Documents/git/news/config/config.php:252
 msgid "Show navigation"
 msgstr "نمایش ناوبری"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:264
+#: /home/voltan/Documents/git/news/config/config.php:260
 msgid "Show spotlight"
 msgstr "نمایش اسپات لایت"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:272
+#: /home/voltan/Documents/git/news/config/config.php:268
 msgid "Show related news"
 msgstr "نمایش مطالب مشابه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:280
+#: /home/voltan/Documents/git/news/config/config.php:276
 msgid "related number"
 msgstr "تعداد مطالب مشابه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:288
+#: /home/voltan/Documents/git/news/config/config.php:284
 msgid "Just show news from X days ago"
 msgstr "فقط نمایش مطالب مربوط به X روز گذشته"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:289
+#: /home/voltan/Documents/git/news/config/config.php:285
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr "برای نمایش همه مطالب ۰ وارد کنید و یا محدوده روز های اخیر را مشخص کنید"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:297
+#: /home/voltan/Documents/git/news/config/config.php:292
+msgid "Show breadcrumbs"
+msgstr "نمایش ناوبری"
+
+#: /home/voltan/Documents/git/news/config/config.php:301
 msgid "Show feed icon"
 msgstr "نمایش آیکن خوراک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:305
+#: /home/voltan/Documents/git/news/config/config.php:309
 msgid "Feed number"
 msgstr "تعداد در صفحه خوراک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:314
+#: /home/voltan/Documents/git/news/config/config.php:318
 msgid "Image Size"
 msgstr "حجم تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:322
+#: /home/voltan/Documents/git/news/config/config.php:326
+msgid "Image quality"
+msgstr "کیفیت تصویر "
+
+#: /home/voltan/Documents/git/news/config/config.php:327
+msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
+msgstr "بین ۰ تا ۱۰۰ تنظیم شود و برای هر دو فرمت PNG و JPG ، مقدار پیش فرض ۷۵"
+
+#: /home/voltan/Documents/git/news/config/config.php:334
 msgid "Image path"
 msgstr "مسیر ذخیره تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:330
+#: /home/voltan/Documents/git/news/config/config.php:342
 msgid "Image Extension"
 msgstr "پسوند های مجار برای تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:338
+#: /home/voltan/Documents/git/news/config/config.php:350
 msgid "Large Image height"
 msgstr "ارتفاع تصویر بزرگ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:346
+#: /home/voltan/Documents/git/news/config/config.php:358
 msgid "Large Image width"
 msgstr "عرض تصویر بزرگ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:354
+#: /home/voltan/Documents/git/news/config/config.php:366
 msgid "Medium Image height"
 msgstr "ارتفاع تصویر متوسط"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:362
+#: /home/voltan/Documents/git/news/config/config.php:374
 msgid "Medium Image width"
 msgstr "عرض تصویر متوسط"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:370
+#: /home/voltan/Documents/git/news/config/config.php:382
 msgid "Thumb Image height"
 msgstr "ارتفاع تصویر بندانگشتی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:378
+#: /home/voltan/Documents/git/news/config/config.php:390
 msgid "Thumb Image width"
 msgstr "عرض تصویر بندانگشتی"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:386
-msgid "Large Image height for topic"
-msgstr "ارتفاع تصویر بزرگ برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:394
-msgid "Large Image width for topic"
-msgstr "عرض تصویر بزرگ برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:402
-msgid "Medium Image height for topic"
-msgstr "ارتفاع تصویر متوسط برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:410
-msgid "Medium Image width for topic"
-msgstr "عرض تصویر متوسط برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:418
-msgid "Thumb Image height for topic"
-msgstr "ارتفاع تصویر بندانگشتی برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:426
-msgid "Thumb Image width for topic"
-msgstr "عرض تصویر بندانگشتی برای موضوع"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:434
-msgid "Large Image height for author"
-msgstr "ارتفاع تصویر بزرگ برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:442
-msgid "Large Image width for author"
-msgstr "عرض تصویر بزرگ برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:450
-msgid "Medium Image height for author"
-msgstr "ارتفاع تصویر متوسط برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:458
-msgid "Medium Image width for author"
-msgstr "عرض تصویر متوسط برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:466
-msgid "Thumb Image height for author"
-msgstr "ارتفاع تصویر بندانگشتی برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:474
-msgid "Thumb Image width for author"
-msgstr "عرض تصویر بندانگشتی برای پدیدآورنده"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:482
+#: /home/voltan/Documents/git/news/config/config.php:494
 msgid "Use lightbox"
 msgstr "استفاده از لایت باکس"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:490
+#: /home/voltan/Documents/git/news/config/config.php:502
 msgid "Add Watermark"
 msgstr "اضافه کردن واترمارک به تصویر"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:498
+#: /home/voltan/Documents/git/news/config/config.php:510
 msgid "Watermark Image"
 msgstr "تصویر واترمارک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:505
+#: /home/voltan/Documents/git/news/config/config.php:517
 msgid "Watermark Positio"
 msgstr "موقعیت واترمارک"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:511
+#: /home/voltan/Documents/git/news/config/config.php:523
 msgid "Top Left"
 msgstr "بالا چپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:512
+#: /home/voltan/Documents/git/news/config/config.php:524
 msgid "Top Right"
 msgstr "بالا راست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:513
+#: /home/voltan/Documents/git/news/config/config.php:525
 msgid "Bottom Left"
 msgstr "پایین چپ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:514
+#: /home/voltan/Documents/git/news/config/config.php:526
 msgid "Bottom Right"
 msgstr "پایین راست"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:617
-msgid "Show facebook"
-msgstr "نمایش فیسبوک"
+#: /home/voltan/Documents/git/news/config/config.php:536
+msgid "Social sharing items"
+msgstr "موارد اشتراک گذاری در شبکه های اجتماعی "
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:625
-msgid "Show Twitter"
-msgstr "نمایش تویتر"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:633
-msgid "Show Google Plus"
-msgstr "نمایش گوگل پلاس"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:641
-msgid "Show Pinterest"
-msgstr "نمایش پین‌ترست"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:650
+#: /home/voltan/Documents/git/news/config/config.php:550
 msgid "Number of stories"
 msgstr "تعداد مطالب"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:658
+#: /home/voltan/Documents/git/news/config/config.php:558
 msgid "Show Image for sub spotlights"
 msgstr "نمایش تصویر برای زیر اسپات لایت ها"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:667
+#: /home/voltan/Documents/git/news/config/config.php:567
 msgid "Use vote system"
 msgstr "استفاده از سیستم رای"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:676
+#: /home/voltan/Documents/git/news/config/config.php:576
 msgid "Use favourite system"
 msgstr "استفاده از سیستم مورد علاقه"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:685
-msgid "Module main title"
-msgstr "عنوان اصلی ماژول"
+#: /home/voltan/Documents/git/news/config/config.php:585
+msgid "Description for index page"
+msgstr "متن توضیحات صفحه اول "
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:686
-msgid "Title for main page and all non-title pages"
-msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
+#: /home/voltan/Documents/git/news/config/config.php:593
+msgid "Force replace space by comma(,)"
+msgstr "جایگزینی اسپیس با کاما "
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:689
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:697
-msgid "Latest News from this website"
-msgstr "آخرین مطالب این وب سایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:693
-msgid "Module main description"
-msgstr "توضیحات اصلی ماژول"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:701
-msgid "Module main keywords"
-msgstr "کلمات کلیدی اصلی ماژول"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:705
-msgid "news,topic,story,website"
-msgstr "خبر,موضوع,مطلب,وب سایت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:709
-msgid "Number of SEO keywords"
-msgstr "تعداد کلمات کلیدی برای سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:716
-msgid "SEO items generate method"
-msgstr "روش تولید موراد سئو"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:722
-msgid "Hard"
-msgstr "سخت"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:723
-msgid "Soft"
-msgstr "نرم"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:734
+#: /home/voltan/Documents/git/news/config/config.php:602
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:742
+#: /home/voltan/Documents/git/news/config/config.php:610
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:750
+#: /home/voltan/Documents/git/news/config/config.php:618
 msgid "File Extension"
 msgstr "سوند های مجار برای فایل"
+
+#: /home/voltan/Documents/git/news/config/module.php:17
+msgid "Manage News and Blog"
+msgstr "مدیریت اخبار و بلاگ و مطالب"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:16
+msgid "Index"
+msgstr "صفحه اصلی"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:38
+#: /home/voltan/Documents/git/news/config/page.php:79
+msgid "Topic list"
+msgstr "فهرست موضوع ها"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:49
+#: /home/voltan/Documents/git/news/config/page.php:86
+msgid "Tag list"
+msgstr "فهرست برچسب ها"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:60
+msgid "Author list"
+msgstr "فهرست پدیدآورنده ها"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:72
+#: /home/voltan/Documents/git/news/config/page.php:37
+#: /home/voltan/Documents/git/news/config/page.php:67
+#: /home/voltan/Documents/git/news/config/permission.php:64
+msgid "Story"
+msgstr "مطلب"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:99
+msgid "Attaced"
+msgstr "پیوست"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:108
+#: /home/voltan/Documents/git/news/config/page.php:27
+#: /home/voltan/Documents/git/news/config/permission.php:52
+msgid "Extra"
+msgstr "فیلد اضافی"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:117
+#: /home/voltan/Documents/git/news/config/page.php:22
+#: /home/voltan/Documents/git/news/config/page.php:93
+#: /home/voltan/Documents/git/news/config/permission.php:24
+#: /home/voltan/Documents/git/news/config/permission.php:46
+msgid "Authors"
+msgstr "پدیدآورنده ها"
+
+#: /home/voltan/Documents/git/news/config/navigation.php:126
+#: /home/voltan/Documents/git/news/config/page.php:42
+#: /home/voltan/Documents/git/news/config/permission.php:76
+msgid "Tools"
+msgstr "ابزار ها"
+
+#: /home/voltan/Documents/git/news/config/page.php:17
+#: /home/voltan/Documents/git/news/config/permission.php:40
+msgid "Attach"
+msgstr "پیوست"
+
+#: /home/voltan/Documents/git/news/config/page.php:55
+msgid "Index page"
+msgstr "صفحه اصلی"
+
+#: /home/voltan/Documents/git/news/config/page.php:73
+msgid "Tag"
+msgstr "برچسب"
+
+#: /home/voltan/Documents/git/news/config/permission.php:17
+msgid "Global public resource"
+msgstr "دسترسی های عمومی"
+
+#~ msgid "Archive"
+#~ msgstr "آرشیو"
+
+#~ msgid "Texts"
+#~ msgstr "متن ها"
+
+#~ msgid "Large Image height for topic"
+#~ msgstr "ارتفاع تصویر بزرگ برای موضوع"
+
+#~ msgid "Large Image width for topic"
+#~ msgstr "عرض تصویر بزرگ برای موضوع"
+
+#~ msgid "Medium Image height for topic"
+#~ msgstr "ارتفاع تصویر متوسط برای موضوع"
+
+#~ msgid "Medium Image width for topic"
+#~ msgstr "عرض تصویر متوسط برای موضوع"
+
+#~ msgid "Thumb Image height for topic"
+#~ msgstr "ارتفاع تصویر بندانگشتی برای موضوع"
+
+#~ msgid "Thumb Image width for topic"
+#~ msgstr "عرض تصویر بندانگشتی برای موضوع"
+
+#~ msgid "Large Image height for author"
+#~ msgstr "ارتفاع تصویر بزرگ برای پدیدآورنده"
+
+#~ msgid "Large Image width for author"
+#~ msgstr "عرض تصویر بزرگ برای پدیدآورنده"
+
+#~ msgid "Medium Image height for author"
+#~ msgstr "ارتفاع تصویر متوسط برای پدیدآورنده"
+
+#~ msgid "Medium Image width for author"
+#~ msgstr "عرض تصویر متوسط برای پدیدآورنده"
+
+#~ msgid "Thumb Image height for author"
+#~ msgstr "ارتفاع تصویر بندانگشتی برای پدیدآورنده"
+
+#~ msgid "Thumb Image width for author"
+#~ msgstr "عرض تصویر بندانگشتی برای پدیدآورنده"
+
+#~ msgid "Show facebook"
+#~ msgstr "نمایش فیسبوک"
+
+#~ msgid "Show Twitter"
+#~ msgstr "نمایش تویتر"
+
+#~ msgid "Show Google Plus"
+#~ msgstr "نمایش گوگل پلاس"
+
+#~ msgid "Show Pinterest"
+#~ msgstr "نمایش پین‌ترست"
+
+#~ msgid "Module main title"
+#~ msgstr "عنوان اصلی ماژول"
+
+#~ msgid "Title for main page and all non-title pages"
+#~ msgstr "عنوان برای صفحه اصلی و تمام صفحات بدون عنوان"
+
+#~ msgid "Latest News from this website"
+#~ msgstr "آخرین مطالب این وب سایت"
+
+#~ msgid "Module main description"
+#~ msgstr "توضیحات اصلی ماژول"
+
+#~ msgid "Module main keywords"
+#~ msgstr "کلمات کلیدی اصلی ماژول"
+
+#~ msgid "news,topic,story,website"
+#~ msgstr "خبر,موضوع,مطلب,وب سایت"
+
+#~ msgid "Number of SEO keywords"
+#~ msgstr "تعداد کلمات کلیدی برای سئو"
+
+#~ msgid "SEO items generate method"
+#~ msgstr "روش تولید موراد سئو"
+
+#~ msgid "Hard"
+#~ msgstr "سخت"
+
+#~ msgid "Soft"
+#~ msgstr "نرم"
 
 #~ msgid "Latest"
 #~ msgstr "جدیدترین"
