@@ -3,7 +3,7 @@
         <?php foreach($block['resources'] as $story) { ?>
         <div class="media h-entry clearfix">
             <?php if($block['showimage'] && !empty($story['thumbUrl'])){ ?>
-            <a class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+            <a class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
                 <img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-rounded img-responsive u-photo" />
             </a>
             <?php } ?>
