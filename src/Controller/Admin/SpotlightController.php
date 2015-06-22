@@ -100,7 +100,7 @@ class SpotlightController extends ActionController
             )),
         ));
         // Set view
-        $this->view()->setTemplate('spotlight_index');
+        $this->view()->setTemplate('spotlight-index');
         $this->view()->assign('spotlightList', $spotlightList);
         $this->view()->assign('paginator', $paginator);
     }
@@ -158,7 +158,7 @@ class SpotlightController extends ActionController
                 $message = 'You can add new spotlight';
             }
         }
-        $this->view()->setTemplate('spotlight_update');
+        $this->view()->setTemplate('spotlight-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Spotlight'));
         $this->view()->assign('message', $message);

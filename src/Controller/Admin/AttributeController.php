@@ -42,7 +42,7 @@ class AttributeController extends ActionController
             return $this->redirect()->toRoute('', array('action' => 'update'));
         }
         // Set view
-        $this->view()->setTemplate('attribute_index');
+        $this->view()->setTemplate('attribute-index');
         $this->view()->assign('fields', $field);
         $this->view()->assign('positions', $position);
     }
@@ -119,7 +119,7 @@ class AttributeController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('attribute_update');
+        $this->view()->setTemplate('attribute-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add attribute'));
     }

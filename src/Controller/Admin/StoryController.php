@@ -140,7 +140,7 @@ class StoryController extends ActionController
         $form->setAttribute('action', $this->url('', array('action' => 'process')));
         $form->setData($values);
         // Set view
-        $this->view()->setTemplate('story_index');
+        $this->view()->setTemplate('story-index');
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('form', $form);
@@ -191,7 +191,7 @@ class StoryController extends ActionController
             $this->jump(array('action' => 'index'), __('Please select story'));
         }
         // Set view
-        $this->view()->setTemplate('story_view');
+        $this->view()->setTemplate('story-view');
         $this->view()->assign('story', $story);
     }
 
@@ -469,7 +469,7 @@ class StoryController extends ActionController
                 break;
         }
         // Set view
-        $this->view()->setTemplate('story_update');
+        $this->view()->setTemplate('story-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Story'));
         $this->view()->assign('message', $message);
@@ -576,7 +576,7 @@ class StoryController extends ActionController
                 break;
         }
         // Set view
-        $this->view()->setTemplate('story_update');
+        $this->view()->setTemplate('story-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Manage additional information'));
         $this->view()->assign('message', $message);

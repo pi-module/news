@@ -86,7 +86,7 @@ class AuthorController extends ActionController
         $form->setAttribute('action', $this->url('', array('action' => 'process')));
         $form->setData($values);
         // Set view
-        $this->view()->setTemplate('author_index');
+        $this->view()->setTemplate('author-index');
         $this->view()->assign('authors', $author);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('form', $form);
@@ -239,7 +239,7 @@ class AuthorController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('author_update');
+        $this->view()->setTemplate('author-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add Author')); 
     }
@@ -261,7 +261,7 @@ class AuthorController extends ActionController
         $form = new StorySearchForm('search');
         $form->setAttribute('action', $this->url('', array('action' => 'process')));
         // Set view
-        $this->view()->setTemplate('author_role');
+        $this->view()->setTemplate('author-role');
         $this->view()->assign('roles', $role);
         $this->view()->assign('form', $form);
     }
@@ -308,7 +308,7 @@ class AuthorController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('author_role_update');
+        $this->view()->setTemplate('author-role-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add Role')); 
     }

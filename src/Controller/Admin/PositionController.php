@@ -39,7 +39,7 @@ class PositionController extends ActionController
             return $this->redirect()->toRoute('', array('action' => 'update'));
         }
         // Set view
-        $this->view()->setTemplate('position_index');
+        $this->view()->setTemplate('position-index');
         $this->view()->assign('list', $list);
     }
 
@@ -84,7 +84,7 @@ class PositionController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('position_update');
+        $this->view()->setTemplate('position-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add position'));
     }

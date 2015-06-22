@@ -43,7 +43,7 @@ class AuthorController extends ActionController
         $this->view()->headTitle($author['seo_title']);
         $this->view()->headdescription($author['seo_description'], 'set');
         $this->view()->headkeywords($author['seo_keywords'], 'set');
-        $this->view()->setTemplate('author_index');
+        $this->view()->setTemplate('author-index');
         $this->view()->assign('stores', $storyList);
         $this->view()->assign('author', $author);
         $this->view()->assign('roles', $roles);
@@ -81,7 +81,7 @@ class AuthorController extends ActionController
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');
         $this->view()->headKeywords($seoKeywords, 'set');
-        $this->view()->setTemplate('author_list');
+        $this->view()->setTemplate('author-list');
         $this->view()->assign('authors', $author);
         $this->view()->assign('config', $config);
     }

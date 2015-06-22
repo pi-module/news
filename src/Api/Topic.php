@@ -213,23 +213,23 @@ class Topic extends AbstractApi
                 break;
 
             case 'list':
-                $template = 'index_list';
+                $template = 'index-list';
                 break;
 
             case 'table':
-                $template = 'index_table';
+                $template = 'index-table';
                 break;
 
             case 'media':
-                $template = 'index_media';
+                $template = 'index-media';
                 break;
 
             case 'spotlight':
-                $template = 'index_spotlight';
+                $template = 'index-spotlight';
                 break;
             
             case 'topic':
-                $template = 'index_topic';
+                $template = 'index-topic';
                 break;
 
         }

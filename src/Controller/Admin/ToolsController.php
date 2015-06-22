@@ -26,7 +26,7 @@ class ToolsController extends ActionController
     public function indexAction()
     {
         // Set template
-        $this->view()->setTemplate('tools_index');
+        $this->view()->setTemplate('tools-index');
     }
 
     public function rebuildAction()
@@ -103,7 +103,7 @@ class ToolsController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('tools_rebuild');
+        $this->view()->setTemplate('tools-rebuild');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Rebuild stores'));
         $this->view()->assign('message', $message);
@@ -134,7 +134,7 @@ class ToolsController extends ActionController
             }
         }
         // Set view
-        $this->view()->setTemplate('tools_prune');
+        $this->view()->setTemplate('tools-prune');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Prune stores'));
         $this->view()->assign('message', $message);
@@ -153,7 +153,7 @@ class ToolsController extends ActionController
             $message = __('Error in remove old spotlights. perhaps no spotlights exist');
         }
         // Set view
-        $this->view()->setTemplate('tools_spotlight');
+        $this->view()->setTemplate('tools-spotlight');
         $this->view()->assign('title', __('Prune spotlights'));
         $this->view()->assign('message', $message);
     }
@@ -186,7 +186,7 @@ class ToolsController extends ActionController
             }    
         }    
         // Set view
-        $this->view()->setTemplate('tools_page');
+        $this->view()->setTemplate('tools-page');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Remove topic pages'));
         $this->view()->assign('message', $message);
@@ -221,7 +221,7 @@ class ToolsController extends ActionController
             $message = __('Sitemap rebuild finished');
         }    
         // Set view
-        $this->view()->setTemplate('tools_sitemap');
+        $this->view()->setTemplate('tools-sitemap');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Rebuild sitemap links'));
         $this->view()->assign('message', $message);
@@ -257,7 +257,7 @@ class ToolsController extends ActionController
             $message = __('Regenerate images finished');
         }    
         // Set view
-        $this->view()->setTemplate('tools_image');
+        $this->view()->setTemplate('tools-image');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Regenerate images'));
         $this->view()->assign('message', $message);

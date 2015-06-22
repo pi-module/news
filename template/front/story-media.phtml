@@ -85,31 +85,31 @@ if (!empty($story['largeUrl'])) {
             <?php if($story['subtitle']) { ?>
                 <h2><?php echo $this->escape($story['subtitle']); ?></h2>
             <?php } ?>
+            <div class="storyMedia text-center">
+                <?php include $this->template('front/attach-video'); ?>
+                <?php include $this->template('front/attribute-video'); ?>
+                <?php include $this->template('front/attach-audio'); ?>
+                <?php include $this->template('front/attribute-audio'); ?>
+            </div>
             <?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-                <div class="gallery col-md-12">
+                <div class="gallery col-md-4">
                     <div class="storyImageMain">
-                        <div class="col-sm-6 col-md-4">
+                        <div class="col-sm-6 col-md-12">
                             <div class="thumbnail u-photo">
                                 <a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
                             </div>
                         </div>
                     </div>
-                    <div class="storyImageAttach"><?php include $this->template('front/attach_image'); ?></div>
+                    <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
                 </div>
             <?php } ?>
             <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
             <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
             <div class="clearfix"></div>
             <?php include $this->template('front/attribute'); ?>
-            <?php include $this->template('front/attribute_file'); ?>
+            <?php include $this->template('front/attribute-file'); ?>
             <?php include $this->template('front/tag'); ?>
             <?php include $this->template('front/attach'); ?>
-            <div class="storyMedia">
-                <?php include $this->template('front/attach_audio'); ?>
-                <?php include $this->template('front/attribute_audio'); ?>
-                <?php include $this->template('front/attach_video'); ?>
-                <?php include $this->template('front/attribute_video'); ?>
-            </div>
             <div class="clearfix">
                 <div class="col-md-7 col-sm-10 col-xs-12">
                     <ul class="list-inline">

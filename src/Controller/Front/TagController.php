@@ -120,7 +120,7 @@ class TagController extends IndexController
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');
         $this->view()->headKeywords($seoKeywords, 'set');
-        $this->view()->setTemplate('tag_list');
+        $this->view()->setTemplate('tag-list');
         $this->view()->assign('title', $title);
         $this->view()->assign('tagList', $tagList);
     }

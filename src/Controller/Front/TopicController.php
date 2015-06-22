@@ -112,7 +112,7 @@ class TopicController extends IndexController
         $this->view()->headTitle($title);
         $this->view()->headdescription($title, 'set');
         $this->view()->headkeywords($seoKeywords, 'set');
-        $this->view()->setTemplate('topic_list');
+        $this->view()->setTemplate('topic-list');
         $this->view()->assign('topics', $topics);
         $this->view()->assign('config', $config);
     }

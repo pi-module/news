@@ -73,7 +73,7 @@ class AttachController extends ActionController
             )),
         ));
         // Set view
-        $this->view()->setTemplate('attach_index');
+        $this->view()->setTemplate('attach-index');
         $this->view()->assign('files', $file);
         $this->view()->assign('paginator', $paginator);
     }
@@ -116,7 +116,7 @@ class AttachController extends ActionController
             $contents[] = $content[$row->id];
         }
         // Set view
-        $this->view()->setTemplate('attach_add');
+        $this->view()->setTemplate('attach-add');
         $this->view()->assign('content', Json::encode($contents));
         $this->view()->assign('story', $story);
         $this->view()->assign('title', sprintf(__('Attach files to %s'), $story['title']));
@@ -167,7 +167,7 @@ class AttachController extends ActionController
             $message = 'You can edit this File';
         }
         // Set view
-        $this->view()->setTemplate('attach_edit');
+        $this->view()->setTemplate('attach-edit');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Edit file'));
         $this->view()->assign('message', $message);

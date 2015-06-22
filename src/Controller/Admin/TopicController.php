@@ -97,7 +97,7 @@ class TopicController extends ActionController
             )),
         ));
         // Set view
-        $this->view()->setTemplate('topic_index');
+        $this->view()->setTemplate('topic-index');
         $this->view()->assign('topics', $list);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('config', $config);
@@ -291,7 +291,7 @@ class TopicController extends ActionController
                 $form->setData($topic);
             }
         }
-        $this->view()->setTemplate('topic_update');
+        $this->view()->setTemplate('topic-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Topic'));
     }

@@ -92,20 +92,20 @@ class StoryController extends ActionController
         // Set template
         switch ($story['type']) {
             case 'download':
-                $template = 'story_download';
+                $template = 'story-download';
                 break;
                     
             case 'media':
-                $template = 'story_media';
+                $template = 'story-media';
                 break;
                     
             case 'gallery':
-                $template = 'story_gallery';
+                $template = 'story-gallery';
                 break;           
 
             case 'text':
             default:
-                $template = 'story_index';
+                $template = 'story-text';
                 break;
         }
         // Set view
