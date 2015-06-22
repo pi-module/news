@@ -4,35 +4,35 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-	<div class="index-list">
-		<ul class="list-group">
-		<?php foreach($stores as $story) { ?>
-		    <li class="list-group-item <?php echo $topic['column_class']; ?> h-entry">
-		    	<?php if ($story['image']) { ?>
-		    	<span class="u-photo">
+    <div class="index-list">
+        <ul class="list-group">
+            <?php foreach($stores as $story) { ?>
+                <li class="list-group-item <?php echo $topic['column_class']; ?> h-entry">
+                    <?php if ($story['image']) { ?>
+                        <span class="u-photo">
 		    		<img src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
 		    	</span>
-				<?php } ?>
-			    <a class="p-name" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>
+                    <?php } ?>
+                    <a class="p-name" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>
 
-				<?php if($topic['show_topic']) { ?>
-				<div class="pull-left"> <?php _e('Topics'); ?> : 
-				<?php foreach($story['topics'] as $storyTopic) { ?>
-					<span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-				<?php } ?> 
-				</div> 
-				<?php } ?>
-				<?php if(!empty($story['authors'])) { ?>
-				<div class="pull-left">
-				<?php foreach($story['authors'] as $author) { ?>
-					<span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>  
-				<?php } ?> 
-				</div> 
-				<?php } ?>
-			</li>	
-		<?php } ?>
-		</ul>
-	    <div class="clearfix"></div>
-	</div>
+                    <?php if($topic['show_topic']) { ?>
+                        <div class="pull-left"> <?php _e('Topics'); ?> :
+                            <?php foreach($story['topics'] as $storyTopic) { ?>
+                                <span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                    <?php if(!empty($story['authors'])) { ?>
+                        <div class="pull-left">
+                            <?php foreach($story['authors'] as $author) { ?>
+                                <span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php } ?>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>

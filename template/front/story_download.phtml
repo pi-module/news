@@ -1,9 +1,9 @@
-<?php 
-	// Load front.css
-	$this->css($this->assetModule('css/front.css'));
-	// Image lightbox
-	if($config['image_lightbox']){ 
-        $script =<<<'EOT'
+<?php
+// Load front.css
+$this->css($this->assetModule('css/front.css'));
+// Image lightbox
+if($config['image_lightbox']){
+    $script =<<<'EOT'
         $('.gallery').each(function() {
     		$(this).magnificPopup({
         		delegate: 'a',
@@ -14,146 +14,146 @@
     		});
 		});
 EOT;
-		$this->jQuery(array(
-			'extension/jquery.magnific-popup.min.js',
-			'extension/magnific-popup.css',
-		));
-		$this->footScript()->appendScript($script);
-	}
-    // Set Open Graph tags for meta
-    $this->doctype('HTML5');
-    $this->headMeta($this->escape($story['title']), 'og:title', 'property');
-    $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
-    if (isset($story['text_summary']) && !empty($story['text_summary'])) {
-	    $this->headMeta(_strip($story['text_summary']), 'og:description', 'property');
-    }
-    if (!empty($story['largeUrl'])) {
-	    $this->headMeta($this->escape($story['largeUrl']), 'og:image', 'property');
-    }
-    // Set twitter for meta
-    $this->headMeta($this->escape($story['title']), 'twitter:title');
-    if (isset($story['text_summary']) && !empty($story['text_summary'])) {
-	    $this->headMeta(_strip($story['text_summary']), 'twitter:description');
-    }
-    if (!empty($story['largeUrl'])) {
-	    $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
-    }
+    $this->jQuery(array(
+        'extension/jquery.magnific-popup.min.js',
+        'extension/magnific-popup.css',
+    ));
+    $this->footScript()->appendScript($script);
+}
+// Set Open Graph tags for meta
+$this->doctype('HTML5');
+$this->headMeta($this->escape($story['title']), 'og:title', 'property');
+$this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
+if (isset($story['text_summary']) && !empty($story['text_summary'])) {
+    $this->headMeta(_strip($story['text_summary']), 'og:description', 'property');
+}
+if (!empty($story['largeUrl'])) {
+    $this->headMeta($this->escape($story['largeUrl']), 'og:image', 'property');
+}
+// Set twitter for meta
+$this->headMeta($this->escape($story['title']), 'twitter:title');
+if (isset($story['text_summary']) && !empty($story['text_summary'])) {
+    $this->headMeta(_strip($story['text_summary']), 'twitter:description');
+}
+if (!empty($story['largeUrl'])) {
+    $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
+}
 ?>
 <div class="clearfix">
-	<?php include $this->template('front/feed'); ?>
-	<?php include $this->template('front/advertisement'); ?>
-	<div class="panel panel-default h-entry">
-  		<div class="panel-heading">
-  			<h1 class="panel-title p-name">
-  				<?php if($story['important']) { ?>
-				<span class="label label label-important">
+    <?php include $this->template('front/feed'); ?>
+    <?php include $this->template('front/advertisement'); ?>
+    <div class="panel panel-default h-entry">
+        <div class="panel-heading">
+            <h1 class="panel-title p-name">
+                <?php if($story['important']) { ?>
+                    <span class="label label label-important">
 					<?php _e('Important'); ?>
 				</span>
-				<?php } ?>
-  				<?php echo $this->escape($story['title']); ?>
-  			</h1>
-  		</div>
-		<div class="panel-body">
-			<div class="clearfix">
-				<div class="pull-right">
-				    <?php if($config['show_date']) { ?>
-				    <span class="itemPostDate dt-published">
+                <?php } ?>
+                <?php echo $this->escape($story['title']); ?>
+            </h1>
+        </div>
+        <div class="panel-body">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <?php if($config['show_date']) { ?>
+                        <span class="itemPostDate dt-published">
 					    <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
 				    </span>
-				    <?php } ?>
-				    <?php if($config['show_hits']) { ?>
-				    <span class="itemStats">
+                    <?php } ?>
+                    <?php if($config['show_hits']) { ?>
+                        <span class="itemStats">
 					    <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
 				    </span>
-				    <?php } ?>
-				</div>
-				<?php if(!empty($story['authors']) && $config['show_author']) { ?>
-				<div class="pull-left">
-				<?php foreach($story['authors'] as $author) { ?>
-					<span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>  
-				<?php } ?> 
-				</div> 
-				<?php } ?>
-				<?php if($config['show_topic']) { ?>
-				<div class="pull-left"><?php _e('Topics'); ?> : 
-				<?php foreach($story['topics'] as $storyTopic) { ?>
-					<span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-				<?php } ?>
-			    </div>
-			    <?php } ?>
-			</div>
-			<?php if($story['subtitle']) { ?>
-			<h2><?php echo $this->escape($story['subtitle']); ?></h2>
-			<?php } ?>
-			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-			<div class="gallery col-md-4">
-				<div class="storyImageMain">
-					<div class="col-sm-6 col-md-12">
-						<div class="thumbnail u-photo">
-							<a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
-						</div>
-					</div>
-				</div>
-				<div class="storyImageAttach"><?php include $this->template('front/attach_image'); ?></div>
-			</div>
-		    <?php } ?>
-		    <div class="col-md-4">
-		    	<div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
-		        <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
-		    </div>
-		    <div class="col-md-4 well">
-		    	<?php include $this->template('front/attach'); ?>
-		    	<?php include $this->template('front/attribute_file'); ?>
-		    </div>
-		    <div class="clearfix"></div>
-		    <?php include $this->template('front/attribute'); ?>
-			<?php include $this->template('front/tag'); ?>
-		    <div class="storyMedia">
-				<?php include $this->template('front/attach_audio'); ?>
-				<?php include $this->template('front/attribute_audio'); ?>
-				<?php include $this->template('front/attach_video'); ?>
-				<?php include $this->template('front/attribute_video'); ?>
-			</div>
-			<div class="clearfix">
-				<div class="col-md-7 col-sm-10 col-xs-12">
-					<ul class="list-inline">
-						<li><?php if (!empty($vote)) { include $this->template('votebar.phtml', 'front', 'vote'); } ?></li>
-						<li><?php if (!empty($favourite)) { include $this->template('favouritebar.phtml', 'front', 'favourite'); } ?></li>
-					</ul>
-				</div>
-        		<?php if ($config['social_sharing']) { ?>
-            	<div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
-                	<?php echo $this->socialSharing(
-                		$config['social_sharing'], 
-                		$this->escape($story['title']),
-                		$this->escape($story['storyUrl']),
-                		$this->escape($story['largeUrl'])
-                	); ?>
-            	</div>
-        		<?php } ?>
-			</div>
-		</div>
+                    <?php } ?>
+                </div>
+                <?php if(!empty($story['authors']) && $config['show_author']) { ?>
+                    <div class="pull-left">
+                        <?php foreach($story['authors'] as $author) { ?>
+                            <span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                <?php if($config['show_topic']) { ?>
+                    <div class="pull-left"><?php _e('Topics'); ?> :
+                        <?php foreach($story['topics'] as $storyTopic) { ?>
+                            <span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+            </div>
+            <?php if($story['subtitle']) { ?>
+                <h2><?php echo $this->escape($story['subtitle']); ?></h2>
+            <?php } ?>
+            <?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
+                <div class="gallery col-md-4">
+                    <div class="storyImageMain">
+                        <div class="col-sm-6 col-md-12">
+                            <div class="thumbnail u-photo">
+                                <a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="storyImageAttach"><?php include $this->template('front/attach_image'); ?></div>
+                </div>
+            <?php } ?>
+            <div class="col-md-4">
+                <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
+            </div>
+            <div class="col-md-4 well">
+                <?php include $this->template('front/attach'); ?>
+                <?php include $this->template('front/attribute_file'); ?>
+            </div>
+            <div class="clearfix"></div>
+            <?php include $this->template('front/attribute'); ?>
+            <?php include $this->template('front/tag'); ?>
+            <div class="storyMedia">
+                <?php include $this->template('front/attach_audio'); ?>
+                <?php include $this->template('front/attribute_audio'); ?>
+                <?php include $this->template('front/attach_video'); ?>
+                <?php include $this->template('front/attribute_video'); ?>
+            </div>
+            <div class="clearfix">
+                <div class="col-md-7 col-sm-10 col-xs-12">
+                    <ul class="list-inline">
+                        <li><?php if (!empty($vote)) { include $this->template('votebar.phtml', 'front', 'vote'); } ?></li>
+                        <li><?php if (!empty($favourite)) { include $this->template('favouritebar.phtml', 'front', 'favourite'); } ?></li>
+                    </ul>
+                </div>
+                <?php if ($config['social_sharing']) { ?>
+                    <div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
+                        <?php echo $this->socialSharing(
+                            $config['social_sharing'],
+                            $this->escape($story['title']),
+                            $this->escape($story['storyUrl']),
+                            $this->escape($story['largeUrl'])
+                        ); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
     </div>
     <?php if($config['show_nav']) { ?>
-    <div class="itemPager">
-        <ul class="pager">
-            <?php if(!empty($link['previous'])) { ?>
-		    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>" href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a></li>
-            <?php } ?>
-            <?php if(!empty($link['next'])) { ?>
-		    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>" href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a></li>
-            <?php } ?>
-        </ul>
-    </div>
+        <div class="itemPager">
+            <ul class="pager">
+                <?php if(!empty($link['previous'])) { ?>
+                    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>" href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a></li>
+                <?php } ?>
+                <?php if(!empty($link['next'])) { ?>
+                    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>" href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
     <?php } ?>
     <?php if(isset($relateds) && !empty($relateds)) { ?>
-	<div class="itemList itemRelated">
-		<h3><?php _e('Related storys'); ?></h3>
-		<ul class="list-unstyled">
-			<?php foreach($relateds as $related) { ?>
-			<li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a></li>
-			<?php }?>
-		</ul>
-	</div>
-	<?php } ?>
+        <div class="itemList itemRelated">
+            <h3><?php _e('Related storys'); ?></h3>
+            <ul class="list-unstyled">
+                <?php foreach($relateds as $related) { ?>
+                    <li><a title="<?php echo $this->escape($related['title']); ?>" href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a></li>
+                <?php }?>
+            </ul>
+        </div>
+    <?php } ?>
 </div>

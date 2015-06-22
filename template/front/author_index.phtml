@@ -1,8 +1,8 @@
-<?php 
-    $this->css($this->assetModule('css/front.css'));
-	// Image lightbox
-	if($config['image_lightbox']){ 
-        $script =<<<'EOT'
+<?php
+$this->css($this->assetModule('css/front.css'));
+// Image lightbox
+if($config['image_lightbox']){
+    $script =<<<'EOT'
         $('.gallery').each(function() {
     		$(this).magnificPopup({
         		delegate: 'a',
@@ -13,34 +13,34 @@
     		});
 		});
 EOT;
-		$this->jQuery(array(
-			'extension/jquery.magnific-popup.min.js',
-			'extension/magnific-popup.css',
-		));
-		$this->footScript()->appendScript($script);
-	}
+    $this->jQuery(array(
+        'extension/jquery.magnific-popup.min.js',
+        'extension/magnific-popup.css',
+    ));
+    $this->footScript()->appendScript($script);
+}
 
-    // Set Open Graph tags for meta
-    $this->doctype('HTML5');
-    $this->headMeta($this->escape($author['title']), 'og:title', 'property');
-    $this->headMeta($this->escape($author['authorUrl']), 'og:url', 'property');
-    if (isset($author['text_description']) && !empty($author['text_description'])) {
-	    $this->headMeta(_strip($author['text_description']), 'og:description', 'property');
-    }
-    if (!empty($author['largeUrl'])) {
-	    $this->headMeta($this->escape($author['largeUrl']), 'og:image', 'property');
-    }
-    // Set twitter for meta
-    $this->headMeta($this->escape($author['title']), 'twitter:title');
-    if (isset($author['text_description']) && !empty($author['text_description'])) {
-	    $this->headMeta(_strip($author['text_description']), 'twitter:description');
-    }
-    if (!empty($author['largeUrl'])) {
-	    $this->headMeta($this->escape($author['largeUrl']), 'twitter:image');
-    }
+// Set Open Graph tags for meta
+$this->doctype('HTML5');
+$this->headMeta($this->escape($author['title']), 'og:title', 'property');
+$this->headMeta($this->escape($author['authorUrl']), 'og:url', 'property');
+if (isset($author['text_description']) && !empty($author['text_description'])) {
+    $this->headMeta(_strip($author['text_description']), 'og:description', 'property');
+}
+if (!empty($author['largeUrl'])) {
+    $this->headMeta($this->escape($author['largeUrl']), 'og:image', 'property');
+}
+// Set twitter for meta
+$this->headMeta($this->escape($author['title']), 'twitter:title');
+if (isset($author['text_description']) && !empty($author['text_description'])) {
+    $this->headMeta(_strip($author['text_description']), 'twitter:description');
+}
+if (!empty($author['largeUrl'])) {
+    $this->headMeta($this->escape($author['largeUrl']), 'twitter:image');
+}
 ?>
 <div class="clearfix">
-	<?php include $this->template('front/feed'); ?>
+    <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="panel panel-default">
@@ -48,50 +48,50 @@ EOT;
             <h1 class="panel-title"><?php echo $this->escape($author['title']); ?></h1>
         </div>
         <div class="panel-body">
-			<div class="pull-left gallery itemImageList">
-		   		<?php if($config['image_lightbox']){ ?>
-				<a href="<?php echo $this->escape($author['mediumUrl']); ?>" title="<?php echo $this->escape($author['title']); ?>">
-					<img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-				</a>
-				<?php } else { ?>
-				<img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-				<?php } ?>
-			</div>
-			<?php echo $author['text_description']; ?>
-			<div class="clearfix"></div>
-        	<?php if ($config['social_sharing']) { ?>
-        	<div class="clearfix">
-            	<div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
-                	<?php echo $this->socialSharing(
-                		$config['social_sharing'], 
-                		$this->escape($author['title']),
-                		$this->escape($author['storyUrl']),
-                		$this->escape($author['largeUrl'])
-                	); ?>
-            	</div>
+            <div class="pull-left gallery itemImageList">
+                <?php if($config['image_lightbox']){ ?>
+                    <a href="<?php echo $this->escape($author['mediumUrl']); ?>" title="<?php echo $this->escape($author['title']); ?>">
+                        <img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                    </a>
+                <?php } else { ?>
+                    <img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                <?php } ?>
             </div>
-        	<?php } ?>
+            <?php echo $author['text_description']; ?>
+            <div class="clearfix"></div>
+            <?php if ($config['social_sharing']) { ?>
+                <div class="clearfix">
+                    <div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
+                        <?php echo $this->socialSharing(
+                            $config['social_sharing'],
+                            $this->escape($author['title']),
+                            $this->escape($author['storyUrl']),
+                            $this->escape($author['largeUrl'])
+                        ); ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
-	<div class="index-list-author">
-		<div class="news-role">
-			<?php foreach($roles as $role) { ?>
-			<?php if (!empty($stores[$role['id']])) { ?>
-			<h4><?php echo $this->escape($role['title']); ?></h4>
-			<div class="list-group">
-			<?php foreach($stores[$role['id']] as $author) { ?>
-				<a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['storyUrl']); ?>">
-					<?php if ($author['image']) { ?>
-					<img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-					<?php } ?>
-					<?php echo $this->escape($author['title']); ?>
-				</a>
+    <div class="index-list-author">
+        <div class="news-role">
+            <?php foreach($roles as $role) { ?>
+                <?php if (!empty($stores[$role['id']])) { ?>
+                    <h4><?php echo $this->escape($role['title']); ?></h4>
+                    <div class="list-group">
+                    <?php foreach($stores[$role['id']] as $author) { ?>
+                        <a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['storyUrl']); ?>">
+                            <?php if ($author['image']) { ?>
+                                <img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                            <?php } ?>
+                            <?php echo $this->escape($author['title']); ?>
+                        </a>
+                    <?php } ?>
+                <?php } ?>
+                </div>
+                <div class="clearfix"></div>
             <?php } ?>
-            <?php } ?>
-			</div>
-            <div class="clearfix"></div>
-			<?php } ?>
-		</div>
-	</div>
-	<div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>

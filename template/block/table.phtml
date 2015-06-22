@@ -1,23 +1,23 @@
 <div class="news-block news-table-block">
-	<table class="table table-striped table-bordered table-condensed">
-		<tr char="head">
-			<th><?php echo _b('Title'); ?></th>
-			<?php if($block['showdesc']){ ?><th><?php echo _b('Summary'); ?></th><?php } ?>
-			<?php if($block['showdate']){ ?><th><?php echo _b('Time'); ?></th><?php } ?>
-			<?php if($block['showhits']){ ?><th><?php echo _b('Read'); ?></th><?php } ?>
-		</tr>
-		<?php foreach($block['resources'] as $story) { ?>
-		<tr class="odd h-entry">
-			<td class="p-name"><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></td>
-			<?php if($block['showdesc']){ ?><td class="p-summary"><?php echo $this->escape($story['text_summary']); ?></td><?php } ?>
-			<?php if($block['showdate']){ ?><td class="dt-published"><?php echo $this->escape($story['time_publish_view']); ?></td><?php } ?>
-			<?php if($block['showhits']){ ?><td><?php echo $this->escape($story['hits']); ?></td><?php } ?>
-		</tr>
-		<?php } ?>
-	</table>
-	<?php if ($block['showblockmore']) { ?>
-    <div class="itemBlockLink">
-    	<a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
-    </div>
-	<?php } ?>
+    <table class="table table-striped table-bordered table-condensed">
+        <tr char="head">
+            <th><?php echo _b('Title'); ?></th>
+            <?php if($block['showdesc']){ ?><th><?php echo _b('Summary'); ?></th><?php } ?>
+            <?php if($block['showdate']){ ?><th><?php echo _b('Time'); ?></th><?php } ?>
+            <?php if($block['showhits']){ ?><th><?php echo _b('Read'); ?></th><?php } ?>
+        </tr>
+        <?php foreach($block['resources'] as $story) { ?>
+            <tr class="odd h-entry">
+                <td class="p-name"><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a></td>
+                <?php if($block['showdesc']){ ?><td class="p-summary"><?php echo $this->escape($story['text_summary']); ?></td><?php } ?>
+                <?php if($block['showdate']){ ?><td class="dt-published"><?php echo $this->escape($story['time_publish_view']); ?></td><?php } ?>
+                <?php if($block['showhits']){ ?><td><?php echo $this->escape($story['hits']); ?></td><?php } ?>
+            </tr>
+        <?php } ?>
+    </table>
+    <?php if ($block['showblockmore']) { ?>
+        <div class="itemBlockLink">
+            <a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
+        </div>
+    <?php } ?>
 </div>

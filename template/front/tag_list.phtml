@@ -1,21 +1,21 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
-	<div class="page-header">
-		<h1><?php _e('Tag list'); ?></h1>
-	</div>
-	<?php if (isset($tagList) && !empty($tagList)) { ?>
-	<div class="tagList clearfix">
-		<?php foreach($tagList as $tag) { ?>
-		<div class="well well-small col-md-3">
-			<a title="<?php echo $this->escape($tag['term']); ?>" href="<?php echo $this->escape($tag['url']); ?>">
-				<i class="fa fa-tag"></i> <?php echo $this->escape($tag['term']); ?> ( <?php echo $this->escape($tag['count']); ?> )
-			</a>
-		</div>
-		<?php } ?>
-	</div>
-	<?php } else { ?>
-	<div class="alert alert-warning" role="alert">
-		<?php _e('No keyword has been used as tag on this part yet. please check this page later'); ?>
-	</div>
-	<?php } ?>
+    <div class="page-header">
+        <h1><?php _e('Tag list'); ?></h1>
+    </div>
+    <?php if (isset($tagList) && !empty($tagList)) { ?>
+        <div class="tagList clearfix">
+            <?php foreach($tagList as $tag) { ?>
+                <div class="well well-small col-md-3">
+                    <a title="<?php echo $this->escape($tag['term']); ?>" href="<?php echo $this->escape($tag['url']); ?>">
+                        <i class="fa fa-tag"></i> <?php echo $this->escape($tag['term']); ?> ( <?php echo $this->escape($tag['count']); ?> )
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+    <?php } else { ?>
+        <div class="alert alert-warning" role="alert">
+            <?php _e('No keyword has been used as tag on this part yet. please check this page later'); ?>
+        </div>
+    <?php } ?>
 </div>

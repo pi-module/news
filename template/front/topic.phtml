@@ -1,6 +1,6 @@
-<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['image']))) { 
-	// Image lightbox
-	if($config['image_lightbox']){ 
+<?php if($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['image']))) {
+    // Image lightbox
+    if($config['image_lightbox']){
         $script =<<<'EOT'
         $('.gallery').each(function() {
     		$(this).magnificPopup({
@@ -12,78 +12,78 @@
     		});
 		});
 EOT;
-		$this->jQuery(array(
-			'extension/jquery.magnific-popup.min.js',
-			'extension/magnific-popup.css',
-		));
-		$this->footScript()->appendScript($script);
-	}
+        $this->jQuery(array(
+            'extension/jquery.magnific-popup.min.js',
+            'extension/magnific-popup.css',
+        ));
+        $this->footScript()->appendScript($script);
+    }
 
     // Set Open Graph tags for meta
     $this->doctype('HTML5');
     $this->headMeta($this->escape($topic['title']), 'og:title', 'property');
     $this->headMeta($this->escape($topic['authorUrl']), 'og:url', 'property');
     if (isset($topic['text_description']) && !empty($topic['text_description'])) {
-	    $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
+        $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
     }
     if (!empty($topic['largeUrl'])) {
-	    $this->headMeta($this->escape($topic['largeUrl']), 'og:image', 'property');
+        $this->headMeta($this->escape($topic['largeUrl']), 'og:image', 'property');
     }
     // Set twitter for meta
     $this->headMeta($this->escape($topic['title']), 'twitter:title');
     if (isset($topic['text_description']) && !empty($topic['text_description'])) {
-	    $this->headMeta(_strip($topic['text_description']), 'twitter:description');
+        $this->headMeta(_strip($topic['text_description']), 'twitter:description');
     }
     if (!empty($topic['largeUrl'])) {
-	    $this->headMeta($this->escape($topic['largeUrl']), 'twitter:image');
+        $this->headMeta($this->escape($topic['largeUrl']), 'twitter:image');
     }
-?>
-<div class="topicinfo">
-	<div class="panel panel-default">
-  		<div class="panel-heading">
-  			<h1 class="panel-title"><?php echo $this->escape($topic['title']); ?></h1>
-  		</div>
-		<div class="panel-body">
-			<?php if(!empty($topic['image'])) {  ?>
-			<div class="pull-left gallery itemImageList">
-		   		<?php if($config['image_lightbox']){ ?>
-				<a href="<?php echo $topic['largeUrl']; ?>" title="<?php echo $this->escape($topic['title']); ?>">
-					<img class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-				</a>
-				<?php } else { ?>
-				<img class="ItemStoryImg img-thumbnail" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-				<?php } ?>
-			</div>
-			<?php } ?>  
-			<?php echo $topic['text_description']; ?>
-            <?php if(isset($topic['attach_download_link']) && !empty($topic['attach_download_link'])) {  ?>
-			<div class="attach-list">
-				<p class="text-center">
-					<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($topic['attach_title']); ?>" href="<?php echo $this->escape($topic['attach_download_link']); ?>">
-						<i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?>
-					</a>
-				</p>
-			</div>
-			<?php } ?>
-		</div>
-	</div>
-</div>
+    ?>
+    <div class="topicinfo">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><?php echo $this->escape($topic['title']); ?></h1>
+            </div>
+            <div class="panel-body">
+                <?php if(!empty($topic['image'])) {  ?>
+                    <div class="pull-left gallery itemImageList">
+                        <?php if($config['image_lightbox']){ ?>
+                            <a href="<?php echo $topic['largeUrl']; ?>" title="<?php echo $this->escape($topic['title']); ?>">
+                                <img class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+                            </a>
+                        <?php } else { ?>
+                            <img class="ItemStoryImg img-thumbnail" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                <?php echo $topic['text_description']; ?>
+                <?php if(isset($topic['attach_download_link']) && !empty($topic['attach_download_link'])) {  ?>
+                    <div class="attach-list">
+                        <p class="text-center">
+                            <a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $this->escape($topic['attach_title']); ?>" href="<?php echo $this->escape($topic['attach_download_link']); ?>">
+                                <i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?>
+                            </a>
+                        </p>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 <?php } elseif($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
-<div class="topicinfo">
-	<div class="page-header">
-		<h1><?php echo $this->escape($topic['title']); ?></h1>
-	</div>
-</div>
+    <div class="topicinfo">
+        <div class="page-header">
+            <h1><?php echo $this->escape($topic['title']); ?></h1>
+        </div>
+    </div>
 <?php } ?>
 <?php if (isset($newsTitleH1) && !empty($newsTitleH1)) { ?>
-<div class="topicinfo">
-	<div class="page-header">
-		<h1><?php echo $newsTitleH1; ?></h1>
-	</div>
-	<?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
-	<div class="well guideIndexDescription">
-		<?php echo $config['text_description_index']; ?>
-	</div>
-	<?php } ?>
-</div>
+    <div class="topicinfo">
+        <div class="page-header">
+            <h1><?php echo $newsTitleH1; ?></h1>
+        </div>
+        <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
+            <div class="well guideIndexDescription">
+                <?php echo $config['text_description_index']; ?>
+            </div>
+        <?php } ?>
+    </div>
 <?php } ?>

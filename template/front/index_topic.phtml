@@ -4,24 +4,24 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-	<div class="index-topic">
-	    <?php foreach($topics as $topic) { ?>
-		<div class="col-md-2 col-sm-2 col-xs-3 text-center">
-			<div class="thumbnail h-entry">
-				<?php if($topic['image']){ ?>
-				<a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
-					<img src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
-				</a>
-				<?php } ?>
-				<div class="caption">
-					<h5 class="p-name">
-						<a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a>
-					</h5>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-	    </div>
-	    <?php } ?>
-	    <div class="clearfix"></div>
-	</div>
+    <div class="index-topic">
+        <?php foreach($topics as $topic) { ?>
+            <div class="col-md-2 col-sm-2 col-xs-3 text-center">
+                <div class="thumbnail h-entry">
+                    <?php if($topic['image']){ ?>
+                        <a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                            <img src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+                        </a>
+                    <?php } ?>
+                    <div class="caption">
+                        <h5 class="p-name">
+                            <a title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a>
+                        </h5>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        <?php } ?>
+        <div class="clearfix"></div>
+    </div>
 </div>

@@ -1,48 +1,48 @@
 <?php if ($config['show_attach'] && isset($attach) && !empty($attach)) { ?>
-<div class="storyAttach clearfix">
-<?php if(!empty($attach['archive'])) { ?>
-	<div class="attach-archive">
-		<h4><?php _e('Attached archives'); ?></h4>
-		<?php foreach($attach['archive'] as $archive) { ?>
-		<p class="text-center"><?php echo $archive['title']; ?></p>
-		<p class="text-center">
-			<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $archive['title']; ?>" href="<?php echo $archive['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
-		</p>
-		<?php } ?>
-	</div>
-<?php } ?>
-<?php if(!empty($attach['doc'])) { ?>
-	<div class="attach-doc">
-		<h4><?php _e('Attached docs'); ?></h4>
-		<?php foreach($attach['doc'] as $doc) { ?>
-		<p class="text-center"><?php echo $archive['title']; ?></p>
-		<p class="text-center">
-			<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $doc['title']; ?>" href="<?php echo $doc['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
-		</p>
-		<?php } ?>
-	</div>
-<?php } ?>
-<?php if(!empty($attach['pdf'])) { ?>
-	<div class="attach-pdf">
-		<h4><?php _e('Attached pdfs'); ?></h4>
-		<?php foreach($attach['pdf'] as $pdf) { ?>
-		<p class="text-center"><?php echo $archive['title']; ?></p>
-		<p class="text-center">
-			<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $pdf['title']; ?>" href="<?php echo $pdf['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
-		</p>
-		<?php } ?>
-	</div>
-<?php } ?>
-<?php if(!empty($attach['other'])) { ?>
-	<div class="attach-other">
-		<h4><?php _e('Attached files'); ?></h4>
-		<?php foreach($attach['other'] as $other) { ?>
-		<p class="text-center"><?php echo $archive['title']; ?></p>
-		<p class="text-center">
-			<a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $other['title']; ?>" href="<?php echo $other['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
-		</p>
-		<?php } ?>
-	</div>
-<?php } ?>
-</div>
+    <div class="storyAttach clearfix">
+        <?php if(!empty($attach['archive'])) { ?>
+            <div class="attach-archive">
+                <h4><?php _e('Attached archives'); ?></h4>
+                <?php foreach($attach['archive'] as $archive) { ?>
+                    <p class="text-center"><?php echo $archive['title']; ?></p>
+                    <p class="text-center">
+                        <a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $archive['title']; ?>" href="<?php echo $archive['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
+                    </p>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if(!empty($attach['doc'])) { ?>
+            <div class="attach-doc">
+                <h4><?php _e('Attached docs'); ?></h4>
+                <?php foreach($attach['doc'] as $doc) { ?>
+                    <p class="text-center"><?php echo $archive['title']; ?></p>
+                    <p class="text-center">
+                        <a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $doc['title']; ?>" href="<?php echo $doc['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
+                    </p>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if(!empty($attach['pdf'])) { ?>
+            <div class="attach-pdf">
+                <h4><?php _e('Attached pdfs'); ?></h4>
+                <?php foreach($attach['pdf'] as $pdf) { ?>
+                    <p class="text-center"><?php echo $archive['title']; ?></p>
+                    <p class="text-center">
+                        <a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $pdf['title']; ?>" href="<?php echo $pdf['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
+                    </p>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if(!empty($attach['other'])) { ?>
+            <div class="attach-other">
+                <h4><?php _e('Attached files'); ?></h4>
+                <?php foreach($attach['other'] as $other) { ?>
+                    <p class="text-center"><?php echo $archive['title']; ?></p>
+                    <p class="text-center">
+                        <a class="btn btn-primary" rel="external" target="_blank" title="<?php echo $other['title']; ?>" href="<?php echo $other['downloadUrl']; ?>"><i class="fa fa-download"></i> <?php _e('Download file'); ?></a>
+                    </p>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    </div>
 <?php } ?>

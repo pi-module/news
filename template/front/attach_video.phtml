@@ -1,11 +1,11 @@
 <?php if(isset($attach['video']) && !empty($attach['video'])) { ?>
-<div class="clearfix">
-	<div class="attach-video">
-	<?php foreach($attach['video'] as $video) { ?>
-		<div class="pi-player clearfix">
-		<?php echo $this->videojs($video['fileUrl'], '', 640, 480); ?>
-		</div>
-	<?php } ?>
-	</div>
-</div>
+    <div class="clearfix">
+        <div class="attach-video">
+            <?php foreach($attach['video'] as $video) { ?>
+                <div class="pi-player clearfix">
+                    <?php echo $this->videojs($video['fileUrl'], '', 640, 480); ?>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 <?php } ?>

@@ -1,27 +1,27 @@
 <div class="news-block news-list-block">
-	<ul class="list-unstyled">
-		<?php foreach($block['resources'] as $story) { ?>
-		<li class="h-entry">
+    <ul class="list-unstyled">
+        <?php foreach($block['resources'] as $story) { ?>
+            <li class="h-entry">
 			<span class="itemTitle p-name">
 				<a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
 			</span>
-			<?php if($block['showdate']){ ?>
-			<span class="itemPostDate dt-published">
+                <?php if($block['showdate']){ ?>
+                    <span class="itemPostDate dt-published">
 				<?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
 			</span>
-			<?php } ?>
-			<?php if($block['showhits']){ ?>
-			<span class="itemStats">
+                <?php } ?>
+                <?php if($block['showhits']){ ?>
+                    <span class="itemStats">
 				<?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?>
 			</span>
-			<?php } ?>
-		</li>
-		<?php } ?>
-	</ul>
-	<div class="clearfix"></div>
-	<?php if ($block['showblockmore']) { ?>
-    <div class="itemBlockLink">
-    	<a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
-    </div>
-	<?php } ?>
+                <?php } ?>
+            </li>
+        <?php } ?>
+    </ul>
+    <div class="clearfix"></div>
+    <?php if ($block['showblockmore']) { ?>
+        <div class="itemBlockLink">
+            <a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
+        </div>
+    <?php } ?>
 </div>

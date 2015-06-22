@@ -1,119 +1,118 @@
 <?php
-    $this->css(array(
-        $this->assetModule('css/admin.css'),
-        $this->assetModule('script/system-ui.css', 'system'),
-    ));
-    $this->jQuery();
-    $this->js($this->assetModule('script/system-msg.js', 'system'));
+$this->css(array(
+    $this->assetModule('css/admin.css'),
+    $this->assetModule('script/system-ui.css', 'system'),
+));
+$this->jQuery();
+$this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="clearfix">
-	<div class="admin-header clearfix well well-sm">
-		<div class="col-md-7">
-			<div class="nav">
-				<div class="btn-group">
-					<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-plus"></i> <?php _e('Add new story'); ?> <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a title="<?php _e('Add new text'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'text')); ?>"><i class="fa fa-book"></i> <?php _e('Add new text'); ?></a></li>
-						<li><a title="<?php _e('Add new gallery'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'gallery')); ?>"><i class="fa fa-camera"></i> <?php _e('Add new gallery'); ?></a></li>
-						<li><a title="<?php _e('Add new media'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'media')); ?>"><i class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
-						<li><a title="<?php _e('Add new download'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'download')); ?>"><i class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
-					</ul>
-				</div>
-				<div class="btn-group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-eye"></i> <?php _e('View'); ?> <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li><a title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
-						<li><a title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
-						<li><a title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
-						<li><a title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
-						<li><a title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
-						<li><a title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-5">
-			<?php echo $this->form($form, 'inline'); ?>
-		</div>
-	</div>
-	<h3><?php _e('List of stories'); ?></h3>
-	<table id="story-list" class="table table-striped table-bordered table-condensed">
-		<tr>
-			<th><?php _e('ID'); ?></th>
-			<th><?php _e('Information'); ?></th>
-		</tr>
-		<?php foreach($stores as $story) { ?>
-		<?php
-		if($story['status'] == 1) {
-			$labelClass = 'label label-success';	
-		} elseif($story['status'] == 5) {
-			$labelClass = 'label label-danger';	
-		} else {
-			$labelClass = 'label label-warning';	
-		}			
-		?>
-		<tr>
-			<td><span id="label-<?php echo $story['id']; ?>" class="label label-default <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
-			<td>
-				<div class="row">
-					<div class="col-md-12">
-						<strong><?php _e('Title'); ?></strong> : ( <?php echo $this->escape($story['type_view']); ?> ) <a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>" target="_blank"><?php echo $this->escape($story['title']); ?></a>
-					</div>
-					<div class="col-md-5">
-						<strong><?php _e('Published'); ?></strong> : <?php echo $this->escape($story['time_publish']); ?>
-					</div>
-					<div class="col-md-7">
-						<strong><?php _e('Action'); ?></strong> : 
-						<?php if($story['status'] == 1) { ?>
-						<button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
-						<?php } elseif(in_array($story['status'], array(2,3,4))) { ?>
-						<button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-success btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>"><i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
-						<?php } ?>
-						<a class="btn btn-primary btn-xs" title="<?php _e('Preview'); ?>" href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></a>
-						<a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-						<a class="btn btn-primary btn-xs" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="fa fa-upload"></i> <?php _e('Attach'); ?></a>
-						<!-- <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a> -->
-
-					</div>
-				</div>
-			</td>
-		</tr>
-		<?php } ?>
-	</table>
-	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
-	<p>
-		<span class="label label-success"><?php _e('Published'); ?></span>
-		<span class="label label-warning"><?php _e('Pending review'); ?></span>
-		<span class="label label-danger"><?php _e('Trash'); ?></span>
-	</p>
+    <div class="admin-header clearfix well well-sm">
+        <div class="col-md-7">
+            <div class="nav">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-plus"></i> <?php _e('Add new story'); ?> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a title="<?php _e('Add new text'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'text')); ?>"><i class="fa fa-book"></i> <?php _e('Add new text'); ?></a></li>
+                        <li><a title="<?php _e('Add new gallery'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'gallery')); ?>"><i class="fa fa-camera"></i> <?php _e('Add new gallery'); ?></a></li>
+                        <li><a title="<?php _e('Add new media'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'media')); ?>"><i class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
+                        <li><a title="<?php _e('Add new download'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'update', 'type' => 'download')); ?>"><i class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-eye"></i> <?php _e('View'); ?> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
+                        <li><a title="<?php _e('Published'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
+                        <li><a title="<?php _e('Pending review'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
+                        <li><a title="<?php _e('Draft'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
+                        <li><a title="<?php _e('Private'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
+                        <li><a title="<?php _e('Trash'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <?php echo $this->form($form, 'inline'); ?>
+        </div>
+    </div>
+    <h3><?php _e('List of stories'); ?></h3>
+    <table id="story-list" class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th><?php _e('ID'); ?></th>
+            <th><?php _e('Information'); ?></th>
+        </tr>
+        <?php foreach($stores as $story) { ?>
+            <?php
+            if($story['status'] == 1) {
+                $labelClass = 'label label-success';
+            } elseif($story['status'] == 5) {
+                $labelClass = 'label label-danger';
+            } else {
+                $labelClass = 'label label-warning';
+            }
+            ?>
+            <tr>
+                <td><span id="label-<?php echo $story['id']; ?>" class="label label-default <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><?php _e('Title'); ?></strong> : ( <?php echo $this->escape($story['type_view']); ?> ) <a title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>" target="_blank"><?php echo $this->escape($story['title']); ?></a>
+                        </div>
+                        <div class="col-md-5">
+                            <strong><?php _e('Published'); ?></strong> : <?php echo $this->escape($story['time_publish']); ?>
+                        </div>
+                        <div class="col-md-7">
+                            <strong><?php _e('Action'); ?></strong> :
+                            <?php if($story['status'] == 1) { ?>
+                                <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
+                            <?php } elseif(in_array($story['status'], array(2,3,4))) { ?>
+                                <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-success btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>"><i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
+                            <?php } ?>
+                            <a class="btn btn-primary btn-xs" title="<?php _e('Preview'); ?>" href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></a>
+                            <a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                            <a class="btn btn-primary btn-xs" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="fa fa-upload"></i> <?php _e('Attach'); ?></a>
+                            <!-- <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a> -->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+    <p>
+        <span class="label label-success"><?php _e('Published'); ?></span>
+        <span class="label label-warning"><?php _e('Pending review'); ?></span>
+        <span class="label label-danger"><?php _e('Trash'); ?></span>
+    </p>
 </div>
 <script type="text/javascript" >
-(function($){
-    $("#story-list").on("click","button",function(){
-        systemMessage.wait("<?php _e('Accept story in process'); ?>");
-        $.getJSON($(this).attr("data-link")).done(function(result){
-            if(result.ajaxstatus==1){
-          	    if(result.storystatus==1){
-	          	    var labelClass = 'label label label-success';
-	          	    var buttonClass = 'btn btn-warning btn-xs disabled';
-	          	    var buttonText = '<i class="fa fa-trash-o"></i> <?php _e("Reject"); ?>';
-          	    }
-          	    if(result.storystatus==2){
-	          	    var labelClass = 'label label label-warning';
-	          	    var buttonClass = 'btn btn-success btn-xs disabled';
-	          	    var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
-          	    }
-          	    $('#label-' + result.id).attr('class', labelClass);
-          	    $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
-                systemMessage.succ(result.message);
-            }else{
-                systemMessage.fail(result.message);
-            }
+    (function($){
+        $("#story-list").on("click","button",function(){
+            systemMessage.wait("<?php _e('Accept story in process'); ?>");
+            $.getJSON($(this).attr("data-link")).done(function(result){
+                if(result.ajaxstatus==1){
+                    if(result.storystatus==1){
+                        var labelClass = 'label label label-success';
+                        var buttonClass = 'btn btn-warning btn-xs disabled';
+                        var buttonText = '<i class="fa fa-trash-o"></i> <?php _e("Reject"); ?>';
+                    }
+                    if(result.storystatus==2){
+                        var labelClass = 'label label label-warning';
+                        var buttonClass = 'btn btn-success btn-xs disabled';
+                        var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
+                    }
+                    $('#label-' + result.id).attr('class', labelClass);
+                    $('#button-' + result.id).attr('class', buttonClass).html(buttonText);;
+                    systemMessage.succ(result.message);
+                }else{
+                    systemMessage.fail(result.message);
+                }
+            });
         });
-    });
-})(jQuery)
+    })(jQuery)
 </script>

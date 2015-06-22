@@ -1,9 +1,9 @@
-<?php 
+<?php
 // Set width
 $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
 // Set ajax effect
-if($block['showeffect']){ 
-        $script =<<<'EOT'
+if($block['showeffect']){
+    $script =<<<'EOT'
         $('.gallery').each(function() {
     		$(this).magnificPopup({
         		delegate: 'a',
@@ -14,24 +14,24 @@ if($block['showeffect']){
     		});
 		});
 EOT;
-		$this->jQuery(array(
-			'extension/jquery.magnific-popup.min.js',
-			'extension/magnific-popup.css',
-		));
-		$this->footScript()->appendScript($script);
+    $this->jQuery(array(
+        'extension/jquery.magnific-popup.min.js',
+        'extension/magnific-popup.css',
+    ));
+    $this->footScript()->appendScript($script);
 }
 ?>
 <div class="news-block news-gallery-block gallery">
-	<?php foreach($block['resources'] as $gallery) { ?>
-	<?php if($block['showeffect']) {
-		$hrefLink = $this->escape($gallery['largeUrl']);
-	} else {
-        $hrefLink = $this->escape($gallery['mediaUrl']);
-	} ?>
-	<div class="<?php echo $width; ?> h-entry">
-		<a class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
-			<img src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
-		</a>
-	</div>
-	<?php } ?>
+    <?php foreach($block['resources'] as $gallery) { ?>
+        <?php if($block['showeffect']) {
+            $hrefLink = $this->escape($gallery['largeUrl']);
+        } else {
+            $hrefLink = $this->escape($gallery['mediaUrl']);
+        } ?>
+        <div class="<?php echo $width; ?> h-entry">
+            <a class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
+                <img src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
+            </a>
+        </div>
+    <?php } ?>
 </div>

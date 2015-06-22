@@ -1,30 +1,30 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
-	<?php include $this->template('front/feed'); ?>
-	<?php include $this->template('front/advertisement'); ?>
-	<div class="page-header">
-		<h1><?php _e('Topic list'); ?></h1>
-	</div>
-	<?php if (isset($topics) && !empty($topics)) { ?>
-	<div class="topics clearfix">
-		<?php foreach($topics as $topic) { ?>
-		<div class="col-xs-12 col-sm-6 col-md-3">
-			<div class="thumbnail">
-				<a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
-					<img src="<?php echo $this->escape($topic['mediumUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>">
-				</a>
-				<div class="caption">
-					<a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
-						<h3><?php echo $this->escape($topic['title']); ?></h3>
-					</a>
-				</div>
-			</div>
-		</div>
-		<?php } ?>
-	</div>
-	<?php } else { ?>
-	<div class="alert alert-warning" role="alert">
-		<?php _e('No topic has been made on this part yet. please check this page later'); ?>
-	</div>
-	<?php } ?>
+    <?php include $this->template('front/feed'); ?>
+    <?php include $this->template('front/advertisement'); ?>
+    <div class="page-header">
+        <h1><?php _e('Topic list'); ?></h1>
+    </div>
+    <?php if (isset($topics) && !empty($topics)) { ?>
+        <div class="topics clearfix">
+            <?php foreach($topics as $topic) { ?>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="thumbnail">
+                        <a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+                            <img src="<?php echo $this->escape($topic['mediumUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>">
+                        </a>
+                        <div class="caption">
+                            <a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+                                <h3><?php echo $this->escape($topic['title']); ?></h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    <?php } else { ?>
+        <div class="alert alert-warning" role="alert">
+            <?php _e('No topic has been made on this part yet. please check this page later'); ?>
+        </div>
+    <?php } ?>
 </div>
