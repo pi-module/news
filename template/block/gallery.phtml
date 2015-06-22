@@ -28,9 +28,9 @@ EOT;
         } else {
             $hrefLink = $this->escape($gallery['mediaUrl']);
         } ?>
-        <div class="<?php echo $width; ?> h-entry">
-            <a class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
-                <img src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
+        <div class="<?php echo $width; ?> h-entry" itemscope itemtype="http://schema.org/Article">
+            <a itemprop="url" class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
+                <img itemprop="image" src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
             </a>
         </div>
     <?php } ?>

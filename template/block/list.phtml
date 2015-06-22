@@ -1,9 +1,9 @@
 <div class="news-block news-list-block">
     <ul class="list-unstyled">
         <?php foreach($block['resources'] as $story) { ?>
-            <li class="h-entry">
-			<span class="itemTitle p-name">
-				<a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+            <li class="h-entry" itemscope itemtype="http://schema.org/Article">
+			<span class="itemTitle p-name" itemprop="name">
+				<a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
 			</span>
                 <?php if($block['showdate']){ ?>
                     <span class="itemPostDate dt-published">

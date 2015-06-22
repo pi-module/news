@@ -12,9 +12,9 @@
                 <?php if($topic['showhits']){ ?><th><?php _e('Read'); ?></th><?php } ?>
             </tr>
             <?php foreach($stores as $story) { ?>
-                <tr class="h-entry">
-                    <td class="p-name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><img src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" /><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></td>
-                    <?php if($topic['showdate']){ ?><td class="dt-published"><?php echo $this->escape($story['time_publish_view']); ?></td><?php } ?>
+                <tr class="h-entry" itemscope itemtype="http://schema.org/Article">
+                    <td class="p-name" itemprop="name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" /><a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></td>
+                    <?php if($topic['showdate']){ ?><td class="dt-published" itemprop="datePublished"><?php echo $this->escape($story['time_publish_view']); ?></td><?php } ?>
                     <?php if($topic['showhits']){ ?><td><?php echo $this->escape($story['hits']); ?></td><?php } ?>
                 </tr>
             <?php } ?>

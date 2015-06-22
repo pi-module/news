@@ -39,16 +39,16 @@ if (!empty($story['largeUrl'])) {
     $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
 }
 ?>
-<div class="clearfix">
+<div class="clearfix" itemscope itemtype="http://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="panel panel-default h-entry">
         <div class="panel-heading">
-            <h1 class="panel-title p-name">
+            <h1 class="panel-title p-name" itemprop="name">
                 <?php if($story['important']) { ?>
                     <span class="label label label-important">
-					<?php _e('Important'); ?>
-				</span>
+					    <?php _e('Important'); ?>
+				    </span>
                 <?php } ?>
                 <?php echo $this->escape($story['title']); ?>
             </h1>
@@ -57,27 +57,27 @@ if (!empty($story['largeUrl'])) {
             <div class="clearfix">
                 <div class="pull-right">
                     <?php if($config['show_date']) { ?>
-                        <span class="itemPostDate dt-published">
-					    <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
-				    </span>
+                        <span class="itemPostDate dt-published" itemprop="datePublished">
+					        <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
+				        </span>
                     <?php } ?>
                     <?php if($config['show_hits']) { ?>
                         <span class="itemStats">
-					    <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
-				    </span>
+					        <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+				        </span>
                     <?php } ?>
                 </div>
                 <?php if(!empty($story['authors']) && $config['show_author']) { ?>
                     <div class="pull-left">
                         <?php foreach($story['authors'] as $author) { ?>
-                            <span class="p-author"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                            <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
                         <?php } ?>
                     </div>
                 <?php } ?>
                 <?php if($config['show_topic']) { ?>
                     <div class="pull-left"><?php _e('Topics'); ?> :
                         <?php foreach($story['topics'] as $storyTopic) { ?>
-                            <span class=" p-category"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                            <span class=" p-category" itemprop="about"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
                         <?php } ?>
                     </div>
                 <?php } ?>
@@ -90,15 +90,17 @@ if (!empty($story['largeUrl'])) {
                     <div class="storyImageMain">
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail u-photo">
-                                <a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+                                <a href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>">
+                                    <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
                 </div>
             <?php } ?>
-            <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
-            <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
+            <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+            <div class="storyText e-content" itemprop="description"><?php echo $story['text_description']; ?></div>
             <div class="clearfix"></div>
             <?php include $this->template('front/attribute'); ?>
             <?php include $this->template('front/attribute-file'); ?>

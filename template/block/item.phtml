@@ -1,15 +1,15 @@
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php foreach($block['resources'] as $story) { ?>
-            <div class="media h-entry clearfix">
+            <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                 <?php if($block['showimage'] && !empty($story['thumbUrl'])){ ?>
-                    <a class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
-                        <img src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-rounded img-responsive u-photo" />
+                    <a itemprop="url" class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                        <img itemprop="image" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-rounded img-responsive u-photo" />
                     </a>
                 <?php } ?>
                 <div class="media-body p-item h-card">
-                    <h3 class="media-heading p-name itemSingleTitle">
-                        <a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                    <h3 class="media-heading p-name itemSingleTitle" itemprop="name">
+                        <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
                             <?php echo $this->escape($story['title']); ?>
                         </a>
                     </h3>

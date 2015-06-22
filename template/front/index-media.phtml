@@ -7,13 +7,15 @@
     <div class="index-media">
         <?php foreach($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="thumbnail text-center h-entry">
+            <div class="thumbnail text-center h-entry" itemscope itemtype="http://schema.org/Article">
                 <?php if($story['image']){ ?>
-                    <a class="u-photo" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><img src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" /></a>
+                    <a class="u-photo" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
+                        <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+                    </a>
                 <?php } ?>
                 <div class="caption">
-                    <h4 class="p-name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h4>
-                    <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                    <h4 class="p-name" itemprop="name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h4>
+                    <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
                 </div>
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
