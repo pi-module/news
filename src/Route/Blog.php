@@ -48,6 +48,8 @@ class Blog extends Standard
         $matches = array_merge($this->defaults, $matches);
         if (isset($parts[0]) && in_array($parts[0], $this->controllerList)) {
             $matches['controller'] = $this->decode($parts[0]);
+        } elseif (isset($parts[0]) && !in_array($parts[0], $this->controllerList)) {
+            return '';
         }
 
         // Make Match

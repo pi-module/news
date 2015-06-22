@@ -25,8 +25,9 @@ class MediaController extends ActionController
         $module = $this->params('module');
         // Check id
         if (!isset($id) || empty($id)) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The media not set.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The media not set.'), '', 'error-404');
+            return;
         }
         // find attach and story
         $attach = $this->getModel('attach')->find($id)->toArray();
@@ -47,8 +48,9 @@ class MediaController extends ActionController
         $config = Pi::service('registry')->config->read($module);
         // Check id
         if (!isset($id) || empty($id)) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The media not set.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The media not set.'), '', 'error-404');
+            return;
         }
         // find attach and story
         $attach = $this->getModel('attach')->find($id)->toArray();
@@ -85,8 +87,9 @@ class MediaController extends ActionController
         $module = $this->params('module');
         // Check id
         if (!isset($id) || empty($id)) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The media not set.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The media not set.'), '', 'error-404');
+            return;
         }
         // find topic anhd update cint
         $topic = $this->getModel('topic')->find($id);

@@ -25,8 +25,9 @@ class TagController extends IndexController
         $slug = $this->params('slug');
         // Check tag
         if (!Pi::service('module')->isActive('tag')) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('Tag module not installed.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Tag module not installed.'), '', 'error-404');
+            return;
         }
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -34,8 +35,9 @@ class TagController extends IndexController
         $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Check slug
         if (!isset($slug) || empty($slug)) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The tag not set.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The tag not set.'), '', 'error-404');
+            return;
         }
         // Get id from tag module
         $tagId = array();

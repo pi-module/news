@@ -33,11 +33,15 @@ class StoryController extends ActionController
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check status
         if (!$story || $story['status'] != 1) {
-            $this->jump(array('', 'module' => $module, 'controller' => 'index'), __('The story not found.'));
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The story not found.'), '', 'error-404');
+            return;
         }
         // Check time_publish
         if ($story['time_publish'] > time()) {
-            $this->jump(array('', 'module' => $module, 'controller' => 'index'), __('The Story not publish.'));
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The Story not publish.'), '', 'error-404');
+            return;
         }
         // Update Hits
         $this->getModel('story')->increment('hits', array('id' => $story['id']));

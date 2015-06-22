@@ -27,8 +27,9 @@ class FavouriteController extends IndexController
         $userId = Pi::user()->getId();
         // Check user
         if (!$userId) {
-            $url = array('', 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The user not select'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The user not select'), '', 'error-404');
+            return;
         }
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -38,8 +39,9 @@ class FavouriteController extends IndexController
         $storyId = Pi::api('favourite', 'favourite')->userFavourite($userId, $module);
         // Check id
         if (empty($storyId)) {
-            $url = array('', 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('No favourite find by you'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('No favourite find by you'), '', 'error-404');
+            return;
         }
         // Set story info
         $where = array('status' => 1, 'story' => $storyId);

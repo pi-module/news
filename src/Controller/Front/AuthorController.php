@@ -32,8 +32,9 @@ class AuthorController extends ActionController
         $author = Pi::api('author', 'news')->canonizeAuthor($author);
         // Check status
         if (!$author || $author['status'] != 1) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The author not found.'));
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The author not found.'), '', 'error-404');
+            return;
         }
         // Get role
         $roles = Pi::api('author', 'news')->getFormRole();

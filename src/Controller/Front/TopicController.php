@@ -30,13 +30,17 @@ class TopicController extends IndexController
         $topic = $this->getModel('topic')->find($slug, 'slug');
         // Check slug set
         if(empty($topic)) {
-            $this->jump(array('', 'module' => $module, 'controller' => 'topic', 'action' => 'list'), __('Go to topic list.'));
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Topic not set.'), '', 'error-404');
+            return;
         }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Check topic
         if ($topic['status'] != 1) {
-            $this->jump(array('', 'module' => $module, 'controller' => 'index', 'action' => 'index'), __('Topic not active.'));
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Topic not active.'), '', 'error-404');
+            return;
         }
         // Check topic style
         if ($topic['style'] == 'topic') {
