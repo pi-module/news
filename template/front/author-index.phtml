@@ -39,25 +39,27 @@ if (!empty($author['largeUrl'])) {
     $this->headMeta($this->escape($author['largeUrl']), 'twitter:image');
 }
 ?>
-<div class="clearfix">
+<div class="clearfix" itemscope itemtype="http://schema.org/Person">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="panel panel-default">
+    <div class="panel panel-default h-entry">
         <div class="panel-heading">
-            <h1 class="panel-title"><?php echo $this->escape($author['title']); ?></h1>
+            <h1 class="panel-title p-name" itemprop="name">
+                <?php echo $this->escape($author['title']); ?>
+            </h1>
         </div>
         <div class="panel-body">
             <div class="pull-left gallery itemImageList">
                 <?php if($config['image_lightbox']){ ?>
                     <a href="<?php echo $this->escape($author['mediumUrl']); ?>" title="<?php echo $this->escape($author['title']); ?>">
-                        <img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                        <img itemprop="image" class="img-thumbnail u-photo" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
                     </a>
                 <?php } else { ?>
-                    <img class="img-thumbnail" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                    <img itemprop="image" class="img-thumbnail u-photo" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
                 <?php } ?>
             </div>
-            <?php echo $author['text_description']; ?>
+            <div class="p-summary" itemprop="description"><?php echo $author['text_description']; ?></div>
             <div class="clearfix"></div>
             <?php if ($config['social_sharing']) { ?>
                 <div class="clearfix">
@@ -73,18 +75,18 @@ if (!empty($author['largeUrl'])) {
             <?php } ?>
         </div>
     </div>
-    <div class="index-list-author">
+    <div class="index-list-author" itemtype="http://schema.org/ItemList">
         <div class="news-role">
             <?php foreach($roles as $role) { ?>
                 <?php if (!empty($stores[$role['id']])) { ?>
                     <h4><?php echo $this->escape($role['title']); ?></h4>
                     <div class="list-group">
                     <?php foreach($stores[$role['id']] as $author) { ?>
-                        <a class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['storyUrl']); ?>">
+                        <a itemprop="url" class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['storyUrl']); ?>">
                             <?php if ($author['image']) { ?>
-                                <img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                                <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
                             <?php } ?>
-                            <?php echo $this->escape($author['title']); ?>
+                            <span itemprop="name"><?php echo $this->escape($author['title']); ?></span>
                         </a>
                     <?php } ?>
                 <?php } ?>

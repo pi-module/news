@@ -6,13 +6,13 @@
         <h1><?php _e('Author list'); ?></h1>
     </div>
     <?php if (isset($authors) && !empty($authors)) { ?>
-        <div class="authorList clearfix">
+        <div class="authorList clearfix" itemscope itemtype="http://schema.org/Person">
             <ul class="list-group">
                 <?php foreach($authors as $author) { ?>
                     <li class="list-group-item col-md-3">
-                        <img src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-                        <a title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>">
-                            <?php echo $this->escape($author['title']); ?>
+                        <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                        <a itemprop="url" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>">
+                            <span itemprop="name"><?php echo $this->escape($author['title']); ?></span>
                         </a>
                     </li>
                 <?php } ?>
