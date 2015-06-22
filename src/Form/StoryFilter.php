@@ -132,15 +132,6 @@ class StoryFilter extends InputFilter
                 'required' => false,
             ));
         }
-        // Set extra field
-        if (!empty($option['field'])) {
-            foreach ($option['field'] as $field) {
-                $this->add(array(
-                    'name' => $field['id'],
-                    'required' => false,
-                ));
-            }
-        }
         // Set role
         if (!empty($option['role'])) {
             foreach ($option['role'] as $role) {

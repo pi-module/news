@@ -1,0 +1,13 @@
+<?php if(isset($attribute['audio']) && !empty($attribute['audio'])) { ?>
+    <div class="clearfix">
+        <div class="attribute-audio">
+            <?php foreach($attribute['audio'] as $audio) { ?>
+                <?php if(!empty($audio['data'])) { ?>
+                    <div class="pi-player clearfix">
+                        <?php echo $this->videojs($audio['data'], '', 640, 100); ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>

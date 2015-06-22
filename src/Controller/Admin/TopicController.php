@@ -314,7 +314,7 @@ class TopicController extends ActionController
             foreach ($rowset as $story) {
                 // Attach
                 $this->getModel('attach')->delete(array('story' => $story['id']));
-                // Extra
+                // Attribute
                 $this->getModel('field_data')->delete(array('story' => $story['id']));
                 // Spotlight
                 $this->getModel('spotlight')->delete(array('story' => $story['id']));

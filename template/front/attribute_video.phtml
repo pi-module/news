@@ -1,0 +1,13 @@
+<?php if(isset($attribute['video']) && !empty($attribute['video'])) { ?>
+    <div class="clearfix">
+        <div class="attribute-video">
+            <?php foreach($attribute['video'] as $video) { ?>
+                <?php if(!empty($video['data'])) { ?>
+                    <div class="pi-player clearfix">
+                        <?php echo $this->videojs($video['data'], $this->escape($productItem['mediumUrl']), 640, 480); ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>

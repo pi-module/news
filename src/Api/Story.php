@@ -20,7 +20,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->getStory($parameter, $type);
  * Pi::api('story', 'news')->AttachCount($id);
  * Pi::api('story', 'news')->AttachList($id);
- * Pi::api('story', 'news')->ExtraCount($id);
+ * Pi::api('story', 'news')->attributeCount($id);
  * Pi::api('story', 'news')->Related($id, $topic;
  * Pi::api('story', 'news')->Link($id, $topic);
  * Pi::api('story', 'news')->getListFromId($id);
@@ -125,18 +125,18 @@ class Story extends AbstractApi
     }
 
     /**
-     * Set number of used extra fields for selected story
+     * Set number of used attribute fields for selected story
      */
-    public function ExtraCount($id)
+    public function attributeCount($id)
     {
         // set info
         $where = array('story' => $id);
         $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
-        // Get extra count
+        // Get attribute count
         $select = Pi::model('field_data', $this->getModule())->select()->columns($columns)->where($where);
         $count = Pi::model('field_data', $this->getModule())->selectWith($select)->current()->count;
-        // Set extra count
-        Pi::model('story', $this->getModule())->update(array('extra' => $count), array('id' => $id));
+        // Set attribute count
+        Pi::model('story', $this->getModule())->update(array('attribute' => $count), array('id' => $id));
     }
 
     /**

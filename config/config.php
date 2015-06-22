@@ -239,9 +239,9 @@ return array(
             'filter'       => 'number_int',
             'value'        => 1
         ),
-        'show_extra' => array(
+        'show_attribute' => array(
             'category'     => 'show',
-            'title'        => _a('Show extra information'),
+            'title'        => _a('Show attribute information'),
             'description'  => '',
             'edit'         => 'checkbox',
             'filter'       => 'number_int',

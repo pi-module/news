@@ -20,7 +20,6 @@ class StoryForm extends BaseForm
     public function __construct($name = null, $options = array())
     {
         $this->module = Pi::service('module')->current();
-        $this->field = $options['field'];
         $this->author = $options['author'];
         $this->role = $options['role'];
         $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
@@ -273,40 +272,6 @@ class StoryForm extends BaseForm
                 )
             ));
         }
-        // Set extra field
-        if (!empty($this->field)) {
-            // extra_field
-            $this->add(array(
-                'name' => 'extra_field',
-                'type' => 'fieldset',
-                'options' => array(
-                    'label' => __('Extra fields'),
-                ),
-            ));
-            // generate
-            foreach ($this->field as $field) {
-                if ($field['type'] == 'select') {
-                    $this->add(array(
-                        'name' => $field['id'],
-                        'type' => 'select',
-                        'options' => array(
-                            'label' => $field['title'],
-                            'value_options' => $this->makeArray($field['value']),
-                        ),
-                    ));
-                } else {
-                    $this->add(array(
-                        'name' => $field['id'],
-                        'options' => array(
-                            'label' => $field['title'],
-                        ),
-                        'attributes' => array(
-                            'type' => 'text',
-                        )
-                    ));
-                }
-            }
-        }
         // Set extra author
         if (!empty($this->role)) {
             // extra_author
@@ -337,14 +302,4 @@ class StoryForm extends BaseForm
             )
         ));
     }
-
-    public function makeArray($string)
-    {
-        $list = array();
-        $variable = explode('|', $string);
-        foreach ($variable as $value) {
-            $list[$value] = $value;
-        }
-        return $list;
-    }
-}   
+}

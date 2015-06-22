@@ -19,6 +19,8 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\StoryForm;
 use Module\News\Form\StoryFilter;
+use Module\News\Form\StoryAdditionalForm;
+use Module\News\Form\StoryAdditionalFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
 use Zend\Json\Json;
@@ -30,7 +32,7 @@ class StoryController extends ActionController
     protected $storyColumns = array(
         'id', 'title', 'subtitle', 'slug', 'topic', 'topic_main', 'author', 'text_summary', 'text_description', 
         'seo_title', 'seo_keywords', 'seo_description', 'important', 'status', 'time_create', 'time_update',
-        'time_publish', 'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'extra', 'type'
+        'time_publish', 'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'attribute', 'type'
     );
 
     public function indexAction()
@@ -286,7 +288,7 @@ class StoryController extends ActionController
         $module = $this->params('module');
         $type = $this->params('type');
         $option = array();
-        // Find Product
+        // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();
             $story['topic'] = Json::decode($story['topic']);
@@ -296,9 +298,9 @@ class StoryController extends ActionController
                 $option['removeUrl'] = $this->url('', array('action' => 'remove', 'id' => $story['id']));
             }
         }
-        // Get extra field
-        $fields = Pi::api('extra', 'news')->Get();
-        $option['field'] = $fields['extra'];
+        // Get attribute field
+        $fields = Pi::api('attribute', 'news')->Get();
+        $option['field'] = $fields['attribute'];
         // Set author
         if ($this->config('admin_setauthor')) {
             $option['author'] = Pi::api('author', 'news')->getFormAuthor();
@@ -330,13 +332,6 @@ class StoryController extends ActionController
                             $author[$role['id']]['role'] = $role['id'];
                             $author[$role['id']]['author'] = $values[$role['name']];
                         }
-                    }
-                }
-                // Set extra data array
-                if (!empty($fields['field'])) {
-                    foreach ($fields['field'] as $field) {
-                        $extra[$field]['field'] = $field;
-                        $extra[$field]['data'] = $values[$field];
                     }
                 }
                 // Tag
@@ -420,10 +415,6 @@ class StoryController extends ActionController
                         Pi::service('tag')->update($module, $row->id, '', $tag);
                     }
                 }
-                // Extra
-                if (!empty($extra)) {
-                    Pi::api('extra', 'news')->Set($extra, $row->id);
-                }
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
@@ -436,37 +427,12 @@ class StoryController extends ActionController
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);         
                 }
                 // Make jump information
-                switch ($row->type) {
-                    case 'download':
-                        $message = __('Download data saved successfully. Please attach your files');
-                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                        break;
-                    
-                    case 'media':
-                        $message = __('Media data saved successfully. Please attach your medias');
-                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                        break;
-                    
-                    case 'gallery':
-                        $message = __('Gallery data saved successfully. Please attach your images');
-                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
-                        break;           
-
-                    case 'text':
-                    default:
-                        $message = __('Text data saved successfully.');
-                        $url = array('controller' => 'story', 'action' => 'index');
-                        break;
-                }
-                // Do jump
+                $message = __('Story data saved successfully.');
+                $url = array('controller' => 'story', 'action' => 'additional', 'id' => $row->id);
                 $this->jump($url, $message);
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             if ($id) {
-                // Get Extra
-                $story = Pi::api('extra', 'news')->setFormValues($story);
                 // Get author
                 $story = Pi::api('author', 'news')->setFormValues($story);
                 // Get tag list
@@ -502,10 +468,117 @@ class StoryController extends ActionController
                 $message = __('Your story type is <strong>Text</strong> and you shuold add text information on form fields');
                 break;
         }
-
+        // Set view
         $this->view()->setTemplate('story_update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Story'));
+        $this->view()->assign('message', $message);
+    }
+
+    public function additionalAction()
+    {
+        // Get id
+        $id = $this->params('id');
+        $option = array();
+        // Find story
+        if ($id) {
+            $story = $this->getModel('story')->find($id)->toArray();
+        } else {
+            $this->jump(array('action' => 'index'), __('Please select story'));
+        }
+        // Get attribute field
+        $fields = Pi::api('attribute', 'news')->Get($story['topic_main']);
+        $option['field'] = $fields['attribute'];
+        // Check post
+        if ($this->request->isPost()) {
+            $data = $this->request->getPost();
+            // Set form
+            $form = new StoryAdditionalForm('story', $option);
+            $form->setAttribute('enctype', 'multipart/form-data');
+            $form->setInputFilter(new StoryAdditionalFilter($option));
+            $form->setData($data);
+            if ($form->isValid()) {
+                $values = $form->getData();
+                // Set attribute data array
+                if (!empty($fields['field'])) {
+                    foreach ($fields['field'] as $field) {
+                        $attribute[$field]['field'] = $field;
+                        $attribute[$field]['data'] = $values[$field];
+                    }
+                }
+                // Set just story fields
+                foreach (array_keys($values) as $key) {
+                    if (!in_array($key, $this->storyColumns)) {
+                        unset($values[$key]);
+                    }
+                }
+                // Set time
+                $values['time_update'] = time();
+                // Save
+                $row = $this->getModel('story')->find($values['id']);
+                $row->assign($values);
+                $row->save();
+                // Set attribute
+                if (isset($attribute) && !empty($attribute)) {
+                    Pi::api('attribute', 'news')->Set($attribute, $row->id);
+                }
+                // Make jump information
+                switch ($row->type) {
+                    case 'download':
+                        $message = __('Download data saved successfully. Please attach your files');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;
+
+                    case 'media':
+                        $message = __('Media data saved successfully. Please attach your medias');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;
+
+                    case 'gallery':
+                        $message = __('Gallery data saved successfully. Please attach your images');
+                        $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
+                        break;
+
+                    case 'text':
+                    default:
+                        $message = __('Text data saved successfully.');
+                        $url = array('controller' => 'story', 'action' => 'index');
+                        break;
+                }
+                // Do jump
+                $this->jump($url, $message);
+            }
+        } else {
+            // Get attribute
+            $story = Pi::api('attribute', 'news')->Form($story);
+            // Set form
+            $form = new StoryAdditionalForm('story', $option);
+            $form->setAttribute('enctype', 'multipart/form-data');
+            $form->setData($story);
+        }
+        // Set type message
+        switch ($story['type']) {
+            case 'download':
+                $message = __('Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page');
+                break;
+
+            case 'media':
+                $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
+                break;
+
+            case 'gallery':
+                $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
+                break;
+
+            case 'text':
+            default:
+                $message = __('Your story type is <strong>Text</strong> and you shuold add text information on form fields');
+                break;
+        }
+        // Set view
+        $this->view()->setTemplate('story_update');
+        $this->view()->assign('form', $form);
+        $this->view()->assign('title', __('Manage additional information'));
         $this->view()->assign('message', $message);
     }
 
@@ -520,7 +593,7 @@ class StoryController extends ActionController
             $this->getModel('link')->delete(array('story' => $row->id));
             // Attach
             $this->getModel('attach')->delete(array('story' => $row->id));
-            // Extra
+            // attribute
             $this->getModel('field_data')->delete(array('story' => $row->id));
             // Spotlight
             $this->getModel('spotlight')->delete(array('story' => $row->id));

@@ -24,9 +24,14 @@ return array(
             'permission'    => 'author',
         ),
         array(
-            'title'         => _a('Extra'),
-            'controller'    => 'extra',
-            'permission'    => 'extra',
+            'title'         => _a('Attribute'),
+            'controller'    => 'attribute',
+            'permission'    => 'attribute',
+        ),
+        array(
+            'label'         => _a('Attribute position'),
+            'controller'    => 'position',
+            'permission'    => 'position',
         ),
         array(
             'title'         => _a('Spotlight'),

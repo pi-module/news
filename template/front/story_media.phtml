@@ -87,9 +87,9 @@ EOT;
 			<?php } ?>
 			<div class="storyMedia text-center">
 				<?php include $this->template('front/attach_video'); ?>
-				<?php include $this->template('front/extra_video'); ?>
+				<?php include $this->template('front/attribute_video'); ?>
 				<?php include $this->template('front/attach_audio'); ?>
-				<?php include $this->template('front/extra_audio'); ?>
+				<?php include $this->template('front/attribute_audio'); ?>
 			</div>
 			<?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
 			<div class="gallery col-md-4">
@@ -106,8 +106,8 @@ EOT;
 			<div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
 		    <div class="storyText e-content"><?php echo $story['text_description']; ?></div>
 		    <div class="clearfix"></div>
-		    <?php include $this->template('front/extra'); ?>
-		    <?php include $this->template('front/extra_file'); ?>
+		    <?php include $this->template('front/attribute'); ?>
+		    <?php include $this->template('front/attribute_file'); ?>
 			<?php include $this->template('front/tag'); ?>
 			<?php include $this->template('front/attach'); ?>
 			<div class="clearfix">

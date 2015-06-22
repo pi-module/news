@@ -56,10 +56,10 @@ class StoryController extends ActionController
             $attach = Pi::api('story', 'news')->AttachList($story['id']);
             $this->view()->assign('attach', $attach);
         } 
-        // Extra
-        if ($config['show_extra'] && $story['extra']) {
-            $extra = Pi::api('extra', 'news')->Story($story['id']);
-            $this->view()->assign('extra', $extra);
+        // attribute
+        if ($config['show_attribute'] && $story['attribute']) {
+            $attribute = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
+            $this->view()->assign('attribute', $attribute);
         }
         // Tag
         if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {

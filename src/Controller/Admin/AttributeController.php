@@ -14,88 +14,90 @@ namespace Module\News\Controller\Admin;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-use Pi\File\Transfer\Upload;
-use Module\News\Form\ExtraForm;
-use Module\News\Form\ExtraFilter;
+use Pi\Filter;
+use Module\News\Form\AttributeForm;
+use Module\News\Form\AttributeFilter;
+use Zend\Json\Json;
 
-class ExtraController extends ActionController
+class AttributeController extends ActionController
 {
-    protected $ImageExtraPrefix = 'extra_';
-
-    protected $extraColumns = array(
-        'id', 'title', 'image', 'type', 'order', 'status', 'search', 'value'
+    protected $attributeColumns = array(
+        'id', 'title', 'icon', 'type', 'order', 'status', 'search', 'value', 'position', 'name'
     );
 
     public function indexAction()
     {
+        // Get position list
+        $position = Pi::api('attribute', 'news')->attributePositionForm();
         // Get info
         $select = $this->getModel('field')->select()->order(array('order ASC'));
         $rowset = $this->getModel('field')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $field[$row->id] = $row->toArray();
-            $field[$row->id]['imageUrl'] = Pi::url(
-                sprintf('upload/%s/icon/%s', $this->config('file_path'), $field[$row->id]['image']));
+            $field[$row->position][$row->id] = $row->toArray();
+            $field[$row->position][$row->id]['position_view'] = $position[$row->position];
         }
         // Go to update page if empty
         if (empty($field)) {
             return $this->redirect()->toRoute('', array('action' => 'update'));
         }
         // Set view
-        $this->view()->setTemplate('extra_index');
+        $this->view()->setTemplate('attribute_index');
         $this->view()->assign('fields', $field);
+        $this->view()->assign('positions', $position);
     }
 
+    /**
+     * Attribute Action
+     */
     public function updateAction()
     {
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
-        // Get extra
+        // Get attribute
         if ($id) {
-            $extra = $this->getModel('field')->find($id)->toArray();
+            $attribute = $this->getModel('field')->find($id)->toArray();
+            $attribute['topic'] = Pi::api('attribute', 'news')->getTopic($attribute['id']);
+            // Set value
+            $value = Json::decode($attribute['value'], true);
+            $attribute['data'] = $value['data'];
+            $attribute['default'] = $value['default'];
+            $attribute['information'] = $value['information'];
         }
         // Set form
-        $form = new ExtraForm('extra', $options);
+        $form = new AttributeForm('attribute', $options);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
-            $file = $this->request->getFiles();
-            $form->setInputFilter(new ExtraFilter);
+            // Set name
+            $filter = new Filter\Slug;
+            $data['name'] = $filter($data['name']);
+            // Form filter
+            $form->setInputFilter(new AttributeFilter);
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
-                // upload image
-                if (!empty($file['image']['name'])) {
-                    // Set upload path
-                    $path = Pi::path(sprintf('upload/%s/icon', $this->config('file_path')));
-                    // Upload
-                    $uploader = new Upload;
-                    $uploader->setDestination($path);
-                    $uploader->setRename($this->ImageExtraPrefix . '%random%');
-                    $uploader->setExtension($this->config('image_extension'));
-                    $uploader->setSize($this->config('image_size'));
-                    if ($uploader->isValid()) {
-                        $uploader->receive();
-                        // Get image name
-                        $values['image'] = $uploader->getUploaded('image');
-                    } else {
-                        $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
-                    }
-                } elseif (!isset($values['image'])) {
-                    $values['image'] = '';  
-                }
+                // Set value
+                $value = array(
+                    'data'         => $data['data'],
+                    'default'      => $data['default'],
+                    'information'  => $data['information'],
+                );
+                $values['value'] = Json::encode($value);
                 // Set just product fields
                 foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->extraColumns)) {
+                    if (!in_array($key, $this->attributeColumns)) {
                         unset($values[$key]);
                     }
                 }
                 // Set order
-                $columns = array('order');
-                $order = array('order DESC');
-                $select = $this->getModel('field')->select()->columns($columns)->order($order)->limit(1);
-                $values['order'] = $this->getModel('field')->selectWith($select)->current()->order + 1;
+                if (empty($values['id'])) {
+                    $columns = array('order');
+                    $order = array('order DESC');
+                    $select = $this->getModel('field')->select()->columns($columns)->order($order)->limit(1);
+                    $values['order'] = $this->getModel('field')->selectWith($select)->current()->order + 1;
+                }
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('field')->find($values['id']);
@@ -104,30 +106,22 @@ class ExtraController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
+                //
+                Pi::api('attribute', 'news')->setTopic($row->id, $data['topic']);
                 // Check it save or not
-                if ($row->id) {
-                    $message = __('Extra field data saved successfully.');
-                    $url = array('action' => 'index');
-                    $this->jump($url, $message);
-                } else {
-                    $message = __('Extra field data not saved.');
-                }
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
+                $message = __('Attribute field data saved successfully.');
+                $url = array('action' => 'index');
+                $this->jump($url, $message);
             }
         } else {
             if ($id) {
-                $form->setData($extra);
-                $message = 'You can edit this extra field';
-            } else {
-                $message = 'You can add new extra field';
+                $form->setData($attribute);
             }
         }
         // Set view
-        $this->view()->setTemplate('extra_update');
+        $this->view()->setTemplate('attribute_update');
         $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('Add Extra'));
-        $this->view()->assign('message', $message);
+        $this->view()->assign('title', __('Add attribute'));
     }
 
     public function sortAction()
@@ -163,6 +157,5 @@ class ExtraController extends ActionController
         } else {
             $this->jump(array('action' => 'index'), __('Please select field'));
         }
-
     }
 }

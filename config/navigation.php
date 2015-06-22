@@ -104,13 +104,22 @@ return array(
             'controller'    => 'attach',
             'action'        => 'index',
         ),
-        'extra' => array(
-            'label'         => _a('Extra'),
+        'attribute' => array(
+            'label'         => _a('Attribute'),
             'permission'    => array(
-                'resource'  => 'extra',
+                'resource'  => 'attribute',
             ),
             'route'         => 'admin',
-            'controller'    => 'extra',
+            'controller'    => 'attribute',
+            'action'        => 'index',
+        ),
+        'position' => array(
+            'label'         => _a('Attribute position'),
+            'permission'    => array(
+                'resource'  => 'position',
+            ),
+            'route'         => 'admin',
+            'controller'    => 'position',
             'action'        => 'index',
         ),
         'author' => array(

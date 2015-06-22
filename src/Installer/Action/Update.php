@@ -53,6 +53,11 @@ class Update extends BasicUpdate
         $authorTable    = $authorModel->getTable();
         $authorAdapter  = $authorModel->getAdapter();
 
+        // Set field model
+        $fieldModel    = Pi::model('field', $this->module);
+        $fieldTable    = $fieldModel->getTable();
+        $fieldAdapter  = $fieldModel->getAdapter();
+
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
@@ -101,7 +106,6 @@ class Update extends BasicUpdate
 
         // Update to version 1.2.5
         if (version_compare($moduleVersion, '1.2.5', '<')) {
-
             // Add table of author
             $sql =<<<'EOD'
 CREATE TABLE `{author}` (
@@ -202,9 +206,7 @@ EOD;
         // Update to version 1.2.7
         if (version_compare($moduleVersion, '1.2.7', '<')) {
             // Alter table field `type`
-            $sql = sprintf("ALTER TABLE %s CHANGE `style` `style` 
-                ENUM( 'news', 'list', 'table', 'media', 'spotlight', 'topic' ) NOT NULL", $topicTable);
-
+            $sql = sprintf("ALTER TABLE %s CHANGE `style` `style` ENUM( 'news', 'list', 'table', 'media', 'spotlight', 'topic' ) NOT NULL", $topicTable);
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -220,8 +222,7 @@ EOD;
         // Update to version 1.2.8
         if (version_compare($moduleVersion, '1.2.8', '<')) {
             // Alter table field `type`
-            $sql = sprintf("ALTER TABLE %s ADD `author` 
-                VARCHAR( 255 ) NOT NULL AFTER `topic` ", $storyTable);
+            $sql = sprintf("ALTER TABLE %s ADD `author` VARCHAR( 255 ) NOT NULL AFTER `topic` ", $storyTable);
 
             try {
                 $storyAdapter->query($sql, 'execute');
@@ -237,7 +238,6 @@ EOD;
 
         // Update to version 1.4.4
         if (version_compare($moduleVersion, '1.4.4', '<')) {
-
             // Alter table field `text_summary`
             $sql = sprintf("ALTER TABLE %s CHANGE `short` `text_summary` text", $storyTable);
             try {
@@ -302,8 +302,138 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
+                return false;
+            }
+        }
+
+        // Update to version 1.5.0
+        if (version_compare($moduleVersion, '1.5.0', '<')) {
+            // Alter table : DROP `image`
+            $sql = sprintf("ALTER TABLE %s DROP `image`;", $fieldTable);
+            try {
+                $fieldAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : CHANGE `type`
+            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox') NOT NULL DEFAULT 'text'", $fieldTable);
+            try {
+                $fieldAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD `icon`
+            $sql = sprintf("ALTER TABLE %s ADD `icon` VARCHAR(32) NOT NULL DEFAULT ''", $fieldTable);
+            try {
+                $fieldAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD `name`
+            $sql = sprintf("ALTER TABLE %s ADD `name` varchar(64) default NULL , ADD UNIQUE `name` (`name`)", $fieldTable);
+            try {
+                $fieldAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD `position`
+            $sql = sprintf("ALTER TABLE %s ADD `position` INT(10) UNSIGNED NOT NULL DEFAULT '0')", $fieldTable);
+            try {
+                $fieldAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : CHANGE `extra`
+            $sql = sprintf("ALTER TABLE %s CHANGE `extra` `attribute` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0'", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Add table of field_topic
+            $sql =<<<'EOD'
+CREATE TABLE `{field_topic}` (
+  `id`    INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `field` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+  `topic` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `field` (`field`),
+  KEY `topic` (`topic`),
+  KEY `field_category` (`field`, `topic`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'SQL schema query for author table failed: '
+                        . $exception->getMessage(),
+                ));
+
+                return false;
+            }
+
+            // Add table of field_position
+            $sql =<<<'EOD'
+CREATE TABLE `{field_position}` (
+  `id`     INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
+  `title`  VARCHAR(255)        NOT NULL DEFAULT '',
+  `order`  INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `title` (`title`),
+  KEY `order` (`order`),
+  KEY `status` (`status`),
+  KEY `order_status` (`order`, `status`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status'    => false,
+                    'message'   => 'SQL schema query for author table failed: '
+                        . $exception->getMessage(),
+                ));
+
                 return false;
             }
         }

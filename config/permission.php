@@ -48,8 +48,14 @@ return array(
                 //'admin',
             ),
         ),
-        'extra'       => array(
-            'title'         => _a('Extra'),
+        'attribute'       => array(
+            'title'         => _a('Attribute'),
+            'access'        => array(
+                //'admin',
+            ),
+        ),
+        'position'      => array(
+            'title'         => _a('Attribute position'),
             'access'        => array(
                 //'admin',
             ),
