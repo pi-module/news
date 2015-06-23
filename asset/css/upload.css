@@ -29,7 +29,7 @@
 
 .fileinput-button input {
     opacity: 0;
-    filter: alpha(opacity = 0);
+    filter: alpha(opacity=0);
     top: 0;
     right: 0;
     background-color: #000;
