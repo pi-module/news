@@ -46,8 +46,11 @@ class Install extends BasicInstall
         $topicModel = Pi::model('topic', $module);
         $linkModel = Pi::model('link', $module);
         $fieldModel = Pi::model('field', $module);
+        $fieldPositionModel = Pi::model('field_position', $module);
+        $fieldTopicModel = Pi::model('field_topic', $module);
         $authorModel = Pi::model('author', $module);
         $authorRoleModel = Pi::model('author_role', $module);
+        $authorStoryModel = Pi::model('author_story', $module);
 
         // Set topic setting
         $setting = array();
@@ -86,7 +89,7 @@ class Install extends BasicInstall
         $topicModel->insert($topicData);
 
         // Add topic as page
-        $pageData = array(
+        /* $pageData = array(
             'section'          => 'front',
             'module'           => $module,
             'controller'       => 'topic',
@@ -96,7 +99,7 @@ class Install extends BasicInstall
             'custom'           => 0,
         );
         $pageRow = Pi::model('page')->createRow($pageData);
-        $pageRow->save();
+        $pageRow->save(); */
 
         // Add story
         $storyData = array(
@@ -104,6 +107,7 @@ class Install extends BasicInstall
             'subtitle'         => __('This is subtitle for this story'),
             'slug'             => __('hello-world'),
             'topic'            => Json::encode(array('1')),
+            'topic_main'       => 1,
             'text_summary'     => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
             'text_description' => __('This is more text. you can edit this part easy too and if you want you can add new topics and new storys'),
             'seo_title'        => __('hello world'),
@@ -127,13 +131,30 @@ class Install extends BasicInstall
         );
         $linkModel->insert($linkData);
 
+        // Add field position
+        $fieldPositionData = array(
+            'title'            => __('Extra information'),
+            'order'            => '1',
+            'status'           => '1',
+        );
+        $fieldPositionModel->insert($fieldPositionData);
+
+        // Add field topic
+        $fieldTopicData = array(
+            'field'            => '1',
+            'topic'            => '0',
+        );
+        $fieldTopicModel->insert($fieldTopicData);
+
         // Add field
         $fieldData = array(
             'title'            => __('Source'),
+            'name'             => 'source',
             'type'             => 'link',
             'order'            => '1',
             'status'           => '1',
             'search'           => '1',
+            'position'         => '1',
         );
         $fieldModel->insert($fieldData);
 
@@ -157,6 +178,16 @@ class Install extends BasicInstall
             'status'           => '1',
         );
         $authorRoleModel->insert($authorRoleData);
+
+        // Add author story
+        $authorStoryData = array(
+            'story'            => '1',
+            'author'           => '1',
+            'role'             => '1',
+            'time_publish'     => time(),
+            'status'           => '1',
+        );
+        $authorStoryModel->insert($authorStoryData);
 
         // Result
         $result = array(

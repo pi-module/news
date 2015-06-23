@@ -17,7 +17,7 @@ use Pi\Application\Api\AbstractApi;
 use Zend\Json\Json;
 
 /*
- * Pi::api('attribute', 'news')->Get();
+ * Pi::api('attribute', 'news')->Get($topic);
  * Pi::api('attribute', 'news')->Set($attribute, $story);
  * Pi::api('attribute', 'news')->setFormValues($values);
  * Pi::api('attribute', 'news')->Story($id);
@@ -291,9 +291,10 @@ class Attribute extends AbstractApi
     public function getField($topic = '')
     {
         $field = array();
-        $where = array();
         if (!empty($topic)) {
-            $where = array('topic' => $topic);
+            $where = array('topic' => array($topic, 0));
+        } else {
+            $where = array('topic' => 0);
         }
         $select = Pi::model('field_topic', $this->getModule())->select()->where($where);
         $rowset = Pi::model('field_topic', $this->getModule())->selectWith($select);

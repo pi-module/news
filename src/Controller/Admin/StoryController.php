@@ -299,7 +299,7 @@ class StoryController extends ActionController
             }
         }
         // Get attribute field
-        $fields = Pi::api('attribute', 'news')->Get();
+        $fields = Pi::api('attribute', 'news')->Get($story['topic_main']);
         $option['field'] = $fields['attribute'];
         // Set author
         if ($this->config('admin_setauthor')) {
