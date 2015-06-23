@@ -21,7 +21,7 @@ class PositionController extends ActionController
 {
     protected $positionColumns = array('id', 'title', 'order', 'status');
 
-	public function indexAction()
+    public function indexAction()
     {
         // Get from url
         $module = $this->params('module');
@@ -76,10 +76,10 @@ class PositionController extends ActionController
                 Pi::api('log', 'shop')->addLog('position', $row->id, $operation);
                 $message = __('Attribute position data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
-            }  
+            }
         } else {
             if ($id) {
-            	$position = $this->getModel('field_position')->find($id)->toArray();
+                $position = $this->getModel('field_position')->find($id)->toArray();
                 $form->setData($position);
             }
         }

@@ -90,19 +90,19 @@ class Blog extends Standard
                     } elseif ($parts[1] == 'list') {
                         $matches['action'] = 'list';
                     }
-                    break; 
+                    break;
 
                 case 'json':
                     $matches['action'] = $this->decode($parts[1]);
                     if (isset($parts[2]) && $parts[2] == 'id') {
                         $matches['id'] = intval($parts[3]);
                     }
-                    break; 
+                    break;
 
                 case 'media':
                     $matches['action'] = $this->decode($parts[1]);
                     $matches['id'] = intval($parts[2]);
-                    break;    
+                    break;
             }
         }
         return $matches;
@@ -124,7 +124,7 @@ class Blog extends Standard
         if (!$mergedParams) {
             return $this->prefix;
         }
-        
+
         // Set module
         $url['module'] = 'blog';
 

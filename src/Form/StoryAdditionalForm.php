@@ -66,7 +66,7 @@ class StoryAdditionalForm extends BaseForm
                                     'value_options' => $this->makeArray($field['value']),
                                 ),
                             ));
-                        } elseif ($field['type'] == 'checkbox') { 
+                        } elseif ($field['type'] == 'checkbox') {
                             $this->add(array(
                                 'name' => $field['id'],
                                 'type' => 'checkbox',

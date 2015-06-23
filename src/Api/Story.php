@@ -78,37 +78,37 @@ class Story extends AbstractApi
             // Set file link
             if ($file[$row->type][$row->id]['type'] == 'image') {
                 $file[$row->type][$row->id]['largeUrl'] = Pi::url(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
-                        $file[$row->type][$row->id]['path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
+                        $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    )); 
+                    ));
                 $file[$row->type][$row->id]['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $file[$row->type][$row->id]['path'], 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    )); 
+                    ));
                 $file[$row->type][$row->id]['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $file[$row->type][$row->id]['path'], 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
                     ));
             } elseif($file[$row->type][$row->id]['type'] == 'other') {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
-                    sprintf('upload/%s/%s/%s/%s', 
-                        $config['file_path'], 
-                        'file', 
-                        $file[$row->type][$row->id]['path'], 
+                    sprintf('upload/%s/%s/%s/%s',
+                        $config['file_path'],
+                        'file',
+                        $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
                     ));
             } else {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
-                    sprintf('upload/%s/%s/%s/%s', 
-                        $config['file_path'], 
-                        $file[$row->type][$row->id]['type'], 
-                        $file[$row->type][$row->id]['path'], 
+                    sprintf('upload/%s/%s/%s/%s',
+                        $config['file_path'],
+                        $file[$row->type][$row->id]['type'],
+                        $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
                     ));
             }
@@ -252,12 +252,12 @@ class Story extends AbstractApi
                     $story['image'] = '';
                     if ($row->image) {
                         $story['image'] = Pi::url(
-                            sprintf('upload/%s/thumb/%s/%s', 
-                            $config['image_path'], 
-                            $row->path, 
-                            $row->image
-                        ));
-                    }    
+                            sprintf('upload/%s/thumb/%s/%s',
+                                $config['image_path'],
+                                $row->path,
+                                $row->image
+                            ));
+                    }
                     $list[$row->id] = $story;
                 }
                 return $list;
@@ -328,30 +328,30 @@ class Story extends AbstractApi
         if ($story['image']) {
             // Set image original url
             $story['originalUrl'] = Pi::url(
-                sprintf('upload/%s/original/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/original/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
             // Set image large url
             $story['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/large/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
             // Set image medium url
             $story['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/medium/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/thumb/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
         } else {
@@ -361,7 +361,7 @@ class Story extends AbstractApi
             $story['thumbUrl'] = '';
         }
         // return story
-        return $story; 
+        return $story;
     }
 
     public function canonizeStoryLight($story)
@@ -386,9 +386,9 @@ class Story extends AbstractApi
         if ($story['image']) {
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/thumb/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
         }
@@ -399,7 +399,7 @@ class Story extends AbstractApi
         unset($story['time_update']);
         unset($story['topic']);
         // return story
-        return $story; 
+        return $story;
     }
 
     public function canonizeStoryJson($story)
@@ -422,9 +422,9 @@ class Story extends AbstractApi
         if ($story['image']) {
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s', 
-                    $config['image_path'], 
-                    $story['path'], 
+                sprintf('upload/%s/thumb/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
                     $story['image']
                 ));
         } else {
@@ -443,7 +443,7 @@ class Story extends AbstractApi
             'topic'                => $topic[0],
         );
         // return item
-        return $storyJson; 
+        return $storyJson;
     }
 
     public function sitemap()
@@ -481,30 +481,30 @@ class Story extends AbstractApi
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path
                 $original = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image large path
                 $images['large'] = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image medium path
                 $images['medium'] = Pi::path(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Set image thumb path
                 $images['thumb'] = Pi::path(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Check original exist of not

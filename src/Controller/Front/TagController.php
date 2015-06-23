@@ -52,7 +52,7 @@ class TagController extends IndexController
         }
         // Set story info
         $where = array(
-            'status'      => 1, 
+            'status'      => 1,
             'story'       => $tagId
         );
         // Get story List
@@ -104,8 +104,8 @@ class TagController extends IndexController
                 $tagList[$row->id] = $row->toArray();
                 $tagList[$row->id]['term'] = $tag['term'];
                 $tagList[$row->id]['url'] = Pi::url($this->url('', array(
-                    'controller'  => 'tag', 
-                    'action'      => 'term', 
+                    'controller'  => 'tag',
+                    'action'      => 'term',
                     'slug'        => urldecode($tag['term'])
                 )));
             }
@@ -126,4 +126,4 @@ class TagController extends IndexController
         $this->view()->assign('title', $title);
         $this->view()->assign('tagList', $tagList);
     }
-}	
+}

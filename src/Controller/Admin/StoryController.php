@@ -30,7 +30,7 @@ class StoryController extends ActionController
     protected $ImageStoryPrefix = 'image_';
 
     protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'topic_main', 'author', 'text_summary', 'text_description', 
+        'id', 'title', 'subtitle', 'slug', 'topic', 'topic_main', 'author', 'text_summary', 'text_description',
         'seo_title', 'seo_keywords', 'seo_description', 'important', 'status', 'time_create', 'time_update',
         'time_publish', 'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'attribute', 'type'
     );
@@ -90,14 +90,14 @@ class StoryController extends ActionController
                 case 'download':
                     $story[$row->id]['type_view'] = __('Download');
                     break;
-                    
+
                 case 'media':
                     $story[$row->id]['type_view'] = __('Media');
                     break;
-                    
+
                 case 'gallery':
                     $story[$row->id]['type_view'] = __('Gallery');
-                    break;           
+                    break;
 
                 case 'text':
                 default:
@@ -114,7 +114,7 @@ class StoryController extends ActionController
             $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
             $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
-        }   
+        }
         // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
@@ -171,8 +171,8 @@ class StoryController extends ActionController
             $url = array(
                 'action' => 'index',
             );
-        } 
-        return $this->jump($url, $message);  
+        }
+        return $this->jump($url, $message);
     }
 
     public function viewAction()
@@ -216,12 +216,12 @@ class StoryController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module, 
-                        'controller'  => 'story', 
+                        'module'      => $module,
+                        'controller'  => 'story',
                         'slug'        => $story->slug
                     )));
                     // Update sitemap
-                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $story->status, $module, 'story', $story->id);         
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $story->status, $module, 'story', $story->id);
                 }
                 // Set return
                 $return['message'] = sprintf(__('%s story accept successfully'), $story->title);
@@ -361,7 +361,7 @@ class StoryController extends ActionController
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
-                    $values['image'] = '';  
+                    $values['image'] = '';
                 }
                 // Set just story fields
                 foreach (array_keys($values) as $key) {
@@ -419,12 +419,12 @@ class StoryController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module, 
-                        'controller'  => 'story', 
+                        'module'      => $module,
+                        'controller'  => 'story',
                         'slug'        => $values['slug']
                     )));
                     // Update sitemap
-                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);         
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);
                 }
                 // Make jump information
                 $message = __('Story data saved successfully.');
@@ -454,14 +454,14 @@ class StoryController extends ActionController
             case 'download':
                 $message = __('Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page');
                 break;
-                   
+
             case 'media':
                 $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
                 break;
-                    
+
             case 'gallery':
                 $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
-                break;           
+                break;
 
             case 'text':
             default:
@@ -600,12 +600,12 @@ class StoryController extends ActionController
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url($this->url('news', array(
-                        'module'      => $module, 
-                        'controller'  => 'story', 
+                        'module'      => $module,
+                        'controller'  => 'story',
                         'slug'        => $row->slug
                     )));
                 Pi::api('sitemap', 'sitemap')->remove($loc);
-            } 
+            }
             // Remove page
             $row->delete();
             $this->jump(array('action' => 'index'), __('This story deleted'));

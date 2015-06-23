@@ -30,12 +30,12 @@ class AuthorController extends ActionController
     protected $ImageAuthorPrefix = 'author_';
 
     protected $authorColumns = array(
-    	'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description', 
-    	'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
+        'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description',
+        'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
     );
 
     protected $authorRoleColumns = array(
-    	'id', 'title', 'status'
+        'id', 'title', 'status'
     );
 
     public function indexAction()
@@ -117,8 +117,8 @@ class AuthorController extends ActionController
             $url = array(
                 'action' => 'index',
             );
-        } 
-        return $this->jump($url, $message);  
+        }
+        return $this->jump($url, $message);
     }
 
     public function updateAction()
@@ -174,7 +174,7 @@ class AuthorController extends ActionController
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
-                    $values['image'] = '';  
+                    $values['image'] = '';
                 }
                 // Set just category fields
                 foreach (array_keys($values) as $key) {
@@ -218,12 +218,12 @@ class AuthorController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module, 
-                        'controller'  => 'author', 
+                        'module'      => $module,
+                        'controller'  => 'author',
                         'slug'        => $values['slug']
                     )));
                     // Update sitemap
-                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);         
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);
                 }
                 // Clear registry
                 Pi::registry('authorList', 'news')->clear();
@@ -241,7 +241,7 @@ class AuthorController extends ActionController
         // Set view
         $this->view()->setTemplate('author-update');
         $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('Add Author')); 
+        $this->view()->assign('title', __('Add Author'));
     }
 
     public function roleAction()
@@ -303,14 +303,14 @@ class AuthorController extends ActionController
             }
         } else {
             if ($id) {
-            	$role = $this->getModel('author_role')->find($id)->toArray();
+                $role = $this->getModel('author_role')->find($id)->toArray();
                 $form->setData($role);
             }
         }
         // Set view
         $this->view()->setTemplate('author-role-update');
         $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('Add Role')); 
+        $this->view()->assign('title', __('Add Role'));
     }
 
     public function removeAction()
@@ -349,4 +349,4 @@ class AuthorController extends ActionController
             'message' => $message,
         );
     }
-}    
+}

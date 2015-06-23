@@ -55,7 +55,7 @@ class IndexController extends ActionController
         $this->view()->assign('page', $page);
         $this->view()->assign('newsTitleH1', __('List of Latest stories'));
     }
-    
+
     public function storyList($where, $limit, $orderLink = 'publishDESC')
     {
         // Set info
@@ -137,7 +137,7 @@ class IndexController extends ActionController
         $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
         $template['year'] = (isset($template['year'])) ? $template['year'] : '';
         $template['month'] = (isset($template['month'])) ? $template['month'] : '';
-        // get count     
+        // get count
         $columns = array('count' => new Expression('count(DISTINCT `story`)'));
         $select = $this->getModel('link')->select()->where($where)->columns($columns);
         $count = $this->getModel('link')->selectWith($select)->current()->count;
@@ -222,7 +222,7 @@ class IndexController extends ActionController
             default:
                 $order = array('time_publish DESC', 'id DESC');
                 break;
-        } 
+        }
         return $order;
     }
 }

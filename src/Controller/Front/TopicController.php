@@ -120,7 +120,7 @@ class TopicController extends IndexController
         $this->view()->assign('topics', $topics);
         $this->view()->assign('config', $config);
     }
-    
+
     public static function getMethodFromAction($action)
     {
         if($action == 'list') {

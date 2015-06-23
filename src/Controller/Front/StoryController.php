@@ -59,7 +59,7 @@ class StoryController extends ActionController
         if ($config['show_attach'] && $story['attach']) {
             $attach = Pi::api('story', 'news')->AttachList($story['id']);
             $this->view()->assign('attach', $attach);
-        } 
+        }
         // attribute
         if ($config['show_attribute'] && $story['attribute']) {
             $attribute = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
@@ -68,7 +68,7 @@ class StoryController extends ActionController
         // Tag
         if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {
             $tag = Pi::service('tag')->get($module, $story['id'], '');
-            $this->view()->assign('tag', $tag);  
+            $this->view()->assign('tag', $tag);
         }
         // Author
         /* if ($config['show_author']) {
@@ -98,14 +98,14 @@ class StoryController extends ActionController
             case 'download':
                 $template = 'story-download';
                 break;
-                    
+
             case 'media':
                 $template = 'story-media';
                 break;
-                    
+
             case 'gallery':
                 $template = 'story-gallery';
-                break;           
+                break;
 
             case 'text':
             default:

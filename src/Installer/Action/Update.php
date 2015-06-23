@@ -27,7 +27,7 @@ class Update extends BasicUpdate
         $events = $this->events;
         $events->attach('update.pre', array($this, 'updateSchema'));
         parent::attachDefaultListeners();
-        
+
         return $this;
     }
 
@@ -37,7 +37,7 @@ class Update extends BasicUpdate
     public function updateSchema(Event $e)
     {
         $moduleVersion  = $e->getParam('version');
-        
+
         // Set story model
         $storyModel    = Pi::model('story', $this->module);
         $storyTable    = $storyModel->getTable();
@@ -61,7 +61,7 @@ class Update extends BasicUpdate
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
-        	$sql = sprintf("ALTER TABLE %s ADD `type` ENUM( 'text', 'gallery', 'media', 'download' ) 
+            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM( 'text', 'gallery', 'media', 'download' )
         		NOT NULL DEFAULT 'text'", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
@@ -69,7 +69,7 @@ class Update extends BasicUpdate
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -85,7 +85,7 @@ class Update extends BasicUpdate
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -98,7 +98,7 @@ class Update extends BasicUpdate
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -139,7 +139,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'SQL schema query for author table failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
 
                 return false;
@@ -164,7 +164,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'SQL schema query for author table failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
 
                 return false;
@@ -196,7 +196,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'SQL schema query for author table failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
 
                 return false;
@@ -213,7 +213,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -230,7 +230,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -246,7 +246,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -259,7 +259,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -272,7 +272,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -285,7 +285,7 @@ EOD;
                 $this->setResult('db', array(
                     'status'    => false,
                     'message'   => 'Table alter query failed: '
-                                   . $exception->getMessage(),
+                        . $exception->getMessage(),
                 ));
                 return false;
             }
@@ -439,5 +439,5 @@ EOD;
         }
 
         return true;
-    }    
+    }
 }

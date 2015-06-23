@@ -66,7 +66,7 @@ class ToolsController extends ActionController
 
                 case 'slug_id':
                     foreach ($rowset as $row) {
-                          $this->getModel('story')->update(array('slug' => $row->id), array('id' => $row->id));
+                        $this->getModel('story')->update(array('slug' => $row->id), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
                     break;
@@ -90,7 +90,7 @@ class ToolsController extends ActionController
                         $this->getModel('story')->update(array('seo_keywords' => $keywords), array('id' => $row->id));
                     }
                     $message = __('Finish Rebuild SEO keywords, all story SEO keywords update');
-                    break;    
+                    break;
 
                 case 'seo_description':
                     foreach ($rowset as $row) {
@@ -183,8 +183,8 @@ class ToolsController extends ActionController
                 $message = __('All other pages removed');
             } else {
                 $message = __('No pages were removed');
-            }    
-        }    
+            }
+        }
         // Set view
         $this->view()->setTemplate('tools-page');
         $this->view()->assign('form', $form);
@@ -216,10 +216,10 @@ class ToolsController extends ActionController
 
                 case '4':
                     Pi::api('author', 'news')->sitemap();
-                    break;    
+                    break;
             }
             $message = __('Sitemap rebuild finished');
-        }    
+        }
         // Set view
         $this->view()->setTemplate('tools-sitemap');
         $this->view()->assign('form', $form);
@@ -255,7 +255,7 @@ class ToolsController extends ActionController
 
             }
             $message = __('Regenerate images finished');
-        }    
+        }
         // Set view
         $this->view()->setTemplate('tools-image');
         $this->view()->assign('form', $form);

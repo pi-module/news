@@ -153,7 +153,7 @@ class TopicForm extends BaseForm
                 'attributes' => array(
                     'type' => 'hidden',
                 ),
-             ));
+            ));
         } else {
             $this->add(array(
                 'name' => 'image',

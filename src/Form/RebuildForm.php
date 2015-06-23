@@ -69,4 +69,4 @@ class RebuildForm extends BaseForm
             )
         ));
     }
-}	
+}

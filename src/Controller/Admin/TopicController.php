@@ -27,7 +27,7 @@ class TopicController extends ActionController
 
     protected $topicColumns = array(
         'id', 'pid', 'title', 'slug', 'text_description', 'image', 'path',
-        'seo_title', 'seo_keywords', 'seo_description', 'uid', 'time_create', 'time_update', 
+        'seo_title', 'seo_keywords', 'seo_description', 'uid', 'time_create', 'time_update',
         'setting', 'status', 'style',
     );
 
@@ -57,18 +57,18 @@ class TopicController extends ActionController
                 case 'table':
                     $list[$row->id]['style_view'] = __('Table');
                     break;
-                    
+
                 case 'media':
                     $list[$row->id]['style_view'] = __('Media');
                     break;
-                    
+
                 case 'spotlight':
                     $list[$row->id]['style_view'] = __('Spotlight');
-                    break;  
+                    break;
 
                 case 'topic':
                     $list[$row->id]['style_view'] = __('Topic');
-                    break;  
+                    break;
 
                 case 'news':
                 default:
@@ -193,7 +193,7 @@ class TopicController extends ActionController
                         $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
-                    $values['image'] = '';  
+                    $values['image'] = '';
                 }
                 // Set setting
                 $setting = array();
@@ -253,12 +253,12 @@ class TopicController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
-                // Set topic as page for dress up block 
+                // Set topic as page for dress up block
                 $pageName = sprintf('topic-%s', $row->id);
                 if ($this->config('admin_setpage') && $setting['set_page']) {
                     if(empty($values['id'])) {
                         $this->setPage($pageName, sprintf(__('Page : %s') , $row->title));
-                    } else { 
+                    } else {
                         $this->updatePage($pageName, sprintf(__('Page : %s') , $row->title));
                     }
                 } else {
@@ -269,12 +269,12 @@ class TopicController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module, 
-                        'controller'  => 'topic', 
+                        'module'      => $module,
+                        'controller'  => 'topic',
                         'slug'        => $values['slug']
                     )));
                     // Update sitemap
-                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);         
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);
                 }
                 // Clear registry
                 Pi::registry('topicList', 'news')->clear();
@@ -344,19 +344,19 @@ class TopicController extends ActionController
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url($this->url('news', array(
-                        'module' => $module, 
-                        'controller' => 'topic', 
+                        'module' => $module,
+                        'controller' => 'topic',
                         'slug' => $row->slug
                     )));
                 Pi::api('sitemap', 'sitemap')->remove($loc);
-            } 
+            }
             // Remove topic
             $row->delete();
             $this->jump(array('action' => 'index'), __('This topic and all of stores deleted'));
         }
         $this->jump(array('action' => 'index'), __('Please select topic'));
     } */
-    
+
     /**
      * Add page settings to system
      *
@@ -399,7 +399,7 @@ class TopicController extends ActionController
         $count = Pi::model('page')->delete($where);
         return $count;
     }
-    
+
     /**
      * time_update from system page settings
      *

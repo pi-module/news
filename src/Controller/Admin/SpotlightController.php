@@ -51,13 +51,13 @@ class SpotlightController extends ActionController
             $topicList[$row->id] = $row->toArray();
         }
         $topicList[-1] = array(
-            'id'     => -1, 
-            'title'  => __('Home Page'), 
+            'id'     => -1,
+            'title'  => __('Home Page'),
             'slug'   => ''
         );
         $topicList[0] = array(
-            'id'     => 0, 
-            'title'  => __('All Topics'), 
+            'id'     => 0,
+            'title'  => __('All Topics'),
             'slug'   => ''
         );
         // Get stores
@@ -177,4 +177,4 @@ class SpotlightController extends ActionController
         }
         $this->jump(array('action' => 'index'), __('Please select spotlight'));
     }
-}	
+}

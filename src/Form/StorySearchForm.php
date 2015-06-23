@@ -18,7 +18,7 @@ use Pi\Form\Form as BaseForm;
 
 class StorySearchForm  extends BaseForm
 {
-	public function __construct($name = null, $option = array())
+    public function __construct($name = null, $option = array())
     {
         parent::__construct($name);
     }
@@ -41,7 +41,7 @@ class StorySearchForm  extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => '', 
+                'description' => '',
             )
         ));
         // Save

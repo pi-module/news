@@ -53,7 +53,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                
+
             )
         ));
         // subtitle
@@ -65,7 +65,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                
+
             )
         ));
         // slug
@@ -77,7 +77,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                
+
             )
         ));
         // topic
@@ -292,7 +292,7 @@ class StoryForm extends BaseForm
                     ),
                 ));
             }
-        }    
+        }
         // Save
         $this->add(array(
             'name' => 'submit',

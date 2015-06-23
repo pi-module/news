@@ -40,7 +40,7 @@ class Install extends BasicInstall
     public function postInstall(Event $e)
     {
         $module = $e->getParam('module');
-        
+
         // Set model
         $storyModel = Pi::model('story', $module);
         $topicModel = Pi::model('topic', $module);
@@ -84,7 +84,7 @@ class Install extends BasicInstall
             'setting'          => Json::encode($setting),
         );
         $topicModel->insert($topicData);
-        
+
         // Add topic as page
         $pageData = array(
             'section'          => 'front',
@@ -97,7 +97,7 @@ class Install extends BasicInstall
         );
         $pageRow = Pi::model('page')->createRow($pageData);
         $pageRow->save();
-        
+
         // Add story
         $storyData = array(
             'title'            => __('Hello World'),

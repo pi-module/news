@@ -21,11 +21,11 @@ use Pi\Application\Api\AbstractApi;
  */
 
 class Image extends AbstractApi
-{  
+{
     public function rename($image = '', $prefix = 'image_', $path = '')
     {
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
-        
+
         // Check image name
         if (empty($image)) {
             return $prefix . '%random%';
@@ -59,12 +59,12 @@ class Image extends AbstractApi
     public function process($image, $path)
     {
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
-        
+
         // Set original path
         $original = Pi::path(
             sprintf('upload/%s/original/%s/%s', $config['image_path'], $path, $image)
         );
-        
+
         // Set large path
         $large = Pi::path(
             sprintf('upload/%s/large/%s/%s', $config['image_path'], $path, $image)
@@ -87,7 +87,7 @@ class Image extends AbstractApi
 
         // Resize to large
         Pi::service('image')->resize(
-            $original, 
+            $original,
             array($config['image_largew'], $config['image_largeh'], true),
             $large,
             '',
@@ -96,7 +96,7 @@ class Image extends AbstractApi
 
         // Resize to medium
         Pi::service('image')->resize(
-            $original, 
+            $original,
             array($config['image_mediumw'], $config['image_mediumh'], true),
             $medium,
             '',
@@ -105,7 +105,7 @@ class Image extends AbstractApi
 
         // Resize to thumb
         Pi::service('image')->resize(
-            $original, 
+            $original,
             array($config['image_thumbw'], $config['image_thumbh'], true),
             $thumb,
             '',

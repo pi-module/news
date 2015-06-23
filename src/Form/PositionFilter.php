@@ -40,7 +40,7 @@ class PositionFilter extends InputFilter
             'name' => 'order',
             'required' => false,
         ));
-    	// status
+        // status
         $this->add(array(
             'name' => 'status',
             'required' => false,

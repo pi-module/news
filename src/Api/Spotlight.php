@@ -29,15 +29,15 @@ class Spotlight extends AbstractApi
             return false;
         }
 
-        $where1 = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()); 
+        $where1 = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time());
         $where2 = array('topic' => 0);
         $where3 = array('topic' => $topic);
         $order = array('id DESC', 'time_publish DESC');
         $limit = intval($config['spotlight_number']);
         $columns = array('story');
-        
+
         $select = Pi::model('spotlight', $this->getModule())->select()
-        ->columns($columns)->where($where1)->where($where2)->where($where3, 'OR')->order($order)->limit($limit);
+            ->columns($columns)->where($where1)->where($where2)->where($where3, 'OR')->order($order)->limit($limit);
         $rowset = Pi::model('spotlight', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
             $row = $row->toArray();
@@ -51,9 +51,9 @@ class Spotlight extends AbstractApi
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 $story[$row->id] = $row->toArray();
-                $story[$row->id]['text_summary'] = (mb_strlen($story[$row->id]['text_summary'], 'utf-8') > 140) ? 
-                                             mb_substr($story[$row->id]['text_summary'], 0, 140, 'utf-8') . "..." : 
-                                             $story[$row->id]['text_summary'];
+                $story[$row->id]['text_summary'] = (mb_strlen($story[$row->id]['text_summary'], 'utf-8') > 140) ?
+                    mb_substr($story[$row->id]['text_summary'], 0, 140, 'utf-8') . "..." :
+                    $story[$row->id]['text_summary'];
                 // Set story url
                 $story[$row->id]['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                     'module'        => $this->getModule(),
@@ -64,16 +64,16 @@ class Spotlight extends AbstractApi
                 if ($story[$row->id]['image']) {
                     // Set image medium url
                     $story[$row->id]['mediumUrl'] = Pi::url(
-                        sprintf('upload/%s/medium/%s/%s', 
-                            $config['image_path'], 
-                            $story[$row->id]['path'], 
+                        sprintf('upload/%s/medium/%s/%s',
+                            $config['image_path'],
+                            $story[$row->id]['path'],
                             $story[$row->id]['image']
                         ));
                     // Set image thumb url
                     $story[$row->id]['thumbUrl'] = Pi::url(
-                        sprintf('upload/%s/thumb/%s/%s', 
-                            $config['image_path'], 
-                            $story[$row->id]['path'], 
+                        sprintf('upload/%s/thumb/%s/%s',
+                            $config['image_path'],
+                            $story[$row->id]['path'],
                             $story[$row->id]['image']
                         ));
                 }
@@ -84,4 +84,4 @@ class Spotlight extends AbstractApi
         }
         return false;
     }
-}	
+}

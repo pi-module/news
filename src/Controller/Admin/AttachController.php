@@ -23,7 +23,7 @@ use Zend\Json\Json;
 class AttachController extends ActionController
 {
     protected $AttachPrefix = 'attach_';
-    
+
     protected $attachColumns = array(
         'id', 'title', 'file', 'path', 'story', 'time_create', 'size', 'type', 'status', 'hits'
     );
@@ -105,12 +105,12 @@ class AttachController extends ActionController
                 'id'            => $row->id,
             )));
             $content[$row->id]['editUrl'] = $this->url('', array(
-                'action'  => 'edit', 
+                'action'  => 'edit',
                 'id'      => $row->id,
             ));
             $content[$row->id]['preview'] = $this->filePreview(
-                $content[$row->id]['type'], 
-                $content[$row->id]['path'], 
+                $content[$row->id]['type'],
+                $content[$row->id]['path'],
                 $content[$row->id]['file']
             );
             $contents[] = $content[$row->id];
@@ -134,11 +134,11 @@ class AttachController extends ActionController
         $file = $this->getModel('attach')->find($id)->toArray();
         $file['view'] = $this->fileView($file['type'], $file['path'], $file['file']);
         $file['downloadUrl'] = Pi::url($this->url('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'media',
-                'action'        => 'download',
-                'id'            => $file['id'],
-            )));
+            'module'        => $this->getModule(),
+            'controller'    => 'media',
+            'action'        => 'download',
+            'id'            => $file['id'],
+        )));
         $story = $this->getModel('story')->find($file['story'])->toArray();
         // Set form
         $form = new AttachForm('attach', $story['id']);
@@ -181,15 +181,15 @@ class AttachController extends ActionController
         Pi::service('log')->active(false);
         // Set return
         $return = array(
-            'status' => 1, 
-            'message' => '', 
-            'id' => '', 
-            'title' => '', 
+            'status' => 1,
+            'message' => '',
+            'id' => '',
+            'title' => '',
             'time_create' => '',
-            'type' => '', 
-            'status' => '', 
-            'hits' => '', 
-            'size' => '', 
+            'type' => '',
+            'status' => '',
+            'hits' => '',
+            'size' => '',
             'preview' => '',
         );
         // Get id

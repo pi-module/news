@@ -66,16 +66,16 @@ class MediaController extends ActionController
                 $attach['path'],
                 $attach['file']
             );
-        } else {   
+        } else {
             $url = sprintf('%s?%s/%s/%s/%s/%s',
                 Pi::url('www/script/download.php'),
                 'upload',
-                $config['file_path'], 
+                $config['file_path'],
                 $attach['type'],
                 $attach['path'],
                 $attach['file']
             );
-        } 
+        }
         // redirect
         return $this->redirect()->toUrl($url);
     }

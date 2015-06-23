@@ -73,13 +73,13 @@ class Author extends AbstractApi
 
     public function setFormValues($story)
     {
-    	// set info
+        // set info
         $where = array('story' => $story['id']);
         // Get attach count
         $select = Pi::model('author_story', $this->getModule())->select()->where($where);
         $rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
-        	$name = sprintf('role_%s', $row->role);
+            $name = sprintf('role_%s', $row->role);
             $story[$name] = $row->author;
         }
         return $story;
@@ -87,45 +87,45 @@ class Author extends AbstractApi
 
     public function setAuthorStory($story, $time_publish, $status, $authors = array())
     {
-    	if (!empty($authors)) {
-    		//Remove
-        	Pi::model('author_story', $this->getModule())->delete(array('story' => $story));
-        	// Add
-        	foreach ($authors as $author) {
-        		if ($author['author'] > 0) {
-        			// Set array
-            		$values['story'] = $story;
-            		$values['time_publish'] = $time_publish;
-            		$values['status'] = $status;
-            		$values['author'] = $author['author'];
-            		$values['role'] = $author['role'];
-           	    	// Save
-            		$row = Pi::model('author_story', $this->getModule())->createRow();
-            		$row->assign($values);
-            		$row->save();
-        		}
-        	}
-    	}
+        if (!empty($authors)) {
+            //Remove
+            Pi::model('author_story', $this->getModule())->delete(array('story' => $story));
+            // Add
+            foreach ($authors as $author) {
+                if ($author['author'] > 0) {
+                    // Set array
+                    $values['story'] = $story;
+                    $values['time_publish'] = $time_publish;
+                    $values['status'] = $status;
+                    $values['author'] = $author['author'];
+                    $values['role'] = $author['role'];
+                    // Save
+                    $row = Pi::model('author_story', $this->getModule())->createRow();
+                    $row->assign($values);
+                    $row->save();
+                }
+            }
+        }
     }
 
     public function getStoryList($author, $roles)
     {
         $story = array();
         foreach ($roles as $role) {
-			// set info
-			$id = array();
-        	$where = array('status' => 1, 'author' => $author, 'role' => $role['id']);
-        	$order = array('time_publish DESC', 'id DESC');
-        	// Get author
-        	$select = Pi::model('author_story', $this->getModule())->select()->where($where)->order($order);
-        	$rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
-        	foreach ($rowset as $row) {
-            	$id[] = $row->story;
-        	}
-        	// Check and get
-        	if (!empty($id)) {
-        		$story[$role['id']] = Pi::api('story', 'news')->getListFromIdLight($id);
-        	}
+            // set info
+            $id = array();
+            $where = array('status' => 1, 'author' => $author, 'role' => $role['id']);
+            $order = array('time_publish DESC', 'id DESC');
+            // Get author
+            $select = Pi::model('author_story', $this->getModule())->select()->where($where)->order($order);
+            $rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
+            foreach ($rowset as $row) {
+                $id[] = $row->story;
+            }
+            // Check and get
+            if (!empty($id)) {
+                $story[$role['id']] = Pi::api('story', 'news')->getListFromIdLight($id);
+            }
         }
         return $story;
     }
@@ -180,30 +180,30 @@ class Author extends AbstractApi
         if ($author['image']) {
             // Set image original url
             $author['originalUrl'] = Pi::url(
-                sprintf('upload/%s/original/%s/%s', 
-                    $config['image_path'], 
-                    $author['path'], 
+                sprintf('upload/%s/original/%s/%s',
+                    $config['image_path'],
+                    $author['path'],
                     $author['image']
                 ));
             // Set image large url
             $author['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s', 
-                    $config['image_path'], 
-                    $author['path'], 
+                sprintf('upload/%s/large/%s/%s',
+                    $config['image_path'],
+                    $author['path'],
                     $author['image']
                 ));
             // Set image medium url
             $author['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s', 
-                    $config['image_path'], 
-                    $author['path'], 
+                sprintf('upload/%s/medium/%s/%s',
+                    $config['image_path'],
+                    $author['path'],
                     $author['image']
                 ));
             // Set image thumb url
             $author['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s', 
-                    $config['image_path'], 
-                    $author['path'], 
+                sprintf('upload/%s/thumb/%s/%s',
+                    $config['image_path'],
+                    $author['path'],
                     $author['image']
                 ));
         } else {
@@ -217,7 +217,7 @@ class Author extends AbstractApi
             $author['thumbUrl'] = Pi::url('static/avatar/local/large.png');
         }
         // return author
-        return $author; 
+        return $author;
     }
 
     public function sitemap()
@@ -255,30 +255,30 @@ class Author extends AbstractApi
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path
                 $original = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image large path
                 $images['large'] = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image medium path
                 $images['medium'] = Pi::path(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Set image thumb path
                 $images['thumb'] = Pi::path(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Check original exist of not

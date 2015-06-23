@@ -50,7 +50,7 @@ class PositionForm  extends BaseForm
                 'type' => 'text',
                 'description' => '',
                 'required' => true,
-                
+
             )
         ));
         // order
@@ -62,7 +62,7 @@ class PositionForm  extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                
+
             )
         ));
         // status

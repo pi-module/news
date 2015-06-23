@@ -47,9 +47,9 @@ class AuthorList extends AbstractRegistry
             ));
             if ($row->image) {
                 $author['author'][$row->id]['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
             } else {

@@ -40,4 +40,4 @@ class StoryAdditionalFilter extends InputFilter
             }
         }
     }
-}    	
+}

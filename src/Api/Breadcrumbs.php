@@ -28,10 +28,10 @@ class Breadcrumbs extends AbstractBreadcrumbs
         $config = Pi::service('registry')->config->read($this->getModule());
         // Check breadcrumbs
         if ($config['view_breadcrumbs']) {
-        	// Set module link
-        	$moduleData = Pi::registry('module')->read($this->getModule());
-        	// Make tree
-        	if (!empty($params['controller']) && $params['controller'] != 'index') {
+            // Set module link
+            $moduleData = Pi::registry('module')->read($this->getModule());
+            // Make tree
+            if (!empty($params['controller']) && $params['controller'] != 'index') {
                 // Set index
                 $result = array(
                     array(
@@ -42,7 +42,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                     ),
                 );
                 // Set
-        		switch ($params['controller']) {
+                switch ($params['controller']) {
                     case 'author':
                         if (!empty($params['slug'])) {
                             // Set link
@@ -128,17 +128,17 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             );
                         }
                         break;
-        		}
-        	} else {
+                }
+            } else {
                 $result = array(
                     array(
                         'label' => $moduleData['title'],
                     ),
                 );
             }
-        	return $result;
+            return $result;
         } else {
-        	return '';
+            return '';
         }
     }
 }

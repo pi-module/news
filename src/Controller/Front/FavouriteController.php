@@ -18,7 +18,7 @@ use Pi\Mvc\Controller\ActionController;
 
 class FavouriteController extends IndexController
 {
-	public function indexAction()
+    public function indexAction()
     {
         // Check user is login or not
         Pi::service('authentication')->requireLogin();

@@ -64,30 +64,30 @@ class Topic extends AbstractApi
             if ($topic['image']) {
                 // Set image original url
                 $topic['originalUrl'] = Pi::url(
-                    sprintf('upload/%s/original/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/original/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
                 // Set image large url
                 $topic['largeUrl'] = Pi::url(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
                 // Set image medium url
                 $topic['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
                 // Set image thumb url
                 $topic['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
             }
@@ -110,7 +110,7 @@ class Topic extends AbstractApi
                     $topic['attach_title'] = __('Download');
                 }
             }
-        }  
+        }
         // Set topic config
         if (!isset($topic) || $topic['show_config'] == 'module') {
             $topic['style'] = $config['style'];
@@ -199,7 +199,7 @@ class Topic extends AbstractApi
         }
         return $class;
     }
-    
+
     /**
      * Set page template
      * By shwotype option
@@ -227,7 +227,7 @@ class Topic extends AbstractApi
             case 'spotlight':
                 $template = 'index-spotlight';
                 break;
-            
+
             case 'topic':
                 $template = 'index-topic';
                 break;
@@ -327,30 +327,30 @@ class Topic extends AbstractApi
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path
                 $original = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image large path
                 $images['large'] = Pi::path(
-                    sprintf('upload/%s/large/%s/%s', 
-                        $config['image_path'], 
+                    sprintf('upload/%s/large/%s/%s',
+                        $config['image_path'],
                         $row->path,
                         $row->image
                     ));
                 // Set image medium path
                 $images['medium'] = Pi::path(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Set image thumb path
                 $images['thumb'] = Pi::path(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $row->path, 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $row->path,
                         $row->image
                     ));
                 // Check original exist of not

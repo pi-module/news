@@ -45,7 +45,7 @@ class Block
             default:
                 $order = array('time_publish DESC', 'id DESC');;
                 break;
-        } 
+        }
         // Get info from link table
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
@@ -97,16 +97,16 @@ class Block
             if ($topic['image']) {
                 // Set image medium url
                 $topic['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/medium/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
                 // Set image thumb url
                 $topic['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s', 
-                        $config['image_path'], 
-                        $topic['path'], 
+                    sprintf('upload/%s/thumb/%s/%s',
+                        $config['image_path'],
+                        $topic['path'],
                         $topic['image']
                     ));
             }
@@ -128,7 +128,7 @@ class Block
                 default:
                     $order = array('time_publish DESC', 'id DESC');;
                     break;
-            } 
+            }
             // Get info from link table
             $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
             $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
@@ -186,7 +186,7 @@ class Block
             default:
                 $order = array('time_create DESC', 'id DESC');;
                 break;
-        } 
+        }
         // Get info from topic table
         $select = Pi::model('topic', $module)->select()->where($where)->order($order);
         $rowset = Pi::model('topic', $module)->selectWith($select);
@@ -218,23 +218,23 @@ class Block
             $list[$row->id] = $row->toArray();
             // Set image links
             $list[$row->id]['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s', 
-                    $config['image_path'], 
-                    $list[$row->id]['path'], 
+                sprintf('upload/%s/large/%s/%s',
+                    $config['image_path'],
+                    $list[$row->id]['path'],
                     $list[$row->id]['file']
-            )); 
+                ));
             $list[$row->id]['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s', 
-                    $config['image_path'], 
-                    $list[$row->id]['path'], 
+                sprintf('upload/%s/medium/%s/%s',
+                    $config['image_path'],
+                    $list[$row->id]['path'],
                     $list[$row->id]['file']
-            )); 
+                ));
             $list[$row->id]['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s', 
-                    $config['image_path'], 
-                    $list[$row->id]['path'], 
+                sprintf('upload/%s/thumb/%s/%s',
+                    $config['image_path'],
+                    $list[$row->id]['path'],
                     $list[$row->id]['file']
-            ));
+                ));
             // Set mediaUrl
             $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
                 'module'      => $module,
