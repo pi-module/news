@@ -311,7 +311,7 @@ EOD;
         // Update to version 1.5.0
         if (version_compare($moduleVersion, '1.5.0', '<')) {
             // Alter table : DROP `image`
-            $sql = sprintf("ALTER TABLE %s DROP `image`;", $fieldTable);
+            /* $sql = sprintf("ALTER TABLE %s DROP `image`;", $fieldTable);
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -321,7 +321,7 @@ EOD;
                         . $exception->getMessage(),
                 ));
                 return false;
-            }
+            } */
             // Alter table : CHANGE `type`
             $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox') NOT NULL DEFAULT 'text'", $fieldTable);
             try {
