@@ -24,10 +24,6 @@ class AttachController extends ActionController
 {
     protected $AttachPrefix = 'attach_';
 
-    protected $attachColumns = array(
-        'id', 'title', 'file', 'path', 'story', 'time_create', 'size', 'type', 'status', 'hits'
-    );
-
     public function indexAction()
     {
         // Get page
@@ -149,11 +145,6 @@ class AttachController extends ActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->attachColumns)) {
-                        unset($values[$key]);
-                    }
-                }
                 $row = $this->getModel('attach')->find($values['id']);
                 $row->assign($values);
                 $row->save();

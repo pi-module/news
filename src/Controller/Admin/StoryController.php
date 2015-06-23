@@ -29,12 +29,6 @@ class StoryController extends ActionController
 {
     protected $ImageStoryPrefix = 'image_';
 
-    protected $storyColumns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'topic_main', 'author', 'text_summary', 'text_description',
-        'seo_title', 'seo_keywords', 'seo_description', 'important', 'status', 'time_create', 'time_update',
-        'time_publish', 'uid', 'hits', 'image', 'path', 'point', 'count', 'favorite', 'attach', 'attribute', 'type'
-    );
-
     public function indexAction()
     {
         // Get page
@@ -363,12 +357,6 @@ class StoryController extends ActionController
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
-                // Set just story fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->storyColumns)) {
-                        unset($values[$key]);
-                    }
-                }
                 // Topics
                 $values['topic'] = Json::encode(array_unique($values['topic']));
                 // Author
@@ -504,12 +492,6 @@ class StoryController extends ActionController
                     foreach ($fields['field'] as $field) {
                         $attribute[$field]['field'] = $field;
                         $attribute[$field]['data'] = $values[$field];
-                    }
-                }
-                // Set just story fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->storyColumns)) {
-                        unset($values[$key]);
                     }
                 }
                 // Set time

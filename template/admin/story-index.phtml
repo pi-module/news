@@ -68,15 +68,24 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                         </div>
                         <div class="col-md-7">
                             <strong><?php _e('Action'); ?></strong> :
-                            <?php if($story['status'] == 1) { ?>
-                                <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
-                            <?php } elseif(in_array($story['status'], array(2,3,4))) { ?>
-                                <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-success btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>"><i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
-                            <?php } ?>
-                            <a class="btn btn-primary btn-xs" title="<?php _e('Preview'); ?>" href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></a>
-                            <a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-                            <a class="btn btn-primary btn-xs" title="<?php _e('Attach'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="fa fa-upload"></i> <?php _e('Attach'); ?></a>
-                            <!-- <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a> -->
+                            <span class="story-action">
+                                <?php if($story['status'] == 1) { ?>
+                                    <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-warning btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
+                                <?php } elseif(in_array($story['status'], array(2,3,4))) { ?>
+                                    <button id="button-<?php echo $story['id']; ?>" type="button" class="btn btn-success btn-xs" data-toggle="button" data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>"><i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
+                                <?php } ?>
+                            </span>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-edit"></i> <?php _e('Manage'); ?> <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a title="<?php _e('Edit basic information'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit basic information'); ?></a></li>
+                                    <li><a title="<?php _e('Edit additional information'); ?>" href="<?php echo $this->url('', array('action' => 'additional', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit additional information'); ?></a></li>
+                                    <li><a title="<?php _e('Attach files'); ?>" href="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'add', 'id' => $story['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Attach files'); ?></a></li>
+                                    <li><a title="<?php _e('Preview'); ?>" href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('Preview'); ?></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </td>
@@ -92,7 +101,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
 </div>
 <script type="text/javascript" >
     (function($){
-        $("#story-list").on("click","button",function(){
+        $("#story-list").on("click",".story-action button",function(){
             systemMessage.wait("<?php _e('Accept story in process'); ?>");
             $.getJSON($(this).attr("data-link")).done(function(result){
                 if(result.ajaxstatus==1){

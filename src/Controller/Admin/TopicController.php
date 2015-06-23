@@ -25,12 +25,6 @@ class TopicController extends ActionController
 {
     protected $ImageTopicPrefix = 'topic_';
 
-    protected $topicColumns = array(
-        'id', 'pid', 'title', 'slug', 'text_description', 'image', 'path',
-        'seo_title', 'seo_keywords', 'seo_description', 'uid', 'time_create', 'time_update',
-        'setting', 'status', 'style',
-    );
-
     public function indexAction()
     {
         // Get page
@@ -215,12 +209,6 @@ class TopicController extends ActionController
                 $setting['attach_download_count'] = $values['attach_download_count'];
                 $setting['set_page'] = $values['set_page'];
                 $values['setting'] = Json::encode($setting);
-                // Set just category fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->topicColumns)) {
-                        unset($values[$key]);
-                    }
-                }
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $filter = new Filter\HeadTitle;

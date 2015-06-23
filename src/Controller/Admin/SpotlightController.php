@@ -20,10 +20,6 @@ use Module\News\Form\SpotlightFilter;
 
 class SpotlightController extends ActionController
 {
-    protected $spotlightColumns = array(
-        'id', 'story', 'topic', 'uid', 'time_publish', 'time_expire', 'status'
-    );
-
     public function indexAction()
     {
         // Get page
@@ -116,11 +112,6 @@ class SpotlightController extends ActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->spotlightColumns)) {
-                        unset($values[$key]);
-                    }
-                }
                 // Set time
                 $values['time_publish'] = strtotime($values['time_publish']);
                 $values['time_expire'] = strtotime($values['time_expire']);
