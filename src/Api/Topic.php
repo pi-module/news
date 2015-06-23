@@ -209,7 +209,7 @@ class Topic extends AbstractApi
         switch ($style) {
             default:
             case 'news':
-                $template = 'index_news';
+                $template = 'index-news';
                 break;
 
             case 'list':

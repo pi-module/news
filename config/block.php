@@ -104,6 +104,21 @@ return array(
                 'filter'      => 'text',
                 'value'       => 'publishDESC',
             ),
+            'type' => array(
+                'title'        => _a('Item list type'),
+                'description'  => '',
+                'edit'         => array(
+                    'type'     => 'select',
+                    'options'  => array(
+                        'options'       => array(
+                            'simple'    => _a('Simple'),
+                            'slide'     => _a('Slide'),
+                        ),
+                    ),
+                ),
+                'filter'       => 'text',
+                'value'        => 'listgroup',
+            ),
         ),
     ),
 
@@ -250,7 +265,6 @@ return array(
         ),
     ),
 
-
     // Slotlight block
     'spotlight'   => array(
         'title'         => _a('Spotlight'),
@@ -364,6 +378,23 @@ return array(
                 'filter'      => 'text',
                 'value'       => 'createDESC',
             ),
+            'type' => array(
+                'title'        => _a('Topic list type'),
+                'description'  => '',
+                'edit'         => array(
+                    'type'     => 'select',
+                    'options'  => array(
+                        'options'       => array(
+                            'simple'    => _a('Simple'),
+                            'list'      => _a('List'),
+                            'listgroup' => _a('List group'),
+                            'slide'     => _a('Slide'),
+                        ),
+                    ),
+                ),
+                'filter'       => 'text',
+                'value'        => 'listgroup',
+            ),
         ),
     ),
 
@@ -394,6 +425,21 @@ return array(
                 'edit'         => 'text',
                 'filter'       => 'string',
                 'value'        => 'col-xs-6 col-sm-6 col-md-3',
+            ),
+            'type' => array(
+                'title'        => _a('Image list type'),
+                'description'  => '',
+                'edit'         => array(
+                    'type'     => 'select',
+                    'options'  => array(
+                        'options'       => array(
+                            'simple'    => _a('Simple'),
+                            'slide'     => _a('Slide'),
+                        ),
+                    ),
+                ),
+                'filter'       => 'text',
+                'value'        => 'simple',
             ),
         ),
     ),

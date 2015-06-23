@@ -24,7 +24,7 @@ class Block
         $block = array();
         $block = array_merge($block, $options);
         // Check topic permission
-        if (!in_array(0, $block['topicid'])) {
+        if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
         }
         // Set model and get information
@@ -164,9 +164,8 @@ class Block
         $block = array();
         $block = array_merge($block, $options);
         // Set model and get information
-        $columns = array('id', 'title', 'slug');
         $where = array('status' => 1);
-        if (!in_array(0, $block['topicid'])) {
+        if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
         }
         // Set order
@@ -189,16 +188,11 @@ class Block
                 break;
         } 
         // Get info from topic table
-        $select = Pi::model('topic', $module)->select()->columns($columns)->where($where)->order($order);
+        $select = Pi::model('topic', $module)->select()->where($where)->order($order);
         $rowset = Pi::model('topic', $module)->selectWith($select);
         // Process information
         foreach ($rowset as $row) {
-            $topic[$row->id] = $row->toArray();
-            $topic[$row->id]['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $module,
-                'controller'    => 'topic',
-                'slug'          => $topic[$row->id]['slug'],
-            )));
+            $topic[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
         // Set block array
         $block['resources'] = $topic;

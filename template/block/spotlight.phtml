@@ -1,29 +1,28 @@
 <div class="news-block news-spotlight-block">
     <?php foreach($block['resources'] as $resources) { ?>
-        <div class="row">
+        <div class="row" itemscope itemtype="http://schema.org/Article">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <h3><?php echo $this->escape($resources['topic']['title']); ?></h3>
+                <h3 itemprop="name"><?php echo $this->escape($resources['topic']['title']); ?></h3>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <?php if($block['showtopicimage'] && !empty($resources['topic']['thumbUrl'])){ ?>
-                    <a title="<?php echo $this->escape($resources['topic']['title']); ?>" href="<?php echo $this->escape($resources['topic']['topicUrl']); ?>">
-                        <img src="<?php echo $this->escape($resources['topic']['thumbUrl']); ?>" alt="<?php echo $this->escape($resources['topic']['title']); ?>" class="img-thumbnail" />
+                    <a itemprop="url" title="<?php echo $this->escape($resources['topic']['title']); ?>" href="<?php echo $this->escape($resources['topic']['topicUrl']); ?>">
+                        <img itemprop="image" src="<?php echo $this->escape($resources['topic']['thumbUrl']); ?>" alt="<?php echo $this->escape($resources['topic']['title']); ?>" class="img-thumbnail" />
                     </a>
                 <?php } ?>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <a title="<?php echo $this->escape($resources['topic']['title']); ?>" href="<?php echo $this->escape($resources['topic']['topicUrl']); ?>"><?php echo _b('Read More'); ?></a>
+                    <a itemprop="url" title="<?php echo $this->escape($resources['topic']['title']); ?>" href="<?php echo $this->escape($resources['topic']['topicUrl']); ?>"><?php echo _b('Read More'); ?></a>
                 </div>
             </div>
             <div class="col-md-8 col-sm-6 col-xs-12">
-                <ul class="list-unstyled">
+                <ul class="list-unstyled" itemscope itemtype="http://schema.org/ItemList">
                     <?php foreach($resources['story'] as $story) { ?>
-                        <li>
-                            <a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+                        <li itemprop="itemListElement">
+                            <a itemprop="name" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
                         </li>
                     <?php } ?>
                 </ul>
             </div>
-
         </div>
         <div class="clearfix"></div>
     <?php } ?>

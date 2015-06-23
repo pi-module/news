@@ -1,37 +1,62 @@
 <?php
 // Set width
 $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
-// Set ajax effect
-if($block['showeffect']){
-    $script =<<<'EOT'
-        $('.gallery').each(function() {
-    		$(this).magnificPopup({
-        		delegate: 'a',
-        		type: 'image',
-        		gallery: {
-          			enabled:true
-        		}
-    		});
-		});
-EOT;
-    $this->jQuery(array(
-        'extension/jquery.magnific-popup.min.js',
-        'extension/magnific-popup.css',
-    ));
-    $this->footScript()->appendScript($script);
-}
 ?>
 <div class="news-block news-gallery-block gallery">
-    <?php foreach($block['resources'] as $gallery) { ?>
-        <?php if($block['showeffect']) {
-            $hrefLink = $this->escape($gallery['largeUrl']);
-        } else {
-            $hrefLink = $this->escape($gallery['mediaUrl']);
-        } ?>
-        <div class="<?php echo $width; ?> h-entry" itemscope itemtype="http://schema.org/Article">
-            <a itemprop="url" class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
-                <img itemprop="image" src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
-            </a>
+    <?php if ($block['type'] == 'simple') { ?>
+        <?php if($block['showeffect']){
+            $script =<<<'EOT'
+$('.gallery').each(function() {
+	$(this).magnificPopup({
+   		delegate: 'a',
+   		type: 'image',
+   		gallery: {
+   			enabled:true
+   		}
+	});
+});
+EOT;
+            $this->jQuery(array(
+                'extension/jquery.magnific-popup.min.js',
+                'extension/magnific-popup.css',
+            ));
+            $this->footScript()->appendScript($script);
+        }
+        ?>
+        <?php foreach($block['resources'] as $gallery) { ?>
+            <?php if($block['showeffect']) {
+                $hrefLink = $this->escape($gallery['largeUrl']);
+            } else {
+                $hrefLink = $this->escape($gallery['mediaUrl']);
+            } ?>
+            <div class="<?php echo $width; ?> h-entry" itemscope itemtype="http://schema.org/Article">
+                <a itemprop="url" class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $hrefLink; ?>">
+                    <img itemprop="image" src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>" />
+                </a>
+            </div>
+        <?php } ?>
+    <?php } elseif($block['type'] == 'slide') { ?>
+        <?php
+        $this->jQuery();
+        $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
+        $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+        $this->js($this->assetModule('js/caption.hover.js', 'news'));
+        $this->css($this->assetModule('css/owl.carousel.css', 'news'));
+        ?>
+        <div class="owl-carousel text-center clearfix hover-captions-container">
+            <?php foreach($block['resources'] as $gallery) { ?>
+                <div class="item hover-captions hover-captions-slide" itemprop="itemListElement">
+                    <div class="hover-caption">
+                        <h3 itemprop="name"><?php echo $this->escape($gallery['title']); ?></h3>
+                        <p>
+                            <a itemprop="url" class="u-url hover-caption-more" title="<?php echo $this->escape($gallery['title']); ?>" href="<?php echo $this->escape($gallery['mediaUrl']); ?>">
+                                <?php echo _b('View'); ?>
+                            </a>
+                        </p>
+                    </div>
+                    <img itemprop="image" class="media-object img-responsive u-photo" src="<?php echo $this->escape($gallery['thumbUrl']); ?>" alt="<?php echo $this->escape($gallery['title']); ?>">
+                </div>
+            <?php } ?>
         </div>
     <?php } ?>
 </div>
