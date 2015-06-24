@@ -359,7 +359,7 @@ EOD;
                 return false;
             }
             // Alter table : ADD `position`
-            $sql = sprintf("ALTER TABLE %s ADD `position` INT(10) UNSIGNED NOT NULL DEFAULT '0')", $fieldTable);
+            $sql = sprintf("ALTER TABLE %s ADD `position` INT(10) UNSIGNED NOT NULL DEFAULT '0'", $fieldTable);
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -405,7 +405,6 @@ EOD;
                     'message'   => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
-
                 return false;
             }
 
@@ -433,7 +432,6 @@ EOD;
                     'message'   => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
-
                 return false;
             }
         }
