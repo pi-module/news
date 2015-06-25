@@ -53,16 +53,18 @@ if (!empty($story['largeUrl'])) {
                 <?php echo $this->escape($story['title']); ?>
             </h1>
             <div class="clearfix">
-                <?php if($config['show_date']) { ?>
-                    <span class="itemPostDate dt-published" itemprop="datePublished">
-					        <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
-				        </span>
-                <?php } ?>
-                <?php if($config['show_hits']) { ?>
-                    <span class="itemStats">
-					        <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
-				        </span>
-                <?php } ?>
+                <ul class="list-inline text-muted">
+                    <?php if($config['show_date']) { ?>
+                        <li class="itemPostDate dt-published" itemprop="datePublished">
+                            <i class="fa fa-calendar"></i> <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
+                        </li>
+                    <?php } ?>
+                    <?php if($config['show_hits']) { ?>
+                        <li class="itemStats">
+                            <i class="fa fa-eye"></i> <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+                        </li>
+                    <?php } ?>
+                </ul>
             </div>
             <?php if($story['subtitle']) { ?>
                 <h2><?php echo $this->escape($story['subtitle']); ?></h2>
@@ -97,14 +99,12 @@ if (!empty($story['largeUrl'])) {
         </div>
         <div class="col-md-4">
             <?php if($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-                <div class="gallery col-md-4">
+                <div class="gallery">
                     <div class="storyImageMain">
-                        <div class="col-sm-6 col-md-12">
-                            <div class="thumbnail u-photo">
-                                <a  href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
-                                </a>
-                            </div>
+                        <div class="thumbnail u-photo">
+                            <a  href="<?php echo $story['largeUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>">
+                                <img itemprop="image" class="img-responsive" src="<?php echo $this->escape($story['mediumUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+                            </a>
                         </div>
                     </div>
                     <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
@@ -135,14 +135,21 @@ if (!empty($story['largeUrl'])) {
             <?php } ?>
             <?php if($config['show_topic']) { ?>
                 <div class="well clearfix">
-                    <?php _e('Topics'); ?> :
-                    <?php foreach($story['topics'] as $storyTopic) { ?>
-                        <span class=" p-category" itemprop="about"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-                    <?php } ?>
+                    <h2><?php _e('Topics'); ?></h2>
+                    <ul class="list-inline">
+                        <?php foreach($story['topics'] as $storyTopic) { ?>
+                            <li class=" p-category" itemprop="about">
+                                <a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>">
+                                    <i class="fa fa-folder"></i> <?php echo $storyTopic['title']; ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             <?php } ?>
             <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
                 <div class="well clearfix">
+                    <h2><?php _e('Tags'); ?></h2>
                     <ul class="tagList list-inline">
                         <?php foreach($tag as $term) { ?>
                             <li class="tagItem">
@@ -172,7 +179,7 @@ if (!empty($story['largeUrl'])) {
             <?php if(isset($relateds) && !empty($relateds)) { ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?php _e('Related storys'); ?></h3>
+                        <?php _e('Related storys'); ?>
                     </div>
                     <div class="list-group">
                         <?php foreach($relateds as $related) { ?>
