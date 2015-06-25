@@ -65,6 +65,15 @@ if (!empty($story['largeUrl'])) {
                                 <i class="fa fa-eye"></i> <?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
                             </li>
                         <?php } ?>
+                        <?php if($config['show_topic']) { ?>
+                            <li><i class="fa fa-folder"></i> <?php _e('Topics'); ?> :
+                                <?php foreach($story['topics'] as $storyTopic) { ?>
+                                    <span class=" p-category" itemprop="about">
+                                        <a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+                                    </span>
+                                <?php } ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -135,7 +144,7 @@ if (!empty($story['largeUrl'])) {
                     <?php } ?>
                 </div>
             <?php } ?>
-            <?php if($config['show_topic']) { ?>
+            <?php /* if($config['show_topic']) { ?>
                 <div class="well clearfix">
                     <h2><?php _e('Topics'); ?></h2>
                     <ul class="list-inline">
@@ -148,7 +157,7 @@ if (!empty($story['largeUrl'])) {
                         <?php } ?>
                     </ul>
                 </div>
-            <?php } ?>
+            <?php } */ ?>
             <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
                 <div class="well clearfix">
                     <h2><?php _e('Tags'); ?></h2>
