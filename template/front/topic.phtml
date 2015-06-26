@@ -38,28 +38,28 @@ EOT;
         $this->headMeta($this->escape($topic['largeUrl']), 'twitter:image');
     }
     ?>
-    <div class="topicinfo">
+    <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1 class="panel-title"><?php echo $this->escape($topic['title']); ?></h1>
+                <h1 itemprop="name" class="panel-title p-name"><?php echo $this->escape($topic['title']); ?></h1>
             </div>
             <div class="panel-body">
                 <?php if (!empty($topic['image'])) { ?>
-                    <div class="pull-left gallery itemImageList">
+                    <div class="pull-left gallery itemImageList u-photo">
                         <?php if ($config['image_lightbox']) { ?>
                             <a href="<?php echo $topic['largeUrl']; ?>"
                                title="<?php echo $this->escape($topic['title']); ?>">
-                                <img class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>"
+                                <img itemprop="image" class="ItemStoryImg img-thumbnail" src="<?php echo $topic['thumbUrl']; ?>"
                                      alt="<?php echo $this->escape($topic['title']); ?>"/>
                             </a>
                         <?php } else { ?>
-                            <img class="ItemStoryImg img-thumbnail"
+                            <img itemprop="image" class="ItemStoryImg img-thumbnail"
                                  src="<?php echo $this->escape($topic['thumbUrl']); ?>"
                                  alt="<?php echo $this->escape($topic['title']); ?>"/>
                         <?php } ?>
                     </div>
                 <?php } ?>
-                <?php echo $topic['text_description']; ?>
+                <div itemprop="description"><?php echo $topic['text_description']; ?></div>
                 <?php if (isset($topic['attachList']) && !empty($topic['attachList'])) { ?>
                     <div class="attach-list">
                         <p class="text-center">
@@ -79,19 +79,19 @@ EOT;
         </div>
     </div>
 <?php } elseif ($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
-    <div class="topicinfo">
+    <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="page-header">
-            <h1><?php echo $this->escape($topic['title']); ?></h1>
+            <h1 itemprop="name" class="p-name"><?php echo $this->escape($topic['title']); ?></h1>
         </div>
     </div>
 <?php } ?>
 <?php if (isset($newsTitleH1) && !empty($newsTitleH1)) { ?>
-    <div class="topicinfo">
+    <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="page-header">
-            <h1><?php echo $newsTitleH1; ?></h1>
+            <h1 itemprop="name" class="p-name"><?php echo $newsTitleH1; ?></h1>
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
-            <div class="well guideIndexDescription">
+            <div itemprop="description" class="well guideIndexDescription">
                 <?php echo $config['text_description_index']; ?>
             </div>
         <?php } ?>

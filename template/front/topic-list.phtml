@@ -1,5 +1,5 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
-<div class="clearfix">
+<div class="clearfix h-entry" itemtype="http://schema.org/ItemList">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="page-header">
@@ -8,18 +8,19 @@
     <?php if (isset($topics) && !empty($topics)) { ?>
         <div class="topics clearfix">
             <?php foreach ($topics as $topic) { ?>
-                <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="col-xs-12 col-sm-6 col-md-3" itemprop="itemListElement">
                     <div class="thumbnail">
-                        <a href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                        <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
                            title="<?php echo $this->escape($topic['title']); ?>">
-                            <img src="<?php echo $this->escape($topic['mediumUrl']); ?>"
+                            <img itemprop="image" class="u-photo"
+                                 src="<?php echo $this->escape($topic['mediumUrl']); ?>"
                                  alt="<?php echo $this->escape($topic['title']); ?>">
                         </a>
 
                         <div class="caption">
-                            <a href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                            <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
                                title="<?php echo $this->escape($topic['title']); ?>">
-                                <h3><?php echo $this->escape($topic['title']); ?></h3>
+                                <h3 itemprop="name" class="p-name"><?php echo $this->escape($topic['title']); ?></h3>
                             </a>
                         </div>
                     </div>
