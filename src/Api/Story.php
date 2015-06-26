@@ -49,7 +49,7 @@ class Story extends AbstractApi
     public function AttachCount($id)
     {
         // set info
-        $where = array('story' => $id);
+        $where = array('item_id' => $id, 'item_table' => 'story');
         $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
         // Get attach count
         $select = Pi::model('attach', $this->getModule())->select()->columns($columns)->where($where);
@@ -66,7 +66,7 @@ class Story extends AbstractApi
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // Set info
-        $where = array('story' => $id, 'status' => 1);
+        $where = array('item_id' => $id, 'item_table' => 'story', 'status' => 1);
         $order = array('time_create DESC', 'id DESC');
         // Get all attach files
         $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);

@@ -28,8 +28,6 @@ class AttachController extends ActionController
     {
         // Get page
         $page = $this->params('page', 1);
-        $story = $this->params('story');
-        $module = $this->params('module');
         // Set info
         $file = array();
         $order = array('time_create DESC', 'id DESC');
@@ -41,9 +39,14 @@ class AttachController extends ActionController
         // Make list
         foreach ($rowset as $row) {
             $file[$row->id] = $row->toArray();
-            $story = $this->getModel('story')->find($file[$row->id]['story'])->toArray();
+            if ($row->item_table == 'story') {
+                $item = $this->getModel('story')->find($row->item_id)->toArray();
+            } else {
+                $item = array();
+                $item['title'] = '';
+            }
             $file[$row->id]['time_create'] = _date($file[$row->id]['time_create']);
-            $file[$row->id]['storyTitle'] = $story['title'];
+            $file[$row->id]['itemTitle'] = $item['title'];
             $file[$row->id]['preview'] = $this->filePreview($file[$row->id]['type'], $file[$row->id]['path'], $file[$row->id]['file']);
             $file[$row->id]['downloadUrl'] = Pi::url($this->url('news', array(
                 'module' => $this->getModule(),
@@ -87,7 +90,7 @@ class AttachController extends ActionController
             $this->jump(array('controller' => 'story', 'action' => 'index'), __('Your selected story not exist'));
         }
         // Get all attach files
-        $select = $this->getModel('attach')->select()->where(array('story' => $story['id']));
+        $select = $this->getModel('attach')->select()->where(array('item_id' => $story['id'], 'item_table' => 'story'));
         $rowset = $this->getModel('attach')->selectWith($select);
         // Make list
         $contents = array();
@@ -122,7 +125,6 @@ class AttachController extends ActionController
     {
         // Get id
         $id = $this->params('id');
-        $module = $this->params('module');
         if (empty($id)) {
             $this->jump(array('action' => 'index'), __('You must select file'));
         }
@@ -135,9 +137,14 @@ class AttachController extends ActionController
             'action' => 'download',
             'id' => $file['id'],
         )));
-        $story = $this->getModel('story')->find($file['story'])->toArray();
+        if ($file['item_table'] == 'story') {
+            $item = $this->getModel('story')->find($file['item_id'])->toArray();
+        } else {
+            $item = array();
+            $item['title'] = '';
+        }
         // Set form
-        $form = new AttachForm('attach', $story['id']);
+        $form = new AttachForm('attach');
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
@@ -150,20 +157,16 @@ class AttachController extends ActionController
                 $row->save();
                 $message = __('All changes in file saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             $form->setData($file);
-            $message = 'You can edit this File';
         }
         // Set view
         $this->view()->setTemplate('attach-edit');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Edit file'));
-        $this->view()->assign('message', $message);
         $this->view()->assign('file', $file);
-        $this->view()->assign('story', $story);
+        $this->view()->assign('item', $item);
     }
 
     public function uploadAction()
@@ -226,7 +229,8 @@ class AttachController extends ActionController
                     $values['file'] = $file;
                     $values['title'] = $title;
                     $values['path'] = $path;
-                    $values['story'] = $story['id'];
+                    $values['item_id'] = $story['id'];
+                    $values['item_table'] = 'story';
                     $values['time_create'] = time();
                     $values['type'] = $type;
                     $values['status'] = 1;

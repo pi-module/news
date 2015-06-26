@@ -22,21 +22,38 @@ class MediaController extends ActionController
     {
         // Get info from url
         $id = $this->params('id');
-        $module = $this->params('module');
         // Check id
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The media not set.'), '', 'error-404');
             return;
         }
-        // find attach and story
+        // find attach
         $attach = $this->getModel('attach')->find($id)->toArray();
-        $story = $this->getModel('story')->find($attach['story']);
-        $story = Pi::api('story', 'news')->canonizeStoryLight($story);
+        // find item
+        switch ($attach['item_table']) {
+            case 'story':
+                $item = $this->getModel('story')->find($attach['item_id']);
+                $item = Pi::api('story', 'news')->canonizeStoryLight($item);
+                $item['url'] = $item['storyUrl'];
+                break;
+
+            case 'topic':
+                $item = $this->getModel('topic')->find($attach['item_id']);
+                $item = Pi::api('topic', 'news')->canonizeTopic($item);
+                $item['url'] = $item['topicUrl'];
+                break;
+
+            case 'author':
+                $item = $this->getModel('author')->find($attach['item_id']);
+                $item = Pi::api('author', 'news')->canonizeAuthor($item);
+                $item['url'] = $item['authorUrl'];
+                break;
+        }
         // update
         $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
         // redirect
-        return $this->redirect()->toUrl($story['storyUrl']);
+        return $this->redirect()->toUrl($item['url']);
     }
 
     public function downloadAction()
@@ -52,12 +69,14 @@ class MediaController extends ActionController
             $this->terminate(__('The media not set.'), '', 'error-404');
             return;
         }
-        // find attach and story
+        // find attach
         $attach = $this->getModel('attach')->find($id)->toArray();
         // update
         $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
         // Make download link
-        if ($attach['type'] == 'other') {
+        if ($attach['type'] == 'link') {
+            $url = $attach['url'];
+        } elseif ($attach['type'] == 'other') {
             $url = sprintf('%s?%s/%s/%s/%s/%s',
                 Pi::url('www/script/download.php'),
                 'upload',

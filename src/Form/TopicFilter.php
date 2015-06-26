@@ -165,19 +165,24 @@ class TopicFilter extends InputFilter
             'name' => 'show_subid',
             'required' => false,
         ));
-        // attach_link
+        // attach
         $this->add(array(
-            'name' => 'attach_link',
+            'name' => 'attach',
             'required' => false,
         ));
         // attach_title
         $this->add(array(
             'name' => 'attach_title',
             'required' => false,
+            'filters' => array(
+                array(
+                    'name' => 'StringTrim',
+                ),
+            ),
         ));
-        // attach_download_count
+        // attach_link
         $this->add(array(
-            'name' => 'attach_download_count',
+            'name' => 'attach_link',
             'required' => false,
         ));
     }

@@ -16,6 +16,7 @@ use Pi;
 use Pi\Application\Installer\Action\Update as BasicUpdate;
 use Pi\Application\Installer\SqlSchema;
 use Zend\EventManager\Event;
+use Zend\Json\Json;
 
 class Update extends BasicUpdate
 {
@@ -57,6 +58,11 @@ class Update extends BasicUpdate
         $fieldModel = Pi::model('field', $this->module);
         $fieldTable = $fieldModel->getTable();
         $fieldAdapter = $fieldModel->getAdapter();
+
+        // Set attach model
+        $attachModel = Pi::model('attach', $this->module);
+        $attachTable = $attachModel->getTable();
+        $attachAdapter = $attachModel->getAdapter();
 
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
@@ -311,17 +317,17 @@ EOD;
         // Update to version 1.5.0
         if (version_compare($moduleVersion, '1.5.0', '<')) {
             // Alter table : DROP `image`
-            /* $sql = sprintf("ALTER TABLE %s DROP `image`;", $fieldTable);
+            $sql = sprintf("ALTER TABLE %s DROP `image`;", $fieldTable);
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
-            } */
+            }
             // Alter table : CHANGE `type`
             $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox') NOT NULL DEFAULT 'text'", $fieldTable);
             try {
@@ -433,6 +439,96 @@ EOD;
                         . $exception->getMessage(),
                 ));
                 return false;
+            }
+        }
+
+        // Update to version 1.5.2
+        if (version_compare($moduleVersion, '1.5.2', '<')) {
+            // Alter table : CHANGE `extra`
+            $sql = sprintf("ALTER TABLE %s CHANGE `story` `item_id` INT(10) UNSIGNED NOT NULL DEFAULT '0'", $attachTable);
+            try {
+                $attachAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : CHANGE `extra`
+            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'link', 'other') NOT NULL DEFAULT 'image'", $attachTable);
+            try {
+                $attachAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD item_table
+            $sql = sprintf("ALTER TABLE %s ADD `item_table` ENUM('story', 'topic', 'author') NOT NULL DEFAULT 'story', ADD INDEX (`item_table`)", $attachTable);
+            try {
+                $attachAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD url
+            $sql = sprintf("ALTER TABLE %s ADD `url` VARCHAR(255) NOT NULL DEFAULT ''", $attachTable);
+            try {
+                $attachAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        // Update to version 1.5.3
+        if (version_compare($moduleVersion, '1.5.3', '<')) {
+            // Update value
+            $select = $topicModel->select();
+            $rowset = $topicModel->selectWith($select);
+            foreach ($rowset as $row) {
+                $setting = Json::decode($row->setting, true);
+                // Check attach
+                if (!empty($setting['attach_title']) && !empty($setting['attach_link'])) {
+                    // Set save array
+                    $values['title'] = $setting['attach_title'];
+                    $values['url'] = $setting['attach_link'];
+                    $values['hits'] = $setting['attach_download_count'];
+                    $values['item_id'] = $row->id;
+                    $values['item_table'] = 'topic';
+                    $values['time_create'] = time();
+                    $values['type'] = 'link';
+                    $values['status'] = 1;
+                    // save in DB
+                    $attach = $attachModel->createRow();
+                    $attach->assign($values);
+                    $attach->save();
+                    // Set attach
+                    $setting['attach'] = 1;
+                } else {
+                    $setting['attach'] = 0;
+                }
+                // Unset
+                unset($setting['attach_title']);
+                unset($setting['attach_link']);
+                unset($setting['attach_download_count']);
+                $setting = Json::encode($setting);
+                // Save value
+                $row->setting = $setting;
+                $row->save();
             }
         }
 

@@ -389,14 +389,22 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
-        // attach_link
+        // extra_attach
         $this->add(array(
-            'name' => 'attach_link',
+            'name' => 'extra_attach',
+            'type' => 'fieldset',
             'options' => array(
-                'label' => __('Attach file link'),
+                'label' => __('Attach file options'),
+            ),
+        ));
+        // attach
+        $this->add(array(
+            'name' => 'attach',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Check for attach file'),
             ),
             'attributes' => array(
-                'type' => 'text',
                 'description' => '',
             )
         ));
@@ -404,19 +412,23 @@ class TopicForm extends BaseForm
         $this->add(array(
             'name' => 'attach_title',
             'options' => array(
-                'label' => __('Attach file title'),
+                'label' => __('File title'),
             ),
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
             )
         ));
-        // attach_download_count
+        // attach_link
         $this->add(array(
-            'name' => 'attach_download_count',
-            'attributes' => array(
-                'type' => 'hidden',
+            'name' => 'attach_link',
+            'options' => array(
+                'label' => __('File link'),
             ),
+            'attributes' => array(
+                'type' => 'text',
+                'description' => '',
+            )
         ));
         // Save
         $this->add(array(

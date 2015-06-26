@@ -20,6 +20,7 @@ class Attach extends Model
      * {@inheritDoc}
      */
     protected $columns = array(
-        'id', 'title', 'file', 'path', 'story', 'time_create', 'size', 'type', 'status', 'hits'
+        'id', 'title', 'file', 'path', 'url', 'item_table', 'item_id', 'time_create',
+        'size', 'type', 'status', 'hits'
     );
 }

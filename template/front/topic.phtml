@@ -22,7 +22,7 @@ EOT;
     // Set Open Graph tags for meta
     $this->doctype('HTML5');
     $this->headMeta($this->escape($topic['title']), 'og:title', 'property');
-    $this->headMeta($this->escape($topic['authorUrl']), 'og:url', 'property');
+    $this->headMeta($this->escape($topic['topicUrl']), 'og:url', 'property');
     if (isset($topic['text_description']) && !empty($topic['text_description'])) {
         $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
     }
@@ -60,14 +60,18 @@ EOT;
                     </div>
                 <?php } ?>
                 <?php echo $topic['text_description']; ?>
-                <?php if (isset($topic['attach_download_link']) && !empty($topic['attach_download_link'])) { ?>
+                <?php if (isset($topic['attachList']) && !empty($topic['attachList'])) { ?>
                     <div class="attach-list">
                         <p class="text-center">
+                            <?php foreach ($topic['attachList']['link'] as $attach) { ?>
                             <a class="btn btn-primary" rel="external" target="_blank"
-                               title="<?php echo $this->escape($topic['attach_title']); ?>"
-                               href="<?php echo $this->escape($topic['attach_download_link']); ?>">
-                                <i class="fa fa-download"></i> <?php echo $this->escape($topic['attach_title']); ?>
+                               title="<?php echo $this->escape($attach['title']); ?>"
+                               href="<?php echo $this->escape($attach['downloadUrl']); ?>">
+                                <i class="fa fa-download"></i>
+                                <?php echo $this->escape($attach['title']); ?>
+                                <span class="badge"><?php echo _number($this->escape($attach['hits'])); ?></span>
                             </a>
+                            <?php } ?>
                         </p>
                     </div>
                 <?php } ?>

@@ -103,18 +103,21 @@ CREATE TABLE `{attach}` (
   `title`       VARCHAR(255)                                                      NOT NULL DEFAULT '',
   `file`        VARCHAR(255)                                                      NOT NULL DEFAULT '',
   `path`        VARCHAR(16)                                                       NOT NULL DEFAULT '',
-  `story`       INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
+  `url`         VARCHAR(255)                                                      NOT NULL DEFAULT '',
+  `item_table`  ENUM('story', 'topic', 'author')                                  NOT NULL DEFAULT 'story',
+  `item_id`     INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
   `time_create` INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
   `size`        INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
-  `type`        ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'other') NOT NULL DEFAULT 'image',
+  `type`        ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'link', 'other') NOT NULL DEFAULT 'image',
   `status`      TINYINT(1) UNSIGNED                                               NOT NULL DEFAULT '0',
   `hits`        INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `title` (`title`),
-  KEY `story` (`story`),
+  KEY `item_table` (`item_table`),
+  KEY `item_id` (`item_id`),
   KEY `time_create` (`time_create`),
   KEY `type` (`type`),
-  KEY `story_status` (`story`, `status`)
+  KEY `item_status` (`item_id`, `status`)
 );
 
 CREATE TABLE `{field}` (

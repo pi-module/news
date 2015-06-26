@@ -204,10 +204,8 @@ class TopicController extends ActionController
                 $setting['show_hits'] = $values['show_hits'];
                 $setting['show_tag'] = $values['show_tag'];
                 $setting['show_subid'] = $values['show_subid'];
-                $setting['attach_link'] = $values['attach_link'];
-                $setting['attach_title'] = $values['attach_title'];
-                $setting['attach_download_count'] = $values['attach_download_count'];
                 $setting['set_page'] = $values['set_page'];
+                $setting['attach'] = $values['attach'];
                 $values['setting'] = Json::encode($setting);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
@@ -241,6 +239,20 @@ class TopicController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
+                // Add attach
+                if (!empty($values['attach_link'])) {
+                    $attach['url'] = $values['attach_link'];
+                    $attach['title'] = empty($values['attach_title']) ? __('Download') : $values['attach_title'];
+                    $attach['item_id'] = $row->id;
+                    $attach['item_table'] = 'topic';
+                    $attach['time_create'] = time();
+                    $attach['type'] = 'link';
+                    $attach['status'] = 1;
+                    // save in DB
+                    $rowAttach = $this->getModel('attach')->createRow();
+                    $rowAttach->assign($attach);
+                    $rowAttach->save();
+                }
                 // Set topic as page for dress up block
                 $pageName = sprintf('topic-%s', $row->id);
                 if ($this->config('admin_setpage') && $setting['set_page']) {
@@ -274,8 +286,8 @@ class TopicController extends ActionController
             }
         } else {
             if ($id) {
-                $setting = Json::decode($topic['setting']);
-                $topic = array_merge($topic, (array)$setting);
+                $setting = Json::decode($topic['setting'], true);
+                $topic = array_merge($topic, $setting);
                 $form->setData($topic);
             }
         }

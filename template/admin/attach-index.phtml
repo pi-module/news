@@ -27,8 +27,7 @@
                     </td>
                     <td>
                         <p><strong><?php _e('Title'); ?></strong> <?php echo $this->escape($file['title']); ?></p>
-
-                        <p><strong><?php _e('Story'); ?></strong> <?php echo $this->escape($file['storyTitle']); ?></p>
+                        <p><strong><?php _e('Item'); ?></strong> <?php echo $this->escape($file['itemTitle']); ?></p>
                     </td>
                     <td><?php echo $this->escape($file['time_create']); ?></td>
                     <td>
@@ -38,9 +37,11 @@
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                            href="<?php echo $this->url('', array('action' => 'edit', 'id' => $file['id'])); ?>"><i
                                 class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-                        <a class="btn btn-primary" title="<?php _e('Edit from story'); ?>"
-                           href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['story'])); ?>"><i
-                                class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
+                        <?php if ($file['item_table'] == 'story') { ?>
+                            <a class="btn btn-primary" title="<?php _e('Edit from story'); ?>"
+                               href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['item_id'])); ?>"><i
+                                    class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
+                        <?php } ?>
                     </td>
                 </tr>
             <?php } ?>

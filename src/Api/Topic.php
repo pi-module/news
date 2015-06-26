@@ -52,8 +52,8 @@ class Topic extends AbstractApi
         if (isset($topic) && !empty($topic) && is_object($topic)) {
             $topic = $topic->toArray();
             // Get setting
-            $setting = Json::decode($topic['setting']);
-            $topic = array_merge($topic, (array)$setting);
+            $setting = Json::decode($topic['setting'], true);
+            $topic = array_merge($topic, $setting);
             // Set topic url
             $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module' => $this->getModule(),
@@ -98,17 +98,27 @@ class Topic extends AbstractApi
                 $topic['ids'] = $topic['id'];
             }
             // Check attach
-            if (!empty($topic['attach_link'])) {
-                $topic['attach_download_link'] = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module' => $this->getModule(),
-                    'controller' => 'media',
-                    'action' => 'topic',
-                    'id' => $topic['id'],
-                )));
-                // Check attach title
-                if (empty($topic['attach_title'])) {
-                    $topic['attach_title'] = __('Download');
+            if ($topic['attach']) {
+                // Set info
+                $file = array();
+                $where = array('item_id' => $topic['id'], 'item_table' => 'topic', 'status' => 1);
+                $order = array('time_create DESC', 'id DESC');
+                // Get all attach files
+                $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
+                $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
+                // Make list
+                foreach ($rowset as $row) {
+                    $file[$row->type][$row->id] = $row->toArray();
+                    $file[$row->type][$row->id]['time_create'] = _date($file[$row->type][$row->id]['time_create']);
+                    // Set download url
+                    $file[$row->type][$row->id]['downloadUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
+                        'module' => $this->getModule(),
+                        'controller' => 'media',
+                        'action' => 'download',
+                        'id' => $row->id,
+                    )));
                 }
+                $topic['attachList'] = $file;
             }
         }
         // Set topic config
