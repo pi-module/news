@@ -11,13 +11,13 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
     <?php echo $this->form($form); ?>
 </div>
 <script type="text/javascript">
-    (function($){
-        $("#topic-form").on("click","button",function(){
+    (function ($) {
+        $("#topic-form").on("click", "button", function () {
             systemMessage.wait("<?php _e('Remove image topic in process'); ?>");
-            $.getJSON($(this).attr("data-link")).done(function(result){
-                if(result.status==1){
+            $.getJSON($(this).attr("data-link")).done(function (result) {
+                if (result.status == 1) {
                     systemMessage.succ(result.message);
-                }else{
+                } else {
                     systemMessage.fail(result.message);
                 }
             });

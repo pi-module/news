@@ -1,45 +1,50 @@
-<?php if(isset($attribute['all']) && !empty($attribute['all'])) { ?>
+<?php if (isset($attribute['all']) && !empty($attribute['all'])) { ?>
     <div class="productInfoBox clearfix">
         <div class="itemAttribute">
-            <?php foreach($attribute['all'] as $key => $attributeSingle) { ?>
+            <?php foreach ($attribute['all'] as $key => $attributeSingle) { ?>
                 <?php if ($key > 0) { ?>
                     <h2><?php echo $attributeSingle['title']; ?></h2>
-                    <?php foreach($attributeSingle['info'] as $field) { ?>
-                        <?php if(!empty($field['data'])) { ?>
+                    <?php foreach ($attributeSingle['info'] as $field) { ?>
+                        <?php if (!empty($field['data'])) { ?>
                             <div class="field-<?php echo $field['id']; ?> col-md-6">
-                                <?php if($field['icon']) { ?>
+                                <?php if ($field['icon']) { ?>
                                     <i class="fa <?php echo $field['icon']; ?>"></i>
                                 <?php } ?>
-                                <?php if($field['type'] == 'text' || $field['type'] == 'select') { ?>
+                                <?php if ($field['type'] == 'text' || $field['type'] == 'select') { ?>
                                     <span><?php echo $field['title']; ?></span>
                                     <span> : <?php echo $field['data']; ?></span>
-                                <?php } elseif($field['type'] == 'link') { ?>
-                                    <span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
-                                <?php } elseif($field['type'] == 'file') { ?>
-                                    <span><a title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
-                                <?php } elseif($field['type'] == 'currency') { ?>
+                                <?php } elseif ($field['type'] == 'link') { ?>
+                                    <span><a title="<?php echo $field['title']; ?>"
+                                             href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
+                                <?php } elseif ($field['type'] == 'file') { ?>
+                                    <span><a title="<?php echo $field['title']; ?>"
+                                             href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></span>
+                                <?php } elseif ($field['type'] == 'currency') { ?>
                                     <span><?php echo $field['title']; ?></span>
                                     <span><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></span>
-                                <?php } elseif($field['type'] == 'date') { ?>
+                                <?php } elseif ($field['type'] == 'date') { ?>
                                     <span><?php echo $field['title']; ?></span>
                                     <span><?php echo $this->dateFormat($field['data'], IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM, "en_US"); ?></span>
-                                <?php } elseif($field['type'] == 'number') { ?>
+                                <?php } elseif ($field['type'] == 'number') { ?>
                                     <span><?php echo $field['title']; ?></span>
                                     <span><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></span>
-                                <?php } elseif($field['type'] == 'checkbox') { ?>
-                                    <?php if ($field['data']) {  ?>
+                                <?php } elseif ($field['type'] == 'checkbox') { ?>
+                                    <?php if ($field['data']) { ?>
                                         <span><?php echo $field['title']; ?></span>
                                     <?php } ?>
                                 <?php } ?>
-                                <?php if(isset($field['value']['information']) && !empty($field['value']['information'])) { ?>
-                                    <small><a title="<?php echo sprintf(__('More information about %s'), $field['title']); ?>" href="<?php echo $field['value']['information']; ?>" target="_blank"><i class="fa fa-question"></i></a></small>
+                                <?php if (isset($field['value']['information']) && !empty($field['value']['information'])) { ?>
+                                    <small><a
+                                            title="<?php echo sprintf(__('More information about %s'), $field['title']); ?>"
+                                            href="<?php echo $field['value']['information']; ?>" target="_blank"><i
+                                                class="fa fa-question"></i></a></small>
                                 <?php } ?>
                             </div>
                         <?php } ?>
                     <?php } ?>
                 <?php } ?>
                 <div class="clearfix"></div>
-                <hr />
+                <hr/>
             <?php } ?>
         </div>
     </div>

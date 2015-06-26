@@ -52,16 +52,16 @@ class TagController extends IndexController
         }
         // Set story info
         $where = array(
-            'status'      => 1,
-            'story'       => $tagId
+            'status' => 1,
+            'story' => $tagId
         );
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
-            'controller'  => 'tag',
-            'action'      => 'term',
-            'slug'        => urlencode($slug),
+            'controller' => 'tag',
+            'action' => 'term',
+            'slug' => urlencode($slug),
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
@@ -104,9 +104,9 @@ class TagController extends IndexController
                 $tagList[$row->id] = $row->toArray();
                 $tagList[$row->id]['term'] = $tag['term'];
                 $tagList[$row->id]['url'] = Pi::url($this->url('', array(
-                    'controller'  => 'tag',
-                    'action'      => 'term',
-                    'slug'        => urldecode($tag['term'])
+                    'controller' => 'tag',
+                    'action' => 'term',
+                    'slug' => urldecode($tag['term'])
                 )));
             }
         }

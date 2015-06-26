@@ -29,7 +29,7 @@ class TopicController extends IndexController
         // Get topic information from model
         $topic = $this->getModel('topic')->find($slug, 'slug');
         // Check slug set
-        if(empty($topic)) {
+        if (empty($topic)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('Topic not set.'), '', 'error-404');
             return;
@@ -68,9 +68,9 @@ class TopicController extends IndexController
             $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
             // Set paginator info
             $template = array(
-                'controller'  => 'topic',
-                'action'      => 'index',
-                'slug'        => $topic['slug'],
+                'controller' => 'topic',
+                'action' => 'index',
+                'slug' => $topic['slug'],
             );
             // Get paginator
             $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
@@ -123,7 +123,7 @@ class TopicController extends IndexController
 
     public static function getMethodFromAction($action)
     {
-        if($action == 'list') {
+        if ($action == 'list') {
             return 'listAction';
         }
         return 'indexAction';

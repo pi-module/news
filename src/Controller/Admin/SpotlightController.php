@@ -47,14 +47,14 @@ class SpotlightController extends ActionController
             $topicList[$row->id] = $row->toArray();
         }
         $topicList[-1] = array(
-            'id'     => -1,
-            'title'  => __('Home Page'),
-            'slug'   => ''
+            'id' => -1,
+            'title' => __('Home Page'),
+            'slug' => ''
         );
         $topicList[0] = array(
-            'id'     => 0,
-            'title'  => __('All Topics'),
-            'slug'   => ''
+            'id' => 0,
+            'title' => __('All Topics'),
+            'slug' => ''
         );
         // Get stores
         $whereStory = array('id' => array_unique($storyArr));
@@ -87,12 +87,12 @@ class SpotlightController extends ActionController
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'spotlight',
-                'action'        => 'index',
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => 'spotlight',
+                'action' => 'index',
             )),
         ));
         // Set view

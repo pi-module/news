@@ -37,9 +37,9 @@ class TopicList extends AbstractRegistry
         foreach ($rowset as $row) {
             $return[$row->id] = $row->toArray();
             $return[$row->id]['url'] = Pi::service('url')->assemble('news', array(
-                'module'        => $this->module,
-                'controller'    => 'topic',
-                'slug'          => $return[$row->id]['slug'],
+                'module' => $this->module,
+                'controller' => 'topic',
+                'slug' => $return[$row->id]['slug'],
             ));
         }
         return $return;

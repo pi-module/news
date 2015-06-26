@@ -22,9 +22,9 @@ class News extends Standard
      * @var array
      */
     protected $defaults = array(
-        'module'        => 'news',
-        'controller'    => 'index',
-        'action'        => 'index'
+        'module' => 'news',
+        'controller' => 'index',
+        'action' => 'index'
     );
 
     protected $controllerList = array(
@@ -119,7 +119,8 @@ class News extends Standard
     public function assemble(
         array $params = array(),
         array $options = array()
-    ) {
+    )
+    {
         $mergedParams = array_merge($this->defaults, $params);
         if (!$mergedParams) {
             return $this->prefix;
@@ -144,7 +145,7 @@ class News extends Standard
 
         if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {
             $url['id'] = 'id' . $this->paramDelimiter . $mergedParams['id'];
-        } elseif(!empty($mergedParams['id'])) {
+        } elseif (!empty($mergedParams['id'])) {
             $url['id'] = $mergedParams['id'];
         }
 

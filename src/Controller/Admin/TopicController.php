@@ -82,12 +82,12 @@ class TopicController extends ActionController
         $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'topic',
-                'action'        => 'index',
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => 'topic',
+                'action' => 'index',
             )),
         ));
         // Set view
@@ -217,7 +217,7 @@ class TopicController extends ActionController
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
                 $filter = new Filter\HeadKeywords;
                 $filter->setOptions(array(
-                    'force_replace_space' => (bool) $this->config('force_replace_space'),
+                    'force_replace_space' => (bool)$this->config('force_replace_space'),
                 ));
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
@@ -244,10 +244,10 @@ class TopicController extends ActionController
                 // Set topic as page for dress up block
                 $pageName = sprintf('topic-%s', $row->id);
                 if ($this->config('admin_setpage') && $setting['set_page']) {
-                    if(empty($values['id'])) {
-                        $this->setPage($pageName, sprintf(__('Page : %s') , $row->title));
+                    if (empty($values['id'])) {
+                        $this->setPage($pageName, sprintf(__('Page : %s'), $row->title));
                     } else {
-                        $this->updatePage($pageName, sprintf(__('Page : %s') , $row->title));
+                        $this->updatePage($pageName, sprintf(__('Page : %s'), $row->title));
                     }
                 } else {
                     $this->removePage($pageName);
@@ -257,9 +257,9 @@ class TopicController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module,
-                        'controller'  => 'topic',
-                        'slug'        => $values['slug']
+                        'module' => $module,
+                        'controller' => 'topic',
+                        'slug' => $values['slug']
                     )));
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);
@@ -275,7 +275,7 @@ class TopicController extends ActionController
         } else {
             if ($id) {
                 $setting = Json::decode($topic['setting']);
-                $topic = array_merge($topic, (array) $setting);
+                $topic = array_merge($topic, (array)$setting);
                 $form->setData($topic);
             }
         }
@@ -356,13 +356,13 @@ class TopicController extends ActionController
     protected function setPage($name, $title)
     {
         $page = array(
-            'section'       => 'front',
-            'module'        => $this->getModule(),
-            'controller'    => 'topic',
-            'action'        => $name,
-            'title'         => $title,
-            'block'         => 1,
-            'custom'        => 0,
+            'section' => 'front',
+            'module' => $this->getModule(),
+            'controller' => 'topic',
+            'action' => $name,
+            'title' => $title,
+            'block' => 1,
+            'custom' => 0,
         );
         $row = Pi::model('page')->createRow($page);
         $row->save();
@@ -379,10 +379,10 @@ class TopicController extends ActionController
     protected function removePage($name)
     {
         $where = array(
-            'section'       => 'front',
-            'module'        => $this->getModule(),
-            'controller'    => 'topic',
-            'action'        => $name,
+            'section' => 'front',
+            'module' => $this->getModule(),
+            'controller' => 'topic',
+            'action' => $name,
         );
         $count = Pi::model('page')->delete($where);
         return $count;
@@ -398,10 +398,10 @@ class TopicController extends ActionController
     {
         // Set where
         $where = array(
-            'section'       => 'front',
-            'module'        => $this->getModule(),
-            'controller'    => 'topic',
-            'action'        => $name,
+            'section' => 'front',
+            'module' => $this->getModule(),
+            'controller' => 'topic',
+            'action' => $name,
         );
         // Get count
         $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));

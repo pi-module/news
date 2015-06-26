@@ -8,10 +8,12 @@
     <?php if (isset($authors) && !empty($authors)) { ?>
         <div class="authorList clearfix" itemscope itemtype="http://schema.org/Person">
             <ul class="list-group">
-                <?php foreach($authors as $author) { ?>
+                <?php foreach ($authors as $author) { ?>
                     <li class="list-group-item col-md-3">
-                        <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
-                        <a itemprop="url" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['authorUrl']); ?>">
+                        <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>"
+                             alt="<?php echo $this->escape($author['title']); ?>"/>
+                        <a itemprop="url" title="<?php echo $this->escape($author['title']); ?>"
+                           href="<?php echo $this->escape($author['authorUrl']); ?>">
                             <span itemprop="name"><?php echo $this->escape($author['title']); ?></span>
                         </a>
                     </li>

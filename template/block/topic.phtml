@@ -1,16 +1,20 @@
 <div class="news-topic-block clearfix" itemscope itemtype="http://schema.org/ItemList">
     <?php if ($block['type'] == 'simple') { ?>
         <div class="thumbnails">
-            <?php foreach($block['resources'] as $topic) { ?>
+            <?php foreach ($block['resources'] as $topic) { ?>
                 <div class="col-sm-6 col-md-4 h-review" itemprop="itemListElement">
                     <div class="thumbnail p-item h-card">
-                        <?php if($topic['image']) { ?>
-                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
-                                <img itemprop="image" class="img-responsive u-photo" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>" />
+                        <?php if ($topic['image']) { ?>
+                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
+                               href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                                <img itemprop="image" class="img-responsive u-photo"
+                                     src="<?php echo $this->escape($topic['thumbUrl']); ?>"
+                                     alt="<?php echo $this->escape($topic['title']); ?>"/>
                             </a>
                         <?php } ?>
                         <h3 itemprop="name" class="p-name">
-                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
+                               href="<?php echo $this->escape($topic['topicUrl']); ?>">
                                 <?php echo $this->escape($topic['title']); ?>
                             </a>
                         </h3>
@@ -18,23 +22,26 @@
                 </div>
             <?php } ?>
         </div>
-    <?php } elseif($block['type'] == 'list') { ?>
+    <?php } elseif ($block['type'] == 'list') { ?>
         <ul class="list-unstyled clearfix">
-            <?php foreach($block['resources'] as $topic) { ?>
+            <?php foreach ($block['resources'] as $topic) { ?>
                 <li itemprop="itemListElement">
-                    <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+                    <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                       title="<?php echo $this->escape($topic['title']); ?>">
                         <span itemprop="name"><?php echo $this->escape($topic['title']); ?></span>
                     </a>
                 </li>
             <?php } ?>
         </ul>
-    <?php } elseif($block['type'] == 'listgroup') { ?>
+    <?php } elseif ($block['type'] == 'listgroup') { ?>
         <div class="list-group clearfix">
-            <?php foreach($block['resources'] as $topic) { ?>
-                <a itemprop="itemListElement" class="list-group-item" href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a>
+            <?php foreach ($block['resources'] as $topic) { ?>
+                <a itemprop="itemListElement" class="list-group-item"
+                   href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                   title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a>
             <?php } ?>
         </div>
-    <?php } elseif($block['type'] == 'slide') { ?>
+    <?php } elseif ($block['type'] == 'slide') { ?>
         <?php
         $this->jQuery();
         $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
@@ -43,24 +50,30 @@
         $this->css($this->assetModule('css/owl.carousel.css', 'news'));
         ?>
         <div class="owl-carousel text-center clearfix hover-captions-container">
-            <?php foreach($block['resources'] as $topic) { ?>
+            <?php foreach ($block['resources'] as $topic) { ?>
                 <div class="item hover-captions hover-captions-slide" itemprop="itemListElement">
                     <div class="hover-caption">
                         <h3 itemprop="name"><?php echo $this->escape($topic['title']); ?></h3>
+
                         <p>
-                            <a itemprop="url" class="u-url hover-caption-more" title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                            <a itemprop="url" class="u-url hover-caption-more"
+                               title="<?php echo $this->escape($topic['title']); ?>"
+                               href="<?php echo $this->escape($topic['topicUrl']); ?>">
                                 <?php echo _b('View'); ?>
                             </a>
                         </p>
                     </div>
-                    <img itemprop="image" class="media-object img-responsive u-photo" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>">
+                    <img itemprop="image" class="media-object img-responsive u-photo"
+                         src="<?php echo $this->escape($topic['thumbUrl']); ?>"
+                         alt="<?php echo $this->escape($topic['title']); ?>">
                 </div>
             <?php } ?>
         </div>
     <?php } ?>
     <?php if ($block['showblockmore']) { ?>
         <div class="itemBlockLink">
-            <a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
+            <a title="<?php echo _b('More stories'); ?>"
+               href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
         </div>
     <?php } ?>
 </div>

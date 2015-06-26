@@ -147,9 +147,9 @@ class Author extends AbstractApi
             $list[$row->id]['role'] = $roles[$row->role]['title'];
             $list[$row->id]['name'] = $author['title'];
             $list[$row->id]['authorUrl'] = Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'author',
-                'slug'          => $author['slug'],
+                'module' => $this->getModule(),
+                'controller' => 'author',
+                'slug' => $author['slug'],
             ));;
         }
         return $list;
@@ -172,9 +172,9 @@ class Author extends AbstractApi
         $author['time_update_view'] = _date($author['time_update']);
         // Set story url
         $author['authorUrl'] = Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'author',
-            'slug'          => $author['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'author',
+            'slug' => $author['slug'],
         ));
         // Set image url
         if ($author['image']) {
@@ -232,9 +232,9 @@ class Author extends AbstractApi
             foreach ($rowset as $row) {
                 // Make url
                 $loc = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module'        => $this->getModule(),
-                    'controller'    => 'author',
-                    'slug'          => $row->slug,
+                    'module' => $this->getModule(),
+                    'controller' => 'author',
+                    'slug' => $row->slug,
                 )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'author', $row->id);

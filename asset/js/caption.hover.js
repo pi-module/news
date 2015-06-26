@@ -1,10 +1,10 @@
 /* From : http://alijafarian.com/jquery-image-hover-captions/ */
-$(document).ready(function() {
+$(document).ready(function () {
     $('.hover-captions').hover(
-        function(){
+        function () {
             $(this).find('.hover-caption').slideDown(250);
         },
-        function(){
+        function () {
             $(this).find('.hover-caption').slideUp(250);
         }
     );

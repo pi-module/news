@@ -18,13 +18,13 @@ use Zend\Validator\AbstractValidator;
 
 class NameDuplicate extends AbstractValidator
 {
-    const TAKEN        = 'nameExists';
+    const TAKEN = 'nameExists';
 
     /**
      * @var array
      */
     protected $messageTemplates = array(
-        self::TAKEN     => 'This name already exists',
+        self::TAKEN => 'This name already exists',
     );
 
     protected $options = array(

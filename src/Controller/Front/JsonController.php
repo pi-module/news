@@ -141,19 +141,19 @@ class JsonController extends IndexController
             $storySingle = array();
         } else {
             $storySingle = array(
-                'id'                 => $story['id'],
-                'title'              => $story['title'],
-                'subtitle'           => $story['subtitle'],
-                'topic'              => $story['topic'][0],
-                'summary'            => $story['text_summary'],
-                'description'        => $story['text_description'],
-                'body'               => $story['text_summary'] . $story['text_description'],
-                'time_publish'       => $story['time_publish'],
-                'time_publish_view'  => $story['time_publish_view'],
-                'storyUrl'           => $story['storyUrl'],
-                'largeUrl'           => $story['largeUrl'],
-                'mediumUrl'          => $story['mediumUrl'],
-                'thumbUrl'           => $story['thumbUrl'],
+                'id' => $story['id'],
+                'title' => $story['title'],
+                'subtitle' => $story['subtitle'],
+                'topic' => $story['topic'][0],
+                'summary' => $story['text_summary'],
+                'description' => $story['text_description'],
+                'body' => $story['text_summary'] . $story['text_description'],
+                'time_publish' => $story['time_publish'],
+                'time_publish_view' => $story['time_publish_view'],
+                'storyUrl' => $story['storyUrl'],
+                'largeUrl' => $story['largeUrl'],
+                'mediumUrl' => $story['mediumUrl'],
+                'thumbUrl' => $story['thumbUrl'],
             );
         }
         $storySingle = array($storySingle);

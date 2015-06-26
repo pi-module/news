@@ -36,27 +36,27 @@ class Update extends BasicUpdate
      */
     public function updateSchema(Event $e)
     {
-        $moduleVersion  = $e->getParam('version');
+        $moduleVersion = $e->getParam('version');
 
         // Set story model
-        $storyModel    = Pi::model('story', $this->module);
-        $storyTable    = $storyModel->getTable();
-        $storyAdapter  = $storyModel->getAdapter();
+        $storyModel = Pi::model('story', $this->module);
+        $storyTable = $storyModel->getTable();
+        $storyAdapter = $storyModel->getAdapter();
 
         // Set topic model
-        $topicModel    = Pi::model('topic', $this->module);
-        $topicTable    = $topicModel->getTable();
-        $topicAdapter  = $topicModel->getAdapter();
+        $topicModel = Pi::model('topic', $this->module);
+        $topicTable = $topicModel->getTable();
+        $topicAdapter = $topicModel->getAdapter();
 
         // Set author model
-        $authorModel    = Pi::model('author', $this->module);
-        $authorTable    = $authorModel->getTable();
-        $authorAdapter  = $authorModel->getAdapter();
+        $authorModel = Pi::model('author', $this->module);
+        $authorTable = $authorModel->getTable();
+        $authorAdapter = $authorModel->getAdapter();
 
         // Set field model
-        $fieldModel    = Pi::model('field', $this->module);
-        $fieldTable    = $fieldModel->getTable();
-        $fieldAdapter  = $fieldModel->getAdapter();
+        $fieldModel = Pi::model('field', $this->module);
+        $fieldTable = $fieldModel->getTable();
+        $fieldAdapter = $fieldModel->getAdapter();
 
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
@@ -67,8 +67,8 @@ class Update extends BasicUpdate
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -83,8 +83,8 @@ class Update extends BasicUpdate
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -96,8 +96,8 @@ class Update extends BasicUpdate
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -107,7 +107,7 @@ class Update extends BasicUpdate
         // Update to version 1.2.5
         if (version_compare($moduleVersion, '1.2.5', '<')) {
             // Add table of author
-            $sql =<<<'EOD'
+            $sql = <<<'EOD'
 CREATE TABLE `{author}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `title` varchar (255) NOT NULL,
@@ -137,8 +137,8 @@ EOD;
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'SQL schema query for author table failed: '
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
 
@@ -146,7 +146,7 @@ EOD;
             }
 
             // Add table of author
-            $sql =<<<'EOD'
+            $sql = <<<'EOD'
 CREATE TABLE `{author_role}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `title` varchar (255) NOT NULL,
@@ -162,8 +162,8 @@ EOD;
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'SQL schema query for author table failed: '
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
 
@@ -171,7 +171,7 @@ EOD;
             }
 
             // Add table of author
-            $sql =<<<'EOD'
+            $sql = <<<'EOD'
 CREATE TABLE `{author_story}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `story` int(10) unsigned NOT NULL,
@@ -194,8 +194,8 @@ EOD;
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'SQL schema query for author table failed: '
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
 
@@ -211,8 +211,8 @@ EOD;
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -228,8 +228,8 @@ EOD;
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -244,8 +244,8 @@ EOD;
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -257,8 +257,8 @@ EOD;
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -270,8 +270,8 @@ EOD;
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -283,8 +283,8 @@ EOD;
                 $authorAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -300,8 +300,8 @@ EOD;
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -328,8 +328,8 @@ EOD;
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -340,8 +340,8 @@ EOD;
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -352,8 +352,8 @@ EOD;
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -364,8 +364,8 @@ EOD;
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
@@ -376,15 +376,15 @@ EOD;
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'Table alter query failed: '
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
             }
 
             // Add table of field_topic
-            $sql =<<<'EOD'
+            $sql = <<<'EOD'
 CREATE TABLE `{field_topic}` (
   `id`    INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `field` INT(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -401,15 +401,15 @@ EOD;
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'SQL schema query for author table failed: '
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
                 return false;
             }
 
             // Add table of field_position
-            $sql =<<<'EOD'
+            $sql = <<<'EOD'
 CREATE TABLE `{field_position}` (
   `id`     INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
   `title`  VARCHAR(255)        NOT NULL DEFAULT '',
@@ -428,8 +428,8 @@ EOD;
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
-                    'status'    => false,
-                    'message'   => 'SQL schema query for author table failed: '
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
                 ));
                 return false;

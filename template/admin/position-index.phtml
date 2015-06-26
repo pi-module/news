@@ -1,8 +1,11 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <p>
-        <a class="btn btn-primary" title="<?php _e('Add position'); ?>" href="<?php echo $this->url('', array('controller' => 'position', 'action' => 'update')); ?>"><i class="fa fa-folder-open"></i> <?php _e('Add position'); ?></a>
+        <a class="btn btn-primary" title="<?php _e('Add position'); ?>"
+           href="<?php echo $this->url('', array('controller' => 'position', 'action' => 'update')); ?>"><i
+                class="fa fa-folder-open"></i> <?php _e('Add position'); ?></a>
     </p>
+
     <h3><?php _e('List of positions'); ?></h3>
     <table class="table table-striped table-bordered table-condensed">
         <tr>
@@ -10,19 +13,23 @@
             <th><?php _e('Title'); ?></th>
             <th><?php _e('Action'); ?></th>
         </tr>
-        <?php foreach($list as $position) { ?>
+        <?php foreach ($list as $position) { ?>
             <?php
-            if($position['status'] == 1) {
+            if ($position['status'] == 1) {
                 $labelIdClass = 'label-success';
             } else {
                 $labelIdClass = 'label-warning';
             }
             ?>
             <tr>
-                <td><span class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($position['id']); ?></span></td>
+                <td><span
+                        class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($position['id']); ?></span>
+                </td>
                 <td><?php echo $this->escape($position['title']); ?></td>
                 <td>
-                    <a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $position['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                    <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
+                       href="<?php echo $this->url('', array('action' => 'update', 'id' => $position['id'])); ?>"><i
+                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                 </td>
             </tr>
         <?php } ?>

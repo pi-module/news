@@ -5,10 +5,12 @@
     </div>
     <?php if (isset($tagList) && !empty($tagList)) { ?>
         <div class="tagList clearfix">
-            <?php foreach($tagList as $tag) { ?>
+            <?php foreach ($tagList as $tag) { ?>
                 <div class="well well-small col-md-3">
-                    <a title="<?php echo $this->escape($tag['term']); ?>" href="<?php echo $this->escape($tag['url']); ?>">
-                        <i class="fa fa-tag"></i> <?php echo $this->escape($tag['term']); ?> ( <?php echo $this->escape($tag['count']); ?> )
+                    <a title="<?php echo $this->escape($tag['term']); ?>"
+                       href="<?php echo $this->escape($tag['url']); ?>">
+                        <i class="fa fa-tag"></i> <?php echo $this->escape($tag['term']); ?>
+                        ( <?php echo $this->escape($tag['count']); ?> )
                     </a>
                 </div>
             <?php } ?>

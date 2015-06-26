@@ -41,7 +41,7 @@ class Image extends AbstractApi
         $name = array_filter(explode(' ', $name));
         $name = implode('-', $name) . '.' . $extension;
         // Check text length
-        if (mb_strlen($name,'UTF-8') < 8) {
+        if (mb_strlen($name, 'UTF-8') < 8) {
             $name = $prefix . '%random%';
         }
         // Set original path

@@ -95,7 +95,7 @@ class Story extends AbstractApi
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
                     ));
-            } elseif($file[$row->type][$row->id]['type'] == 'other') {
+            } elseif ($file[$row->type][$row->id]['type'] == 'other') {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
                     sprintf('upload/%s/%s/%s/%s',
                         $config['file_path'],
@@ -114,10 +114,10 @@ class Story extends AbstractApi
             }
             // Set download url
             $file[$row->type][$row->id]['downloadUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'media',
-                'action'        => 'download',
-                'id'            => $row->id,
+                'module' => $this->getModule(),
+                'controller' => 'media',
+                'action' => 'download',
+                'id' => $row->id,
             )));
         }
         // return
@@ -179,9 +179,9 @@ class Story extends AbstractApi
             $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['next']['title'] = $story['title'];
             $link['next']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'story',
-                'slug'          => $story['slug'],
+                'module' => $this->getModule(),
+                'controller' => 'story',
+                'slug' => $story['slug'],
             )));
         }
         // Select Prev
@@ -193,9 +193,9 @@ class Story extends AbstractApi
             $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['previous']['title'] = $story['title'];
             $link['previous']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'story',
-                'slug'          => $story['slug'],
+                'module' => $this->getModule(),
+                'controller' => 'story',
+                'slug' => $story['slug'],
             )));
         }
         return $link;
@@ -237,17 +237,17 @@ class Story extends AbstractApi
                 // Get config
                 $config = Pi::service('registry')->config->read($this->getModule());
                 // Set list
-                $list =  array();
+                $list = array();
                 $where = array('id' => $favoriteIds, 'status' => 1);
                 $select = Pi::model('story', $this->getModule())->select()->where($where);
                 $rowset = Pi::model('story', $this->getModule())->selectWith($select);
                 foreach ($rowset as $row) {
-                    $story =  array();
+                    $story = array();
                     $story['title'] = $row->title;
                     $story['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                        'module'        => $this->getModule(),
-                        'controller'    => 'story',
-                        'slug'          => $row->slug,
+                        'module' => $this->getModule(),
+                        'controller' => 'story',
+                        'slug' => $row->slug,
                     )));
                     $story['image'] = '';
                     if ($row->image) {
@@ -289,9 +289,9 @@ class Story extends AbstractApi
         $story['time_update_view'] = _date($story['time_update']);
         // Set story url
         $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'story',
-            'slug'          => $story['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'story',
+            'slug' => $story['slug'],
         )));
         // Set topic information
         $story['topic'] = Json::decode($story['topic']);
@@ -301,9 +301,9 @@ class Story extends AbstractApi
             if (!empty($topicList[$topic]['title'])) {
                 $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
                 $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module'        => $this->getModule(),
-                    'controller'    => 'topic',
-                    'slug'          => $topicList[$topic]['slug'],
+                    'module' => $this->getModule(),
+                    'controller' => 'topic',
+                    'slug' => $topicList[$topic]['slug'],
                 )));
             }
         }
@@ -378,9 +378,9 @@ class Story extends AbstractApi
         $story['time_publish_view'] = _date($story['time_publish']);
         // Set story url
         $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'story',
-            'slug'          => $story['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'story',
+            'slug' => $story['slug'],
         )));
         // Set image url
         if ($story['image']) {
@@ -414,9 +414,9 @@ class Story extends AbstractApi
         $story = $story->toArray();
         // Set story url
         $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'story',
-            'slug'          => $story['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'story',
+            'slug' => $story['slug'],
         )));
         // Set image url
         if ($story['image']) {
@@ -434,13 +434,13 @@ class Story extends AbstractApi
         $topic = Json::decode($story['topic']);
         // Set return array
         $storyJson = array(
-            'id'                   => $story['id'],
-            'title'                => $story['title'],
-            'time_publish'         => $story['time_publish'],
-            'time_publish_view'    => _date($story['time_publish']),
-            'thumbUrl'             => $story['thumbUrl'],
+            'id' => $story['id'],
+            'title' => $story['title'],
+            'time_publish' => $story['time_publish'],
+            'time_publish_view' => _date($story['time_publish']),
+            'thumbUrl' => $story['thumbUrl'],
             //'storyUrl'           => $story['storyUrl'],
-            'topic'                => $topic[0],
+            'topic' => $topic[0],
         );
         // return item
         return $storyJson;
@@ -458,9 +458,9 @@ class Story extends AbstractApi
             foreach ($rowset as $row) {
                 // Make url
                 $loc = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module'        => $this->getModule(),
-                    'controller'    => 'story',
-                    'slug'          => $row->slug,
+                    'module' => $this->getModule(),
+                    'controller' => 'story',
+                    'slug' => $row->slug,
                 )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'story', $row->id);

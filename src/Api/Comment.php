@@ -31,18 +31,18 @@ class Comment extends AbstractComment
     {
 
         $result = array();
-        $items = (array) $item;
+        $items = (array)$item;
 
         // Set options
         $story = Pi::api('story', 'news')->getListFromId($items);
 
         foreach ($items as $id) {
             $result[$id] = array(
-                'id'    => $story[$id]['id'],
+                'id' => $story[$id]['id'],
                 'title' => $story[$id]['title'],
-                'url'   => $story[$id]['storyUrl'],
-                'uid'   => $story[$id]['uid'],
-                'time'  => $story[$id]['time_create'],
+                'url' => $story[$id]['storyUrl'],
+                'uid' => $story[$id]['uid'],
+                'time' => $story[$id]['time_create'],
             );
         }
 

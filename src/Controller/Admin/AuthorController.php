@@ -69,13 +69,13 @@ class AuthorController extends ActionController
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'author',
-                'action'        => 'index',
-                'title'         => $title,
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => 'author',
+                'action' => 'index',
+                'title' => $title,
             )),
         ));
         // Set form
@@ -190,7 +190,7 @@ class AuthorController extends ActionController
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
                 $filter = new Filter\HeadKeywords;
                 $filter->setOptions(array(
-                    'force_replace_space' => (bool) $this->config('force_replace_space'),
+                    'force_replace_space' => (bool)$this->config('force_replace_space'),
                 ));
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
@@ -218,9 +218,9 @@ class AuthorController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module,
-                        'controller'  => 'author',
-                        'slug'        => $values['slug']
+                        'module' => $module,
+                        'controller' => 'author',
+                        'slug' => $values['slug']
                     )));
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);

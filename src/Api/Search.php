@@ -35,19 +35,19 @@ class Search extends AbstractSearch
      * {@inheritDoc}
      */
     protected $meta = array(
-        'id'            => 'id',
-        'title'         => 'title',
-        'text_summary'  => 'content',
-        'time_create'   => 'time',
-        'uid'           => 'uid',
-        'slug'          => 'slug',
+        'id' => 'id',
+        'title' => 'title',
+        'text_summary' => 'content',
+        'time_create' => 'time',
+        'uid' => 'uid',
+        'slug' => 'slug',
     );
 
     /**
      * {@inheritDoc}
      */
     protected $condition = array(
-        'status'    => 1,
+        'status' => 1,
     );
 
     /**
@@ -56,9 +56,9 @@ class Search extends AbstractSearch
     protected function buildUrl(array $item)
     {
         $link = Pi::url(Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'story',
-            'slug'          => $item['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'story',
+            'slug' => $item['slug'],
         )));
 
         return $link;

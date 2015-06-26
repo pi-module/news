@@ -13,75 +13,67 @@
 return array(
     // Front section
     'front' => array(
-        'public'    => array(
-            'title'         => _a('Global public resource'),
-            'access'        => array(
+        'public' => array(
+            'title' => _a('Global public resource'),
+            'access' => array(
                 'guest',
                 'member',
             ),
         ),
         'author' => array(
-            'title'         => _a('Authors'),
-            'access'        => array(
+            'title' => _a('Authors'),
+            'access' => array(
                 'guest',
                 'member',
             ),
         ),
         'favourite' => array(
-            'title'         => _a('Favourite'),
-            'access'        => array(
+            'title' => _a('Favourite'),
+            'access' => array(
                 'member',
             ),
         ),
     ),
     // Admin section
     'admin' => array(
-        'attach'       => array(
-            'title'         => _a('Attach'),
-            'access'        => array(
-                //'admin',
+        'attach' => array(
+            'title' => _a('Attach'),
+            'access' => array(//'admin',
             ),
         ),
-        'author'       => array(
-            'title'         => _a('Authors'),
-            'access'        => array(
-                //'admin',
+        'author' => array(
+            'title' => _a('Authors'),
+            'access' => array(//'admin',
             ),
         ),
-        'attribute'       => array(
-            'title'         => _a('Attribute'),
-            'access'        => array(
-                //'admin',
+        'attribute' => array(
+            'title' => _a('Attribute'),
+            'access' => array(//'admin',
             ),
         ),
-        'position'      => array(
-            'title'         => _a('Attribute position'),
-            'access'        => array(
-                //'admin',
+        'position' => array(
+            'title' => _a('Attribute position'),
+            'access' => array(//'admin',
             ),
         ),
-        'spotlight'       => array(
-            'title'         => _a('Spotlight'),
-            'access'        => array(
-                //'admin',
+        'spotlight' => array(
+            'title' => _a('Spotlight'),
+            'access' => array(//'admin',
             ),
         ),
-        'story'       => array(
-            'title'         => _a('Story'),
-            'access'        => array(
-                //'admin',
+        'story' => array(
+            'title' => _a('Story'),
+            'access' => array(//'admin',
             ),
         ),
-        'topic'       => array(
-            'title'         => _a('Topic'),
-            'access'        => array(
-                //'admin',
+        'topic' => array(
+            'title' => _a('Topic'),
+            'access' => array(//'admin',
             ),
         ),
-        'tools'       => array(
-            'title'         => _a('Tools'),
-            'access'        => array(
-                //'admin',
+        'tools' => array(
+            'title' => _a('Tools'),
+            'access' => array(//'admin',
             ),
         ),
     ),

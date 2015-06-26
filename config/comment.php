@@ -12,9 +12,9 @@
  */
 return array(
     'news' => array(
-        'title'    => _a('News comments'),
-        'icon'     => 'icon-post',
+        'title' => _a('News comments'),
+        'icon' => 'icon-post',
         'callback' => 'Module\News\Api\Comment',
-        'locator'  => 'Module\News\Api\Comment',
+        'locator' => 'Module\News\Api\Comment',
     ),
 );

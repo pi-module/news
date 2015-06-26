@@ -95,8 +95,7 @@ class AuthorForm extends BaseForm
             $this->add(array(
                 'name' => 'imageview',
                 'type' => 'Module\News\Form\Element\Image',
-                'options' => array(
-                    //'label' => __('Image'),
+                'options' => array(//'label' => __('Image'),
                 ),
                 'attributes' => array(
                     'src' => $this->thumbUrl,

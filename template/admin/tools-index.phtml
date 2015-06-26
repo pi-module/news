@@ -1,19 +1,36 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <p>
-        <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>" href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i class="fa fa-repeat"></i> <?php _e('Rebuild'); ?></a>
-        <a class="btn btn-danger" title="<?php _e('Prune'); ?>" href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i class="fa fa-trash-o"></i> <?php _e('Prune'); ?></a>
-        <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>" href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i class="fa fa-building-o"></i> <?php _e('Spotlight'); ?></a>
-        <a class="btn btn-danger" title="<?php _e('Page'); ?>" href="<?php echo $this->url('', array('action' => 'page')); ?>"><i class="fa fa-file-o"></i> <?php _e('Page'); ?></a>
-        <a class="btn btn-danger" title="<?php _e('Sitemap'); ?>" href="<?php echo $this->url('', array('action' => 'sitemap')); ?>"><i class="fa fa-sitemap"></i> <?php _e('Sitemap'); ?></a>
-        <a class="btn btn-danger" title="<?php _e('Image'); ?>" href="<?php echo $this->url('', array('action' => 'image')); ?>"><i class="fa fa-picture-o"></i> <?php _e('Image'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Rebuild'); ?>"
+           href="<?php echo $this->url('', array('action' => 'rebuild')); ?>"><i
+                class="fa fa-repeat"></i> <?php _e('Rebuild'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Prune'); ?>"
+           href="<?php echo $this->url('', array('action' => 'prune')); ?>"><i
+                class="fa fa-trash-o"></i> <?php _e('Prune'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Spotlight'); ?>"
+           href="<?php echo $this->url('', array('action' => 'spotlight')); ?>"><i
+                class="fa fa-building-o"></i> <?php _e('Spotlight'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Page'); ?>"
+           href="<?php echo $this->url('', array('action' => 'page')); ?>"><i
+                class="fa fa-file-o"></i> <?php _e('Page'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Sitemap'); ?>"
+           href="<?php echo $this->url('', array('action' => 'sitemap')); ?>"><i
+                class="fa fa-sitemap"></i> <?php _e('Sitemap'); ?></a>
+        <a class="btn btn-danger" title="<?php _e('Image'); ?>"
+           href="<?php echo $this->url('', array('action' => 'image')); ?>"><i
+                class="fa fa-picture-o"></i> <?php _e('Image'); ?></a>
     </p>
+
     <div class="well">
         <h3><?php _e('How this part work?'); ?></h3>
+
         <p><?php _e('Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '); ?></p>
         <ul>
-            <li><strong><?php _e('Rebuild'); ?></strong> : <?php _e('You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'); ?></li>
-            <li><strong><?php _e('Prune'); ?></strong> : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
+            <li><strong><?php _e('Rebuild'); ?></strong>
+                : <?php _e('You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'); ?>
+            </li>
+            <li><strong><?php _e('Prune'); ?></strong>
+                : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
             <li><strong><?php _e('Spotlight'); ?></strong> : <?php _e('You can remove old spotlights'); ?></li>
             <li><strong><?php _e('Page'); ?></strong> : <?php _e('Manage system page'); ?></li>
             <li><strong><?php _e('Sitemap'); ?></strong> : <?php _e('Manage links on sitemap module'); ?></li>

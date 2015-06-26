@@ -1,35 +1,45 @@
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'simple') { ?>
-            <?php foreach($block['resources'] as $story) { ?>
+            <?php foreach ($block['resources'] as $story) { ?>
                 <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
-                    <?php if($block['showimage'] && !empty($story['thumbUrl'])){ ?>
-                        <a itemprop="url" class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
-                            <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>" class="media-object img-rounded img-responsive u-photo" />
+                    <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                        <a itemprop="url" class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                           title="<?php echo $this->escape($story['title']); ?>">
+                            <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                 alt="<?php echo $this->escape($story['title']); ?>"
+                                 class="media-object img-rounded img-responsive u-photo"/>
                         </a>
                     <?php } ?>
                     <div class="media-body p-item h-card">
                         <h3 class="media-heading p-name itemSingleTitle" itemprop="name">
-                            <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                            <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                               title="<?php echo $this->escape($story['title']); ?>">
                                 <?php echo $this->escape($story['title']); ?>
                             </a>
                         </h3>
+
                         <div class="clearfix">
-                            <?php if($block['showdate'] || $block['showhits']){ ?>
+                            <?php if ($block['showdate'] || $block['showhits']) { ?>
                                 <ul class="text-muted list-inline">
-                                    <?php if($block['showdate']){ ?>
-                                        <li class="dt-published"><i class="fa fa-calendar"></i> <?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                    <?php if ($block['showdate']) { ?>
+                                        <li class="dt-published"><i
+                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                            : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                     <?php } ?>
-                                    <?php if($block['showhits']){ ?>
-                                        <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?></li>
+                                    <?php if ($block['showhits']) { ?>
+                                        <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            : <?php echo $this->escape($story['hits']); ?></li>
                                     <?php } ?>
                                 </ul>
                             <?php } ?>
-                            <?php if($block['showdesc']){  ?>
+                            <?php if ($block['showdesc']) { ?>
                                 <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
                             <?php } ?>
-                            <?php if($block['showmore']){ ?>
-                                <p><a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a></p>
+                            <?php if ($block['showmore']) { ?>
+                                <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                      title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                </p>
                             <?php } ?>
                         </div>
                     </div>
@@ -44,24 +54,31 @@
             $this->css($this->assetModule('css/owl.carousel.css', 'news'));
             ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
-                <?php foreach($block['resources'] as $story) { ?>
-                    <div class="item hover-captions hover-captions-slide" itemscope itemtype="http://schema.org/Article">
+                <?php foreach ($block['resources'] as $story) { ?>
+                    <div class="item hover-captions hover-captions-slide" itemscope
+                         itemtype="http://schema.org/Article">
                         <div class="hover-caption">
                             <h3 itemprop="name"><?php echo $this->escape($story['title']); ?></h3>
+
                             <p>
-                                <a itemprop="url" class="u-url hover-caption-more" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>">
+                                <a itemprop="url" class="u-url hover-caption-more"
+                                   title="<?php echo $this->escape($story['title']); ?>"
+                                   href="<?php echo $this->escape($story['storyUrl']); ?>">
                                     <?php echo _b('View'); ?>
                                 </a>
                             </p>
                         </div>
-                        <img itemprop="image" class="media-object img-responsive u-photo" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>">
+                        <img itemprop="image" class="media-object img-responsive u-photo"
+                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                             alt="<?php echo $this->escape($story['title']); ?>">
                     </div>
                 <?php } ?>
             </div>
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">
-                <a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
+                <a title="<?php echo _b('More stories'); ?>"
+                   href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
             </div>
         <?php } ?>
     </div>

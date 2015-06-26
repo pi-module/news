@@ -5,45 +5,56 @@
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="index-news">
-        <?php foreach($stores as $story) { ?>
+        <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
             <div class="panel panel-default h-entry" itemscope itemtype="http://schema.org/Article">
                 <div class="panel-heading">
-                    <h3 class="panel-title p-name" itemprop="name"><?php if($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a></h3>
+                    <h3 class="panel-title p-name" itemprop="name"><?php if ($story['important']) { ?><span
+                            class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
+                                                                                                    title="<?php echo $story['title']; ?>"
+                                                                                                    href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+                    </h3>
                 </div>
                 <div class="panel-body">
-                    <?php if($story['image']){ ?>
+                    <?php if ($story['image']) { ?>
                         <div class="col-md-3 u-photo">
-                            <a class="thumbnail" itemprop="url" href="<?php echo $story['storyUrl']; ?>" title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" src="<?php echo $story['thumbUrl']; ?>" alt="<?php echo $this->escape($story['title']); ?>" />
+                            <a class="thumbnail" itemprop="url" href="<?php echo $story['storyUrl']; ?>"
+                               title="<?php echo $this->escape($story['title']); ?>">
+                                <img itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
+                                     alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         </div>
                     <?php } ?>
                     <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
                     <div class="clearfix">
                         <div class="pull-right">
-                            <?php if($topic['show_date']){ ?>
+                            <?php if ($topic['show_date']) { ?>
                                 <span class="itemPostDate dt-published" itemprop="datePublished">
 							<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
 						</span>
                             <?php } ?>
-                            <?php if($topic['show_hits']){ ?>
+                            <?php if ($topic['show_hits']) { ?>
                                 <span class="itemStats">
-							<?php _e('Read'); ?>: <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+							<?php _e('Read'); ?>
+                                    : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
 						</span>
                             <?php } ?>
                         </div>
-                        <?php if($topic['show_topic']) { ?>
+                        <?php if ($topic['show_topic']) { ?>
                             <div class="pull-left"><?php _e('Topics'); ?> :
-                                <?php foreach($story['topics'] as $storyTopic) { ?>
-                                    <span class=" p-category" itemprop="about"><a title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                                <?php foreach ($story['topics'] as $storyTopic) { ?>
+                                    <span class=" p-category" itemprop="about"><a
+                                            title="<?php echo $storyTopic['title']; ?>"
+                                            href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
                                 <?php } ?>
                             </div>
                         <?php } ?>
-                        <?php if(!empty($story['authors'])) { ?>
+                        <?php if (!empty($story['authors'])) { ?>
                             <div class="pull-left">
-                                <?php foreach($story['authors'] as $author) { ?>
-                                    <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                                <?php foreach ($story['authors'] as $author) { ?>
+                                    <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?>
+                                        : <a title="<?php echo $author['authorName']; ?>"
+                                             href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
                                 <?php } ?>
                             </div>
                         <?php } ?>

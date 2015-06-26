@@ -1,11 +1,12 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <h3><?php echo $this->escape($title); ?></h3>
+
     <div class="row">
         <div class="col-md-5">
             <div class="well well-small">
                 <div class="view-file">
-                    <?php if($file['type'] == 'video') { ?>
+                    <?php if ($file['type'] == 'video') { ?>
                         <div class="attach-video text-center">
                             <?php
                             $this->jQuery();
@@ -21,29 +22,42 @@
                                 });
                             </script>
                         </div>
-                    <?php } elseif($file['type'] == 'audio') { ?>
+                    <?php } elseif ($file['type'] == 'audio') { ?>
                         <div class="attach-audio-file text-center col-md-12">
-                            <object class="col-md-11" type="application/x-shockwave-flash" data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>" id="audioplayer1" height="35" >
-                                <param name="movie" value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
-                                <param name="FlashVars" value="playerID=audioplayer1&soundFile=<?php echo $file['view']; ?>">
+                            <object class="col-md-11" type="application/x-shockwave-flash"
+                                    data="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>"
+                                    id="audioplayer1" height="35">
+                                <param name="movie"
+                                       value="<?php echo $this->assetModule('player/audio/audio-player.swf'); ?>">
+                                <param name="FlashVars"
+                                       value="playerID=audioplayer1&soundFile=<?php echo $file['view']; ?>">
                                 <param name="quality" value="high">
                                 <param name="menu" value="false">
                                 <param name="wmode" value="transparent">
                             </object>
                         </div>
-                    <?php } elseif($file['type'] == 'image') { ?>
-                        <div class="attach-image text-center"><img class="img-thumbnail" src="<?php echo $this->escape($file['view']); ?>" alt="<?php echo $this->escape($file['title']); ?>" /></div>
+                    <?php } elseif ($file['type'] == 'image') { ?>
+                        <div class="attach-image text-center"><img class="img-thumbnail"
+                                                                   src="<?php echo $this->escape($file['view']); ?>"
+                                                                   alt="<?php echo $this->escape($file['title']); ?>"/>
+                        </div>
                     <?php } else { ?>
-                        <div class="attach-image text-center"><a class="btn btn-primary" rel="external" title="<?php echo $this->escape($file['title']); ?>" href="<?php echo $this->escape($file['downloadUrl']); ?>"><i class="fa fa-download-alt"></i> <?php _e('Get it'); ?></a></div>
+                        <div class="attach-image text-center"><a class="btn btn-primary" rel="external"
+                                                                 title="<?php echo $this->escape($file['title']); ?>"
+                                                                 href="<?php echo $this->escape($file['downloadUrl']); ?>"><i
+                                    class="fa fa-download-alt"></i> <?php _e('Get it'); ?></a></div>
                     <?php } ?>
                 </div>
                 <p><strong><?php _e('File title'); ?></strong> <?php echo $this->escape($file['title']); ?></p>
+
                 <p><strong><?php _e('Story title'); ?></strong> <?php echo $this->escape($story['title']); ?></p>
             </div>
         </div>
         <div class="col-md-7"><?php echo $this->form($form); ?></div>
     </div>
     <p>
-        <a class="btn btn-primary" title="<?php _e('Back'); ?>" href="<?php echo $this->url('', array('action' => 'index')); ?>"><i class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+        <a class="btn btn-primary" title="<?php _e('Back'); ?>"
+           href="<?php echo $this->url('', array('action' => 'index')); ?>"><i
+                class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
     </p>
 </div>

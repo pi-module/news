@@ -7,14 +7,18 @@
     </div>
     <?php if (isset($topics) && !empty($topics)) { ?>
         <div class="topics clearfix">
-            <?php foreach($topics as $topic) { ?>
+            <?php foreach ($topics as $topic) { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="thumbnail">
-                        <a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
-                            <img src="<?php echo $this->escape($topic['mediumUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>">
+                        <a href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                           title="<?php echo $this->escape($topic['title']); ?>">
+                            <img src="<?php echo $this->escape($topic['mediumUrl']); ?>"
+                                 alt="<?php echo $this->escape($topic['title']); ?>">
                         </a>
+
                         <div class="caption">
-                            <a href="<?php echo $this->escape($topic['topicUrl']); ?>" title="<?php echo $this->escape($topic['title']); ?>">
+                            <a href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                               title="<?php echo $this->escape($topic['title']); ?>">
                                 <h3><?php echo $this->escape($topic['title']); ?></h3>
                             </a>
                         </div>

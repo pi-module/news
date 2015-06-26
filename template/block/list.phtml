@@ -1,16 +1,17 @@
 <div class="news-block news-list-block" itemscope itemtype="http://schema.org/ItemList">
     <ul class="list-unstyled">
-        <?php foreach($block['resources'] as $story) { ?>
+        <?php foreach ($block['resources'] as $story) { ?>
             <li class="h-entry" itemscope itemtype="http://schema.org/Article" itemprop="itemListElement">
 			<span class="itemTitle p-name" itemprop="name">
-				<a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+				<a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                   title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
 			</span>
-                <?php if($block['showdate']){ ?>
+                <?php if ($block['showdate']) { ?>
                     <span class="itemPostDate dt-published">
 				<?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
 			</span>
                 <?php } ?>
-                <?php if($block['showhits']){ ?>
+                <?php if ($block['showhits']) { ?>
                     <span class="itemStats">
 				<?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?>
 			</span>
@@ -21,7 +22,8 @@
     <div class="clearfix"></div>
     <?php if ($block['showblockmore']) { ?>
         <div class="itemBlockLink">
-            <a title="<?php echo _b('More stories'); ?>" href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
+            <a title="<?php echo _b('More stories'); ?>"
+               href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
         </div>
     <?php } ?>
 </div>

@@ -50,7 +50,7 @@ class AttributeForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-                'required'  => true,
+                'required' => true,
             )
         ));
         // name
@@ -62,7 +62,7 @@ class AttributeForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => __('Set name for call anywhere'),
-                'required'  => true,
+                'required' => true,
             )
         ));
         // topic
@@ -74,9 +74,9 @@ class AttributeForm extends BaseForm
                 'module' => $this->module,
             ),
             'attributes' => array(
-                'required'  => true,
-                'size'      => 5,
-                'multiple'  => 1,
+                'required' => true,
+                'size' => 5,
+                'multiple' => 1,
             )
         ));
         // status
@@ -91,7 +91,7 @@ class AttributeForm extends BaseForm
                 ),
             ),
             'attributes' => array(
-                'required'  => true,
+                'required' => true,
             )
         ));
         // position
@@ -103,7 +103,7 @@ class AttributeForm extends BaseForm
                 'value_options' => $this->position,
             ),
             'attributes' => array(
-                'required'  => true,
+                'required' => true,
             )
         ));
         // type
@@ -112,21 +112,21 @@ class AttributeForm extends BaseForm
             'type' => 'select',
             'options' => array(
                 'label' => __('Type'),
-                'value_options'    => array(
-                    'text'      => __('Text : type text content'),
-                    'link'      => __('Link : add url for click'),
-                    'video'     => __('Video : add flv or mp4 url for play on video player'),
-                    'audio'     => __('Audio : add mp3 url for play on audio player'),
-                    'file'      => __('File : add file link for download'),
-                    'currency'  => __('Currency : add view price for anything'),
-                    'date'      => __('Date : add date for view'),
-                    'number'    => __('Number : add number'),
-                    'select'    => __('Select : add select box for choose'),
-                    'checkbox'  => __('Checkbox : add check box for 0 or 1'),
+                'value_options' => array(
+                    'text' => __('Text : type text content'),
+                    'link' => __('Link : add url for click'),
+                    'video' => __('Video : add flv or mp4 url for play on video player'),
+                    'audio' => __('Audio : add mp3 url for play on audio player'),
+                    'file' => __('File : add file link for download'),
+                    'currency' => __('Currency : add view price for anything'),
+                    'date' => __('Date : add date for view'),
+                    'number' => __('Number : add number'),
+                    'select' => __('Select : add select box for choose'),
+                    'checkbox' => __('Checkbox : add check box for 0 or 1'),
                 ),
             ),
             'attributes' => array(
-                'required'  => true,
+                'required' => true,
             )
         ));
         // data

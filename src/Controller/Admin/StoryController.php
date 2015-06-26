@@ -114,16 +114,16 @@ class StoryController extends ActionController
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'story',
-                'action'        => 'index',
-                'status'        => $status,
-                'topic'         => $topic,
-                'uid'           => $uid,
-                'title'         => $title,
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => 'story',
+                'action' => 'index',
+                'status' => $status,
+                'topic' => $topic,
+                'uid' => $uid,
+                'title' => $title,
             )),
         ));
         // Set form
@@ -210,9 +210,9 @@ class StoryController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module,
-                        'controller'  => 'story',
-                        'slug'        => $story->slug
+                        'module' => $module,
+                        'controller' => 'story',
+                        'slug' => $story->slug
                     )));
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $story->status, $module, 'story', $story->id);
@@ -319,7 +319,7 @@ class StoryController extends ActionController
             if ($form->isValid()) {
                 $values = $form->getData();
                 // Set author
-                $author =  array();
+                $author = array();
                 if (!empty($option['role'])) {
                     foreach ($option['role'] as $role) {
                         if ($values[$role['name']] > 0) {
@@ -369,7 +369,7 @@ class StoryController extends ActionController
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
                 $filter = new Filter\HeadKeywords;
                 $filter->setOptions(array(
-                    'force_replace_space' => (bool) $this->config('force_replace_space'),
+                    'force_replace_space' => (bool)$this->config('force_replace_space'),
                 ));
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
@@ -407,9 +407,9 @@ class StoryController extends ActionController
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
                     $loc = Pi::url($this->url('news', array(
-                        'module'      => $module,
-                        'controller'  => 'story',
-                        'slug'        => $values['slug']
+                        'module' => $module,
+                        'controller' => 'story',
+                        'slug' => $values['slug']
                     )));
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);

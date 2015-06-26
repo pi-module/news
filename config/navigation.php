@@ -11,134 +11,134 @@
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 return array(
-    'front'   => array(
+    'front' => array(
         'index' => array(
-            'label'         => _a('Index'),
-            'permission'    => array(
-                'resource'  => 'public',
+            'label' => _a('Index'),
+            'permission' => array(
+                'resource' => 'public',
             ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'index',
-            'action'        => 'index',
+            'route' => 'news',
+            'module' => 'news',
+            'controller' => 'index',
+            'action' => 'index',
         ),
 
         'favourite' => array(
-            'label'         => _a('Favourite'),
-            'permission'    => array(
-                'resource'  => 'public',
+            'label' => _a('Favourite'),
+            'permission' => array(
+                'resource' => 'public',
             ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'favourite',
-            'action'        => 'index',
+            'route' => 'news',
+            'module' => 'news',
+            'controller' => 'favourite',
+            'action' => 'index',
         ),
 
         'topic' => array(
-            'label'         => _a('Topic list'),
-            'permission'    => array(
-                'resource'  => 'public',
+            'label' => _a('Topic list'),
+            'permission' => array(
+                'resource' => 'public',
             ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'topic',
-            'action'        => 'list',
+            'route' => 'news',
+            'module' => 'news',
+            'controller' => 'topic',
+            'action' => 'list',
         ),
 
         'tag' => array(
-            'label'         => _a('Tag list'),
-            'permission'    => array(
-                'resource'  => 'public',
+            'label' => _a('Tag list'),
+            'permission' => array(
+                'resource' => 'public',
             ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'tag',
-            'action'        => 'list',
+            'route' => 'news',
+            'module' => 'news',
+            'controller' => 'tag',
+            'action' => 'list',
         ),
 
         'author' => array(
-            'label'         => _a('Author list'),
-            'permission'    => array(
-                'resource'  => 'author',
+            'label' => _a('Author list'),
+            'permission' => array(
+                'resource' => 'author',
             ),
-            'route'         => 'news',
-            'module'        => 'news',
-            'controller'    => 'author',
-            'action'        => 'list',
+            'route' => 'news',
+            'module' => 'news',
+            'controller' => 'author',
+            'action' => 'list',
         ),
     ),
     'admin' => array(
         'story' => array(
-            'label'         => _a('Story'),
-            'permission'    => array(
-                'resource'  => 'story',
+            'label' => _a('Story'),
+            'permission' => array(
+                'resource' => 'story',
             ),
-            'route'         => 'admin',
-            'controller'    => 'story',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'story',
+            'action' => 'index',
         ),
         'topic' => array(
-            'label'         => _a('Topic'),
-            'permission'    => array(
-                'resource'  => 'topic',
+            'label' => _a('Topic'),
+            'permission' => array(
+                'resource' => 'topic',
             ),
-            'route'         => 'admin',
-            'controller'    => 'topic',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'topic',
+            'action' => 'index',
         ),
         'spotlight' => array(
-            'label'         => _a('Spotlight'),
-            'permission'    => array(
-                'resource'  => 'spotlight',
+            'label' => _a('Spotlight'),
+            'permission' => array(
+                'resource' => 'spotlight',
             ),
-            'route'         => 'admin',
-            'controller'    => 'spotlight',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'spotlight',
+            'action' => 'index',
         ),
         'attach' => array(
-            'label'         => _a('Attaced'),
-            'permission'    => array(
-                'resource'  => 'attach',
+            'label' => _a('Attaced'),
+            'permission' => array(
+                'resource' => 'attach',
             ),
-            'route'         => 'admin',
-            'controller'    => 'attach',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'attach',
+            'action' => 'index',
         ),
         'attribute' => array(
-            'label'         => _a('Attribute'),
-            'permission'    => array(
-                'resource'  => 'attribute',
+            'label' => _a('Attribute'),
+            'permission' => array(
+                'resource' => 'attribute',
             ),
-            'route'         => 'admin',
-            'controller'    => 'attribute',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'attribute',
+            'action' => 'index',
         ),
         'position' => array(
-            'label'         => _a('Attribute position'),
-            'permission'    => array(
-                'resource'  => 'position',
+            'label' => _a('Attribute position'),
+            'permission' => array(
+                'resource' => 'position',
             ),
-            'route'         => 'admin',
-            'controller'    => 'position',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'position',
+            'action' => 'index',
         ),
         'author' => array(
-            'label'         => _a('Authors'),
-            'permission'    => array(
-                'resource'  => 'author',
+            'label' => _a('Authors'),
+            'permission' => array(
+                'resource' => 'author',
             ),
-            'route'         => 'admin',
-            'controller'    => 'author',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'author',
+            'action' => 'index',
         ),
         'tools' => array(
-            'label'         => _a('Tools'),
-            'permission'    => array(
-                'resource'  => 'tools',
+            'label' => _a('Tools'),
+            'permission' => array(
+                'resource' => 'tools',
             ),
-            'route'         => 'admin',
-            'controller'    => 'tools',
-            'action'        => 'index',
+            'route' => 'admin',
+            'controller' => 'tools',
+            'action' => 'index',
         ),
     ),
 );

@@ -1,8 +1,10 @@
 <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
     <div class="clearfix tagList">
-        <?php foreach($tag as $term) { ?>
+        <?php foreach ($tag as $term) { ?>
             <span class="tagItem">
-                <a title="<?php echo $this->escape($term); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)))); ?>"><i class="fa fa-tag"></i> <?php echo $this->escape($term); ?></a>
+                <a title="<?php echo $this->escape($term); ?>"
+                   href="<?php echo Pi::url($this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)))); ?>"><i
+                        class="fa fa-tag"></i> <?php echo $this->escape($term); ?></a>
             </span>
         <?php } ?>
     </div>

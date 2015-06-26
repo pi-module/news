@@ -21,9 +21,9 @@ class IndexController extends FeedController
     public function indexAction()
     {
         $feed = $this->getDataModel(array(
-            'title'         => __('News feed'),
-            'description'   => __('Recent News.'),
-            'date_created'  => time(),
+            'title' => __('News feed'),
+            'description' => __('Recent News.'),
+            'date_created' => time(),
         ));
         $columns = array('id', 'title', 'slug', 'text_summary', 'text_description', 'time_publish');
         $order = array('time_publish DESC', 'id DESC');
@@ -38,9 +38,9 @@ class IndexController extends FeedController
             $entry['description'] = strtolower(trim($description));
             $entry['date_modified'] = (int)$row->time_publish;
             $entry['link'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'story',
-                'slug'          => $row->slug,
+                'module' => $this->getModule(),
+                'controller' => 'story',
+                'slug' => $row->slug,
             )));
             $feed->entry = $entry;
         }

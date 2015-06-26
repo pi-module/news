@@ -24,7 +24,7 @@ class Image extends ZendImage
     {
         $this->Attributes = array(
             'class' => 'img-thumbnail item-img',
-            'src'   => $this->attributes['src'],
+            'src' => $this->attributes['src'],
         );
         return $this->Attributes;
     }

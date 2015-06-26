@@ -36,8 +36,8 @@ class Topic extends AbstractRegistry
         $rowset = Pi::model('topic', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
             $item = array(
-                'name'  => sprintf('topic-%s', $row->id),
-                'slug'  => $row->slug,
+                'name' => sprintf('topic-%s', $row->id),
+                'slug' => $row->slug,
             );
             $list[$row->id] = $item;
         }

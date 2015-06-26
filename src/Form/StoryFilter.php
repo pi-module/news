@@ -46,17 +46,17 @@ class StoryFilter extends InputFilter
         ));
         // slug
         $this->add(array(
-            'name'          => 'slug',
-            'required'      => false,
-            'filters'       => array(
+            'name' => 'slug',
+            'required' => false,
+            'filters' => array(
                 array(
-                    'name'  => 'StringTrim',
+                    'name' => 'StringTrim',
                 ),
             ),
-            'validators'    => array(
+            'validators' => array(
                 new \Module\News\Validator\SlugDuplicate(array(
-                    'module'            => Pi::service('module')->current(),
-                    'table'             => 'story',
+                    'module' => Pi::service('module')->current(),
+                    'table' => 'story',
                 )),
             ),
         ));

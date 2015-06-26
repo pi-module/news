@@ -34,8 +34,8 @@ class IndexController extends ActionController
         $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
-            'controller'  => 'index',
-            'action'      => 'index',
+            'controller' => 'index',
+            'action' => 'index',
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
@@ -146,15 +146,15 @@ class IndexController extends ActionController
         $paginator->setItemCountPerPage(intval($limit));
         $paginator->setCurrentPageNumber(intval($page));
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => $template['controller'],
-                'action'        => $template['action'],
-                'slug'          => $template['slug'],
-                'year'          => $template['year'],
-                'month'         => $template['month'],
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => $template['controller'],
+                'action' => $template['action'],
+                'slug' => $template['slug'],
+                'year' => $template['year'],
+                'month' => $template['month'],
             )),
         ));
         return $paginator;

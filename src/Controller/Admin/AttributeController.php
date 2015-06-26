@@ -80,9 +80,9 @@ class AttributeController extends ActionController
                 $values = $form->getData();
                 // Set value
                 $value = array(
-                    'data'         => $data['data'],
-                    'default'      => $data['default'],
-                    'information'  => $data['information'],
+                    'data' => $data['data'],
+                    'default' => $data['default'],
+                    'information' => $data['information'],
                 );
                 $values['value'] = Json::encode($value);
                 // Set just product fields

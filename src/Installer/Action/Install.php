@@ -73,18 +73,18 @@ class Install extends BasicInstall
 
         // Add topic
         $topicData = array(
-            'title'            => __('Default'),
-            'slug'             => __('default'),
+            'title' => __('Default'),
+            'slug' => __('default'),
             'text_description' => __('This is a default topic for news module'),
-            'seo_title'        => __('default topic'),
-            'seo_keywords'     => __('default,topic'),
-            'seo_description'  => __('default topic'),
-            'time_create'      => time(),
-            'time_update'      => time(),
-            'status'           => '1',
-            'style'            => 'news',
-            'uid'              => Pi::user()->getId(),
-            'setting'          => Json::encode($setting),
+            'seo_title' => __('default topic'),
+            'seo_keywords' => __('default,topic'),
+            'seo_description' => __('default topic'),
+            'time_create' => time(),
+            'time_update' => time(),
+            'status' => '1',
+            'style' => 'news',
+            'uid' => Pi::user()->getId(),
+            'setting' => Json::encode($setting),
         );
         $topicModel->insert($topicData);
 
@@ -103,96 +103,96 @@ class Install extends BasicInstall
 
         // Add story
         $storyData = array(
-            'title'            => __('Hello World'),
-            'subtitle'         => __('This is subtitle for this story'),
-            'slug'             => __('hello-world'),
-            'topic'            => Json::encode(array('1')),
-            'topic_main'       => 1,
-            'text_summary'     => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
+            'title' => __('Hello World'),
+            'subtitle' => __('This is subtitle for this story'),
+            'slug' => __('hello-world'),
+            'topic' => Json::encode(array('1')),
+            'topic_main' => 1,
+            'text_summary' => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
             'text_description' => __('This is more text. you can edit this part easy too and if you want you can add new topics and new storys'),
-            'seo_title'        => __('hello world'),
-            'seo_keywords'     => __('hello,world'),
-            'seo_description'  => __('hello world'),
-            'status'           => '1',
-            'time_create'      => time(),
-            'time_update'      => time(),
-            'time_publish'     => time(),
-            'uid'              => Pi::user()->getId(),
+            'seo_title' => __('hello world'),
+            'seo_keywords' => __('hello,world'),
+            'seo_description' => __('hello world'),
+            'status' => '1',
+            'time_create' => time(),
+            'time_update' => time(),
+            'time_publish' => time(),
+            'uid' => Pi::user()->getId(),
         );
         $storyModel->insert($storyData);
 
         // Add link
         $linkData = array(
-            'story'            => '1',
-            'topic'            => '1',
-            'time_publish'     => time(),
-            'status'           => '1',
-            'uid'              => Pi::user()->getId(),
+            'story' => '1',
+            'topic' => '1',
+            'time_publish' => time(),
+            'status' => '1',
+            'uid' => Pi::user()->getId(),
         );
         $linkModel->insert($linkData);
 
         // Add field position
         $fieldPositionData = array(
-            'title'            => __('Extra information'),
-            'order'            => '1',
-            'status'           => '1',
+            'title' => __('Extra information'),
+            'order' => '1',
+            'status' => '1',
         );
         $fieldPositionModel->insert($fieldPositionData);
 
         // Add field topic
         $fieldTopicData = array(
-            'field'            => '1',
-            'topic'            => '0',
+            'field' => '1',
+            'topic' => '0',
         );
         $fieldTopicModel->insert($fieldTopicData);
 
         // Add field
         $fieldData = array(
-            'title'            => __('Source'),
-            'name'             => 'source',
-            'type'             => 'link',
-            'order'            => '1',
-            'status'           => '1',
-            'search'           => '1',
-            'position'         => '1',
+            'title' => __('Source'),
+            'name' => 'source',
+            'type' => 'link',
+            'order' => '1',
+            'status' => '1',
+            'search' => '1',
+            'position' => '1',
         );
         $fieldModel->insert($fieldData);
 
         // Add author
         $authorData = array(
-            'title'            => __('The admin'),
-            'slug'             => 'admin',
-            'seo_title'        => __('Admin'),
-            'seo_keywords'     => __('author,admin'),
-            'seo_description'  => __('author is admin'),
-            'time_create'      => time(),
-            'time_update'      => time(),
-            'status'           => '1',
-            'uid'              => Pi::user()->getId(),
+            'title' => __('The admin'),
+            'slug' => 'admin',
+            'seo_title' => __('Admin'),
+            'seo_keywords' => __('author,admin'),
+            'seo_description' => __('author is admin'),
+            'time_create' => time(),
+            'time_update' => time(),
+            'status' => '1',
+            'uid' => Pi::user()->getId(),
         );
         $authorModel->insert($authorData);
 
         // Add author role
         $authorRoleData = array(
-            'title'            => __('Writer'),
-            'status'           => '1',
+            'title' => __('Writer'),
+            'status' => '1',
         );
         $authorRoleModel->insert($authorRoleData);
 
         // Add author story
         $authorStoryData = array(
-            'story'            => '1',
-            'author'           => '1',
-            'role'             => '1',
-            'time_publish'     => time(),
-            'status'           => '1',
+            'story' => '1',
+            'author' => '1',
+            'role' => '1',
+            'time_publish' => time(),
+            'status' => '1',
         );
         $authorStoryModel->insert($authorStoryData);
 
         // Result
         $result = array(
-            'status'           => true,
-            'message'          => __('Default information added.'),
+            'status' => true,
+            'message' => __('Default information added.'),
         );
         $this->setResult('post-install', $result);
     }

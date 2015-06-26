@@ -46,10 +46,10 @@ class AttachController extends ActionController
             $file[$row->id]['storyTitle'] = $story['title'];
             $file[$row->id]['preview'] = $this->filePreview($file[$row->id]['type'], $file[$row->id]['path'], $file[$row->id]['file']);
             $file[$row->id]['downloadUrl'] = Pi::url($this->url('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'media',
-                'action'        => 'download',
-                'id'            => $row->id,
+                'module' => $this->getModule(),
+                'controller' => 'media',
+                'action' => 'download',
+                'id' => $row->id,
             )));
         }
         // Set paginator
@@ -60,12 +60,12 @@ class AttachController extends ActionController
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
         $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'attach',
-                'action'        => 'index',
+            'router' => $this->getEvent()->getRouter(),
+            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $this->getModule(),
+                'controller' => 'attach',
+                'action' => 'index',
             )),
         ));
         // Set view
@@ -95,14 +95,14 @@ class AttachController extends ActionController
             $content[$row->id] = $row->toArray();
             $content[$row->id]['time_create'] = _date($content[$row->id]['time_create']);
             $content[$row->id]['downloadUrl'] = Pi::url($this->url('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'media',
-                'action'        => 'download',
-                'id'            => $row->id,
+                'module' => $this->getModule(),
+                'controller' => 'media',
+                'action' => 'download',
+                'id' => $row->id,
             )));
             $content[$row->id]['editUrl'] = $this->url('', array(
-                'action'  => 'edit',
-                'id'      => $row->id,
+                'action' => 'edit',
+                'id' => $row->id,
             ));
             $content[$row->id]['preview'] = $this->filePreview(
                 $content[$row->id]['type'],
@@ -130,10 +130,10 @@ class AttachController extends ActionController
         $file = $this->getModel('attach')->find($id)->toArray();
         $file['view'] = $this->fileView($file['type'], $file['path'], $file['file']);
         $file['downloadUrl'] = Pi::url($this->url('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'media',
-            'action'        => 'download',
-            'id'            => $file['id'],
+            'module' => $this->getModule(),
+            'controller' => 'media',
+            'action' => 'download',
+            'id' => $file['id'],
         )));
         $story = $this->getModel('story')->find($file['story'])->toArray();
         // Set form
@@ -384,7 +384,7 @@ class AttachController extends ActionController
             $file = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $path, $file);
             $view = Pi::url($file);
         } else {
-            $file = sprintf('upload/%s/%s/%s/%s',  $this->config('file_path'), $type, $path, $file);
+            $file = sprintf('upload/%s/%s/%s/%s', $this->config('file_path'), $type, $path, $file);
             $view = Pi::url($file);
         }
         return $view;

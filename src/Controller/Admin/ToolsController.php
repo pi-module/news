@@ -167,10 +167,10 @@ class ToolsController extends ActionController
             $values = $this->request->getPost()->toArray();
             if ($values['confirm']) {
                 $where1 = array(
-                    'section'       => 'front',
-                    'module'        => $this->getModule(),
-                    'controller'    => 'topic',
-                    'action != ?'   => 'list',
+                    'section' => 'front',
+                    'module' => $this->getModule(),
+                    'controller' => 'topic',
+                    'action != ?' => 'list',
                 );
                 $select = Pi::model('page')->select()->where($where1);
                 $rowset = Pi::model('page')->selectWith($select);

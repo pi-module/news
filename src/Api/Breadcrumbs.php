@@ -36,7 +36,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                 $result = array(
                     array(
                         'label' => $moduleData['title'],
-                        'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                        'href' => Pi::url(Pi::service('url')->assemble('news', array(
                             'module' => $this->getModule(),
                         ))),
                     ),
@@ -48,9 +48,9 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             // Set link
                             $result[] = array(
                                 'label' => __('Author list'),
-                                'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'author',
-                                    'action'     => 'list',
+                                    'action' => 'list',
                                 ))),
                             );
                             // Set link
@@ -78,7 +78,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             $topic = Pi::api('topic', 'news')->getTopic($story['topic_main']);
                             $result[] = array(
                                 'label' => $topic['title'],
-                                'href'  => $topic['topicUrl'],
+                                'href' => $topic['topicUrl'],
                             );
                         }
                         $result[] = array(
@@ -91,9 +91,9 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             // Set link
                             $result[] = array(
                                 'label' => __('Tag list'),
-                                'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'tag',
-                                    'action'     => 'list',
+                                    'action' => 'list',
                                 ))),
                             );
                             // Set link
@@ -112,9 +112,9 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             // Set link
                             $result[] = array(
                                 'label' => __('Topic list'),
-                                'href'  => Pi::url(Pi::service('url')->assemble('news', array(
+                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'topic',
-                                    'action'     => 'list',
+                                    'action' => 'list',
                                 ))),
                             );
                             // Set link

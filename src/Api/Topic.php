@@ -34,9 +34,9 @@ class Topic extends AbstractApi
         $topic = Pi::model('topic', $this->getModule())->find($parameter, $type);
         $topic = $topic->toArray();
         $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module'        => $this->getModule(),
-            'controller'    => 'topic',
-            'slug'          => $topic['slug'],
+            'module' => $this->getModule(),
+            'controller' => 'topic',
+            'slug' => $topic['slug'],
         )));
         return $topic;
     }
@@ -53,12 +53,12 @@ class Topic extends AbstractApi
             $topic = $topic->toArray();
             // Get setting
             $setting = Json::decode($topic['setting']);
-            $topic = array_merge($topic, (array) $setting);
+            $topic = array_merge($topic, (array)$setting);
             // Set topic url
             $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $this->getModule(),
-                'controller'    => 'topic',
-                'slug'          => $topic['slug'],
+                'module' => $this->getModule(),
+                'controller' => 'topic',
+                'slug' => $topic['slug'],
             )));
             // Set image url
             if ($topic['image']) {
@@ -100,10 +100,10 @@ class Topic extends AbstractApi
             // Check attach
             if (!empty($topic['attach_link'])) {
                 $topic['attach_download_link'] = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module'        => $this->getModule(),
-                    'controller'    => 'media',
-                    'action'        => 'topic',
-                    'id'            => $topic['id'],
+                    'module' => $this->getModule(),
+                    'controller' => 'media',
+                    'action' => 'topic',
+                    'id' => $topic['id'],
                 )));
                 // Check attach title
                 if (empty($topic['attach_title'])) {
@@ -304,9 +304,9 @@ class Topic extends AbstractApi
             foreach ($rowset as $row) {
                 // Make url
                 $loc = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module'        => $this->getModule(),
-                    'controller'    => 'topic',
-                    'slug'          => $row->slug,
+                    'module' => $this->getModule(),
+                    'controller' => 'topic',
+                    'slug' => $row->slug,
                 )));
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'topic', $row->id);

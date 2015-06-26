@@ -1,7 +1,7 @@
-<?php if(isset($attach['video']) && !empty($attach['video'])) { ?>
+<?php if (isset($attach['video']) && !empty($attach['video'])) { ?>
     <div class="clearfix">
         <div class="attach-video">
-            <?php foreach($attach['video'] as $video) { ?>
+            <?php foreach ($attach['video'] as $video) { ?>
                 <div class="pi-player clearfix">
                     <?php echo $this->videojs($video['fileUrl'], '', 640, 480); ?>
                 </div>

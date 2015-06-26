@@ -41,9 +41,9 @@ class AuthorList extends AbstractRegistry
         foreach ($rowset as $row) {
             $author['author'][$row->id] = $row->toArray();
             $author['author'][$row->id]['url'] = Pi::service('url')->assemble('news', array(
-                'module'        => $this->module,
-                'controller'    => 'author',
-                'slug'          => $author['author'][$row->id]['slug'],
+                'module' => $this->module,
+                'controller' => 'author',
+                'slug' => $author['author'][$row->id]['slug'],
             ));
             if ($row->image) {
                 $author['author'][$row->id]['thumbUrl'] = Pi::url(

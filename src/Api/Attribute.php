@@ -250,7 +250,7 @@ class Attribute extends AbstractApi
         // Get info
         $list = array(
             '' => '',
-            0  => __('Hidden'),
+            0 => __('Hidden'),
         );
         $order = array('order ASC', 'id ASC');
         $select = Pi::model('field_position', $this->getModule())->select()->order($order);

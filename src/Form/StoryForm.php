@@ -176,8 +176,7 @@ class StoryForm extends BaseForm
             $this->add(array(
                 'name' => 'imageview',
                 'type' => 'Module\News\Form\Element\Image',
-                'options' => array(
-                    //'label' => __('Image'),
+                'options' => array(//'label' => __('Image'),
                 ),
                 'attributes' => array(
                     'src' => $this->thumbUrl,
@@ -267,7 +266,7 @@ class StoryForm extends BaseForm
                     'label' => __('Tags'),
                 ),
                 'attributes' => array(
-                    'id'          => 'tag',
+                    'id' => 'tag',
                     'description' => __('Use `|` as delimiter to separate tag terms'),
                 )
             ));

@@ -57,7 +57,7 @@ class MediaController extends ActionController
         // update
         $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
         // Make download link
-        if($attach['type'] == 'other') {
+        if ($attach['type'] == 'other') {
             $url = sprintf('%s?%s/%s/%s/%s/%s',
                 Pi::url('www/script/download.php'),
                 'upload',

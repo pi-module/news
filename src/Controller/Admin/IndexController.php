@@ -21,7 +21,7 @@ class IndexController extends ActionController
     {
         return $this->redirect()->toRoute('', array(
             'controller' => 'story',
-            'action'     => 'index',
+            'action' => 'index',
         ));
     }
 }

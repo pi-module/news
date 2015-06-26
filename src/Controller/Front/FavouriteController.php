@@ -49,8 +49,8 @@ class FavouriteController extends IndexController
         $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
-            'controller'  => 'favourite',
-            'action'      => 'index',
+            'controller' => 'favourite',
+            'action' => 'index',
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);

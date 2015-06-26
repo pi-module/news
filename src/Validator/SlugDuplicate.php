@@ -17,13 +17,13 @@ use Zend\Validator\AbstractValidator;
 
 class SlugDuplicate extends AbstractValidator
 {
-    const TAKEN        = 'slugExists';
+    const TAKEN = 'slugExists';
 
     /**
      * @var array
      */
     protected $messageTemplates = array(
-        self::TAKEN     => 'This slug already exists',
+        self::TAKEN => 'This slug already exists',
     );
 
     protected $options = array(

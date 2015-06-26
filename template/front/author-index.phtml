@@ -1,8 +1,8 @@
 <?php
 $this->css($this->assetModule('css/front.css'));
 // Image lightbox
-if($config['image_lightbox']){
-    $script =<<<'EOT'
+if ($config['image_lightbox']) {
+    $script = <<<'EOT'
         $('.gallery').each(function() {
     		$(this).magnificPopup({
         		delegate: 'a',
@@ -51,12 +51,17 @@ if (!empty($author['largeUrl'])) {
         </div>
         <div class="panel-body">
             <div class="pull-left gallery itemImageList">
-                <?php if($config['image_lightbox']){ ?>
-                    <a href="<?php echo $this->escape($author['mediumUrl']); ?>" title="<?php echo $this->escape($author['title']); ?>">
-                        <img itemprop="image" class="img-thumbnail u-photo" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                <?php if ($config['image_lightbox']) { ?>
+                    <a href="<?php echo $this->escape($author['mediumUrl']); ?>"
+                       title="<?php echo $this->escape($author['title']); ?>">
+                        <img itemprop="image" class="img-thumbnail u-photo"
+                             src="<?php echo $this->escape($author['thumbUrl']); ?>"
+                             alt="<?php echo $this->escape($author['title']); ?>"/>
                     </a>
                 <?php } else { ?>
-                    <img itemprop="image" class="img-thumbnail u-photo" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                    <img itemprop="image" class="img-thumbnail u-photo"
+                         src="<?php echo $this->escape($author['thumbUrl']); ?>"
+                         alt="<?php echo $this->escape($author['title']); ?>"/>
                 <?php } ?>
             </div>
             <div class="p-summary" itemprop="description"><?php echo $author['text_description']; ?></div>
@@ -77,14 +82,17 @@ if (!empty($author['largeUrl'])) {
     </div>
     <div class="index-list-author" itemtype="http://schema.org/ItemList">
         <div class="news-role">
-            <?php foreach($roles as $role) { ?>
+            <?php foreach ($roles as $role) { ?>
                 <?php if (!empty($stores[$role['id']])) { ?>
                     <h4><?php echo $this->escape($role['title']); ?></h4>
                     <div class="list-group">
-                    <?php foreach($stores[$role['id']] as $author) { ?>
-                        <a itemprop="url" class="list-group-item <?php echo $topic['column_class']; ?>" title="<?php echo $this->escape($author['title']); ?>" href="<?php echo $this->escape($author['storyUrl']); ?>">
+                    <?php foreach ($stores[$role['id']] as $author) { ?>
+                        <a itemprop="url" class="list-group-item <?php echo $topic['column_class']; ?>"
+                           title="<?php echo $this->escape($author['title']); ?>"
+                           href="<?php echo $this->escape($author['storyUrl']); ?>">
                             <?php if ($author['image']) { ?>
-                                <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>" alt="<?php echo $this->escape($author['title']); ?>" />
+                                <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>"
+                                     alt="<?php echo $this->escape($author['title']); ?>"/>
                             <?php } ?>
                             <span itemprop="name"><?php echo $this->escape($author['title']); ?></span>
                         </a>

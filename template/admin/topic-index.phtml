@@ -1,8 +1,11 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <p>
-        <a class="btn btn-primary" title="<?php _e('Add Topic'); ?>" href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i class="fa fa-folder-open"></i><?php _e('Add Topic'); ?></a>
+        <a class="btn btn-primary" title="<?php _e('Add Topic'); ?>"
+           href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i
+                class="fa fa-folder-open"></i><?php _e('Add Topic'); ?></a>
     </p>
+
     <h3><?php _e('List of topics'); ?></h3>
     <table class="table table-striped table-bordered table-condensed">
         <tr>
@@ -11,24 +14,33 @@
             <th><?php _e('Show type'); ?></th>
             <th><?php _e('Action'); ?></th>
         </tr>
-        <?php foreach($topics as $topic) { ?>
+        <?php foreach ($topics as $topic) { ?>
             <?php
-            if($topic['status'] == 1) {
+            if ($topic['status'] == 1) {
                 $labelIdClass = 'label label-success';
             } else {
                 $labelIdClass = 'label label-warning';
             }
             ?>
             <tr>
-                <td><span class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($topic['id']); ?></span></td>
+                <td><span class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($topic['id']); ?></span>
+                </td>
                 <td><?php echo $this->escape($topic['title']); ?></td>
                 <td><?php echo $this->escape($topic['style_view']); ?></td>
                 <td>
-                    <a class="btn btn-primary" title="<?php _e('View'); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug']))); ?>"><i class="fa fa-eye"></i> <?php _e('View'); ?></a>
-                    <a class="btn btn-primary" title="<?php _e('All stories'); ?>" href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i class="fa fa-eye"></i> <?php _e('All stories'); ?></a>
-                    <a class="btn btn-primary" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
-                    <?php if($config['admin_json']) { ?>
-                        <a class="btn btn-primary" title="<?php _e('Json'); ?>" href="<?php echo $this->url('news',  array('module' => $module, 'controller' => 'json', 'action' => 'storyTopic', 'id' => $this->escape($topic['id']))); ?>"><i class="fa fa-code"></i> <?php _e('Json'); ?></a>
+                    <a class="btn btn-primary" title="<?php _e('View'); ?>"
+                       href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug']))); ?>"><i
+                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                    <a class="btn btn-primary" title="<?php _e('All stories'); ?>"
+                       href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i
+                            class="fa fa-eye"></i> <?php _e('All stories'); ?></a>
+                    <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
+                       href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i
+                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                    <?php if ($config['admin_json']) { ?>
+                        <a class="btn btn-primary" title="<?php _e('Json'); ?>"
+                           href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'json', 'action' => 'storyTopic', 'id' => $this->escape($topic['id']))); ?>"><i
+                                class="fa fa-code"></i> <?php _e('Json'); ?></a>
                     <?php } ?>
                     <!-- <a class="btn btn-danger" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $topic['id'])); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a> -->
                 </td>

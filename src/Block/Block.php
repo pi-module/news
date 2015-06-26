@@ -89,9 +89,9 @@ class Block
             $topic = Pi::model('topic', $module)->find($topicId)->toArray();
             // Set topic url
             $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module'        => $module,
-                'controller'    => 'topic',
-                'slug'          => $topic['slug'],
+                'module' => $module,
+                'controller' => 'topic',
+                'slug' => $topic['slug'],
             )));
             // Set image url
             if ($topic['image']) {
@@ -237,10 +237,10 @@ class Block
                 ));
             // Set mediaUrl
             $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
-                'module'      => $module,
-                'controller'  => 'media',
-                'action'      => 'explorer',
-                'id'          => $list[$row->id]['id'],
+                'module' => $module,
+                'controller' => 'media',
+                'action' => 'explorer',
+                'id' => $list[$row->id]['id'],
             ));
         }
         // Set block array

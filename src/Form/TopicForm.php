@@ -131,8 +131,7 @@ class TopicForm extends BaseForm
             $this->add(array(
                 'name' => 'imageview',
                 'type' => 'Module\News\Form\Element\Image',
-                'options' => array(
-                    //'label' => __('Image'),
+                'options' => array(//'label' => __('Image'),
                 ),
                 'attributes' => array(
                     'src' => $this->thumbUrl,
@@ -282,9 +281,9 @@ class TopicForm extends BaseForm
             'options' => array(
                 'label' => __('Story order'),
                 'value_options' => array(
-                    'publishDESC'  => __('Publish time DESC'),
-                    'publishASC'   => __('Publish time ASC'),
-                    'random'       => __('Random'),
+                    'publishDESC' => __('Publish time DESC'),
+                    'publishASC' => __('Publish time ASC'),
+                    'random' => __('Random'),
                 ),
             ),
             'attributes' => array(
