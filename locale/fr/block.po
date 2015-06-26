@@ -1,47 +1,52 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-08-11 12:28+0330\n"
+"POT-Creation-Date: 2015-06-25 21:45+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _b\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\\..\\\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
-"news\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/topic.phtml:10
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:21
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/spotlight.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:24
-msgid "Read More"
-msgstr "Plus..."
+#: template/block/gallery.phtml:53 template/block/item.phtml:53
+#: template/block/topic.phtml:52
+msgid "View"
+msgstr "Voir"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:10
+#: template/block/item.phtml:21 template/block/list.phtml:10
+#: template/block/table.phtml:6
 msgid "Time"
 msgstr "Date"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/item.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/list.phtml:15
+#: template/block/item.phtml:24 template/block/list.phtml:15
+#: template/block/table.phtml:7
 msgid "Read"
 msgstr "Lu"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:4
+#: template/block/item.phtml:32 template/block/spotlight.phtml:14
+msgid "Read More"
+msgstr "Plus..."
+
+#: template/block/item.phtml:64 template/block/list.phtml:24
+#: template/block/table.phtml:20 template/block/topic.phtml:63
+msgid "More stories"
+msgstr "Plus d'articles"
+
+#: template/block/table.phtml:4
 msgid "Title"
 msgstr "Titre"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/block/table.phtml:5
-msgid "Short Info"
-msgstr "Texte Intro"
+#: template/block/table.phtml:5
+msgid "Summary"
+msgstr "Résumé"
+
+#~ msgid "Short Info"
+#~ msgstr "Texte Intro"

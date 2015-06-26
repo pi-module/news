@@ -1,902 +1,284 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-08-11 12:29+0330\n"
+"POT-Creation-Date: 2015-06-25 21:31+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\\..\\\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
-"news\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Api/Topic.php:87
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:156
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:53
-msgid "Download"
-msgstr "Télécharger"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:24
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:55
-msgid "Home Page"
-msgstr "Accueil"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/Element/Topic.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:60
-msgid "All Topics"
-msgstr "Tous les sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:10
-msgid "Story"
-msgstr "Actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:56
-msgid "Select story for add to Spotlight"
-msgstr "Sélectionner l'actualité à ajouter au Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:66
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:11
-msgid "Show in"
-msgstr "Afficher dans"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:71
-msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
-msgstr ""
-"Sélectionner le sujet Spotlight, votre Spotlight sera montré dans la page du "
-"Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:80
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:12
-msgid "Publish date"
-msgstr "Date publication"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:13
-msgid "Expire date"
-msgstr "Date expiration"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:136
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:58
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:84
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:58
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:100
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:68
-msgid "Status"
-msgstr "Statut"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:107
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:138
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:60
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:86
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:102
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:41
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:30
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:67
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:89
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:39
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:39
-msgid "Published"
-msgstr "Publié"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:108
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:139
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:61
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:87
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:90
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:41
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:40
-msgid "Pending review"
-msgstr "En attente validation"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:140
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:62
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:88
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:104
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:32
-msgid "Draft"
-msgstr "Brouillon"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:110
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:141
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:63
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:89
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:33
-msgid "Private"
-msgstr "Privé"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SpotlightForm.php:119
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:315
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:179
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:414
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:88
-msgid "Submit"
-msgstr "Soumettre"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PruneForm.php:32
-msgid "All contacts Before"
-msgstr "Tous les contacts avant"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorRoleForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:48
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StorySearchForm.php:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:49
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:10
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:11
-msgid "Title"
-msgstr "Titre"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:64
-msgid "Subtitle"
-msgstr "Sous-titre"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:59
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:75
-msgid "slug"
-msgstr "slug"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:89
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:122
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:69
-msgid "Topic"
-msgstr "Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:98
-msgid "Short text"
-msgstr "Texte introductif"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:111
-msgid "Main text"
-msgstr "Corps de texte"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_media.phtml:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:26
-msgid "Important"
-msgstr "Important"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:142
-msgid "Remove"
-msgstr "Supprimer"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:151
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:64
-msgid "Type"
-msgstr "Type"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:153
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:101
+#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:98
+#: src/Form/StoryForm.php:167
 msgid "Text"
 msgstr "Texte"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:154
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:96
-msgid "Gallery"
-msgstr "Galerie"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:155
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:120
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:61
-msgid "Media"
-msgstr "Media"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:176
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:145
-msgid "Remove image"
-msgstr "Supprimer l'image"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:192
-msgid "Upload image"
-msgstr "Uploader l'image"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:205
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:138
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:174
-msgid "SEO options"
-msgstr "Options SEO"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:212
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:30
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:145
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:181
-msgid "SEO Title"
-msgstr "Titre SEO"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:223
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:156
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:192
-msgid "SEO Keywords"
-msgstr "Mots clefs SEO"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:234
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:32
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:167
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:203
-msgid "SEO Description"
-msgstr "Description SEO"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:247
-msgid "Tags"
-msgstr "Tags"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:251
-msgid "Use `|` as delimiter to separate tag terms"
-msgstr "Utiliser `|` comme délimiteur pour séparer les mots tags"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:262
-msgid "Extra fields"
-msgstr "Champs additionnels"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StoryForm.php:296
-msgid "Authors"
-msgstr "Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:4
-msgid "Rebuild"
-msgstr "Reconstruire"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:40
-msgid "Start date"
-msgstr "Date de départ"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/RebuildForm.php:52
-msgid "End date"
-msgstr "Date de fin"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:86
-msgid "Description"
-msgstr "Description"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AuthorForm.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:113
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:161
-msgid "Image"
-msgstr "Image"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:60
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:78
-msgid "Online"
-msgstr "En Ligne"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:61
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/AttachForm.php:79
-msgid "Offline"
-msgstr "Hors Ligne"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:72
-msgid "Text : type text content"
-msgstr "Texte : type de contenu texte"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:73
-msgid "Link : add url for click"
-msgstr "Lien  : ajouter une url à cliquer"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:74
-msgid "Video : add flv or mp4 url for play on video player"
-msgstr "Video : ajouter des url flv ou mp4 à lire dans le lecteur video"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:75
-msgid "Audio : add mp3 url for play on audio player"
-msgstr "Audio : ajouter des url mp3 à lire sur le lecteur audio"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:76
-msgid "File : add file link for download"
-msgstr "Fichier : ajouter un lien fichier à télécharger"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:77
-msgid "Currency : add view price for anything"
-msgstr "Devise : ajouter la monnaie pour afficher un prix"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:78
-msgid "Date : add date for view"
-msgstr "Date : ajouter une date à afficher"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:79
-msgid "Number : add number"
-msgstr "Nombre : ajouter un nombre"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:80
-msgid "Select : add select box for choose"
-msgstr "Select : ajouter une boite de sélection à choisir"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:88
-msgid "Value"
-msgstr "Valeur"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/ExtraForm.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/StorySearchForm.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:32
-msgid "Search"
-msgstr "Recherchable"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:32
-msgid "Select for rebuild"
-msgstr "Sélectionner pour reconstruire"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:34
-msgid "All of tables"
-msgstr "Toutes les tables"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:35
-msgid "Just story table"
-msgstr "Uniquement la table Story"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:36
-msgid "Just topic table"
-msgstr "Uniquement la table Topic"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/SitemapForm.php:37
-msgid "Just author table"
-msgstr "Uniquement la table Author"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:51
-msgid "Parent Topic"
-msgstr "Sujet Parent"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:106
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:38
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:79
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:33
-msgid "Delete"
-msgstr "Supprimer"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:115
-msgid "Topic Style"
-msgstr "Style d'actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:117
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:74
-msgid "News"
-msgstr "Actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:118
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:53
-msgid "List"
-msgstr "Liste"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:119
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:57
-msgid "Table"
-msgstr "Table"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:121
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:6
-msgid "Spotlight"
-msgstr "Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:215
-msgid "Extra options"
-msgstr "Autres options"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:223
-msgid "Extra Config Options Type"
-msgstr "Autres type de configuration des options"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:225
-msgid "Use topic options"
-msgstr "Utiliser les options des Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:226
-msgid "Use module options"
-msgstr "Utiliser les options du Module"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:230
-msgid ""
-"Use topic option whit select topic options or set it to module to use module "
-"option"
-msgstr ""
-"Utiliser l'option Sujet en sélectionnant les options Sujet, ou indiquer "
-"d'utiliser les options globales module"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:237
-msgid "Perpage"
-msgstr "Par Page"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:249
-msgid "Columns"
-msgstr "Colonnes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:251
-msgid "One column"
-msgstr "Une colonne"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:252
-msgid "Two columns"
-msgstr "Deux colonnes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:253
-msgid "Three columns"
-msgstr "Trois colonnes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:254
-msgid "Four columns"
-msgstr "Quatre colonnes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:266
-msgid "Set as system page"
-msgstr "Définir comme page système"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:277
-msgid "Story order"
-msgstr "Ordre des actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:279
-msgid "Publish time DESC"
-msgstr "Date de publication DESC"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:280
-msgid "Publish time ASC"
-msgstr "Date de publication ASC"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:281
-msgid "Random"
-msgstr "Aléatoire"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:285
-msgid "Story list order options"
-msgstr "Options de tri des listes d'actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:293
-msgid "Show Topic"
-msgstr "Afficher le sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:304
-msgid "Show Topic Information"
-msgstr "Afficher les informations Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:315
-msgid "Show Date"
-msgstr "Afficher la Date"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:326
-msgid "Show DPF"
-msgstr "Afficher le PDF"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:337
-msgid "Show Print"
-msgstr "Afficher Impression"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:348
-msgid "Show Mail"
-msgstr "Afficher le Mail"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:359
-msgid "Show Hits"
-msgstr "Afficher les Hits"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:370
-msgid "Show Tags"
-msgstr "Affichers les Tags"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:381
-msgid "Show Subtopic stories on main topic"
-msgstr "Afficher le sujets enfants en dessous du sujet principal"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:391
-msgid "Attach file link"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/TopicForm.php:402
-msgid "Attach file title"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Form/PageForm.php:32
-msgid "Confirm to remove all topic pages"
-msgstr "Confirmer pour supprimer toutes les pages Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:69
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:90
-msgid "Default"
-msgstr "Défaut"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:70
-msgid "default"
-msgstr "défaut"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:71
-msgid "This is a default topic for news module"
-msgstr "Sujet par défaut du module News"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:74
-msgid "default topic"
-msgstr "Sujet par défaut"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:73
-msgid "default,topic"
-msgstr "defaut, sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:99
-msgid "Hello World"
-msgstr "Bonjour le monde"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:100
-msgid "This is subtitle for this story"
-msgstr "Ceci est le sous-titre pour une actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:101
-msgid "hello-world"
-msgstr "bonjour-le-monde"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:103
-msgid ""
-"This is a short text and you can edit this part easy. for read more infor "
-"please click on title or more link"
-msgstr ""
-"Ceci est le texte introductif et vous pouvez éditer cette partie simplement. "
-"Pour lire le détail, cliquez sur le titre ou le lien Plus"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:104
-msgid ""
-"This is more text. you can edit this part easy too and if you want you can "
-"add new topics and new storys"
-msgstr ""
-"Ceci est texte étendu. Vous pouvez éditer cette partie simplement également, "
-"et si vous le souhaitez vous pouvez ajouter de nouveaux sujets et de "
-"nouvelles actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:105
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:107
-msgid "hello world"
-msgstr "Bonjour le Monde"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:106
-msgid "hello,world"
-msgstr "Bonjour, monde"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Installer/Action/Install.php:129
-msgid "Default information added."
-msgstr "Information par défaut ajoutée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:24
-msgid "News feed"
-msgstr "Flux actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Feed/IndexController.php:25
-msgid "Recent News."
-msgstr "Actualités Récentes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:152
-msgid "View filtered stores"
-msgstr "Voir les actualités filtrées"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:109
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:158
-msgid "Not valid"
-msgstr "Non valide"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:115
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:164
-msgid "Not set"
-msgstr "Non défini"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:170
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:83
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:360
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:189
-msgid "Problem in upload image. please try again"
-msgstr ""
-"Une erreur est survenue lors de l'upload de l'image, merci d'essayer de "
-"nouveau"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:221
-msgid "Author data saved successfully."
-msgstr "Les données Auteur ont été enregistrées avec succès."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:224
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:292
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:163
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:116
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:452
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:274
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:148
-msgid "Invalid data, please check and re-submit."
-msgstr "Données non valides, merci de vérifier et de re-soumettre."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:234
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:6
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:6
-msgid "Add Author"
-msgstr "Ajouter un Auteur"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:289
-msgid "Role data saved successfully."
-msgstr "Les données de Rôles-Permissions ont été enregistrées avec succès."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:303
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:8
-msgid "Add Role"
-msgstr "Ajouter un Rôle"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:327
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:263
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:126
-#, php-format
-msgid "Image of %s removed"
-msgstr "L'image de %s a été supprimée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:330
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:266
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:129
-msgid "Image not remove"
-msgstr "L'image n'a pas été supprimée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AuthorController.php:334
-msgid "Please select author"
-msgstr "Merci de sélectionner l'auteur"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:86
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:200
+#: src/Api/Attribute.php:64
+msgid "Link"
+msgstr "Lien"
+
+#: src/Api/Attribute.php:68
+msgid "Video"
+msgstr "Video"
+
+#: src/Api/Attribute.php:72
+msgid "Audio"
+msgstr "Audio"
+
+#: src/Api/Attribute.php:76
+msgid "File"
+msgstr "Fichier"
+
+#: src/Api/Attribute.php:80
+msgid "Currency"
+msgstr "Devise"
+
+#: src/Api/Attribute.php:84
+msgid "Date"
+msgstr "Date"
+
+#: src/Api/Attribute.php:88
+msgid "Number"
+msgstr "Nombre"
+
+#: src/Api/Attribute.php:92
+msgid "Select"
+msgstr "Sélectionner"
+
+#: src/Api/Attribute.php:96
+msgid "Checkbox"
+msgstr "Checkbox"
+
+#: src/Api/Attribute.php:253
+msgid "Hidden"
+msgstr "Caché"
+
+#: src/Api/Breadcrumbs.php:50 src/Api/Breadcrumbs.php:63
+#: template/admin/author-index.phtml:5 template/admin/author-role.phtml:5
+#: template/front/author-list.phtml:6
+msgid "Author list"
+msgstr "Liste des auteurs"
+
+#: src/Api/Breadcrumbs.php:70
+msgid "Favourite list"
+msgstr "Liste de Favoris"
+
+#: src/Api/Breadcrumbs.php:93 src/Api/Breadcrumbs.php:105
+#: template/front/tag-list.phtml:4
+msgid "Tag list"
+msgstr "Liste Tag"
+
+#: src/Api/Breadcrumbs.php:114 src/Api/Breadcrumbs.php:127
+#: template/front/topic-list.phtml:6
+msgid "Topic list"
+msgstr "Liste de Sujets"
+
+#: src/Api/Topic.php:110 src/Controller/Admin/StoryController.php:85
+#: src/Form/StoryForm.php:170 template/admin/attach-add.phtml:53
+msgid "Download"
+msgstr "Télécharger"
+
+#: src/Controller/Admin/AttachController.php:82
+#: src/Controller/Admin/AttachController.php:191
 msgid "You must select story"
 msgstr "Vous devez sélectionner une actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:91
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:208
+#: src/Controller/Admin/AttachController.php:87
+#: src/Controller/Admin/AttachController.php:199
 msgid "Your selected story not exist"
 msgstr "L'actualité sélectionnée n'existe pas"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:122
+#: src/Controller/Admin/AttachController.php:118
 #, php-format
 msgid "Attach files to %s"
 msgstr "Attacher des fichiers à %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:131
+#: src/Controller/Admin/AttachController.php:127
 msgid "You must select file"
 msgstr "Vous devez sélectionner un fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:160
+#: src/Controller/Admin/AttachController.php:151
 msgid "All changes in file saved successfully."
 msgstr ""
 "Toutes les modifications apportées au fichier ont été enregistrées avec "
 "succès."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:172
+#: src/Controller/Admin/AttachController.php:154
+#: src/Controller/Admin/AuthorController.php:234
+#: src/Controller/Admin/AuthorController.php:302
+#: src/Controller/Admin/SpotlightController.php:139
+#: src/Controller/Admin/TopicController.php:273
+msgid "Invalid data, please check and re-submit."
+msgstr "Données non valides, merci de vérifier et de re-soumettre."
+
+#: src/Controller/Admin/AttachController.php:163
 msgid "Edit file"
 msgstr "Editer le fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:272
+#: src/Controller/Admin/AttachController.php:270
 msgid "Your attached file remove successfully"
 msgstr "Le fichier attaché a été supprimé avec succès"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/AttachController.php:277
+#: src/Controller/Admin/AttachController.php:275
 msgid "Please select file"
 msgstr "Merci de sélectionner le fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:33
-msgid ""
-"You can rebuild all your added stores, after rebuild all your old data "
-"update to new. And you must set start and end publish time."
-msgstr ""
-"Vous pouvez reconstruire toutes vos actualités ajoutées, après "
-"reconstruction, toutes les anciennes données seront mises à jour vers les "
-"nouvelles. Et vous pourrez définir la date de début et de fin de publication."
+#: src/Controller/Admin/AttributeController.php:112
+msgid "Attribute field data saved successfully."
+msgstr "Les données du champ Attribut ont été enregistrées avec succès."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:52
-msgid "Finish Rebuild slug, all story slug update"
-msgstr ""
-"Fin de reconstruction des slugs, tous les slugs des actualités ont été mis à "
-"jour"
+#: src/Controller/Admin/AttributeController.php:124
+#: template/admin/attribute-index.phtml:8
+msgid "Add attribute"
+msgstr "Ajouter un attribut"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:60
-msgid "Finish Rebuild SEO title, all story SEO title update"
-msgstr ""
-"Fin de reconstruction des titres SEO, toutes les titres SEO des actualités "
-"ont été mis à jour"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:68
-msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
-msgstr ""
-"Fin de reconstruction des mots clefs SEO, tous les mots clefs SEO des "
-"actualités ont été mis à jour"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:76
-msgid "Finish Rebuild SEO description, all story SEO description update"
-msgstr ""
-"Fin de reconstruction des descriptions SEO, toutes les descriptons SEO ont "
-"été mises à jour"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:83
-msgid "Rebuild stores"
-msgstr "Reconstruire les actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:90
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
-msgid "You can prune all old stores, from selected topic."
-msgstr ""
-"Vous pouvez purger les anciennes actualités d'un sujet donné, en "
-"sélectionnant le sujet."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:105
-#, php-format
-msgid "<strong>%s</strong> old stores removed"
-msgstr "<strong>%s</strong> anciennes actualités ont été supprimées"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:108
-msgid ""
-"Error in pruned old stores. perhaps no stroy exist whit your select query"
-msgstr ""
-"Erreur dans les anciennes données purgées, il semble qu'il n'y ait aucune "
-"actualité associée à votre requête"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:114
-msgid "Prune stores"
-msgstr "Purger les actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:125
-#, php-format
-msgid "<strong>%s</strong> old spotlights removed"
-msgstr "<strong>%s</strong> anciens Spotlights ont été supprimés"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:128
-msgid "Error in remove old spotlights. perhaps no spotlights exist"
-msgstr ""
-"Erreur dans la suppression des anciens Spotlights. Il semble qu'aucun "
-"Spotlight n'existe."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:132
-msgid "Prune spotlights"
-msgstr "Purger les Spotlights"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:139
-msgid ""
-"Remove all topic pages from system page table. and keep just module default "
-"pages"
-msgstr ""
-"Supprimer toutes les pages Sujet du tableau des pages système. Conserver "
-"seulement les pages par défaut du module."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:158
-msgid "All other pages removed"
-msgstr "Toutes les autres pages ont été supprimées"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:160
-msgid "No pages were removed"
-msgstr "Aucune page n'a été supprimée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:166
-msgid "Remove topic pages"
-msgstr "Supprimer les pages Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:173
-msgid "Rebuild thie module links on sitemap module tabels"
-msgstr "Reconstruire les liens du module dans les tables du module SiteMap"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:196
-msgid "Sitemap rebuild finished"
-msgstr "Reconstruction SiteMap terminée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ToolsController.php:201
-msgid "Rebuild sitemap links"
-msgstr "Reconstruire les liens SiteMap"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:109
-msgid "Extra field data saved successfully."
-msgstr "La valeur du champ supplémentaire a été enregistrée avec succès."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:113
-msgid "Extra field data not saved."
-msgstr "La valeur du champ supplémentaire n'a pas été enregistrée."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:129
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:10
-msgid "Add Extra"
-msgstr "Ajouter un Champ"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:162
+#: src/Controller/Admin/AttributeController.php:156
 msgid "Selected field delete"
 msgstr "Sélectionner un champ à supprimer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/ExtraController.php:164
+#: src/Controller/Admin/AttributeController.php:158
 msgid "Please select field"
 msgstr "Merci de sélectionner le champ"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:184
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:233
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:270
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:528
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:133
+#: src/Controller/Admin/AuthorController.php:104
+#: src/Controller/Admin/StoryController.php:152
+msgid "View filtered stores"
+msgstr "Voir les actualités filtrées"
+
+#: src/Controller/Admin/AuthorController.php:110
+#: src/Controller/Admin/StoryController.php:158
+msgid "Not valid"
+msgstr "Non valide"
+
+#: src/Controller/Admin/AuthorController.php:116
+#: src/Controller/Admin/StoryController.php:164
+msgid "Not set"
+msgstr "Non défini"
+
+#: src/Controller/Admin/AuthorController.php:174
+#: src/Controller/Admin/StoryController.php:355
+#: src/Controller/Admin/TopicController.php:187
+msgid "Problem in upload image. please try again"
+msgstr ""
+"Une erreur est survenue lors de l'upload de l'image, merci d'essayer de "
+"nouveau"
+
+#: src/Controller/Admin/AuthorController.php:231
+msgid "Author data saved successfully."
+msgstr "Les données Auteur ont été enregistrées avec succès."
+
+#: src/Controller/Admin/AuthorController.php:244
+#: template/admin/author-index.phtml:12
+msgid "Add Author"
+msgstr "Ajouter un Auteur"
+
+#: src/Controller/Admin/AuthorController.php:299
+msgid "Role data saved successfully."
+msgstr "Les données de Rôles-Permissions ont été enregistrées avec succès."
+
+#: src/Controller/Admin/AuthorController.php:313
+#: template/admin/author-role.phtml:12
+msgid "Add Role"
+msgstr "Ajouter un Rôle"
+
+#: src/Controller/Admin/AuthorController.php:337
+#: src/Controller/Admin/StoryController.php:262
+#: src/Controller/Admin/TopicController.php:121
+#, php-format
+msgid "Image of %s removed"
+msgstr "L'image de %s a été supprimée"
+
+#: src/Controller/Admin/AuthorController.php:340
+#: src/Controller/Admin/StoryController.php:265
+#: src/Controller/Admin/TopicController.php:124
+msgid "Image not remove"
+msgstr "L'image n'a pas été supprimée"
+
+#: src/Controller/Admin/AuthorController.php:344
+msgid "Please select author"
+msgstr "Merci de sélectionner l'auteur"
+
+#: src/Controller/Admin/PositionController.php:77
+msgid "Attribute position data saved successfully."
+msgstr "La donnée de position Attribut a été enregistrée avec succès."
+
+#: src/Controller/Admin/PositionController.php:89
+#: template/admin/position-index.phtml:4
+msgid "Add position"
+msgstr "Ajouter une position"
+
+#: src/Controller/Admin/SpotlightController.php:51
+#: src/Form/SpotlightForm.php:24
+msgid "Home Page"
+msgstr "Accueil"
+
+#: src/Controller/Admin/SpotlightController.php:56
+#: src/Form/Element/Topic.php:70 src/Form/SpotlightForm.php:25
+msgid "All Topics"
+msgstr "Tous les sujets"
+
+#: src/Controller/Admin/SpotlightController.php:133
+msgid "Spotlight data saved successfully."
+msgstr "Les données de Spotlight ont été enregistrées avec succès."
+
+#: src/Controller/Admin/SpotlightController.php:136
+msgid "Spotlight data not saved."
+msgstr "Les données de Spotlight n'ont pas été enregistrées."
+
+#: src/Controller/Admin/SpotlightController.php:154
+msgid "Add a Spotlight"
+msgstr "Ajouter un Spotlight"
+
+#: src/Controller/Admin/SpotlightController.php:167
+msgid "Selected spotlight delete"
+msgstr "Le Spotlight sélectionné a été supprimé"
+
+#: src/Controller/Admin/SpotlightController.php:169
+msgid "Please select spotlight"
+msgstr "Merci de sélectionner le Spotlight"
+
+#: src/Controller/Admin/StoryController.php:89
+#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:169
+#: src/Form/TopicForm.php:120
+msgid "Media"
+msgstr "Media"
+
+#: src/Controller/Admin/StoryController.php:93 src/Form/StoryForm.php:168
+msgid "Gallery"
+msgstr "Galerie"
+
+#: src/Controller/Admin/StoryController.php:185
+#: src/Controller/Admin/StoryController.php:232
+#: src/Controller/Admin/StoryController.php:269
+#: src/Controller/Admin/StoryController.php:475
+#: src/Controller/Admin/TopicController.php:128
 msgid "Please select story"
 msgstr "Merci de sélectionner un actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:222
+#: src/Controller/Admin/StoryController.php:221
 #, php-format
 msgid "%s story accept successfully"
 msgstr "L'actualité %s a été acceptée"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:227
+#: src/Controller/Admin/StoryController.php:226
 #, php-format
 msgid "Error in accept %s story"
 msgstr "Erreur dans la validation de l'actualité %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:429
-msgid "Download data saved successfully. Please attach your files"
-msgstr ""
-"Les données de téléchargement ont été enregistrées avec succès. Merci "
-"d'attacher vos fichiers"
+#: src/Controller/Admin/StoryController.php:418
+msgid "Story data saved successfully."
+msgstr "Les données de l'actualité ont été enregistrées avec succès."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:434
-msgid "Media data saved successfully. Please attach your medias"
-msgstr ""
-"Les données Media ont été enregistrées avec succès. Merci d'attacher vos "
-"fichiers medias"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:439
-msgid "Gallery data saved successfully. Please attach your images"
-msgstr ""
-"Les données galerie ont été enregistrées avec succès. Merci d'attacher vos "
-"images."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:445
-msgid "Text data saved successfully."
-msgstr "Les données Texte ont été enregistrées avec succès."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:477
+#: src/Controller/Admin/StoryController.php:443
+#: src/Controller/Admin/StoryController.php:544
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -909,7 +291,8 @@ msgstr ""
 "après avoir cliqué sur le bouton Soumettre, vous pourrez uploader vos "
 "fichiers de téléchargement sur la page suivante."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:481
+#: src/Controller/Admin/StoryController.php:447
+#: src/Controller/Admin/StoryController.php:548
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -922,7 +305,8 @@ msgstr ""
 "media du site, et après avoir cliqué sur le bouton Soumettre, vous pourrez "
 "ajouter vos médias sur la page suivante"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:485
+#: src/Controller/Admin/StoryController.php:451
+#: src/Controller/Admin/StoryController.php:552
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -931,7 +315,8 @@ msgstr ""
 "compléter ce formulaire, ensuite après avoir cliqué sur le bouton "
 "Soumetttre, vous pourrez uploader vos images sur la page suivante"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:490
+#: src/Controller/Admin/StoryController.php:456
+#: src/Controller/Admin/StoryController.php:557
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -939,386 +324,1105 @@ msgstr ""
 "Votre actualité est de type <strong>Texte</strong>, et vous pouvez ajouter "
 "du contenu texte dans les champs du formulaire"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:496
+#: src/Controller/Admin/StoryController.php:462
 msgid "Add a Story"
 msgstr "Ajouter une actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/StoryController.php:526
-msgid "This story deleted"
-msgstr "Cette actualité a été supprimée"
+#: src/Controller/Admin/StoryController.php:510
+msgid "Download data saved successfully. Please attach your files"
+msgstr ""
+"Les données de téléchargement ont été enregistrées avec succès. Merci "
+"d'attacher vos fichiers"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:249
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:251
+#: src/Controller/Admin/StoryController.php:515
+msgid "Media data saved successfully. Please attach your medias"
+msgstr ""
+"Les données Media ont été enregistrées avec succès. Merci d'attacher vos "
+"fichiers medias"
+
+#: src/Controller/Admin/StoryController.php:520
+msgid "Gallery data saved successfully. Please attach your images"
+msgstr ""
+"Les données galerie ont été enregistrées avec succès. Merci d'attacher vos "
+"images."
+
+#: src/Controller/Admin/StoryController.php:526
+msgid "Text data saved successfully."
+msgstr "Les données Texte ont été enregistrées avec succès."
+
+#: src/Controller/Admin/StoryController.php:563
+msgid "Manage additional information"
+msgstr "Gérer les informations complémentaires"
+
+#: src/Controller/Admin/ToolsController.php:35
+msgid ""
+"You can rebuild all your added stores, after rebuild all your old data "
+"update to new. And you must set start and end publish time."
+msgstr ""
+"Vous pouvez reconstruire toutes vos actualités ajoutées, après "
+"reconstruction, toutes les anciennes données seront mises à jour vers les "
+"nouvelles. Et vous pourrez définir la date de début et de fin de publication."
+
+#: src/Controller/Admin/ToolsController.php:55
+#: src/Controller/Admin/ToolsController.php:64
+#: src/Controller/Admin/ToolsController.php:71
+msgid "Finish Rebuild slug, all story slug update"
+msgstr ""
+"Fin de reconstruction des slugs, tous les slugs des actualités ont été mis à "
+"jour"
+
+#: src/Controller/Admin/ToolsController.php:80
+msgid "Finish Rebuild SEO title, all story SEO title update"
+msgstr ""
+"Fin de reconstruction des titres SEO, toutes les titres SEO des actualités "
+"ont été mis à jour"
+
+#: src/Controller/Admin/ToolsController.php:92
+msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
+msgstr ""
+"Fin de reconstruction des mots clefs SEO, tous les mots clefs SEO des "
+"actualités ont été mis à jour"
+
+#: src/Controller/Admin/ToolsController.php:101
+msgid "Finish Rebuild SEO description, all story SEO description update"
+msgstr ""
+"Fin de reconstruction des descriptions SEO, toutes les descriptons SEO ont "
+"été mises à jour"
+
+#: src/Controller/Admin/ToolsController.php:108
+msgid "Rebuild stores"
+msgstr "Reconstruire les actualités"
+
+#: src/Controller/Admin/ToolsController.php:115
+#: template/admin/tools-index.phtml:16
+msgid "You can prune all old stores, from selected topic."
+msgstr ""
+"Vous pouvez purger les anciennes actualités d'un sujet donné, en "
+"sélectionnant le sujet."
+
+#: src/Controller/Admin/ToolsController.php:130
+#, php-format
+msgid "<strong>%s</strong> old stores removed"
+msgstr "<strong>%s</strong> anciennes actualités ont été supprimées"
+
+#: src/Controller/Admin/ToolsController.php:133
+msgid ""
+"Error in pruned old stores. perhaps no stroy exist whit your select query"
+msgstr ""
+"Erreur dans les anciennes données purgées, il semble qu'il n'y ait aucune "
+"actualité associée à votre requête"
+
+#: src/Controller/Admin/ToolsController.php:139
+msgid "Prune stores"
+msgstr "Purger les actualités"
+
+#: src/Controller/Admin/ToolsController.php:150
+#, php-format
+msgid "<strong>%s</strong> old spotlights removed"
+msgstr "<strong>%s</strong> anciens Spotlights ont été supprimés"
+
+#: src/Controller/Admin/ToolsController.php:153
+msgid "Error in remove old spotlights. perhaps no spotlights exist"
+msgstr ""
+"Erreur dans la suppression des anciens Spotlights. Il semble qu'aucun "
+"Spotlight n'existe."
+
+#: src/Controller/Admin/ToolsController.php:157
+msgid "Prune spotlights"
+msgstr "Purger les Spotlights"
+
+#: src/Controller/Admin/ToolsController.php:164
+msgid ""
+"Remove all topic pages from system page table. and keep just module default "
+"pages"
+msgstr ""
+"Supprimer toutes les pages Sujet du tableau des pages système. Conserver "
+"seulement les pages par défaut du module."
+
+#: src/Controller/Admin/ToolsController.php:183
+msgid "All other pages removed"
+msgstr "Toutes les autres pages ont été supprimées"
+
+#: src/Controller/Admin/ToolsController.php:185
+msgid "No pages were removed"
+msgstr "Aucune page n'a été supprimée"
+
+#: src/Controller/Admin/ToolsController.php:191
+msgid "Remove topic pages"
+msgstr "Supprimer les pages Sujet"
+
+#: src/Controller/Admin/ToolsController.php:198
+msgid "Rebuild thie module links on sitemap module tabels"
+msgstr "Reconstruire les liens du module dans les tables du module SiteMap"
+
+#: src/Controller/Admin/ToolsController.php:221
+msgid "Sitemap rebuild finished"
+msgstr "Reconstruction SiteMap terminée"
+
+#: src/Controller/Admin/ToolsController.php:226
+msgid "Rebuild sitemap links"
+msgstr "Reconstruire les liens SiteMap"
+
+#: src/Controller/Admin/ToolsController.php:233
+msgid ""
+"Regenerate all images by new setting. Please make backup from youe files on "
+"upload folder , before use this tools"
+msgstr ""
+"Régénérer toutes les images par ce nouveau paramètrage. Merci de veiller à "
+"bien sauvegarder vos fichiers du fichier /upload avant d'utiliser cet outil"
+
+#: src/Controller/Admin/ToolsController.php:257
+msgid "Regenerate images finished"
+msgstr "La regénération des images est terminée"
+
+#: src/Controller/Admin/ToolsController.php:262
+msgid "Regenerate images"
+msgstr "Regénérer les images"
+
+#: src/Controller/Admin/TopicController.php:48 src/Form/TopicForm.php:118
+msgid "List"
+msgstr "Liste"
+
+#: src/Controller/Admin/TopicController.php:52 src/Form/TopicForm.php:119
+msgid "Table"
+msgstr "Table"
+
+#: src/Controller/Admin/TopicController.php:60 src/Form/TopicForm.php:121
+#: template/admin/tools-image.phtml:6 template/admin/tools-index.phtml:6
+#: template/admin/tools-index.phtml:17 template/admin/tools-page.phtml:6
+#: template/admin/tools-prune.phtml:6 template/admin/tools-rebuild.phtml:6
+#: template/admin/tools-sitemap.phtml:6 template/admin/tools-spotlight.phtml:6
+msgid "Spotlight"
+msgstr "Spotlight"
+
+#: src/Controller/Admin/TopicController.php:64 src/Form/AttributeForm.php:73
+#: src/Form/StoryForm.php:88 src/Form/TopicForm.php:122
+msgid "Topic"
+msgstr "Sujet"
+
+#: src/Controller/Admin/TopicController.php:69 src/Form/TopicForm.php:117
+msgid "News"
+msgstr "Actualité"
+
+#: src/Controller/Admin/TopicController.php:248
+#: src/Controller/Admin/TopicController.php:250
 #, php-format
 msgid "Page : %s"
 msgstr "Page : %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:271
+#: src/Controller/Admin/TopicController.php:270
 msgid "Topic data saved successfully."
 msgstr "Les données Sujet ont été enregistrées avec succès."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/TopicController.php:285
+#: src/Controller/Admin/TopicController.php:284
 msgid "Add a Topic"
 msgstr "Ajouter un Sujet"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:142
-msgid "Spotlight data saved successfully."
-msgstr "Les données de Spotlight ont été enregistrées avec succès."
+#: src/Controller/Feed/IndexController.php:24
+msgid "News feed"
+msgstr "Flux actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:145
-msgid "Spotlight data not saved."
-msgstr "Les données de Spotlight n'ont pas été enregistrées."
+#: src/Controller/Feed/IndexController.php:25
+msgid "Recent News."
+msgstr "Actualités Récentes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:163
-msgid "Add a Spotlight"
-msgstr "Ajouter un Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:176
-msgid "Selected spotlight delete"
-msgstr "Le Spotlight sélectionné a été supprimé"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Admin/SpotlightController.php:178
-msgid "Please select spotlight"
-msgstr "Merci de sélectionner le Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/AuthorController.php:35
+#: src/Controller/Front/AuthorController.php:36
 msgid "The author not found."
 msgstr "L'auteur n'a pas été trouvé."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/AuthorController.php:71
+#: src/Controller/Front/AuthorController.php:74
 msgid "List of all authors"
 msgstr "Liste de tous les auteurs"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:47
-#, php-format
-msgid "Archive - %s - %s"
-msgstr "Archiver - %s - %s"
+#: src/Controller/Front/FavouriteController.php:31
+msgid "The user not select"
+msgstr "L'utilisateur n'a pas été sélectionné"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:48
-#, php-format
-msgid "Archive of all stores in - %s - %s"
-msgstr "Archiver toutes les actualités dans - %s - %s"
+#: src/Controller/Front/FavouriteController.php:43
+msgid "No favourite find by you"
+msgstr "Vous n'avez pas de favoris sélectionné"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:49
-#, php-format
-msgid "Archive,stores,topic,%s,%s"
-msgstr "Archiver, actualités, sujet, %s,%s"
+#: src/Controller/Front/FavouriteController.php:61
+msgid "All favourite stories by you"
+msgstr "Toutes les actualités que vous avez ajoutées en favoris"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/ArchiveController.php:50
-#, php-format
-msgid ""
-"List if all stroes in <strong>%s / %s </strong>, You can see all stores in "
-"next or prev month and year"
-msgstr ""
-"Affichier toutes les actualités si <strong>%s / %s </strong>, vous pouvez "
-"voir toutes les actualités des mois et années suivantes/précédentes"
+#: src/Controller/Front/IndexController.php:56
+msgid "List of Latest stories"
+msgstr "Liste des dernières actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:36
-msgid "The story not found."
-msgstr "L'actualité n'a pas été trouvée."
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/StoryController.php:40
-msgid "The Story not publish."
-msgstr "L'actualité n'a pas été publiée"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/MediaController.php:50
+#: src/Controller/Front/MediaController.php:29
+#: src/Controller/Front/MediaController.php:52
+#: src/Controller/Front/MediaController.php:91
 msgid "The media not set."
 msgstr "Le media n'a pas été paramétré."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:32
-msgid "Go to topic list."
-msgstr "Aller à la liste des sujets."
+#: src/Controller/Front/StoryController.php:37
+msgid "The story not found."
+msgstr "L'actualité n'a pas été trouvée."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:38
-msgid "Topic not active."
-msgstr "Le sujet n'est pas actif."
+#: src/Controller/Front/StoryController.php:43
+msgid "The Story not publish."
+msgstr "L'actualité n'a pas été publiée"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:103
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:104
-msgid "List of all topics"
-msgstr "Liste de tous les sujets"
+#: src/Controller/Front/TagController.php:29
+msgid "Tag module not installed."
+msgstr "Le module Tag n'est pas installé."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TopicController.php:105
-msgid "List,topics"
-msgstr "Liste, sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:33
+#: src/Controller/Front/TagController.php:39
 msgid "The tag not set."
 msgstr "Le tag n'a pas été défini"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:44
+#: src/Controller/Front/TagController.php:51
 msgid "The tag not found."
 msgstr "Le tag n'a pas été trouvé"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:61
+#: src/Controller/Front/TagController.php:71
 #, php-format
 msgid "All stores from %s"
 msgstr "Toutes les actualités de %s"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/src/Controller/Front/TagController.php:97
+#: src/Controller/Front/TagController.php:114
 msgid "List of all used tags"
 msgstr "Liste des tous les tags utilisés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:12
-msgid "List of extra fields"
-msgstr "Liste des champs supplémentaires"
+#: src/Controller/Front/TopicController.php:34
+msgid "Topic not set."
+msgstr "Le sujet n'a pas été sélectionné"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/extra_index.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:35
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:81
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:77
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:25
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:33
-msgid "Edit"
-msgstr "Editer"
+#: src/Controller/Front/TopicController.php:42
+msgid "Topic not active."
+msgstr "Le sujet n'est pas actif."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_update.phtml:19
-msgid "Remove image story in process"
-msgstr "La suppression de l'image de l'actualité est en cours"
+#: src/Controller/Front/TopicController.php:108
+msgid "List of all topics"
+msgstr "Liste de tous les sujets"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/author_list.phtml:6
-msgid "Author list"
-msgstr "Liste des auteurs"
+#: src/Form/AttachForm.php:49 src/Form/AttributeForm.php:48
+#: src/Form/AuthorForm.php:48 src/Form/AuthorRoleForm.php:46
+#: src/Form/PositionForm.php:47 src/Form/StoryForm.php:51
+#: src/Form/StorySearchForm.php:40 src/Form/TopicForm.php:64
+#: template/admin/attach-index.phtml:25
+#: template/admin/attribute-index.phtml:21
+#: template/admin/author-index.phtml:18 template/admin/author-role.phtml:18
+#: template/admin/position-index.phtml:10 template/admin/story-index.phtml:64
+#: template/admin/topic-index.phtml:10 template/front/index-table.phtml:10
+msgid "Title"
+msgstr "Titre"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:7
-msgid "Role list"
-msgstr "Liste des rôles"
+#: src/Form/AttachForm.php:61 src/Form/AttributeForm.php:87
+#: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
+#: src/Form/PositionForm.php:73 src/Form/SpotlightForm.php:105
+#: src/Form/StoryForm.php:150 src/Form/TopicForm.php:100
+#: template/admin/attach-add.phtml:68
+msgid "Status"
+msgstr "Statut"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:14
-msgid "List of authors"
-msgstr "Liste des auteurs"
+#: src/Form/AttachForm.php:63 src/Form/AttributeForm.php:89
+msgid "Online"
+msgstr "En Ligne"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:17
-msgid "ID"
-msgstr "N°"
+#: src/Form/AttachForm.php:64 src/Form/AttributeForm.php:90
+msgid "Offline"
+msgstr "Hors Ligne"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:19
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:11
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:12
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:19
-msgid "Action"
-msgstr "Action"
+#: src/Form/AttachForm.php:73 src/Form/AttributeForm.php:194
+#: src/Form/AuthorForm.php:185 src/Form/AuthorRoleForm.php:72
+#: src/Form/PageForm.php:43 src/Form/PositionForm.php:88
+#: src/Form/PruneForm.php:44 src/Form/RebuildForm.php:68
+#: src/Form/RegenerateImageForm.php:46 src/Form/SitemapForm.php:46
+#: src/Form/SpotlightForm.php:119 src/Form/StoryAdditionalForm.php:98
+#: src/Form/StoryForm.php:301 src/Form/TopicForm.php:427
+msgid "Submit"
+msgstr "Soumettre"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:33
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:27
-msgid "View"
-msgstr "Voir"
+#: src/Form/AttributeForm.php:60
+msgid "Name"
+msgstr "Nom"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_index.phtml:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:91
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:41
-msgid "Trash"
-msgstr "Corbeille"
+#: src/Form/AttributeForm.php:64
+msgid "Set name for call anywhere"
+msgstr "Définiir un nom pour pouvoir l'appeler de n'importe où"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:10
-msgid "By"
-msgstr "De"
+#: src/Form/AttributeForm.php:102 template/admin/attribute-index.phtml:27
+msgid "Set"
+msgstr "Définir"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:11
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:12
-msgid "Update Time"
-msgstr "Date mise à jour"
+#: src/Form/AttributeForm.php:114 src/Form/StoryForm.php:165
+#: template/admin/attach-add.phtml:64 template/admin/attribute-index.phtml:24
+msgid "Type"
+msgstr "Type"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:12
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_table.phtml:13
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:42
-msgid "Read"
-msgstr "Lu"
+#: src/Form/AttributeForm.php:116
+msgid "Text : type text content"
+msgstr "Texte : type de contenu texte"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:13
-msgid "Comments"
-msgstr "Commentaires"
+#: src/Form/AttributeForm.php:117
+msgid "Link : add url for click"
+msgstr "Lien  : ajouter une url à cliquer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:14
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_list.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:54
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:54
-msgid "Topics"
-msgstr "Sujets"
+#: src/Form/AttributeForm.php:118
+msgid "Video : add flv or mp4 url for play on video player"
+msgstr "Video : ajouter des url flv ou mp4 à lire dans le lecteur video"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:33
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:28
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_update.phtml:4
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:47
+#: src/Form/AttributeForm.php:119
+msgid "Audio : add mp3 url for play on audio player"
+msgstr "Audio : ajouter des url mp3 à lire sur le lecteur audio"
+
+#: src/Form/AttributeForm.php:120
+msgid "File : add file link for download"
+msgstr "Fichier : ajouter un lien fichier à télécharger"
+
+#: src/Form/AttributeForm.php:121
+msgid "Currency : add view price for anything"
+msgstr "Devise : ajouter la monnaie pour afficher un prix"
+
+#: src/Form/AttributeForm.php:122
+msgid "Date : add date for view"
+msgstr "Date : ajouter une date à afficher"
+
+#: src/Form/AttributeForm.php:123
+msgid "Number : add number"
+msgstr "Nombre : ajouter un nombre"
+
+#: src/Form/AttributeForm.php:124
+msgid "Select : add select box for choose"
+msgstr "Select : ajouter une boite de sélection à choisir"
+
+#: src/Form/AttributeForm.php:125
+msgid "Checkbox : add check box for 0 or 1"
+msgstr "Checkbox : ajouter une case à cocher pour 0 ou 1"
+
+#: src/Form/AttributeForm.php:136
+msgid "General data"
+msgstr "Données générales"
+
+#: src/Form/AttributeForm.php:149
+msgid "Default data"
+msgstr "Données par défault"
+
+#: src/Form/AttributeForm.php:160 src/Installer/Action/Install.php:136
+msgid "Extra information"
+msgstr "Extra informations"
+
+#: src/Form/AttributeForm.php:164
+msgid "Put URL for click by user"
+msgstr "Ajouter l'URL sur laquelle doit cliquer l'utilisateur"
+
+#: src/Form/AttributeForm.php:171
+msgid "Icon"
+msgstr "Icône"
+
+#: src/Form/AttributeForm.php:175
+msgid "Use fontawesome.io icons, and set icon name like fa-home"
+msgstr ""
+"Utilisez les icônes Fontawesome.io, et définir le nom de l'icône sous la "
+"forme fa-home"
+
+#: src/Form/AttributeForm.php:183 src/Form/StorySearchForm.php:52
+msgid "Search"
+msgstr "Recherchable"
+
+#: src/Form/AuthorForm.php:59 src/Form/StoryForm.php:75
+#: src/Form/TopicForm.php:75
+msgid "slug"
+msgstr "slug"
+
+#: src/Form/AuthorForm.php:70 src/Form/TopicForm.php:86
+msgid "Description"
+msgstr "Description"
+
+#: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
+#: src/Form/PositionForm.php:75 src/Form/SpotlightForm.php:107
+#: src/Form/StoryForm.php:152 src/Form/TopicForm.php:102
+#: template/admin/attach-index.phtml:39 template/admin/author-index.phtml:41
+#: template/admin/author-role.phtml:39 template/admin/story-index.phtml:30
+#: template/admin/story-index.phtml:67 template/admin/story-index.phtml:97
+#: template/admin/topic-index.phtml:40
+msgid "Published"
+msgstr "Publié"
+
+#: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
+#: src/Form/PositionForm.php:76 src/Form/SpotlightForm.php:108
+#: src/Form/StoryForm.php:153 src/Form/TopicForm.php:103
+#: template/admin/attach-index.phtml:40 template/admin/author-index.phtml:42
+#: template/admin/author-role.phtml:40 template/admin/story-index.phtml:31
+#: template/admin/story-index.phtml:98 template/admin/topic-index.phtml:41
+msgid "Pending review"
+msgstr "En attente validation"
+
+#: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
+#: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
+#: src/Form/StoryForm.php:154 src/Form/TopicForm.php:104
+#: template/admin/story-index.phtml:32
+msgid "Draft"
+msgstr "Brouillon"
+
+#: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
+#: src/Form/PositionForm.php:78 src/Form/SpotlightForm.php:110
+#: src/Form/StoryForm.php:155 src/Form/TopicForm.php:105
+#: template/admin/story-index.phtml:33
+msgid "Private"
+msgstr "Privé"
+
+#: src/Form/AuthorForm.php:109 src/Form/StoryForm.php:190
+#: src/Form/TopicForm.php:145
+msgid "Remove image"
+msgstr "Supprimer l'image"
+
+#: src/Form/AuthorForm.php:125 src/Form/TopicForm.php:161
+#: template/admin/tools-image.phtml:9 template/admin/tools-index.phtml:9
+#: template/admin/tools-page.phtml:9 template/admin/tools-prune.phtml:9
+#: template/admin/tools-rebuild.phtml:9 template/admin/tools-sitemap.phtml:9
+#: template/admin/tools-spotlight.phtml:9
+msgid "Image"
+msgstr "Image"
+
+#: src/Form/AuthorForm.php:138 src/Form/StoryForm.php:219
+#: src/Form/TopicForm.php:174
+msgid "SEO options"
+msgstr "Options SEO"
+
+#: src/Form/AuthorForm.php:145 src/Form/RebuildForm.php:33
+#: src/Form/StoryForm.php:226 src/Form/TopicForm.php:181
+msgid "SEO Title"
+msgstr "Titre SEO"
+
+#: src/Form/AuthorForm.php:158 src/Form/RebuildForm.php:34
+#: src/Form/StoryForm.php:239 src/Form/TopicForm.php:194
+msgid "SEO Keywords"
+msgstr "Mots clefs SEO"
+
+#: src/Form/AuthorForm.php:171 src/Form/RebuildForm.php:35
+#: src/Form/StoryForm.php:252 src/Form/TopicForm.php:207
+msgid "SEO Description"
+msgstr "Description SEO"
+
+#: src/Form/PageForm.php:32
+msgid "Confirm to remove all topic pages"
+msgstr "Confirmer pour supprimer toutes les pages Sujet"
+
+#: src/Form/PositionForm.php:60
+msgid "Order"
+msgstr "Ordre"
+
+#: src/Form/PositionForm.php:79 src/Form/TopicForm.php:106
+#: template/admin/attach-add.phtml:38 template/admin/attribute-index.phtml:31
+#: template/admin/spotlight-index.phtml:26 template/admin/story-view.phtml:39
+#: template/admin/topic-index.phtml:33
+msgid "Delete"
+msgstr "Supprimer"
+
+#: src/Form/PruneForm.php:32
+msgid "All contacts Before"
+msgstr "Tous les contacts avant"
+
+#: src/Form/RebuildForm.php:26 template/admin/tools-image.phtml:4
+#: template/admin/tools-index.phtml:4 template/admin/tools-index.phtml:15
+#: template/admin/tools-page.phtml:4 template/admin/tools-prune.phtml:4
+#: template/admin/tools-rebuild.phtml:4 template/admin/tools-sitemap.phtml:4
+#: template/admin/tools-spotlight.phtml:4
+msgid "Rebuild"
+msgstr "Reconstruire"
+
+#: src/Form/RebuildForm.php:30
+msgid "Slug"
+msgstr "Slug"
+
+#: src/Form/RebuildForm.php:31
+msgid "Replace slug by title"
+msgstr "Remplacer le slug par le titre"
+
+#: src/Form/RebuildForm.php:32
+msgid "Replace slug by id"
+msgstr "Remplace le slug par l'id"
+
+#: src/Form/RebuildForm.php:43
+msgid "Start date"
+msgstr "Date de départ"
+
+#: src/Form/RebuildForm.php:55
+msgid "End date"
+msgstr "Date de fin"
+
+#: src/Form/RegenerateImageForm.php:32
+msgid "Select for regenerate"
+msgstr "Sélectionner pour regénérer"
+
+#: src/Form/RegenerateImageForm.php:34
+msgid "All images"
+msgstr "Toutes les images"
+
+#: src/Form/RegenerateImageForm.php:35
+msgid "Just story images"
+msgstr "Sueulement les images des actualités"
+
+#: src/Form/RegenerateImageForm.php:36
+msgid "Just topic images"
+msgstr "Seulement les images des sujets"
+
+#: src/Form/RegenerateImageForm.php:37
+msgid "Just author images"
+msgstr "Seulement les images des auteurs"
+
+#: src/Form/SitemapForm.php:32
+msgid "Select for rebuild"
+msgstr "Sélectionner pour reconstruire"
+
+#: src/Form/SitemapForm.php:34
+msgid "All of tables"
+msgstr "Toutes les tables"
+
+#: src/Form/SitemapForm.php:35
+msgid "Just story table"
+msgstr "Uniquement la table Story"
+
+#: src/Form/SitemapForm.php:36
+msgid "Just topic table"
+msgstr "Uniquement la table Topic"
+
+#: src/Form/SitemapForm.php:37
+msgid "Just author table"
+msgstr "Uniquement la table Author"
+
+#: src/Form/SpotlightForm.php:52 template/admin/attach-index.phtml:26
+#: template/admin/spotlight-index.phtml:10
+msgid "Story"
+msgstr "Actualité"
+
+#: src/Form/SpotlightForm.php:56
+msgid "Select story for add to Spotlight"
+msgstr "Sélectionner l'actualité à ajouter au Spotlight"
+
+#: src/Form/SpotlightForm.php:66 template/admin/spotlight-index.phtml:11
+msgid "Show in"
+msgstr "Afficher dans"
+
+#: src/Form/SpotlightForm.php:71
+msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
+msgstr ""
+"Sélectionner le sujet Spotlight, votre Spotlight sera montré dans la page du "
+"Sujet"
+
+#: src/Form/SpotlightForm.php:80 template/admin/spotlight-index.phtml:12
+msgid "Publish date"
+msgstr "Date publication"
+
+#: src/Form/SpotlightForm.php:92 template/admin/spotlight-index.phtml:13
+msgid "Expire date"
+msgstr "Date expiration"
+
+#: src/Form/StoryForm.php:63
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+#: src/Form/StoryForm.php:98
+msgid "Main topic"
+msgstr "Sujet principal"
+
+#: src/Form/StoryForm.php:105
+msgid "Just use for breadcrumbs and mobile apps"
+msgstr "Uniquement utilisé pour les breadcrumbs et les applications mobiles"
+
+#: src/Form/StoryForm.php:112
+msgid "Short text"
+msgstr "Texte introductif"
+
+#: src/Form/StoryForm.php:125
+msgid "Main text"
+msgstr "Corps de texte"
+
+#: src/Form/StoryForm.php:139 template/admin/story-view.phtml:8
+#: template/front/index-media.phtml:17 template/front/index-news.phtml:12
+#: template/front/index-table.phtml:16 template/front/story-download.phtml:50
+#: template/front/story-gallery.phtml:50 template/front/story-media.phtml:50
+#: template/front/story-text.phtml:51
+msgid "Important"
+msgstr "Important"
+
+#: src/Form/StoryForm.php:156
+msgid "Remove"
+msgstr "Supprimer"
+
+#: src/Form/StoryForm.php:206
+msgid "Upload image"
+msgstr "Uploader l'image"
+
+#: src/Form/StoryForm.php:267 template/front/story-text.phtml:163
+msgid "Tags"
+msgstr "Tags"
+
+#: src/Form/StoryForm.php:271
+msgid "Use `|` as delimiter to separate tag terms"
+msgstr "Utiliser `|` comme délimiteur pour séparer les mots tags"
+
+#: src/Form/StoryForm.php:282
+msgid "Authors"
+msgstr "Auteurs"
+
+#: src/Form/TopicForm.php:51
+msgid "Parent Topic"
+msgstr "Sujet Parent"
+
+#: src/Form/TopicForm.php:115
+msgid "Topic Style"
+msgstr "Style d'actualité"
+
+#: src/Form/TopicForm.php:221
+msgid "Extra options"
+msgstr "Autres options"
+
+#: src/Form/TopicForm.php:229
+msgid "Extra Config Options Type"
+msgstr "Autres type de configuration des options"
+
+#: src/Form/TopicForm.php:231
+msgid "Use topic options"
+msgstr "Utiliser les options des Sujets"
+
+#: src/Form/TopicForm.php:232
+msgid "Use module options"
+msgstr "Utiliser les options du Module"
+
+#: src/Form/TopicForm.php:236
+msgid ""
+"Use topic option whit select topic options or set it to module to use module "
+"option"
+msgstr ""
+"Utiliser l'option Sujet en sélectionnant les options Sujet, ou indiquer "
+"d'utiliser les options globales module"
+
+#: src/Form/TopicForm.php:243
+msgid "Perpage"
+msgstr "Par Page"
+
+#: src/Form/TopicForm.php:255
+msgid "Columns"
+msgstr "Colonnes"
+
+#: src/Form/TopicForm.php:257
+msgid "One column"
+msgstr "Une colonne"
+
+#: src/Form/TopicForm.php:258
+msgid "Two columns"
+msgstr "Deux colonnes"
+
+#: src/Form/TopicForm.php:259
+msgid "Three columns"
+msgstr "Trois colonnes"
+
+#: src/Form/TopicForm.php:260
+msgid "Four columns"
+msgstr "Quatre colonnes"
+
+#: src/Form/TopicForm.php:272
+msgid "Set as system page"
+msgstr "Définir comme page système"
+
+#: src/Form/TopicForm.php:283
+msgid "Story order"
+msgstr "Ordre des actualités"
+
+#: src/Form/TopicForm.php:285
+msgid "Publish time DESC"
+msgstr "Date de publication DESC"
+
+#: src/Form/TopicForm.php:286
+msgid "Publish time ASC"
+msgstr "Date de publication ASC"
+
+#: src/Form/TopicForm.php:287
+msgid "Random"
+msgstr "Aléatoire"
+
+#: src/Form/TopicForm.php:291
+msgid "Story list order options"
+msgstr "Options de tri des listes d'actualités"
+
+#: src/Form/TopicForm.php:299
+msgid "Show Topic"
+msgstr "Afficher le sujet"
+
+#: src/Form/TopicForm.php:310
+msgid "Show Topic Information"
+msgstr "Afficher les informations Sujet"
+
+#: src/Form/TopicForm.php:321
+msgid "Show Date"
+msgstr "Afficher la Date"
+
+#: src/Form/TopicForm.php:332
+msgid "Show DPF"
+msgstr "Afficher le PDF"
+
+#: src/Form/TopicForm.php:343
+msgid "Show Print"
+msgstr "Afficher Impression"
+
+#: src/Form/TopicForm.php:354
+msgid "Show Mail"
+msgstr "Afficher le Mail"
+
+#: src/Form/TopicForm.php:365
+msgid "Show Hits"
+msgstr "Afficher les Hits"
+
+#: src/Form/TopicForm.php:376
+msgid "Show Tags"
+msgstr "Affichers les Tags"
+
+#: src/Form/TopicForm.php:387
+msgid "Show Subtopic stories on main topic"
+msgstr "Afficher le sujets enfants en dessous du sujet principal"
+
+#: src/Form/TopicForm.php:397
+msgid "Attach file link"
+msgstr "Lien du fichier attaché"
+
+#: src/Form/TopicForm.php:408
+msgid "Attach file title"
+msgstr "Titre du fichier attaché"
+
+#: src/Installer/Action/Install.php:76
+msgid "Default"
+msgstr "Défaut"
+
+#: src/Installer/Action/Install.php:77
+msgid "default"
+msgstr "défaut"
+
+#: src/Installer/Action/Install.php:78
+msgid "This is a default topic for news module"
+msgstr "Sujet par défaut du module News"
+
+#: src/Installer/Action/Install.php:79 src/Installer/Action/Install.php:81
+msgid "default topic"
+msgstr "Sujet par défaut"
+
+#: src/Installer/Action/Install.php:80
+msgid "default,topic"
+msgstr "defaut, sujet"
+
+#: src/Installer/Action/Install.php:106
+msgid "Hello World"
+msgstr "Bonjour le monde"
+
+#: src/Installer/Action/Install.php:107
+msgid "This is subtitle for this story"
+msgstr "Ceci est le sous-titre pour une actualité"
+
+#: src/Installer/Action/Install.php:108
+msgid "hello-world"
+msgstr "bonjour-le-monde"
+
+#: src/Installer/Action/Install.php:111
+msgid ""
+"This is a short text and you can edit this part easy. for read more infor "
+"please click on title or more link"
+msgstr ""
+"Ceci est le texte introductif et vous pouvez éditer cette partie simplement. "
+"Pour lire le détail, cliquez sur le titre ou le lien Plus"
+
+#: src/Installer/Action/Install.php:112
+msgid ""
+"This is more text. you can edit this part easy too and if you want you can "
+"add new topics and new storys"
+msgstr ""
+"Ceci est texte étendu. Vous pouvez éditer cette partie simplement également, "
+"et si vous le souhaitez vous pouvez ajouter de nouveaux sujets et de "
+"nouvelles actualités"
+
+#: src/Installer/Action/Install.php:113 src/Installer/Action/Install.php:115
+msgid "hello world"
+msgstr "Bonjour le Monde"
+
+#: src/Installer/Action/Install.php:114
+msgid "hello,world"
+msgstr "Bonjour, monde"
+
+#: src/Installer/Action/Install.php:151
+msgid "Source"
+msgstr "Source"
+
+#: src/Installer/Action/Install.php:163
+msgid "The admin"
+msgstr "L'administrateur"
+
+#: src/Installer/Action/Install.php:165
+msgid "Admin"
+msgstr "Admin"
+
+#: src/Installer/Action/Install.php:166
+msgid "author,admin"
+msgstr "auteur, admin"
+
+#: src/Installer/Action/Install.php:167
+msgid "author is admin"
+msgstr "L'auteur est l'admin"
+
+#: src/Installer/Action/Install.php:177
+msgid "Writer"
+msgstr "Ecrivain"
+
+#: src/Installer/Action/Install.php:195
+msgid "Default information added."
+msgstr "Information par défaut ajoutée"
+
+#: template/admin/attach-add.phtml:28 template/admin/attach-edit.phtml:47
+#: template/admin/spotlight-update.phtml:4 template/admin/story-view.phtml:35
 msgid "Back"
 msgstr "Retour"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_view.phtml:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:78
-msgid "Attach"
-msgstr "Attacher"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_update.phtml:16
-msgid "Remove image author in process"
-msgstr "Suppression de l'auteur de l'image en cours"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:15
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:5
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:5
-msgid "Prune"
-msgstr "Purger"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:17
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:7
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:7
-msgid "Page"
-msgstr "Page"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_sitemap.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_prune.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:18
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_spotlight.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_page.phtml:8
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_rebuild.phtml:8
-msgid "Sitemap"
-msgstr "SiteMap"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:29
+#: template/admin/attach-add.phtml:29
 msgid "Finish"
 msgstr "Terminer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:76
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:8
+#: template/admin/attach-add.phtml:37 template/admin/attach-index.phtml:8
 msgid "PerView"
 msgstr "Par Page"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:56
+#: template/admin/attach-add.phtml:56
 msgid "Id"
 msgstr "N°"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:60
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:10
+#: template/admin/attach-add.phtml:60 template/admin/attach-index.phtml:10
 msgid "Create"
 msgstr "Créer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:72
+#: template/admin/attach-add.phtml:72
 msgid "Hits"
 msgstr "Hits"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:76
+#: template/admin/attach-add.phtml:76
 msgid "Size"
 msgstr "Taille"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:82
+#: template/admin/attach-add.phtml:81 template/admin/attach-index.phtml:31
+#: template/admin/attribute-index.phtml:30
+#: template/admin/author-index.phtml:34 template/admin/author-role.phtml:33
+#: template/admin/position-index.phtml:25
+#: template/admin/spotlight-index.phtml:25 template/admin/story-view.phtml:37
+#: template/admin/topic-index.phtml:29
+msgid "Edit"
+msgstr "Editer"
+
+#: template/admin/attach-add.phtml:82
 msgid "Close"
 msgstr "Fermer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_add.phtml:125
+#: template/admin/attach-add.phtml:125
 msgid "In process"
 msgstr "En cours"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:15
-msgid "Add new story"
-msgstr "Ajouter une nouvelle actualité"
+#: template/admin/attach-edit.phtml:37
+msgid "Get it"
+msgstr "Télécharger"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:18
-msgid "Add new text"
-msgstr "Ajouter un nouveau texte"
+#: template/admin/attach-edit.phtml:40
+msgid "File title"
+msgstr "Nom du fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:19
-msgid "Add new gallery"
-msgstr "Ajouter une nouvelle galerie"
+#: template/admin/attach-edit.phtml:41
+msgid "Story title"
+msgstr "Titre de l'actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:20
-msgid "Add new media"
-msgstr "Ajouter un nouveau media"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:21
-msgid "Add new download"
-msgstr "Ajouter un nouveau téléchargement"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:28
-msgid "All stories"
-msgstr "Toutes les actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:43
-msgid "List of stories"
-msgstr "Liste des actualités"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:9
-msgid "Information"
-msgstr "Information"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:103
-msgid "Reject"
-msgstr "Refuser"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:74
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:108
-msgid "Accept"
-msgstr "Accepter"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/story_index.phtml:97
-msgid "Accept story in process"
-msgstr "La validation de l'actualité est en cours"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_update.phtml:16
-msgid "Remove image topic in process"
-msgstr "Suppression l'image du sujet en cours"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:3
+#: template/admin/attach-index.phtml:3
 msgid "List of attached files"
 msgstr "Liste des fichiers attachés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:30
+#: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:17
+#: template/admin/author-role.phtml:17 template/admin/position-index.phtml:9
+#: template/admin/spotlight-index.phtml:9 template/admin/story-index.phtml:46
+#: template/admin/topic-index.phtml:9
+msgid "ID"
+msgstr "N°"
+
+#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:47
+msgid "Information"
+msgstr "Information"
+
+#: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:19
+#: template/admin/author-role.phtml:19 template/admin/position-index.phtml:11
+#: template/admin/spotlight-index.phtml:14 template/admin/story-index.phtml:70
+#: template/admin/topic-index.phtml:12
+msgid "Action"
+msgstr "Action"
+
+#: template/admin/attach-index.phtml:30
 msgid "Get"
 msgstr "Récupérer"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:32
+#: template/admin/attach-index.phtml:32
 msgid "Edit from story"
 msgstr "Editer depuis l'actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:44
+#: template/admin/attach-index.phtml:44
 msgid "Error"
 msgstr "Erreur"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_index.phtml:45
+#: template/admin/attach-index.phtml:45
 msgid "No file upload yet"
 msgstr "Aucun fichier uploadé à ce jour"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:11
+#: template/admin/attribute-index.phtml:10
+msgid "List of attributes"
+msgstr "Liste des attributs"
+
+#: template/admin/author-index.phtml:6 template/admin/author-role.phtml:6
+msgid "Role list"
+msgstr "Liste des rôles"
+
+#: template/admin/author-index.phtml:14
+msgid "List of authors"
+msgstr "Liste des auteurs"
+
+#: template/admin/author-index.phtml:33 template/admin/story-index.phtml:26
+#: template/admin/story-view.phtml:36 template/admin/topic-index.phtml:27
+msgid "View"
+msgstr "Voir"
+
+#: template/admin/author-index.phtml:43 template/admin/author-role.phtml:41
+#: template/admin/story-index.phtml:34 template/admin/story-index.phtml:99
+#: template/admin/topic-index.phtml:42
+msgid "Trash"
+msgstr "Corbeille"
+
+#: template/admin/author-role.phtml:14
+msgid "List of roles"
+msgstr "Liste des rôles"
+
+#: template/admin/author-update.phtml:16
+msgid "Remove image author in process"
+msgstr "Suppression de l'auteur de l'image en cours"
+
+#: template/admin/position-index.phtml:6
+msgid "List of positions"
+msgstr "Liste de positions"
+
+#: template/admin/spotlight-index.phtml:4
+msgid "Add Spotlight"
+msgstr "Ajouter un Spotlight"
+
+#: template/admin/spotlight-index.phtml:6
+msgid "List of spotlights"
+msgstr "Liste des Spotlights"
+
+#: template/admin/spotlight-index.phtml:24
+msgid "Veiw story"
+msgstr "Voir l'actualité"
+
+#: template/admin/story-index.phtml:15
+msgid "Add new story"
+msgstr "Ajouter une nouvelle actualité"
+
+#: template/admin/story-index.phtml:18
+msgid "Add new text"
+msgstr "Ajouter un nouveau texte"
+
+#: template/admin/story-index.phtml:19
+msgid "Add new gallery"
+msgstr "Ajouter une nouvelle galerie"
+
+#: template/admin/story-index.phtml:20
+msgid "Add new media"
+msgstr "Ajouter un nouveau media"
+
+#: template/admin/story-index.phtml:21
+msgid "Add new download"
+msgstr "Ajouter un nouveau téléchargement"
+
+#: template/admin/story-index.phtml:29 template/admin/topic-index.phtml:28
+msgid "All stories"
+msgstr "Toutes les actualités"
+
+#: template/admin/story-index.phtml:43
+msgid "List of stories"
+msgstr "Liste des actualités"
+
+#: template/admin/story-index.phtml:73 template/admin/story-index.phtml:111
+msgid "Reject"
+msgstr "Refuser"
+
+#: template/admin/story-index.phtml:75 template/admin/story-index.phtml:116
+msgid "Accept"
+msgstr "Accepter"
+
+#: template/admin/story-index.phtml:80
+msgid "Manage"
+msgstr "Gérer"
+
+#: template/admin/story-index.phtml:83
+msgid "Edit basic information"
+msgstr "Editer les informations de base"
+
+#: template/admin/story-index.phtml:84
+msgid "Edit additional information"
+msgstr "Editer les informations complémentaires"
+
+#: template/admin/story-index.phtml:85
+msgid "Attach files"
+msgstr "Fichiers attachés"
+
+#: template/admin/story-index.phtml:86
+msgid "Preview"
+msgstr "Prévisualiser"
+
+#: template/admin/story-index.phtml:105
+msgid "Accept story in process"
+msgstr "La validation de l'actualité est en cours"
+
+#: template/admin/story-update.phtml:19
+msgid "Remove image story in process"
+msgstr "La suppression de l'image de l'actualité est en cours"
+
+#: template/admin/story-view.phtml:16 template/front/index-table.phtml:11
+msgid "Update Time"
+msgstr "Date mise à jour"
+
+#: template/admin/story-view.phtml:17 template/front/index-news.phtml:32
+#: template/front/index-table.phtml:12 template/front/story-download.phtml:66
+#: template/front/story-gallery.phtml:66 template/front/story-media.phtml:66
+#: template/front/story-text.phtml:65
+msgid "Read"
+msgstr "Lu"
+
+#: template/admin/story-view.phtml:18 template/front/index-list.phtml:18
+#: template/front/index-news.phtml:37 template/front/story-download.phtml:78
+#: template/front/story-gallery.phtml:78 template/front/story-media.phtml:78
+#: template/front/story-text.phtml:69
+msgid "Topics"
+msgstr "Sujets"
+
+#: template/admin/story-view.phtml:38
+msgid "Attach"
+msgstr "Attacher"
+
+#: template/admin/tools-image.phtml:5 template/admin/tools-index.phtml:5
+#: template/admin/tools-index.phtml:16 template/admin/tools-page.phtml:5
+#: template/admin/tools-prune.phtml:5 template/admin/tools-rebuild.phtml:5
+#: template/admin/tools-sitemap.phtml:5 template/admin/tools-spotlight.phtml:5
+msgid "Prune"
+msgstr "Purger"
+
+#: template/admin/tools-image.phtml:7 template/admin/tools-index.phtml:7
+#: template/admin/tools-index.phtml:18 template/admin/tools-page.phtml:7
+#: template/admin/tools-prune.phtml:7 template/admin/tools-rebuild.phtml:7
+#: template/admin/tools-sitemap.phtml:7 template/admin/tools-spotlight.phtml:7
+msgid "Page"
+msgstr "Page"
+
+#: template/admin/tools-image.phtml:8 template/admin/tools-index.phtml:8
+#: template/admin/tools-index.phtml:19 template/admin/tools-page.phtml:8
+#: template/admin/tools-prune.phtml:8 template/admin/tools-rebuild.phtml:8
+#: template/admin/tools-sitemap.phtml:8 template/admin/tools-spotlight.phtml:8
+msgid "Sitemap"
+msgstr "SiteMap"
+
+#: template/admin/tools-index.phtml:12
 msgid "How this part work?"
 msgstr "Comment cette fonctionnalité fonctionne?"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:12
+#: template/admin/tools-index.phtml:13
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
@@ -1327,7 +1431,7 @@ msgstr ""
 "données et supprimer les informations inutiles. Actuellement, 4 outils sont "
 "disponibles :"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:14
+#: template/admin/tools-index.phtml:15
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
@@ -1336,123 +1440,175 @@ msgstr ""
 "Date seront mises à jour vers les nouvelles. Et vous devez définir les dates "
 "de début et de fin de publication."
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:16
+#: template/admin/tools-index.phtml:17
 msgid "You can remove old spotlights"
 msgstr "Vous pouvez supprimer les anciens Spotlights"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:17
+#: template/admin/tools-index.phtml:18
 msgid "Manage system page"
 msgstr "Gérer la page système"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/tools_index.phtml:18
+#: template/admin/tools-index.phtml:19
 msgid "Manage links on sitemap module"
 msgstr "Gérer les liens dans le module Sitemap"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:4
-msgid "Add Spotlight"
-msgstr "Ajouter un Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:6
-msgid "List of spotlights"
-msgstr "Liste des Spotlights"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/spotlight_index.phtml:24
-msgid "Veiw story"
-msgstr "Voir l'actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:4
+#: template/admin/topic-index.phtml:4
 msgid "Add Topic"
 msgstr "Ajouter un sujet"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:6
+#: template/admin/topic-index.phtml:6
 msgid "List of topics"
 msgstr "Liste des Sujets"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:11
+#: template/admin/topic-index.phtml:11
 msgid "Show type"
 msgstr "Afficher le type"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/topic_index.phtml:31
+#: template/admin/topic-index.phtml:31
 msgid "Json"
 msgstr "Json"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/author_role.phtml:14
-msgid "List of roles"
-msgstr "Liste des rôles"
+#: template/admin/topic-update.phtml:16
+msgid "Remove image topic in process"
+msgstr "Suppression l'image du sujet en cours"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:37
-msgid "Get it"
-msgstr "Télécharger"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:40
-msgid "File title"
-msgstr "Nom du fichier"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/admin/attach_edit.phtml:41
-msgid "Story title"
-msgstr "Titre de l'actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:26
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:37
-msgid "Time"
-msgstr "Date"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/index_news.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:42
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:42
-msgid "Times"
-msgstr "Fois"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:5
+#: template/front/attach.phtml:5
 msgid "Attached archives"
 msgstr "Archives des pièces jointes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:9
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:20
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:31
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:42
+#: template/front/attach.phtml:9 template/front/attach.phtml:20
+#: template/front/attach.phtml:31 template/front/attach.phtml:42
 msgid "Download file"
 msgstr "Fichier de Téléchargement"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:16
+#: template/front/attach.phtml:16
 msgid "Attached docs"
 msgstr "Docs attachés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:27
+#: template/front/attach.phtml:27
 msgid "Attached pdfs"
 msgstr "PDFs attachés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/attach.phtml:38
+#: template/front/attach.phtml:38
 msgid "Attached files"
 msgstr "Fichiers attachés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_index.phtml:122
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_download.phtml:127
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_gallery.phtml:122
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/story_media.phtml:122
-msgid "Related storys"
-msgstr "Actualités connexes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/topic_list.phtml:8
-msgid "List of Topics"
-msgstr "Liste des sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/extra_file.phtml:4
+#: template/front/attribute-file.phtml:4
 msgid "Extra links"
 msgstr "Liens supplémentaires"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/feed.phtml:3
+#: template/front/attribute.phtml:35
+#, php-format
+msgid "More information about %s"
+msgstr "Plus d'infos à propos de %s"
+
+#: template/front/author-list.phtml:23
+msgid ""
+"No author information has been added on this part yet. please check this "
+"page later"
+msgstr ""
+"Aucune information auteur n'a été ajoutée sur cette partie. Merci de revenir "
+"sur cette page ultérieurement pour vérifier."
+
+#: template/front/feed.phtml:3
 msgid "Rss Feed"
 msgstr "Flux RSS"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/template/front/tag_list.phtml:6
-msgid "Tag list"
-msgstr "Liste Tag"
+#: template/front/index-news.phtml:27 template/front/story-download.phtml:61
+#: template/front/story-gallery.phtml:61 template/front/story-media.phtml:61
+#: template/front/story-text.phtml:60
+msgid "Time"
+msgstr "Date"
+
+#: template/front/index-news.phtml:32 template/front/story-download.phtml:66
+#: template/front/story-gallery.phtml:66 template/front/story-media.phtml:66
+#: template/front/story-text.phtml:65
+msgid "Times"
+msgstr "Fois"
+
+#: template/front/story-download.phtml:153
+#: template/front/story-gallery.phtml:149 template/front/story-media.phtml:149
+#: template/front/story-text.phtml:193
+msgid "Related storys"
+msgstr "Actualités connexes"
+
+#: template/front/story-text.phtml:102
+msgid "Previous"
+msgstr "Précédent"
+
+#: template/front/story-text.phtml:105
+msgid "Next"
+msgstr "Suivant"
+
+#: template/front/story-text.phtml:178
+msgid "Share if you like"
+msgstr "Partagez si vous aimez !"
+
+#: template/front/tag-list.phtml:18
+msgid ""
+"No keyword has been used as tag on this part yet. please check this page "
+"later"
+msgstr ""
+"Aucun mot clé n'a été utilisé comme tag sur cette partie. Merci de revenir "
+"sur cette page ultérieurment pour vérifier."
+
+#: template/front/topic-list.phtml:27
+msgid "No topic has been made on this part yet. please check this page later"
+msgstr ""
+"Aucun sujet n'a été fait sur cette partie. Merci de revenir sur cette page "
+"ultérieurement pour vérifier."
+
+#~ msgid "Extra fields"
+#~ msgstr "Champs additionnels"
+
+#~ msgid "Value"
+#~ msgstr "Valeur"
+
+#~ msgid "Extra field data saved successfully."
+#~ msgstr "La valeur du champ supplémentaire a été enregistrée avec succès."
+
+#~ msgid "Extra field data not saved."
+#~ msgstr "La valeur du champ supplémentaire n'a pas été enregistrée."
+
+#~ msgid "Add Extra"
+#~ msgstr "Ajouter un Champ"
+
+#~ msgid "This story deleted"
+#~ msgstr "Cette actualité a été supprimée"
+
+#~ msgid "Archive - %s - %s"
+#~ msgstr "Archiver - %s - %s"
+
+#~ msgid "Archive of all stores in - %s - %s"
+#~ msgstr "Archiver toutes les actualités dans - %s - %s"
+
+#~ msgid "Archive,stores,topic,%s,%s"
+#~ msgstr "Archiver, actualités, sujet, %s,%s"
+
+#~ msgid ""
+#~ "List if all stroes in <strong>%s / %s </strong>, You can see all stores "
+#~ "in next or prev month and year"
+#~ msgstr ""
+#~ "Affichier toutes les actualités si <strong>%s / %s </strong>, vous pouvez "
+#~ "voir toutes les actualités des mois et années suivantes/précédentes"
+
+#~ msgid "Go to topic list."
+#~ msgstr "Aller à la liste des sujets."
+
+#~ msgid "List,topics"
+#~ msgstr "Liste, sujet"
+
+#~ msgid "List of extra fields"
+#~ msgstr "Liste des champs supplémentaires"
+
+#~ msgid "By"
+#~ msgstr "De"
+
+#~ msgid "Comments"
+#~ msgstr "Commentaires"
+
+#~ msgid "List of Topics"
+#~ msgstr "Liste des sujets"
 
 #~ msgid "Show attached files to stories"
 #~ msgstr "Afficher les fichiers atttachés des actualités"

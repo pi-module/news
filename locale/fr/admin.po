@@ -1,632 +1,612 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2014-08-11 12:28+0330\n"
+"POT-Creation-Date: 2015-06-25 20:46+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _a;_t\n"
-"X-Poedit-Basepath: .\n"
+"X-Poedit-Basepath: ..\\..\\\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
-"news\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:17
-msgid "Global public resource"
-msgstr "Ressource globale publique"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:24
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:117
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:22
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:99
-msgid "Authors"
-msgstr "Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:34
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:17
-msgid "Attach"
-msgstr "Attacher"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:46
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:108
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:27
-msgid "Extra"
-msgstr "Extra"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:52
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:90
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:32
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:256
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:40
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:107
-msgid "Spotlight"
-msgstr "Spotlight"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:58
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:72
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:37
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:67
-msgid "Story"
-msgstr "Actualité"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:64
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:81
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:47
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:61
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:22
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:118
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:186
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:262
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:316
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:108
-msgid "Topic"
-msgstr "Sujet"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/permission.php:70
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:126
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:42
-msgid "Tools"
-msgstr "Outils"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:16
-msgid "Index"
-msgstr "Index"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:27
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:85
-msgid "Topic list"
-msgstr "Liste des Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:38
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:92
-msgid "Tag list"
-msgstr "Liste des Tags"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:49
-msgid "Author list"
-msgstr "Liste des Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:60
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:79
-msgid "Archive"
-msgstr "Archiver"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/navigation.php:99
-msgid "Attaced"
-msgstr "Attachements"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:55
-msgid "Index page"
-msgstr "Page Index"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/page.php:73
-msgid "Tag"
-msgstr "Tag"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:16
+#: config/block.php:16
 msgid "Item"
 msgstr "Elément"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:29
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:125
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:193
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:378
+#: config/block.php:22 config/block.php:133 config/block.php:201
+#: config/block.php:276 config/block.php:330 config/config.php:104
+#: config/navigation.php:81 config/page.php:52 config/page.php:66
+#: config/permission.php:76
+msgid "Topic"
+msgstr "Sujet"
+
+#: config/block.php:29 config/block.php:140 config/block.php:208
+#: config/block.php:409
 msgid "Number"
 msgstr "Nombre"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:36
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:200
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:276
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:323
+#: config/block.php:36 config/block.php:215 config/block.php:290
+#: config/block.php:337
 msgid "Shwo text"
 msgstr "Afficher le texte"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:43
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:132
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:207
+#: config/block.php:43 config/block.php:147 config/block.php:222
 msgid "Show date"
 msgstr "Afficher la date"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:50
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:139
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:214
+#: config/block.php:50 config/block.php:154 config/block.php:229
 msgid "Show hits"
 msgstr "Afficher les hits"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:57
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:283
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:330
+#: config/block.php:57 config/block.php:297 config/block.php:344
 msgid "Show Images"
 msgstr "Afficher les images"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:64
+#: config/block.php:64
 msgid "Show More link for each story"
 msgstr "Afficher le lien Plus... pour chaque actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:71
+#: config/block.php:71
 msgid "Show authors"
 msgstr "Afficher les auteurs"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:78
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:146
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:221
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:337
+#: config/block.php:78 config/block.php:161 config/block.php:236
+#: config/block.php:351
 msgid "Show More link to module page"
 msgstr "Afficher le lien Plus... dans la page module"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:85
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:153
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:228
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:344
+#: config/block.php:85 config/block.php:168 config/block.php:243
+#: config/block.php:358
 msgid "Set More link to module page"
 msgstr "Définir le lien Plus... sur Page module"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:92
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:160
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:235
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:290
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:143
+#: config/block.php:92 config/block.php:175 config/block.php:250
+#: config/block.php:304 config/config.php:139
 msgid "Story order"
 msgstr "Ordre des actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:93
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:161
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:236
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:291
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:144
+#: config/block.php:93 config/block.php:176 config/block.php:251
+#: config/block.php:305 config/config.php:140
 msgid "Story list order options"
 msgstr "Options de tri de la liste des actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:98
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:166
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:241
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:296
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:149
+#: config/block.php:98 config/block.php:181 config/block.php:256
+#: config/block.php:310 config/config.php:145
 msgid "Publish time DESC"
 msgstr "Date de publication DESC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:99
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:167
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:242
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:297
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:150
+#: config/block.php:99 config/block.php:182 config/block.php:257
+#: config/block.php:311 config/config.php:146
 msgid "Publish time ASC"
 msgstr "Date publication ASC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:100
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:168
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:243
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:298
+#: config/block.php:100 config/block.php:183 config/block.php:258
+#: config/block.php:312
 msgid "Random"
 msgstr "Aléatoire"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:112
+#: config/block.php:108
+msgid "Item list type"
+msgstr "Type de Liste Item"
+
+#: config/block.php:114 config/block.php:388 config/block.php:436
+msgid "Simple"
+msgstr "Simple"
+
+#: config/block.php:115 config/block.php:391 config/block.php:437
+msgid "Slide"
+msgstr "Slide"
+
+#: config/block.php:127
 msgid "list"
 msgstr "liste"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:180
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:105
+#: config/block.php:195 config/config.php:101
 msgid "Table"
 msgstr "Table"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:269
+#: config/block.php:270 config/config.php:40 config/config.php:103
+#: config/navigation.php:90 config/page.php:37 config/permission.php:64
+msgid "Spotlight"
+msgstr "Spotlight"
+
+#: config/block.php:283
 msgid "Number of stroies for each topic"
 msgstr "Nombre d'actualités pour chaque sujet"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:310
+#: config/block.php:324
 msgid "List of topic"
 msgstr "Liste des sujets"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:351
+#: config/block.php:365
 msgid "Topic order"
 msgstr "Ordre des sujets"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:352
+#: config/block.php:366
 msgid "Topic list order options"
 msgstr "Options de tri de la liste de sujets"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:357
+#: config/block.php:371
 msgid "Create DESC"
 msgstr "Date création DESC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:358
+#: config/block.php:372
 msgid "Create ASC"
 msgstr "Date création ASC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:359
+#: config/block.php:373
 msgid "Title DESC"
 msgstr "Titre DESC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:360
+#: config/block.php:374
 msgid "Title ASC"
 msgstr "Titre ASC"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:372
+#: config/block.php:382
+msgid "Topic list type"
+msgstr "Type de Liste Sujet"
+
+#: config/block.php:389 config/config.php:100
+msgid "List"
+msgstr "Liste"
+
+#: config/block.php:390
+msgid "List group"
+msgstr "Groupe de liste"
+
+#: config/block.php:403
 msgid "Gallery"
 msgstr "Galerie"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:385
+#: config/block.php:416
 msgid "Show gallery effect"
 msgstr "Afficher les effets galerie"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:392
+#: config/block.php:423
 msgid "Image width class"
 msgstr "Image width class"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/block.php:393
+#: config/block.php:424
 msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
 msgstr "Options de grille Boostrap 3 comme : col-xs-6 col-sm-6 col-md-3"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:16
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:103
-msgid "News"
-msgstr "Actualités"
+#: config/block.php:430
+msgid "Image list type"
+msgstr "Type de Liste Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/module.php:17
-msgid "Manage News and Blog"
-msgstr "Gestionnaire d'actualités et de blog"
+#: config/comment.php:15
+msgid "News comments"
+msgstr "Commentaires sur actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:16
+#: config/config.php:16
 msgid "Admin"
 msgstr "Admin"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:20
+#: config/config.php:20
 msgid "Show"
 msgstr "Afficher"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:24
+#: config/config.php:24
 msgid "Feed"
 msgstr "Flux"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:28
+#: config/config.php:28
 msgid "Image"
 msgstr "Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:32
+#: config/config.php:32
 msgid "File"
 msgstr "Fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:36
+#: config/config.php:36
 msgid "Social"
 msgstr "Social"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:44
+#: config/config.php:44
 msgid "Vote"
 msgstr "Appréciation"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:48
+#: config/config.php:48 config/navigation.php:27 config/page.php:104
+#: config/permission.php:31
 msgid "Favourite"
 msgstr "Favoris"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:52
-msgid "Texts"
-msgstr "Textes"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:59
+#: config/config.php:55
 msgid "Advertisement"
 msgstr "Avertissement"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:65
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:118
+#: config/config.php:61 config/config.php:114
 msgid "Perpage"
 msgstr "Par Page"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:73
+#: config/config.php:69
 msgid "Set topic as system page for support customise layout for blocks"
 msgstr ""
 "Définir le sujet comme page système pour permettre la personnalisation du "
 "design des blocks"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:81
+#: config/config.php:77
 msgid "Set story authors"
 msgstr "Définir les auteurs de l'actualité"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:89
+#: config/config.php:85
 msgid "Active json output"
 msgstr "Sortie JSON active"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:97
+#: config/config.php:93
 msgid "Show Style"
 msgstr "Afficher le Style"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:104
-msgid "List"
-msgstr "Liste"
+#: config/config.php:99 config/module.php:16
+msgid "News"
+msgstr "Actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:106
+#: config/config.php:102
 msgid "Media"
 msgstr "Media"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:125
+#: config/config.php:121
 msgid "Columns"
 msgstr "Colonnes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:131
+#: config/config.php:127
 msgid "One column"
 msgstr "Une colonne"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:132
+#: config/config.php:128
 msgid "Two columns"
 msgstr "Deux colonnes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:133
+#: config/config.php:129
 msgid "Three columns"
 msgstr "Trois colonnes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:134
+#: config/config.php:130
 msgid "Four columns"
 msgstr "Quatre colonnes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:160
+#: config/config.php:156
 msgid "Show Subtopic stories on main topic"
 msgstr "Afficher le Sous-Titre des actualités sur le sujet principal"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:168
+#: config/config.php:164
 msgid "Show Topic"
 msgstr "Afficher le Sujet"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:176
+#: config/config.php:172
 msgid "Show Topic Information"
 msgstr "Afficher les informations Sujet"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:184
+#: config/config.php:180
 msgid "Show author"
 msgstr "Afficher l'auteur"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:192
+#: config/config.php:188
 msgid "Show Date"
 msgstr "Afficher la date"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:200
+#: config/config.php:196
 msgid "Show Pdf"
 msgstr "Afficher le PDF"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:208
+#: config/config.php:204
 msgid "Show Print"
 msgstr "Afficher Impression"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:216
+#: config/config.php:212
 msgid "Show Mail"
 msgstr "Afficher le Mail"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:224
+#: config/config.php:220
 msgid "Show Hits"
 msgstr "Afficher les Hits"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:232
+#: config/config.php:228
 msgid "Show Tags"
 msgstr "Affichers les Tags"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:240
+#: config/config.php:236
 msgid "Show attach files"
 msgstr "Afficher les fichiers attachés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:248
-msgid "Show extra information"
-msgstr "Affichers les informations supplémentaires"
+#: config/config.php:244
+msgid "Show attribute information"
+msgstr "Afficher les informations Attributs"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:256
+#: config/config.php:252
 msgid "Show navigation"
 msgstr "Afficher la navigation"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:264
+#: config/config.php:260
 msgid "Show spotlight"
 msgstr "Afficher le Spotlight"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:272
+#: config/config.php:268
 msgid "Show related news"
 msgstr "Afficher les actualités connexes"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:280
+#: config/config.php:276
 msgid "related number"
 msgstr "nombre éléments"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:288
+#: config/config.php:284
 msgid "Just show news from X days ago"
 msgstr "Afficher uniquement les actualités des X derniers jours"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:289
+#: config/config.php:285
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr ""
 "Définir à 0 pour afficher toutes les actualités, ou définir un nombre de "
 "jour pour limiter le nombre d'actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:297
+#: config/config.php:292
+msgid "Show breadcrumbs"
+msgstr "Afficher les Breadcrumb"
+
+#: config/config.php:301
 msgid "Show feed icon"
 msgstr "Afficher l'icône Flux RSS"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:305
+#: config/config.php:309
 msgid "Feed number"
 msgstr "Nombre de flux"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:314
+#: config/config.php:318
 msgid "Image Size"
 msgstr "Poids de l'image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:322
+#: config/config.php:326
+msgid "Image quality"
+msgstr "Qualité Image"
+
+#: config/config.php:327
+msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
+msgstr "Entre 0 et 100 pour le JPG et le PNG, par défaut 75"
+
+#: config/config.php:334
 msgid "Image path"
 msgstr "Chemin Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:330
+#: config/config.php:342
 msgid "Image Extension"
 msgstr "Extensions Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:338
+#: config/config.php:350
 msgid "Large Image height"
 msgstr "Hauteur des Images Larges"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:346
+#: config/config.php:358
 msgid "Large Image width"
 msgstr "Largeur des Images Larges"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:354
+#: config/config.php:366
 msgid "Medium Image height"
 msgstr "Hauteur des Images Medium"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:362
+#: config/config.php:374
 msgid "Medium Image width"
 msgstr "Largeur des Images Medium"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:370
+#: config/config.php:382
 msgid "Thumb Image height"
 msgstr "Hauteur des Images Miniatures"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:378
+#: config/config.php:390
 msgid "Thumb Image width"
 msgstr "Largeur des Images Miniatures"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:386
-msgid "Large Image height for topic"
-msgstr "Hauteur des Images Larges pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:394
-msgid "Large Image width for topic"
-msgstr "Largeur des Images Larges pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:402
-msgid "Medium Image height for topic"
-msgstr "Hauteur des Images Medium pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:410
-msgid "Medium Image width for topic"
-msgstr "Largeur des Images Medium pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:418
-msgid "Thumb Image height for topic"
-msgstr "Hauteur des Images Miniatures pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:426
-msgid "Thumb Image width for topic"
-msgstr "Largeur des Images Miniatures pour les Sujets"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:434
-msgid "Large Image height for author"
-msgstr "Hauteur des Images Larges pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:442
-msgid "Large Image width for author"
-msgstr "Largeur des Images Larges pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:450
-msgid "Medium Image height for author"
-msgstr "Hauteur des Images Medium pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:458
-msgid "Medium Image width for author"
-msgstr "Largeur des Images Medium pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:466
-msgid "Thumb Image height for author"
-msgstr "Hauteur des Images Miniatures pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:474
-msgid "Thumb Image width for author"
-msgstr "Largeurs des Images Miniature pour les Auteurs"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:482
+#: config/config.php:494
 msgid "Use lightbox"
 msgstr "Utiliser Lightbox"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:490
+#: config/config.php:502
 msgid "Add Watermark"
 msgstr "Ajouter un Watemark"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:498
+#: config/config.php:510
 msgid "Watermark Image"
 msgstr "Image Watermark"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:505
+#: config/config.php:517
 msgid "Watermark Positio"
 msgstr "Position Watermark"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:511
+#: config/config.php:523
 msgid "Top Left"
 msgstr "En haut à gauche"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:512
+#: config/config.php:524
 msgid "Top Right"
 msgstr "En haut à droite"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:513
+#: config/config.php:525
 msgid "Bottom Left"
 msgstr "En bas à gauche"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:514
+#: config/config.php:526
 msgid "Bottom Right"
 msgstr "En bas à droite"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:617
-msgid "Show Google Plus"
-msgstr "Afficher Google Plus"
+#: config/config.php:536
+msgid "Social sharing items"
+msgstr "Réseaux Sociaux affichés"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:625
-msgid "Show facebook"
-msgstr "Afficher Facebook"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:633
-msgid "Show Twitter"
-msgstr "Afficher Twitter"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:642
+#: config/config.php:550
 msgid "Number of stories"
 msgstr "Nombre d'actualités"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:650
+#: config/config.php:558
 msgid "Show Image for sub spotlights"
 msgstr "Afficher l'image pour les sous-Spotlights"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:659
+#: config/config.php:567
 msgid "Use vote system"
 msgstr "Utiliser le système d'appréciation Vote"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:668
+#: config/config.php:576
 msgid "Use favourite system"
 msgstr "Utiliser le système de favoris Favorite"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:677
-msgid "Module main title"
-msgstr "Titre principal du module"
+#: config/config.php:585
+msgid "Description for index page"
+msgstr "Texte Introductif pour la page Index"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:678
-msgid "Title for main page and all non-title pages"
-msgstr "Titre pour la page principale et toutes les pages sans titre"
+#: config/config.php:593
+msgid "Force replace space by comma(,)"
+msgstr "Forcer le remplacement de l'espace par la virgule (,)"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:681
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:689
-msgid "Latest News from this website"
-msgstr "Dernières actualités du site"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:685
-msgid "Module main description"
-msgstr "Description principale du site"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:693
-msgid "Module main keywords"
-msgstr "Mots clefs principaux du module"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:697
-msgid "news,topic,story,website"
-msgstr "actualités, sujets, nouvelles, site web"
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:702
+#: config/config.php:602
 msgid "File Size"
 msgstr "Poids Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:710
+#: config/config.php:610
 msgid "File path"
 msgstr "Chemin Image"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/config.php:718
+#: config/config.php:618
 msgid "File Extension"
 msgstr "Extensions Fichier"
 
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/news/config/comment.php:15
-msgid "News comments"
-msgstr "Commentaires sur actualités"
+#: config/module.php:17
+msgid "Manage News and Blog"
+msgstr "Gestionnaire d'actualités et de blog"
+
+#: config/navigation.php:16
+msgid "Index"
+msgstr "Index"
+
+#: config/navigation.php:38 config/page.php:84
+msgid "Topic list"
+msgstr "Liste des Sujets"
+
+#: config/navigation.php:49 config/page.php:91
+msgid "Tag list"
+msgstr "Liste des Tags"
+
+#: config/navigation.php:60
+msgid "Author list"
+msgstr "Liste des Auteurs"
+
+#: config/navigation.php:72 config/page.php:42 config/page.php:72
+#: config/permission.php:70
+msgid "Story"
+msgstr "Actualité"
+
+#: config/navigation.php:99
+msgid "Attaced"
+msgstr "Attachements"
+
+#: config/navigation.php:108 config/page.php:27 config/permission.php:52
+msgid "Attribute"
+msgstr "Attribuer"
+
+#: config/navigation.php:117 config/page.php:32 config/permission.php:58
+msgid "Attribute position"
+msgstr "Position Attribut"
+
+#: config/navigation.php:126 config/page.php:22 config/page.php:98
+#: config/permission.php:24 config/permission.php:46
+msgid "Authors"
+msgstr "Auteurs"
+
+#: config/navigation.php:135 config/page.php:47 config/permission.php:82
+msgid "Tools"
+msgstr "Outils"
+
+#: config/page.php:17 config/permission.php:40
+msgid "Attach"
+msgstr "Attacher"
+
+#: config/page.php:60
+msgid "Index page"
+msgstr "Page Index"
+
+#: config/page.php:78
+msgid "Tag"
+msgstr "Tag"
+
+#: config/permission.php:17
+msgid "Global public resource"
+msgstr "Ressource globale publique"
+
+#~ msgid "Extra"
+#~ msgstr "Extra"
+
+#~ msgid "Archive"
+#~ msgstr "Archiver"
+
+#~ msgid "Texts"
+#~ msgstr "Textes"
+
+#~ msgid "Show extra information"
+#~ msgstr "Affichers les informations supplémentaires"
+
+#~ msgid "Large Image height for topic"
+#~ msgstr "Hauteur des Images Larges pour les Sujets"
+
+#~ msgid "Large Image width for topic"
+#~ msgstr "Largeur des Images Larges pour les Sujets"
+
+#~ msgid "Medium Image height for topic"
+#~ msgstr "Hauteur des Images Medium pour les Sujets"
+
+#~ msgid "Medium Image width for topic"
+#~ msgstr "Largeur des Images Medium pour les Sujets"
+
+#~ msgid "Thumb Image height for topic"
+#~ msgstr "Hauteur des Images Miniatures pour les Sujets"
+
+#~ msgid "Thumb Image width for topic"
+#~ msgstr "Largeur des Images Miniatures pour les Sujets"
+
+#~ msgid "Large Image height for author"
+#~ msgstr "Hauteur des Images Larges pour les Auteurs"
+
+#~ msgid "Large Image width for author"
+#~ msgstr "Largeur des Images Larges pour les Auteurs"
+
+#~ msgid "Medium Image height for author"
+#~ msgstr "Hauteur des Images Medium pour les Auteurs"
+
+#~ msgid "Medium Image width for author"
+#~ msgstr "Largeur des Images Medium pour les Auteurs"
+
+#~ msgid "Thumb Image height for author"
+#~ msgstr "Hauteur des Images Miniatures pour les Auteurs"
+
+#~ msgid "Thumb Image width for author"
+#~ msgstr "Largeurs des Images Miniature pour les Auteurs"
+
+#~ msgid "Show Google Plus"
+#~ msgstr "Afficher Google Plus"
+
+#~ msgid "Show facebook"
+#~ msgstr "Afficher Facebook"
+
+#~ msgid "Show Twitter"
+#~ msgstr "Afficher Twitter"
+
+#~ msgid "Module main title"
+#~ msgstr "Titre principal du module"
+
+#~ msgid "Title for main page and all non-title pages"
+#~ msgstr "Titre pour la page principale et toutes les pages sans titre"
+
+#~ msgid "Latest News from this website"
+#~ msgstr "Dernières actualités du site"
+
+#~ msgid "Module main description"
+#~ msgstr "Description principale du site"
+
+#~ msgid "Module main keywords"
+#~ msgstr "Mots clefs principaux du module"
+
+#~ msgid "news,topic,story,website"
+#~ msgstr "actualités, sujets, nouvelles, site web"
