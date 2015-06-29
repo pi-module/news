@@ -27,6 +27,7 @@ class TagController extends IndexController
         if (!Pi::service('module')->isActive('tag')) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('Tag module not installed.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Get config
@@ -37,6 +38,7 @@ class TagController extends IndexController
         if (!isset($slug) || empty($slug)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The tag not set.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Get id from tag module

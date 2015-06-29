@@ -34,6 +34,7 @@ class AuthorController extends ActionController
         if (!$author || $author['status'] != 1) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The author not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Get role

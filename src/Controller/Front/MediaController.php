@@ -26,6 +26,7 @@ class MediaController extends ActionController
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The media not set.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // find attach
@@ -67,6 +68,7 @@ class MediaController extends ActionController
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The media not set.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // find attach
@@ -108,6 +110,7 @@ class MediaController extends ActionController
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The media not set.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // find topic anhd update cint

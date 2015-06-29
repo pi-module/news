@@ -35,12 +35,14 @@ class StoryController extends ActionController
         if (!$story || $story['status'] != 1) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The story not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Check time_publish
         if ($story['time_publish'] > time()) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The Story not publish.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Update Hits

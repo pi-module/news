@@ -32,6 +32,7 @@ class TopicController extends IndexController
         if (empty($topic)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('Topic not set.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Get topic or homepage setting
@@ -40,6 +41,7 @@ class TopicController extends IndexController
         if ($topic['status'] != 1) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('Topic not active.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Check topic style

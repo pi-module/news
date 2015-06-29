@@ -29,6 +29,7 @@ class FavouriteController extends IndexController
         if (!$userId) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The user not select'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Get config
@@ -41,6 +42,7 @@ class FavouriteController extends IndexController
         if (empty($storyId)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('No favourite find by you'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
             return;
         }
         // Set story info
