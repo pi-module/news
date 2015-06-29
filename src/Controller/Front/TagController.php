@@ -49,8 +49,9 @@ class TagController extends IndexController
         }
         // Check slug
         if (empty($tagId)) {
-            $url = array('', 'module' => $module, 'controller' => 'index', 'action' => 'index');
-            $this->jump($url, __('The tag not found.'), 'error');
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The tag not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
         }
         // Set story info
         $where = array(
