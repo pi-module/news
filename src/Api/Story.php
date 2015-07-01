@@ -420,6 +420,13 @@ class Story extends AbstractApi
         )));
         // Set image url
         if ($story['image']) {
+            // Set image medium url
+            $story['mediumUrl'] = Pi::url(
+                sprintf('upload/%s/medium/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
+                    $story['image']
+                ));
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
                 sprintf('upload/%s/thumb/%s/%s',
@@ -428,6 +435,7 @@ class Story extends AbstractApi
                     $story['image']
                 ));
         } else {
+            $story['mediumUrl'] = '';
             $story['thumbUrl'] = '';
         }
 
