@@ -447,6 +447,7 @@ class Story extends AbstractApi
             'time_publish' => $story['time_publish'],
             'time_publish_view' => _date($story['time_publish']),
             'thumbUrl' => $story['thumbUrl'],
+            'mediumUrl' => $story['mediumUrl'],
             //'storyUrl'           => $story['storyUrl'],
             'topic' => $topic[0],
         );
