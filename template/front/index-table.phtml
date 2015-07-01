@@ -9,16 +9,24 @@
             <tr>
                 <th><?php _e('Title'); ?></th>
                 <?php if ($topic['showdate']) { ?>
-                    <th><?php _e('Update Time'); ?></th><?php } ?>
+                    <th><?php _e('Update Time'); ?></th>
+                <?php } ?>
                 <?php if ($topic['showhits']) { ?>
-                    <th><?php _e('Read'); ?></th><?php } ?>
+                    <th><?php _e('Read'); ?></th>
+                <?php } ?>
             </tr>
             <?php foreach ($stores as $story) { ?>
                 <tr class="h-entry" itemscope itemtype="http://schema.org/Article">
-                    <td class="p-name" itemprop="name"><?php if ($story['important']) { ?><span
-                            class="label label-danger"><?php _e('Important'); ?></span><?php } ?><img itemprop="image"
-                                                                                                      src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                                                                                      alt="<?php echo $this->escape($story['title']); ?>"/><a
+                    <td class="p-name" itemprop="name">
+                        <?php if ($story['important']) { ?>
+                            <span class="label label-danger"><?php _e('Important'); ?></span>
+                        <?php } ?>
+                        <?php if ($story['image']) { ?>
+                            <img itemprop="image"
+                                 src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                 alt="<?php echo $this->escape($story['title']); ?>"/>
+                        <?php } ?>
+                        <a
                             itemprop="url" title="<?php echo $story['title']; ?>"
                             href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
                     </td>
