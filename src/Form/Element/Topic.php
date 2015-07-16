@@ -23,8 +23,11 @@ class Topic extends Select
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
+            $where = array('status' => 1);
+            $columns = array('id', 'pid', 'title');
+            $order = array('title ASC', 'id ASC');
             // Get topic list
-            $select = Pi::model('topic', $this->options['module'])->select()->columns(array('id', 'pid', 'title'));
+            $select = Pi::model('topic', $this->options['module'])->select()->where($where)->columns($columns)->order($order);
             $rowset = Pi::model('topic', $this->options['module'])->selectWith($select);
             foreach ($rowset as $row) {
                 $list[$row->id] = $row->toArray();
@@ -63,7 +66,7 @@ class Topic extends Select
             if (isset($this->options['topic'])) {
                 if (empty($this->options['topic'])) {
                     $branch[0] = '';
-                } else {
+                } elseif($this->options['topic'] != 'full') {
                     $branch = $this->options['topic'];
                 }
             } else {

@@ -2,7 +2,7 @@
     <?php if ($block['type'] == 'simple') { ?>
         <div class="thumbnails">
             <?php foreach ($block['resources'] as $topic) { ?>
-                <div class="col-sm-6 col-md-4 h-review" itemprop="itemListElement">
+                <div class="col-sm-6 col-md-6 h-review" itemprop="itemListElement">
                     <div class="thumbnail p-item h-card">
                         <?php if ($topic['image']) { ?>
                             <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"

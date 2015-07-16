@@ -87,7 +87,7 @@ class StoryForm extends BaseForm
             'options' => array(
                 'label' => __('Topic'),
                 'module' => $this->module,
-                'topic' => '',
+                'topic' => 'full',
             ),
         ));
         // topic_main

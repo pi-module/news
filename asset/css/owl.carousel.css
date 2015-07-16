@@ -302,24 +302,24 @@
 
 /* Customize */
 .owl-carousel {
-    height: 103px;
+    height: 303px;
 }
 
 .owl-carousel .owl-stage {
-    height: 100px;
+    height: 300px;
 }
 
 .owl-carousel .owl-stage-outer {
-    height: 100px;
+    height: 300px;
     z-index: -10;
 }
 
 .owl-carousel .owl-item {
-    max-height: 100px;
+    max-height: 300px;
 }
 
 .owl-carousel .owl-item img {
-    max-height: 100px;
+    max-height: 300px;
     width: auto;
 }
 

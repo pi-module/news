@@ -171,20 +171,20 @@ class Block
         // Set order
         switch ($block['order']) {
             case 'titleASC':
-                $order = array('title ASC', 'id ASC');;
+                $order = array('title ASC', 'id ASC');
                 break;
 
             case 'titleDESC':
-                $order = array('title DESC', 'id DESC');;
+                $order = array('title DESC', 'id DESC');
                 break;
 
             case 'createASC':
-                $order = array('time_create ASC', 'id ASC');;
+                $order = array('time_create ASC', 'id ASC');
                 break;
 
             case 'createDESC':
             default:
-                $order = array('time_create DESC', 'id DESC');;
+                $order = array('time_create DESC', 'id DESC');
                 break;
         }
         // Get info from topic table
