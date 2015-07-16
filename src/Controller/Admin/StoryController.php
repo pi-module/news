@@ -40,12 +40,13 @@ class StoryController extends ActionController
         $title = $this->params('title');
         // Set info
         $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $order = array('time_publish DESC', 'id DESC');
+        $order = array('id DESC');
         $limit = intval($this->config('admin_perpage'));
+        $whereStory = array();
+        $whereLink = array();
         // Get
         if (empty($title)) {
             // Set where
-            $whereLink = array();
             if (!empty($status)) {
                 $whereLink['status'] = $status;
             }
@@ -55,26 +56,32 @@ class StoryController extends ActionController
             if (!empty($uid)) {
                 $whereLink['uid'] = $uid;
             }
-            // Set columns
-            $columnsLink = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
             // Get info from link table
-            $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
-            $rowset = $this->getModel('link')->selectWith($select)->toArray();
-            // Make list
-            foreach ($rowset as $id) {
-                $storyId[] = $id['story'];
+            if (!empty($whereLink)) {
+                // Set columns
+                $columnsLink = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
+                $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
+                $rowset = $this->getModel('link')->selectWith($select)->toArray();
+                // Make list
+                foreach ($rowset as $id) {
+                    $storyId[] = $id['story'];
+                }
+                // Set info
+                $whereStory = array('id' => $storyId);
             }
-            // Set info
-            $whereStory = array('id' => $storyId);
         } else {
-            $whereStory = array();
             $whereStory['title LIKE ?'] = '%' . $title . '%';
         }
         // Set info
         $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
         // Get list of story
-        $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
-        $rowset = $this->getModel('story')->selectWith($select);
+        if (empty($whereStory)) {
+            $select = $this->getModel('story')->select()->columns($columnStory)->order($order)->offset($offset)->limit($limit);
+            $rowset = $this->getModel('story')->selectWith($select);
+        } else {
+            $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
+            $rowset = $this->getModel('story')->selectWith($select);
+        }
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
@@ -100,7 +107,11 @@ class StoryController extends ActionController
             }
         }
         // Set count
-        if (empty($title)) {
+        if (empty($whereLink) && empty($whereStory)) {
+            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $select = $this->getModel('story')->select()->columns($columnsLink);
+            $count = $this->getModel('story')->selectWith($select)->current()->count;
+        } elseif (empty($title) && !empty($whereStory)) {
             $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(DISTINCT `story`)'));
             $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink);
             $count = $this->getModel('link')->selectWith($select)->current()->count;
