@@ -111,13 +111,14 @@ return array(
                     'type' => 'select',
                     'options' => array(
                         'options' => array(
-                            'simple' => _a('Simple'),
+                            'vertical' => _a('Vertical'),
+                            'horizontal' => _a('Horizontal'),
                             'slide' => _a('Slide'),
                         ),
                     ),
                 ),
                 'filter' => 'text',
-                'value' => 'listgroup',
+                'value' => 'vertical',
             ),
         ),
     ),
