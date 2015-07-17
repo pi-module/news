@@ -1,6 +1,7 @@
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'vertical') { ?>
+            <div class="news-item-block-vertical clearfix">
             <?php foreach ($block['resources'] as $story) { ?>
                 <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                     <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
@@ -44,10 +45,11 @@
                     </div>
                 </div>
             <?php } ?>
+            </div>
         <?php } elseif ($block['type'] == 'horizontal') { ?>
-            <div class="clearfix">
+            <div class="news-item-block-horizontal clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="media h-entry col-md-4" itemscope itemtype="http://schema.org/Article">
+                    <div class="h-entry col-md-4" itemscope itemtype="http://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                             <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
@@ -57,7 +59,7 @@
                             </a>
                         <?php } ?>
                         <div class="p-item h-card">
-                            <h3 class="media-heading p-name itemSingleTitle" itemprop="name">
+                            <h3 class="p-name itemSingleTitle" itemprop="name">
                                 <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <?php echo $this->escape($story['title']); ?>
