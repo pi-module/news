@@ -65,6 +65,9 @@ class Block
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
+            }
         }
         // Set block array
         $block['resources'] = $story;

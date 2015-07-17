@@ -33,11 +33,18 @@ return array(
                 'value' => 5,
             ),
             'showdesc' => array(
-                'title' => _a('Shwo text'),
+                'title' => _a('Show text'),
                 'description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
+            ),
+            'textlimit' => array(
+                'title' => _a('Text width limit'),
+                'description' => _a('Set 0 for no limit'),
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 0,
             ),
             'showdate' => array(
                 'title' => _a('Show date'),
@@ -213,7 +220,7 @@ return array(
                 'value' => 5,
             ),
             'showdesc' => array(
-                'title' => _a('Shwo text'),
+                'title' => _a('Show text'),
                 'description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
@@ -288,7 +295,7 @@ return array(
                 'value' => 5,
             ),
             'showtopicdesc' => array(
-                'title' => _a('Shwo text'),
+                'title' => _a('Show text'),
                 'description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
@@ -335,7 +342,7 @@ return array(
                 'value' => 0,
             ),
             'showdesc' => array(
-                'title' => _a('Shwo text'),
+                'title' => _a('Show text'),
                 'description' => '',
                 'edit' => 'checkbox',
                 'filter' => 'number_int',

@@ -31,6 +31,16 @@
                                         <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
                                             : <?php echo _number($this->escape($story['hits'])); ?></li>
                                     <?php } ?>
+                                    <?php if ($block['showauthor']) { ?>
+                                        <?php foreach($story['authors'] as $author) { ?>
+                                            <li>
+                                                <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                                    <?php echo $author['authorName']; ?>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
                                 </ul>
                             <?php } ?>
                             <?php if ($block['showdesc']) { ?>
@@ -67,7 +77,7 @@
                             </h3>
                             <div class="clearfix">
                                 <?php if ($block['showdate'] || $block['showhits']) { ?>
-                                    <ul class="text-muted list-inline">
+                                    <ul class="text-muted list-unstyled small">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
                                                     class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
@@ -76,6 +86,16 @@
                                         <?php if ($block['showhits']) { ?>
                                             <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showauthor']) { ?>
+                                            <?php foreach($story['authors'] as $author) { ?>
+                                                <li>
+                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                                        <?php echo $author['authorName']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
                                         <?php } ?>
                                     </ul>
                                 <?php } ?>
