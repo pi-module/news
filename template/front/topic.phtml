@@ -41,7 +41,8 @@ EOT;
     <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1 itemprop="name" class="panel-title p-name"><?php echo $this->escape($topic['title']); ?></h1>
+                <h1 itemprop="name headline" class="panel-title p-name"><?php echo $this->escape($topic['title']); ?></h1>
+                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
             </div>
             <div class="panel-body">
                 <?php if (!empty($topic['image'])) { ?>
@@ -81,14 +82,16 @@ EOT;
 <?php } elseif ($topic['show_topicinfo'] && !empty($topic['title'])) { ?>
     <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="page-header">
-            <h1 itemprop="name" class="p-name"><?php echo $this->escape($topic['title']); ?></h1>
+            <h1 itemprop="name headline" class="p-name"><?php echo $this->escape($topic['title']); ?></h1>
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
         </div>
     </div>
 <?php } ?>
 <?php if (isset($newsTitleH1) && !empty($newsTitleH1)) { ?>
     <div class="topicinfo h-entry" itemscope itemtype="http://schema.org/Article">
         <div class="page-header">
-            <h1 itemprop="name" class="p-name"><?php echo $newsTitleH1; ?></h1>
+            <h1 itemprop="name headline" class="p-name"><?php echo $newsTitleH1; ?></h1>
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
             <div itemprop="description" class="well guideIndexDescription">

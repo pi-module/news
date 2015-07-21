@@ -44,7 +44,7 @@ if (!empty($story['largeUrl'])) {
     <?php include $this->template('front/advertisement'); ?>
     <div class="panel panel-default h-entry">
         <div class="panel-heading">
-            <h1 class="panel-title p-name" itemprop="name">
+            <h1 class="panel-title p-name" itemprop="name headline">
                 <?php if ($story['important']) { ?>
                     <span class="label label label-important">
 					    <?php _e('Important'); ?>
@@ -52,12 +52,13 @@ if (!empty($story['largeUrl'])) {
                 <?php } ?>
                 <?php echo $this->escape($story['title']); ?>
             </h1>
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
         </div>
         <div class="panel-body">
             <div class="clearfix">
                 <div class="pull-right">
                     <?php if ($config['show_date']) { ?>
-                        <span class="itemPostDate dt-published" itemprop="datePublished">
+                        <span class="itemPostDate dt-published">
 					        <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
 				        </span>
                     <?php } ?>

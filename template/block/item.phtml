@@ -13,7 +13,7 @@
                             </a>
                         <?php } ?>
                         <div class="media-body p-item h-card">
-                            <h3 class="media-heading p-name itemSingleTitle" itemprop="name">
+                            <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
                                 <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <?php echo $this->escape($story['title']); ?>
@@ -53,6 +53,7 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                     </div>
                 <?php } ?>
             </div>
@@ -69,7 +70,7 @@
                             </a>
                         <?php } ?>
                         <div class="p-item h-card">
-                            <h3 class="p-name itemSingleTitle" itemprop="name">
+                            <h3 class="p-name itemSingleTitle" itemprop="name headline">
                                 <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <?php echo $this->escape($story['title']); ?>
@@ -109,6 +110,7 @@
                                 <?php } ?>
                             </div>
                         </div>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                     </div>
                 <?php } ?>
             </div>
@@ -157,7 +159,8 @@
                         <img itemprop="image" class="media-object img-responsive u-photo"
                              src="<?php echo $this->escape($story['thumbUrl']); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>">
-                        <h3 itemprop="name"><?php echo $this->escape($story['title']); ?></h3>
+                        <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                     </div>
                 <?php } ?>
             </div>

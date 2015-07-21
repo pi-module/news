@@ -45,7 +45,7 @@ if (!empty($story['largeUrl'])) {
     <div class="clearfix h-entry">
         <div class="col-md-8">
             <div class="clearfix storyHeader">
-                <h1 class="p-name" itemprop="name">
+                <h1 class="p-name" itemprop="name headline">
                     <?php if ($story['important']) { ?>
                         <span class="label label-important">
 					    <?php _e('Important'); ?>
@@ -53,11 +53,11 @@ if (!empty($story['largeUrl'])) {
                     <?php } ?>
                     <?php echo $this->escape($story['title']); ?>
                 </h1>
-
+                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                 <div class="clearfix">
                     <ul class="list-inline text-muted">
                         <?php if ($config['show_date']) { ?>
-                            <li class="itemPostDate dt-published" itemprop="datePublished">
+                            <li class="itemPostDate dt-published">
                                 <i class="fa fa-calendar"></i> <?php _e('Time'); ?>
                                 : <?php echo $this->escape($story['time_publish_view']); ?>
                             </li>

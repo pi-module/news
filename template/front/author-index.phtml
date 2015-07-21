@@ -86,15 +86,16 @@ if (!empty($author['largeUrl'])) {
                 <?php if (!empty($stores[$role['id']])) { ?>
                     <h4><?php echo $this->escape($role['title']); ?></h4>
                     <div class="list-group">
-                    <?php foreach ($stores[$role['id']] as $author) { ?>
-                        <a itemscope itemtype="http://schema.org/Article" itemprop="itemListElement" class="list-group-item <?php echo $topic['column_class']; ?>"
-                           title="<?php echo $this->escape($author['title']); ?>"
-                           href="<?php echo $this->escape($author['storyUrl']); ?>">
-                            <?php if ($author['image']) { ?>
-                                <img itemprop="image" src="<?php echo $this->escape($author['thumbUrl']); ?>"
-                                     alt="<?php echo $this->escape($author['title']); ?>"/>
+                    <?php foreach ($stores[$role['id']] as $story) { ?>
+                        <a itemscope itemtype="http://schema.org/Article" class="list-group-item <?php echo $topic['column_class']; ?>"
+                           title="<?php echo $this->escape($story['title']); ?>"
+                           href="<?php echo $this->escape($story['storyUrl']); ?>">
+                            <?php if ($story['image']) { ?>
+                                <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                     alt="<?php echo $this->escape($story['title']); ?>"/>
                             <?php } ?>
-                            <span itemprop="name"><?php echo $this->escape($author['title']); ?></span>
+                            <span itemprop="name headline"><?php echo $this->escape($story['title']); ?></span>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                         </a>
                     <?php } ?>
                 <?php } ?>

@@ -17,9 +17,10 @@
             </tr>
             <?php foreach ($stores as $story) { ?>
                 <tr class="h-entry" itemscope itemtype="http://schema.org/Article">
-                    <td class="p-name" itemprop="name">
+                    <td class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?>
                             <span class="label label-danger"><?php _e('Important'); ?></span>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                         <?php } ?>
                         <?php if ($story['image']) { ?>
                             <img itemprop="image"

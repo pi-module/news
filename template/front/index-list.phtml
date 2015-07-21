@@ -18,8 +18,8 @@
                         <?php } ?>
                     </div>
                     <div class="col-xs-9">
-                        <h2>
-                            <a class="p-name" itemprop="name" title="<?php echo $this->escape($story['title']); ?>"
+                        <h2 itemprop="name headline">
+                            <a class="p-name" itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>
                         </h2>
                         <?php if ($topic['show_topic']) { ?>
@@ -41,6 +41,7 @@
                             </div>
                         <?php } ?>
                     </div>
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                 </li>
             <?php } ?>
         </ul>
