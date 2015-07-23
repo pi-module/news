@@ -15,14 +15,14 @@
                     </a>
                 <?php } ?>
                 <div class="caption">
-                    <h4 class="p-name" itemprop="name"><?php if ($story['important']) { ?><span
+                    <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
                             class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
                                                                                                     title="<?php echo $story['title']; ?>"
                                                                                                     href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
                     </h4>
-
                     <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
                 </div>
+                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>
