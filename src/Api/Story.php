@@ -438,7 +438,7 @@ class Story extends AbstractApi
             $story['mediumUrl'] = '';
             $story['thumbUrl'] = '';
         }
-
+        // Set topic
         $topic = Json::decode($story['topic']);
         // Set return array
         $storyJson = array(
@@ -448,7 +448,7 @@ class Story extends AbstractApi
             'time_publish_view' => _date($story['time_publish']),
             'thumbUrl' => $story['thumbUrl'],
             'mediumUrl' => $story['mediumUrl'],
-            //'storyUrl'           => $story['storyUrl'],
+            'storyUrl' => $story['storyUrl'],
             'topic' => $topic[0],
         );
         // return item

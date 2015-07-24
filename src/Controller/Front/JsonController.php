@@ -140,14 +140,14 @@ class JsonController extends IndexController
         if (!$story || $story['status'] != 1) {
             $storySingle = array();
         } else {
+            $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
+            $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $storySingle = array(
                 'id' => $story['id'],
                 'title' => $story['title'],
                 'subtitle' => $story['subtitle'],
                 'topic' => $story['topic'][0],
-                'summary' => $story['text_summary'],
-                'description' => $story['text_description'],
-                'body' => $story['text_summary'] . $story['text_description'],
+                'body' => $body,
                 'time_publish' => $story['time_publish'],
                 'time_publish_view' => $story['time_publish_view'],
                 'storyUrl' => $story['storyUrl'],
