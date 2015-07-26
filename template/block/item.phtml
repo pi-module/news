@@ -5,7 +5,8 @@
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                            <a itemprop="url" class="u-url col-xs-3" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                            <a itemprop="url" class="u-url col-xs-3"
+                               href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"
@@ -19,6 +20,7 @@
                                     <?php echo $this->escape($story['title']); ?>
                                 </a>
                             </h3>
+
                             <div class="clearfix">
                                 <?php if ($block['showdate'] || $block['showhits']) { ?>
                                     <ul class="text-muted list-inline">
@@ -32,10 +34,11 @@
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
-                                            <?php foreach($story['authors'] as $author) { ?>
+                                            <?php foreach ($story['authors'] as $author) { ?>
                                                 <li>
                                                     <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                                    <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                       href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
                                                     </a>
                                                 </li>
@@ -53,7 +56,8 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
@@ -76,6 +80,7 @@
                                     <?php echo $this->escape($story['title']); ?>
                                 </a>
                             </h3>
+
                             <div class="clearfix">
                                 <?php if ($block['showdate'] || $block['showhits']) { ?>
                                     <ul class="text-muted list-unstyled small">
@@ -89,10 +94,11 @@
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
-                                            <?php foreach($story['authors'] as $author) { ?>
+                                            <?php foreach ($story['authors'] as $author) { ?>
                                                 <li>
                                                     <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                                    <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                       href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
                                                     </a>
                                                 </li>
@@ -110,7 +116,8 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
@@ -138,10 +145,11 @@
                                         : <?php echo _number($this->escape($story['hits'])); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showauthor']) { ?>
-                                    <?php foreach($story['authors'] as $author) { ?>
+                                    <?php foreach ($story['authors'] as $author) { ?>
                                         <li>
                                             <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                            <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                            <a title="<?php echo $author['authorName']; ?>"
+                                               href="<?php echo $author['authorUrl']; ?>">
                                                 <?php echo $author['authorName']; ?>
                                             </a>
                                         </li>
@@ -159,10 +167,85 @@
                         <img itemprop="image" class="media-object img-responsive u-photo"
                              src="<?php echo $this->escape($story['thumbUrl']); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>">
+
                         <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
-                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
+            </div>
+        <?php } elseif ($block['type'] == 'carousel') { ?>
+            <?php $carouselId = uniqid('carousel'); ?>
+            <div class="news-item-block-carousel clearfix">
+                <div id="<?php echo $carouselId; ?>" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <?php $i = 0; ?>
+                        <?php foreach ($block['resources'] as $story) { ?>
+                            <li data-target="#<?php echo $carouselId; ?>"
+                                data-slide-to="<?php echo $i; ?>"<?php if ($i == 1) {
+                                echo ' class="active"';
+                            } ?>></li>
+                            <?php $i++; ?>
+                        <?php } ?>
+                    </ol>
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <?php $i = 1; ?>
+                        <?php foreach ($block['resources'] as $story) { ?>
+                            <div class="h-entry item<?php if ($i == 1) {
+                                echo ' active';
+                            } ?>" itemscope itemtype="http://schema.org/Article">
+                                <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <img itemprop="image" src="<?php echo $this->escape($story['largeUrl']); ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"
+                                         class="img-responsive u-photo" %s/>
+                                </a>
+
+                                <div class="carousel-caption">
+                                    <h4 class="p-name" itemprop="name headline">
+                                        <?php echo $this->escape($story['title']); ?>
+                                    </h4>
+                                    <ul class="text-muted list-inline">
+                                        <?php if ($block['showdate']) { ?>
+                                            <li class="dt-published"><i
+                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showhits']) { ?>
+                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showauthor']) { ?>
+                                            <?php foreach ($story['authors'] as $author) { ?>
+                                                <li>
+                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                       href="<?php echo $author['authorUrl']; ?>">
+                                                        <?php echo $author['authorName']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </ul>
+                                    <?php if ($block['showdesc']) { ?>
+                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                    <?php } ?>
+                                    <meta itemprop="datePublished"
+                                          content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                                </div>
+                            </div>
+                            <?php $i++; ?>
+                        <?php } ?>
+                    </div>
+                    <!-- Carousel nav -->
+                    <a class="right carousel-control" href="#<?php echo $carouselId; ?>" data-slide="next">
+                        <span class="icon-prev fa fa-chevron-right"></span>
+                    </a>
+                    <a class="left carousel-control" href="#<?php echo $carouselId; ?>" data-slide="prev">
+                        <span class="icon-next fa fa-chevron-left"></span>
+                    </a>
+                </div>
             </div>
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
