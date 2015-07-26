@@ -204,7 +204,10 @@
 
                                 <div class="carousel-caption">
                                     <h4 class="p-name" itemprop="name headline">
-                                        <?php echo $this->escape($story['title']); ?>
+                                        <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                           title="<?php echo $this->escape($story['title']); ?>">
+                                            <?php echo $this->escape($story['title']); ?>
+                                        </a>
                                     </h4>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
