@@ -455,6 +455,7 @@ class Story extends AbstractApi
         $storyJson = array(
             'id' => $story['id'],
             'title' => $story['title'],
+            'subtitle' => $story['subtitle'],
             'time_publish' => $story['time_publish'],
             'time_publish_view' => _date($story['time_publish']),
             'thumbUrl' => $story['thumbUrl'],
