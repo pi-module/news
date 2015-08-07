@@ -420,6 +420,13 @@ class Story extends AbstractApi
         )));
         // Set image url
         if ($story['image']) {
+            // Set image large url
+            $story['largeUrl'] = Pi::url(
+                sprintf('upload/%s/large/%s/%s',
+                    $config['image_path'],
+                    $story['path'],
+                    $story['image']
+                ));
             // Set image medium url
             $story['mediumUrl'] = Pi::url(
                 sprintf('upload/%s/medium/%s/%s',
@@ -440,6 +447,10 @@ class Story extends AbstractApi
         }
         // Set topic
         $topic = Json::decode($story['topic']);
+        // Set body
+        $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
+        $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+        $body = str_replace("<p>&nbsp;</p>", "", $body);
         // Set return array
         $storyJson = array(
             'id' => $story['id'],
@@ -448,8 +459,11 @@ class Story extends AbstractApi
             'time_publish_view' => _date($story['time_publish']),
             'thumbUrl' => $story['thumbUrl'],
             'mediumUrl' => $story['mediumUrl'],
+            'largeUrl' => $story['largeUrl'],
             'storyUrl' => $story['storyUrl'],
             'topic' => $topic[0],
+            'image' => $story['image'],
+            'body' => $body,
         );
         // return item
         return $storyJson;
