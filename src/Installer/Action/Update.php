@@ -245,7 +245,7 @@ EOD;
         // Update to version 1.4.4
         if (version_compare($moduleVersion, '1.4.4', '<')) {
             // Alter table field `text_summary`
-            $sql = sprintf("ALTER TABLE %s CHANGE `short` `text_summary` text", $storyTable);
+            $sql = sprintf("ALTER TABLE %s CHANGE `short` `text_summary` MEDIUMTEXT", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -258,7 +258,7 @@ EOD;
             }
 
             // Alter table field `text_description`
-            $sql = sprintf("ALTER TABLE %s CHANGE `body` `text_description` text", $storyTable);
+            $sql = sprintf("ALTER TABLE %s CHANGE `body` `text_description` MEDIUMTEXT", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {

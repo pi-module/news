@@ -5,7 +5,7 @@
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                            <a itemprop="url" class="u-url col-xs-3"
+                            <a itemprop="url" class="u-url col-xs-4"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
