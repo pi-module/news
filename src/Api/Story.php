@@ -217,7 +217,8 @@ class Story extends AbstractApi
     {
         $list = array();
         $where = array('id' => $id, 'status' => 1);
-        $select = Pi::model('story', $this->getModule())->select()->where($where);
+        $order = array('time_publish DESC', 'id DESC');
+        $select = Pi::model('story', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
             $list[$row->id] = $this->canonizeStoryLight($row);
