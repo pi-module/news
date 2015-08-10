@@ -49,20 +49,22 @@ class News extends Standard
         if (isset($parts[0]) && in_array($parts[0], $this->controllerList)) {
             $matches['controller'] = $this->decode($parts[0]);
         } elseif (isset($parts[0]) && !in_array($parts[0], $this->controllerList)) {
-            return '';
+            if (in_array($parts[0], array('index', 'filter'))) {
+                $matches['controller'] = 'index';
+            } else {
+                return '';
+            }
         }
 
         // Make Match
-        if (isset($matches['controller']) && !empty($parts[1])) {
+        if (isset($matches['controller'])) {
             switch ($matches['controller']) {
                 case 'story':
                     $matches['slug'] = $this->decode($parts[1]);
                     break;
 
                 case 'topic':
-                    if ($parts[1] == 'list') {
-                        $matches['action'] = 'list';
-                    } else {
+                    if (isset($parts[1]) && !empty($parts[1])) {
                         $slug = $this->decode($parts[1]);
                         $topicList = Pi::registry('topic', 'news')->read();
                         foreach ($topicList as $topic) {
@@ -72,14 +74,17 @@ class News extends Standard
                         }
                         $matches['action'] = $action;
                         $matches['slug'] = $slug;
+                    } else {
+                        $matches['action'] = 'list';
                     }
                     break;
 
                 case 'author':
-                    if ($parts[1] == 'list') {
-                        $matches['action'] = 'list';
-                    } else {
+                    if (isset($parts[1]) && !empty($parts[1])) {
+                        $matches['action'] = 'index';
                         $matches['slug'] = $this->decode($parts[1]);
+                    } else {
+                        $matches['action'] = 'list';
                     }
                     break;
 
@@ -102,6 +107,21 @@ class News extends Standard
                 case 'media':
                     $matches['action'] = $this->decode($parts[1]);
                     $matches['id'] = intval($parts[2]);
+                    break;
+
+                case 'index':
+                    if (isset($parts[0]) && $parts[0] == 'filter') {
+                        $matches['action'] = 'filter';
+                    } else {
+                        $matches['action'] = 'index';
+                        if (isset($_GET) && !empty($_GET)) {
+                            foreach ($_GET as $key => $value) {
+                                if ($key != 'page') {
+                                    $matches['q'][$key] = $value;
+                                }
+                            }
+                        }
+                    }
                     break;
             }
         }
@@ -141,6 +161,11 @@ class News extends Standard
 
         if (!empty($mergedParams['slug'])) {
             $url['slug'] = $mergedParams['slug'];
+        }
+
+        // Set slug
+        if (!empty($mergedParams['q'])) {
+            $url['q'] = $mergedParams['q'];
         }
 
         if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {

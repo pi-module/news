@@ -50,7 +50,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'label' => __('Author list'),
                                 'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'author',
-                                    'action' => 'list',
+                                    //'action' => 'list',
                                 ))),
                             );
                             // Set link
@@ -114,7 +114,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'label' => __('Topic list'),
                                 'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'topic',
-                                    'action' => 'list',
+                                    //'action' => 'list',
                                 ))),
                             );
                             // Set link
@@ -130,11 +130,23 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         break;
                 }
             } else {
-                $result = array(
-                    array(
+                if (isset($params['q']) && !empty($params['q'])) {
+                    $result[] = array(
                         'label' => $moduleData['title'],
-                    ),
-                );
+                        'href' => Pi::url(Pi::service('url')->assemble('news', array(
+                            'module' => $this->getModule(),
+                        ))),
+                    );
+                    $result[] = array(
+                        'label' => __('Search result'),
+                    );
+                } else {
+                    $result = array(
+                        array(
+                            'label' => $moduleData['title'],
+                        ),
+                    );
+                }
             }
             return $result;
         } else {
