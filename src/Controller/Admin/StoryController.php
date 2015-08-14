@@ -86,6 +86,9 @@ class StoryController extends ActionController
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
             $story[$row->id]['time_publish'] = _date($story[$row->id]['time_publish']);
+            $story[$row->id]['user'] = Pi::user()->get($row->uid, array(
+                'id', 'identity', 'name', 'email'
+            ));
             // Set story type view
             switch ($row->type) {
                 case 'download':

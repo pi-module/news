@@ -87,11 +87,13 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                  href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"
                                  target="_blank"><?php echo $this->escape($story['title']); ?></a>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <strong><?php _e('Published'); ?></strong>
                             : <?php echo $this->escape($story['time_publish']); ?>
+                            <strong><?php _e('By'); ?></strong>
+                            : <?php echo $this->escape($story['user']['name']); ?> ( <?php echo $this->escape($story['user']['identity']); ?> )
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <strong><?php _e('Action'); ?></strong> :
                             <span class="story-action">
                                 <?php if ($story['status'] == 1) { ?>
