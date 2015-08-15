@@ -252,8 +252,11 @@ class Attribute extends AbstractApi
             '' => '',
             0 => __('Hidden'),
         );
+        $where = array(
+            'status' => 1,
+        );
         $order = array('order ASC', 'id ASC');
-        $select = Pi::model('field_position', $this->getModule())->select()->order($order);
+        $select = Pi::model('field_position', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('field_position', $this->getModule())->selectWith($select);
         // Make list
         foreach ($rowset as $row) {

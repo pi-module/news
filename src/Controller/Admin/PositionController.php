@@ -71,9 +71,7 @@ class PositionController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
-                // Add log
-                $operation = (empty($values['id'])) ? 'add' : 'edit';
-                Pi::api('log', 'shop')->addLog('position', $row->id, $operation);
+                // Jump
                 $message = __('Attribute position data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
             }

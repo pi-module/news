@@ -53,7 +53,7 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-
+                'required' => true,
             )
         ));
         // subtitle
@@ -65,7 +65,6 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-
             )
         ));
         // slug
@@ -77,7 +76,6 @@ class StoryForm extends BaseForm
             'attributes' => array(
                 'type' => 'text',
                 'description' => '',
-
             )
         ));
         // topic
@@ -88,6 +86,7 @@ class StoryForm extends BaseForm
                 'label' => __('Topic'),
                 'module' => $this->module,
                 'topic' => 'full',
+                'required' => true,
             ),
         ));
         // topic_main
@@ -100,6 +99,7 @@ class StoryForm extends BaseForm
                 'topic' => '',
             ),
             'attributes' => array(
+                'required' => true,
                 'size' => 1,
                 'multiple' => 0,
                 'description' => __('Just use for breadcrumbs and mobile apps'),
@@ -156,6 +156,9 @@ class StoryForm extends BaseForm
                     5 => __('Remove'),
                 ),
             ),
+            'attributes' => array(
+                'required' => true,
+            ),
         ));
         // type
         $this->add(array(
@@ -169,6 +172,9 @@ class StoryForm extends BaseForm
                     'media' => __('Media'),
                     'download' => __('Download'),
                 ),
+            ),
+            'attributes' => array(
+                'required' => true,
             ),
         ));
         // Image
