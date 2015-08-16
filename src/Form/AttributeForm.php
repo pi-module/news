@@ -17,8 +17,9 @@ use Pi\Form\Form as BaseForm;
 
 class AttributeForm extends BaseForm
 {
-    public function __construct($name = null)
+    public function __construct($name = null, $options = array())
     {
+        $this->options = $options;
         $this->module = Pi::service('module')->current();
         $this->position = Pi::api('attribute', 'news')->attributePositionForm();
         parent::__construct($name);
@@ -27,7 +28,7 @@ class AttributeForm extends BaseForm
     public function getInputFilter()
     {
         if (!$this->filter) {
-            $this->filter = new AttributeFilter;
+            $this->filter = new AttributeFilter($this->options);
         }
         return $this->filter;
     }
@@ -61,7 +62,7 @@ class AttributeForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => __('Set name for call anywhere'),
+                'description' => __('Set name for call anywhere, a-z 0-9 allowed'),
                 'required' => true,
             )
         ));
@@ -74,6 +75,7 @@ class AttributeForm extends BaseForm
                 'module' => $this->module,
             ),
             'attributes' => array(
+                'description' => __('Set allowed topics ( main topic ) to use this attribute'),
                 'required' => true,
                 'size' => 5,
                 'multiple' => 1,
@@ -104,10 +106,11 @@ class AttributeForm extends BaseForm
             ),
             'attributes' => array(
                 'required' => true,
+                'description' => __('Set view position'),
             )
         ));
         // type
-        $this->add(array(
+        /* $this->add(array(
             'name' => 'type',
             'type' => 'select',
             'options' => array(
@@ -128,31 +131,33 @@ class AttributeForm extends BaseForm
             'attributes' => array(
                 'required' => true,
             )
-        ));
-        // data
-        $this->add(array(
-            'name' => 'data',
-            'options' => array(
-                'label' => __('General data'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '5',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
-        // default
-        $this->add(array(
-            'name' => 'default',
-            'options' => array(
-                'label' => __('Default data'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        )); */
+        // Check
+        if ($this->options['type'] == 'select') {
+            // data
+            $this->add(array(
+                'name' => 'data',
+                'options' => array(
+                    'label' => __('General data'),
+                ),
+                'attributes' => array(
+                    'type' => 'textarea',
+                    'rows' => '5',
+                    'cols' => '40',
+                    'description' => __('Use `|` as delimiter to separate select box elements'),
+                )
+            ));
+            // default
+            $this->add(array(
+                'name' => 'default',
+                'options' => array(
+                    'label' => __('Default data'),
+                ),
+                'attributes' => array(
+                    'type' => 'text',
+                )
+            ));
+        }
         // information
         $this->add(array(
             'name' => 'information',
@@ -161,7 +166,7 @@ class AttributeForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => __('Put URL for click by user'),
+                'description' => __('Put page URL for click by user to explain about this field'),
             )
         ));
         // icon

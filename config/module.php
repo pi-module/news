@@ -15,7 +15,7 @@ return array(
     'meta' => array(
         'title' => _a('News'),
         'description' => _a('Manage News and Blog'),
-        'version' => '1.5.6',
+        'version' => '1.5.7',
         'license' => 'New BSD',
         'logo' => 'image/logo.png',
         'readme' => 'docs/readme.txt',

@@ -21,10 +21,6 @@ use Zend\Json\Json;
 
 class AttributeController extends ActionController
 {
-    protected $attributeColumns = array(
-        'id', 'title', 'icon', 'type', 'order', 'status', 'search', 'value', 'position', 'name'
-    );
-
     public function indexAction()
     {
         // Get position list
@@ -54,7 +50,15 @@ class AttributeController extends ActionController
     {
         // Get id
         $id = $this->params('id');
-        $module = $this->params('module');
+        $type = $this->params('type');
+        $options = array();
+        // check type
+        if (!in_array($type, array('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox'))) {
+            $message = __('Attribute field type not set.');
+            $url = array('action' => 'index');
+            $this->jump($url, $message);
+        }
+        $options['type'] = $type;
         // Get attribute
         if ($id) {
             $attribute = $this->getModel('field')->find($id)->toArray();
@@ -74,23 +78,19 @@ class AttributeController extends ActionController
             $filter = new Filter\Slug;
             $data['name'] = $filter($data['name']);
             // Form filter
-            $form->setInputFilter(new AttributeFilter);
+            $form->setInputFilter(new AttributeFilter($options));
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
                 // Set value
                 $value = array(
-                    'data' => $data['data'],
-                    'default' => $data['default'],
+                    'data' => (isset($data['data'])) ? $data['data'] : '',
+                    'default' => (isset($data['default'])) ? $data['default'] : '',
                     'information' => $data['information'],
                 );
                 $values['value'] = Json::encode($value);
-                // Set just product fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->attributeColumns)) {
-                        unset($values[$key]);
-                    }
-                }
+                // Set type
+                $values['type'] = $type;
                 // Set order
                 if (empty($values['id'])) {
                     $columns = array('order');
@@ -121,7 +121,7 @@ class AttributeController extends ActionController
         // Set view
         $this->view()->setTemplate('attribute-update');
         $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('Add attribute'));
+        $this->view()->assign('title', sprintf(__('Add attribute - type : %s'), $type));
     }
 
     public function sortAction()

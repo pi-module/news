@@ -91,7 +91,6 @@ if (!empty($story['largeUrl'])) {
                 <div class="clearfix e-content" itemprop="description">
                     <?php echo $story['text_description']; ?>
                 </div>
-                <?php include $this->template('front/attribute'); ?>
                 <div class="storyMedia clearfix">
                     <?php include $this->template('front/attach-audio'); ?>
                     <?php include $this->template('front/attribute-audio'); ?>
@@ -181,6 +180,7 @@ if (!empty($story['largeUrl'])) {
                         </ul>
                     </div>
                 <?php } ?>
+                <?php include $this->template('front/attribute'); ?>
                 <?php if ($config['social_sharing']) { ?>
                     <div class="clearfix">
                         <div class="col-md-12 col-sm-12 col-xs-12 socialSharingText">

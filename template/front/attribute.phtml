@@ -1,12 +1,12 @@
 <?php if (isset($attribute['all']) && !empty($attribute['all'])) { ?>
-    <div class="productInfoBox clearfix">
+    <div class="well clearfix">
         <div class="itemAttribute">
             <?php foreach ($attribute['all'] as $key => $attributeSingle) { ?>
                 <?php if ($key > 0) { ?>
                     <h2><?php echo $attributeSingle['title']; ?></h2>
                     <?php foreach ($attributeSingle['info'] as $field) { ?>
                         <?php if (!empty($field['data'])) { ?>
-                            <div class="field-<?php echo $field['id']; ?> col-md-6">
+                            <div class="field-<?php echo $field['id']; ?> col-md-12">
                                 <?php if ($field['icon']) { ?>
                                     <i class="fa <?php echo $field['icon']; ?>"></i>
                                 <?php } ?>

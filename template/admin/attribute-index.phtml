@@ -4,11 +4,43 @@ $this->css($this->assetModule('script/system-ui.css', 'system'));
 $this->jQuery('ui/jquery-ui.min.js');
 ?>
 <div class="clearfix" id="tree-template">
-    <p>
-        <a class="btn btn-primary" title="<?php _e('Add attribute'); ?>"
-           href="<?php echo $this->url('', array('action' => 'update')); ?>"><i
-                class="fa fa-random"></i> <?php _e('Add attribute'); ?></a>
-    </p>
+    <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-plus"></i> <?php _e('Add attribute'); ?> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a title="<?php _e('Add text field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'text')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add text field'); ?></a></li>
+            <li><a title="<?php _e('Add link field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'link')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add link field'); ?></a></li>
+            <li><a title="<?php _e('Add video field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'video')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add video field'); ?></a></li>
+            <li><a title="<?php _e('Add audio field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'audio')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add audio field'); ?></a></li>
+            <li><a title="<?php _e('Add file field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'file')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add file field'); ?></a></li>
+            <li><a title="<?php _e('Add currency field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'currency')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add currency field'); ?></a></li>
+            <li><a title="<?php _e('Add date field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'date')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add date field'); ?></a></li>
+            <li><a title="<?php _e('Add number field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'number')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add number field'); ?></a></li>
+            <li><a title="<?php _e('Add select field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'select')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add select field'); ?></a></li>
+            <li><a title="<?php _e('Add checkbox field'); ?>"
+                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'checkbox')); ?>"><i
+                        class="fa fa-file"></i> <?php _e('Add checkbox field'); ?></a></li>
+        </ul>
+    </div>
 
     <h3><?php _e('List of attributes'); ?></h3>
 

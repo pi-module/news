@@ -17,7 +17,7 @@ use Zend\InputFilter\InputFilter;
 
 class AttributeFilter extends InputFilter
 {
-    public function __construct()
+    public function __construct($options)
     {
         // id
         $this->add(array(
@@ -66,20 +66,22 @@ class AttributeFilter extends InputFilter
             'required' => true,
         ));
         // type
-        $this->add(array(
+        /* $this->add(array(
             'name' => 'type',
             'required' => true,
-        ));
-        // data
-        $this->add(array(
-            'name' => 'data',
-            'required' => false,
-        ));
-        // default
-        $this->add(array(
-            'name' => 'default',
-            'required' => false,
-        ));
+        )); */
+        if ($options['type'] == 'select') {
+            // data
+            $this->add(array(
+                'name' => 'data',
+                'required' => false,
+            ));
+            // default
+            $this->add(array(
+                'name' => 'default',
+                'required' => false,
+            ));
+        }
         // information
         $this->add(array(
             'name' => 'information',
