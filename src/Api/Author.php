@@ -17,6 +17,7 @@ use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('author', 'news')->getAuthor($parameter, $type);
+ * Pi::api('author', 'news')->getAuthorList($ids);
  * Pi::api('author', 'news')->getFormAuthor();
  * Pi::api('author', 'news')->getFormRole();
  * Pi::api('author', 'news')->setFormValues($story);
@@ -36,6 +37,21 @@ class Author extends AbstractApi
         $author = Pi::model('author', $this->getModule())->find($parameter, $type);
         $author = $this->canonizeAuthor($author);
         return $author;
+    }
+
+    public function getAuthorList($ids)
+    {
+        // set info
+        $where = array('id' => $ids, 'status' => 1);
+        $order = array('title ASC', 'id ASC');
+        $list = array();
+        // Get attach count
+        $select = Pi::model('author', $this->getModule())->select()->where($where)->order($order);
+        $rowset = Pi::model('author', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            $list[$row->id] = $this->canonizeAuthor($row);
+        }
+        return $list;
     }
 
     public function getFormAuthor()
