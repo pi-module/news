@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-03-25 19:32+0330\n"
+"POT-Creation-Date: 2015-08-16 11:22+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,248 +9,280 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /home/voltan/Documents/git/news\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:50
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:63
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:5
-#: /home/voltan/Documents/git/news/template/front/author_list.phtml:6
+#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:108
+#: src/Form/StoryForm.php:170
+msgid "Text"
+msgstr "متن"
+
+#: src/Api/Attribute.php:64
+msgid "Link"
+msgstr "لینک"
+
+#: src/Api/Attribute.php:68
+msgid "Video"
+msgstr "ویدیو"
+
+#: src/Api/Attribute.php:72
+msgid "Audio"
+msgstr "صدا"
+
+#: src/Api/Attribute.php:76
+msgid "File"
+msgstr "فایل"
+
+#: src/Api/Attribute.php:80
+msgid "Currency"
+msgstr "قیمت"
+
+#: src/Api/Attribute.php:84
+msgid "Date"
+msgstr "تاریخ"
+
+#: src/Api/Attribute.php:88
+msgid "Number"
+msgstr "تعداد"
+
+#: src/Api/Attribute.php:92
+msgid "Select"
+msgstr "انتخاب"
+
+#: src/Api/Attribute.php:96
+msgid "Checkbox"
+msgstr "چک باکس"
+
+#: src/Api/Attribute.php:253
+msgid "Hidden"
+msgstr "مخفی"
+
+#: src/Api/Breadcrumbs.php:50 src/Api/Breadcrumbs.php:63
+#: template/admin/author-index.phtml:5 template/admin/author-index.phtml:7
+#: template/admin/author-role.phtml:5 template/admin/author-role.phtml:7
+#: template/front/author-list.phtml:6
 msgid "Author list"
 msgstr "فهرست پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:70
+#: src/Api/Breadcrumbs.php:70
 msgid "Favourite list"
 msgstr "فهرست مطالب مورد علاقه"
 
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:93
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:105
-#: /home/voltan/Documents/git/news/template/front/tag_list.phtml:4
+#: src/Api/Breadcrumbs.php:93 src/Api/Breadcrumbs.php:105
+#: template/front/tag-list.phtml:4
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
 
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:114
-#: /home/voltan/Documents/git/news/src/Api/Breadcrumbs.php:127
-#: /home/voltan/Documents/git/news/template/front/topic_list.phtml:6
+#: src/Api/Breadcrumbs.php:114 src/Api/Breadcrumbs.php:127
+#: template/front/topic-list.phtml:6
 msgid "Topic list"
 msgstr "فهرست موضوع ها"
 
-#: /home/voltan/Documents/git/news/src/Api/Topic.php:110
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:89
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:171
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:53
-msgid "Download"
-msgstr "دانلود"
+#: src/Api/Breadcrumbs.php:141
+msgid "Search result"
+msgstr "نتایج جستجو"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:86
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:200
+#: src/Controller/Admin/AttachController.php:85
+#: src/Controller/Admin/AttachController.php:194
 msgid "You must select story"
 msgstr "شما باید یک مطلب انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:91
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:208
+#: src/Controller/Admin/AttachController.php:90
+#: src/Controller/Admin/AttachController.php:202
 msgid "Your selected story not exist"
 msgstr "مطلب انتخاب شده شما موجود نیست"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:122
+#: src/Controller/Admin/AttachController.php:121
 #, php-format
 msgid "Attach files to %s"
 msgstr "پیوست فایل به %s"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:131
+#: src/Controller/Admin/AttachController.php:129
 msgid "You must select file"
 msgstr "شما باید یک فایل انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:160
+#: src/Controller/Admin/AttachController.php:158
 msgid "All changes in file saved successfully."
 msgstr "تمام تغییرات در فایل انتخابی با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:163
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:234
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:302
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:116
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:148
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:464
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:285
-msgid "Invalid data, please check and re-submit."
-msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:172
+#: src/Controller/Admin/AttachController.php:167
 msgid "Edit file"
 msgstr "ویرایش فایل"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:279
+#: src/Controller/Admin/AttachController.php:274
 msgid "Your attached file remove successfully"
 msgstr "فایل پیوست شده شما با موفقیت حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AttachController.php:284
+#: src/Controller/Admin/AttachController.php:279
 msgid "Please select file"
 msgstr "لطفا یک فایل انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:104
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:156
+#: src/Controller/Admin/AttributeController.php:57
+msgid "Attribute field type not set."
+msgstr "نوع خواصیت تنظیم نشده است"
+
+#: src/Controller/Admin/AttributeController.php:112
+msgid "Attribute field data saved successfully."
+msgstr "اطلاعات خواص با موفقیت ذخیره شد"
+
+#: src/Controller/Admin/AttributeController.php:124
+#, php-format
+msgid "Add attribute - type : %s"
+msgstr "خواصیت جدید - نوع :  %s"
+
+#: src/Controller/Admin/AttributeController.php:156
+msgid "Selected field delete"
+msgstr "فیلد انتخابی حذف شد"
+
+#: src/Controller/Admin/AttributeController.php:158
+msgid "Please select field"
+msgstr "لطفا یک فیلد انتخاب کنید"
+
+#: src/Controller/Admin/AuthorController.php:104
+#: src/Controller/Admin/StoryController.php:166
 msgid "View filtered stores"
 msgstr "نمایش مطالب فیلتر شده"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:110
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:162
+#: src/Controller/Admin/AuthorController.php:110
+#: src/Controller/Admin/StoryController.php:172
 msgid "Not valid"
 msgstr "صحیح نیست"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:116
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:168
+#: src/Controller/Admin/AuthorController.php:116
+#: src/Controller/Admin/StoryController.php:178
 msgid "Not set"
 msgstr "هنوز تنظیم نشده"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:174
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:83
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:366
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:193
+#: src/Controller/Admin/AuthorController.php:174
+#: src/Controller/Admin/StoryController.php:369
+#: src/Controller/Admin/TopicController.php:187
 msgid "Problem in upload image. please try again"
 msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:231
+#: src/Controller/Admin/AuthorController.php:231
 msgid "Author data saved successfully."
 msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:244
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:12
+#: src/Controller/Admin/AuthorController.php:234
+#: src/Controller/Admin/AuthorController.php:302
+#: src/Controller/Admin/SpotlightController.php:139
+#: src/Controller/Admin/TopicController.php:285
+msgid "Invalid data, please check and re-submit."
+msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
+
+#: src/Controller/Admin/AuthorController.php:244
+#: template/admin/author-index.phtml:16 template/admin/author-index.phtml:18
 msgid "Add Author"
 msgstr "پدیدآورنده جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:299
+#: src/Controller/Admin/AuthorController.php:299
 msgid "Role data saved successfully."
 msgstr "اطلاعات نقش با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:313
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:12
+#: src/Controller/Admin/AuthorController.php:313
+#: template/admin/author-role.phtml:16 template/admin/author-role.phtml:18
 msgid "Add Role"
 msgstr "نقش جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:337
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:266
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:127
+#: src/Controller/Admin/AuthorController.php:337
+#: src/Controller/Admin/StoryController.php:276
+#: src/Controller/Admin/TopicController.php:121
 #, php-format
 msgid "Image of %s removed"
 msgstr "تصویر مربوطز به %s حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:340
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:269
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:130
+#: src/Controller/Admin/AuthorController.php:340
+#: src/Controller/Admin/StoryController.php:279
+#: src/Controller/Admin/TopicController.php:124
 msgid "Image not remove"
 msgstr "تصویر حذف نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/AuthorController.php:344
+#: src/Controller/Admin/AuthorController.php:344
 msgid "Please select author"
 msgstr "لطفا یک پدیدآورنده انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:109
-msgid "Extra field data saved successfully."
-msgstr "اطلاعات فیلد اضافی با موفقیت ذخیره شد"
+#: src/Controller/Admin/PositionController.php:75
+msgid "Attribute position data saved successfully."
+msgstr "اطلاعات موقعیت با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:113
-msgid "Extra field data not saved."
-msgstr "اطلاعات فیلد اضافی ذخیره نشد"
+#: src/Controller/Admin/PositionController.php:87
+#: template/admin/position-index.phtml:4 template/admin/position-index.phtml:6
+msgid "Add position"
+msgstr "موقعیت جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:129
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:10
-msgid "Add Extra"
-msgstr "فیلد جدید"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:162
-msgid "Selected field delete"
-msgstr "فیلد انتخابی حذف شد"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ExtraController.php:164
-msgid "Please select field"
-msgstr "لطفا یک فیلد انتخاب کنید"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:55
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:24
+#: src/Controller/Admin/SpotlightController.php:51
+#: src/Form/SpotlightForm.php:24
 msgid "Home Page"
 msgstr "صفحه اصلی"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:60
-#: /home/voltan/Documents/git/news/src/Form/Element/Topic.php:70
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:25
+#: src/Controller/Admin/SpotlightController.php:56
+#: src/Form/Element/Topic.php:73 src/Form/SpotlightForm.php:25
 msgid "All Topics"
 msgstr "همه موضوع ها"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:142
+#: src/Controller/Admin/SpotlightController.php:133
 msgid "Spotlight data saved successfully."
 msgstr "اطلاعات اسپات لایت با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:145
+#: src/Controller/Admin/SpotlightController.php:136
 msgid "Spotlight data not saved."
 msgstr "اطلاعات اسپات لایت ذخیره نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:163
+#: src/Controller/Admin/SpotlightController.php:154
 msgid "Add a Spotlight"
 msgstr "اسپات لایت جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:176
+#: src/Controller/Admin/SpotlightController.php:167
 msgid "Selected spotlight delete"
 msgstr "اسپات لایت انتخابی حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/SpotlightController.php:178
+#: src/Controller/Admin/SpotlightController.php:169
 msgid "Please select spotlight"
 msgstr "لطفا یک اسپات لایت انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:93
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:62
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:170
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:120
+#: src/Controller/Admin/StoryController.php:95
+#: src/Controller/Admin/TopicController.php:245 src/Form/StoryForm.php:173
+#: template/admin/attach-add.phtml:62
+msgid "Download"
+msgstr "دانلود"
+
+#: src/Controller/Admin/StoryController.php:99
+#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:172
+#: src/Form/TopicForm.php:120
 msgid "Media"
 msgstr "مدیا"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:97
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:169
+#: src/Controller/Admin/StoryController.php:103 src/Form/StoryForm.php:171
 msgid "Gallery"
 msgstr "گالری"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:102
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:168
-msgid "Text"
-msgstr "متن"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:189
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:236
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:273
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:134
+#: src/Controller/Admin/StoryController.php:199
+#: src/Controller/Admin/StoryController.php:246
+#: src/Controller/Admin/StoryController.php:283
+#: src/Controller/Admin/StoryController.php:489
+#: src/Controller/Admin/TopicController.php:128
 msgid "Please select story"
 msgstr "لطفا یک مطلب انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:225
+#: src/Controller/Admin/StoryController.php:235
 #, php-format
 msgid "%s story accept successfully"
 msgstr "مطلب %s با موفقیت تایید شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:230
+#: src/Controller/Admin/StoryController.php:240
 #, php-format
 msgid "Error in accept %s story"
 msgstr "خطا در تایید %s"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:441
-msgid "Download data saved successfully. Please attach your files"
-msgstr "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
+#: src/Controller/Admin/StoryController.php:432
+msgid "Story data saved successfully."
+msgstr "اطلاعات مطلب با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:446
-msgid "Media data saved successfully. Please attach your medias"
-msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:451
-msgid "Gallery data saved successfully. Please attach your images"
-msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:457
-msgid "Text data saved successfully."
-msgstr "اطلاعات متنی با موفقیت ذخیره شد"
-
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:489
+#: src/Controller/Admin/StoryController.php:457
+#: src/Controller/Admin/StoryController.php:558
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -263,7 +295,8 @@ msgstr ""
 "سایت نمایش داده شود ، و سپس بعد از کلیک بر روی دکمه ارسال ، در صفحه بعد در "
 "صورت تمایل میتوانید فایل خود را بارگذاری کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:493
+#: src/Controller/Admin/StoryController.php:461
+#: src/Controller/Admin/StoryController.php:562
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -277,7 +310,8 @@ msgstr ""
 "دکمه ارسال ، در صفحه بعد در صورت تمایل میتوانید ویدیو یا صدای خود را "
 "بارگذاری کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:497
+#: src/Controller/Admin/StoryController.php:465
+#: src/Controller/Admin/StoryController.php:566
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -285,7 +319,8 @@ msgstr ""
 "نوع مطلب شما <strong>گالری</strong> است. لطفا فرم زیر را تکمیل نمایید ، پس "
 "از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:502
+#: src/Controller/Admin/StoryController.php:470
+#: src/Controller/Admin/StoryController.php:571
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -293,11 +328,31 @@ msgstr ""
 "نوع مطلب شما <strong>متن</strong> است. لطفا اطلاعات مورد نظر خود را در فرم "
 "زیر درج نمایید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/StoryController.php:508
+#: src/Controller/Admin/StoryController.php:476
 msgid "Add a Story"
 msgstr "مطلب جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:35
+#: src/Controller/Admin/StoryController.php:524
+msgid "Download data saved successfully. Please attach your files"
+msgstr "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
+
+#: src/Controller/Admin/StoryController.php:529
+msgid "Media data saved successfully. Please attach your medias"
+msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
+
+#: src/Controller/Admin/StoryController.php:534
+msgid "Gallery data saved successfully. Please attach your images"
+msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
+
+#: src/Controller/Admin/StoryController.php:540
+msgid "Text data saved successfully."
+msgstr "اطلاعات متنی با موفقیت ذخیره شد"
+
+#: src/Controller/Admin/StoryController.php:577
+msgid "Manage additional information"
+msgstr "مدیریت اطلاعات اضافی"
+
+#: src/Controller/Admin/ToolsController.php:35
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "update to new. And you must set start and end publish time."
@@ -306,64 +361,64 @@ msgstr ""
 "اطلاعات قدیمی شما به روز می شود، و شما باید تاریخ شروع و آغاز مطالب را برای "
 "دوباره سازی درج کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:55
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:64
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:71
+#: src/Controller/Admin/ToolsController.php:55
+#: src/Controller/Admin/ToolsController.php:64
+#: src/Controller/Admin/ToolsController.php:71
 msgid "Finish Rebuild slug, all story slug update"
 msgstr "پایان دوباره سازی اسلاگ، همه اسلاگ مطالب به روز شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:80
+#: src/Controller/Admin/ToolsController.php:80
 msgid "Finish Rebuild SEO title, all story SEO title update"
 msgstr "پایان دوباره سازی عنوان سئو، همهعنوان های سئو به روز شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:92
+#: src/Controller/Admin/ToolsController.php:92
 msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
 msgstr "پایان دوباره سازی کلمات کلیدی سئو، همه کلمات کلیدی سئو به روز شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:101
+#: src/Controller/Admin/ToolsController.php:101
 msgid "Finish Rebuild SEO description, all story SEO description update"
 msgstr "پایان دوباره سازی توضیحات سئو، همه توضیحات سئو به روز شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:108
+#: src/Controller/Admin/ToolsController.php:108
 msgid "Rebuild stores"
 msgstr "دوباره سازی مطالب"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:115
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:16
+#: src/Controller/Admin/ToolsController.php:115
+#: template/admin/tools-index.phtml:33
 msgid "You can prune all old stores, from selected topic."
 msgstr "شما میتوانید مطالب قدیمی را از موضوع انتخابی حذف کنید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:130
+#: src/Controller/Admin/ToolsController.php:130
 #, php-format
 msgid "<strong>%s</strong> old stores removed"
 msgstr "<strong>%s</strong> مطلب قدیمی حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:133
+#: src/Controller/Admin/ToolsController.php:133
 msgid ""
 "Error in pruned old stores. perhaps no stroy exist whit your select query"
 msgstr ""
 "خطا در پاکسازی مطالب قدیمی، احتمالا هیچ مطلبی در بازه زمانی انتخابی شما "
 "موجود نیست"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:139
+#: src/Controller/Admin/ToolsController.php:139
 msgid "Prune stores"
 msgstr "پاکسازی مطالب"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:150
+#: src/Controller/Admin/ToolsController.php:150
 #, php-format
 msgid "<strong>%s</strong> old spotlights removed"
 msgstr "<strong>%s</strong> اسپات لایت قدیمی حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:153
+#: src/Controller/Admin/ToolsController.php:153
 msgid "Error in remove old spotlights. perhaps no spotlights exist"
 msgstr ""
 "خطا در حذف اسپات لایت های قدیمی، احتمالا هیچ اسپات لایت قدیمی موجود نیست."
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:157
+#: src/Controller/Admin/ToolsController.php:157
 msgid "Prune spotlights"
 msgstr "پاکسازی اسپات لایت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:164
+#: src/Controller/Admin/ToolsController.php:164
 msgid ""
 "Remove all topic pages from system page table. and keep just module default "
 "pages"
@@ -371,31 +426,31 @@ msgstr ""
 "حذف تمام صفحات موضوع ها از جدول صفحات سیستم ، فقط صفحات پیشفرض ماژول حفظ می "
 "شود"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:183
+#: src/Controller/Admin/ToolsController.php:183
 msgid "All other pages removed"
 msgstr "تمام صفحات اضافی حذف شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:185
+#: src/Controller/Admin/ToolsController.php:185
 msgid "No pages were removed"
 msgstr "هیچ صفحه ای حذف نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:191
+#: src/Controller/Admin/ToolsController.php:191
 msgid "Remove topic pages"
 msgstr "حذف صفحات موضوع"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:198
+#: src/Controller/Admin/ToolsController.php:198
 msgid "Rebuild thie module links on sitemap module tabels"
 msgstr "دوباره سازی لینک ای ماژول در جدول ماژول نقشه سایت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:221
+#: src/Controller/Admin/ToolsController.php:221
 msgid "Sitemap rebuild finished"
 msgstr "دوباره سازی نقشه سایت پایان یافت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:226
+#: src/Controller/Admin/ToolsController.php:226
 msgid "Rebuild sitemap links"
 msgstr "دوباره سازی لینک های نقشه سایت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:233
+#: src/Controller/Admin/ToolsController.php:233
 msgid ""
 "Regenerate all images by new setting. Please make backup from youe files on "
 "upload folder , before use this tools"
@@ -403,553 +458,522 @@ msgstr ""
 "دوباره سازی تصاویر بر اساس تنظیمات جدید. لطفا قبل از استفاده از این ابزار از "
 "تمام فایل های خود در پوشه upload نسخه پشتیبان تهیه فرمایید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:257
+#: src/Controller/Admin/ToolsController.php:257
 msgid "Regenerate images finished"
 msgstr "دوباره سازی تصاویر پایان یافت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/ToolsController.php:262
+#: src/Controller/Admin/ToolsController.php:262
 msgid "Regenerate images"
 msgstr "دوباره سازی تصاویر"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:54
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:118
+#: src/Controller/Admin/TopicController.php:48 src/Form/TopicForm.php:118
 msgid "List"
 msgstr "فهرست"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:58
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:119
+#: src/Controller/Admin/TopicController.php:52 src/Form/TopicForm.php:119
 msgid "Table"
 msgstr "جدول"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:66
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:121
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:17
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:6
+#: src/Controller/Admin/TopicController.php:60 src/Form/TopicForm.php:121
+#: template/admin/tools-image.phtml:10 template/admin/tools-image.phtml:12
+#: template/admin/tools-index.phtml:10 template/admin/tools-index.phtml:12
+#: template/admin/tools-index.phtml:34 template/admin/tools-page.phtml:10
+#: template/admin/tools-page.phtml:12 template/admin/tools-prune.phtml:10
+#: template/admin/tools-prune.phtml:12 template/admin/tools-rebuild.phtml:10
+#: template/admin/tools-rebuild.phtml:12 template/admin/tools-sitemap.phtml:10
+#: template/admin/tools-sitemap.phtml:12
+#: template/admin/tools-spotlight.phtml:10
+#: template/admin/tools-spotlight.phtml:12
 msgid "Spotlight"
 msgstr "اسپات لایت"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:70
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:89
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:122
+#: src/Controller/Admin/TopicController.php:64 src/Form/AttributeForm.php:74
+#: src/Form/StoryForm.php:86 src/Form/TopicForm.php:122
 msgid "Topic"
 msgstr "موضوع"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:75
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:117
+#: src/Controller/Admin/TopicController.php:69 src/Form/TopicForm.php:117
 msgid "News"
 msgstr "خبر"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:260
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:262
+#: src/Controller/Admin/TopicController.php:260
+#: src/Controller/Admin/TopicController.php:262
 #, php-format
 msgid "Page : %s"
 msgstr "صفحه : %s"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:282
+#: src/Controller/Admin/TopicController.php:282
 msgid "Topic data saved successfully."
 msgstr "اطلاعات موضوع با موفقیت ذخیره شد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Admin/TopicController.php:296
+#: src/Controller/Admin/TopicController.php:296
 msgid "Add a Topic"
 msgstr "موضوع جدید"
 
-#: /home/voltan/Documents/git/news/src/Controller/Feed/IndexController.php:24
+#: src/Controller/Feed/IndexController.php:24
 msgid "News feed"
 msgstr "خوراک مطالب"
 
-#: /home/voltan/Documents/git/news/src/Controller/Feed/IndexController.php:25
+#: src/Controller/Feed/IndexController.php:25
 msgid "Recent News."
 msgstr "آخرین مطالب"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/AuthorController.php:36
+#: src/Controller/Front/AuthorController.php:36
 msgid "The author not found."
 msgstr "پدیدآورنده پیدا نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/AuthorController.php:73
+#: src/Controller/Front/AuthorController.php:75
 msgid "List of all authors"
 msgstr "فهرست همه پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:31
+#: src/Controller/Front/FavouriteController.php:31
 msgid "The user not select"
 msgstr "کاربری انتخاب نشده است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:42
+#: src/Controller/Front/FavouriteController.php:44
 msgid "No favourite find by you"
 msgstr "شما هنوز هیچ مطلبی را به فهرست علاقه مندی ها اضافه نکرده اید."
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/FavouriteController.php:59
+#: src/Controller/Front/FavouriteController.php:63
 msgid "All favourite stories by you"
 msgstr "تمام مطالب محبوب شما"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/IndexController.php:56
+#: src/Controller/Front/IndexController.php:86
+msgid "The search query is wrong."
+msgstr "کلمه مورد جستجو صحیح نیست"
+
+#: src/Controller/Front/IndexController.php:110
+#, php-format
+msgid "Search result of %s"
+msgstr "نتایج جستجوی %s"
+
+#: src/Controller/Front/IndexController.php:111
+#, php-format
+msgid "Search result of <strong>%s</strong>"
+msgstr "نتایج جستجوی <strong>%s</strong>"
+
+#: src/Controller/Front/IndexController.php:123
 msgid "List of Latest stories"
 msgstr "فهرست آخرین مطالب ارسالی"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:29
-#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:51
-#: /home/voltan/Documents/git/news/src/Controller/Front/MediaController.php:89
+#: src/Controller/Front/IndexController.php:157
+msgid "Search again"
+msgstr "جستجوی مجدد"
+
+#: src/Controller/Front/MediaController.php:28
+#: src/Controller/Front/MediaController.php:70
+#: src/Controller/Front/MediaController.php:112
 msgid "The media not set."
 msgstr "مدیا تنظیم نشده است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/StoryController.php:36
+#: src/Controller/Front/StoryController.php:37
 msgid "The story not found."
 msgstr "مطلب پیدا نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/StoryController.php:40
+#: src/Controller/Front/StoryController.php:44
 msgid "The Story not publish."
 msgstr "این مطلب هنوز منتشر نشده است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:29
+#: src/Controller/Front/TagController.php:29
 msgid "Tag module not installed."
 msgstr "ماژول برچسب نصب نشده است."
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:38
+#: src/Controller/Front/TagController.php:40
 msgid "The tag not set."
 msgstr "برچسب تنظیم نشده است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:49
+#: src/Controller/Front/TagController.php:53
 msgid "The tag not found."
 msgstr "برچسب یافت نشد"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:69
+#: src/Controller/Front/TagController.php:74
 #, php-format
 msgid "All stores from %s"
 msgstr "همه مطالب از %s"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TagController.php:112
+#: src/Controller/Front/TagController.php:117
 msgid "List of all used tags"
 msgstr "فهرست همه برچسب ها"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:33
-msgid "Go to topic list."
-msgstr "به فهرست موضوعات منتقل می شوید"
+#: src/Controller/Front/TopicController.php:34
+msgid "Topic not set."
+msgstr "موضوع تنظیم نشده است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:39
+#: src/Controller/Front/TopicController.php:43
 msgid "Topic not active."
 msgstr "موضوع غیر فعال است"
 
-#: /home/voltan/Documents/git/news/src/Controller/Front/TopicController.php:104
+#: src/Controller/Front/TopicController.php:110
 msgid "List of all topics"
 msgstr "فهرست همه موضوعات"
 
-#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:49
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:48
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:46
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:46
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:52
-#: /home/voltan/Documents/git/news/src/Form/StorySearchForm.php:40
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:64
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:25
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:18
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:18
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:25
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:64
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:10
-#: /home/voltan/Documents/git/news/template/front/index_table.phtml:10
+#: src/Form/AttachForm.php:48 src/Form/AttributeForm.php:49
+#: src/Form/AuthorForm.php:48 src/Form/AuthorRoleForm.php:46
+#: src/Form/PositionForm.php:47 src/Form/StoryForm.php:51
+#: src/Form/StorySearchForm.php:40 src/Form/TopicForm.php:64
+#: template/admin/attach-index.phtml:29
+#: template/admin/attribute-index.phtml:57
+#: template/admin/author-index.phtml:24 template/admin/author-role.phtml:24
+#: template/admin/position-index.phtml:13 template/admin/story-index.phtml:85
+#: template/admin/topic-index.phtml:13 template/front/index-table.phtml:16
 msgid "Title"
 msgstr "عنوان"
 
-#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:61
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:84
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:58
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:58
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:105
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:151
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:100
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:68
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:31
+#: src/Form/AttachForm.php:60 src/Form/AttributeForm.php:89
+#: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
+#: src/Form/PositionForm.php:73 src/Form/SpotlightForm.php:105
+#: src/Form/StoryForm.php:150 src/Form/TopicForm.php:100
+#: template/admin/attach-add.phtml:77
 msgid "Status"
 msgstr "وضعیت"
 
-#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:63
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:60
+#: src/Form/AttachForm.php:62 src/Form/AttributeForm.php:91
 msgid "Online"
 msgstr "آنلاین"
 
-#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:64
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:61
+#: src/Form/AttachForm.php:63 src/Form/AttributeForm.php:92
 msgid "Offline"
 msgstr "آفلاین"
 
-#: /home/voltan/Documents/git/news/src/Form/AttachForm.php:73
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:185
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:72
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:125
-#: /home/voltan/Documents/git/news/src/Form/PageForm.php:43
-#: /home/voltan/Documents/git/news/src/Form/PruneForm.php:44
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:68
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:46
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:46
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:119
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:336
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:427
+#: src/Form/AttachForm.php:72 src/Form/AttributeForm.php:199
+#: src/Form/AuthorForm.php:184 src/Form/AuthorRoleForm.php:72
+#: src/Form/PageForm.php:43 src/Form/PositionForm.php:88
+#: src/Form/PruneForm.php:44 src/Form/RebuildForm.php:68
+#: src/Form/RegenerateImageForm.php:46 src/Form/SitemapForm.php:46
+#: src/Form/SpotlightForm.php:119 src/Form/StoryAdditionalForm.php:98
+#: src/Form/StoryForm.php:306 src/Form/TopicForm.php:438
 msgid "Submit"
 msgstr "ارسال"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:59
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:76
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:75
-msgid "slug"
-msgstr "اسلاگ"
+#: src/Form/AttributeForm.php:61
+msgid "Name"
+msgstr "نام"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:70
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:86
-msgid "Description"
-msgstr "توضیحات"
+#: src/Form/AttributeForm.php:65
+msgid "Set name for call anywhere, a-z 0-9 allowed"
+msgstr "تنظیم نام برای فراخوانی در بخش های مختلف ، a-z 0-9 مجاز است"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:86
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:60
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:107
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:153
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:102
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:39
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:41
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:39
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:30
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:67
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:89
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:40
-msgid "Published"
-msgstr "منتشر شده"
+#: src/Form/AttributeForm.php:78
+msgid "Set allowed topics ( main topic ) to use this attribute"
+msgstr "تنظیم موضوع های مجاز ( موضوع اصلی ) برای استفاده از خواصیت"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:87
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:61
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:108
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:154
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:103
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:40
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:42
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:40
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:31
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:90
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:41
-msgid "Pending review"
-msgstr "در انتظار تایید"
+#: src/Form/AttributeForm.php:104 template/admin/attribute-index.phtml:65
+msgid "Set"
+msgstr "موقعیت"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:88
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:62
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:109
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:155
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:104
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:32
-msgid "Draft"
-msgstr "پیش نویس"
+#: src/Form/AttributeForm.php:109
+msgid "Set view position"
+msgstr "تنظیم موقعیت نمایشی"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:89
-#: /home/voltan/Documents/git/news/src/Form/AuthorRoleForm.php:63
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:110
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:156
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:105
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:33
-msgid "Private"
-msgstr "خصوصی"
+#: src/Form/AttributeForm.php:141
+msgid "General data"
+msgstr "اطلاعات کلی"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:109
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:191
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:145
-msgid "Remove image"
-msgstr "حذف تصویر"
+#: src/Form/AttributeForm.php:147
+msgid "Use `|` as delimiter to separate select box elements"
+msgstr "از `|` به عنوان جدا کننده برای تفکیک المان ها استفاده شود"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:125
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:113
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:161
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:9
-msgid "Image"
-msgstr "تصویر"
+#: src/Form/AttributeForm.php:154
+msgid "Default data"
+msgstr "مقدار پیشفرض"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:138
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:220
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:174
-msgid "SEO options"
-msgstr "گزینه های سئو"
+#: src/Form/AttributeForm.php:165 src/Installer/Action/Install.php:136
+msgid "Extra information"
+msgstr "اطلاعات اضافی"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:145
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:33
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:227
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:181
-msgid "SEO Title"
-msgstr "عنوان سئو"
+#: src/Form/AttributeForm.php:169
+msgid "Put page URL for click by user to explain about this field"
+msgstr ""
+"درج آدرس صفحه برای کلیک توسط کاربر برای مشاهده اطلاعات جامع راجب این فیلد"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:158
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:34
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:240
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:194
-msgid "SEO Keywords"
-msgstr "کلمات کلیدی سئو"
+#: src/Form/AttributeForm.php:176
+msgid "Icon"
+msgstr "آیکن"
 
-#: /home/voltan/Documents/git/news/src/Form/AuthorForm.php:171
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:35
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:253
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:207
-msgid "SEO Description"
-msgstr "توضیح سئو"
+#: src/Form/AttributeForm.php:180
+msgid "Use fontawesome.io icons, and set icon name like fa-home"
+msgstr ""
+"از آیکن های fontawesome.io استفاده شود، و نام آیکن موارد شود ، مثل : fa-home"
 
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:70
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:166
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:64
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:26
-msgid "Type"
-msgstr "نوع"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:72
-msgid "Text : type text content"
-msgstr "متن : نوشتن محتوای متنی"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:73
-msgid "Link : add url for click"
-msgstr "لینک : اضافه کردن لینک برای کلیک"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:74
-msgid "Video : add flv or mp4 url for play on video player"
-msgstr "ویدیو : درج لینک flv یا mp4 برای نمایش در پخش کننده ویدیو"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:75
-msgid "Audio : add mp3 url for play on audio player"
-msgstr "صدا : درج لینک mp3 برای پخش در پخش کننده صوتی"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:76
-msgid "File : add file link for download"
-msgstr "فایل : درج لینک فایل برای دانلود"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:77
-msgid "Currency : add view price for anything"
-msgstr "قیمت : درج قیمت برای نمایش"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:78
-msgid "Date : add date for view"
-msgstr "تاریخ : درج تاریخ برای نمایش"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:79
-msgid "Number : add number"
-msgstr "عدد : درج عدد"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:80
-msgid "Select : add select box for choose"
-msgstr "انتخاب : درج باکس انتخاب"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:88
-msgid "Value"
-msgstr "مقدار"
-
-#: /home/voltan/Documents/git/news/src/Form/ExtraForm.php:103
-#: /home/voltan/Documents/git/news/src/Form/StorySearchForm.php:52
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:32
+#: src/Form/AttributeForm.php:188 src/Form/StorySearchForm.php:52
 msgid "Search"
 msgstr "جستجو"
 
-#: /home/voltan/Documents/git/news/src/Form/PageForm.php:32
+#: src/Form/AuthorForm.php:59 src/Form/StoryForm.php:74
+#: src/Form/TopicForm.php:75
+msgid "slug"
+msgstr "اسلاگ"
+
+#: src/Form/AuthorForm.php:70 src/Form/TopicForm.php:86
+msgid "Description"
+msgstr "توضیحات"
+
+#: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
+#: src/Form/PositionForm.php:75 src/Form/SpotlightForm.php:107
+#: src/Form/StoryForm.php:152 src/Form/TopicForm.php:102
+#: template/admin/attach-index.phtml:51 template/admin/author-index.phtml:53
+#: template/admin/author-role.phtml:49 template/admin/story-index.phtml:40
+#: template/admin/story-index.phtml:42 template/admin/story-index.phtml:91
+#: template/admin/story-index.phtml:141 template/admin/topic-index.phtml:53
+msgid "Published"
+msgstr "منتشر شده"
+
+#: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
+#: src/Form/PositionForm.php:76 src/Form/SpotlightForm.php:108
+#: src/Form/StoryForm.php:153 src/Form/TopicForm.php:103
+#: template/admin/attach-index.phtml:52 template/admin/author-index.phtml:54
+#: template/admin/author-role.phtml:50 template/admin/story-index.phtml:43
+#: template/admin/story-index.phtml:45 template/admin/story-index.phtml:142
+#: template/admin/topic-index.phtml:54
+msgid "Pending review"
+msgstr "در انتظار تایید"
+
+#: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
+#: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
+#: src/Form/StoryForm.php:154 src/Form/TopicForm.php:104
+#: template/admin/story-index.phtml:46 template/admin/story-index.phtml:48
+msgid "Draft"
+msgstr "پیش نویس"
+
+#: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
+#: src/Form/PositionForm.php:78 src/Form/SpotlightForm.php:110
+#: src/Form/StoryForm.php:155 src/Form/TopicForm.php:105
+#: template/admin/story-index.phtml:49 template/admin/story-index.phtml:51
+msgid "Private"
+msgstr "خصوصی"
+
+#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:195
+#: src/Form/TopicForm.php:144
+msgid "Remove image"
+msgstr "حذف تصویر"
+
+#: src/Form/AuthorForm.php:124 src/Form/TopicForm.php:160
+#: template/admin/tools-image.phtml:19 template/admin/tools-image.phtml:21
+#: template/admin/tools-index.phtml:19 template/admin/tools-index.phtml:21
+#: template/admin/tools-page.phtml:19 template/admin/tools-page.phtml:21
+#: template/admin/tools-prune.phtml:19 template/admin/tools-prune.phtml:21
+#: template/admin/tools-rebuild.phtml:19 template/admin/tools-rebuild.phtml:21
+#: template/admin/tools-sitemap.phtml:19 template/admin/tools-sitemap.phtml:21
+#: template/admin/tools-spotlight.phtml:19
+#: template/admin/tools-spotlight.phtml:21
+msgid "Image"
+msgstr "تصویر"
+
+#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:224
+#: src/Form/TopicForm.php:173
+msgid "SEO options"
+msgstr "گزینه های سئو"
+
+#: src/Form/AuthorForm.php:144 src/Form/RebuildForm.php:33
+#: src/Form/StoryForm.php:231 src/Form/TopicForm.php:180
+msgid "SEO Title"
+msgstr "عنوان سئو"
+
+#: src/Form/AuthorForm.php:157 src/Form/RebuildForm.php:34
+#: src/Form/StoryForm.php:244 src/Form/TopicForm.php:193
+msgid "SEO Keywords"
+msgstr "کلمات کلیدی سئو"
+
+#: src/Form/AuthorForm.php:170 src/Form/RebuildForm.php:35
+#: src/Form/StoryForm.php:257 src/Form/TopicForm.php:206
+msgid "SEO Description"
+msgstr "توضیح سئو"
+
+#: src/Form/PageForm.php:32
 msgid "Confirm to remove all topic pages"
 msgstr "تایید برای حذف تمام صفحات موضوعات"
 
-#: /home/voltan/Documents/git/news/src/Form/PruneForm.php:32
+#: src/Form/PositionForm.php:60
+msgid "Order"
+msgstr "ترتیب نمایش"
+
+#: src/Form/PositionForm.php:79 src/Form/TopicForm.php:106
+#: template/admin/attach-add.phtml:45 template/admin/attribute-index.phtml:72
+#: template/admin/spotlight-index.phtml:33
+#: template/admin/spotlight-index.phtml:35 template/admin/story-view.phtml:51
+#: template/admin/story-view.phtml:53
+msgid "Delete"
+msgstr "حذف"
+
+#: src/Form/PruneForm.php:32
 msgid "All contacts Before"
 msgstr "تمام مطالب قبل از"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:26
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:15
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:4
+#: src/Form/RebuildForm.php:26 template/admin/tools-image.phtml:4
+#: template/admin/tools-image.phtml:6 template/admin/tools-index.phtml:4
+#: template/admin/tools-index.phtml:6 template/admin/tools-index.phtml:29
+#: template/admin/tools-page.phtml:4 template/admin/tools-page.phtml:6
+#: template/admin/tools-prune.phtml:4 template/admin/tools-prune.phtml:6
+#: template/admin/tools-rebuild.phtml:4 template/admin/tools-rebuild.phtml:6
+#: template/admin/tools-sitemap.phtml:4 template/admin/tools-sitemap.phtml:6
+#: template/admin/tools-spotlight.phtml:4
+#: template/admin/tools-spotlight.phtml:6
 msgid "Rebuild"
 msgstr "دوباره سازی"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:30
+#: src/Form/RebuildForm.php:30
 msgid "Slug"
 msgstr "اسلاگ"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:31
+#: src/Form/RebuildForm.php:31
 msgid "Replace slug by title"
 msgstr "جایگزین اسلاگ با عنوان"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:32
+#: src/Form/RebuildForm.php:32
 msgid "Replace slug by id"
 msgstr "جایگزینی اسلاگ با آی دی"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:43
+#: src/Form/RebuildForm.php:43
 msgid "Start date"
 msgstr "تاریخ شروع"
 
-#: /home/voltan/Documents/git/news/src/Form/RebuildForm.php:55
+#: src/Form/RebuildForm.php:55
 msgid "End date"
 msgstr "تاریخ پایان"
 
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:32
+#: src/Form/RegenerateImageForm.php:32
 msgid "Select for regenerate"
 msgstr "برای دوباره سازی انتخاب کنید"
 
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:34
+#: src/Form/RegenerateImageForm.php:34
 msgid "All images"
 msgstr "همه تصاویر"
 
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:35
+#: src/Form/RegenerateImageForm.php:35
 msgid "Just story images"
 msgstr "فقط تصاویر مطالب"
 
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:36
+#: src/Form/RegenerateImageForm.php:36
 msgid "Just topic images"
 msgstr "فقط تصاویر شاخه ها"
 
-#: /home/voltan/Documents/git/news/src/Form/RegenerateImageForm.php:37
+#: src/Form/RegenerateImageForm.php:37
 msgid "Just author images"
 msgstr "فقط تصاویر پدید آورنده ها"
 
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:32
+#: src/Form/SitemapForm.php:32
 msgid "Select for rebuild"
 msgstr "انتخاب برای دوباره سازی"
 
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:34
+#: src/Form/SitemapForm.php:34
 msgid "All of tables"
 msgstr "همه جدول ها"
 
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:35
+#: src/Form/SitemapForm.php:35
 msgid "Just story table"
 msgstr "فقط جدول مطالب"
 
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:36
+#: src/Form/SitemapForm.php:36
 msgid "Just topic table"
 msgstr "فقط جدول موضوعات"
 
-#: /home/voltan/Documents/git/news/src/Form/SitemapForm.php:37
+#: src/Form/SitemapForm.php:37
 msgid "Just author table"
 msgstr "فقط جدول پدید آورندگان"
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:52
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:26
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:10
+#: src/Form/SpotlightForm.php:52 template/admin/spotlight-index.phtml:13
 msgid "Story"
 msgstr "مطلب"
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:56
+#: src/Form/SpotlightForm.php:56
 msgid "Select story for add to Spotlight"
 msgstr "انتخاب مطلب برای درج در اسپتلایت"
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:66
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:11
+#: src/Form/SpotlightForm.php:66 template/admin/spotlight-index.phtml:14
 msgid "Show in"
 msgstr "نمایش در"
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:71
+#: src/Form/SpotlightForm.php:71
 msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
 msgstr ""
 "انتخاب موضوع برای اسپات لایت، اسپات لایت شما در این موضوع نمایش داده می شود."
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:80
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:12
+#: src/Form/SpotlightForm.php:80 template/admin/spotlight-index.phtml:15
 msgid "Publish date"
 msgstr "تاریخ انتشار"
 
-#: /home/voltan/Documents/git/news/src/Form/SpotlightForm.php:92
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:13
+#: src/Form/SpotlightForm.php:92 template/admin/spotlight-index.phtml:16
 msgid "Expire date"
 msgstr "تاریخ ابطال"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:64
+#: src/Form/StoryForm.php:63
 msgid "Subtitle"
 msgstr "عنوان دوم"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:99
+#: src/Form/StoryForm.php:97
 msgid "Main topic"
 msgstr "موضوع اصلی"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:106
+#: src/Form/StoryForm.php:105
 msgid "Just use for breadcrumbs and mobile apps"
 msgstr "فقط برای ناوبری و نرم افزار موبایل استفاده می شود"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:113
+#: src/Form/StoryForm.php:112
 msgid "Short text"
 msgstr "متن خلاصه"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:126
+#: src/Form/StoryForm.php:125
 msgid "Main text"
 msgstr "متن اصلی"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:140
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:8
-#: /home/voltan/Documents/git/news/template/front/index_media.phtml:15
-#: /home/voltan/Documents/git/news/template/front/index_news.phtml:12
-#: /home/voltan/Documents/git/news/template/front/index_table.phtml:16
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:50
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:50
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:50
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:50
+#: src/Form/StoryForm.php:139 template/admin/story-view.phtml:8
+#: template/front/index-media.phtml:25 template/front/index-news.phtml:19
+#: template/front/index-table.phtml:28 template/front/story-download.phtml:50
+#: template/front/story-gallery.phtml:50 template/front/story-media.phtml:50
+#: template/front/story-text.phtml:52
 msgid "Important"
 msgstr "مهم"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:157
+#: src/Form/StoryForm.php:156
 msgid "Remove"
 msgstr "حذف"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:207
+#: src/Form/StoryForm.php:168 template/admin/attach-add.phtml:73
+#: template/admin/attribute-index.phtml:61
+msgid "Type"
+msgstr "نوع"
+
+#: src/Form/StoryForm.php:211
 msgid "Upload image"
 msgstr "بارگذاری تصویر"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:268
+#: src/Form/StoryForm.php:272 template/front/story-text.phtml:170
 msgid "Tags"
 msgstr "برچسب ها"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:272
+#: src/Form/StoryForm.php:276
 msgid "Use `|` as delimiter to separate tag terms"
 msgstr "با استفاده از `|` کلمات را از هم جدا کنید"
 
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:283
-msgid "Extra fields"
-msgstr "فیلد های اضافی"
-
-#: /home/voltan/Documents/git/news/src/Form/StoryForm.php:317
+#: src/Form/StoryForm.php:287
 msgid "Authors"
 msgstr "پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:51
+#: src/Form/TopicForm.php:51
 msgid "Parent Topic"
 msgstr "موضوع والد"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:106
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:38
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:29
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:26
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:79
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:39
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:33
-msgid "Delete"
-msgstr "حذف"
-
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:115
+#: src/Form/TopicForm.php:115
 msgid "Topic Style"
 msgstr "سبک موضوع"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:221
+#: src/Form/TopicForm.php:220
 msgid "Extra options"
 msgstr "گزینه های اضافی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:229
+#: src/Form/TopicForm.php:228
 msgid "Extra Config Options Type"
 msgstr "نوع تنظیمات اضافی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:231
+#: src/Form/TopicForm.php:230
 msgid "Use topic options"
 msgstr "استفاده از تنظیمات موضوع"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:232
+#: src/Form/TopicForm.php:231
 msgid "Use module options"
 msgstr "استفاده از تنظیمات ماژول"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:236
+#: src/Form/TopicForm.php:235
 msgid ""
 "Use topic option whit select topic options or set it to module to use module "
 "option"
@@ -958,133 +982,139 @@ msgstr ""
 "انتخاب کنید و یا با انتخاب گزینه ؛استفاده از تنظیمات ماژول؛ از تنظیمات پیش "
 "فرض ماژول استفاده کنید."
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:243
+#: src/Form/TopicForm.php:242
 msgid "Perpage"
 msgstr "تعداد در صفحه"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:255
+#: src/Form/TopicForm.php:254
 msgid "Columns"
 msgstr "ستون"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:257
+#: src/Form/TopicForm.php:256
 msgid "One column"
 msgstr "یک ستون"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:258
+#: src/Form/TopicForm.php:257
 msgid "Two columns"
 msgstr "دو ستون"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:259
+#: src/Form/TopicForm.php:258
 msgid "Three columns"
 msgstr "سه ستون"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:260
+#: src/Form/TopicForm.php:259
 msgid "Four columns"
 msgstr "چهار ستون"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:272
+#: src/Form/TopicForm.php:271
 msgid "Set as system page"
 msgstr "تنظیم به عنوان یک صفحه سیستم"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:283
+#: src/Form/TopicForm.php:282
 msgid "Story order"
 msgstr "مرتب سازی مطالب"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:285
+#: src/Form/TopicForm.php:284
 msgid "Publish time DESC"
 msgstr "تاریخ انتشار - صعودی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:286
+#: src/Form/TopicForm.php:285
 msgid "Publish time ASC"
 msgstr "تاریخ انتشار - نزولی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:287
+#: src/Form/TopicForm.php:286
 msgid "Random"
 msgstr "تصادفی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:291
+#: src/Form/TopicForm.php:290
 msgid "Story list order options"
 msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:299
+#: src/Form/TopicForm.php:298
 msgid "Show Topic"
 msgstr "نمایش موضوع"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:310
+#: src/Form/TopicForm.php:309
 msgid "Show Topic Information"
 msgstr "نمایش اطلاعات موضوع"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:321
+#: src/Form/TopicForm.php:320
 msgid "Show Date"
 msgstr "نمایش تاریخ"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:332
+#: src/Form/TopicForm.php:331
 msgid "Show DPF"
 msgstr "نمایش پی دی اف"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:343
+#: src/Form/TopicForm.php:342
 msgid "Show Print"
 msgstr "نمایش چاپ"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:354
+#: src/Form/TopicForm.php:353
 msgid "Show Mail"
 msgstr "نمایش ایمیل"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:365
+#: src/Form/TopicForm.php:364
 msgid "Show Hits"
 msgstr "نمایش بازدید"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:376
+#: src/Form/TopicForm.php:375
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:387
+#: src/Form/TopicForm.php:386
 msgid "Show Subtopic stories on main topic"
 msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:397
-msgid "Attach file link"
-msgstr "لینک فایل پیوست"
+#: src/Form/TopicForm.php:397
+msgid "Attach file options"
+msgstr "گزینه های پیوست فایل"
 
-#: /home/voltan/Documents/git/news/src/Form/TopicForm.php:408
-msgid "Attach file title"
-msgstr "عنوان فایل پیوست"
+#: src/Form/TopicForm.php:405
+msgid "Check for attach file"
+msgstr "امکان پیوست فایل"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:73
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:94
+#: src/Form/TopicForm.php:415 template/admin/attach-edit.phtml:27
+msgid "File title"
+msgstr "عنوان فایل"
+
+#: src/Form/TopicForm.php:426
+msgid "File link"
+msgstr "لینک فایل"
+
+#: src/Installer/Action/Install.php:76
 msgid "Default"
 msgstr "پیش فرض"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:74
+#: src/Installer/Action/Install.php:77
 msgid "default"
 msgstr "پیش-فرض"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:75
+#: src/Installer/Action/Install.php:78
 msgid "This is a default topic for news module"
 msgstr "موضوع پیش فرض برای ماژول"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:76
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:78
+#: src/Installer/Action/Install.php:79 src/Installer/Action/Install.php:81
 msgid "default topic"
 msgstr "موضوع پیش فرض"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:77
+#: src/Installer/Action/Install.php:80
 msgid "default,topic"
 msgstr "موضوع,پیش فرض"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:103
+#: src/Installer/Action/Install.php:106
 msgid "Hello World"
 msgstr "سلام جهان"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:104
+#: src/Installer/Action/Install.php:107
 msgid "This is subtitle for this story"
 msgstr "این یک زیر عنوان است برای این مطلب"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:105
+#: src/Installer/Action/Install.php:108
 msgid "hello-world"
 msgstr "سلام-جهان"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:107
+#: src/Installer/Action/Install.php:111
 msgid ""
 "This is a short text and you can edit this part easy. for read more infor "
 "please click on title or more link"
@@ -1092,7 +1122,7 @@ msgstr ""
 "این متن کوتاه مطلب شما است و شما می توانید به سادگی آن را ویرایش کنید. برای "
 "مطالعه اطلاعات بیشتر برای روی عنوان یا دکمه ادامه کلیک کنید."
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:108
+#: src/Installer/Action/Install.php:112
 msgid ""
 "This is more text. you can edit this part easy too and if you want you can "
 "add new topics and new storys"
@@ -1100,318 +1130,383 @@ msgstr ""
 "این متن ادامه مطلب است، شما این بخش را هم به سادگی میتوانید ویرایش کنید. و "
 "اگر بخواهید میتوانید موضوعات و مطالب جدیدی را به سیستم اضافه کنید."
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:109
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:111
+#: src/Installer/Action/Install.php:113 src/Installer/Action/Install.php:115
 msgid "hello world"
 msgstr "سلام جهان"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:110
+#: src/Installer/Action/Install.php:114
 msgid "hello,world"
 msgstr "سلام,جهان"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:132
+#: src/Installer/Action/Install.php:151
 msgid "Source"
 msgstr "منبع"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:142
+#: src/Installer/Action/Install.php:163
 msgid "The admin"
 msgstr "مدیر"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:144
+#: src/Installer/Action/Install.php:165
 msgid "Admin"
 msgstr "مدیریت"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:145
+#: src/Installer/Action/Install.php:166
 msgid "author,admin"
 msgstr "سازنده,مدیر"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:146
+#: src/Installer/Action/Install.php:167
 msgid "author is admin"
 msgstr "سازنده مدیر"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:156
+#: src/Installer/Action/Install.php:177
 msgid "Writer"
 msgstr "نویسنده"
 
-#: /home/voltan/Documents/git/news/src/Installer/Action/Install.php:164
+#: src/Installer/Action/Install.php:195
 msgid "Default information added."
 msgstr "اطلاعات پیش فرض اضافه شد"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:28
-#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:47
-#: /home/voltan/Documents/git/news/template/admin/spotlight_update.phtml:4
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:35
+#: template/admin/attach-add.phtml:29 template/admin/attach-add.phtml:30
+#: template/admin/attach-edit.phtml:34 template/admin/attach-edit.phtml:36
+#: template/admin/spotlight-update.phtml:4
+#: template/admin/spotlight-update.phtml:6 template/admin/story-view.phtml:39
+#: template/admin/story-view.phtml:41
 msgid "Back"
 msgstr "بازگشت"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:29
+#: template/admin/attach-add.phtml:31 template/admin/attach-add.phtml:32
 msgid "Finish"
 msgstr "پایان"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:37
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:8
+#: template/admin/attach-add.phtml:42 template/admin/attach-index.phtml:8
 msgid "PerView"
 msgstr "پیش نمایش"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:56
+#: template/admin/attach-add.phtml:65
 msgid "Id"
 msgstr "شناسه"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:60
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:10
+#: template/admin/attach-add.phtml:69 template/admin/attach-index.phtml:10
 msgid "Create"
 msgstr "تاریخ ایجاد"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:72
+#: template/admin/attach-add.phtml:81
 msgid "Hits"
 msgstr "بازدید"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:76
+#: template/admin/attach-add.phtml:85
 msgid "Size"
 msgstr "اندازه"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:81
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:31
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:34
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:33
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:28
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:25
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:77
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:37
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:29
+#: template/admin/attach-add.phtml:90 template/admin/attach-index.phtml:37
+#: template/admin/attach-index.phtml:39
+#: template/admin/attribute-index.phtml:69
+#: template/admin/author-index.phtml:44 template/admin/author-index.phtml:46
+#: template/admin/author-role.phtml:41 template/admin/author-role.phtml:43
+#: template/admin/position-index.phtml:30
+#: template/admin/position-index.phtml:32
+#: template/admin/spotlight-index.phtml:30
+#: template/admin/spotlight-index.phtml:32 template/admin/story-view.phtml:45
+#: template/admin/story-view.phtml:47 template/admin/topic-index.phtml:39
+#: template/admin/topic-index.phtml:41
 msgid "Edit"
 msgstr "ویرایش"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:82
+#: template/admin/attach-add.phtml:92
 msgid "Close"
 msgstr "بستن"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_add.phtml:125
+#: template/admin/attach-add.phtml:135
 msgid "In process"
 msgstr "در حال پردازش"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:37
+#: template/admin/attach-edit.phtml:23
 msgid "Get it"
 msgstr "دریافت"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:40
-msgid "File title"
-msgstr "عنوان فایل"
+#: template/admin/attach-edit.phtml:28
+msgid "Item title"
+msgstr "نام"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_edit.phtml:41
-msgid "Story title"
-msgstr "عنوان مطلب"
-
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:3
+#: template/admin/attach-index.phtml:3
 msgid "List of attached files"
 msgstr "فهرست فایل های پیوست شده"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:17
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:17
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:46
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:9
+#: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:23
+#: template/admin/author-role.phtml:23 template/admin/position-index.phtml:12
+#: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:66
+#: template/admin/topic-index.phtml:12
 msgid "ID"
 msgstr "شناسه"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:9
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:47
+#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:67
 msgid "Information"
 msgstr "اطلاعات"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:11
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:19
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:19
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:14
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:70
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:12
+#: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:25
+#: template/admin/author-role.phtml:25 template/admin/position-index.phtml:14
+#: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:97
+#: template/admin/topic-index.phtml:15
 msgid "Action"
 msgstr "عملکرد"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:30
+#: template/admin/attach-index.phtml:30
+msgid "Item"
+msgstr "آیتم"
+
+#: template/admin/attach-index.phtml:34 template/admin/attach-index.phtml:36
 msgid "Get"
 msgstr "دریافت"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:32
+#: template/admin/attach-index.phtml:41 template/admin/attach-index.phtml:43
 msgid "Edit from story"
 msgstr "ویرایش از مطلب"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:44
+#: template/admin/attach-index.phtml:56
 msgid "Error"
 msgstr "خطا"
 
-#: /home/voltan/Documents/git/news/template/admin/attach_index.phtml:45
+#: template/admin/attach-index.phtml:58
 msgid "No file upload yet"
 msgstr "هیچ فایلی هنوز بارگذاری نشده است"
 
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:6
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:6
+#: template/admin/attribute-index.phtml:9
+msgid "Add attribute"
+msgstr "خواصیت جدید"
+
+#: template/admin/attribute-index.phtml:12
+#: template/admin/attribute-index.phtml:14
+msgid "Add text field"
+msgstr "فیلد متنی جدید"
+
+#: template/admin/attribute-index.phtml:15
+#: template/admin/attribute-index.phtml:17
+msgid "Add link field"
+msgstr "فیلد لینک جدید"
+
+#: template/admin/attribute-index.phtml:18
+#: template/admin/attribute-index.phtml:20
+msgid "Add video field"
+msgstr "فیلد ویدیو جدید"
+
+#: template/admin/attribute-index.phtml:21
+#: template/admin/attribute-index.phtml:23
+msgid "Add audio field"
+msgstr "فیلد صدای جدید"
+
+#: template/admin/attribute-index.phtml:24
+#: template/admin/attribute-index.phtml:26
+msgid "Add file field"
+msgstr "فیلد فایل جدید"
+
+#: template/admin/attribute-index.phtml:27
+#: template/admin/attribute-index.phtml:29
+msgid "Add currency field"
+msgstr "فیلد قیمت جدید"
+
+#: template/admin/attribute-index.phtml:30
+#: template/admin/attribute-index.phtml:32
+msgid "Add date field"
+msgstr "فیلد تاریخ جدید"
+
+#: template/admin/attribute-index.phtml:33
+#: template/admin/attribute-index.phtml:35
+msgid "Add number field"
+msgstr "فیلد عددی جدید"
+
+#: template/admin/attribute-index.phtml:36
+#: template/admin/attribute-index.phtml:38
+msgid "Add select field"
+msgstr "باکس انتخاب جدید"
+
+#: template/admin/attribute-index.phtml:39
+#: template/admin/attribute-index.phtml:41
+msgid "Add checkbox field"
+msgstr "چک باکس جدید"
+
+#: template/admin/attribute-index.phtml:45
+msgid "List of attributes"
+msgstr "فهرست خواص"
+
+#: template/admin/author-index.phtml:8 template/admin/author-index.phtml:10
+#: template/admin/author-role.phtml:8 template/admin/author-role.phtml:10
 msgid "Role list"
 msgstr "فهرست نقش ها"
 
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:14
+#: template/admin/author-index.phtml:20
 msgid "List of authors"
 msgstr "فهرست پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:33
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:26
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:36
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:27
+#: template/admin/author-index.phtml:41 template/admin/author-index.phtml:43
+#: template/admin/story-index.phtml:34 template/admin/story-view.phtml:42
+#: template/admin/story-view.phtml:44 template/admin/topic-index.phtml:33
+#: template/admin/topic-index.phtml:35
 msgid "View"
 msgstr "نمایش"
 
-#: /home/voltan/Documents/git/news/template/admin/author_index.phtml:43
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:41
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:34
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:91
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:42
+#: template/admin/author-index.phtml:55 template/admin/author-role.phtml:51
+#: template/admin/story-index.phtml:52 template/admin/story-index.phtml:54
+#: template/admin/story-index.phtml:143 template/admin/topic-index.phtml:55
 msgid "Trash"
 msgstr "حذف شده"
 
-#: /home/voltan/Documents/git/news/template/admin/author_role.phtml:14
+#: template/admin/author-role.phtml:20
 msgid "List of roles"
 msgstr "فهرست نقش ها"
 
-#: /home/voltan/Documents/git/news/template/admin/author_update.phtml:16
+#: template/admin/author-update.phtml:16
 msgid "Remove image author in process"
 msgstr "حذف تصویر پدیدآورنده در حال انجام است"
 
-#: /home/voltan/Documents/git/news/template/admin/extra_index.phtml:12
-msgid "List of extra fields"
-msgstr "پسوند های مجار برای فایل"
+#: template/admin/position-index.phtml:9
+msgid "List of positions"
+msgstr "فهرست موقعیت ها"
 
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:4
+#: template/admin/spotlight-index.phtml:4
+#: template/admin/spotlight-index.phtml:6
 msgid "Add Spotlight"
 msgstr "اسپات لایت جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:6
+#: template/admin/spotlight-index.phtml:9
 msgid "List of spotlights"
 msgstr "فهرست اسپات لایت ها"
 
-#: /home/voltan/Documents/git/news/template/admin/spotlight_index.phtml:24
+#: template/admin/spotlight-index.phtml:27
+#: template/admin/spotlight-index.phtml:29
 msgid "Veiw story"
 msgstr "نمایش مطلب"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:15
+#: template/admin/story-index.phtml:15
 msgid "Add new story"
 msgstr "مطلب جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:18
+#: template/admin/story-index.phtml:18 template/admin/story-index.phtml:20
 msgid "Add new text"
 msgstr "متن جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:19
+#: template/admin/story-index.phtml:21 template/admin/story-index.phtml:23
 msgid "Add new gallery"
 msgstr "گالری جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:20
+#: template/admin/story-index.phtml:24 template/admin/story-index.phtml:26
 msgid "Add new media"
 msgstr "مدیا جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:21
+#: template/admin/story-index.phtml:27 template/admin/story-index.phtml:29
 msgid "Add new download"
 msgstr "دانلود جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:29
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:28
+#: template/admin/story-index.phtml:37 template/admin/story-index.phtml:39
+#: template/admin/topic-index.phtml:36 template/admin/topic-index.phtml:38
 msgid "All stories"
 msgstr "همه مطالب"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:43
+#: template/admin/story-index.phtml:63
 msgid "List of stories"
 msgstr "فهرست مطالب"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:72
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:103
+#: template/admin/story-index.phtml:93
+msgid "By"
+msgstr "به وسیله"
+
+#: template/admin/story-index.phtml:103 template/admin/story-index.phtml:155
 msgid "Reject"
 msgstr "رد کردن"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:74
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:108
+#: template/admin/story-index.phtml:108 template/admin/story-index.phtml:160
 msgid "Accept"
 msgstr "تایید"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:76
+#: template/admin/story-index.phtml:115
+msgid "Manage"
+msgstr "مدیریت"
+
+#: template/admin/story-index.phtml:118 template/admin/story-index.phtml:120
+msgid "Edit basic information"
+msgstr "ویرایش اطلاعات پایه"
+
+#: template/admin/story-index.phtml:121 template/admin/story-index.phtml:123
+msgid "Edit additional information"
+msgstr "ویرایش اطلاعات اضافی"
+
+#: template/admin/story-index.phtml:125 template/admin/story-index.phtml:127
+msgid "Attach files"
+msgstr "پیوست فایل"
+
+#: template/admin/story-index.phtml:128 template/admin/story-index.phtml:130
 msgid "Preview"
 msgstr "پیش نمایش"
 
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:78
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:38
-msgid "Attach"
-msgstr "پیوست"
-
-#: /home/voltan/Documents/git/news/template/admin/story_index.phtml:97
+#: template/admin/story-index.phtml:149
 msgid "Accept story in process"
 msgstr "تایید مطلب در حال انجام است"
 
-#: /home/voltan/Documents/git/news/template/admin/story_update.phtml:19
+#: template/admin/story-update.phtml:20
 msgid "Remove image story in process"
 msgstr "حذف تصویر مطلب در حال انجام است"
 
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:16
-#: /home/voltan/Documents/git/news/template/front/index_table.phtml:11
+#: template/admin/story-view.phtml:16 template/front/index-table.phtml:18
 msgid "Update Time"
 msgstr "زمان به روز رسانی"
 
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:17
-#: /home/voltan/Documents/git/news/template/front/index_news.phtml:30
-#: /home/voltan/Documents/git/news/template/front/index_table.phtml:12
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:66
+#: template/admin/story-view.phtml:18 template/front/index-news.phtml:44
+#: template/front/index-table.phtml:21 template/front/story-download.phtml:67
+#: template/front/story-gallery.phtml:67 template/front/story-media.phtml:67
+#: template/front/story-text.phtml:68
 msgid "Read"
 msgstr "نمایش"
 
-#: /home/voltan/Documents/git/news/template/admin/story_view.phtml:18
-#: /home/voltan/Documents/git/news/template/front/index_list.phtml:19
-#: /home/voltan/Documents/git/news/template/front/index_news.phtml:35
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:78
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:78
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:78
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:78
+#: template/admin/story-view.phtml:19 template/front/index-list.phtml:32
+#: template/front/index-news.phtml:50 template/front/story-download.phtml:82
+#: template/front/story-gallery.phtml:82 template/front/story-media.phtml:82
+#: template/front/story-text.phtml:73
 msgid "Topics"
 msgstr "موضوع"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:16
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:5
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:5
+#: template/admin/story-view.phtml:48 template/admin/story-view.phtml:50
+msgid "Attach"
+msgstr "پیوست"
+
+#: template/admin/tools-image.phtml:7 template/admin/tools-image.phtml:9
+#: template/admin/tools-index.phtml:7 template/admin/tools-index.phtml:9
+#: template/admin/tools-index.phtml:32 template/admin/tools-page.phtml:7
+#: template/admin/tools-page.phtml:9 template/admin/tools-prune.phtml:7
+#: template/admin/tools-prune.phtml:9 template/admin/tools-rebuild.phtml:7
+#: template/admin/tools-rebuild.phtml:9 template/admin/tools-sitemap.phtml:7
+#: template/admin/tools-sitemap.phtml:9 template/admin/tools-spotlight.phtml:7
+#: template/admin/tools-spotlight.phtml:9
 msgid "Prune"
 msgstr "پاکسازی"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:18
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:7
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:7
+#: template/admin/tools-image.phtml:13 template/admin/tools-image.phtml:15
+#: template/admin/tools-index.phtml:13 template/admin/tools-index.phtml:15
+#: template/admin/tools-index.phtml:35 template/admin/tools-page.phtml:13
+#: template/admin/tools-page.phtml:15 template/admin/tools-prune.phtml:13
+#: template/admin/tools-prune.phtml:15 template/admin/tools-rebuild.phtml:13
+#: template/admin/tools-rebuild.phtml:15 template/admin/tools-sitemap.phtml:13
+#: template/admin/tools-sitemap.phtml:15
+#: template/admin/tools-spotlight.phtml:13
+#: template/admin/tools-spotlight.phtml:15
 msgid "Page"
 msgstr "صفحه"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_image.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:19
-#: /home/voltan/Documents/git/news/template/admin/tools_page.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_prune.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_rebuild.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_sitemap.phtml:8
-#: /home/voltan/Documents/git/news/template/admin/tools_spotlight.phtml:8
+#: template/admin/tools-image.phtml:16 template/admin/tools-image.phtml:18
+#: template/admin/tools-index.phtml:16 template/admin/tools-index.phtml:18
+#: template/admin/tools-index.phtml:36 template/admin/tools-page.phtml:16
+#: template/admin/tools-page.phtml:18 template/admin/tools-prune.phtml:16
+#: template/admin/tools-prune.phtml:18 template/admin/tools-rebuild.phtml:16
+#: template/admin/tools-rebuild.phtml:18 template/admin/tools-sitemap.phtml:16
+#: template/admin/tools-sitemap.phtml:18
+#: template/admin/tools-spotlight.phtml:16
+#: template/admin/tools-spotlight.phtml:18
 msgid "Sitemap"
 msgstr "نقشه سایت"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:12
+#: template/admin/tools-index.phtml:25
 msgid "How this part work?"
 msgstr "این بخش چگونه کار می کند؟"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:13
+#: template/admin/tools-index.phtml:27
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
@@ -1419,68 +1514,75 @@ msgstr ""
 "ابزار ها، به شما برای مدیریت ماژول کمک میکند، با به روز رسانی پایگاه داده ها "
 "و حذف اطلاعات قدیمی. در این مقطع ابزار های زیر در دسترس شما است : "
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:15
+#: template/admin/tools-index.phtml:30
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
 msgstr "شما می توانبد همه مطالب درج شده را دوباره سازی کنید"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:17
+#: template/admin/tools-index.phtml:34
 msgid "You can remove old spotlights"
 msgstr "شما میتوانید اپات لایت های قدیمی را حذف کنید"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:18
+#: template/admin/tools-index.phtml:35
 msgid "Manage system page"
 msgstr "مدیریت صفحات سیستم"
 
-#: /home/voltan/Documents/git/news/template/admin/tools_index.phtml:19
+#: template/admin/tools-index.phtml:36
 msgid "Manage links on sitemap module"
 msgstr "مدیریت لینک ها در ماژول نقشه سایت"
 
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:4
+#: template/admin/topic-index.phtml:4 template/admin/topic-index.phtml:6
 msgid "Add Topic"
 msgstr "موضوع جدید"
 
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:6
+#: template/admin/topic-index.phtml:9
 msgid "List of topics"
 msgstr "فهرست موضوعات"
 
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:11
+#: template/admin/topic-index.phtml:14
 msgid "Show type"
 msgstr "سبک نمایش"
 
-#: /home/voltan/Documents/git/news/template/admin/topic_index.phtml:31
+#: template/admin/topic-index.phtml:43 template/admin/topic-index.phtml:45
 msgid "Json"
 msgstr "جیسون"
 
-#: /home/voltan/Documents/git/news/template/admin/topic_update.phtml:16
+#: template/admin/topic-update.phtml:16
 msgid "Remove image topic in process"
 msgstr "حذف تصویر موضوع در حال انجام است"
 
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:5
+#: template/front/attach.phtml:5
 msgid "Attached archives"
 msgstr "آرشیو های پیوست شده"
 
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:9
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:20
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:31
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:42
+#: template/front/attach.phtml:11 template/front/attach.phtml:24
+#: template/front/attach.phtml:37 template/front/attach.phtml:50
 msgid "Download file"
 msgstr "دریافت فایل"
 
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:16
+#: template/front/attach.phtml:18
 msgid "Attached docs"
 msgstr "داکیومنت های پیوست شده"
 
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:27
+#: template/front/attach.phtml:31
 msgid "Attached pdfs"
 msgstr "پی دی اف های پیوست شده"
 
-#: /home/voltan/Documents/git/news/template/front/attach.phtml:38
+#: template/front/attach.phtml:44
 msgid "Attached files"
 msgstr "فایل های پیوست شده"
 
-#: /home/voltan/Documents/git/news/template/front/author_list.phtml:23
+#: template/front/attribute-file.phtml:4
+msgid "Extra links"
+msgstr "لینک های خارجی"
+
+#: template/front/attribute.phtml:38
+#, php-format
+msgid "More information about %s"
+msgstr "اطلاعات بیشتر در مورد %s"
+
+#: template/front/author-list.phtml:25
 msgid ""
 "No author information has been added on this part yet. please check this "
 "page later"
@@ -1488,38 +1590,41 @@ msgstr ""
 "هیچ اطلاعاتی از نویسندگان هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه "
 "را بررسی فرمایید."
 
-#: /home/voltan/Documents/git/news/template/front/extra_file.phtml:4
-msgid "Extra links"
-msgstr "لینک های خارجی"
-
-#: /home/voltan/Documents/git/news/template/front/feed.phtml:3
+#: template/front/feed.phtml:3 template/front/feed.phtml:5
 msgid "Rss Feed"
 msgstr "خوراک"
 
-#: /home/voltan/Documents/git/news/template/front/index_news.phtml:25
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:61
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:61
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:61
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:61
+#: template/front/index-news.phtml:39 template/front/story-download.phtml:62
+#: template/front/story-gallery.phtml:62 template/front/story-media.phtml:62
+#: template/front/story-text.phtml:62
 msgid "Time"
 msgstr "زمان"
 
-#: /home/voltan/Documents/git/news/template/front/index_news.phtml:30
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:66
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:66
+#: template/front/index-news.phtml:45 template/front/story-download.phtml:68
+#: template/front/story-gallery.phtml:68 template/front/story-media.phtml:68
+#: template/front/story-text.phtml:69
 msgid "Times"
 msgstr "دفعه"
 
-#: /home/voltan/Documents/git/news/template/front/story_download.phtml:151
-#: /home/voltan/Documents/git/news/template/front/story_gallery.phtml:147
-#: /home/voltan/Documents/git/news/template/front/story_index.phtml:147
-#: /home/voltan/Documents/git/news/template/front/story_media.phtml:147
+#: template/front/story-download.phtml:168
+#: template/front/story-gallery.phtml:164 template/front/story-media.phtml:164
+#: template/front/story-text.phtml:202
 msgid "Related storys"
 msgstr "مطالب مشابه"
 
-#: /home/voltan/Documents/git/news/template/front/tag_list.phtml:18
+#: template/front/story-text.phtml:107
+msgid "Previous"
+msgstr "قبلی"
+
+#: template/front/story-text.phtml:112
+msgid "Next"
+msgstr "بعدی"
+
+#: template/front/story-text.phtml:187
+msgid "Share if you like"
+msgstr "اشتراک گذاری در شبکه های اجتماعی"
+
+#: template/front/tag-list.phtml:20
 msgid ""
 "No keyword has been used as tag on this part yet. please check this page "
 "later"
@@ -1527,11 +1632,68 @@ msgstr ""
 "هیچ اطلاعاتی از کلمات کلیدی به عنوان برچسب هنوز در سیستم درج نشده است. لطفا "
 "بعدا از این صفحه را بررسی فرمایید."
 
-#: /home/voltan/Documents/git/news/template/front/topic_list.phtml:27
+#: template/front/topic-list.phtml:32
 msgid "No topic has been made on this part yet. please check this page later"
 msgstr ""
 "هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "
 "بررسی فرمایید."
+
+#~ msgid "Extra field data saved successfully."
+#~ msgstr "اطلاعات فیلد اضافی با موفقیت ذخیره شد"
+
+#~ msgid "Extra field data not saved."
+#~ msgstr "اطلاعات فیلد اضافی ذخیره نشد"
+
+#~ msgid "Add Extra"
+#~ msgstr "فیلد جدید"
+
+#~ msgid "Go to topic list."
+#~ msgstr "به فهرست موضوعات منتقل می شوید"
+
+#~ msgid "Text : type text content"
+#~ msgstr "متن : نوشتن محتوای متنی"
+
+#~ msgid "Link : add url for click"
+#~ msgstr "لینک : اضافه کردن لینک برای کلیک"
+
+#~ msgid "Video : add flv or mp4 url for play on video player"
+#~ msgstr "ویدیو : درج لینک flv یا mp4 برای نمایش در پخش کننده ویدیو"
+
+#~ msgid "Audio : add mp3 url for play on audio player"
+#~ msgstr "صدا : درج لینک mp3 برای پخش در پخش کننده صوتی"
+
+#~ msgid "File : add file link for download"
+#~ msgstr "فایل : درج لینک فایل برای دانلود"
+
+#~ msgid "Currency : add view price for anything"
+#~ msgstr "قیمت : درج قیمت برای نمایش"
+
+#~ msgid "Date : add date for view"
+#~ msgstr "تاریخ : درج تاریخ برای نمایش"
+
+#~ msgid "Number : add number"
+#~ msgstr "عدد : درج عدد"
+
+#~ msgid "Select : add select box for choose"
+#~ msgstr "انتخاب : درج باکس انتخاب"
+
+#~ msgid "Value"
+#~ msgstr "مقدار"
+
+#~ msgid "Extra fields"
+#~ msgstr "فیلد های اضافی"
+
+#~ msgid "Attach file link"
+#~ msgstr "لینک فایل پیوست"
+
+#~ msgid "Attach file title"
+#~ msgstr "عنوان فایل پیوست"
+
+#~ msgid "Story title"
+#~ msgstr "عنوان مطلب"
+
+#~ msgid "List of extra fields"
+#~ msgstr "پسوند های مجار برای فایل"
 
 #~ msgid "Archive - %s - %s"
 #~ msgstr "آرشیو - %s - %s"
@@ -1569,9 +1731,6 @@ msgstr ""
 
 #~ msgid "This story deleted"
 #~ msgstr "مطلب انتخابی حذف شد"
-
-#~ msgid "By"
-#~ msgstr "به وسیله"
 
 #~ msgid "Comments"
 #~ msgstr "نظرات"
@@ -1642,12 +1801,6 @@ msgstr ""
 #~ msgid "Tools"
 #~ msgstr "ابزار"
 
-#~ msgid "Item"
-#~ msgstr "آیتم"
-
-#~ msgid "Number"
-#~ msgstr "تعداد"
-
 #~ msgid "Show date"
 #~ msgstr "نمایش تاریخ"
 
@@ -1692,9 +1845,6 @@ msgstr ""
 
 #~ msgid "Texts"
 #~ msgstr "متن ها"
-
-#~ msgid "File"
-#~ msgstr "فایل"
 
 #~ msgid "Advertisement"
 #~ msgstr "تبلیغ"

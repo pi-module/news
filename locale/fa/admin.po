@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-03-25 19:27+0330\n"
+"POT-Creation-Date: 2015-08-16 11:21+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,554 +9,568 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _a;_t\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /home/voltan/Documents/git/news\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /home/voltan/Documents/git/news/config/block.php:16
+#: config/block.php:16
 msgid "Item"
 msgstr "مورد"
 
-#: /home/voltan/Documents/git/news/config/block.php:22
-#: /home/voltan/Documents/git/news/config/block.php:118
-#: /home/voltan/Documents/git/news/config/block.php:186
-#: /home/voltan/Documents/git/news/config/block.php:262
-#: /home/voltan/Documents/git/news/config/block.php:316
-#: /home/voltan/Documents/git/news/config/config.php:104
-#: /home/voltan/Documents/git/news/config/navigation.php:81
-#: /home/voltan/Documents/git/news/config/page.php:47
-#: /home/voltan/Documents/git/news/config/page.php:61
-#: /home/voltan/Documents/git/news/config/permission.php:70
+#: config/block.php:22 config/block.php:152 config/block.php:220
+#: config/block.php:295 config/block.php:349 config/config.php:104
+#: config/navigation.php:81 config/page.php:52 config/page.php:66
+#: config/permission.php:70
 msgid "Topic"
 msgstr "موضوع"
 
-#: /home/voltan/Documents/git/news/config/block.php:29
-#: /home/voltan/Documents/git/news/config/block.php:125
-#: /home/voltan/Documents/git/news/config/block.php:193
-#: /home/voltan/Documents/git/news/config/block.php:378
+#: config/block.php:29 config/block.php:159 config/block.php:227
+#: config/block.php:435
 msgid "Number"
 msgstr "تعداد"
 
-#: /home/voltan/Documents/git/news/config/block.php:36
-#: /home/voltan/Documents/git/news/config/block.php:200
-#: /home/voltan/Documents/git/news/config/block.php:276
-#: /home/voltan/Documents/git/news/config/block.php:323
-msgid "Shwo text"
+#: config/block.php:36 config/block.php:234 config/block.php:309
+#: config/block.php:356
+msgid "Show text"
 msgstr "نمایش متن"
 
-#: /home/voltan/Documents/git/news/config/block.php:43
-#: /home/voltan/Documents/git/news/config/block.php:132
-#: /home/voltan/Documents/git/news/config/block.php:207
+#: config/block.php:43
+msgid "Text width limit"
+msgstr "محدودیت نمایش متن ( به کارکتر )"
+
+#: config/block.php:44
+msgid "Set 0 for no limit"
+msgstr "تنظیم ۰ برای عدم محدودیت"
+
+#: config/block.php:50 config/block.php:166 config/block.php:241
 msgid "Show date"
 msgstr "نمایش تاریخ"
 
-#: /home/voltan/Documents/git/news/config/block.php:50
-#: /home/voltan/Documents/git/news/config/block.php:139
-#: /home/voltan/Documents/git/news/config/block.php:214
+#: config/block.php:57 config/block.php:173 config/block.php:248
 msgid "Show hits"
 msgstr "نمایش بازدید"
 
-#: /home/voltan/Documents/git/news/config/block.php:57
-#: /home/voltan/Documents/git/news/config/block.php:283
-#: /home/voltan/Documents/git/news/config/block.php:330
+#: config/block.php:64 config/block.php:316 config/block.php:363
 msgid "Show Images"
 msgstr "نمایش تصاویر"
 
-#: /home/voltan/Documents/git/news/config/block.php:64
+#: config/block.php:71
 msgid "Show More link for each story"
 msgstr "نمایش لینک ادامه برای هر مطلب"
 
-#: /home/voltan/Documents/git/news/config/block.php:71
+#: config/block.php:78
 msgid "Show authors"
 msgstr "نمایش پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/config/block.php:78
-#: /home/voltan/Documents/git/news/config/block.php:146
-#: /home/voltan/Documents/git/news/config/block.php:221
-#: /home/voltan/Documents/git/news/config/block.php:337
+#: config/block.php:85 config/block.php:180 config/block.php:255
+#: config/block.php:370
 msgid "Show More link to module page"
 msgstr "نمایش لینک ادامه به ماژول"
 
-#: /home/voltan/Documents/git/news/config/block.php:85
-#: /home/voltan/Documents/git/news/config/block.php:153
-#: /home/voltan/Documents/git/news/config/block.php:228
-#: /home/voltan/Documents/git/news/config/block.php:344
+#: config/block.php:92 config/block.php:187 config/block.php:262
+#: config/block.php:377
 msgid "Set More link to module page"
 msgstr "درج لینک ادامه به ماژول"
 
-#: /home/voltan/Documents/git/news/config/block.php:92
-#: /home/voltan/Documents/git/news/config/block.php:160
-#: /home/voltan/Documents/git/news/config/block.php:235
-#: /home/voltan/Documents/git/news/config/block.php:290
-#: /home/voltan/Documents/git/news/config/config.php:139
+#: config/block.php:99 config/block.php:194 config/block.php:269
+#: config/block.php:323 config/config.php:139
 msgid "Story order"
 msgstr "مرتب سازی مطالب"
 
-#: /home/voltan/Documents/git/news/config/block.php:93
-#: /home/voltan/Documents/git/news/config/block.php:161
-#: /home/voltan/Documents/git/news/config/block.php:236
-#: /home/voltan/Documents/git/news/config/block.php:291
-#: /home/voltan/Documents/git/news/config/config.php:140
+#: config/block.php:100 config/block.php:195 config/block.php:270
+#: config/block.php:324 config/config.php:140
 msgid "Story list order options"
 msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
 
-#: /home/voltan/Documents/git/news/config/block.php:98
-#: /home/voltan/Documents/git/news/config/block.php:166
-#: /home/voltan/Documents/git/news/config/block.php:241
-#: /home/voltan/Documents/git/news/config/block.php:296
-#: /home/voltan/Documents/git/news/config/config.php:145
+#: config/block.php:105 config/block.php:200 config/block.php:275
+#: config/block.php:329 config/config.php:145
 msgid "Publish time DESC"
 msgstr "تاریخ انتشار - صعودی"
 
-#: /home/voltan/Documents/git/news/config/block.php:99
-#: /home/voltan/Documents/git/news/config/block.php:167
-#: /home/voltan/Documents/git/news/config/block.php:242
-#: /home/voltan/Documents/git/news/config/block.php:297
-#: /home/voltan/Documents/git/news/config/config.php:146
+#: config/block.php:106 config/block.php:201 config/block.php:276
+#: config/block.php:330 config/config.php:146
 msgid "Publish time ASC"
 msgstr "تاریخ انتشار - نزولی"
 
-#: /home/voltan/Documents/git/news/config/block.php:100
-#: /home/voltan/Documents/git/news/config/block.php:168
-#: /home/voltan/Documents/git/news/config/block.php:243
-#: /home/voltan/Documents/git/news/config/block.php:298
+#: config/block.php:107 config/block.php:202 config/block.php:277
+#: config/block.php:331
 msgid "Random"
 msgstr "تصادفی"
 
-#: /home/voltan/Documents/git/news/config/block.php:112
-msgid "list"
-msgstr "فهرست"
+#: config/block.php:115
+msgid "Item list type"
+msgstr "نوع نمایش فهرست"
 
-#: /home/voltan/Documents/git/news/config/block.php:180
-#: /home/voltan/Documents/git/news/config/config.php:101
-msgid "Table"
-msgstr "جدول"
+#: config/block.php:121
+msgid "Vertical"
+msgstr "عمودی"
 
-#: /home/voltan/Documents/git/news/config/block.php:256
-#: /home/voltan/Documents/git/news/config/config.php:40
-#: /home/voltan/Documents/git/news/config/config.php:103
-#: /home/voltan/Documents/git/news/config/navigation.php:90
-#: /home/voltan/Documents/git/news/config/page.php:32
-#: /home/voltan/Documents/git/news/config/permission.php:58
-msgid "Spotlight"
-msgstr "اسپات لایت"
+#: config/block.php:122
+msgid "Horizontal"
+msgstr "افقی"
 
-#: /home/voltan/Documents/git/news/config/block.php:269
-msgid "Number of stroies for each topic"
-msgstr "تعداد مطالب برای هر موضوع"
-
-#: /home/voltan/Documents/git/news/config/block.php:310
-msgid "List of topic"
-msgstr "فهرست موضوعات"
-
-#: /home/voltan/Documents/git/news/config/block.php:351
-msgid "Topic order"
-msgstr "مرتب سازی موضوعات"
-
-#: /home/voltan/Documents/git/news/config/block.php:352
-msgid "Topic list order options"
-msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش موضوعات"
-
-#: /home/voltan/Documents/git/news/config/block.php:357
-msgid "Create DESC"
-msgstr "تاریخ ایجاد صعودی"
-
-#: /home/voltan/Documents/git/news/config/block.php:358
-msgid "Create ASC"
-msgstr "تاریخ ایجاد نزولی"
-
-#: /home/voltan/Documents/git/news/config/block.php:359
-msgid "Title DESC"
-msgstr "عنوان صعودی"
-
-#: /home/voltan/Documents/git/news/config/block.php:360
-msgid "Title ASC"
-msgstr "عنوان نزولی"
-
-#: /home/voltan/Documents/git/news/config/block.php:372
-msgid "Gallery"
-msgstr "گالری"
-
-#: /home/voltan/Documents/git/news/config/block.php:385
-msgid "Show gallery effect"
-msgstr "نمایش افکت گالری"
-
-#: /home/voltan/Documents/git/news/config/block.php:392
-msgid "Image width class"
-msgstr "کلاس برای ابعدا تصویر"
-
-#: /home/voltan/Documents/git/news/config/block.php:393
-msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
-msgstr "بر اساس سیستم گرید بوت استرپ ۳ ، به طور مثال : col-xs-6 col-sm-6 col-md-3"
-
-#: /home/voltan/Documents/git/news/config/comment.php:15
-msgid "News comments"
-msgstr "نظرات اخبار"
-
-#: /home/voltan/Documents/git/news/config/config.php:16
-msgid "Admin"
-msgstr "بخش مدیر"
-
-#: /home/voltan/Documents/git/news/config/config.php:20
-msgid "Show"
-msgstr "نمایش"
-
-#: /home/voltan/Documents/git/news/config/config.php:24
-msgid "Feed"
-msgstr "خوراک"
-
-#: /home/voltan/Documents/git/news/config/config.php:28
-msgid "Image"
-msgstr "تصویر"
-
-#: /home/voltan/Documents/git/news/config/config.php:32
-msgid "File"
-msgstr "فایل"
-
-#: /home/voltan/Documents/git/news/config/config.php:36
-msgid "Social"
-msgstr "شبکه های اجتماعی"
-
-#: /home/voltan/Documents/git/news/config/config.php:44
-msgid "Vote"
-msgstr "رای"
-
-#: /home/voltan/Documents/git/news/config/config.php:48
-#: /home/voltan/Documents/git/news/config/navigation.php:27
-#: /home/voltan/Documents/git/news/config/page.php:99
-#: /home/voltan/Documents/git/news/config/permission.php:31
-msgid "Favourite"
-msgstr "علاقه مندی"
-
-#: /home/voltan/Documents/git/news/config/config.php:55
-msgid "Advertisement"
-msgstr "تبلیغات"
-
-#: /home/voltan/Documents/git/news/config/config.php:61
-#: /home/voltan/Documents/git/news/config/config.php:114
-msgid "Perpage"
-msgstr "تعداد در هر صفحه"
-
-#: /home/voltan/Documents/git/news/config/config.php:69
-msgid "Set topic as system page for support customise layout for blocks"
-msgstr "قراردادن موضوعات به عنوان یک صفحه سیستم برای شخصی سازی تنظیم بلاک و ویجت"
-
-#: /home/voltan/Documents/git/news/config/config.php:77
-msgid "Set story authors"
-msgstr "تنظیم پدیدآورنده های مطلب"
-
-#: /home/voltan/Documents/git/news/config/config.php:85
-msgid "Active json output"
-msgstr "فعال کردن تولید خروجی جیسون"
-
-#: /home/voltan/Documents/git/news/config/config.php:93
-msgid "Show Style"
-msgstr "نسبک نمایش"
-
-#: /home/voltan/Documents/git/news/config/config.php:99
-#: /home/voltan/Documents/git/news/config/module.php:16
-msgid "News"
-msgstr "اخبار"
-
-#: /home/voltan/Documents/git/news/config/config.php:100
+#: config/block.php:123 config/block.php:408 config/config.php:100
 msgid "List"
 msgstr "فهرست"
 
-#: /home/voltan/Documents/git/news/config/config.php:102
+#: config/block.php:124 config/block.php:214 config/config.php:101
+msgid "Table"
+msgstr "جدول"
+
+#: config/block.php:125 config/block.php:410 config/block.php:463
+msgid "Slide"
+msgstr "اسلاید"
+
+#: config/block.php:126
+msgid "Slide by hover effect"
+msgstr "اسلاید با افکت هاور"
+
+#: config/block.php:127
+msgid "Carousel"
+msgstr "اسلاید شو"
+
+#: config/block.php:135 config/block.php:418
+msgid "Use block effects"
+msgstr "استفاده از افکت های بلاک"
+
+#: config/block.php:136 config/block.php:419
+msgid "Use block effects or set custom effect on theme"
+msgstr "استفاده از افکت های جاوا اسکریپت بلاک یا شخصی سازی آن در قالب"
+
+#: config/block.php:146
+msgid "list"
+msgstr "فهرست"
+
+#: config/block.php:289 config/config.php:40 config/config.php:103
+#: config/navigation.php:90 config/page.php:37 config/permission.php:60
+msgid "Spotlight"
+msgstr "اسپات لایت"
+
+#: config/block.php:302
+msgid "Number of stroies for each topic"
+msgstr "تعداد مطالب برای هر موضوع"
+
+#: config/block.php:343
+msgid "List of topic"
+msgstr "فهرست موضوعات"
+
+#: config/block.php:384
+msgid "Topic order"
+msgstr "مرتب سازی موضوعات"
+
+#: config/block.php:385
+msgid "Topic list order options"
+msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش موضوعات"
+
+#: config/block.php:390
+msgid "Create DESC"
+msgstr "تاریخ ایجاد صعودی"
+
+#: config/block.php:391
+msgid "Create ASC"
+msgstr "تاریخ ایجاد نزولی"
+
+#: config/block.php:392
+msgid "Title DESC"
+msgstr "عنوان صعودی"
+
+#: config/block.php:393
+msgid "Title ASC"
+msgstr "عنوان نزولی"
+
+#: config/block.php:401
+msgid "Topic list type"
+msgstr "نوع نمایش فخرست موضوع ها"
+
+#: config/block.php:407 config/block.php:462
+msgid "Simple"
+msgstr "ساده"
+
+#: config/block.php:409
+msgid "List group"
+msgstr "فهرست شاخه ها"
+
+#: config/block.php:429
+msgid "Gallery"
+msgstr "گالری"
+
+#: config/block.php:442
+msgid "Show gallery effect"
+msgstr "نمایش افکت گالری"
+
+#: config/block.php:449
+msgid "Image width class"
+msgstr "کلاس برای ابعدا تصویر"
+
+#: config/block.php:450
+msgid "Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3"
+msgstr "بر اساس سیستم گرید بوت استرپ ۳ ، به طور مثال : col-xs-6 col-sm-6 col-md-3"
+
+#: config/block.php:456
+msgid "Image list type"
+msgstr "نوع نمایش فهرست تصاویر"
+
+#: config/comment.php:15
+msgid "News comments"
+msgstr "نظرات اخبار"
+
+#: config/config.php:16
+msgid "Admin"
+msgstr "بخش مدیر"
+
+#: config/config.php:20
+msgid "Show"
+msgstr "نمایش"
+
+#: config/config.php:24
+msgid "Feed"
+msgstr "خوراک"
+
+#: config/config.php:28
+msgid "Image"
+msgstr "تصویر"
+
+#: config/config.php:32
+msgid "File"
+msgstr "فایل"
+
+#: config/config.php:36
+msgid "Social"
+msgstr "شبکه های اجتماعی"
+
+#: config/config.php:44
+msgid "Vote"
+msgstr "رای"
+
+#: config/config.php:48 config/navigation.php:27 config/page.php:104
+#: config/permission.php:31
+msgid "Favourite"
+msgstr "علاقه مندی"
+
+#: config/config.php:55
+msgid "Advertisement"
+msgstr "تبلیغات"
+
+#: config/config.php:61 config/config.php:114
+msgid "Perpage"
+msgstr "تعداد در هر صفحه"
+
+#: config/config.php:69
+msgid "Set topic as system page for support customise layout for blocks"
+msgstr "قراردادن موضوعات به عنوان یک صفحه سیستم برای شخصی سازی تنظیم بلاک و ویجت"
+
+#: config/config.php:77
+msgid "Set story authors"
+msgstr "تنظیم پدیدآورنده های مطلب"
+
+#: config/config.php:85
+msgid "Active json output"
+msgstr "فعال کردن تولید خروجی جیسون"
+
+#: config/config.php:93
+msgid "Show Style"
+msgstr "نسبک نمایش"
+
+#: config/config.php:99 config/module.php:16
+msgid "News"
+msgstr "اخبار"
+
+#: config/config.php:102
 msgid "Media"
 msgstr "مدیا"
 
-#: /home/voltan/Documents/git/news/config/config.php:121
+#: config/config.php:121
 msgid "Columns"
 msgstr "ستون"
 
-#: /home/voltan/Documents/git/news/config/config.php:127
+#: config/config.php:127
 msgid "One column"
 msgstr "یک ستون"
 
-#: /home/voltan/Documents/git/news/config/config.php:128
+#: config/config.php:128
 msgid "Two columns"
 msgstr "دو ستون"
 
-#: /home/voltan/Documents/git/news/config/config.php:129
+#: config/config.php:129
 msgid "Three columns"
 msgstr "سه ستون"
 
-#: /home/voltan/Documents/git/news/config/config.php:130
+#: config/config.php:130
 msgid "Four columns"
 msgstr "چهار ستون"
 
-#: /home/voltan/Documents/git/news/config/config.php:156
+#: config/config.php:156
 msgid "Show Subtopic stories on main topic"
 msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
 
-#: /home/voltan/Documents/git/news/config/config.php:164
+#: config/config.php:164
 msgid "Show Topic"
 msgstr "نمایش موضوع"
 
-#: /home/voltan/Documents/git/news/config/config.php:172
+#: config/config.php:172
 msgid "Show Topic Information"
 msgstr "نمایش اطلاعات موضوع"
 
-#: /home/voltan/Documents/git/news/config/config.php:180
+#: config/config.php:180
 msgid "Show author"
 msgstr "نمایش پدیدآورنده"
 
-#: /home/voltan/Documents/git/news/config/config.php:188
+#: config/config.php:188
 msgid "Show Date"
 msgstr "نمایش تاریخ"
 
-#: /home/voltan/Documents/git/news/config/config.php:196
+#: config/config.php:196
 msgid "Show Pdf"
 msgstr "نمایش پی دی اف"
 
-#: /home/voltan/Documents/git/news/config/config.php:204
+#: config/config.php:204
 msgid "Show Print"
 msgstr "نمایش چاپ"
 
-#: /home/voltan/Documents/git/news/config/config.php:212
+#: config/config.php:212
 msgid "Show Mail"
 msgstr "نمایش معرفی به دوستان"
 
-#: /home/voltan/Documents/git/news/config/config.php:220
+#: config/config.php:220
 msgid "Show Hits"
 msgstr "نمایش بازدید"
 
-#: /home/voltan/Documents/git/news/config/config.php:228
+#: config/config.php:228
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
-#: /home/voltan/Documents/git/news/config/config.php:236
+#: config/config.php:236
 msgid "Show attach files"
 msgstr "نمایش فایل های پیوست شده"
 
-#: /home/voltan/Documents/git/news/config/config.php:244
-msgid "Show extra information"
-msgstr "نمایش فیلد های اضافی"
+#: config/config.php:244
+msgid "Show attribute information"
+msgstr "نمایش اطلاعات خواص"
 
-#: /home/voltan/Documents/git/news/config/config.php:252
+#: config/config.php:252
 msgid "Show navigation"
 msgstr "نمایش ناوبری"
 
-#: /home/voltan/Documents/git/news/config/config.php:260
+#: config/config.php:260
 msgid "Show spotlight"
 msgstr "نمایش اسپات لایت"
 
-#: /home/voltan/Documents/git/news/config/config.php:268
+#: config/config.php:268
 msgid "Show related news"
 msgstr "نمایش مطالب مشابه"
 
-#: /home/voltan/Documents/git/news/config/config.php:276
+#: config/config.php:276
 msgid "related number"
 msgstr "تعداد مطالب مشابه"
 
-#: /home/voltan/Documents/git/news/config/config.php:284
+#: config/config.php:284
 msgid "Just show news from X days ago"
 msgstr "فقط نمایش مطالب مربوط به X روز گذشته"
 
-#: /home/voltan/Documents/git/news/config/config.php:285
+#: config/config.php:285
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr "برای نمایش همه مطالب ۰ وارد کنید و یا محدوده روز های اخیر را مشخص کنید"
 
-#: /home/voltan/Documents/git/news/config/config.php:292
+#: config/config.php:292
 msgid "Show breadcrumbs"
 msgstr "نمایش ناوبری"
 
-#: /home/voltan/Documents/git/news/config/config.php:301
+#: config/config.php:301
 msgid "Show feed icon"
 msgstr "نمایش آیکن خوراک"
 
-#: /home/voltan/Documents/git/news/config/config.php:309
+#: config/config.php:309
 msgid "Feed number"
 msgstr "تعداد در صفحه خوراک"
 
-#: /home/voltan/Documents/git/news/config/config.php:318
+#: config/config.php:318
 msgid "Image Size"
 msgstr "حجم تصویر"
 
-#: /home/voltan/Documents/git/news/config/config.php:326
+#: config/config.php:326
 msgid "Image quality"
 msgstr "کیفیت تصویر "
 
-#: /home/voltan/Documents/git/news/config/config.php:327
+#: config/config.php:327
 msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
 msgstr "بین ۰ تا ۱۰۰ تنظیم شود و برای هر دو فرمت PNG و JPG ، مقدار پیش فرض ۷۵"
 
-#: /home/voltan/Documents/git/news/config/config.php:334
+#: config/config.php:334
 msgid "Image path"
 msgstr "مسیر ذخیره تصویر"
 
-#: /home/voltan/Documents/git/news/config/config.php:342
+#: config/config.php:342
 msgid "Image Extension"
 msgstr "پسوند های مجار برای تصویر"
 
-#: /home/voltan/Documents/git/news/config/config.php:350
+#: config/config.php:350
 msgid "Large Image height"
 msgstr "ارتفاع تصویر بزرگ"
 
-#: /home/voltan/Documents/git/news/config/config.php:358
+#: config/config.php:358
 msgid "Large Image width"
 msgstr "عرض تصویر بزرگ"
 
-#: /home/voltan/Documents/git/news/config/config.php:366
+#: config/config.php:366
 msgid "Medium Image height"
 msgstr "ارتفاع تصویر متوسط"
 
-#: /home/voltan/Documents/git/news/config/config.php:374
+#: config/config.php:374
 msgid "Medium Image width"
 msgstr "عرض تصویر متوسط"
 
-#: /home/voltan/Documents/git/news/config/config.php:382
+#: config/config.php:382
 msgid "Thumb Image height"
 msgstr "ارتفاع تصویر بندانگشتی"
 
-#: /home/voltan/Documents/git/news/config/config.php:390
+#: config/config.php:390
 msgid "Thumb Image width"
 msgstr "عرض تصویر بندانگشتی"
 
-#: /home/voltan/Documents/git/news/config/config.php:494
+#: config/config.php:494
 msgid "Use lightbox"
 msgstr "استفاده از لایت باکس"
 
-#: /home/voltan/Documents/git/news/config/config.php:502
+#: config/config.php:502
 msgid "Add Watermark"
 msgstr "اضافه کردن واترمارک به تصویر"
 
-#: /home/voltan/Documents/git/news/config/config.php:510
+#: config/config.php:510
 msgid "Watermark Image"
 msgstr "تصویر واترمارک"
 
-#: /home/voltan/Documents/git/news/config/config.php:517
+#: config/config.php:517
 msgid "Watermark Positio"
 msgstr "موقعیت واترمارک"
 
-#: /home/voltan/Documents/git/news/config/config.php:523
+#: config/config.php:523
 msgid "Top Left"
 msgstr "بالا چپ"
 
-#: /home/voltan/Documents/git/news/config/config.php:524
+#: config/config.php:524
 msgid "Top Right"
 msgstr "بالا راست"
 
-#: /home/voltan/Documents/git/news/config/config.php:525
+#: config/config.php:525
 msgid "Bottom Left"
 msgstr "پایین چپ"
 
-#: /home/voltan/Documents/git/news/config/config.php:526
+#: config/config.php:526
 msgid "Bottom Right"
 msgstr "پایین راست"
 
-#: /home/voltan/Documents/git/news/config/config.php:536
+#: config/config.php:536
 msgid "Social sharing items"
 msgstr "موارد اشتراک گذاری در شبکه های اجتماعی "
 
-#: /home/voltan/Documents/git/news/config/config.php:550
+#: config/config.php:550
 msgid "Number of stories"
 msgstr "تعداد مطالب"
 
-#: /home/voltan/Documents/git/news/config/config.php:558
+#: config/config.php:558
 msgid "Show Image for sub spotlights"
 msgstr "نمایش تصویر برای زیر اسپات لایت ها"
 
-#: /home/voltan/Documents/git/news/config/config.php:567
+#: config/config.php:567
 msgid "Use vote system"
 msgstr "استفاده از سیستم رای"
 
-#: /home/voltan/Documents/git/news/config/config.php:576
+#: config/config.php:576
 msgid "Use favourite system"
 msgstr "استفاده از سیستم مورد علاقه"
 
-#: /home/voltan/Documents/git/news/config/config.php:585
+#: config/config.php:585
 msgid "Description for index page"
 msgstr "متن توضیحات صفحه اول "
 
-#: /home/voltan/Documents/git/news/config/config.php:593
+#: config/config.php:593
 msgid "Force replace space by comma(,)"
 msgstr "جایگزینی اسپیس با کاما "
 
-#: /home/voltan/Documents/git/news/config/config.php:602
+#: config/config.php:602
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: /home/voltan/Documents/git/news/config/config.php:610
+#: config/config.php:610
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: /home/voltan/Documents/git/news/config/config.php:618
+#: config/config.php:618
 msgid "File Extension"
 msgstr "سوند های مجار برای فایل"
 
-#: /home/voltan/Documents/git/news/config/module.php:17
+#: config/module.php:17
 msgid "Manage News and Blog"
 msgstr "مدیریت اخبار و بلاگ و مطالب"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:16
+#: config/navigation.php:16
 msgid "Index"
 msgstr "صفحه اصلی"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:38
-#: /home/voltan/Documents/git/news/config/page.php:79
+#: config/navigation.php:38 config/page.php:84
 msgid "Topic list"
 msgstr "فهرست موضوع ها"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:49
-#: /home/voltan/Documents/git/news/config/page.php:86
+#: config/navigation.php:49 config/page.php:91
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:60
+#: config/navigation.php:60
 msgid "Author list"
 msgstr "فهرست پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:72
-#: /home/voltan/Documents/git/news/config/page.php:37
-#: /home/voltan/Documents/git/news/config/page.php:67
-#: /home/voltan/Documents/git/news/config/permission.php:64
+#: config/navigation.php:72 config/page.php:42 config/page.php:72
+#: config/permission.php:65
 msgid "Story"
 msgstr "مطلب"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:99
+#: config/navigation.php:99
 msgid "Attaced"
 msgstr "پیوست"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:108
-#: /home/voltan/Documents/git/news/config/page.php:27
-#: /home/voltan/Documents/git/news/config/permission.php:52
-msgid "Extra"
-msgstr "فیلد اضافی"
+#: config/navigation.php:108 config/page.php:27 config/permission.php:50
+msgid "Attribute"
+msgstr "خواص"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:117
-#: /home/voltan/Documents/git/news/config/page.php:22
-#: /home/voltan/Documents/git/news/config/page.php:93
-#: /home/voltan/Documents/git/news/config/permission.php:24
-#: /home/voltan/Documents/git/news/config/permission.php:46
+#: config/navigation.php:117 config/page.php:32 config/permission.php:55
+msgid "Attribute position"
+msgstr "موقعیت خواص"
+
+#: config/navigation.php:126 config/page.php:22 config/page.php:98
+#: config/permission.php:24 config/permission.php:45
 msgid "Authors"
 msgstr "پدیدآورنده ها"
 
-#: /home/voltan/Documents/git/news/config/navigation.php:126
-#: /home/voltan/Documents/git/news/config/page.php:42
-#: /home/voltan/Documents/git/news/config/permission.php:76
+#: config/navigation.php:135 config/page.php:47 config/permission.php:75
 msgid "Tools"
 msgstr "ابزار ها"
 
-#: /home/voltan/Documents/git/news/config/page.php:17
-#: /home/voltan/Documents/git/news/config/permission.php:40
+#: config/page.php:17 config/permission.php:40
 msgid "Attach"
 msgstr "پیوست"
 
-#: /home/voltan/Documents/git/news/config/page.php:55
+#: config/page.php:60
 msgid "Index page"
 msgstr "صفحه اصلی"
 
-#: /home/voltan/Documents/git/news/config/page.php:73
+#: config/page.php:78
 msgid "Tag"
 msgstr "برچسب"
 
-#: /home/voltan/Documents/git/news/config/permission.php:17
+#: config/permission.php:17
 msgid "Global public resource"
 msgstr "دسترسی های عمومی"
+
+#~ msgid "Shwo text"
+#~ msgstr "نمایش متن"
+
+#~ msgid "Show extra information"
+#~ msgstr "نمایش فیلد های اضافی"
+
+#~ msgid "Extra"
+#~ msgstr "فیلد اضافی"
 
 #~ msgid "Archive"
 #~ msgstr "آرشیو"
