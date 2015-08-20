@@ -72,7 +72,19 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'image') { ?>
-
+            <div class="news-topic-block-image text-center">
+                <?php foreach ($block['resources'] as $topic) { ?>
+                    <div class="p-item h-card h-review" itemprop="itemListElement">
+                        <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
+                           href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                            <img itemprop="image" class="img-responsive img-thumbnail u-photo"
+                                 src="<?php echo $this->escape($topic['mediumUrl']); ?>"
+                                 alt="<?php echo $this->escape($topic['title']); ?>"/>
+                        </a>
+                    </div>
+                    <meta itemprop="name" content="<?php echo $this->escape($topic['title']); ?>"/>
+                <?php } ?>
+            </div>
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">

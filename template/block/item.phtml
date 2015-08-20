@@ -22,7 +22,7 @@
                             </h3>
 
                             <div class="clearfix">
-                                <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
@@ -66,17 +66,17 @@
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                            <div class="col-xs-12">
+                            <div class="clearfix">
                                 <a itemprop="url" class="u-url"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                    <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="media-object img-rounded img-responsive u-photo"/>
+                                         class="media-object img-responsive u-photo"/>
                                 </a>
                             </div>
                         <?php } ?>
-                        <div class="media-body p-item h-card col-xs-12">
+                        <div class="media-body p-item h-card">
                             <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
                                 <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
@@ -85,7 +85,7 @@
                             </h3>
 
                             <div class="clearfix">
-                                <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
@@ -131,17 +131,17 @@
                     <?php if ($i == 1) { ?>
                         <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                                <div class="col-xs-12">
+                                <div class="clearfix">
                                     <a itemprop="url" class="u-url"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
-                                        <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                        <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"
-                                             class="media-object img-rounded img-responsive u-photo"/>
+                                             class="media-object img-responsive u-photo"/>
                                     </a>
                                 </div>
                             <?php } ?>
-                            <div class="media-body p-item h-card col-xs-12">
+                            <div class="media-body p-item h-card">
                                 <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
@@ -150,7 +150,7 @@
                                 </h3>
 
                                 <div class="clearfix">
-                                    <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                    <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                         <ul class="text-muted list-inline">
                                             <?php if ($block['showdate']) { ?>
                                                 <li class="dt-published"><i
@@ -188,9 +188,9 @@
                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } else { ?>
-                        <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
-                            <div class="media-body p-item h-card col-xs-12">
-                                <h4 class="media-heading p-name itemSingleTitle" itemprop="name headline">
+                        <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                            <div class="p-item h-card">
+                                <h4 class="p-name" itemprop="name headline">
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
                                         <?php echo $this->escape($story['title']); ?>
@@ -225,7 +225,7 @@
                             </h3>
 
                             <div class="clearfix">
-                                <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                     <ul class="text-muted list-unstyled small">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
@@ -394,7 +394,21 @@
                 </div>
             </div>
         <?php } elseif ($block['type'] == 'image') { ?>
-
+            <div class="news-item-block-image clearfix">
+                <?php foreach ($block['resources'] as $story) { ?>
+                    <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                        <a itemprop="url" class="u-url"
+                           href="<?php echo $this->escape($story['storyUrl']); ?>"
+                           title="<?php echo $this->escape($story['title']); ?>">
+                            <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                 alt="<?php echo $this->escape($story['title']); ?>"
+                                 class="img-responsive u-photo"/>
+                        </a>
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                    </div>
+                <?php } ?>
+            </div>
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">
