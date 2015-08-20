@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-08-16 11:20+0330\n"
+"POT-Creation-Date: 2015-08-20 22:01+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,38 +9,41 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _b\n"
-"X-Poedit-Basepath: ../../\n"
+"X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:163
-#: template/block/topic.phtml:62
+#: template/block/gallery.phtml:58 template/block/item.phtml:306
+#: template/block/topic.phtml:64
 msgid "View"
 msgstr ""
 
-#: template/block/item.phtml:29 template/block/item.phtml:89
-#: template/block/item.phtml:140 template/block/item.phtml:215
+#: template/block/item.phtml:29 template/block/item.phtml:92
+#: template/block/item.phtml:157 template/block/item.phtml:232
+#: template/block/item.phtml:283 template/block/item.phtml:358
 #: template/block/list.phtml:11 template/block/table.phtml:8
 msgid "Time"
 msgstr ""
 
-#: template/block/item.phtml:33 template/block/item.phtml:93
-#: template/block/item.phtml:144 template/block/item.phtml:219
+#: template/block/item.phtml:33 template/block/item.phtml:96
+#: template/block/item.phtml:161 template/block/item.phtml:236
+#: template/block/item.phtml:287 template/block/item.phtml:362
 #: template/block/list.phtml:16 template/block/table.phtml:10
 msgid "Read"
 msgstr ""
 
-#: template/block/item.phtml:54 template/block/item.phtml:114
+#: template/block/item.phtml:54 template/block/item.phtml:117
+#: template/block/item.phtml:182 template/block/item.phtml:257
 msgid "Read More"
 msgstr ""
 
-#: template/block/item.phtml:256 template/block/item.phtml:257
+#: template/block/item.phtml:401 template/block/item.phtml:402
 #: template/block/list.phtml:25 template/block/list.phtml:26
 #: template/block/table.phtml:28 template/block/table.phtml:29
-#: template/block/topic.phtml:75 template/block/topic.phtml:76
+#: template/block/topic.phtml:79 template/block/topic.phtml:80
 msgid "More stories"
 msgstr ""
 
