@@ -191,30 +191,6 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
-        'show_pdf' => array(
-            'category' => 'show',
-            'title' => _a('Show Pdf'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
-        'show_print' => array(
-            'category' => 'show',
-            'title' => _a('Show Print'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
-        'show_mail' => array(
-            'category' => 'show',
-            'title' => _a('Show Mail'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 1
-        ),
         'show_hits' => array(
             'category' => 'show',
             'title' => _a('Show Hits'),
@@ -274,6 +250,22 @@ return array(
         'related_num' => array(
             'category' => 'show',
             'title' => _a('related number'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 10
+        ),
+        'show_latest' => array(
+            'category' => 'show',
+            'title' => _a('Show latest news'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
+        'latest_num' => array(
+            'category' => 'show',
+            'title' => _a('latest number'),
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',

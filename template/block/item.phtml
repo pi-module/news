@@ -61,6 +61,149 @@
                     </div>
                 <?php } ?>
             </div>
+        <?php } elseif ($block['type'] == 'verticalwide') { ?>
+            <div class="news-item-block-verticalwide clearfix">
+                <?php foreach ($block['resources'] as $story) { ?>
+                    <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                        <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                            <div class="col-xs-12">
+                                <a itemprop="url" class="u-url"
+                                   href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"
+                                         class="media-object img-rounded img-responsive u-photo"/>
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <div class="media-body p-item h-card col-xs-12">
+                            <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
+                                <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <?php echo $this->escape($story['title']); ?>
+                                </a>
+                            </h3>
+
+                            <div class="clearfix">
+                                <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                    <ul class="text-muted list-inline">
+                                        <?php if ($block['showdate']) { ?>
+                                            <li class="dt-published"><i
+                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showhits']) { ?>
+                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showauthor']) { ?>
+                                            <?php foreach ($story['authors'] as $author) { ?>
+                                                <li>
+                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                       href="<?php echo $author['authorUrl']; ?>">
+                                                        <?php echo $author['authorName']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </ul>
+                                <?php } ?>
+                                <?php if ($block['showdesc']) { ?>
+                                    <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                <?php } ?>
+                                <?php if ($block['showmore']) { ?>
+                                    <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                          title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                    </p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } elseif ($block['type'] == 'verticalcompressed') { ?>
+            <div class="news-item-block-verticalcompressed clearfix">
+                <?php $i = 1; ?>
+                <?php foreach ($block['resources'] as $story) { ?>
+                    <?php if ($i == 1) { ?>
+                        <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                                <div class="col-xs-12">
+                                    <a itemprop="url" class="u-url"
+                                       href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                       title="<?php echo $this->escape($story['title']); ?>">
+                                        <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                             alt="<?php echo $this->escape($story['title']); ?>"
+                                             class="media-object img-rounded img-responsive u-photo"/>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                            <div class="media-body p-item h-card col-xs-12">
+                                <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
+                                    <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                       title="<?php echo $this->escape($story['title']); ?>">
+                                        <?php echo $this->escape($story['title']); ?>
+                                    </a>
+                                </h3>
+
+                                <div class="clearfix">
+                                    <?php if ($block['showdate'] || $block['showhits']) { ?>
+                                        <ul class="text-muted list-inline">
+                                            <?php if ($block['showdate']) { ?>
+                                                <li class="dt-published"><i
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                    : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                            <?php } ?>
+                                            <?php if ($block['showhits']) { ?>
+                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                    : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                            <?php } ?>
+                                            <?php if ($block['showauthor']) { ?>
+                                                <?php foreach ($story['authors'] as $author) { ?>
+                                                    <li>
+                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                        <a title="<?php echo $author['authorName']; ?>"
+                                                           href="<?php echo $author['authorUrl']; ?>">
+                                                            <?php echo $author['authorName']; ?>
+                                                        </a>
+                                                    </li>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </ul>
+                                    <?php } ?>
+                                    <?php if ($block['showdesc']) { ?>
+                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                    <?php } ?>
+                                    <?php if ($block['showmore']) { ?>
+                                        <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                              title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                        </p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <meta itemprop="datePublished"
+                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        </div>
+                    <?php } else { ?>
+                        <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                            <div class="media-body p-item h-card col-xs-12">
+                                <h4 class="media-heading p-name itemSingleTitle" itemprop="name headline">
+                                    <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                       title="<?php echo $this->escape($story['title']); ?>">
+                                        <?php echo $this->escape($story['title']); ?>
+                                    </a>
+                                </h4>
+                            </div>
+                            <meta itemprop="datePublished"
+                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        </div>
+                    <?php } ?>
+                    <?php $i++; ?>
+                <?php } ?>
+            </div>
         <?php } elseif ($block['type'] == 'horizontal') { ?>
             <div class="news-item-block-horizontal clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
@@ -250,6 +393,8 @@
                     </a>
                 </div>
             </div>
+        <?php } elseif ($block['type'] == 'image') { ?>
+
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">

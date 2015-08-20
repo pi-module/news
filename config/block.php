@@ -119,12 +119,15 @@ return array(
                     'options' => array(
                         'options' => array(
                             'vertical' => _a('Vertical'),
+                            'verticalwide' => _a('Vertical wide'),
+                            'verticalcompressed' => _a('Vertical compressed'),
                             'horizontal' => _a('Horizontal'),
                             'list' => _a('List'),
                             'table' => _a('Table'),
                             'slide' => _a('Slide'),
                             'slidehover' => _a('Slide by hover effect'),
                             'carousel' => _a('Carousel'),
+                            'image' => _a('Image'),
                         ),
                     ),
                 ),
@@ -404,10 +407,12 @@ return array(
                     'type' => 'select',
                     'options' => array(
                         'options' => array(
-                            'simple' => _a('Simple'),
+                            'vertical' => _a('Vertical'),
+                            'horizontal' => _a('Horizontal'),
                             'list' => _a('List'),
                             'listgroup' => _a('List group'),
                             'slide' => _a('Slide'),
+                            'image' => _a('Image'),
                         ),
                     ),
                 ),

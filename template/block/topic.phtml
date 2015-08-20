@@ -1,6 +1,6 @@
 <div class="news-block">
     <div class="news-topic-block clearfix" itemscope itemtype="http://schema.org/ItemList">
-        <?php if ($block['type'] == 'simple') { ?>
+        <?php if ($block['type'] == 'vertical') { ?>
             <div class="thumbnails">
                 <?php foreach ($block['resources'] as $topic) { ?>
                     <div class="col-sm-6 col-md-6 h-review" itemprop="itemListElement">
@@ -23,6 +23,8 @@
                     </div>
                 <?php } ?>
             </div>
+        <?php } elseif ($block['type'] == 'horizontal') { ?>
+
         <?php } elseif ($block['type'] == 'list') { ?>
             <ul class="list-unstyled clearfix">
                 <?php foreach ($block['resources'] as $topic) { ?>
@@ -69,6 +71,8 @@
                     </div>
                 <?php } ?>
             </div>
+        <?php } elseif ($block['type'] == 'image') { ?>
+
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">
