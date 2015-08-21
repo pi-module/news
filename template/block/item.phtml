@@ -125,7 +125,7 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'verticalcompressed') { ?>
-            <div class="news-item-block-verticalcompressed clearfix">
+            <div class="news-item-block-verticalcompressed list-group clearfix">
                 <?php $i = 1; ?>
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php if ($i == 1) { ?>
@@ -188,9 +188,10 @@
                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } else { ?>
-                        <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                        <div class="h-entry list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
                             <div class="p-item h-card">
                                 <h4 class="p-name" itemprop="name headline">
+                                    <i class="fa fa-angle-left"></i>
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
                                         <?php echo $this->escape($story['title']); ?>
