@@ -197,6 +197,8 @@
                                     </a>
                                 </h4>
                             </div>
+                            <meta itemprop="image"
+                                  content="<?php echo $this->escape($story['mediumUrl']); ?>"/>
                             <meta itemprop="datePublished"
                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
@@ -406,6 +408,10 @@
                         </a>
                         <meta itemprop="datePublished"
                               content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        <meta itemprop="name"
+                              content="<?php echo $this->escape($story['title']); ?>"/>
+                        <meta itemprop="headline"
+                              content="<?php echo $this->escape($story['title']); ?>"/>
                     </div>
                 <?php } ?>
             </div>
