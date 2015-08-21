@@ -49,10 +49,10 @@
             $this->jQuery();
             $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
             //$this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
-            $this->js($this->assetModule('js/caption.hover.js', 'news'));
-            $this->css($this->assetModule('css/owl.carousel.css', 'news'));
+            //$this->js($this->assetModule('js/caption.hover.js', 'news'));
+            //$this->css($this->assetModule('css/owl.carousel.css', 'news'));
             ?>
-            <div class="owl-carousel text-center clearfix hover-captions-container">
+            <div class="news-topic-block-slide owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $topic) { ?>
                     <div class="item hover-captions hover-captions-slide" itemprop="itemListElement">
                         <div class="hover-caption">
@@ -77,7 +77,7 @@
                     <div class="p-item h-card h-review" itemprop="itemListElement">
                         <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
                            href="<?php echo $this->escape($topic['topicUrl']); ?>">
-                            <img itemprop="image" class="img-responsive img-thumbnail u-photo"
+                            <img itemprop="image" class="img-responsive u-photo"
                                  src="<?php echo $this->escape($topic['mediumUrl']); ?>"
                                  alt="<?php echo $this->escape($topic['title']); ?>"/>
                         </a>
