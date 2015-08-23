@@ -91,13 +91,13 @@ if (!empty($story['largeUrl'])) {
                 <h2><?php echo $this->escape($story['subtitle']); ?></h2>
             <?php } ?>
             <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-                <div class="gallery col-md-12">
+                <div class="gallery text-center col-md-12">
                     <div class="storyImageMain">
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail u-photo">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="u-photo">
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
+                                    <img itemprop="image" class="img-responsive img-thumbnail" src="<?php echo $story['largeUrl']; ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
@@ -106,7 +106,6 @@ if (!empty($story['largeUrl'])) {
                     <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
                 </div>
             <?php } ?>
-            <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
             <div class="storyText e-content" itemprop="description"><?php echo $story['text_description']; ?></div>
             <div class="clearfix"></div>
             <?php include $this->template('front/attribute'); ?>

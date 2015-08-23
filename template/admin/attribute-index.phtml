@@ -67,7 +67,7 @@ $this->jQuery('ui/jquery-ui.min.js');
                                     </div>
                                     <div class="col-md-2">
                                         <a class="btn btn-link" title="<?php _e('Edit'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'update', 'id' => $field['id'])); ?>"><i
+                                           href="<?php echo $this->url('', array('action' => 'update', 'type' => $field['type'], 'id' => $field['id'])); ?>"><i
                                                 class="fa fa-edit"></i></a>
                                         <a class="btn btn-link" title="<?php _e('Delete'); ?>"
                                            href="<?php echo $this->url('', array('action' => 'delete', 'id' => $field['id'])); ?>"><i
