@@ -142,23 +142,23 @@ if (!empty($story['largeUrl'])) {
             </div>
         </div>
     </div>
-    <?php if ($config['show_nav']) { ?>
+    <?php //if ($config['show_nav']) { ?>
         <div class="itemPager">
             <ul class="pager">
                 <?php if (!empty($link['previous'])) { ?>
                     <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
-                                            href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a>
+                                            href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
                     </li>
                 <?php } ?>
                 <?php if (!empty($link['next'])) { ?>
                     <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
-                                        href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a>
+                                        href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
                     </li>
                 <?php } ?>
             </ul>
         </div>
-    <?php } ?>
-    <?php if (isset($relateds) && !empty($relateds)) { ?>
+    <?php //} ?>
+    <?php /* if (isset($relateds) && !empty($relateds)) { ?>
         <div class="itemList itemRelated">
             <h3><?php _e('Related storys'); ?></h3>
             <ul class="list-unstyled">
@@ -169,5 +169,5 @@ if (!empty($story['largeUrl'])) {
                 <?php } ?>
             </ul>
         </div>
-    <?php } ?>
+    <?php } */ ?>
 </div>

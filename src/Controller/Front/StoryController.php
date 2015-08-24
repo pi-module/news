@@ -48,13 +48,13 @@ class StoryController extends ActionController
         // Update Hits
         $this->getModel('story')->increment('hits', array('id' => $story['id']));
         // Links
-        if ($config['show_nav']) {
-            $link = Pi::api('story', 'news')->Link($story['id'], $story['topic']);
+        //if ($config['show_nav'] || $story['type'] == 'gallery') {
+            $link = Pi::api('story', 'news')->Link($story['id'], array($story['topic_main']));
             $this->view()->assign('link', $link);
-        }
+        //}
         // Related
         if ($config['show_related']) {
-            $related = Pi::api('story', 'news')->Related($story['id'], $story['topic']);
+            $related = Pi::api('story', 'news')->Related($story['id'], $story['topic_main']);
             $this->view()->assign('relateds', $related);
         }
         // Attached
@@ -84,7 +84,7 @@ class StoryController extends ActionController
             $vote['item'] = $story['id'];
             $vote['table'] = 'story';
             $vote['module'] = $module;
-            $vote['type'] = 'plus';
+            $vote['type'] = 'star';
             $this->view()->assign('vote', $vote);
         }
         // favourite
