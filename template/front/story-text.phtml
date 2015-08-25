@@ -197,16 +197,30 @@ if (!empty($story['largeUrl'])) {
                     </div>
                 <?php } ?>
                 <?php if (isset($relateds) && !empty($relateds)) { ?>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default news-story-related">
                         <div class="panel-heading">
                             <?php _e('Related storys'); ?>
                         </div>
                         <div class="list-group">
                             <?php foreach ($relateds as $related) { ?>
-                                <a class="list-group-item" title="<?php echo $this->escape($related['title']); ?>"
-                                   href="<?php echo $this->escape($related['storyUrl']); ?>">
-                                    <?php echo $this->escape($related['title']); ?>
-                                </a>
+                                <div class="list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <?php if ($related['image']) { ?>
+                                            <img itemprop="image" class="img-responsive u-photo"
+                                                 src="<?php echo $this->escape($related['thumbUrl']); ?>"
+                                                 alt="<?php echo $this->escape($related['title']); ?>"/>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($related['title']); ?>"
+                                               href="<?php echo $this->escape($related['storyUrl']); ?>">
+                                                <span class="p-name" itemprop="name headline"><?php echo $this->escape($related['title']); ?></span>
+                                            </a>
+                                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $related['time_publish'])); ?>" />
+                                        </div>
+                                    </div>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
