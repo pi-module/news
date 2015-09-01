@@ -33,10 +33,6 @@ class AttributeController extends ActionController
             $field[$row->position][$row->id] = $row->toArray();
             $field[$row->position][$row->id]['position_view'] = $position[$row->position];
         }
-        // Go to update page if empty
-        if (empty($field)) {
-            return $this->redirect()->toRoute('', array('action' => 'update'));
-        }
         // Set view
         $this->view()->setTemplate('attribute-index');
         $this->view()->assign('fields', $field);
