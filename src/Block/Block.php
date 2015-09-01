@@ -46,6 +46,11 @@ class Block
                 $order = array('time_publish DESC', 'id DESC');;
                 break;
         }
+        // skip show last X story
+        if ($block['notShowLastNews']) {
+            $ids = Pi::registry('newStory', 'news')->read();
+            $whereLink['id <> ?'] = $ids;
+        }
         // Get info from link table
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();

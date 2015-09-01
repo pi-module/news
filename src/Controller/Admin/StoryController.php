@@ -220,6 +220,8 @@ class StoryController extends ActionController
             if ($story->save()) {
                 // Update link table
                 $this->getModel('link')->update(array('status' => $story->status), array('story' => $story->id));
+                // Clear registry
+                Pi::registry('newStory', 'news')->clear();
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
@@ -409,6 +411,8 @@ class StoryController extends ActionController
                 Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
                 // Author
                 Pi::api('author', 'news')->setAuthorStory($row->id, $row->time_publish, $row->status, $author);
+                // Clear registry
+                Pi::registry('newStory', 'news')->clear();
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {

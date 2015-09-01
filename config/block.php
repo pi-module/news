@@ -141,6 +141,13 @@ return array(
                 'filter' => 'number_int',
                 'value' => 1,
             ),
+            'notShowLastNews' => array(
+                'title' => _a('Not show last news'),
+                'description' => _a('Buy active this option, you skip show last X news on this block and can show them on other block, it can help you to manage homepage to show all new story on one block and other storu on other blocks'),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
+            ),
         ),
     ),
 

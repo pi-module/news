@@ -239,6 +239,14 @@ return array(
             'filter' => 'number_int',
             'value' => 0
         ),
+        'view_breadcrumbs' => array(
+            'category' => 'show',
+            'title' => _a('Show breadcrumbs'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
         'show_related' => array(
             'category' => 'show',
             'title' => _a('Show related news'),
@@ -279,13 +287,13 @@ return array(
             'filter' => 'number_int',
             'value' => 0
         ),
-        'view_breadcrumbs' => array(
+        'newStory_num' => array(
             'category' => 'show',
-            'title' => _a('Show breadcrumbs'),
+            'title' => _a('New story number for registry'),
             'description' => '',
-            'edit' => 'checkbox',
+            'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 1
+            'value' => 7
         ),
         // Feed 
         'feed_icon' => array(
