@@ -411,8 +411,6 @@ class StoryController extends ActionController
                 Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->status, $row->uid);
                 // Author
                 Pi::api('author', 'news')->setAuthorStory($row->id, $row->time_publish, $row->status, $author);
-                // Clear registry
-                Pi::registry('spotlightStoryId', 'news')->clear();
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {
@@ -439,8 +437,8 @@ class StoryController extends ActionController
                 ) {
                     // Set values
                     $spotlightValues = array();
-                    $spotlightValues['time_publish'] = $row->time_publish;
-                    $spotlightValues['time_expire'] = $row->time_publish + (60 * 60 * 24 * 14);
+                    $spotlightValues['time_publish'] = time();
+                    $spotlightValues['time_expire'] = time() + (60 * 60 * 24 * 14);
                     $spotlightValues['uid'] = Pi::user()->getId();
                     $spotlightValues['story'] = $row->id;
                     $spotlightValues['topic'] = 0;
@@ -450,6 +448,8 @@ class StoryController extends ActionController
                     $spotlight->assign($spotlightValues);
                     $spotlight->save();
                 }
+                // Clear registry
+                Pi::registry('spotlightStoryId', 'news')->clear();
                 // Make jump information
                 $message = __('Story data saved successfully.');
                 $url = array('controller' => 'story', 'action' => 'additional', 'id' => $row->id);

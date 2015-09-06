@@ -17,12 +17,12 @@
             <th><?php _e('Action'); ?></th>
         </tr>
         <?php foreach ($spotlightList as $spotlight) { ?>
-            <tr>
+            <tr <?php if ($spotlight['time_expire'] < time()) { echo ' class="danger"';} ?>>
                 <td><?php echo $this->escape($spotlight['id']); ?></td>
                 <td><?php echo $this->escape($spotlight['storytitle']); ?></a></td>
                 <td><?php echo $this->escape($spotlight['topictitle']); ?></td>
-                <td><?php echo $this->escape($spotlight['time_publish']); ?></td>
-                <td><?php echo $this->escape($spotlight['time_expire']); ?></td>
+                <td><?php echo $this->escape($spotlight['time_publish_view']); ?></td>
+                <td><?php echo $this->escape($spotlight['time_expire_view']); ?></td>
                 <td>
                     <a class="btn btn-primary" title="<?php _e('Veiw story'); ?>"
                        href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug']))); ?>"><i

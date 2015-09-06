@@ -88,13 +88,13 @@ class Spotlight extends AbstractApi
 
     public function isSpotlight($story) {
         $where = array('story' => $story);
-        $select = Pi::model('spotlight', $this->getModule())->select()->where($where);
-        $count = Pi::model('spotlight', $this->getModule())->selectWith($select)->current()->count;
-        if ($count > 0) {
+        $columns = array('id', 'story');
+        $select = Pi::model('spotlight', $this->getModule())->select()->where($where)->columns($columns);
+        $rowset = Pi::model('spotlight', $this->getModule())->selectWith($select)->toArray();
+        if (count($rowset) > 0) {
             return true;
         } else {
             return false;
         }
-
     }
 }

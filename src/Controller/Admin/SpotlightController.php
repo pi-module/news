@@ -24,14 +24,11 @@ class SpotlightController extends ActionController
     {
         // Get page
         $page = $this->params('page', 1);
-        $whereSpotlight = array('time_expire > ?' => time());
+        $whereSpotlight = array();
         // Get story and topic
         $columns = array('story', 'topic');
         $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($columns);
         $idSet = $this->getModel('spotlight')->selectWith($select)->toArray();
-        if (empty($idSet)) {
-            return $this->redirect()->toRoute('', array('action' => 'update'));
-        }
         // Set topics and stores
         foreach ($idSet as $spotlight) {
             $topicArr[] = $spotlight['topic'];
@@ -76,8 +73,8 @@ class SpotlightController extends ActionController
             $spotlightList[$row->id]['storyslug'] = $storyList[$row->story]['slug'];
             $spotlightList[$row->id]['topictitle'] = $topicList[$row->topic]['title'];
             $spotlightList[$row->id]['topicslug'] = $topicList[$row->topic]['slug'];
-            $spotlightList[$row->id]['time_publish'] = _date($spotlightList[$row->id]['time_publish']);
-            $spotlightList[$row->id]['time_expire'] = _date($spotlightList[$row->id]['time_expire']);
+            $spotlightList[$row->id]['time_publish_view'] = _date($spotlightList[$row->id]['time_publish']);
+            $spotlightList[$row->id]['time_expire_view'] = _date($spotlightList[$row->id]['time_expire']);
         }
         // Set paginator
         $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
