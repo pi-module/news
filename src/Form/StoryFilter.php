@@ -95,6 +95,11 @@ class StoryFilter extends InputFilter
             'name' => 'important',
             'required' => false,
         ));
+        // spotlight
+        $this->add(array(
+            'name' => 'spotlight',
+            'required' => false,
+        ));
         // status
         $this->add(array(
             'name' => 'status',

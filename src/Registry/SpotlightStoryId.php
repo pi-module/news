@@ -19,7 +19,7 @@ use Pi\Application\Registry\AbstractRegistry;
 /**
  * News list
  */
-class NewStory extends AbstractRegistry
+class SpotlightStoryId extends AbstractRegistry
 {
     /** @var string Module name */
     protected $module = 'news';
@@ -33,15 +33,27 @@ class NewStory extends AbstractRegistry
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
         // Set info
-        $limit =  intval($config['newStory_num']);
+        $limit =  intval($config['spotlight_registry']);
         $order = array('time_publish DESC', 'id DESC');
-        $where = array('status' => 1);
-        $columns = array('id');
+        $where = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time());
+        $columns = array('id', 'story');
         // Select
-        $select = Pi::model('story', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
-        $rowset = Pi::model('story', $this->module)->selectWith($select);
+        $select = Pi::model('spotlight', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
+        $rowset = Pi::model('spotlight', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
             $ids[$row->id] = $row->id;
+        }
+        // Check empty
+        if (empty($ids)) {
+            // Set info
+            $where = array('status' => 1);
+            $columns = array('id');
+            // Select
+            $select = Pi::model('story', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
+            $rowset = Pi::model('story', $this->module)->selectWith($select);
+            foreach ($rowset as $row) {
+                $ids[$row->id] = $row->id;
+            }
         }
         // return
         return $ids;

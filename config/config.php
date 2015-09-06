@@ -287,15 +287,7 @@ return array(
             'filter' => 'number_int',
             'value' => 0
         ),
-        'newStory_num' => array(
-            'category' => 'show',
-            'title' => _a('New story number for registry'),
-            'description' => '',
-            'edit' => 'text',
-            'filter' => 'number_int',
-            'value' => 7
-        ),
-        // Feed 
+        // Feed
         'feed_icon' => array(
             'category' => 'feed',
             'title' => _a('Show feed icon'),
@@ -560,6 +552,14 @@ return array(
             'edit' => 'checkbox',
             'filter' => 'number_int',
             'value' => 0
+        ),
+        'spotlight_registry' => array(
+            'category' => 'spotlight',
+            'title' => _a('Spotlight story number for registry'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 7
         ),
         // Vote
         'vote_bar' => array(

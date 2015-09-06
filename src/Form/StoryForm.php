@@ -142,6 +142,17 @@ class StoryForm extends BaseForm
                 'description' => '',
             )
         ));
+        // spotlight
+        $this->add(array(
+            'name' => 'spotlight',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Add as spotlight'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
         // status
         $this->add(array(
             'name' => 'status',

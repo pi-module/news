@@ -221,7 +221,7 @@ class StoryController extends ActionController
                 // Update link table
                 $this->getModel('link')->update(array('status' => $story->status), array('story' => $story->id));
                 // Clear registry
-                Pi::registry('newStory', 'news')->clear();
+                Pi::registry('spotlightStoryId', 'news')->clear();
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
@@ -412,7 +412,7 @@ class StoryController extends ActionController
                 // Author
                 Pi::api('author', 'news')->setAuthorStory($row->id, $row->time_publish, $row->status, $author);
                 // Clear registry
-                Pi::registry('newStory', 'news')->clear();
+                Pi::registry('spotlightStoryId', 'news')->clear();
                 // Tag
                 if (isset($tag) && is_array($tag) && Pi::service('module')->isActive('tag')) {
                     if (empty($values['id'])) {
@@ -431,6 +431,24 @@ class StoryController extends ActionController
                     )));
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);
+                }
+                // Add as spotlight
+                if ($values['spotlight']
+                    && !Pi::api('spotlight', 'news')->isSpotlight($row->id)
+                    && $row->status == 1
+                ) {
+                    // Set values
+                    $spotlightValues = array();
+                    $spotlightValues['time_publish'] = $row->time_publish;
+                    $spotlightValues['time_expire'] = $row->time_publish + (60 * 60 * 24 * 14);
+                    $spotlightValues['uid'] = Pi::user()->getId();
+                    $spotlightValues['story'] = $row->id;
+                    $spotlightValues['topic'] = 0;
+                    $spotlightValues['status'] = $row->status;
+                    // Save values
+                    $spotlight = $this->getModel('spotlight')->createRow();
+                    $spotlight->assign($spotlightValues);
+                    $spotlight->save();
                 }
                 // Make jump information
                 $message = __('Story data saved successfully.');

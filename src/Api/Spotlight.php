@@ -17,6 +17,7 @@ use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('spotlight', 'news')->getSpotlight($topic);
+ * Pi::api('spotlight', 'news')->isSpotlight($story);
  */
 
 class Spotlight extends AbstractApi
@@ -83,5 +84,17 @@ class Spotlight extends AbstractApi
             return $spotlight;
         }
         return false;
+    }
+
+    public function isSpotlight($story) {
+        $where = array('story' => $story);
+        $select = Pi::model('spotlight', $this->getModule())->select()->where($where);
+        $count = Pi::model('spotlight', $this->getModule())->selectWith($select)->current()->count;
+        if ($count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

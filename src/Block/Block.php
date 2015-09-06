@@ -47,8 +47,8 @@ class Block
                 break;
         }
         // skip show last X story
-        if ($block['notShowLastNews']) {
-            $ids = Pi::registry('newStory', 'news')->read();
+        if ($block['notShowSpotlight']) {
+            $ids = Pi::registry('spotlightStoryId', 'news')->read();
             $whereLink['id <> ?'] = $ids;
         }
         // Get info from link table
@@ -84,85 +84,50 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Ckeck block ids
-        if (empty($block['topicid'])) {
-            return $block;
+        // Set model and get information
+        $whereSpotlight['status'] = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time());
+        $columns = array('story' => new Expression('DISTINCT story'));
+        $limit = intval($block['number']);
+        // Set order
+        switch ($block['order']) {
+            case 'random':
+                $order = array(new Expression('RAND()'));
+                break;
+
+            case 'publishASC':
+                $order = array('time_publish ASC', 'id ASC');;
+                break;
+
+            case 'publishDESC':
+            default:
+                $order = array('time_publish DESC', 'id DESC');;
+                break;
         }
-        // sort
-        rsort($block['topicid']);
-        // Make Block lope
-        foreach ($block['topicid'] as $topicId) {
-            $topic = Pi::model('topic', $module)->find($topicId)->toArray();
-            // Set topic url
-            $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module' => $module,
-                'controller' => 'topic',
-                'slug' => $topic['slug'],
-            )));
-            // Set image url
-            if ($topic['image']) {
-                // Set image medium url
-                $topic['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s',
-                        $config['image_path'],
-                        $topic['path'],
-                        $topic['image']
-                    ));
-                // Set image thumb url
-                $topic['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s',
-                        $config['image_path'],
-                        $topic['path'],
-                        $topic['image']
-                    ));
+        // Get info from link table
+        $select = Pi::model('spotlight', $module)->select()->where($whereSpotlight)->columns($columns)->order($order)->limit($limit);
+        $rowset = Pi::model('spotlight', $module)->selectWith($select)->toArray();
+        // Make list
+        foreach ($rowset as $id) {
+            $storyId[] = $id['story'];
+        }
+        // Set info
+        $whereStory = array('status' => 1, 'id' => $storyId);
+        // Get topic list
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
+        // Get list of story
+        $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
+        $rowset = Pi::model('story', $module)->selectWith($select);
+        // Make list
+        foreach ($rowset as $row) {
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
             }
-            // Set link model and get information
-            $whereLink = array('status' => 1, 'topic' => $topic['id']);
-            $columns = array('story' => new Expression('DISTINCT story'));
-            $limit = intval($block['number']);
-            // Set order
-            switch ($block['order']) {
-                case 'random':
-                    $order = array(new Expression('RAND()'));
-                    break;
-
-                case 'publishASC':
-                    $order = array('time_publish ASC', 'id ASC');;
-                    break;
-
-                case 'publishDESC':
-                default:
-                    $order = array('time_publish DESC', 'id DESC');;
-                    break;
-            }
-            // Get info from link table
-            $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
-            $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
-            // Make list
-            foreach ($rowset as $id) {
-                $storyId[] = $id['story'];
-            }
-            // Set info
-            $whereStory = array('status' => 1, 'id' => $storyId);
-            // Get list of story
-            $select = Pi::model('story', $module)->select()->where($whereStory);
-            $rowset = Pi::model('story', $module)->selectWith($select);
-            // Make list
-            $story = array();
-            foreach ($rowset as $row) {
-                $story[$row->id] = Pi::api('story', 'news')->canonizeStoryLight($row);
-            }
-            //
-            $spotlight[$topicId]['topic'] = $topic;
-            $spotlight[$topicId]['story'] = $story;
-            unset($topic);
-            unset($story);
-            unset($storyId);
         }
         // Set block array
-        $block['resources'] = $spotlight;
+        $block['resources'] = $story;
         return $block;
     }
 
