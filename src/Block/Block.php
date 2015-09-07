@@ -23,6 +23,7 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
+        $whereLink = array();
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
@@ -46,13 +47,17 @@ class Block
                 $order = array('time_publish DESC', 'id DESC');;
                 break;
         }
+        //
+        $select = Pi::model('link', $module)->select()->where($whereLink);
         // skip show last X story
-        if ($block['notShowSpotlight']) {
+        if (!$block['notShowSpotlight']) {
             $ids = Pi::registry('spotlightStoryId', 'news')->read();
-            $whereLink['id <> ?'] = $ids;
+            foreach ($ids as $id) {
+                $select->where(array('story != ?' => $id));
+            }
         }
         // Get info from link table
-        $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit($limit);
+        $select->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
         // Make list
         foreach ($rowset as $id) {

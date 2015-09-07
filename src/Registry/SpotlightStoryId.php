@@ -41,7 +41,7 @@ class SpotlightStoryId extends AbstractRegistry
         $select = Pi::model('spotlight', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('spotlight', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
-            $ids[$row->id] = $row->id;
+            $ids[$row->story] = $row->story;
         }
         // Check empty
         if (empty($ids)) {
