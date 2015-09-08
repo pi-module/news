@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-08-20 22:01+0430\n"
+"POT-Creation-Date: 2015-09-08 12:59+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,34 +16,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:306
-#: template/block/topic.phtml:64
+#: template/block/gallery.phtml:58 template/block/item.phtml:309
+#: template/block/spotlight.phtml:309 template/block/topic.phtml:64
 msgid "View"
 msgstr ""
 
 #: template/block/item.phtml:29 template/block/item.phtml:92
-#: template/block/item.phtml:157 template/block/item.phtml:232
-#: template/block/item.phtml:283 template/block/item.phtml:358
-#: template/block/list.phtml:11 template/block/table.phtml:8
+#: template/block/item.phtml:157 template/block/item.phtml:235
+#: template/block/item.phtml:286 template/block/item.phtml:361
+#: template/block/list.phtml:11 template/block/spotlight.phtml:29
+#: template/block/spotlight.phtml:92 template/block/spotlight.phtml:157
+#: template/block/spotlight.phtml:235 template/block/spotlight.phtml:286
+#: template/block/spotlight.phtml:361 template/block/table.phtml:8
 msgid "Time"
 msgstr ""
 
 #: template/block/item.phtml:33 template/block/item.phtml:96
-#: template/block/item.phtml:161 template/block/item.phtml:236
-#: template/block/item.phtml:287 template/block/item.phtml:362
-#: template/block/list.phtml:16 template/block/table.phtml:10
+#: template/block/item.phtml:161 template/block/item.phtml:239
+#: template/block/item.phtml:290 template/block/item.phtml:365
+#: template/block/list.phtml:16 template/block/spotlight.phtml:33
+#: template/block/spotlight.phtml:96 template/block/spotlight.phtml:161
+#: template/block/spotlight.phtml:239 template/block/spotlight.phtml:290
+#: template/block/spotlight.phtml:365 template/block/table.phtml:10
 msgid "Read"
 msgstr ""
 
 #: template/block/item.phtml:54 template/block/item.phtml:117
-#: template/block/item.phtml:182 template/block/item.phtml:257
+#: template/block/item.phtml:182 template/block/item.phtml:260
+#: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
+#: template/block/spotlight.phtml:182 template/block/spotlight.phtml:260
 msgid "Read More"
 msgstr ""
 
-#: template/block/item.phtml:401 template/block/item.phtml:402
+#: template/block/item.phtml:422 template/block/item.phtml:423
 #: template/block/list.phtml:25 template/block/list.phtml:26
+#: template/block/spotlight.phtml:422 template/block/spotlight.phtml:423
 #: template/block/table.phtml:28 template/block/table.phtml:29
-#: template/block/topic.phtml:79 template/block/topic.phtml:80
+#: template/block/topic.phtml:91 template/block/topic.phtml:92
 msgid "More stories"
 msgstr ""
 

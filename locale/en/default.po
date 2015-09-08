@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-08-20 22:01+0430\n"
+"POT-Creation-Date: 2015-09-08 12:59+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:108
-#: src/Form/StoryForm.php:170
+#: src/Form/StoryForm.php:181
 msgid "Text"
 msgstr ""
 
@@ -121,24 +121,24 @@ msgstr ""
 msgid "Please select file"
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:57
+#: src/Controller/Admin/AttributeController.php:53
 msgid "Attribute field type not set."
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:112
+#: src/Controller/Admin/AttributeController.php:108
 msgid "Attribute field data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:124
+#: src/Controller/Admin/AttributeController.php:120
 #, php-format
 msgid "Add attribute - type : %s"
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:156
+#: src/Controller/Admin/AttributeController.php:152
 msgid "Selected field delete"
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:158
+#: src/Controller/Admin/AttributeController.php:154
 msgid "Please select field"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgid "Not set"
 msgstr ""
 
 #: src/Controller/Admin/AuthorController.php:174
-#: src/Controller/Admin/StoryController.php:369
+#: src/Controller/Admin/StoryController.php:371
 #: src/Controller/Admin/TopicController.php:187
 msgid "Problem in upload image. please try again"
 msgstr ""
@@ -169,7 +169,7 @@ msgstr ""
 
 #: src/Controller/Admin/AuthorController.php:234
 #: src/Controller/Admin/AuthorController.php:302
-#: src/Controller/Admin/SpotlightController.php:139
+#: src/Controller/Admin/SpotlightController.php:136
 #: src/Controller/Admin/TopicController.php:285
 msgid "Invalid data, please check and re-submit."
 msgstr ""
@@ -189,14 +189,14 @@ msgid "Add Role"
 msgstr ""
 
 #: src/Controller/Admin/AuthorController.php:337
-#: src/Controller/Admin/StoryController.php:276
+#: src/Controller/Admin/StoryController.php:278
 #: src/Controller/Admin/TopicController.php:121
 #, php-format
 msgid "Image of %s removed"
 msgstr ""
 
 #: src/Controller/Admin/AuthorController.php:340
-#: src/Controller/Admin/StoryController.php:279
+#: src/Controller/Admin/StoryController.php:281
 #: src/Controller/Admin/TopicController.php:124
 msgid "Image not remove"
 msgstr ""
@@ -214,76 +214,76 @@ msgstr ""
 msgid "Add position"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:51
+#: src/Controller/Admin/SpotlightController.php:48
 #: src/Form/SpotlightForm.php:24
 msgid "Home Page"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:56
+#: src/Controller/Admin/SpotlightController.php:53
 #: src/Form/Element/Topic.php:73 src/Form/SpotlightForm.php:25
 msgid "All Topics"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:133
+#: src/Controller/Admin/SpotlightController.php:130
 msgid "Spotlight data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:136
+#: src/Controller/Admin/SpotlightController.php:133
 msgid "Spotlight data not saved."
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:154
+#: src/Controller/Admin/SpotlightController.php:151
 msgid "Add a Spotlight"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:167
+#: src/Controller/Admin/SpotlightController.php:164
 msgid "Selected spotlight delete"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:169
+#: src/Controller/Admin/SpotlightController.php:166
 msgid "Please select spotlight"
 msgstr ""
 
 #: src/Controller/Admin/StoryController.php:95
-#: src/Controller/Admin/TopicController.php:245 src/Form/StoryForm.php:173
+#: src/Controller/Admin/TopicController.php:245 src/Form/StoryForm.php:184
 #: template/admin/attach-add.phtml:62
 msgid "Download"
 msgstr ""
 
 #: src/Controller/Admin/StoryController.php:99
-#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:172
+#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:183
 #: src/Form/TopicForm.php:120
 msgid "Media"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:103 src/Form/StoryForm.php:171
+#: src/Controller/Admin/StoryController.php:103 src/Form/StoryForm.php:182
 msgid "Gallery"
 msgstr ""
 
 #: src/Controller/Admin/StoryController.php:199
-#: src/Controller/Admin/StoryController.php:246
-#: src/Controller/Admin/StoryController.php:283
-#: src/Controller/Admin/StoryController.php:489
+#: src/Controller/Admin/StoryController.php:248
+#: src/Controller/Admin/StoryController.php:285
+#: src/Controller/Admin/StoryController.php:511
 #: src/Controller/Admin/TopicController.php:128
 msgid "Please select story"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:235
+#: src/Controller/Admin/StoryController.php:237
 #, php-format
 msgid "%s story accept successfully"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:240
+#: src/Controller/Admin/StoryController.php:242
 #, php-format
 msgid "Error in accept %s story"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:432
+#: src/Controller/Admin/StoryController.php:454
 msgid "Story data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:457
-#: src/Controller/Admin/StoryController.php:558
+#: src/Controller/Admin/StoryController.php:479
+#: src/Controller/Admin/StoryController.php:580
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -291,8 +291,8 @@ msgid ""
 "next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:461
-#: src/Controller/Admin/StoryController.php:562
+#: src/Controller/Admin/StoryController.php:483
+#: src/Controller/Admin/StoryController.php:584
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -300,41 +300,41 @@ msgid ""
 "submit button , you can upload your media on next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:465
-#: src/Controller/Admin/StoryController.php:566
+#: src/Controller/Admin/StoryController.php:487
+#: src/Controller/Admin/StoryController.php:588
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:470
-#: src/Controller/Admin/StoryController.php:571
+#: src/Controller/Admin/StoryController.php:492
+#: src/Controller/Admin/StoryController.php:593
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:476
+#: src/Controller/Admin/StoryController.php:498
 msgid "Add a Story"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:524
+#: src/Controller/Admin/StoryController.php:546
 msgid "Download data saved successfully. Please attach your files"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:529
+#: src/Controller/Admin/StoryController.php:551
 msgid "Media data saved successfully. Please attach your medias"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:534
+#: src/Controller/Admin/StoryController.php:556
 msgid "Gallery data saved successfully. Please attach your images"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:540
+#: src/Controller/Admin/StoryController.php:562
 msgid "Text data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:577
+#: src/Controller/Admin/StoryController.php:599
 msgid "Manage additional information"
 msgstr ""
 
@@ -598,7 +598,7 @@ msgstr ""
 #: src/Form/AttachForm.php:60 src/Form/AttributeForm.php:89
 #: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
 #: src/Form/PositionForm.php:73 src/Form/SpotlightForm.php:105
-#: src/Form/StoryForm.php:150 src/Form/TopicForm.php:100
+#: src/Form/StoryForm.php:161 src/Form/TopicForm.php:100
 #: template/admin/attach-add.phtml:77
 msgid "Status"
 msgstr ""
@@ -617,7 +617,7 @@ msgstr ""
 #: src/Form/PruneForm.php:44 src/Form/RebuildForm.php:68
 #: src/Form/RegenerateImageForm.php:46 src/Form/SitemapForm.php:46
 #: src/Form/SpotlightForm.php:119 src/Form/StoryAdditionalForm.php:98
-#: src/Form/StoryForm.php:306 src/Form/TopicForm.php:438
+#: src/Form/StoryForm.php:317 src/Form/TopicForm.php:438
 msgid "Submit"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 
 #: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
 #: src/Form/PositionForm.php:75 src/Form/SpotlightForm.php:107
-#: src/Form/StoryForm.php:152 src/Form/TopicForm.php:102
+#: src/Form/StoryForm.php:163 src/Form/TopicForm.php:102
 #: template/admin/attach-index.phtml:51 template/admin/author-index.phtml:53
 #: template/admin/author-role.phtml:49 template/admin/story-index.phtml:40
 #: template/admin/story-index.phtml:42 template/admin/story-index.phtml:91
@@ -694,7 +694,7 @@ msgstr ""
 
 #: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
 #: src/Form/PositionForm.php:76 src/Form/SpotlightForm.php:108
-#: src/Form/StoryForm.php:153 src/Form/TopicForm.php:103
+#: src/Form/StoryForm.php:164 src/Form/TopicForm.php:103
 #: template/admin/attach-index.phtml:52 template/admin/author-index.phtml:54
 #: template/admin/author-role.phtml:50 template/admin/story-index.phtml:43
 #: template/admin/story-index.phtml:45 template/admin/story-index.phtml:142
@@ -704,19 +704,19 @@ msgstr ""
 
 #: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
 #: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
-#: src/Form/StoryForm.php:154 src/Form/TopicForm.php:104
+#: src/Form/StoryForm.php:165 src/Form/TopicForm.php:104
 #: template/admin/story-index.phtml:46 template/admin/story-index.phtml:48
 msgid "Draft"
 msgstr ""
 
 #: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
 #: src/Form/PositionForm.php:78 src/Form/SpotlightForm.php:110
-#: src/Form/StoryForm.php:155 src/Form/TopicForm.php:105
+#: src/Form/StoryForm.php:166 src/Form/TopicForm.php:105
 #: template/admin/story-index.phtml:49 template/admin/story-index.phtml:51
 msgid "Private"
 msgstr ""
 
-#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:195
+#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:206
 #: src/Form/TopicForm.php:144
 msgid "Remove image"
 msgstr ""
@@ -733,23 +733,23 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:224
+#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:235
 #: src/Form/TopicForm.php:173
 msgid "SEO options"
 msgstr ""
 
 #: src/Form/AuthorForm.php:144 src/Form/RebuildForm.php:33
-#: src/Form/StoryForm.php:231 src/Form/TopicForm.php:180
+#: src/Form/StoryForm.php:242 src/Form/TopicForm.php:180
 msgid "SEO Title"
 msgstr ""
 
 #: src/Form/AuthorForm.php:157 src/Form/RebuildForm.php:34
-#: src/Form/StoryForm.php:244 src/Form/TopicForm.php:193
+#: src/Form/StoryForm.php:255 src/Form/TopicForm.php:193
 msgid "SEO Keywords"
 msgstr ""
 
 #: src/Form/AuthorForm.php:170 src/Form/RebuildForm.php:35
-#: src/Form/StoryForm.php:257 src/Form/TopicForm.php:206
+#: src/Form/StoryForm.php:268 src/Form/TopicForm.php:206
 msgid "SEO Description"
 msgstr ""
 
@@ -897,28 +897,32 @@ msgstr ""
 msgid "Important"
 msgstr ""
 
-#: src/Form/StoryForm.php:156
+#: src/Form/StoryForm.php:150
+msgid "Add as spotlight"
+msgstr ""
+
+#: src/Form/StoryForm.php:167
 msgid "Remove"
 msgstr ""
 
-#: src/Form/StoryForm.php:168 template/admin/attach-add.phtml:73
+#: src/Form/StoryForm.php:179 template/admin/attach-add.phtml:73
 #: template/admin/attribute-index.phtml:61
 msgid "Type"
 msgstr ""
 
-#: src/Form/StoryForm.php:211
+#: src/Form/StoryForm.php:222
 msgid "Upload image"
 msgstr ""
 
-#: src/Form/StoryForm.php:272 template/front/story-text.phtml:170
+#: src/Form/StoryForm.php:283 template/front/story-text.phtml:170
 msgid "Tags"
 msgstr ""
 
-#: src/Form/StoryForm.php:276
+#: src/Form/StoryForm.php:287
 msgid "Use `|` as delimiter to separate tag terms"
 msgstr ""
 
-#: src/Form/StoryForm.php:287
+#: src/Form/StoryForm.php:298
 msgid "Authors"
 msgstr ""
 
@@ -1134,9 +1138,7 @@ msgstr ""
 
 #: template/admin/attach-add.phtml:29 template/admin/attach-add.phtml:30
 #: template/admin/attach-edit.phtml:34 template/admin/attach-edit.phtml:36
-#: template/admin/spotlight-update.phtml:4
-#: template/admin/spotlight-update.phtml:6 template/admin/story-view.phtml:39
-#: template/admin/story-view.phtml:41
+#: template/admin/story-view.phtml:39 template/admin/story-view.phtml:41
 msgid "Back"
 msgstr ""
 
@@ -1569,16 +1571,15 @@ msgid "Times"
 msgstr ""
 
 #: template/front/story-download.phtml:168
-#: template/front/story-gallery.phtml:164 template/front/story-media.phtml:164
-#: template/front/story-text.phtml:202
+#: template/front/story-media.phtml:164 template/front/story-text.phtml:202
 msgid "Related storys"
 msgstr ""
 
-#: template/front/story-text.phtml:107
+#: template/front/story-gallery.phtml:150 template/front/story-text.phtml:107
 msgid "Previous"
 msgstr ""
 
-#: template/front/story-text.phtml:112
+#: template/front/story-gallery.phtml:155 template/front/story-text.phtml:112
 msgid "Next"
 msgstr ""
 
