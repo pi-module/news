@@ -1,5 +1,5 @@
 <?php if (isset($attribute['all']) && !empty($attribute['all'])) { ?>
-    <div class="well clearfix">
+    <?php /*<div class="well clearfix">
         <div class="itemAttribute">
             <?php foreach ($attribute['all'] as $key => $attributeSingle) { ?>
                 <?php if ($key > 0) { ?>
@@ -45,6 +45,47 @@
                 <?php } ?>
                 <div class="clearfix"></div>
                 <hr/>
+            <?php } ?>
+        </div>
+    </div> */ ?>
+    <div class="clearfix">
+        <div class="itemAttribute">
+            <?php foreach ($attribute['all'] as $attributeSingle) { ?>
+                <h2 class="attribute-head"><?php echo $attributeSingle['title']; ?></h2>
+                <table class="table table-striped table-bordered table-condensed">
+                    <?php foreach ($attributeSingle['info'] as $field) { ?>
+                        <?php if (!empty($field['data'])) { ?>
+                            <tr>
+                                <?php if ($field['type'] == 'text' || $field['type'] == 'select') { ?>
+                                    <td class="col-md-3 attribute-title"><?php echo $field['title']; ?></td>
+                                    <td class="col-md-9 attribute-body"><?php echo $field['data']; ?></td>
+                                <?php } elseif ($field['type'] == 'link') { ?>
+                                    <td class="col-md-12 attribute-body" colspan="2"><a
+                                            title="<?php echo $field['title']; ?>" href="<?php echo $field['data']; ?>"
+                                            target="_blank"><?php echo $field['title']; ?></a></td>
+                                <?php } elseif ($field['type'] == 'file') { ?>
+                                    <td class="col-md-12 attribute-body" colspan="2"><a
+                                            title="<?php echo $field['title']; ?>"
+                                            href="<?php echo $field['data']; ?>"><?php echo $field['title']; ?></a></td>
+                                <?php } elseif ($field['type'] == 'currency') { ?>
+                                    <td class="col-md-3 attribute-title"><?php echo $field['title']; ?></td>
+                                    <td class="col-md-9 attribute-body"><?php echo $this->currencyFormat($field['data'], "USD", "en_US"); ?></td>
+                                <?php } elseif ($field['type'] == 'date') { ?>
+                                    <td class="col-md-3 attribute-title"><?php echo $field['title']; ?></td>
+                                    <td class="col-md-9 attribute-body"><?php echo $this->dateFormat($field['data'], IntlDateFormatter::MEDIUM, IntlDateFormatter::MEDIUM, "en_US"); ?></td>
+                                <?php } elseif ($field['type'] == 'number') { ?>
+                                    <td class="col-md-3 attribute-title"><?php echo $field['title']; ?></td>
+                                    <td class="col-md-9 attribute-body"><?php echo $this->numberFormat($field['data'], NumberFormatter::PATTERN_DECIMAL, NumberFormatter::TYPE_DEFAULT, "en_US"); ?></td>
+                                <?php } elseif ($field['type'] == 'checkbox') { ?>
+                                    <?php if ($field['data']) { ?>
+                                        <td class="col-md-12 attribute-body"
+                                            colspan="2"><?php echo $field['title']; ?></td>
+                                    <?php } ?>
+                                <?php } ?>
+                            </tr>
+                        <?php } ?>
+                    <?php } ?>
+                </table>
             <?php } ?>
         </div>
     </div>
