@@ -42,85 +42,100 @@ if (!empty($story['largeUrl'])) {
 <div class="clearfix" itemscope itemtype="http://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="panel panel-default h-entry">
-        <div class="panel-heading">
-            <h1 class="panel-title p-name" itemprop="name headline">
-                <?php if ($story['important']) { ?>
-                    <span class="label label label-important">
+    <div class="news-story-page clearfix h-entry">
+        <div class="col-md-8">
+            <div class="news-story-page-body">
+                <div class="clearfix storyHeader">
+                    <h1 class="p-name" itemprop="name headline">
+                        <?php if ($story['important']) { ?>
+                            <span class="label label-important">
 					    <?php _e('Important'); ?>
 				    </span>
-                <?php } ?>
-                <?php echo $this->escape($story['title']); ?>
-            </h1>
-            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
-        </div>
-        <div class="panel-body">
-            <div class="clearfix">
-                <div class="pull-right">
-                    <?php if ($config['show_date']) { ?>
-                        <span class="itemPostDate dt-published">
-					        <?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
-				        </span>
-                    <?php } ?>
-                    <?php if ($config['show_hits']) { ?>
-                        <span class="itemStats">
-					        <?php _e('Read'); ?>
-                            : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
-				        </span>
-                    <?php } ?>
+                        <?php } ?>
+                        <?php echo $this->escape($story['title']); ?>
+                    </h1>
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                    <div class="clearfix">
+                        <ul class="list-inline text-muted">
+                            <?php if ($config['show_date']) { ?>
+                                <li class="itemPostDate dt-published">
+                                    <i class="fa fa-calendar"></i> <?php _e('Time'); ?>
+                                    : <?php echo $this->escape($story['time_publish_view']); ?>
+                                </li>
+                            <?php } ?>
+                            <?php if ($config['show_hits']) { ?>
+                                <li class="itemStats">
+                                    <i class="fa fa-eye"></i> <?php _e('Read'); ?>
+                                    : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+                                </li>
+                            <?php } ?>
+                            <?php if ($config['show_topic']) { ?>
+                                <li><i class="fa fa-folder"></i> <?php _e('Topics'); ?> :
+                                    <?php foreach ($story['topics'] as $storyTopic) { ?>
+                                        <span class=" p-category" itemprop="about">
+                                        <a title="<?php echo $storyTopic['title']; ?>"
+                                           href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a>
+                                    </span>
+                                    <?php } ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
-                <?php if (!empty($story['authors']) && $config['show_author']) { ?>
-                    <div class="pull-left">
-                        <?php foreach ($story['authors'] as $author) { ?>
-                            <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a
-                                    title="<?php echo $author['authorName']; ?>"
-                                    href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
-                        <?php } ?>
-                    </div>
+                <div class="storyMedia text-center">
+                    <?php include $this->template('front/attach-video'); ?>
+                    <?php include $this->template('front/attribute-video'); ?>
+                    <?php include $this->template('front/attach-audio'); ?>
+                    <?php include $this->template('front/attribute-audio'); ?>
+                </div>
+                <?php if ($story['subtitle']) { ?>
+                    <p><?php echo $this->escape($story['subtitle']); ?></p>
                 <?php } ?>
-                <?php if ($config['show_topic']) { ?>
-                    <div class="pull-left"><?php _e('Topics'); ?> :
-                        <?php foreach ($story['topics'] as $storyTopic) { ?>
-                            <span class=" p-category" itemprop="about"><a title="<?php echo $storyTopic['title']; ?>"
-                                                                          href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-                        <?php } ?>
+                <?php /*  <div class="clearfix p-summary" itemprop="description">
+                    <?php echo $story['text_summary']; ?>
+                </div>  */ ?>
+                <div class="clearfix e-content" itemprop="description">
+                    <?php echo $story['text_description']; ?>
+                </div>
+                <div class="storyMedia clearfix">
+                    <?php include $this->template('front/attach'); ?>
+                </div>
+                <?php if ($config['show_nav']) { ?>
+                    <div class="itemPager">
+                        <ul class="pager">
+                            <?php if (!empty($link['previous'])) { ?>
+                                <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
+                                                        href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
+                                </li>
+                            <?php } ?>
+                            <?php if (!empty($link['next'])) { ?>
+                                <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
+                                                    href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </div>
                 <?php } ?>
             </div>
-            <?php if ($story['subtitle']) { ?>
-                <h2><?php echo $this->escape($story['subtitle']); ?></h2>
-            <?php } ?>
-            <div class="storyMedia text-center">
-                <?php include $this->template('front/attach-video'); ?>
-                <?php include $this->template('front/attribute-video'); ?>
-                <?php include $this->template('front/attach-audio'); ?>
-                <?php include $this->template('front/attribute-audio'); ?>
-            </div>
-            <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-                <div class="gallery col-md-4">
-                    <div class="storyImageMain">
-                        <div class="col-sm-6 col-md-12">
+        </div>
+        <div class="col-md-4">
+            <div class="news-story-page-side">
+                <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
+                    <div class="gallery">
+                        <?php /* <div class="storyImageMain">
                             <div class="thumbnail u-photo">
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
+                                    <img itemprop="image" class="img-responsive"
+                                         src="<?php echo $this->escape($story['mediumUrl']); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
-                        </div>
+                        </div> */ ?>
+                        <div class="storyImageAttach row"><?php include $this->template('front/attach-image'); ?></div>
                     </div>
-                    <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
-                </div>
-            <?php } ?>
-            <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
-            <div class="storyText e-content" itemprop="description"><?php echo $story['text_description']; ?></div>
-            <div class="clearfix"></div>
-            <?php include $this->template('front/attribute'); ?>
-            <?php include $this->template('front/attribute-file'); ?>
-            <?php include $this->template('front/tag'); ?>
-            <?php include $this->template('front/attach'); ?>
-            <div class="clearfix">
-                <div class="col-md-7 col-sm-10 col-xs-12">
+                <?php } ?>
+                <div class="clearfix">
                     <ul class="list-inline">
                         <li><?php if (!empty($vote)) {
                                 include $this->template('votebar.phtml', 'front', 'vote');
@@ -130,45 +145,88 @@ if (!empty($story['largeUrl'])) {
                             } ?></li>
                     </ul>
                 </div>
+                <?php if (!empty($story['authors']) && $config['show_author']) { ?>
+                    <div class="clearfix">
+                        <?php foreach ($story['authors'] as $author) { ?>
+                            <div class="p-author clearfix" itemprop="publisher">
+                                <p class="text-center">
+                                    <img itemprop="image" class="img-circle"
+                                         src="<?php echo $this->escape($author['authorThumbUrl']); ?>"
+                                         alt="<?php echo $this->escape($author['authorName']); ?>"/>
+                                </p>
+
+                                <p class="text-center">
+                                    <?php echo $this->escape($author['authorRole']); ?> :
+                                    <a title="<?php echo $this->escape($author['authorName']); ?>"
+                                       href="<?php echo $this->escape($author['authorUrl']); ?>">
+                                        <?php echo $this->escape($author['authorName']); ?>
+                                    </a>
+                                </p>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+                <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
+                    <div class="well clearfix">
+                        <h2><?php _e('Tags'); ?></h2>
+                        <ul class="tagList list-inline">
+                            <?php foreach ($tag as $term) { ?>
+                                <li class="tagItem">
+                                    <a title="<?php echo $this->escape($term); ?>"
+                                       href="<?php echo Pi::url($this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)))); ?>">
+                                        <i class="fa fa-tag"></i> <?php echo $this->escape($term); ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                <?php } ?>
+                <?php include $this->template('front/attribute'); ?>
                 <?php if ($config['social_sharing']) { ?>
-                    <div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
-                        <?php echo $this->socialSharing(
-                            $config['social_sharing'],
-                            $this->escape($story['title']),
-                            $this->escape($story['storyUrl']),
-                            $this->escape($story['largeUrl'])
-                        ); ?>
+                    <div class="clearfix">
+                        <div class="col-md-12 col-sm-12 col-xs-12 socialSharingText">
+                            <strong><?php _e('Share if you like'); ?></strong>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 socialSharing">
+                            <?php echo $this->socialSharing(
+                                $config['social_sharing'],
+                                $this->escape($story['title']),
+                                $this->escape($story['storyUrl']),
+                                $this->escape($story['largeUrl'])
+                            ); ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if (isset($relateds) && !empty($relateds)) { ?>
+                    <div class="panel panel-default news-story-related">
+                        <div class="panel-heading">
+                            <?php _e('Related storys'); ?>
+                        </div>
+                        <div class="list-group">
+                            <?php foreach ($relateds as $related) { ?>
+                                <div class="list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <?php if ($related['image']) { ?>
+                                                <img itemprop="image" class="img-responsive u-photo"
+                                                     src="<?php echo $this->escape($related['thumbUrl']); ?>"
+                                                     alt="<?php echo $this->escape($related['title']); ?>"/>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <a itemprop="url" class="u-url" title="<?php echo $this->escape($related['title']); ?>"
+                                               href="<?php echo $this->escape($related['storyUrl']); ?>">
+                                                <span class="p-name" itemprop="name headline"><?php echo $this->escape($related['title']); ?></span>
+                                            </a>
+                                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $related['time_publish'])); ?>" />
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
         </div>
     </div>
-    <?php if ($config['show_nav']) { ?>
-        <div class="itemPager">
-            <ul class="pager">
-                <?php if (!empty($link['previous'])) { ?>
-                    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
-                                            href="<?php echo $this->escape($link['previous']['url']); ?>"><?php echo $this->escape($link['previous']['title']); ?></a>
-                    </li>
-                <?php } ?>
-                <?php if (!empty($link['next'])) { ?>
-                    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
-                                        href="<?php echo $this->escape($link['next']['url']); ?>"><?php echo $this->escape($link['next']['title']); ?></a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    <?php } ?>
-    <?php if (isset($relateds) && !empty($relateds)) { ?>
-        <div class="itemList itemRelated">
-            <h3><?php _e('Related storys'); ?></h3>
-            <ul class="list-unstyled">
-                <?php foreach ($relateds as $related) { ?>
-                    <li><a title="<?php echo $this->escape($related['title']); ?>"
-                           href="<?php echo $this->escape($related['storyUrl']); ?>"><?php echo $this->escape($related['title']); ?></a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    <?php } ?>
 </div>
