@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-09-08 12:59+0430\n"
+"POT-Creation-Date: 2015-09-20 19:41+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,14 +16,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:309
+#: template/block/gallery.phtml:58 template/block/item.phtml:311
 #: template/block/spotlight.phtml:309 template/block/topic.phtml:64
 msgid "View"
 msgstr ""
 
 #: template/block/item.phtml:29 template/block/item.phtml:92
-#: template/block/item.phtml:157 template/block/item.phtml:235
-#: template/block/item.phtml:286 template/block/item.phtml:361
+#: template/block/item.phtml:157 template/block/item.phtml:236
+#: template/block/item.phtml:288 template/block/item.phtml:363
 #: template/block/list.phtml:11 template/block/spotlight.phtml:29
 #: template/block/spotlight.phtml:92 template/block/spotlight.phtml:157
 #: template/block/spotlight.phtml:235 template/block/spotlight.phtml:286
@@ -32,8 +32,8 @@ msgid "Time"
 msgstr ""
 
 #: template/block/item.phtml:33 template/block/item.phtml:96
-#: template/block/item.phtml:161 template/block/item.phtml:239
-#: template/block/item.phtml:290 template/block/item.phtml:365
+#: template/block/item.phtml:161 template/block/item.phtml:240
+#: template/block/item.phtml:292 template/block/item.phtml:367
 #: template/block/list.phtml:16 template/block/spotlight.phtml:33
 #: template/block/spotlight.phtml:96 template/block/spotlight.phtml:161
 #: template/block/spotlight.phtml:239 template/block/spotlight.phtml:290
@@ -42,13 +42,13 @@ msgid "Read"
 msgstr ""
 
 #: template/block/item.phtml:54 template/block/item.phtml:117
-#: template/block/item.phtml:182 template/block/item.phtml:260
+#: template/block/item.phtml:182 template/block/item.phtml:261
 #: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
 #: template/block/spotlight.phtml:182 template/block/spotlight.phtml:260
 msgid "Read More"
 msgstr ""
 
-#: template/block/item.phtml:422 template/block/item.phtml:423
+#: template/block/item.phtml:424 template/block/item.phtml:425
 #: template/block/list.phtml:25 template/block/list.phtml:26
 #: template/block/spotlight.phtml:422 template/block/spotlight.phtml:423
 #: template/block/table.phtml:28 template/block/table.phtml:29
