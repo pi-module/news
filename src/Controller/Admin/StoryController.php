@@ -98,7 +98,7 @@ class StoryController extends ActionController
                 $story[$row->id]['storyUrl'] = $this->url('news', array(
                     'module' => $module,
                     'controller' => 'story',
-                    'slug' => $story['slug']
+                    'slug' => $row->slug
                 ));
             } else {
                 $story[$row->id]['storyUrl'] = '';
@@ -572,6 +572,34 @@ class StoryController extends ActionController
         // Get attribute field
         $fields = Pi::api('attribute', 'news')->Get($story['topic_main']);
         $option['field'] = $fields['attribute'];
+        // Check attribute is empty
+        if (empty($fields['attribute'])) {
+            // Make jump information
+            switch ($story['type']) {
+                case 'download':
+                    $message = __('Download data saved successfully. Please attach your files');
+                    $url = array('controller' => 'attach', 'action' => 'add', 'id' => $story['id']);
+                    break;
+
+                case 'media':
+                    $message = __('Media data saved successfully. Please attach your medias');
+                    $url = array('controller' => 'attach', 'action' => 'add', 'id' => $story['id']);
+                    break;
+
+                case 'gallery':
+                    $message = __('Gallery data saved successfully. Please attach your images');
+                    $url = array('controller' => 'attach', 'action' => 'add', 'id' => $story['id']);
+                    break;
+
+                case 'text':
+                default:
+                    $message = __('Text data saved successfully.');
+                    $url = array('controller' => 'story', 'action' => 'index');
+                    break;
+            }
+            // Do jump
+            $this->jump($url, $message);
+        }
         // Check post
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
@@ -657,6 +685,8 @@ class StoryController extends ActionController
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Manage additional information'));
         $this->view()->assign('message', $message);
+        $this->view()->assign('story', $story);
+        $this->view()->assign('content', '');
     }
 
     /* public function deleteAction()
