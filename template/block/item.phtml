@@ -215,7 +215,7 @@
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                    <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
                                          class="media-object img-responsive u-photo"/>
                                 </a>

@@ -7,18 +7,19 @@
 }
 
 .upload-carousel-btn {
-    height: 140px;
-    border: 2px dashed #ccc;
-    background-color: #f2f2f2;
-    background-image: url('../image/plus.png');
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 180px;
+
 }
 
 .fileinput-button {
     overflow: hidden;
     cursor: pointer;
     position: relative;
+    border: 2px dashed #ccc;
+    background-color: #f2f2f2;
+    background-image: url('../image/plus.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fileinput-button input {
@@ -77,6 +78,7 @@
 #progress {
     margin-top: 10px;
     border: 1px solid #ccc;
+    height: 18px;
 }
 
 .bar {
