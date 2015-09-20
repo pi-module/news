@@ -18,7 +18,7 @@ $this->Backbone();
     </legend>
     <div id="attach-form">
         <div class="controls" id="js-carousel" style="overflow:hidden;">
-            <div class="upload-carousel-btn">
+            <div class="upload-carousel-btn col-md-3">
                 <div class="upload-carousel-add">
                     <div class="fileinput-button">
                         <input type="file" name="file" multiple style="width: 100%;">
@@ -125,7 +125,7 @@ $this->Backbone();
     }
     var carouselCollection = new Backbone.Collection(<?php echo $content ?: '[]'; ?>);
     var carouselItemView = Backbone.View.extend({
-        className: "upload-carousel-item",
+        className: "upload-carousel-item col-md-3",
         events: {
             "click .remove-attach": "cancel",
         },

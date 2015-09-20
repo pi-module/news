@@ -12,26 +12,48 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
 $this->Backbone();
 ?>
 <div class="clearfix">
-    <div class="alert alert-success"><?php echo $message; ?></div>
     <h3><?php echo $this->escape($title); ?></h3>
+    <div class="alert alert-success"><?php echo $message; ?></div>
     <div id="story-form">
         <?php echo $this->form($form); ?>
     </div>
-    <div class="clearfix">
-        <legend>
-            <label for="extra_files"><?php _e('Attach extra images and files'); ?></label>
-        </legend>
-        <div id="attach-form">
-            <div class="controls" id="js-carousel" style="overflow:hidden;">
-                <div class="upload-carousel-btn">
-                    <div class="upload-carousel-add">
-                        <div class="fileinput-button">
-                            <input type="file" name="file" multiple style="width: 100%;">
-                            <i class="fa fa-plus"></i>
+    <!-- Attach media Modal -->
+    <div class="modal fade" id="attachFile" tabindex="-1" role="dialog" aria-labelledby="attachFileLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="attachFileLabel">
+                        <?php _e('Attach extra images and files'); ?>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="attach-form">
+                                <div class="controls" id="js-carousel" style="overflow:hidden;">
+                                    <div class="upload-carousel-btn col-md-3">
+                                        <div class="upload-carousel-add">
+                                            <div class="fileinput-button">
+                                                <input type="file" name="file" multiple style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div id="progress">
+                                            <div class="bar" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div id="progress">
-                        <div class="bar" style="width: 0%;"></div>
+                </div>
+                <div class="modal-footer">
+                    <div class="alert alert-success clearfix" role="alert">
+                        <div class="col-md-10 text-left">
+                            <?php _e('Just close the attach system after finish upload'); ?>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Close'); ?></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,62 +61,63 @@ $this->Backbone();
     </div>
 </div>
 <script id="temp-carousel" type="text/template">
-    <div id="file-<%= data.id %>" class="well">
-        <div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>"/></div>
-        <p><%= data.title %></p>
-        <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal"
-                data-target="#info-attach-<%= data.id %>"><i
-                class="fa fa-eye-open fa fa-white"></i> <?php _e('PerView'); ?></button>
-        <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button"
-                data-link="<?php echo $this->url('', array('action' => 'delete')); ?>id/<%= data.id %>"><i
-                class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
-    </div>
-    <div class="modal fade" id="info-attach-<%= data.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="myModalLabel"><%= data.title %></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="pull-right">
-                        <div class="upload-carousel-item-img">
-                            <img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>"/>
+    <div class="">
+        <div id="file-<%= data.id %>" class="well">
+            <div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>"/></div>
+            <p><%= data.title %></p>
+            <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal"
+                    data-target="#info-attach-<%= data.id %>"><i
+                    class="fa fa-eye-open fa fa-white"></i> <?php _e('PerView'); ?></button>
+            <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button"
+                    data-link="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'delete')); ?>id/<%= data.id %>"><i
+                    class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
+        </div>
+        <div class="modal fade" id="info-attach-<%= data.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 id="myModalLabel"><%= data.title %></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="pull-right">
+                            <div class="upload-carousel-item-img">
+                                <img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>"/>
+                            </div>
+                            <br/>
                         </div>
-                        <br/>
-
-                        <p><a class="btn btn-primary" href="<%= data.downloadUrl %>"><?php _e('Download'); ?></a></p>
+                        <div class="mr10">
+                            <strong><?php _e('Id'); ?> </strong>
+                            <span> <%= data.id %> </span>
+                        </div>
+                        <div class="mr10">
+                            <strong><?php _e('Create'); ?> </strong>
+                            <span> <%= data.time_create %> </span>
+                        </div>
+                        <div class="mr10">
+                            <strong><?php _e('Type'); ?> </strong>
+                            <span> <%= data.type %> </span>
+                        </div>
+                        <div class="mr10">
+                            <strong><?php _e('Status'); ?> </strong>
+                            <span> <%= data.status %> </span>
+                        </div>
+                        <div class="mr10">
+                            <strong><?php _e('Hits'); ?> </strong>
+                            <span> <%= data.hits %> </span>
+                        </div>
+                        <div class="mr10">
+                            <strong><?php _e('Size'); ?> </strong>
+                            <span> <%= data.size %> </span>
+                        </div>
                     </div>
-                    <div class="mr10">
-                        <strong><?php _e('Id'); ?> </strong>
-                        <span> <%= data.id %> </span>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary btn-xs" href="<%= data.downloadUrl %>"><?php _e('Download'); ?></a>
+                        <a class="btn btn-primary btn-xs" href="<%= data.editUrl %>"><?php _e('Edit'); ?></a>
+                        <button class="btn btn-primary btn-xs" data-dismiss="modal"
+                                aria-hidden="true"><?php _e('Close'); ?></button>
                     </div>
-                    <div class="mr10">
-                        <strong><?php _e('Create'); ?> </strong>
-                        <span> <%= data.time_create %> </span>
-                    </div>
-                    <div class="mr10">
-                        <strong><?php _e('Type'); ?> </strong>
-                        <span> <%= data.type %> </span>
-                    </div>
-                    <div class="mr10">
-                        <strong><?php _e('Status'); ?> </strong>
-                        <span> <%= data.status %> </span>
-                    </div>
-                    <div class="mr10">
-                        <strong><?php _e('Hits'); ?> </strong>
-                        <span> <%= data.hits %> </span>
-                    </div>
-                    <div class="mr10">
-                        <strong><?php _e('Size'); ?> </strong>
-                        <span> <%= data.size %> </span>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-primary" href="<%= data.editUrl %>"><?php _e('Edit'); ?></a>
-                    <button class="btn btn-primary" data-dismiss="modal"
-                            aria-hidden="true"><?php _e('Close'); ?></button>
                 </div>
             </div>
         </div>
@@ -125,7 +148,7 @@ $this->Backbone();
     }
     var carouselCollection = new Backbone.Collection(<?php echo $content ?: '[]'; ?>);
     var carouselItemView = Backbone.View.extend({
-        className: "upload-carousel-item",
+        className: "upload-carousel-item col-md-3",
         events: {
             "click .remove-attach": "cancel",
         },
@@ -233,7 +256,7 @@ $this->Backbone();
 </script>
 <script type="text/javascript">
     (function ($) {
-        $("#story-form").on("click", "button", function () {
+        $("#story-form").on("click", ".remove-image", function () {
             systemMessage.wait("<?php _e('Remove image story in process'); ?>");
             $.getJSON($(this).attr("data-link")).done(function (result) {
                 if (result.status == 1) {

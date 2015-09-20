@@ -44,6 +44,14 @@ class StoryForm extends BaseForm
                 'type' => 'hidden',
             ),
         ));
+        // extra_text
+        $this->add(array(
+            'name' => 'extra_text',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('Text options'),
+            ),
+        ));
         // title
         $this->add(array(
             'name' => 'title',
@@ -78,33 +86,6 @@ class StoryForm extends BaseForm
                 'description' => '',
             )
         ));
-        // topic
-        $this->add(array(
-            'name' => 'topic',
-            'type' => 'Module\News\Form\Element\Topic',
-            'options' => array(
-                'label' => __('Topic'),
-                'module' => $this->module,
-                'topic' => 'full',
-                'required' => true,
-            ),
-        ));
-        // topic_main
-        $this->add(array(
-            'name' => 'topic_main',
-            'type' => 'Module\News\Form\Element\Topic',
-            'options' => array(
-                'label' => __('Main topic'),
-                'module' => $this->module,
-                'topic' => '',
-            ),
-            'attributes' => array(
-                'required' => true,
-                'size' => 1,
-                'multiple' => 0,
-                'description' => __('Just use for breadcrumbs and mobile apps'),
-            ),
-        ));
         // text_summary
         $this->add(array(
             'name' => 'text_summary',
@@ -131,27 +112,13 @@ class StoryForm extends BaseForm
                 'description' => __('Only show on story page'),
             )
         ));
-        // important
+        // extra_main
         $this->add(array(
-            'name' => 'important',
-            'type' => 'checkbox',
+            'name' => 'extra_main',
+            'type' => 'fieldset',
             'options' => array(
-                'label' => __('Important'),
+                'label' => __('Mian options'),
             ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
-        // spotlight
-        $this->add(array(
-            'name' => 'spotlight',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Add as spotlight'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
         ));
         // status
         $this->add(array(
@@ -186,6 +153,63 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'required' => true,
+            ),
+        ));
+        // topic
+        $this->add(array(
+            'name' => 'topic',
+            'type' => 'Module\News\Form\Element\Topic',
+            'options' => array(
+                'label' => __('Topic'),
+                'module' => $this->module,
+                'topic' => 'full',
+                'required' => true,
+            ),
+        ));
+        // topic_main
+        $this->add(array(
+            'name' => 'topic_main',
+            'type' => 'Module\News\Form\Element\Topic',
+            'options' => array(
+                'label' => __('Main topic'),
+                'module' => $this->module,
+                'topic' => '',
+            ),
+            'attributes' => array(
+                'required' => true,
+                'size' => 1,
+                'multiple' => 0,
+                'description' => __('Just use for breadcrumbs and mobile apps'),
+            ),
+        ));
+        // important
+        $this->add(array(
+            'name' => 'important',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Important'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
+        // spotlight
+        $this->add(array(
+            'name' => 'spotlight',
+            'type' => 'checkbox',
+            'options' => array(
+                'label' => __('Add as spotlight'),
+            ),
+            'attributes' => array(
+                'description' => '',
+            )
+        ));
+        // extra_seo
+        $this->add(array(
+            'name' => 'extra_media',
+            'type' => 'fieldset',
+            'options' => array(
+                'label' => __('Media options'),
             ),
         ));
         // Image
@@ -227,6 +251,14 @@ class StoryForm extends BaseForm
                 )
             ));
         }
+        // Attach
+        $this->add(array(
+            'name' => 'attach',
+            'type' => 'Module\News\Form\Element\Attach',
+            'options' => array(
+                'label' => __('Attach media'),
+            ),
+        ));
         // extra_seo
         $this->add(array(
             'name' => 'extra_seo',
@@ -239,39 +271,39 @@ class StoryForm extends BaseForm
         $this->add(array(
             'name' => 'seo_title',
             'options' => array(
-                'label' => __('SEO Title'),
+                'label' => __('Meta Title'),
             ),
             'attributes' => array(
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => '',
+                'description' => __('Between 10 to 70 character, better keep it empty to copy main title here'),
             )
         ));
         // seo_keywords
         $this->add(array(
             'name' => 'seo_keywords',
             'options' => array(
-                'label' => __('SEO Keywords'),
+                'label' => __('Meta Keywords'),
             ),
             'attributes' => array(
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => '',
+                'description' => __('Between 5 to 12 words'),
             )
         ));
         // seo_description
         $this->add(array(
             'name' => 'seo_description',
             'options' => array(
-                'label' => __('SEO Description'),
+                'label' => __('Meta Description'),
             ),
             'attributes' => array(
                 'type' => 'textarea',
                 'rows' => '3',
                 'cols' => '40',
-                'description' => '',
+                'description' => __('Between 80 to 160 character'),
             )
         ));
         // tag
@@ -315,6 +347,7 @@ class StoryForm extends BaseForm
             'type' => 'submit',
             'attributes' => array(
                 'value' => __('Submit'),
+                'class' => 'btn btn-primary',
             )
         ));
     }

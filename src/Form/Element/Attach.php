@@ -15,7 +15,7 @@ namespace Module\News\Form\Element;
 use Pi;
 use Zend\Form\Element\Button as ZendButton;
 
-class Remove extends ZendButton
+class Attach extends ZendButton
 {
     /**
      * @return array
@@ -23,9 +23,9 @@ class Remove extends ZendButton
     public function getAttributes()
     {
         $this->Attributes = array(
-            'class' => 'btn btn-danger btn-sm remove-image',
-            'data-toggle' => 'button',
-            'data-link' => $this->attributes['link'],
+            'class' => 'btn btn-success btn-lg',
+            'data-toggle' => 'modal',
+            'data-target' => '#attachFile',
         );
         return $this->Attributes;
     }

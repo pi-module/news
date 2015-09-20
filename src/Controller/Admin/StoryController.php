@@ -538,6 +538,7 @@ class StoryController extends ActionController
                 'id' => $attach->id,
             )));
             $content[$attach->id]['editUrl'] = $this->url('', array(
+                'controller' => 'attach',
                 'action' => 'edit',
                 'id' => $attach->id,
             ));
