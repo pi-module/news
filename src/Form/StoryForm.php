@@ -115,7 +115,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '5',
                 'cols' => '40',
-                'description' => '',
+                'description' => __('Just show on story list and blocks'),
             )
         ));
         // text_description
@@ -128,7 +128,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'editor',
-                'description' => '',
+                'description' => __('Only show on story page'),
             )
         ));
         // important

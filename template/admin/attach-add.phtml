@@ -13,7 +13,9 @@ $this->Backbone();
 ?>
 <div class="clearfix">
     <h4><?php echo $this->escape($title); ?></h4>
-
+    <legend>
+        <label for="extra_files"><?php _e('Attach extra images and files'); ?></label>
+    </legend>
     <div id="attach-form">
         <div class="controls" id="js-carousel" style="overflow:hidden;">
             <div class="upload-carousel-btn">
@@ -22,6 +24,9 @@ $this->Backbone();
                         <input type="file" name="file" multiple style="width: 100%;">
                         <i class="fa fa-plus"></i>
                     </div>
+                </div>
+                <div id="progress">
+                    <div class="bar" style="width: 0%;"></div>
                 </div>
             </div>
         </div>
@@ -155,13 +160,21 @@ $this->Backbone();
         },
         fileupload: function () {
             var obj = {
-                url: "<?php echo $this->url('', array('action' => 'upload', 'id' => $story['id'])); ?>",
+                url: "<?php echo $this->url('', array('controller' => 'attach', 'action' => 'upload', 'id' => $story['id'])); ?>",
                 formData: function () {
                     return [];
                 }
             };
+
             if ($.support.xhrFileUpload) { //html5 upload
                 this.$("[name=file]").fileupload(_.extend(obj, {
+                    progressall: function (e, data) {
+                        var progress = parseInt(data.loaded / data.total * 100, 10);
+                        $('#progress .bar').css(
+                            'width',
+                            progress + '%'
+                        );
+                    },
                     done: function (e, data) {
                         var resp = $.parseJSON(data.jqXHR.responseText);
                         if (resp.status == 1) {

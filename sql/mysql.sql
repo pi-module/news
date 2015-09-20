@@ -81,6 +81,16 @@ CREATE TABLE `{link}` (
   KEY `link_order` (`time_publish`, `id`)
 );
 
+CREATE TABLE `{draft}` (
+  `id`          INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `time_create` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+  `uid`         INT(10) UNSIGNED NOT NULL DEFAULT '0',
+  `setting`     TEXT,
+  PRIMARY KEY (`id`),
+  KEY `time_create` (`time_create`),
+  KEY `uid` (`uid`)
+);
+
 CREATE TABLE `{spotlight}` (
   `id`           INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
   `story`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
@@ -99,18 +109,18 @@ CREATE TABLE `{spotlight}` (
 );
 
 CREATE TABLE `{attach}` (
-  `id`          INT(10) UNSIGNED                                                  NOT NULL AUTO_INCREMENT,
-  `title`       VARCHAR(255)                                                      NOT NULL DEFAULT '',
-  `file`        VARCHAR(255)                                                      NOT NULL DEFAULT '',
-  `path`        VARCHAR(16)                                                       NOT NULL DEFAULT '',
-  `url`         VARCHAR(255)                                                      NOT NULL DEFAULT '',
-  `item_table`  ENUM('story', 'topic', 'author')                                  NOT NULL DEFAULT 'story',
-  `item_id`     INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
-  `time_create` INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
-  `size`        INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
+  `id`          INT(10) UNSIGNED                                                          NOT NULL AUTO_INCREMENT,
+  `title`       VARCHAR(255)                                                              NOT NULL DEFAULT '',
+  `file`        VARCHAR(255)                                                              NOT NULL DEFAULT '',
+  `path`        VARCHAR(16)                                                               NOT NULL DEFAULT '',
+  `url`         VARCHAR(255)                                                              NOT NULL DEFAULT '',
+  `item_table`  ENUM('story', 'topic', 'author')                                          NOT NULL DEFAULT 'story',
+  `item_id`     INT(10) UNSIGNED                                                          NOT NULL DEFAULT '0',
+  `time_create` INT(10) UNSIGNED                                                          NOT NULL DEFAULT '0',
+  `size`        INT(10) UNSIGNED                                                          NOT NULL DEFAULT '0',
   `type`        ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'link', 'other') NOT NULL DEFAULT 'image',
-  `status`      TINYINT(1) UNSIGNED                                               NOT NULL DEFAULT '0',
-  `hits`        INT(10) UNSIGNED                                                  NOT NULL DEFAULT '0',
+  `status`      TINYINT(1) UNSIGNED                                                       NOT NULL DEFAULT '0',
+  `hits`        INT(10) UNSIGNED                                                          NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `title` (`title`),
   KEY `item_table` (`item_table`),

@@ -7,10 +7,14 @@
 }
 
 .upload-carousel-btn {
-    height: 150px;
+    margin: 0 10px;
+    height: 140px;
     width: 200px;
     border: 2px dashed #ccc;
-
+    background-color: #f2f2f2;
+    background-image: url('../image/plus.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fileinput-button i {
@@ -32,8 +36,7 @@
     filter: alpha(opacity=0);
     top: 0;
     right: 0;
-    background-color: #000;
-    height: 150px;
+    height: 140px;
     width: 200px;
     z-index: 1000;
 }
@@ -79,4 +82,14 @@
     top: -3px;
     cursor: pointer;
     float: none;
+}
+
+#progress {
+    margin-top: -5px;
+    border: 1px solid #ccc;
+}
+
+.bar {
+    height: 18px;
+    background: green;
 }
