@@ -81,16 +81,6 @@ CREATE TABLE `{link}` (
   KEY `link_order` (`time_publish`, `id`)
 );
 
-CREATE TABLE `{draft}` (
-  `id`          INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `time_create` INT(10) UNSIGNED NOT NULL DEFAULT '0',
-  `uid`         INT(10) UNSIGNED NOT NULL DEFAULT '0',
-  `setting`     TEXT,
-  PRIMARY KEY (`id`),
-  KEY `time_create` (`time_create`),
-  KEY `uid` (`uid`)
-);
-
 CREATE TABLE `{spotlight}` (
   `id`           INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
   `story`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
