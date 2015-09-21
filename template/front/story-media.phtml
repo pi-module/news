@@ -122,7 +122,7 @@ if (!empty($story['largeUrl'])) {
             <div class="news-story-page-side">
                 <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
                     <div class="gallery">
-                        <?php /* <div class="storyImageMain">
+                        <div class="storyImageMain">
                             <div class="thumbnail u-photo">
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
@@ -131,7 +131,7 @@ if (!empty($story['largeUrl'])) {
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
-                        </div> */ ?>
+                        </div>
                         <div class="storyImageAttach row"><?php include $this->template('front/attach-image'); ?></div>
                     </div>
                 <?php } ?>
