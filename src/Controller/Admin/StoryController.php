@@ -575,7 +575,7 @@ class StoryController extends ActionController
         // Check attribute is empty
         if (empty($fields['attribute'])) {
             // Make jump information
-            switch ($story['type']) {
+            /* switch ($story['type']) {
                 case 'download':
                     $message = __('Download data saved successfully. Please attach your files');
                     $url = array('controller' => 'attach', 'action' => 'add', 'id' => $story['id']);
@@ -596,8 +596,10 @@ class StoryController extends ActionController
                     $message = __('Text data saved successfully.');
                     $url = array('controller' => 'story', 'action' => 'index');
                     break;
-            }
+            } */
             // Do jump
+            $message = __('Text data saved successfully.');
+            $url = array('controller' => 'story', 'action' => 'index');
             $this->jump($url, $message);
         }
         // Check post
@@ -628,7 +630,7 @@ class StoryController extends ActionController
                     Pi::api('attribute', 'news')->Set($attribute, $row->id);
                 }
                 // Make jump information
-                switch ($row->type) {
+                /* switch ($row->type) {
                     case 'download':
                         $message = __('Download data saved successfully. Please attach your files');
                         $url = array('controller' => 'attach', 'action' => 'add', 'id' => $row->id);
@@ -649,8 +651,10 @@ class StoryController extends ActionController
                         $message = __('Text data saved successfully.');
                         $url = array('controller' => 'story', 'action' => 'index');
                         break;
-                }
+                } */
                 // Do jump
+                $message = __('Text data saved successfully.');
+                $url = array('controller' => 'story', 'action' => 'index');
                 $this->jump($url, $message);
             }
         } else {
