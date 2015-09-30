@@ -15,7 +15,7 @@ return array(
     'item' => array(
         'title' => _a('Item'),
         'description' => '',
-        'render' => 'block::item',
+        'render' => array('block', 'item'),
         'template' => 'item',
         'config' => array(
             'topicid' => array(
@@ -155,7 +155,7 @@ return array(
     'list' => array(
         'title' => _a('list'),
         'description' => '',
-        'render' => 'block::item',
+        'render' => array('block', 'item'),
         'template' => 'list',
         'config' => array(
             'topicid' => array(
@@ -223,7 +223,7 @@ return array(
     'table' => array(
         'title' => _a('Table'),
         'description' => '',
-        'render' => 'block::item',
+        'render' => array('block', 'item'),
         'template' => 'table',
         'config' => array(
             'topicid' => array(
@@ -298,7 +298,7 @@ return array(
     'spotlight' => array(
         'title' => _a('Spotlight'),
         'description' => '',
-        'render' => 'block::spotlight',
+        'render' => array('block', 'spotlight'),
         'template' => 'spotlight',
         'config' => array(
             'number' => array(
@@ -410,7 +410,7 @@ return array(
     'topic' => array(
         'title' => _a('List of topic'),
         'description' => '',
-        'render' => 'block::topic',
+        'render' => array('block', 'topic'),
         'template' => 'topic',
         'config' => array(
             'topicid' => array(
@@ -498,7 +498,7 @@ return array(
     'gallery' => array(
         'title' => _a('Gallery'),
         'description' => '',
-        'render' => 'block::gallery',
+        'render' => array('block', 'gallery'),
         'template' => 'gallery',
         'config' => array(
             'number' => array(
@@ -536,6 +536,30 @@ return array(
                 ),
                 'filter' => 'text',
                 'value' => 'simple',
+            ),
+        ),
+    ),
+
+    // microblog block
+    'microblog' => array(
+        'title' => _a('Microblog'),
+        'description' => '',
+        'render' => array('block', 'microblog'),
+        'template' => 'microblog',
+        'config' => array(
+            'number' => array(
+                'title' => _a('Number'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 12,
+            ),
+            'uid' => array(
+                'title' => _a('User ID'),
+                'description' => _a('Set user ID, if you want show special user posts'),
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => '',
             ),
         ),
     ),

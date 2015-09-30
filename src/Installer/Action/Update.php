@@ -532,6 +532,51 @@ EOD;
             }
         }
 
+        // Update to version 1.6.4
+        if (version_compare($moduleVersion, '1.6.4', '<')) {
+            // Add table of microblog
+            $sql = <<<'EOD'
+CREATE TABLE `{microblog}` (
+  `id`          INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
+  `post`        TEXT,
+  `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `uid`         INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `hits`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `time_create` INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`),
+  KEY `uid` (`uid`),
+  KEY `time_create` (`time_create`),
+  KEY `select` (`status`, `uid`)
+);
+EOD;
+            SqlSchema::setType($this->module);
+            $sqlHandler = new SqlSchema;
+            try {
+                $sqlHandler->queryContent($sql);
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'SQL schema query for author table failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            // Alter table : CHANGE `type`
+            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'gallery', 'media', 'download', 'image') NOT NULL DEFAULT 'text'", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }

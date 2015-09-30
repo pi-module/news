@@ -25,7 +25,7 @@ CREATE TABLE `{story}` (
   `favourite`        INT(10) UNSIGNED                             NOT NULL DEFAULT '0',
   `attach`           TINYINT(3) UNSIGNED                          NOT NULL DEFAULT '0',
   `attribute`        TINYINT(3) UNSIGNED                          NOT NULL DEFAULT '0',
-  `type`             ENUM('text', 'gallery', 'media', 'download') NOT NULL DEFAULT 'text',
+  `type`             ENUM('text', 'gallery', 'media', 'download', 'image') NOT NULL DEFAULT 'text',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `title` (`title`),
@@ -220,4 +220,18 @@ CREATE TABLE `{author_story}` (
   KEY `status` (`status`),
   KEY `time_publish` (`time_publish`),
   KEY `select` (`author`, `role`, `story`)
+);
+
+CREATE TABLE `{microblog}` (
+  `id`          INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
+  `post`        TEXT,
+  `status`      TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `uid`         INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `hits`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `time_create` INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`),
+  KEY `uid` (`uid`),
+  KEY `time_create` (`time_create`),
+  KEY `select` (`status`, `uid`)
 );

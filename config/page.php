@@ -53,6 +53,11 @@ return array(
             'controller' => 'topic',
             'permission' => 'topic',
         ),
+        array(
+            'title' => _a('Micro blog'),
+            'controller' => 'microblog',
+            'permission' => 'microblog',
+        ),
     ),
     // Front section
     'front' => array(

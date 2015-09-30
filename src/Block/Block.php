@@ -225,4 +225,13 @@ class Block
         $block['resources'] = $list;
         return $block;
     }
+
+    public static function microblog($options = array(), $module = null)
+    {
+        // Set options
+        $block = array();
+        $block = array_merge($block, $options);
+
+        return $block;
+    }
 }

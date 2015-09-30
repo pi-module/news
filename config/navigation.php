@@ -131,6 +131,15 @@ return array(
             'controller' => 'author',
             'action' => 'index',
         ),
+        'microblog' => array(
+            'label' => _a('Micro blog'),
+            'permission' => array(
+                'resource' => 'microblog',
+            ),
+            'route' => 'admin',
+            'controller' => 'microblog',
+            'action' => 'index',
+        ),
         'tools' => array(
             'label' => _a('Tools'),
             'permission' => array(

@@ -76,5 +76,10 @@ return array(
             'access' => array(//'admin',
             ),
         ),
+        'microblog' => array(
+            'title' => _a('Micro blog'),
+            'access' => array(//'admin',
+            ),
+        ),
     ),
 );
