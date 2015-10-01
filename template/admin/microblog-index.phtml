@@ -1,7 +1,52 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: voltan
- * Date: 9/30/15
- * Time: 12:07 PM
- */
+<?php $this->css($this->assetModule('css/admin.css')); ?>
+<div class="clearfix">
+    <p>
+        <a class="btn btn-primary" title="<?php _e('New post'); ?>"
+           href="<?php echo $this->url('', array('controller' => 'microblog', 'action' => 'update')); ?>"><i
+                class="fa fa-folder-open"></i><?php _e('New post'); ?></a>
+    </p>
+    <h3><?php _e('List of posts'); ?></h3>
+    <table class="table table-striped table-bordered table-condensed">
+        <tr>
+            <th><?php _e('ID'); ?></th>
+            <th><?php _e('Text'); ?></th>
+        </tr>
+        <?php foreach ($list as $microblog) { ?>
+            <?php
+            if ($microblog['status'] == 1) {
+                $labelIdClass = 'label-success';
+            } else {
+                $labelIdClass = 'label-warning';
+            }
+            ?>
+            <tr>
+                <td><span
+                        class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($microblog['id']); ?></span>
+                </td>
+                <td>
+                    <p><?php echo $this->escape($microblog['post']); ?></p>
+                    <p>
+                        <?php if (!empty($microblog['microblogUrl'])) { ?>
+                        <a class="btn btn-primary btn-xs" title="<?php _e('View'); ?>"
+                           href="<?php echo $this->escape($microblog['microblogUrl']); ?>"><i
+                                class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                        <?php } ?>
+                        <a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>"
+                           href="<?php echo $this->url('', array('action' => 'update', 'id' => $microblog['id'])); ?>"><i
+                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                        <strong><?php _e('Published'); ?></strong>
+                        : <?php echo $this->escape($microblog['time_publish']); ?>
+                        <strong><?php _e('By'); ?></strong>
+                        : <?php echo $this->escape($microblog['user']['name']); ?> ( <?php echo $this->escape($microblog['user']['identity']); ?> )
+                    </p>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
+    <p>
+        <span class="label label-success"><?php _e('Published'); ?></span>
+        <span class="label label-warning"><?php _e('Pending review'); ?></span>
+        <span class="label label-danger"><?php _e('Trash'); ?></span>
+    </p>
+</div>

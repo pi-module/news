@@ -128,6 +128,27 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             );
                         }
                         break;
+
+                    case 'microblog':
+                        if (!empty($params['id'])) {
+                            // Set link
+                            $result[] = array(
+                                'label' => __('Post list'),
+                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
+                                    'controller' => 'microblog',
+                                ))),
+                            );
+                            // Set link
+                            $microblog = Pi::api('microblog', 'news')->getMicroblog($params['id']);
+                            $result[] = array(
+                                'label' => $microblog['seo_title'],
+                            );
+                        } else {
+                            $result[] = array(
+                                'label' => __('Post list'),
+                            );
+                        }
+                        break;
                 }
             } else {
                 if (isset($params['q']) && !empty($params['q'])) {

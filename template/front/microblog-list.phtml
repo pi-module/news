@@ -1,7 +1,32 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: voltan
- * Date: 9/30/15
- * Time: 12:08 PM
- */
+<?php $this->css($this->assetModule('css/front.css')); ?>
+<div class="clearfix">
+    <div class="index-post">
+        <?php foreach ($list as $microblog) { ?>
+            <div class="media single-post">
+                <div class="col-md-2">
+                    <div class="text-center">
+                        <p>
+                            <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
+                                <?php echo $microblog['user']['avatar']; ?>
+                            </a>
+                        </p>
+                        <p>
+                            <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
+                                <?php echo $microblog['user']['name']; ?>
+                            </a>
+                        </p>
+                        <p>
+                            <?php echo $microblog['time_create_view']; ?>
+                        </p>
+                    </div>
+                </div>
+                <div class="media-body col-md-10">
+                    <div class="clearfix">
+                        <?php echo $microblog['post']; ?>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
+</div>

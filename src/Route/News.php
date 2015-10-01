@@ -28,7 +28,7 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic'
+        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog'
     );
 
     /**
@@ -121,6 +121,15 @@ class News extends Standard
                                 }
                             }
                         }
+                    }
+                    break;
+
+                case 'microblog':
+                    if (isset($parts[1]) && !empty($parts[1])) {
+                        $matches['action'] = 'index';
+                        $matches['id'] = intval($parts[1]);
+                    } else {
+                        $matches['action'] = 'list';
                     }
                     break;
             }

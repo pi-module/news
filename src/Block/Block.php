@@ -231,7 +231,30 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
-
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Set info
+        $microblog = array();
+        $where = array('status' => 1);
+        $order = array('time_create DESC', 'id DESC');
+        $limit = intval($block['number']);
+        // Check uid
+        if (intval($block['uid']) > 0) {
+            $where['uid'] = intval($block['uid']);
+        }
+        // Select
+        $select = Pi::model('microblog', $module)->select()->where($where)->order($order)->limit($limit);
+        $rowset = Pi::model('microblog', $module)->selectWith($select);
+        // Process information
+        foreach ($rowset as $row) {
+            $microblog[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
+            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'medume', array(
+                'alt' => $microblog[$row->id]['user']['name'],
+                'class' => 'img-circle',
+            ));
+        }
+        // Set block array
+        $block['resources'] = $microblog;
         return $block;
     }
 }
