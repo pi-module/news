@@ -79,6 +79,7 @@ class MicroblogController extends ActionController
     {
         // Get id
         $id = $this->params('id');
+        $module = $this->params('module');
         // Set form
         $form = new MicroblogForm('microblog');
         $form->setAttribute('enctype', 'multipart/form-data');
@@ -100,6 +101,17 @@ class MicroblogController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
+                // Add / Edit sitemap
+                if (Pi::service('module')->isActive('sitemap')) {
+                    // Set loc
+                    $loc = Pi::url($this->url('news', array(
+                        'module' => $module,
+                        'controller' => 'microblog',
+                        'id' => $row->id
+                    )));
+                    // Update sitemap
+                    Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'microblog', $row->id);
+                }
                 // Jump
                 $message = __('Post saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
