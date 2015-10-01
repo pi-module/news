@@ -27,13 +27,20 @@ class MicroblogController extends ActionController
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+        // Check status
+        if (!$config['microblog_active']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Microblog system not active'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Find microblog
         $microblog = $this->getModel('microblog')->find($id);
         $microblog = Pi::api('microblog', 'news')->canonizeMicroblog($microblog);
         // Check status
         if (!$microblog || $microblog['status'] != 1) {
             $this->getResponse()->setStatusCode(404);
-            $this->terminate(__('The story not found.'), '', 'error-404');
+            $this->terminate(__('The post not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
             return;
         }
@@ -55,6 +62,13 @@ class MicroblogController extends ActionController
         $page = $this->params('page', 1);
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check status
+        if (!$config['microblog_active']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Microblog system not active'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Set info
         $list = array();
         $where = array('status' => 1);
