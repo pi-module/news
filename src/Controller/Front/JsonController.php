@@ -77,8 +77,7 @@ class JsonController extends IndexController
             'module' => $this->params('module'),
         );
         // Set view
-        $this->view()->setTemplate(false)->setLayout('layout-content');
-        return Json::encode($return);
+        return $return;
     }
 
     public function storyAllAction()
@@ -94,8 +93,7 @@ class JsonController extends IndexController
         // Get story List
         $storyList = $this->storyJsonList($where);
         // Set view
-        $this->view()->setTemplate(false)->setLayout('layout-content');
-        return Json::encode($storyList);
+        return $storyList;
     }
 
     public function storyTopicAction()
@@ -118,8 +116,7 @@ class JsonController extends IndexController
             $storyList = $this->storyJsonList($where);
         }
         // Set view
-        $this->view()->setTemplate(false)->setLayout('layout-content');
-        return Json::encode($storyList);
+        return $storyList;
     }
 
     public function storySingleAction()
@@ -161,7 +158,50 @@ class JsonController extends IndexController
         }
         $storySingle = array($storySingle);
         // Set view
-        $this->view()->setTemplate(false)->setLayout('layout-content');
-        return Json::encode($storySingle);
+        return $storySingle;
+    }
+
+    public function filterSearchAction() {
+        // Get info from url
+        $module = $this->params('module');
+        $keyword = $this->params('keyword');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check keyword not empty
+        if (empty($keyword)) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('The keyword not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
+        // Set list
+        $list = array();
+        // Set info
+        $where1 = array('status' => 1);
+        $where1['title LIKE ?'] = '%' . $keyword . '%';
+        $where2['text_summary LIKE ?'] = '%' . $keyword . '%';
+        $where3['text_description LIKE ?'] = '%' . $keyword . '%';
+        $order = array('time_create DESC', 'id DESC');
+        // Item list header
+        $list[] = array(
+            'class' => ' class="dropdown-header"',
+            'title' => sprintf(__('Stories related to %s'), $keyword),
+            'url' => '#',
+            'image' => Pi::service('asset')->logo(),
+        );
+        // Get list of product
+        $select = $this->getModel('story')->select()->where($where1)->where($where2, 'OR')->where($where2, 'OR')->order($order)->limit(10);
+        $rowset = $this->getModel('story')->selectWith($select);
+        foreach ($rowset as $row) {
+            $story = Pi::api('story', 'news')->canonizeStoryLight($row);
+            $list[] = array(
+                'class' => '',
+                'title' => $story['title'],
+                'url' => $story['productUrl'],
+                'image' => isset($story['thumbUrl']) ? $story['thumbUrl'] : Pi::service('asset')->logo(),
+            );
+        }
+        // Set view
+        return $list;
     }
 }
