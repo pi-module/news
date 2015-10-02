@@ -1,5 +1,5 @@
-<div class="clearfix">
-    <div class="index-post">
+<div class="news-block">
+    <div class="news-microblog-post clearfix">
         <?php foreach ($block['resources'] as $microblog) { ?>
             <div class="media single-post">
                 <div class="col-md-3">
@@ -9,19 +9,23 @@
                                 <?php echo $microblog['user']['avatar']; ?>
                             </a>
                         </p>
-                        <p>
-                            <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
-                                <?php echo $microblog['user']['name']; ?>
-                            </a>
-                        </p>
-                        <p>
-                            <a href="<?php echo $microblog['microblogUrl']; ?>" title="<?php echo $microblog['seo_title']; ?>">
-                                <?php echo $microblog['time_create_view']; ?>
-                            </a>
-                        </p>
                     </div>
                 </div>
                 <div class="media-body col-md-9">
+                    <div class="clearfix">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
+                                    <?php echo $microblog['user']['name']; ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $microblog['microblogUrl']; ?>" title="<?php echo $microblog['seo_title']; ?>">
+                                    <?php echo $microblog['time_create_view']; ?>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="clearfix">
                         <?php echo $microblog['post']; ?>
                     </div>

@@ -257,4 +257,52 @@ class Block
         $block['resources'] = $microblog;
         return $block;
     }
+
+    public static function media($options = array(), $module = null)
+    {
+        // Set options
+        $block = array();
+        $block = array_merge($block, $options);
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Set info
+        $story = array();
+        $whereLink = array();
+        // Check topic permission
+        if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
+            $whereLink['topic'] = $block['topicid'];
+        }
+        // Set model and get information
+        $whereLink['status'] = 1;
+        $columns = array('story' => new Expression('DISTINCT story'));
+        $order = array('time_publish DESC', 'id DESC');
+        // select
+        $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit(1);
+        $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
+        // Make list
+        foreach ($rowset as $id) {
+            $storyId[] = $id['story'];
+        }
+        // Set info
+        $whereStory = array('status' => 1, 'id' => $storyId);
+        // Get topic list
+        $topicList = Pi::registry('topicList', 'news')->read();
+        // Get author list
+        $authorList = Pi::registry('authorList', 'news')->read();
+        // Get list of story
+        $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
+        $rowset = Pi::model('story', $module)->selectWith($select);
+        // Make list
+        foreach ($rowset as $row) {
+            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+            $story[$row->id]['media_attach'] = Pi::api('story', 'news')->AttachList($row->id);
+            $story[$row->id]['media_attribute'] = Pi::api('attribute', 'news')->Story($row->id, $row->topic_main);
+            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
+            }
+        }
+        // Set block array
+        $block['resources'] = $story;
+        return $block;
+    }
 }

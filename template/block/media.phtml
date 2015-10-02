@@ -1,0 +1,57 @@
+<div class="news-block">
+    <div class="news-item-block itemList clearfix">
+        <?php foreach ($block['resources'] as $story) { ?>
+            <?php if ($block['type'] == 'video') { ?>
+                <?php if (isset($story['media_attach']['video']) && !empty($story['media_attach']['video'])) { ?>
+                    <div class="clearfix">
+                        <div class="attach-video">
+                            <?php foreach ($story['media_attach']['video'] as $video) { ?>
+                                <div class="pi-player clearfix">
+                                    <?php echo $this->videojs($video['fileUrl'], $story['mediumUrl'], $block['width'], $block['height']); ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if (isset($story['media_attribute']['video']) && !empty($story['media_attribute']['video'])) { ?>
+                    <div class="clearfix">
+                        <div class="attribute-video">
+                            <?php foreach ($story['media_attribute']['video'] as $video) { ?>
+                                <?php if (!empty($video['data'])) { ?>
+                                    <div class="pi-player clearfix">
+                                        <?php echo $this->videojs($video['data'], $story['mediumUrl'], $block['width'], $block['height']); ?>
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } elseif ($block['type'] == 'audio') { ?>
+                <?php if (isset($story['media_attach']['audio']) && !empty($story['media_attach']['audio'])) { ?>
+                    <div class="clearfix">
+                        <div class="attach-audio">
+                            <?php foreach ($story['media_attach']['audio'] as $audio) { ?>
+                                <div class="pi-player clearfix">
+                                    <?php echo $this->videojs($audio['fileUrl'], '', 640, 100); ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if (isset($story['media_attribute']['audio']) && !empty($story['media_attribute']['audio'])) { ?>
+                    <div class="clearfix">
+                        <div class="attribute-audio">
+                            <?php foreach ($story['media_attribute']['audio'] as $audio) { ?>
+                                <?php if (!empty($audio['data'])) { ?>
+                                    <div class="pi-player clearfix">
+                                        <?php echo $this->videojs($audio['data'], '', 640, 100); ?>
+                                    </div>
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        <?php } ?>
+    </div>
+</div>

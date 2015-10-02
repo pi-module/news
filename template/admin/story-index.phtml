@@ -51,10 +51,10 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                     class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
                         <li><a title="<?php _e('Trash'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i
-                                    class="fa fa-trash-o"></i> <?php _e('Trash'); ?></a></li>
+                                    class="fa fa-trash"></i> <?php _e('Trash'); ?></a></li>
                         <li><a title="<?php _e('System draft'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '6')); ?>"><i
-                                    class="fa fa-trash-o"></i> <?php _e('System draft'); ?></a></li>
+                                    class="fa fa-pencil"></i> <?php _e('System draft'); ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -134,6 +134,9 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                                 class="fa fa-eye"></i> <?php _e('Preview'); ?></a></li>
                                 </ul>
                             </div>
+                            <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"   onclick="return confirm('<?php echo _a('Are you sure to delete this story?'); ?>')">
+                                <i class="fa fa-trash"></i>  <?php _e('Delete'); ?>
+                            </a>
                         </div>
                     </div>
                 </td>

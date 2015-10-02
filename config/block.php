@@ -564,4 +564,64 @@ return array(
         ),
     ),
 
+    // media block
+    'media' => array(
+        'title' => _a('Media'),
+        'description' => '',
+        'render' => array('block', 'media'),
+        'template' => 'media',
+        'config' => array(
+            'topicid' => array(
+                'title' => _a('Topic'),
+                'description' => '',
+                'edit' => 'Module\News\Form\Element\Topic',
+                'filter' => 'string',
+                'value' => 0,
+            ),
+            'type' => array(
+                'title' => _a('Media type'),
+                'description' => '',
+                'edit' => array(
+                    'type' => 'select',
+                    'options' => array(
+                        'options' => array(
+                            'video' => _a('Video'),
+                            'audio' => _a('Audio'),
+                        ),
+                    ),
+                ),
+                'filter' => 'text',
+                'value' => 'video',
+            ),
+            'width' => array(
+                'title' => _a('Width'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 640,
+            ),
+            'height' => array(
+                'title' => _a('Height'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 480,
+            ),
+            'showdesc' => array(
+                'title' => _a('Show text'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
+            ),
+            'textlimit' => array(
+                'title' => _a('Text width limit'),
+                'description' => _a('Set 0 for no limit'),
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+        ),
+    ),
+
 );

@@ -32,7 +32,8 @@ class MicroblogController extends ActionController
         $order = array('id DESC');
         $limit = intval($this->config('admin_perpage'));
         $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $select = $this->getModel('microblog')->select()->order($order)->offset($offset)->limit($limit);
+        $where = array('status' => array(1, 2, 3, 4));
+        $select = $this->getModel('microblog')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('microblog')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
@@ -126,5 +127,30 @@ class MicroblogController extends ActionController
         $this->view()->setTemplate('microblog-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('New post'));
+    }
+
+    public function deleteAction()
+    {
+        // Get information
+        $this->view()->setTemplate(false);
+        $module = $this->params('module');
+        $id = $this->params('id');
+        $row = $this->getModel('microblog')->find($id);
+        if ($row) {
+            $row->status = 5;
+            $row->save();
+            // Remove sitemap
+            if (Pi::service('module')->isActive('sitemap')) {
+                $loc = Pi::url($this->url('news', array(
+                    'module' => $module,
+                    'controller' => 'microblog',
+                    'id' => $row->id
+                )));
+                Pi::api('sitemap', 'sitemap')->remove($loc);
+            }
+            // Remove page
+            $this->jump(array('action' => 'index'), __('This post deleted'));
+        }
+        $this->jump(array('action' => 'index'), __('Please select post'));
     }
 }

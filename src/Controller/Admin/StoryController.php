@@ -693,19 +693,18 @@ class StoryController extends ActionController
         $this->view()->assign('content', '');
     }
 
-    /* public function deleteAction()
+    public function deleteAction()
     {
         // Get information
         $this->view()->setTemplate(false);
+        $module = $this->params('module');
         $id = $this->params('id');
         $row = $this->getModel('story')->find($id);
         if ($row) {
-            // Topic
-            $this->getModel('link')->delete(array('story' => $row->id));
-            // Attach
-            $this->getModel('attach')->delete(array('story' => $row->id));
-            // attribute
-            $this->getModel('field_data')->delete(array('story' => $row->id));
+            $row->status = 5;
+            $row->save();
+            // update links
+            $this->getModel('link')->update(array('status' => $row->status), array('story' => $row->id));
             // Spotlight
             $this->getModel('spotlight')->delete(array('story' => $row->id));
             // Remove sitemap
@@ -718,9 +717,8 @@ class StoryController extends ActionController
                 Pi::api('sitemap', 'sitemap')->remove($loc);
             }
             // Remove page
-            $row->delete();
             $this->jump(array('action' => 'index'), __('This story deleted'));
         }
         $this->jump(array('action' => 'index'), __('Please select story'));
-    } */
+    }
 }
