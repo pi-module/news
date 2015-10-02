@@ -4,7 +4,7 @@
             <?php if ($block['type'] == 'video') { ?>
                 <?php if (isset($story['media_attach']['video']) && !empty($story['media_attach']['video'])) { ?>
                     <div class="clearfix">
-                        <div class="attach-video">
+                        <div class="attach-video text-center">
                             <?php foreach ($story['media_attach']['video'] as $video) { ?>
                                 <div class="pi-player clearfix">
                                     <?php echo $this->videojs($video['fileUrl'], $story['mediumUrl'], $block['width'], $block['height']); ?>
@@ -15,7 +15,7 @@
                 <?php } ?>
                 <?php if (isset($story['media_attribute']['video']) && !empty($story['media_attribute']['video'])) { ?>
                     <div class="clearfix">
-                        <div class="attribute-video">
+                        <div class="attribute-video text-center">
                             <?php foreach ($story['media_attribute']['video'] as $video) { ?>
                                 <?php if (!empty($video['data'])) { ?>
                                     <div class="pi-player clearfix">
@@ -29,7 +29,7 @@
             <?php } elseif ($block['type'] == 'audio') { ?>
                 <?php if (isset($story['media_attach']['audio']) && !empty($story['media_attach']['audio'])) { ?>
                     <div class="clearfix">
-                        <div class="attach-audio">
+                        <div class="attach-audio text-center">
                             <?php foreach ($story['media_attach']['audio'] as $audio) { ?>
                                 <div class="pi-player clearfix">
                                     <?php echo $this->videojs($audio['fileUrl'], '', 640, 100); ?>
@@ -40,7 +40,7 @@
                 <?php } ?>
                 <?php if (isset($story['media_attribute']['audio']) && !empty($story['media_attribute']['audio'])) { ?>
                     <div class="clearfix">
-                        <div class="attribute-audio">
+                        <div class="attribute-audio text-center">
                             <?php foreach ($story['media_attribute']['audio'] as $audio) { ?>
                                 <?php if (!empty($audio['data'])) { ?>
                                     <div class="pi-player clearfix">
@@ -51,6 +51,15 @@
                         </div>
                     </div>
                 <?php } ?>
+            <?php } ?>
+            <?php if ($block['showdesc']) { ?>
+                <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
+                    <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                       title="<?php echo $this->escape($story['title']); ?>">
+                        <?php echo $this->escape($story['title']); ?>
+                    </a>
+                </h3>
+                <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
             <?php } ?>
         <?php } ?>
     </div>
