@@ -99,6 +99,12 @@ class News extends Standard
 
                 case 'json':
                     $matches['action'] = $this->decode($parts[1]);
+                    if ($parts[1] == 'filterSearch') {
+                        $keyword = _get('keyword');
+                        if (isset($keyword) && !empty($keyword)) {
+                            $matches['keyword'] = $keyword;
+                        }
+                    }
                     if (isset($parts[2]) && $parts[2] == 'id') {
                         $matches['id'] = intval($parts[3]);
                     }
