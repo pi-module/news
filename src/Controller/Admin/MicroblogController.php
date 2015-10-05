@@ -81,6 +81,15 @@ class MicroblogController extends ActionController
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
+        // Get Module Config
+        $config = Pi::service('registry')->config->read($module);
+        // Check status
+        if (!$config['microblog_active']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Microblog system not active'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Set form
         $form = new MicroblogForm('microblog');
         $form->setAttribute('enctype', 'multipart/form-data');
@@ -127,14 +136,26 @@ class MicroblogController extends ActionController
         $this->view()->setTemplate('microblog-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('New post'));
+        $this->view()->assign('config', $config);
     }
 
     public function deleteAction()
     {
         // Get information
         $this->view()->setTemplate(false);
-        $module = $this->params('module');
+        // Get id
         $id = $this->params('id');
+        $module = $this->params('module');
+        // Get Module Config
+        $config = Pi::service('registry')->config->read($module);
+        // Check status
+        if (!$config['microblog_active']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Microblog system not active'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
+        // Get row
         $row = $this->getModel('microblog')->find($id);
         if ($row) {
             $row->status = 5;

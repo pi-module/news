@@ -265,6 +265,7 @@ class Block
         $block = array_merge($block, $options);
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        $block['microblog_active'] = $config['microblog_active'];
         // Set info
         $story = array();
         $whereLink = array();

@@ -99,7 +99,18 @@ class MicroblogController extends ActionController
                 'action'        => 'list',
             )),
         ));
+        // Set header and title
+        $title = __('All posts on microblog system');
+        // Set seo_keywords
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace_space' => true
+        ));
+        $seoKeywords = $filter($title);
         // Set view
+        $this->view()->headTitle($title);
+        $this->view()->headdescription($title, 'set');
+        $this->view()->headkeywords($seoKeywords, 'set');
         $this->view()->setTemplate('microblog-list');
         $this->view()->assign('list', $list);
         $this->view()->assign('paginator', $paginator);
