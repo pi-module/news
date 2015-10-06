@@ -35,6 +35,11 @@ class MicroblogFilter extends InputFilter
                 ),
             ),
         ));
+        // topic
+        $this->add(array(
+            'name' => 'topic',
+            'required' => false,
+        ));
         // status
         $this->add(array(
             'name' => 'status',

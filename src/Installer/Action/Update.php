@@ -64,6 +64,11 @@ class Update extends BasicUpdate
         $attachTable = $attachModel->getTable();
         $attachAdapter = $attachModel->getAdapter();
 
+        // Set microblog model
+        $microblogModel = Pi::model('microblog', $this->module);
+        $microblogTable = $microblogModel->getTable();
+        $microblogAdapter = $microblogModel->getAdapter();
+
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
@@ -567,6 +572,22 @@ EOD;
             $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'gallery', 'media', 'download', 'image') NOT NULL DEFAULT 'text'", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        // Update to version 1.6.8
+        if (version_compare($moduleVersion, '1.6.8', '<')) {
+            // Alter table : ADD item_table
+            $sql = sprintf("ALTER TABLE %s ADD `topic` INT(10) UNSIGNED NOT NULL DEFAULT '0', ADD INDEX (`topic`)", $microblogTable);
+            try {
+                $microblogAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
                     'status' => false,

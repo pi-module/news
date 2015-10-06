@@ -238,9 +238,11 @@ class Block
         $where = array('status' => 1);
         $order = array('time_create DESC', 'id DESC');
         $limit = intval($block['number']);
-        // Check uid
+        // Check uid and topic
         if (intval($block['uid']) > 0) {
             $where['uid'] = intval($block['uid']);
+        } elseif (isset($block['topicid']) && !empty($block['topicid'])) {
+            $where['topic'] = $block['topicid'];
         }
         // Select
         $select = Pi::model('microblog', $module)->select()->where($where)->order($order)->limit($limit);

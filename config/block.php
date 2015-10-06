@@ -547,6 +547,13 @@ return array(
         'render' => array('block', 'microblog'),
         'template' => 'microblog',
         'config' => array(
+            'topicid' => array(
+                'title' => _a('Topic'),
+                'description' => '',
+                'edit' => 'Module\News\Form\Element\Topic',
+                'filter' => 'string',
+                'value' => 0,
+            ),
             'number' => array(
                 'title' => _a('Number'),
                 'description' => '',

@@ -20,6 +20,7 @@ class MicroblogForm extends BaseForm
 {
     public function __construct($name = null, $option = array())
     {
+        $this->module = Pi::service('module')->current();
         parent::__construct($name);
     }
 
@@ -52,6 +53,21 @@ class MicroblogForm extends BaseForm
                 'cols' => '40',
                 'required' => true,
             )
+        ));
+        // topic
+        $this->add(array(
+            'name' => 'topic',
+            'type' => 'Module\News\Form\Element\Topic',
+            'options' => array(
+                'label' => __('Topic'),
+                'module' => $this->module,
+                'topic' => '',
+            ),
+            'attributes' => array(
+                'required' => true,
+                'size' => 1,
+                'multiple' => 0,
+            ),
         ));
         // status
         $this->add(array(
