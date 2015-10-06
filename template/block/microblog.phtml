@@ -4,6 +4,7 @@
             <?php foreach ($block['resources'] as $microblog) { ?>
                 <div class="media single-post">
                     <div class="media-body">
+                        <?php if ($microblog['topic'] == 0) { ?>
                         <div class="clearfix">
                             <ul class="list-inline">
                                 <li>
@@ -25,6 +26,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <?php } ?>
                         <div class="clearfix">
                             <?php echo $microblog['post']; ?>
                         </div>

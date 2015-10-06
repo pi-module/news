@@ -223,7 +223,7 @@ class AttachController extends ActionController
                     $uploader->receive();
                     // Set info
                     $file = $uploader->getUploaded('file');
-                    $title = $this->fileTitle($story['title'], $file);
+                    $title = $this->fileTitle($file);
                     $this->filePath($type, $path, $file);
                     // Set save array
                     $values['file'] = $file;
@@ -287,12 +287,12 @@ class AttachController extends ActionController
         );
     }
 
-    protected function fileTitle($title, $file)
+    protected function fileTitle($file)
     {
         $file = pathinfo($file, PATHINFO_FILENAME);
         $file = array_filter(explode('-', $file));
         $file = implode(' ', $file);
-        return sprintf('%s %s', $title, $file);
+        return $file;
     }
 
     protected function fileType($file)
