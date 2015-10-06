@@ -3,16 +3,16 @@
         <div class="news-microblog-post clearfix">
             <?php foreach ($block['resources'] as $microblog) { ?>
                 <div class="media single-post">
-                    <div class="col-md-3">
-                        <div class="text-center">
-                            <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
-                                <?php echo $microblog['user']['avatar']; ?>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="media-body col-md-9">
+                    <div class="media-body">
                         <div class="clearfix">
                             <ul class="list-inline">
+                                <li>
+                                    <div class="text-center">
+                                        <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
+                                            <?php echo $microblog['user']['avatar']; ?>
+                                        </a>
+                                    </div>
+                                </li>
                                 <li>
                                     <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
                                         <?php echo $microblog['user']['name']; ?>

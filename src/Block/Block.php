@@ -233,6 +233,7 @@ class Block
         $block = array_merge($block, $options);
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        $block['microblog_active'] = $config['microblog_active'];
         // Set info
         $microblog = array();
         $where = array('status' => 1);
@@ -241,6 +242,7 @@ class Block
         // Check uid and topic
         if (intval($block['uid']) > 0) {
             $where['uid'] = intval($block['uid']);
+            $where['topic'] = 0;
         } elseif (isset($block['topicid']) && !empty($block['topicid'])) {
             $where['topic'] = $block['topicid'];
         }
@@ -250,7 +252,7 @@ class Block
         // Process information
         foreach ($rowset as $row) {
             $microblog[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
-            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'medume', array(
+            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'small', array(
                 'alt' => $microblog[$row->id]['user']['name'],
                 'class' => 'img-circle',
             ));
@@ -265,9 +267,6 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        $block['microblog_active'] = $config['microblog_active'];
         // Set info
         $story = array();
         $whereLink = array();
