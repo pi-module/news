@@ -244,7 +244,7 @@ class Block
             $where['uid'] = intval($block['uid']);
             $where['topic'] = 0;
         } elseif (isset($block['topicid']) && !empty($block['topicid'])) {
-            $where['topic'] = $block['topicid'];
+            $where['topic'] = 1;
         }
         // Select
         $select = Pi::model('microblog', $module)->select()->where($where)->order($order)->limit($limit);

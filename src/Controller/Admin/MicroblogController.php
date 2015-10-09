@@ -80,6 +80,7 @@ class MicroblogController extends ActionController
     {
         // Get id
         $id = $this->params('id');
+        $type = $this->params('type');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -90,8 +91,12 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+        //
+        $option = array(
+            'type' => $type,
+        );
         // Set form
-        $form = new MicroblogForm('microblog');
+        $form = new MicroblogForm('microblog', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
@@ -132,10 +137,18 @@ class MicroblogController extends ActionController
                 $form->setData($microblog);
             }
         }
+        //
+        if ($type == 'post') {
+            $title = __('New post');
+        } elseif ($type == 'news') {
+            $title = __('New news');
+        } else {
+            $title = __('Update');
+        }
         // Set view
         $this->view()->setTemplate('microblog-update');
         $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('New post'));
+        $this->view()->assign('title', $title);
         $this->view()->assign('config', $config);
     }
 
