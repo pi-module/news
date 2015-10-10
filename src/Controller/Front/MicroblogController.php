@@ -59,6 +59,8 @@ class MicroblogController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
+        $uid = $this->params('uid');
+        $topic = $this->params('topic');
         $page = $this->params('page', 1);
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -72,6 +74,14 @@ class MicroblogController extends ActionController
         // Set info
         $list = array();
         $where = array('status' => 1);
+        // Check uid and topic
+        if (isset($uid) && intval($uid) > 0) {
+            $where['uid'] = intval($uid);
+            $where['topic'] = 0;
+        } elseif (isset($topic) && intval($topic) > 0) {
+            $where['topic'] = 1;
+        }
+        // Set info
         $order = array('time_create DESC', 'id DESC');
         $offset = (int)($page - 1) * $this->config('microblog_perpage');
         $limit = intval($this->config('microblog_perpage'));
@@ -97,6 +107,8 @@ class MicroblogController extends ActionController
                 'module'        => $this->getModule(),
                 'controller'    => 'microblog',
                 'action'        => 'list',
+                'uid'           => $uid,
+                'topic'         => $topic,
             )),
         ));
         // Set header and title

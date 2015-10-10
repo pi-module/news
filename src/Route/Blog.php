@@ -136,6 +136,11 @@ class Blog extends Standard
                         $matches['id'] = intval($parts[1]);
                     } else {
                         $matches['action'] = 'list';
+                        if (isset($parts[1]) && $parts[1] == 'uid') {
+                            $matches['uid'] = intval($parts[2]);
+                        } elseif (isset($parts[1]) && $parts[1] == 'topic') {
+                            $matches['topic'] = intval($parts[2]);
+                        }
                     }
                     break;
             }
@@ -193,6 +198,14 @@ class Blog extends Standard
 
         if (!empty($mergedParams['limit'])) {
             $url['limit'] = 'limit' . $this->paramDelimiter . $mergedParams['limit'];
+        }
+
+        if (!empty($mergedParams['uid']) && $mergedParams['controller'] == 'microblog') {
+            $url['uid'] = 'uid' . $this->paramDelimiter . $mergedParams['uid'];
+        }
+
+        if (!empty($mergedParams['topic']) && $mergedParams['controller'] == 'microblog') {
+            $url['topic'] = 'topic' . $this->paramDelimiter . $mergedParams['topic'];
         }
 
         // Make url
