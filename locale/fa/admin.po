@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-09-20 19:41+0430\n"
+"POT-Creation-Date: 2015-10-10 22:05+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,26 +20,27 @@ msgid "Item"
 msgstr "مورد"
 
 #: config/block.php:22 config/block.php:162 config/block.php:230
-#: config/block.php:417 config/config.php:104 config/navigation.php:81
-#: config/page.php:52 config/page.php:66 config/permission.php:70
+#: config/block.php:417 config/block.php:551 config/block.php:582
+#: config/config.php:108 config/navigation.php:81 config/page.php:52
+#: config/page.php:71 config/permission.php:70
 msgid "Topic"
 msgstr "موضوع"
 
 #: config/block.php:29 config/block.php:169 config/block.php:237
-#: config/block.php:305 config/block.php:505
+#: config/block.php:305 config/block.php:505 config/block.php:558
 msgid "Number"
 msgstr "تعداد"
 
 #: config/block.php:36 config/block.php:244 config/block.php:312
-#: config/block.php:424
+#: config/block.php:424 config/block.php:618
 msgid "Show text"
 msgstr "نمایش متن"
 
-#: config/block.php:43 config/block.php:319
+#: config/block.php:43 config/block.php:319 config/block.php:625
 msgid "Text width limit"
 msgstr "محدودیت نمایش متن ( به کارکتر )"
 
-#: config/block.php:44 config/block.php:320
+#: config/block.php:44 config/block.php:320 config/block.php:626
 msgid "Set 0 for no limit"
 msgstr "تنظیم ۰ برای عدم محدودیت"
 
@@ -76,22 +77,22 @@ msgid "Set More link to module page"
 msgstr "درج لینک ادامه به ماژول"
 
 #: config/block.php:99 config/block.php:204 config/block.php:279
-#: config/block.php:361 config/config.php:139
+#: config/block.php:361 config/config.php:143
 msgid "Story order"
 msgstr "مرتب سازی مطالب"
 
 #: config/block.php:100 config/block.php:205 config/block.php:280
-#: config/block.php:362 config/config.php:140
+#: config/block.php:362 config/config.php:144
 msgid "Story list order options"
 msgstr "گزینه های تنظیم مرتب سازی ترتیب نمایش مطالب"
 
 #: config/block.php:105 config/block.php:210 config/block.php:285
-#: config/block.php:367 config/config.php:145
+#: config/block.php:367 config/config.php:149
 msgid "Publish time DESC"
 msgstr "تاریخ انتشار - صعودی"
 
 #: config/block.php:106 config/block.php:211 config/block.php:286
-#: config/block.php:368 config/config.php:146
+#: config/block.php:368 config/config.php:150
 msgid "Publish time ASC"
 msgstr "تاریخ انتشار - نزولی"
 
@@ -121,12 +122,12 @@ msgid "Horizontal"
 msgstr "افقی"
 
 #: config/block.php:125 config/block.php:387 config/block.php:477
-#: config/config.php:100
+#: config/config.php:104
 msgid "List"
 msgstr "فهرست"
 
 #: config/block.php:126 config/block.php:224 config/block.php:388
-#: config/config.php:101
+#: config/config.php:105
 msgid "Table"
 msgstr "جدول"
 
@@ -175,7 +176,7 @@ msgstr ""
 msgid "list"
 msgstr "فهرست"
 
-#: config/block.php:299 config/config.php:40 config/config.php:103
+#: config/block.php:299 config/config.php:40 config/config.php:107
 #: config/navigation.php:90 config/page.php:37 config/permission.php:60
 msgid "Spotlight"
 msgstr "اسپات لایت"
@@ -241,6 +242,43 @@ msgstr "نوع نمایش فهرست تصاویر"
 msgid "Simple"
 msgstr "ساده"
 
+#: config/block.php:545
+msgid "Microblog"
+msgstr "میکروبلاگ"
+
+#: config/block.php:565
+msgid "User ID"
+msgstr "شناسه کاربر"
+
+#: config/block.php:566
+msgid "Set user ID, if you want show special user posts"
+msgstr ""
+"با تنظیم شناسه کاربر، فقط ارسال های غیر خبری آن کاربر نمایش داده می شود"
+
+#: config/block.php:576 config/config.php:106
+msgid "Media"
+msgstr "مدیا"
+
+#: config/block.php:589
+msgid "Media type"
+msgstr "نوع مدیا"
+
+#: config/block.php:595
+msgid "Video"
+msgstr "ویدیو"
+
+#: config/block.php:596
+msgid "Audio"
+msgstr "صدا"
+
+#: config/block.php:604
+msgid "Width"
+msgstr "عرض"
+
+#: config/block.php:611
+msgid "Height"
+msgstr "ارتفاع"
+
 #: config/comment.php:15
 msgid "News comments"
 msgstr "نظرات اخبار"
@@ -269,263 +307,272 @@ msgstr "شبکه های اجتماعی"
 msgid "Vote"
 msgstr "رای"
 
-#: config/config.php:48 config/navigation.php:27 config/page.php:104
+#: config/config.php:48 config/navigation.php:27 config/page.php:109
 #: config/permission.php:31
 msgid "Favourite"
 msgstr "علاقه مندی"
 
-#: config/config.php:55
+#: config/config.php:52 config/navigation.php:135 config/page.php:57
+#: config/permission.php:80
+msgid "Micro blog"
+msgstr "میکروبلاگ"
+
+#: config/config.php:59
 msgid "Advertisement"
 msgstr "تبلیغات"
 
-#: config/config.php:61 config/config.php:114
+#: config/config.php:65 config/config.php:118
 msgid "Perpage"
 msgstr "تعداد در هر صفحه"
 
-#: config/config.php:69
+#: config/config.php:73
 msgid "Set topic as system page for support customise layout for blocks"
 msgstr ""
 "قراردادن موضوعات به عنوان یک صفحه سیستم برای شخصی سازی تنظیم بلاک و ویجت"
 
-#: config/config.php:77
+#: config/config.php:81
 msgid "Set story authors"
 msgstr "تنظیم پدیدآورنده های مطلب"
 
-#: config/config.php:85
+#: config/config.php:89
 msgid "Active json output"
 msgstr "فعال کردن تولید خروجی جیسون"
 
-#: config/config.php:93
+#: config/config.php:97
 msgid "Show Style"
 msgstr "نسبک نمایش"
 
-#: config/config.php:99 config/module.php:16
+#: config/config.php:103 config/module.php:16
 msgid "News"
 msgstr "اخبار"
 
-#: config/config.php:102
-msgid "Media"
-msgstr "مدیا"
-
-#: config/config.php:121
+#: config/config.php:125
 msgid "Columns"
 msgstr "ستون"
 
-#: config/config.php:127
+#: config/config.php:131
 msgid "One column"
 msgstr "یک ستون"
 
-#: config/config.php:128
+#: config/config.php:132
 msgid "Two columns"
 msgstr "دو ستون"
 
-#: config/config.php:129
+#: config/config.php:133
 msgid "Three columns"
 msgstr "سه ستون"
 
-#: config/config.php:130
+#: config/config.php:134
 msgid "Four columns"
 msgstr "چهار ستون"
 
-#: config/config.php:156
+#: config/config.php:160
 msgid "Show Subtopic stories on main topic"
 msgstr "نمایش مطالب مربوط به موضع های زیر مجموعه در موضوع اصلی"
 
-#: config/config.php:164
+#: config/config.php:168
 msgid "Show Topic"
 msgstr "نمایش موضوع"
 
-#: config/config.php:172
+#: config/config.php:176
 msgid "Show Topic Information"
 msgstr "نمایش اطلاعات موضوع"
 
-#: config/config.php:180
+#: config/config.php:184
 msgid "Show author"
 msgstr "نمایش پدیدآورنده"
 
-#: config/config.php:188
+#: config/config.php:192
 msgid "Show Date"
 msgstr "نمایش تاریخ"
 
-#: config/config.php:196
+#: config/config.php:200
 msgid "Show Hits"
 msgstr "نمایش بازدید"
 
-#: config/config.php:204
+#: config/config.php:208
 msgid "Show Tags"
 msgstr "نمایش برچسب ها"
 
-#: config/config.php:212
+#: config/config.php:216
 msgid "Show attach files"
 msgstr "نمایش فایل های پیوست شده"
 
-#: config/config.php:220
+#: config/config.php:224
 msgid "Show attribute information"
 msgstr "نمایش اطلاعات خواص"
 
-#: config/config.php:228
+#: config/config.php:232
 msgid "Show navigation"
 msgstr "نمایش ناوبری"
 
-#: config/config.php:236
+#: config/config.php:240
 msgid "Show spotlight"
 msgstr "نمایش اسپات لایت"
 
-#: config/config.php:244
+#: config/config.php:248
 msgid "Show breadcrumbs"
 msgstr "نمایش ناوبری"
 
-#: config/config.php:252
+#: config/config.php:256
 msgid "Show related news"
 msgstr "نمایش مطالب مشابه"
 
-#: config/config.php:260
+#: config/config.php:264
 msgid "related number"
 msgstr "تعداد مطالب مشابه"
 
-#: config/config.php:268
+#: config/config.php:272
 msgid "Show latest news"
 msgstr "نمایش آخرین مطالب"
 
-#: config/config.php:276
+#: config/config.php:280
 msgid "latest number"
 msgstr "تعداد آخرین مطالب"
 
-#: config/config.php:284
+#: config/config.php:288
 msgid "Just show news from X days ago"
 msgstr "فقط نمایش مطالب مربوط به X روز گذشته"
 
-#: config/config.php:285
+#: config/config.php:289
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr "برای نمایش همه مطالب ۰ وارد کنید و یا محدوده روز های اخیر را مشخص کنید"
 
-#: config/config.php:293
+#: config/config.php:297
 msgid "Show feed icon"
 msgstr "نمایش آیکن خوراک"
 
-#: config/config.php:301
+#: config/config.php:305
 msgid "Feed number"
 msgstr "تعداد در صفحه خوراک"
 
-#: config/config.php:310
+#: config/config.php:314
 msgid "Image Size"
 msgstr "حجم تصویر"
 
-#: config/config.php:318
+#: config/config.php:322
 msgid "Image quality"
 msgstr "کیفیت تصویر "
 
-#: config/config.php:319
+#: config/config.php:323
 msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
 msgstr "بین ۰ تا ۱۰۰ تنظیم شود و برای هر دو فرمت PNG و JPG ، مقدار پیش فرض ۷۵"
 
-#: config/config.php:326
+#: config/config.php:330
 msgid "Image path"
 msgstr "مسیر ذخیره تصویر"
 
-#: config/config.php:334
+#: config/config.php:338
 msgid "Image Extension"
 msgstr "پسوند های مجار برای تصویر"
 
-#: config/config.php:342
+#: config/config.php:346
 msgid "Large Image height"
 msgstr "ارتفاع تصویر بزرگ"
 
-#: config/config.php:350
+#: config/config.php:354
 msgid "Large Image width"
 msgstr "عرض تصویر بزرگ"
 
-#: config/config.php:358
+#: config/config.php:362
 msgid "Medium Image height"
 msgstr "ارتفاع تصویر متوسط"
 
-#: config/config.php:366
+#: config/config.php:370
 msgid "Medium Image width"
 msgstr "عرض تصویر متوسط"
 
-#: config/config.php:374
+#: config/config.php:378
 msgid "Thumb Image height"
 msgstr "ارتفاع تصویر بندانگشتی"
 
-#: config/config.php:382
+#: config/config.php:386
 msgid "Thumb Image width"
 msgstr "عرض تصویر بندانگشتی"
 
-#: config/config.php:486
+#: config/config.php:394
 msgid "Use lightbox"
 msgstr "استفاده از لایت باکس"
 
-#: config/config.php:494
+#: config/config.php:402
 msgid "Add Watermark"
 msgstr "اضافه کردن واترمارک به تصویر"
 
-#: config/config.php:502
+#: config/config.php:410
 msgid "Watermark Image"
 msgstr "تصویر واترمارک"
 
-#: config/config.php:509
+#: config/config.php:417
 msgid "Watermark Positio"
 msgstr "موقعیت واترمارک"
 
-#: config/config.php:515
+#: config/config.php:423
 msgid "Top Left"
 msgstr "بالا چپ"
 
-#: config/config.php:516
+#: config/config.php:424
 msgid "Top Right"
 msgstr "بالا راست"
 
-#: config/config.php:517
+#: config/config.php:425
 msgid "Bottom Left"
 msgstr "پایین چپ"
 
-#: config/config.php:518
+#: config/config.php:426
 msgid "Bottom Right"
 msgstr "پایین راست"
 
-#: config/config.php:528
+#: config/config.php:436
 msgid "Social sharing items"
 msgstr "موارد اشتراک گذاری در شبکه های اجتماعی "
 
-#: config/config.php:542
+#: config/config.php:450
 msgid "Number of stories"
 msgstr "تعداد مطالب"
 
-#: config/config.php:550
+#: config/config.php:458
 msgid "Show Image for sub spotlights"
 msgstr "نمایش تصویر برای زیر اسپات لایت ها"
 
-#: config/config.php:558
+#: config/config.php:466
 msgid "Spotlight story number for registry"
 msgstr "تعداد مطالب اسپاتلایت برای درج در کش رجیستری"
 
-#: config/config.php:567
+#: config/config.php:475
 msgid "Use vote system"
 msgstr "استفاده از سیستم رای"
 
-#: config/config.php:576
+#: config/config.php:484
 msgid "Use favourite system"
 msgstr "استفاده از سیستم مورد علاقه"
 
-#: config/config.php:585
+#: config/config.php:493
 msgid "Description for index page"
 msgstr "متن توضیحات صفحه اول "
 
-#: config/config.php:593
+#: config/config.php:501
 msgid "Force replace space by comma(,)"
 msgstr "جایگزینی اسپیس با کاما "
 
-#: config/config.php:602
+#: config/config.php:510
 msgid "File Size"
 msgstr "حجم فایل"
 
-#: config/config.php:610
+#: config/config.php:518
 msgid "File path"
 msgstr "مسیر ذخیره فایل"
 
-#: config/config.php:618
+#: config/config.php:526
 msgid "File Extension"
 msgstr "سوند های مجار برای فایل"
+
+#: config/config.php:535
+msgid "Active microblog system"
+msgstr "فعال سازی سیستم میکروبلاگ"
+
+#: config/config.php:543
+msgid "Micro blog perpage"
+msgstr "تعداد پست های میکروبلاگ در هر صفحه"
 
 #: config/module.php:17
 msgid "Manage News and Blog"
@@ -535,11 +582,11 @@ msgstr "مدیریت اخبار و بلاگ و مطالب"
 msgid "Index"
 msgstr "صفحه اصلی"
 
-#: config/navigation.php:38 config/page.php:84
+#: config/navigation.php:38 config/page.php:89
 msgid "Topic list"
 msgstr "فهرست موضوع ها"
 
-#: config/navigation.php:49 config/page.php:91
+#: config/navigation.php:49 config/page.php:96
 msgid "Tag list"
 msgstr "فهرست برچسب ها"
 
@@ -547,7 +594,7 @@ msgstr "فهرست برچسب ها"
 msgid "Author list"
 msgstr "فهرست پدیدآورنده ها"
 
-#: config/navigation.php:72 config/page.php:42 config/page.php:72
+#: config/navigation.php:72 config/page.php:42 config/page.php:77
 #: config/permission.php:65
 msgid "Story"
 msgstr "مطلب"
@@ -564,12 +611,12 @@ msgstr "خواص"
 msgid "Attribute position"
 msgstr "موقعیت خواص"
 
-#: config/navigation.php:126 config/page.php:22 config/page.php:98
+#: config/navigation.php:126 config/page.php:22 config/page.php:103
 #: config/permission.php:24 config/permission.php:45
 msgid "Authors"
 msgstr "پدیدآورنده ها"
 
-#: config/navigation.php:135 config/page.php:47 config/permission.php:75
+#: config/navigation.php:144 config/page.php:47 config/permission.php:75
 msgid "Tools"
 msgstr "ابزار ها"
 
@@ -577,17 +624,22 @@ msgstr "ابزار ها"
 msgid "Attach"
 msgstr "پیوست"
 
-#: config/page.php:60
+#: config/page.php:65
 msgid "Index page"
 msgstr "صفحه اصلی"
 
-#: config/page.php:78
+#: config/page.php:83
 msgid "Tag"
 msgstr "برچسب"
 
 #: config/permission.php:17
 msgid "Global public resource"
 msgstr "دسترسی های عمومی"
+
+#: template/admin/microblog-index.phtml:47
+#: template/admin/story-index.phtml:137
+msgid "Are you sure to delete this story?"
+msgstr "آیا اطمینان دارید که میخواهید این مطلب را حذف کنید؟"
 
 #~ msgid "Number of stroies for each topic"
 #~ msgstr "تعداد مطالب برای هر موضوع"

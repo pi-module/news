@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-09-20 19:41+0430\n"
+"POT-Creation-Date: 2015-10-10 22:05+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:122
-#: src/Form/StoryForm.php:148
+#: src/Form/StoryForm.php:148 template/admin/microblog-index.phtml:17
 msgid "Text"
 msgstr "متن"
 
@@ -81,7 +81,11 @@ msgstr "فهرست برچسب ها"
 msgid "Topic list"
 msgstr "فهرست موضوع ها"
 
-#: src/Api/Breadcrumbs.php:141
+#: src/Api/Breadcrumbs.php:136 src/Api/Breadcrumbs.php:148
+msgid "Post list"
+msgstr "فهرست پست ها"
+
+#: src/Api/Breadcrumbs.php:162
 msgid "Search result"
 msgstr "نتایج جستجو"
 
@@ -204,6 +208,41 @@ msgstr "تصویر حذف نشد"
 msgid "Please select author"
 msgstr "لطفا یک پدیدآورنده انتخاب کنید"
 
+#: src/Controller/Admin/MicroblogController.php:90
+#: src/Controller/Admin/MicroblogController.php:167
+#: src/Controller/Front/MicroblogController.php:33
+#: src/Controller/Front/MicroblogController.php:70
+msgid "Microblog system not active"
+msgstr "سیستم میکروبلاگ فعال نیست"
+
+#: src/Controller/Admin/MicroblogController.php:131
+msgid "Post saved successfully."
+msgstr "اطلاعات پست با موفقیت ذخیره شد"
+
+#: src/Controller/Admin/MicroblogController.php:142
+#: template/admin/microblog-index.phtml:8
+#: template/admin/microblog-index.phtml:10
+msgid "New post"
+msgstr "ارسال میکروبلاگ"
+
+#: src/Controller/Admin/MicroblogController.php:144
+#: template/admin/microblog-index.phtml:5
+#: template/admin/microblog-index.phtml:7
+msgid "New news"
+msgstr "ارسال خبر کوتاه"
+
+#: src/Controller/Admin/MicroblogController.php:146
+msgid "Update"
+msgstr "به روز رسانی"
+
+#: src/Controller/Admin/MicroblogController.php:186
+msgid "This post deleted"
+msgstr "پست ارسالی حذف شد"
+
+#: src/Controller/Admin/MicroblogController.php:188
+msgid "Please select post"
+msgstr "لطفا یک پست انتخاب کنید"
+
 #: src/Controller/Admin/PositionController.php:75
 msgid "Attribute position data saved successfully."
 msgstr "اطلاعات موقعیت با موفقیت ذخیره شد"
@@ -264,6 +303,7 @@ msgstr "گالری"
 #: src/Controller/Admin/StoryController.php:298
 #: src/Controller/Admin/StoryController.php:333
 #: src/Controller/Admin/StoryController.php:570
+#: src/Controller/Admin/StoryController.php:722
 #: src/Controller/Admin/TopicController.php:128
 msgid "Please select story"
 msgstr "لطفا یک مطلب انتخاب کنید"
@@ -283,7 +323,7 @@ msgid "Story data saved successfully."
 msgstr "اطلاعات مطلب با موفقیت ذخیره شد"
 
 #: src/Controller/Admin/StoryController.php:510
-#: src/Controller/Admin/StoryController.php:667
+#: src/Controller/Admin/StoryController.php:671
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -297,7 +337,7 @@ msgstr ""
 "صورت تمایل میتوانید فایل خود را بارگذاری کنید"
 
 #: src/Controller/Admin/StoryController.php:514
-#: src/Controller/Admin/StoryController.php:671
+#: src/Controller/Admin/StoryController.php:675
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -312,7 +352,7 @@ msgstr ""
 "بارگذاری کنید"
 
 #: src/Controller/Admin/StoryController.php:518
-#: src/Controller/Admin/StoryController.php:675
+#: src/Controller/Admin/StoryController.php:679
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -321,7 +361,7 @@ msgstr ""
 "از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
 
 #: src/Controller/Admin/StoryController.php:523
-#: src/Controller/Admin/StoryController.php:680
+#: src/Controller/Admin/StoryController.php:684
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -333,29 +373,18 @@ msgstr ""
 msgid "Add a Story"
 msgstr "مطلب جدید"
 
-#: src/Controller/Admin/StoryController.php:580
-#: src/Controller/Admin/StoryController.php:633
-msgid "Download data saved successfully. Please attach your files"
-msgstr "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
-
-#: src/Controller/Admin/StoryController.php:585
-#: src/Controller/Admin/StoryController.php:638
-msgid "Media data saved successfully. Please attach your medias"
-msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
-
-#: src/Controller/Admin/StoryController.php:590
-#: src/Controller/Admin/StoryController.php:643
-msgid "Gallery data saved successfully. Please attach your images"
-msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
-
-#: src/Controller/Admin/StoryController.php:596
-#: src/Controller/Admin/StoryController.php:649
+#: src/Controller/Admin/StoryController.php:601
+#: src/Controller/Admin/StoryController.php:656
 msgid "Text data saved successfully."
 msgstr "اطلاعات متنی با موفقیت ذخیره شد"
 
-#: src/Controller/Admin/StoryController.php:686
+#: src/Controller/Admin/StoryController.php:690
 msgid "Manage additional information"
 msgstr "مدیریت اطلاعات اضافی"
+
+#: src/Controller/Admin/StoryController.php:720
+msgid "This story deleted"
+msgstr "مطلب انتخابی حذف شد"
 
 #: src/Controller/Admin/ToolsController.php:35
 msgid ""
@@ -565,11 +594,28 @@ msgstr "فهرست آخرین مطالب ارسالی"
 msgid "Search again"
 msgstr "جستجوی مجدد"
 
+#: src/Controller/Front/JsonController.php:173
+msgid "The keyword not found."
+msgstr "کلمه کلیدی یافت نشد"
+
+#: src/Controller/Front/JsonController.php:188
+#, php-format
+msgid "Stories related to %s"
+msgstr "مطالب مرتبط با %s"
+
 #: src/Controller/Front/MediaController.php:28
 #: src/Controller/Front/MediaController.php:70
 #: src/Controller/Front/MediaController.php:112
 msgid "The media not set."
 msgstr "مدیا تنظیم نشده است"
+
+#: src/Controller/Front/MicroblogController.php:43
+msgid "The post not found."
+msgstr "پست یافت نشد"
+
+#: src/Controller/Front/MicroblogController.php:115
+msgid "All posts on microblog system"
+msgstr "تمام پست های سیستم میکروبلاگ"
 
 #: src/Controller/Front/StoryController.php:37
 msgid "The story not found."
@@ -626,9 +672,10 @@ msgstr "عنوان"
 
 #: src/Form/AttachForm.php:60 src/Form/AttributeForm.php:89
 #: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
-#: src/Form/PositionForm.php:73 src/Form/SpotlightForm.php:105
-#: src/Form/StoryForm.php:128 src/Form/TopicForm.php:100
-#: template/admin/attach-add.phtml:82 template/admin/story-update.phtml:103
+#: src/Form/MicroblogForm.php:88 src/Form/PositionForm.php:73
+#: src/Form/SpotlightForm.php:105 src/Form/StoryForm.php:128
+#: src/Form/TopicForm.php:100 template/admin/attach-add.phtml:82
+#: template/admin/story-update.phtml:103
 msgid "Status"
 msgstr "وضعیت"
 
@@ -642,11 +689,12 @@ msgstr "آفلاین"
 
 #: src/Form/AttachForm.php:72 src/Form/AttributeForm.php:199
 #: src/Form/AuthorForm.php:184 src/Form/AuthorRoleForm.php:72
-#: src/Form/PageForm.php:43 src/Form/PositionForm.php:88
-#: src/Form/PruneForm.php:44 src/Form/RebuildForm.php:68
-#: src/Form/RegenerateImageForm.php:46 src/Form/SitemapForm.php:46
-#: src/Form/SpotlightForm.php:119 src/Form/StoryAdditionalForm.php:98
-#: src/Form/StoryForm.php:349 src/Form/TopicForm.php:438
+#: src/Form/MicroblogForm.php:106 src/Form/PageForm.php:43
+#: src/Form/PositionForm.php:88 src/Form/PruneForm.php:44
+#: src/Form/RebuildForm.php:68 src/Form/RegenerateImageForm.php:46
+#: src/Form/SitemapForm.php:46 src/Form/SpotlightForm.php:119
+#: src/Form/StoryAdditionalForm.php:98 src/Form/StoryForm.php:349
+#: src/Form/TopicForm.php:438
 msgid "Submit"
 msgstr "ارسال"
 
@@ -714,36 +762,41 @@ msgid "Description"
 msgstr "توضیحات"
 
 #: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
-#: src/Form/PositionForm.php:75 src/Form/SpotlightForm.php:107
-#: src/Form/StoryForm.php:130 src/Form/TopicForm.php:102
-#: template/admin/attach-index.phtml:51 template/admin/author-index.phtml:53
-#: template/admin/author-role.phtml:49 template/admin/story-index.phtml:40
+#: src/Form/MicroblogForm.php:90 src/Form/PositionForm.php:75
+#: src/Form/SpotlightForm.php:107 src/Form/StoryForm.php:130
+#: src/Form/TopicForm.php:102 template/admin/attach-index.phtml:51
+#: template/admin/author-index.phtml:53 template/admin/author-role.phtml:49
+#: template/admin/microblog-index.phtml:49
+#: template/admin/microblog-index.phtml:61 template/admin/story-index.phtml:40
 #: template/admin/story-index.phtml:42 template/admin/story-index.phtml:93
-#: template/admin/story-index.phtml:145 template/admin/topic-index.phtml:53
+#: template/admin/story-index.phtml:148 template/admin/topic-index.phtml:53
 msgid "Published"
 msgstr "منتشر شده"
 
 #: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
-#: src/Form/PositionForm.php:76 src/Form/SpotlightForm.php:108
-#: src/Form/StoryForm.php:131 src/Form/TopicForm.php:103
-#: template/admin/attach-index.phtml:52 template/admin/author-index.phtml:54
-#: template/admin/author-role.phtml:50 template/admin/story-index.phtml:43
-#: template/admin/story-index.phtml:45 template/admin/story-index.phtml:146
+#: src/Form/MicroblogForm.php:91 src/Form/PositionForm.php:76
+#: src/Form/SpotlightForm.php:108 src/Form/StoryForm.php:131
+#: src/Form/TopicForm.php:103 template/admin/attach-index.phtml:52
+#: template/admin/author-index.phtml:54 template/admin/author-role.phtml:50
+#: template/admin/microblog-index.phtml:62 template/admin/story-index.phtml:43
+#: template/admin/story-index.phtml:45 template/admin/story-index.phtml:149
 #: template/admin/topic-index.phtml:54
 msgid "Pending review"
 msgstr "در انتظار تایید"
 
 #: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
-#: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
-#: src/Form/StoryForm.php:132 src/Form/TopicForm.php:104
-#: template/admin/story-index.phtml:46 template/admin/story-index.phtml:48
+#: src/Form/MicroblogForm.php:92 src/Form/PositionForm.php:77
+#: src/Form/SpotlightForm.php:109 src/Form/StoryForm.php:132
+#: src/Form/TopicForm.php:104 template/admin/story-index.phtml:46
+#: template/admin/story-index.phtml:48
 msgid "Draft"
 msgstr "پیش نویس"
 
 #: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
-#: src/Form/PositionForm.php:78 src/Form/SpotlightForm.php:110
-#: src/Form/StoryForm.php:133 src/Form/TopicForm.php:105
-#: template/admin/story-index.phtml:49 template/admin/story-index.phtml:51
+#: src/Form/MicroblogForm.php:93 src/Form/PositionForm.php:78
+#: src/Form/SpotlightForm.php:110 src/Form/StoryForm.php:133
+#: src/Form/TopicForm.php:105 template/admin/story-index.phtml:49
+#: template/admin/story-index.phtml:51
 msgid "Private"
 msgstr "خصوصی"
 
@@ -784,6 +837,23 @@ msgstr "کلمات کلیدی سئو"
 msgid "SEO Description"
 msgstr "توضیح سئو"
 
+#: src/Form/MicroblogForm.php:49
+msgid "Post"
+msgstr "پست"
+
+#: src/Form/MicroblogForm.php:94 src/Form/PositionForm.php:79
+#: src/Form/TopicForm.php:106 template/admin/attach-add.phtml:50
+#: template/admin/attribute-index.phtml:72
+#: template/admin/microblog-index.phtml:45
+#: template/admin/microblog-index.phtml:48
+#: template/admin/spotlight-index.phtml:33
+#: template/admin/spotlight-index.phtml:35
+#: template/admin/story-index.phtml:137 template/admin/story-index.phtml:138
+#: template/admin/story-update.phtml:73 template/admin/story-view.phtml:51
+#: template/admin/story-view.phtml:53
+msgid "Delete"
+msgstr "حذف"
+
 #: src/Form/PageForm.php:32
 msgid "Confirm to remove all topic pages"
 msgstr "تایید برای حذف تمام صفحات موضوعات"
@@ -791,15 +861,6 @@ msgstr "تایید برای حذف تمام صفحات موضوعات"
 #: src/Form/PositionForm.php:60
 msgid "Order"
 msgstr "ترتیب نمایش"
-
-#: src/Form/PositionForm.php:79 src/Form/TopicForm.php:106
-#: template/admin/attach-add.phtml:50 template/admin/attribute-index.phtml:72
-#: template/admin/spotlight-index.phtml:33
-#: template/admin/spotlight-index.phtml:35
-#: template/admin/story-update.phtml:73 template/admin/story-view.phtml:51
-#: template/admin/story-view.phtml:53
-msgid "Delete"
-msgstr "حذف"
 
 #: src/Form/PruneForm.php:32
 msgid "All contacts Before"
@@ -1269,6 +1330,8 @@ msgstr "اندازه"
 #: template/admin/attribute-index.phtml:69
 #: template/admin/author-index.phtml:44 template/admin/author-index.phtml:46
 #: template/admin/author-role.phtml:41 template/admin/author-role.phtml:43
+#: template/admin/microblog-index.phtml:42
+#: template/admin/microblog-index.phtml:44
 #: template/admin/position-index.phtml:30
 #: template/admin/position-index.phtml:32
 #: template/admin/spotlight-index.phtml:30
@@ -1301,7 +1364,8 @@ msgid "List of attached files"
 msgstr "فهرست فایل های پیوست شده"
 
 #: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:23
-#: template/admin/author-role.phtml:23 template/admin/position-index.phtml:12
+#: template/admin/author-role.phtml:23 template/admin/microblog-index.phtml:16
+#: template/admin/position-index.phtml:12
 #: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:69
 #: template/admin/topic-index.phtml:12
 msgid "ID"
@@ -1406,15 +1470,18 @@ msgid "List of authors"
 msgstr "فهرست پدیدآورنده ها"
 
 #: template/admin/author-index.phtml:41 template/admin/author-index.phtml:43
-#: template/admin/story-index.phtml:34 template/admin/story-index.phtml:102
-#: template/admin/story-view.phtml:42 template/admin/story-view.phtml:44
-#: template/admin/topic-index.phtml:33 template/admin/topic-index.phtml:35
+#: template/admin/microblog-index.phtml:38
+#: template/admin/microblog-index.phtml:40 template/admin/story-index.phtml:34
+#: template/admin/story-index.phtml:102 template/admin/story-view.phtml:42
+#: template/admin/story-view.phtml:44 template/admin/topic-index.phtml:33
+#: template/admin/topic-index.phtml:35
 msgid "View"
 msgstr "نمایش"
 
 #: template/admin/author-index.phtml:55 template/admin/author-role.phtml:51
-#: template/admin/story-index.phtml:52 template/admin/story-index.phtml:54
-#: template/admin/story-index.phtml:147 template/admin/topic-index.phtml:55
+#: template/admin/microblog-index.phtml:63 template/admin/story-index.phtml:52
+#: template/admin/story-index.phtml:54 template/admin/story-index.phtml:150
+#: template/admin/topic-index.phtml:55
 msgid "Trash"
 msgstr "حذف شده"
 
@@ -1425,6 +1492,22 @@ msgstr "فهرست نقش ها"
 #: template/admin/author-update.phtml:16
 msgid "Remove image author in process"
 msgstr "حذف تصویر پدیدآورنده در حال انجام است"
+
+#: template/admin/microblog-index.phtml:13
+msgid "List of posts"
+msgstr "فهرست پست ها"
+
+#: template/admin/microblog-index.phtml:51 template/admin/story-index.phtml:95
+msgid "By"
+msgstr "به وسیله"
+
+#: template/admin/microblog-index.phtml:68
+msgid ""
+"Microblog system is inactive, if you want use it , please active it from "
+"module config"
+msgstr ""
+"سیستم میکروبلاگ غیر فعال است. برای فعال کردن آن به بخش تنظیمات ماژول مراجعه "
+"کنید"
 
 #: template/admin/position-index.phtml:9
 msgid "List of positions"
@@ -1477,15 +1560,11 @@ msgstr "پیشنویس سیستمی"
 msgid "List of stories"
 msgstr "فهرست مطالب"
 
-#: template/admin/story-index.phtml:95
-msgid "By"
-msgstr "به وسیله"
-
-#: template/admin/story-index.phtml:108 template/admin/story-index.phtml:159
+#: template/admin/story-index.phtml:108 template/admin/story-index.phtml:162
 msgid "Reject"
 msgstr "رد کردن"
 
-#: template/admin/story-index.phtml:113 template/admin/story-index.phtml:164
+#: template/admin/story-index.phtml:113 template/admin/story-index.phtml:167
 msgid "Accept"
 msgstr "تایید"
 
@@ -1509,7 +1588,7 @@ msgstr "پیوست فایل"
 msgid "Preview"
 msgstr "پیش نمایش"
 
-#: template/admin/story-index.phtml:153
+#: template/admin/story-index.phtml:156
 msgid "Accept story in process"
 msgstr "تایید مطلب در حال انجام است"
 
@@ -1710,6 +1789,16 @@ msgstr ""
 "هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "
 "بررسی فرمایید."
 
+#~ msgid "Download data saved successfully. Please attach your files"
+#~ msgstr ""
+#~ "اطلاعات دانلود با موفقیت ذخیره شد. لطفا فایل های خود را پیوست نمایید."
+
+#~ msgid "Media data saved successfully. Please attach your medias"
+#~ msgstr "اطلاعات مدیا با موفقیت ذخیره شد. لطفا مدیا های خود را پیوست نمایید."
+
+#~ msgid "Gallery data saved successfully. Please attach your images"
+#~ msgstr "اطلاعات گالری با موفقیت ذخیره شد. لطفا تصاویر خود را پیوست نمایید."
+
 #~ msgid "More information about %s"
 #~ msgstr "اطلاعات بیشتر در مورد %s"
 
@@ -1803,9 +1892,6 @@ msgstr ""
 
 #~ msgid "Pinterest"
 #~ msgstr "پین‌ترست"
-
-#~ msgid "This story deleted"
-#~ msgstr "مطلب انتخابی حذف شد"
 
 #~ msgid "Comments"
 #~ msgstr "نظرات"
