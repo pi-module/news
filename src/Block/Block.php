@@ -252,7 +252,7 @@ class Block
         // Process information
         foreach ($rowset as $row) {
             $microblog[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
-            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'small', array(
+            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'medium', array(
                 'alt' => $microblog[$row->id]['user']['name'],
                 'class' => 'img-circle',
             ));
