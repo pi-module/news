@@ -104,6 +104,8 @@ return array(
                         'options' => array(
                             'publishDESC' => _a('Publish time DESC'),
                             'publishASC' => _a('Publish time ASC'),
+                            'updateDESC' => _a('Update time DESC'),
+                            'updateASC' => _a('Update time ASC'),
                             'random' => _a('Random'),
                         ),
                     ),
@@ -134,7 +136,7 @@ return array(
                 'filter' => 'text',
                 'value' => 'vertical',
             ),
-            'customEffect' => array(
+            'blockEffect' => array(
                 'title' => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),
                 'edit' => 'checkbox',
@@ -147,149 +149,6 @@ return array(
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
-            ),
-        ),
-    ),
-
-    // List block
-    'list' => array(
-        'title' => _a('list'),
-        'description' => '',
-        'render' => array('block', 'item'),
-        'template' => 'list',
-        'config' => array(
-            'topicid' => array(
-                'title' => _a('Topic'),
-                'description' => '',
-                'edit' => 'Module\News\Form\Element\Topic',
-                'filter' => 'string',
-                'value' => 0,
-            ),
-            'number' => array(
-                'title' => _a('Number'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'number_int',
-                'value' => 5,
-            ),
-            'showdate' => array(
-                'title' => _a('Show date'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 0,
-            ),
-            'showhits' => array(
-                'title' => _a('Show hits'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 0,
-            ),
-            'showblockmore' => array(
-                'title' => _a('Show More link to module page'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 0,
-            ),
-            'linkblockmore' => array(
-                'title' => _a('Set More link to module page'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'string',
-                'value' => '',
-            ),
-            'order' => array(
-                'title' => _a('Story order'),
-                'description' => _a('Story list order options'),
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publishDESC' => _a('Publish time DESC'),
-                            'publishASC' => _a('Publish time ASC'),
-                            'random' => _a('Random'),
-                        ),
-                    ),
-                ),
-                'filter' => 'text',
-                'value' => 'publishDESC',
-            ),
-        ),
-    ),
-
-    // Table block
-    'table' => array(
-        'title' => _a('Table'),
-        'description' => '',
-        'render' => array('block', 'item'),
-        'template' => 'table',
-        'config' => array(
-            'topicid' => array(
-                'title' => _a('Topic'),
-                'description' => '',
-                'edit' => 'Module\News\Form\Element\Topic',
-                'filter' => 'string',
-                'value' => 0,
-            ),
-            'number' => array(
-                'title' => _a('Number'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'number_int',
-                'value' => 5,
-            ),
-            'showdesc' => array(
-                'title' => _a('Show text'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 0,
-            ),
-            'showdate' => array(
-                'title' => _a('Show date'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 1,
-            ),
-            'showhits' => array(
-                'title' => _a('Show hits'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 1,
-            ),
-            'showblockmore' => array(
-                'title' => _a('Show More link to module page'),
-                'description' => '',
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 0,
-            ),
-            'linkblockmore' => array(
-                'title' => _a('Set More link to module page'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'string',
-                'value' => '',
-            ),
-            'order' => array(
-                'title' => _a('Story order'),
-                'description' => _a('Story list order options'),
-                'edit' => array(
-                    'type' => 'select',
-                    'options' => array(
-                        'options' => array(
-                            'publishDESC' => _a('Publish time DESC'),
-                            'publishASC' => _a('Publish time ASC'),
-                            'random' => _a('Random'),
-                        ),
-                    ),
-                ),
-                'filter' => 'text',
-                'value' => 'publishDESC',
             ),
         ),
     ),
@@ -357,6 +216,20 @@ return array(
                 'filter' => 'number_int',
                 'value' => 0,
             ),
+            'showblockmore' => array(
+                'title' => _a('Show More link to module page'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => _a('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => '',
+            ),
             'order' => array(
                 'title' => _a('Story order'),
                 'description' => _a('Story list order options'),
@@ -366,6 +239,8 @@ return array(
                         'options' => array(
                             'publishDESC' => _a('Publish time DESC'),
                             'publishASC' => _a('Publish time ASC'),
+                            'updateDESC' => _a('Update time DESC'),
+                            'updateASC' => _a('Update time ASC'),
                             'random' => _a('Random'),
                         ),
                     ),
@@ -396,7 +271,7 @@ return array(
                 'filter' => 'text',
                 'value' => 'vertical',
             ),
-            'customEffect' => array(
+            'blockEffect' => array(
                 'title' => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),
                 'edit' => 'checkbox',
@@ -484,7 +359,7 @@ return array(
                 'filter' => 'text',
                 'value' => 'listgroup',
             ),
-            'customEffect' => array(
+            'blockEffect' => array(
                 'title' => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),
                 'edit' => 'checkbox',
@@ -631,4 +506,146 @@ return array(
         ),
     ),
 
+    // List block
+    'list' => array(
+        'title' => _a('list'),
+        'description' => '',
+        'render' => array('block', 'item'),
+        'template' => 'list',
+        'config' => array(
+            'topicid' => array(
+                'title' => _a('Topic'),
+                'description' => '',
+                'edit' => 'Module\News\Form\Element\Topic',
+                'filter' => 'string',
+                'value' => 0,
+            ),
+            'number' => array(
+                'title' => _a('Number'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 5,
+            ),
+            'showdate' => array(
+                'title' => _a('Show date'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'showhits' => array(
+                'title' => _a('Show hits'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'showblockmore' => array(
+                'title' => _a('Show More link to module page'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => _a('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => '',
+            ),
+            'order' => array(
+                'title' => _a('Story order'),
+                'description' => _a('Story list order options'),
+                'edit' => array(
+                    'type' => 'select',
+                    'options' => array(
+                        'options' => array(
+                            'publishDESC' => _a('Publish time DESC'),
+                            'publishASC' => _a('Publish time ASC'),
+                            'random' => _a('Random'),
+                        ),
+                    ),
+                ),
+                'filter' => 'text',
+                'value' => 'publishDESC',
+            ),
+        ),
+    ),
+
+    // Table block
+    'table' => array(
+        'title' => _a('Table'),
+        'description' => '',
+        'render' => array('block', 'item'),
+        'template' => 'table',
+        'config' => array(
+            'topicid' => array(
+                'title' => _a('Topic'),
+                'description' => '',
+                'edit' => 'Module\News\Form\Element\Topic',
+                'filter' => 'string',
+                'value' => 0,
+            ),
+            'number' => array(
+                'title' => _a('Number'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 5,
+            ),
+            'showdesc' => array(
+                'title' => _a('Show text'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'showdate' => array(
+                'title' => _a('Show date'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
+            ),
+            'showhits' => array(
+                'title' => _a('Show hits'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
+            ),
+            'showblockmore' => array(
+                'title' => _a('Show More link to module page'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
+            'linkblockmore' => array(
+                'title' => _a('Set More link to module page'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => '',
+            ),
+            'order' => array(
+                'title' => _a('Story order'),
+                'description' => _a('Story list order options'),
+                'edit' => array(
+                    'type' => 'select',
+                    'options' => array(
+                        'options' => array(
+                            'publishDESC' => _a('Publish time DESC'),
+                            'publishASC' => _a('Publish time ASC'),
+                            'random' => _a('Random'),
+                        ),
+                    ),
+                ),
+                'filter' => 'text',
+                'value' => 'publishDESC',
+            ),
+        ),
+    ),
 );

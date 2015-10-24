@@ -269,14 +269,122 @@
                     </div>
                 <?php } ?>
             </div>
+        <?php } elseif ($block['type'] == 'list') { ?>
+            <div class="news-item-block-list clearfix" itemscope itemtype="http://schema.org/ItemList">
+                <ul class="list-unstyled">
+                    <?php foreach ($block['resources'] as $story) { ?>
+                        <li class="h-entry" itemscope itemtype="http://schema.org/Article" itemprop="itemListElement">
+			                <span class="itemTitle p-name" itemprop="name">
+				                <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+			                </span>
+                            <?php if ($block['showdate']) { ?>
+                                <span class="itemPostDate dt-published">
+				                    <?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
+			                    </span>
+                            <?php } ?>
+                            <?php if ($block['showhits']) { ?>
+                                <span class="itemStats">
+				                    <?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?>
+			                    </span>
+                            <?php } ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } elseif ($block['type'] == 'table') { ?>
+            <div class="news-item-block-table clearfix">
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr char="head">
+                        <th><?php echo _b('Title'); ?></th>
+                        <?php if ($block['showdesc']) { ?>
+                            <th><?php echo _b('Summary'); ?></th>
+                        <?php } ?>
+                        <?php if ($block['showdate']) { ?>
+                            <th><?php echo _b('Time'); ?></th>
+                        <?php } ?>
+                        <?php if ($block['showhits']) { ?>
+                            <th><?php echo _b('Read'); ?></th>
+                        <?php } ?>
+                    </tr>
+                    <?php foreach ($block['resources'] as $story) { ?>
+                        <tr class="odd h-entry" itemscope itemtype="http://schema.org/Article">
+                            <td class="p-name" itemprop="name"><a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                                                  title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+                            </td>
+                            <?php if ($block['showdesc']) { ?>
+                                <td class="p-summary"><?php echo $this->escape($story['text_summary']); ?></td>
+                            <?php } ?>
+                            <?php if ($block['showdate']) { ?>
+                                <td class="dt-published"><?php echo $this->escape($story['time_publish_view']); ?></td>
+                            <?php } ?>
+                            <?php if ($block['showhits']) { ?>
+                                <td><?php echo $this->escape($story['hits']); ?></td>
+                            <?php } ?>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
         <?php } elseif ($block['type'] == 'slide') { ?>
-            <?php
-            $this->jQuery();
-            $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
-            //$this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
-            $this->js($this->assetModule('js/caption.hover.js', 'news'));
-            $this->css($this->assetModule('css/owl.carousel.css', 'news'));
-            ?>
+            <?php if ($block['blockEffect']) {
+                $this->jQuery();
+                $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
+                $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+                $this->css($this->assetModule('css/owl.carousel.css', 'news'));
+            } ?>
+            <div class="owl-carousel text-center clearfix hover-captions-container">
+                <?php foreach ($block['resources'] as $story) { ?>
+                    <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
+                         itemtype="http://schema.org/Article">
+                        <div class="hover-caption">
+                            <ul class="list-unstyled">
+                                <?php if ($block['showdate']) { ?>
+                                    <li class="dt-published"><i
+                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                        : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                <?php } ?>
+                                <?php if ($block['showhits']) { ?>
+                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                        : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                <?php } ?>
+                                <?php if ($block['showauthor']) { ?>
+                                    <?php foreach ($story['authors'] as $author) { ?>
+                                        <li>
+                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                            <a title="<?php echo $author['authorName']; ?>"
+                                               href="<?php echo $author['authorUrl']; ?>">
+                                                <?php echo $author['authorName']; ?>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?>
+                            </ul>
+                            <p>
+                                <a itemprop="url" class="u-url hover-caption-more"
+                                   title="<?php echo $this->escape($story['title']); ?>"
+                                   href="<?php echo $this->escape($story['storyUrl']); ?>">
+                                    <?php echo _b('View'); ?>
+                                </a>
+                            </p>
+                        </div>
+                        <img itemprop="image" class="media-object img-responsive u-photo"
+                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                             alt="<?php echo $this->escape($story['title']); ?>">
+
+                        <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } elseif ($block['type'] == 'slidehover') { ?>
+            <?php if ($block['blockEffect']) {
+                $this->jQuery();
+                $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
+                $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+                $this->js($this->assetModule('js/caption.hover.js', 'news'));
+                $this->css($this->assetModule('css/owl.carousel.css', 'news'));
+            } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
