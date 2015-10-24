@@ -38,6 +38,14 @@ class Block
                 $order = array(new Expression('RAND()'));
                 break;
 
+            case 'updateASC':
+                $order = array('time_update ASC', 'id ASC');;
+                break;
+
+            case 'updateDESC':
+                $order = array('time_update DESC', 'id DESC');;
+                break;
+
             case 'publishASC':
                 $order = array('time_publish ASC', 'id ASC');;
                 break;
@@ -97,6 +105,14 @@ class Block
         switch ($block['order']) {
             case 'random':
                 $order = array(new Expression('RAND()'));
+                break;
+
+            case 'updateASC':
+                $order = array('time_update ASC', 'id ASC');;
+                break;
+
+            case 'updateDESC':
+                $order = array('time_update DESC', 'id DESC');;
                 break;
 
             case 'publishASC':
