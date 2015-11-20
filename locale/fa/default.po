@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-10-10 22:05+0330\n"
+"POT-Creation-Date: 2015-11-20 10:20+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../..\n"
@@ -77,7 +77,7 @@ msgid "Tag list"
 msgstr "فهرست برچسب ها"
 
 #: src/Api/Breadcrumbs.php:114 src/Api/Breadcrumbs.php:127
-#: template/front/topic-list.phtml:6
+#: template/front/topic-list.phtml:16
 msgid "Topic list"
 msgstr "فهرست موضوع ها"
 
@@ -655,6 +655,8 @@ msgid "Topic not active."
 msgstr "موضوع غیر فعال است"
 
 #: src/Controller/Front/TopicController.php:110
+#: template/front/topic-list.phtml:5 template/front/topic-list.phtml:7
+#: template/front/topic-list.phtml:9 template/front/topic-list.phtml:10
 msgid "List of all topics"
 msgstr "فهرست همه موضوعات"
 
@@ -1783,7 +1785,7 @@ msgstr ""
 "هیچ اطلاعاتی از کلمات کلیدی به عنوان برچسب هنوز در سیستم درج نشده است. لطفا "
 "بعدا از این صفحه را بررسی فرمایید."
 
-#: template/front/topic-list.phtml:32
+#: template/front/topic-list.phtml:43
 msgid "No topic has been made on this part yet. please check this page later"
 msgstr ""
 "هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "

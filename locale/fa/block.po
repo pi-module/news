@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-10-10 22:05+0330\n"
+"POT-Creation-Date: 2015-11-20 10:19+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,47 +9,64 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _b\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:311
-#: template/block/spotlight.phtml:309 template/block/topic.phtml:64
+#: template/block/gallery.phtml:58 template/block/item.phtml:366
+#: template/block/item.phtml:419 template/block/spotlight.phtml:366
+#: template/block/spotlight.phtml:419 template/block/topic.phtml:64
 msgid "View"
 msgstr "مشاهده"
 
 #: template/block/item.phtml:29 template/block/item.phtml:92
 #: template/block/item.phtml:157 template/block/item.phtml:236
-#: template/block/item.phtml:288 template/block/item.phtml:363
-#: template/block/list.phtml:11 template/block/spotlight.phtml:29
-#: template/block/spotlight.phtml:92 template/block/spotlight.phtml:157
-#: template/block/spotlight.phtml:235 template/block/spotlight.phtml:286
-#: template/block/spotlight.phtml:361 template/block/table.phtml:8
+#: template/block/item.phtml:283 template/block/item.phtml:304
+#: template/block/item.phtml:343 template/block/item.phtml:396
+#: template/block/item.phtml:471 template/block/list.phtml:11
+#: template/block/spotlight.phtml:29 template/block/spotlight.phtml:92
+#: template/block/spotlight.phtml:157 template/block/spotlight.phtml:236
+#: template/block/spotlight.phtml:283 template/block/spotlight.phtml:304
+#: template/block/spotlight.phtml:343 template/block/spotlight.phtml:396
+#: template/block/spotlight.phtml:471 template/block/table.phtml:8
 msgid "Time"
 msgstr "زمان"
 
 #: template/block/item.phtml:33 template/block/item.phtml:96
 #: template/block/item.phtml:161 template/block/item.phtml:240
-#: template/block/item.phtml:292 template/block/item.phtml:367
-#: template/block/list.phtml:16 template/block/spotlight.phtml:33
-#: template/block/spotlight.phtml:96 template/block/spotlight.phtml:161
-#: template/block/spotlight.phtml:239 template/block/spotlight.phtml:290
-#: template/block/spotlight.phtml:365 template/block/table.phtml:10
+#: template/block/item.phtml:288 template/block/item.phtml:307
+#: template/block/item.phtml:347 template/block/item.phtml:400
+#: template/block/item.phtml:475 template/block/list.phtml:16
+#: template/block/spotlight.phtml:33 template/block/spotlight.phtml:96
+#: template/block/spotlight.phtml:161 template/block/spotlight.phtml:240
+#: template/block/spotlight.phtml:288 template/block/spotlight.phtml:307
+#: template/block/spotlight.phtml:347 template/block/spotlight.phtml:400
+#: template/block/spotlight.phtml:475 template/block/table.phtml:10
 msgid "Read"
 msgstr "نمایش"
 
 #: template/block/item.phtml:54 template/block/item.phtml:117
 #: template/block/item.phtml:182 template/block/item.phtml:261
 #: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
-#: template/block/spotlight.phtml:182 template/block/spotlight.phtml:260
+#: template/block/spotlight.phtml:182 template/block/spotlight.phtml:261
 msgid "Read More"
 msgstr "ادامه"
 
-#: template/block/item.phtml:424 template/block/item.phtml:425
+#: template/block/item.phtml:299 template/block/spotlight.phtml:299
+#: template/block/table.phtml:4
+msgid "Title"
+msgstr "عنوان"
+
+#: template/block/item.phtml:301 template/block/spotlight.phtml:301
+#: template/block/table.phtml:6
+msgid "Summary"
+msgstr "خلاصه"
+
+#: template/block/item.phtml:532 template/block/item.phtml:533
 #: template/block/list.phtml:25 template/block/list.phtml:26
-#: template/block/spotlight.phtml:422 template/block/spotlight.phtml:423
+#: template/block/spotlight.phtml:532 template/block/spotlight.phtml:533
 #: template/block/table.phtml:28 template/block/table.phtml:29
 #: template/block/topic.phtml:91 template/block/topic.phtml:92
 msgid "More stories"
@@ -58,14 +75,6 @@ msgstr "موارد بیشتر"
 #: template/block/microblog.phtml:39
 msgid "Microblog system is inactive."
 msgstr "سیستم میکروبلاگ غیر فعال است"
-
-#: template/block/table.phtml:4
-msgid "Title"
-msgstr "عنوان"
-
-#: template/block/table.phtml:6
-msgid "Summary"
-msgstr "خلاصه"
 
 #~ msgid "Short Info"
 #~ msgstr "اطلاعات"
