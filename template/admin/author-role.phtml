@@ -1,20 +1,7 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <div class="admin-header clearfix well well-sm">
-        <div class="col-md-7">
-            <a class="btn btn-primary" title="<?php _e('Author list'); ?>"
-               href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'index')); ?>"><i
-                    class="fa fa-folder-open"></i> <?php _e('Author list'); ?></a>
-            <a class="btn btn-success" title="<?php _e('Role list'); ?>"
-               href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'role')); ?>"><i
-                    class="fa fa-folder-open"></i> <?php _e('Role list'); ?></a>
-        </div>
-        <div class="col-md-5">
-            <?php echo $this->form($form, 'inline'); ?>
-        </div>
-    </div>
     <p><a class="btn btn-primary" title="<?php _e('Add Role'); ?>"
-          href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'roleUpdate')); ?>"><i
+          href="<?php echo $this->url('', array('action' => 'update')); ?>"><i
                 class="fa fa-plus"></i> <?php _e('Add Role'); ?></a></p>
     <?php if (!empty($roles)) { ?>
         <h3><?php _e('List of roles'); ?></h3>
@@ -39,7 +26,7 @@
                     <td><?php echo $this->escape($role['title']); ?></td>
                     <td>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
-                           href="<?php echo $this->url('', array('action' => 'roleUpdate', 'id' => $role['id'])); ?>"><i
+                           href="<?php echo $this->url('', array('action' => 'update', 'id' => $role['id'])); ?>"><i
                                 class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                     </td>
                 </tr>

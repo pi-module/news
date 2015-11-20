@@ -19,8 +19,6 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\AuthorForm;
 use Module\News\Form\AuthorFilter;
-use Module\News\Form\AuthorRoleForm;
-use Module\News\Form\AuthorRoleFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
 use Zend\Json\Json;
@@ -32,10 +30,6 @@ class AuthorController extends ActionController
     protected $authorColumns = array(
         'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description',
         'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
-    );
-
-    protected $authorRoleColumns = array(
-        'id', 'title', 'status'
     );
 
     public function indexAction()
@@ -242,75 +236,6 @@ class AuthorController extends ActionController
         $this->view()->setTemplate('author-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add Author'));
-    }
-
-    public function roleAction()
-    {
-        // Get page
-        $module = $this->params('module');
-        // Set info
-        $order = array('title DESC', 'id DESC');
-        // Get list of author
-        $select = $this->getModel('author_role')->select()->order($order);
-        $rowset = $this->getModel('author_role')->selectWith($select);
-        // Make list
-        foreach ($rowset as $row) {
-            $role[$row->id] = $row->toArray();
-        }
-        // Set form
-        $form = new StorySearchForm('search');
-        $form->setAttribute('action', $this->url('', array('action' => 'process')));
-        // Set view
-        $this->view()->setTemplate('author-role');
-        $this->view()->assign('roles', $role);
-        $this->view()->assign('form', $form);
-    }
-
-    public function roleUpdateAction()
-    {
-        // Get id
-        $id = $this->params('id');
-        $module = $this->params('module');
-        // Set form
-        $form = new AuthorRoleForm('role');
-        if ($this->request->isPost()) {
-            $data = $this->request->getPost();
-            $form->setInputFilter(new AuthorRoleFilter);
-            $form->setData($data);
-            if ($form->isValid()) {
-                $values = $form->getData();
-                // Set just category fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->authorRoleColumns)) {
-                        unset($values[$key]);
-                    }
-                }
-                // Save values
-                if (!empty($values['id'])) {
-                    $row = $this->getModel('author_role')->find($values['id']);
-                } else {
-                    $row = $this->getModel('author_role')->createRow();
-                }
-                $row->assign($values);
-                $row->save();
-                // Clear registry
-                Pi::registry('authorList', 'news')->clear();
-                // jump
-                $message = __('Role data saved successfully.');
-                $this->jump(array('action' => 'role'), $message);
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
-            }
-        } else {
-            if ($id) {
-                $role = $this->getModel('author_role')->find($id)->toArray();
-                $form->setData($role);
-            }
-        }
-        // Set view
-        $this->view()->setTemplate('author-role-update');
-        $this->view()->assign('form', $form);
-        $this->view()->assign('title', __('Add Role'));
     }
 
     public function removeAction()

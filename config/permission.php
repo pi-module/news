@@ -46,6 +46,11 @@ return array(
             'access' => array(//'admin',
             ),
         ),
+        'role' => array(
+            'title' => _a('Author roles'),
+            'access' => array(//'admin',
+            ),
+        ),
         'attribute' => array(
             'title' => _a('Attribute'),
             'access' => array(//'admin',

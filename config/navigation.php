@@ -118,6 +118,15 @@ return array(
             'controller' => 'author',
             'action' => 'index',
         ),
+        'role' => array(
+            'label' => _a('Author roles'),
+            'permission' => array(
+                'resource' => 'role',
+            ),
+            'route' => 'admin',
+            'controller' => 'role',
+            'action' => 'index',
+        ),
         'microblog' => array(
             'label' => _a('Micro blog'),
             'permission' => array(

@@ -24,6 +24,11 @@ return array(
             'permission' => 'author',
         ),
         array(
+            'title' => _a('Author roles'),
+            'controller' => 'role',
+            'permission' => 'role',
+        ),
+        array(
             'title' => _a('Attribute'),
             'controller' => 'attribute',
             'permission' => 'attribute',
