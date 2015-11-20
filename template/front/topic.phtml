@@ -8,6 +8,8 @@ if (isset($topic['title']) && !empty($topic['title'])) {
 }
 if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
     $this->headMeta($this->escape($topic['topicUrl']), 'og:url', 'property');
+} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
+    $this->headMeta(Pi::url($this->url('', array('module' => 'news'))), 'og:url', 'property');
 }
 if (isset($topic['text_description']) && !empty($topic['text_description'])) {
     $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
@@ -104,7 +106,7 @@ EOT;
     <div class="topicinfo h-entry clearfix" itemscope itemtype="http://schema.org/Article">
         <div class="page-header">
             <h1 itemprop="name headline" class="p-name"><?php echo $newsTitleH1; ?></h1>
-            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", time())); ?>" />
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
             <div itemprop="description" class="well newsIndexDescription clearfix">

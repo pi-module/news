@@ -98,7 +98,7 @@ class Topic extends AbstractApi
                 $topic['ids'] = $topic['id'];
             }
             // Check attach
-            if ($topic['attach']) {
+            if (isset($topic['attach']) && $topic['attach']) {
                 // Set info
                 $file = array();
                 $where = array('item_id' => $topic['id'], 'item_table' => 'topic', 'status' => 1);
@@ -130,9 +130,6 @@ class Topic extends AbstractApi
             $topic['show_topic'] = $config['show_topic'];
             $topic['show_topicinfo'] = $config['show_topicinfo'];
             $topic['show_date'] = $config['show_date'];
-            $topic['show_print'] = $config['show_print'];
-            $topic['show_pdf'] = $config['show_pdf'];
-            $topic['show_mail'] = $config['show_mail'];
             $topic['show_hits'] = $config['show_hits'];
             $topic['show_tag'] = $config['show_tag'];
         } else {
