@@ -32,6 +32,13 @@ class FavouriteController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+        // Check module active
+        if (!Pi::service('module')->isActive('favourite')) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Favourite module not installed'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting

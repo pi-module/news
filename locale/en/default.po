@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-11-20 10:19+0330\n"
+"POT-Creation-Date: 2015-11-20 10:28+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -540,11 +540,15 @@ msgstr ""
 msgid "The user not select"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:44
+#: src/Controller/Front/FavouriteController.php:38
+msgid "Favourite module not installed"
+msgstr ""
+
+#: src/Controller/Front/FavouriteController.php:51
 msgid "No favourite find by you"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:63
+#: src/Controller/Front/FavouriteController.php:70
 msgid "All favourite stories by you"
 msgstr ""
 

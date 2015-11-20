@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-11-20 10:20+0330\n"
+"POT-Creation-Date: 2015-11-20 10:27+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -564,11 +564,15 @@ msgstr "فهرست همه پدیدآورنده ها"
 msgid "The user not select"
 msgstr "کاربری انتخاب نشده است"
 
-#: src/Controller/Front/FavouriteController.php:44
+#: src/Controller/Front/FavouriteController.php:38
+msgid "Favourite module not installed"
+msgstr "ماژول فهرست علاقه مندی ها در دسترس نیست"
+
+#: src/Controller/Front/FavouriteController.php:51
 msgid "No favourite find by you"
 msgstr "شما هنوز هیچ مطلبی را به فهرست علاقه مندی ها اضافه نکرده اید."
 
-#: src/Controller/Front/FavouriteController.php:63
+#: src/Controller/Front/FavouriteController.php:70
 msgid "All favourite stories by you"
 msgstr "تمام مطالب محبوب شما"
 

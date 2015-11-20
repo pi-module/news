@@ -12,17 +12,6 @@
  */
 return array(
     'front' => array(
-        'index' => array(
-            'label' => _a('Index'),
-            'permission' => array(
-                'resource' => 'public',
-            ),
-            'route' => 'news',
-            'module' => 'news',
-            'controller' => 'index',
-            'action' => 'index',
-        ),
-
         'favourite' => array(
             'label' => _a('Favourite'),
             'permission' => array(
@@ -42,7 +31,6 @@ return array(
             'route' => 'news',
             'module' => 'news',
             'controller' => 'topic',
-            'action' => 'list',
         ),
 
         'tag' => array(
@@ -64,7 +52,6 @@ return array(
             'route' => 'news',
             'module' => 'news',
             'controller' => 'author',
-            'action' => 'list',
         ),
     ),
     'admin' => array(
