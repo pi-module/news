@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c3ba3323-ecb4-4af3-968a-5d024dd431e6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/module.php" afterPath="$PROJECT_DIR$/config/module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/mysql.sql" afterPath="$PROJECT_DIR$/sql/mysql.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Topic.php" afterPath="$PROJECT_DIR$/src/Api/Topic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Admin/JsonController.php" afterPath="$PROJECT_DIR$/src/Controller/Admin/JsonController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Admin/StoryController.php" afterPath="$PROJECT_DIR$/src/Controller/Admin/StoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Front/JsonController.php" afterPath="$PROJECT_DIR$/src/Controller/Front/JsonController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Installer/Action/Install.php" afterPath="$PROJECT_DIR$/src/Installer/Action/Install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Installer/Action/Update.php" afterPath="$PROJECT_DIR$/src/Installer/Action/Update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/Blog.php" afterPath="$PROJECT_DIR$/src/Route/Blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Route/News.php" afterPath="$PROJECT_DIR$/src/Route/News.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/admin/topic-index.phtml" afterPath="$PROJECT_DIR$/template/admin/topic-index.phtml" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -432,7 +421,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449826667269</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Set password for json output">
+      <created>1449829600445</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1449829600445</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
