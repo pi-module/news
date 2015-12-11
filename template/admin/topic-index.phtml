@@ -41,7 +41,13 @@
                             class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                     <?php if ($config['admin_json']) { ?>
                         <a class="btn btn-primary btn-xs" title="<?php _e('Json'); ?>"
-                           href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'json', 'action' => 'storyTopic', 'id' => $this->escape($topic['id']))); ?>"><i
+                           href="<?php echo $this->url('news', array(
+                               'module' => $module,
+                               'controller' => 'json',
+                               'action' => 'storyTopic',
+                               'id' => $this->escape($topic['id']),
+                               'password' => (!empty($config['json_password'])) ? $config['json_password'] : '',
+                           )); ?>"><i
                                 class="fa fa-code"></i> <?php _e('Json'); ?></a>
                     <?php } ?>
                 </td>
