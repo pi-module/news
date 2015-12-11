@@ -281,7 +281,7 @@ class Story extends AbstractApi
         // boject to array
         $story = $story->toArray();
         // Set text_summary
-        $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
+        $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'text');
         // Set text_description
         $story['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
         // Set times

@@ -42,7 +42,7 @@ class Microblog extends AbstractApi
         // boject to array
         $microblog = $microblog->toArray();
         // Set text_summary
-        $microblog['post'] = Pi::service('markup')->render($microblog['post'], 'text', 'html');
+        $microblog['post'] = Pi::service('markup')->render($microblog['post'], 'html', 'text');
         // Set times
         $microblog['time_create_view'] = _date($microblog['time_create']);
         // Set story url
