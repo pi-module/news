@@ -82,6 +82,8 @@ class JsonController extends IndexController
 
     public function storyAllAction()
     {
+        // Get info from url
+        $update = $this->params('update', 0);
         // Check password
         if (!$this->checkPassword()) {
             $this->getResponse()->setStatusCode(401);
@@ -90,7 +92,10 @@ class JsonController extends IndexController
             return;
         }
         // Set story info
-        $where = array('status' => 1);
+        $where = array(
+            'status' => 1,
+            'time_update > ?' => $update,
+        );
         // Get story List
         $storyList = $this->storyJsonList($where);
         // Set view
@@ -100,8 +105,8 @@ class JsonController extends IndexController
     public function storyTopicAction()
     {
         // Get info from url
-        $id = $this->params('id');
-        $module = $this->params('module');
+        $id = $this->params('id', 0);
+        $update = $this->params('update', 0);
         // Check password
         if (!$this->checkPassword()) {
             $this->getResponse()->setStatusCode(401);
@@ -117,7 +122,11 @@ class JsonController extends IndexController
             $storyList = array();
         } else {
             // Set story info
-            $where = array('status' => 1, 'topic' => $topic['ids']);
+            $where = array(
+                'status' => 1,
+                'topic' => $topic['ids'],
+                'time_update > ?' => $update,
+            );
             // Get story List
             $storyList = $this->storyJsonList($where);
         }

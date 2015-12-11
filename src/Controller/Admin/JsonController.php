@@ -41,6 +41,7 @@ class JsonController extends ActionController
             'controller' => 'json',
             'action' => 'storyTopic',
             'id' => 1,
+            'update' => strtotime("11-12-10"),
             'password' => (!empty($config['json_password'])) ? $config['json_password'] : '',
         )));
 

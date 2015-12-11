@@ -67,6 +67,7 @@ CREATE TABLE `{link}` (
   `story`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
   `topic`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
   `time_publish` INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `time_update`  INT(10) UNSIGNED    NOT NULL DEFAULT '0',
   `status`       TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
   `uid`          INT(10) UNSIGNED    NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),

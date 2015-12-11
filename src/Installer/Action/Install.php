@@ -126,6 +126,7 @@ class Install extends BasicInstall
             'story' => '1',
             'topic' => '1',
             'time_publish' => time(),
+            'time_update' => time(),
             'status' => '1',
             'uid' => Pi::user()->getId(),
         );

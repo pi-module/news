@@ -69,6 +69,11 @@ class Update extends BasicUpdate
         $microblogTable = $microblogModel->getTable();
         $microblogAdapter = $microblogModel->getAdapter();
 
+        // Set link model
+        $linkModel = Pi::model('link', $this->module);
+        $linkTable = $linkModel->getTable();
+        $linkAdapter = $linkModel->getAdapter();
+
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
@@ -588,6 +593,34 @@ EOD;
             $sql = sprintf("ALTER TABLE %s ADD `topic` INT(10) UNSIGNED NOT NULL DEFAULT '0', ADD INDEX (`topic`)", $microblogTable);
             try {
                 $microblogAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        // Update to version 1.7.2
+        if (version_compare($moduleVersion, '1.7.2', '<')) {
+            // Alter table : ADD time_update
+            $sql = sprintf("ALTER TABLE %s ADD `time_update` INT(10) UNSIGNED NOT NULL DEFAULT '0' AFTER `time_publish`", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Update time_update
+            $sql = sprintf("UPDATE %s SET `time_update` = `time_publish`", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
                 $this->setResult('db', array(
                     'status' => false,

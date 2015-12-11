@@ -99,18 +99,30 @@ class News extends Standard
 
                 case 'json':
                     $matches['action'] = $this->decode($parts[1]);
+
                     if ($parts[1] == 'filterSearch') {
                         $keyword = _get('keyword');
                         if (isset($keyword) && !empty($keyword)) {
                             $matches['keyword'] = $keyword;
                         }
                     }
+
                     if (isset($parts[2]) && $parts[2] == 'id') {
                         $matches['id'] = intval($parts[3]);
                     }
+
+                    if (isset($parts[2]) && $parts[2] == 'update') {
+                        $matches['update'] = intval($parts[3]);
+                    } elseif (isset($parts[4]) && $parts[4] == 'update') {
+                        $matches['update'] = intval($parts[5]);
+                    }
+
                     if (isset($parts[4]) && $parts[4] == 'password') {
                         $matches['password'] = $this->decode($parts[5]);
+                    } elseif (isset($parts[6]) && $parts[6] == 'password') {
+                        $matches['password'] = $this->decode($parts[7]);
                     }
+
                     break;
 
                 case 'media':
@@ -148,6 +160,12 @@ class News extends Standard
                     break;
             }
         }
+
+        echo '<pre>';
+        print_r($matches);
+        print_r($parts);
+        echo '</pre>';
+
         return $matches;
     }
 
@@ -191,15 +209,15 @@ class News extends Standard
             $url['q'] = $mergedParams['q'];
         }
 
-        // Set update
-        if (!empty($mergedParams['update'])) {
-            $url['update'] = 'update' . $this->paramDelimiter . $mergedParams['update'];
-        }
-
         if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {
             $url['id'] = 'id' . $this->paramDelimiter . $mergedParams['id'];
         } elseif (!empty($mergedParams['id'])) {
             $url['id'] = $mergedParams['id'];
+        }
+
+        // Set update
+        if (!empty($mergedParams['update'])) {
+            $url['update'] = 'update' . $this->paramDelimiter . $mergedParams['update'];
         }
 
         if (!empty($mergedParams['start'])) {
