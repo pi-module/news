@@ -108,6 +108,9 @@ class Blog extends Standard
                     if (isset($parts[2]) && $parts[2] == 'id') {
                         $matches['id'] = intval($parts[3]);
                     }
+                    if (isset($parts[4]) && $parts[4] == 'password') {
+                        $matches['password'] = $this->decode($parts[5]);
+                    }
                     break;
 
                 case 'media':
@@ -186,6 +189,11 @@ class Blog extends Standard
             $url['q'] = $mergedParams['q'];
         }
 
+        // Set update
+        if (!empty($mergedParams['update'])) {
+            $url['update'] = 'update' . $this->paramDelimiter . $mergedParams['update'];
+        }
+
         if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {
             $url['id'] = 'id' . $this->paramDelimiter . $mergedParams['id'];
         } elseif (!empty($mergedParams['id'])) {
@@ -206,6 +214,11 @@ class Blog extends Standard
 
         if (!empty($mergedParams['topic']) && $mergedParams['controller'] == 'microblog') {
             $url['topic'] = 'topic' . $this->paramDelimiter . $mergedParams['topic'];
+        }
+
+        // Set password
+        if (!empty($mergedParams['password'])) {
+            $url['password'] = 'password' . $this->paramDelimiter . $mergedParams['password'];
         }
 
         // Make url

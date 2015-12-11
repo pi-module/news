@@ -1,0 +1,10 @@
+<?php $this->css($this->assetModule('css/admin.css')); ?>
+<div class="clearfix">
+    <h3><?php _e('List of json output links'); ?></h3>
+    <?php foreach ($links as $key => $value) { ?>
+        <div class="form-group">
+            <label><?php echo $key; ?></label>
+            <input type="text" class="form-control" value="<?php echo $value; ?>">
+        </div>
+    <?php } ?>
+</div>

@@ -82,12 +82,13 @@ class JsonController extends IndexController
 
     public function storyAllAction()
     {
-        // Get info from url
-        $module = $this->params('module');
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Get topic or homepage setting
-        $topic = Pi::api('topic', 'news')->canonizeTopic();
+        // Check password
+        if (!$this->checkPassword()) {
+            $this->getResponse()->setStatusCode(401);
+            $this->terminate(__('Password not set or wrong'), '', 'error-denied');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Set story info
         $where = array('status' => 1);
         // Get story List
@@ -101,8 +102,13 @@ class JsonController extends IndexController
         // Get info from url
         $id = $this->params('id');
         $module = $this->params('module');
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
+        // Check password
+        if (!$this->checkPassword()) {
+            $this->getResponse()->setStatusCode(401);
+            $this->terminate(__('Password not set or wrong'), '', 'error-denied');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic information from model
         $topic = $this->getModel('topic')->find($id);
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
@@ -124,8 +130,13 @@ class JsonController extends IndexController
         // Get info from url
         $id = $this->params('id');
         $module = $this->params('module');
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
+        // Check password
+        if (!$this->checkPassword()) {
+            $this->getResponse()->setStatusCode(401);
+            $this->terminate(__('Password not set or wrong'), '', 'error-denied');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
@@ -165,8 +176,6 @@ class JsonController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $keyword = $this->params('keyword');
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
         // Check keyword not empty
         if (empty($keyword)) {
             $this->getResponse()->setStatusCode(404);
@@ -203,5 +212,23 @@ class JsonController extends IndexController
         }
         // Set view
         return $list;
+    }
+
+    public function checkPassword() {
+        // Get info from url
+        $module = $this->params('module');
+        $password = $this->params('password');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check password
+        if ($config['json_check_password']) {
+            if ($config['json_password'] == $password) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
     }
 }
