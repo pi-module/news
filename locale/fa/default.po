@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-11-20 10:27+0330\n"
+"POT-Creation-Date: 2015-12-12 16:32+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -61,8 +61,6 @@ msgid "Hidden"
 msgstr "مخفی"
 
 #: src/Api/Breadcrumbs.php:50 src/Api/Breadcrumbs.php:63
-#: template/admin/author-index.phtml:5 template/admin/author-index.phtml:7
-#: template/admin/author-role.phtml:5 template/admin/author-role.phtml:7
 #: template/front/author-list.phtml:6
 msgid "Author list"
 msgstr "فهرست پدیدآورنده ها"
@@ -145,66 +143,57 @@ msgstr "فیلد انتخابی حذف شد"
 msgid "Please select field"
 msgstr "لطفا یک فیلد انتخاب کنید"
 
-#: src/Controller/Admin/AuthorController.php:104
+#: src/Controller/Admin/AuthorController.php:98
 #: src/Controller/Admin/StoryController.php:180
 msgid "View filtered stores"
 msgstr "نمایش مطالب فیلتر شده"
 
-#: src/Controller/Admin/AuthorController.php:110
+#: src/Controller/Admin/AuthorController.php:104
 #: src/Controller/Admin/StoryController.php:186
 msgid "Not valid"
 msgstr "صحیح نیست"
 
-#: src/Controller/Admin/AuthorController.php:116
+#: src/Controller/Admin/AuthorController.php:110
 #: src/Controller/Admin/StoryController.php:192
 msgid "Not set"
 msgstr "هنوز تنظیم نشده"
 
-#: src/Controller/Admin/AuthorController.php:174
+#: src/Controller/Admin/AuthorController.php:168
 #: src/Controller/Admin/StoryController.php:403
 #: src/Controller/Admin/TopicController.php:187
 msgid "Problem in upload image. please try again"
 msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
 
-#: src/Controller/Admin/AuthorController.php:231
+#: src/Controller/Admin/AuthorController.php:225
 msgid "Author data saved successfully."
 msgstr "اطلاعات پدیدآورنده با موفقیت ذخیره شد"
 
-#: src/Controller/Admin/AuthorController.php:234
-#: src/Controller/Admin/AuthorController.php:302
+#: src/Controller/Admin/AuthorController.php:228
+#: src/Controller/Admin/RoleController.php:81
 #: src/Controller/Admin/SpotlightController.php:136
 #: src/Controller/Admin/TopicController.php:285
 msgid "Invalid data, please check and re-submit."
 msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوباره ارسال کنید"
 
-#: src/Controller/Admin/AuthorController.php:244
-#: template/admin/author-index.phtml:16 template/admin/author-index.phtml:18
+#: src/Controller/Admin/AuthorController.php:238
+#: template/admin/author-index.phtml:5 template/admin/author-index.phtml:7
 msgid "Add Author"
 msgstr "پدیدآورنده جدید"
 
-#: src/Controller/Admin/AuthorController.php:299
-msgid "Role data saved successfully."
-msgstr "اطلاعات نقش با موفقیت ذخیره شد"
-
-#: src/Controller/Admin/AuthorController.php:313
-#: template/admin/author-role.phtml:16 template/admin/author-role.phtml:18
-msgid "Add Role"
-msgstr "نقش جدید"
-
-#: src/Controller/Admin/AuthorController.php:337
+#: src/Controller/Admin/AuthorController.php:262
 #: src/Controller/Admin/StoryController.php:291
 #: src/Controller/Admin/TopicController.php:121
 #, php-format
 msgid "Image of %s removed"
 msgstr "تصویر مربوطز به %s حذف شد"
 
-#: src/Controller/Admin/AuthorController.php:340
+#: src/Controller/Admin/AuthorController.php:265
 #: src/Controller/Admin/StoryController.php:294
 #: src/Controller/Admin/TopicController.php:124
 msgid "Image not remove"
 msgstr "تصویر حذف نشد"
 
-#: src/Controller/Admin/AuthorController.php:344
+#: src/Controller/Admin/AuthorController.php:269
 msgid "Please select author"
 msgstr "لطفا یک پدیدآورنده انتخاب کنید"
 
@@ -251,6 +240,15 @@ msgstr "اطلاعات موقعیت با موفقیت ذخیره شد"
 #: template/admin/position-index.phtml:4 template/admin/position-index.phtml:6
 msgid "Add position"
 msgstr "موقعیت جدید"
+
+#: src/Controller/Admin/RoleController.php:78
+msgid "Role data saved successfully."
+msgstr "اطلاعات نقش با موفقیت ذخیره شد"
+
+#: src/Controller/Admin/RoleController.php:92
+#: template/admin/author-role.phtml:3 template/admin/author-role.phtml:5
+msgid "Add Role"
+msgstr "نقش جدید"
 
 #: src/Controller/Admin/SpotlightController.php:48
 #: src/Form/SpotlightForm.php:24
@@ -598,11 +596,17 @@ msgstr "فهرست آخرین مطالب ارسالی"
 msgid "Search again"
 msgstr "جستجوی مجدد"
 
-#: src/Controller/Front/JsonController.php:173
+#: src/Controller/Front/JsonController.php:90
+#: src/Controller/Front/JsonController.php:113
+#: src/Controller/Front/JsonController.php:145
+msgid "Password not set or wrong"
+msgstr ""
+
+#: src/Controller/Front/JsonController.php:191
 msgid "The keyword not found."
 msgstr "کلمه کلیدی یافت نشد"
 
-#: src/Controller/Front/JsonController.php:188
+#: src/Controller/Front/JsonController.php:206
 #, php-format
 msgid "Stories related to %s"
 msgstr "مطالب مرتبط با %s"
@@ -668,9 +672,8 @@ msgstr "فهرست همه موضوعات"
 #: src/Form/AuthorForm.php:48 src/Form/AuthorRoleForm.php:46
 #: src/Form/PositionForm.php:47 src/Form/StoryForm.php:59
 #: src/Form/StorySearchForm.php:40 src/Form/TopicForm.php:64
-#: template/admin/attach-index.phtml:29
-#: template/admin/attribute-index.phtml:57
-#: template/admin/author-index.phtml:24 template/admin/author-role.phtml:24
+#: template/admin/attach-index.phtml:29 template/admin/attribute-index.phtml:57
+#: template/admin/author-index.phtml:18 template/admin/author-role.phtml:11
 #: template/admin/position-index.phtml:13 template/admin/story-index.phtml:88
 #: template/admin/topic-index.phtml:13 template/front/index-table.phtml:16
 msgid "Title"
@@ -736,7 +739,7 @@ msgstr "از `|` به عنوان جدا کننده برای تفکیک الما�
 msgid "Default data"
 msgstr "مقدار پیشفرض"
 
-#: src/Form/AttributeForm.php:165 src/Installer/Action/Install.php:136
+#: src/Form/AttributeForm.php:165 src/Installer/Action/Install.php:137
 msgid "Extra information"
 msgstr "اطلاعات اضافی"
 
@@ -771,11 +774,11 @@ msgstr "توضیحات"
 #: src/Form/MicroblogForm.php:90 src/Form/PositionForm.php:75
 #: src/Form/SpotlightForm.php:107 src/Form/StoryForm.php:130
 #: src/Form/TopicForm.php:102 template/admin/attach-index.phtml:51
-#: template/admin/author-index.phtml:53 template/admin/author-role.phtml:49
+#: template/admin/author-index.phtml:47 template/admin/author-role.phtml:36
 #: template/admin/microblog-index.phtml:49
 #: template/admin/microblog-index.phtml:61 template/admin/story-index.phtml:40
 #: template/admin/story-index.phtml:42 template/admin/story-index.phtml:93
-#: template/admin/story-index.phtml:148 template/admin/topic-index.phtml:53
+#: template/admin/story-index.phtml:148 template/admin/topic-index.phtml:59
 msgid "Published"
 msgstr "منتشر شده"
 
@@ -783,10 +786,10 @@ msgstr "منتشر شده"
 #: src/Form/MicroblogForm.php:91 src/Form/PositionForm.php:76
 #: src/Form/SpotlightForm.php:108 src/Form/StoryForm.php:131
 #: src/Form/TopicForm.php:103 template/admin/attach-index.phtml:52
-#: template/admin/author-index.phtml:54 template/admin/author-role.phtml:50
+#: template/admin/author-index.phtml:48 template/admin/author-role.phtml:37
 #: template/admin/microblog-index.phtml:62 template/admin/story-index.phtml:43
 #: template/admin/story-index.phtml:45 template/admin/story-index.phtml:149
-#: template/admin/topic-index.phtml:54
+#: template/admin/topic-index.phtml:60
 msgid "Pending review"
 msgstr "در انتظار تایید"
 
@@ -853,10 +856,9 @@ msgstr "پست"
 #: template/admin/microblog-index.phtml:45
 #: template/admin/microblog-index.phtml:48
 #: template/admin/spotlight-index.phtml:33
-#: template/admin/spotlight-index.phtml:35
-#: template/admin/story-index.phtml:137 template/admin/story-index.phtml:138
-#: template/admin/story-update.phtml:73 template/admin/story-view.phtml:51
-#: template/admin/story-view.phtml:53
+#: template/admin/spotlight-index.phtml:35 template/admin/story-index.phtml:137
+#: template/admin/story-index.phtml:138 template/admin/story-update.phtml:73
+#: template/admin/story-view.phtml:51 template/admin/story-view.phtml:53
 msgid "Delete"
 msgstr "حذف"
 
@@ -1002,8 +1004,7 @@ msgid "Remove"
 msgstr "حذف"
 
 #: src/Form/StoryForm.php:146 template/admin/attach-add.phtml:78
-#: template/admin/attribute-index.phtml:61
-#: template/admin/story-update.phtml:99
+#: template/admin/attribute-index.phtml:61 template/admin/story-update.phtml:99
 msgid "Type"
 msgstr "نوع"
 
@@ -1267,31 +1268,31 @@ msgstr "سلام جهان"
 msgid "hello,world"
 msgstr "سلام,جهان"
 
-#: src/Installer/Action/Install.php:151
+#: src/Installer/Action/Install.php:152
 msgid "Source"
 msgstr "منبع"
 
-#: src/Installer/Action/Install.php:163
+#: src/Installer/Action/Install.php:164
 msgid "The admin"
 msgstr "مدیر"
 
-#: src/Installer/Action/Install.php:165
+#: src/Installer/Action/Install.php:166
 msgid "Admin"
 msgstr "مدیریت"
 
-#: src/Installer/Action/Install.php:166
+#: src/Installer/Action/Install.php:167
 msgid "author,admin"
 msgstr "سازنده,مدیر"
 
-#: src/Installer/Action/Install.php:167
+#: src/Installer/Action/Install.php:168
 msgid "author is admin"
 msgstr "سازنده مدیر"
 
-#: src/Installer/Action/Install.php:177
+#: src/Installer/Action/Install.php:178
 msgid "Writer"
 msgstr "نویسنده"
 
-#: src/Installer/Action/Install.php:195
+#: src/Installer/Action/Install.php:196
 msgid "Default information added."
 msgstr "اطلاعات پیش فرض اضافه شد"
 
@@ -1332,10 +1333,9 @@ msgid "Size"
 msgstr "اندازه"
 
 #: template/admin/attach-add.phtml:95 template/admin/attach-index.phtml:37
-#: template/admin/attach-index.phtml:39
-#: template/admin/attribute-index.phtml:69
-#: template/admin/author-index.phtml:44 template/admin/author-index.phtml:46
-#: template/admin/author-role.phtml:41 template/admin/author-role.phtml:43
+#: template/admin/attach-index.phtml:39 template/admin/attribute-index.phtml:69
+#: template/admin/author-index.phtml:38 template/admin/author-index.phtml:40
+#: template/admin/author-role.phtml:28 template/admin/author-role.phtml:30
 #: template/admin/microblog-index.phtml:42
 #: template/admin/microblog-index.phtml:44
 #: template/admin/position-index.phtml:30
@@ -1369,8 +1369,8 @@ msgstr "نام"
 msgid "List of attached files"
 msgstr "فهرست فایل های پیوست شده"
 
-#: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:23
-#: template/admin/author-role.phtml:23 template/admin/microblog-index.phtml:16
+#: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:17
+#: template/admin/author-role.phtml:10 template/admin/microblog-index.phtml:16
 #: template/admin/position-index.phtml:12
 #: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:69
 #: template/admin/topic-index.phtml:12
@@ -1381,8 +1381,8 @@ msgstr "شناسه"
 msgid "Information"
 msgstr "اطلاعات"
 
-#: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:25
-#: template/admin/author-role.phtml:25 template/admin/position-index.phtml:14
+#: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:19
+#: template/admin/author-role.phtml:12 template/admin/position-index.phtml:14
 #: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:99
 #: template/admin/topic-index.phtml:15
 msgid "Action"
@@ -1466,16 +1466,11 @@ msgstr "چک باکس جدید"
 msgid "List of attributes"
 msgstr "فهرست خواص"
 
-#: template/admin/author-index.phtml:8 template/admin/author-index.phtml:10
-#: template/admin/author-role.phtml:8 template/admin/author-role.phtml:10
-msgid "Role list"
-msgstr "فهرست نقش ها"
-
-#: template/admin/author-index.phtml:20
+#: template/admin/author-index.phtml:14
 msgid "List of authors"
 msgstr "فهرست پدیدآورنده ها"
 
-#: template/admin/author-index.phtml:41 template/admin/author-index.phtml:43
+#: template/admin/author-index.phtml:35 template/admin/author-index.phtml:37
 #: template/admin/microblog-index.phtml:38
 #: template/admin/microblog-index.phtml:40 template/admin/story-index.phtml:34
 #: template/admin/story-index.phtml:102 template/admin/story-view.phtml:42
@@ -1484,20 +1479,24 @@ msgstr "فهرست پدیدآورنده ها"
 msgid "View"
 msgstr "نمایش"
 
-#: template/admin/author-index.phtml:55 template/admin/author-role.phtml:51
+#: template/admin/author-index.phtml:49 template/admin/author-role.phtml:38
 #: template/admin/microblog-index.phtml:63 template/admin/story-index.phtml:52
 #: template/admin/story-index.phtml:54 template/admin/story-index.phtml:150
-#: template/admin/topic-index.phtml:55
+#: template/admin/topic-index.phtml:61
 msgid "Trash"
 msgstr "حذف شده"
 
-#: template/admin/author-role.phtml:20
+#: template/admin/author-role.phtml:7
 msgid "List of roles"
 msgstr "فهرست نقش ها"
 
 #: template/admin/author-update.phtml:16
 msgid "Remove image author in process"
 msgstr "حذف تصویر پدیدآورنده در حال انجام است"
+
+#: template/admin/json-index.phtml:3
+msgid "List of json output links"
+msgstr "فهرست لینک های خروجی جیسون"
 
 #: template/admin/microblog-index.phtml:13
 msgid "List of posts"
@@ -1705,10 +1704,6 @@ msgstr "فهرست موضوعات"
 msgid "Show type"
 msgstr "سبک نمایش"
 
-#: template/admin/topic-index.phtml:43 template/admin/topic-index.phtml:45
-msgid "Json"
-msgstr "جیسون"
-
 #: template/admin/topic-update.phtml:16
 msgid "Remove image topic in process"
 msgstr "حذف تصویر موضوع در حال انجام است"
@@ -1762,8 +1757,8 @@ msgstr "زمان"
 msgid "Times"
 msgstr "دفعه"
 
-#: template/front/story-download.phtml:168
-#: template/front/story-media.phtml:203 template/front/story-text.phtml:202
+#: template/front/story-download.phtml:168 template/front/story-media.phtml:203
+#: template/front/story-text.phtml:202
 msgid "Related storys"
 msgstr "مطالب مشابه"
 
@@ -1794,6 +1789,12 @@ msgid "No topic has been made on this part yet. please check this page later"
 msgstr ""
 "هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "
 "بررسی فرمایید."
+
+#~ msgid "Role list"
+#~ msgstr "فهرست نقش ها"
+
+#~ msgid "Json"
+#~ msgstr "جیسون"
 
 #~ msgid "Download data saved successfully. Please attach your files"
 #~ msgstr ""

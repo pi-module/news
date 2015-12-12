@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-11-20 10:19+0330\n"
+"POT-Creation-Date: 2015-12-12 16:33+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,8 +22,8 @@ msgstr ""
 
 #: config/block.php:22 config/block.php:292 config/block.php:426
 #: config/block.php:457 config/block.php:517 config/block.php:585
-#: config/config.php:108 config/navigation.php:81 config/page.php:52
-#: config/page.php:71 config/permission.php:70
+#: config/config.php:137 config/navigation.php:68 config/page.php:57
+#: config/page.php:81 config/permission.php:75
 msgid "Topic"
 msgstr ""
 
@@ -78,22 +78,22 @@ msgid "Set More link to module page"
 msgstr ""
 
 #: config/block.php:99 config/block.php:234 config/block.php:559
-#: config/block.php:634 config/config.php:143
+#: config/block.php:634 config/config.php:172
 msgid "Story order"
 msgstr ""
 
 #: config/block.php:100 config/block.php:235 config/block.php:560
-#: config/block.php:635 config/config.php:144
+#: config/block.php:635 config/config.php:173
 msgid "Story list order options"
 msgstr ""
 
 #: config/block.php:105 config/block.php:240 config/block.php:565
-#: config/block.php:640 config/config.php:149
+#: config/block.php:640 config/config.php:178
 msgid "Publish time DESC"
 msgstr ""
 
 #: config/block.php:106 config/block.php:241 config/block.php:566
-#: config/block.php:641 config/config.php:150
+#: config/block.php:641 config/config.php:179
 msgid "Publish time ASC"
 msgstr ""
 
@@ -131,12 +131,12 @@ msgid "Horizontal"
 msgstr ""
 
 #: config/block.php:127 config/block.php:262 config/block.php:352
-#: config/config.php:104
+#: config/config.php:133
 msgid "List"
 msgstr ""
 
 #: config/block.php:128 config/block.php:263 config/block.php:579
-#: config/config.php:105
+#: config/config.php:134
 msgid "Table"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgid "Carousel"
 msgstr ""
 
 #: config/block.php:132 config/block.php:267 config/block.php:355
-#: config/config.php:28
+#: config/config.php:32
 msgid "Image"
 msgstr ""
 
@@ -177,8 +177,8 @@ msgid ""
 "spotlight story on one block and other stories on other blocks"
 msgstr ""
 
-#: config/block.php:158 config/config.php:40 config/config.php:107
-#: config/navigation.php:90 config/page.php:37 config/permission.php:60
+#: config/block.php:158 config/config.php:44 config/config.php:136
+#: config/navigation.php:77 config/page.php:42 config/permission.php:65
 msgid "Spotlight"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Set user ID, if you want show special user posts"
 msgstr ""
 
-#: config/block.php:451 config/config.php:106
+#: config/block.php:451 config/config.php:135
 msgid "Media"
 msgstr ""
 
@@ -291,288 +291,308 @@ msgid "Admin"
 msgstr ""
 
 #: config/config.php:20
-msgid "Show"
+msgid "Json output"
 msgstr ""
 
 #: config/config.php:24
+msgid "Show"
+msgstr ""
+
+#: config/config.php:28
 msgid "Feed"
 msgstr ""
 
-#: config/config.php:32
+#: config/config.php:36
 msgid "File"
 msgstr ""
 
-#: config/config.php:36
+#: config/config.php:40
 msgid "Social"
 msgstr ""
 
-#: config/config.php:44
+#: config/config.php:48
 msgid "Vote"
 msgstr ""
 
-#: config/config.php:48 config/navigation.php:27 config/page.php:109
+#: config/config.php:52 config/navigation.php:16 config/page.php:119
 #: config/permission.php:31
 msgid "Favourite"
 msgstr ""
 
-#: config/config.php:52 config/navigation.php:135 config/page.php:57
-#: config/permission.php:80
+#: config/config.php:56 config/navigation.php:131 config/page.php:62
+#: config/permission.php:85
 msgid "Micro blog"
 msgstr ""
 
-#: config/config.php:59
+#: config/config.php:63
 msgid "Advertisement"
 msgstr ""
 
-#: config/config.php:65 config/config.php:118
+#: config/config.php:69 config/config.php:147
 msgid "Perpage"
 msgstr ""
 
-#: config/config.php:73
+#: config/config.php:77
 msgid "Set topic as system page for support customise layout for blocks"
 msgstr ""
 
-#: config/config.php:81
+#: config/config.php:85
 msgid "Set story authors"
 msgstr ""
 
-#: config/config.php:89
+#: config/config.php:94
 msgid "Active json output"
 msgstr ""
 
-#: config/config.php:97
+#: config/config.php:102
+msgid "Perpage on json output"
+msgstr ""
+
+#: config/config.php:110
+msgid "Check password for json output"
+msgstr ""
+
+#: config/config.php:118
+msgid "Password for json output"
+msgstr ""
+
+#: config/config.php:119
+msgid "After use on mobile device , do not change it"
+msgstr ""
+
+#: config/config.php:126
 msgid "Show Style"
 msgstr ""
 
-#: config/config.php:103 config/module.php:16
+#: config/config.php:132 config/module.php:16
 msgid "News"
 msgstr ""
 
-#: config/config.php:125
+#: config/config.php:154
 msgid "Columns"
 msgstr ""
 
-#: config/config.php:131
+#: config/config.php:160
 msgid "One column"
 msgstr ""
 
-#: config/config.php:132
+#: config/config.php:161
 msgid "Two columns"
 msgstr ""
 
-#: config/config.php:133
+#: config/config.php:162
 msgid "Three columns"
 msgstr ""
 
-#: config/config.php:134
+#: config/config.php:163
 msgid "Four columns"
 msgstr ""
 
-#: config/config.php:160
+#: config/config.php:189
 msgid "Show Subtopic stories on main topic"
 msgstr ""
 
-#: config/config.php:168
+#: config/config.php:197
 msgid "Show Topic"
 msgstr ""
 
-#: config/config.php:176
+#: config/config.php:205
 msgid "Show Topic Information"
 msgstr ""
 
-#: config/config.php:184
+#: config/config.php:213
 msgid "Show author"
 msgstr ""
 
-#: config/config.php:192
+#: config/config.php:221
 msgid "Show Date"
 msgstr ""
 
-#: config/config.php:200
+#: config/config.php:229
 msgid "Show Hits"
 msgstr ""
 
-#: config/config.php:208
+#: config/config.php:237
 msgid "Show Tags"
 msgstr ""
 
-#: config/config.php:216
+#: config/config.php:245
 msgid "Show attach files"
 msgstr ""
 
-#: config/config.php:224
+#: config/config.php:253
 msgid "Show attribute information"
 msgstr ""
 
-#: config/config.php:232
+#: config/config.php:261
 msgid "Show navigation"
 msgstr ""
 
-#: config/config.php:240
+#: config/config.php:269
 msgid "Show spotlight"
 msgstr ""
 
-#: config/config.php:248
+#: config/config.php:277
 msgid "Show breadcrumbs"
 msgstr ""
 
-#: config/config.php:256
+#: config/config.php:285
 msgid "Show related news"
 msgstr ""
 
-#: config/config.php:264
+#: config/config.php:293
 msgid "related number"
 msgstr ""
 
-#: config/config.php:272
+#: config/config.php:301
 msgid "Show latest news"
 msgstr ""
 
-#: config/config.php:280
+#: config/config.php:309
 msgid "latest number"
 msgstr ""
 
-#: config/config.php:288
+#: config/config.php:317
 msgid "Just show news from X days ago"
 msgstr ""
 
-#: config/config.php:289
+#: config/config.php:318
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr ""
 
-#: config/config.php:297
+#: config/config.php:326
 msgid "Show feed icon"
 msgstr ""
 
-#: config/config.php:305
+#: config/config.php:334
 msgid "Feed number"
 msgstr ""
 
-#: config/config.php:314
+#: config/config.php:343
 msgid "Image Size"
 msgstr ""
 
-#: config/config.php:322
+#: config/config.php:351
 msgid "Image quality"
 msgstr ""
 
-#: config/config.php:323
+#: config/config.php:352
 msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
 msgstr ""
 
-#: config/config.php:330
+#: config/config.php:359
 msgid "Image path"
 msgstr ""
 
-#: config/config.php:338
+#: config/config.php:367
 msgid "Image Extension"
 msgstr ""
 
-#: config/config.php:346
+#: config/config.php:375
 msgid "Large Image height"
 msgstr ""
 
-#: config/config.php:354
+#: config/config.php:383
 msgid "Large Image width"
 msgstr ""
 
-#: config/config.php:362
+#: config/config.php:391
 msgid "Medium Image height"
 msgstr ""
 
-#: config/config.php:370
+#: config/config.php:399
 msgid "Medium Image width"
 msgstr ""
 
-#: config/config.php:378
+#: config/config.php:407
 msgid "Thumb Image height"
 msgstr ""
 
-#: config/config.php:386
+#: config/config.php:415
 msgid "Thumb Image width"
 msgstr ""
 
-#: config/config.php:394
+#: config/config.php:423
 msgid "Use lightbox"
 msgstr ""
 
-#: config/config.php:402
+#: config/config.php:431
 msgid "Add Watermark"
 msgstr ""
 
-#: config/config.php:410
+#: config/config.php:439
 msgid "Watermark Image"
 msgstr ""
 
-#: config/config.php:417
+#: config/config.php:446
 msgid "Watermark Positio"
 msgstr ""
 
-#: config/config.php:423
+#: config/config.php:452
 msgid "Top Left"
 msgstr ""
 
-#: config/config.php:424
+#: config/config.php:453
 msgid "Top Right"
 msgstr ""
 
-#: config/config.php:425
+#: config/config.php:454
 msgid "Bottom Left"
 msgstr ""
 
-#: config/config.php:426
+#: config/config.php:455
 msgid "Bottom Right"
 msgstr ""
 
-#: config/config.php:436
+#: config/config.php:465
 msgid "Social sharing items"
 msgstr ""
 
-#: config/config.php:450
+#: config/config.php:479
 msgid "Number of stories"
 msgstr ""
 
-#: config/config.php:458
+#: config/config.php:487
 msgid "Show Image for sub spotlights"
 msgstr ""
 
-#: config/config.php:466
+#: config/config.php:495
 msgid "Spotlight story number for registry"
 msgstr ""
 
-#: config/config.php:475
+#: config/config.php:504
 msgid "Use vote system"
 msgstr ""
 
-#: config/config.php:484
+#: config/config.php:513
 msgid "Use favourite system"
 msgstr ""
 
-#: config/config.php:493
+#: config/config.php:522
 msgid "Description for index page"
 msgstr ""
 
-#: config/config.php:501
+#: config/config.php:530
 msgid "Force replace space by comma(,)"
 msgstr ""
 
-#: config/config.php:510
+#: config/config.php:539
 msgid "File Size"
 msgstr ""
 
-#: config/config.php:518
+#: config/config.php:547
 msgid "File path"
 msgstr ""
 
-#: config/config.php:526
+#: config/config.php:555
 msgid "File Extension"
 msgstr ""
 
-#: config/config.php:535
+#: config/config.php:564
 msgid "Active microblog system"
 msgstr ""
 
-#: config/config.php:543
+#: config/config.php:572
 msgid "Micro blog perpage"
 msgstr ""
 
@@ -580,57 +600,61 @@ msgstr ""
 msgid "Manage News and Blog"
 msgstr ""
 
-#: config/navigation.php:16
-msgid "Index"
-msgstr ""
-
-#: config/navigation.php:38 config/page.php:89
+#: config/navigation.php:27 config/page.php:99
 msgid "Topic list"
 msgstr ""
 
-#: config/navigation.php:49 config/page.php:96
+#: config/navigation.php:37 config/page.php:106
 msgid "Tag list"
 msgstr ""
 
-#: config/navigation.php:60
+#: config/navigation.php:48
 msgid "Author list"
 msgstr ""
 
-#: config/navigation.php:72 config/page.php:42 config/page.php:77
-#: config/permission.php:65
+#: config/navigation.php:59 config/page.php:47 config/page.php:87
+#: config/permission.php:70
 msgid "Story"
 msgstr ""
 
-#: config/navigation.php:99
+#: config/navigation.php:86
 msgid "Attaced"
 msgstr ""
 
-#: config/navigation.php:108 config/page.php:27 config/permission.php:50
+#: config/navigation.php:95 config/page.php:32 config/permission.php:55
 msgid "Attribute"
 msgstr ""
 
-#: config/navigation.php:117 config/page.php:32 config/permission.php:55
+#: config/navigation.php:104 config/page.php:37 config/permission.php:60
 msgid "Attribute position"
 msgstr ""
 
-#: config/navigation.php:126 config/page.php:22 config/page.php:103
+#: config/navigation.php:113 config/page.php:22 config/page.php:113
 #: config/permission.php:24 config/permission.php:45
 msgid "Authors"
 msgstr ""
 
-#: config/navigation.php:144 config/page.php:47 config/permission.php:75
+#: config/navigation.php:122 config/page.php:27 config/permission.php:50
+msgid "Author roles"
+msgstr ""
+
+#: config/navigation.php:140 config/page.php:52 config/permission.php:80
 msgid "Tools"
+msgstr ""
+
+#: config/navigation.php:149 config/page.php:67 config/permission.php:90
+msgid "Json"
 msgstr ""
 
 #: config/page.php:17 config/permission.php:40
 msgid "Attach"
 msgstr ""
 
-#: config/page.php:65
+#: config/page.php:75
 msgid "Index page"
 msgstr ""
 
-#: config/page.php:83
+#: config/page.php:93
 msgid "Tag"
 msgstr ""
 
@@ -638,7 +662,6 @@ msgstr ""
 msgid "Global public resource"
 msgstr ""
 
-#: template/admin/microblog-index.phtml:47
-#: template/admin/story-index.phtml:137
+#: template/admin/microblog-index.phtml:47 template/admin/story-index.phtml:137
 msgid "Are you sure to delete this story?"
 msgstr ""
