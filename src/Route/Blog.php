@@ -161,10 +161,10 @@ class Blog extends Standard
             }
         }
 
-        echo '<pre>';
+        /* echo '<pre>';
         print_r($matches);
         print_r($parts);
-        echo '</pre>';
+        echo '</pre>'; */
 
         return $matches;
     }
