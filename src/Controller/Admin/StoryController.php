@@ -325,7 +325,11 @@ class StoryController extends ActionController
         // Get id
         $id = $this->params('id');
         $module = $this->params('module');
+        // Get Module Config
+        $config = Pi::service('registry')->config->read($module);
+        // Set option
         $option = array();
+        $option['admin_time_publish'] = $config['admin_time_publish'];
         // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();
@@ -426,11 +430,18 @@ class StoryController extends ActionController
                 $values['seo_description'] = $filter($description);
                 // Set time
                 if ($story['status'] == 6) {
-                    $values['time_create'] = time();
-                    $values['time_publish'] = time();
                     $values['uid'] = Pi::user()->getId();
+                    $values['time_create'] = time();
+                    if ($values['time_publish'] && $config['admin_time_publish']) {
+                        $values['time_publish'] = strtotime($values['time_publish']);
+                    } else {
+                        $values['time_publish'] = time();
+                    }
                 } else {
                     $values['time_update'] = time();
+                    if ($values['time_publish'] && $config['admin_time_publish']) {
+                        $values['time_publish'] = strtotime($values['time_publish']);
+                    }
                 }
                 // Save values
                 $row = $this->getModel('story')->find($values['id']);
@@ -499,6 +510,9 @@ class StoryController extends ActionController
                 unset($story['title']);
                 unset($story['slug']);
                 unset($story['status']);
+                $story['time_publish'] = date("Y-m-d H:i:s", time());
+            } else {
+                $story['time_publish'] = date("Y-m-d H:i:s", $story['time_publish']);
             }
             // Set from data
             $form->setData($story);

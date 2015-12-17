@@ -88,6 +88,14 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
+        'admin_time_publish' => array(
+            'category' => 'admin',
+            'title' => _a('Set custom publish time'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 0
+        ),
         // Json
         'admin_json' => array(
             'category' => 'json',

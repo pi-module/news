@@ -17,20 +17,19 @@ use Pi\Form\Form as BaseForm;
 
 class StoryForm extends BaseForm
 {
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null, $option = array())
     {
+        $this->option = $option;
         $this->module = Pi::service('module')->current();
-        $this->author = $options['author'];
-        $this->role = $options['role'];
-        $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
-        $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
+        $this->thumbUrl = (isset($option['thumbUrl'])) ? $option['thumbUrl'] : '';
+        $this->removeUrl = empty($option['removeUrl']) ? '' : $option['removeUrl'];
         parent::__construct($name);
     }
 
     public function getInputFilter()
     {
         if (!$this->filter) {
-            $this->filter = new StoryFilter;
+            $this->filter = new StoryFilter($this->option);
         }
         return $this->filter;
     }
@@ -182,6 +181,19 @@ class StoryForm extends BaseForm
                 'description' => __('Just use for breadcrumbs and mobile apps'),
             ),
         ));
+        // time_publish
+        if ($this->option['admin_time_publish']) {
+            $this->add(array(
+                'name' => 'time_publish',
+                'option' => array(
+                    'label' => __('Publish time'),
+                ),
+                'attributes' => array(
+                    'type' => 'text',
+                    'description' => '',
+                )
+            ));
+        }
         // important
         $this->add(array(
             'name' => 'important',
@@ -321,7 +333,7 @@ class StoryForm extends BaseForm
             ));
         }
         // Set extra author
-        if (!empty($this->role)) {
+        if (!empty($this->option['role'])) {
             // extra_author
             $this->add(array(
                 'name' => 'extra_author',
@@ -330,13 +342,13 @@ class StoryForm extends BaseForm
                     'label' => __('Authors'),
                 ),
             ));
-            foreach ($this->role as $role) {
+            foreach ($this->option['role'] as $role) {
                 $this->add(array(
                     'name' => $role['name'],
                     'type' => 'Module\News\Form\Element\Author',
                     'options' => array(
                         'label' => $role['title'],
-                        'list' => $this->author,
+                        'list' => $this->option['author'],
                     ),
                 ));
             }

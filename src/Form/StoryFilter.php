@@ -90,6 +90,21 @@ class StoryFilter extends InputFilter
                 ),
             ),
         ));
+        // time_publish
+        if ($option['admin_time_publish']) {
+            $this->add(array(
+                'name' => 'time_publish',
+                'required' => false,
+                'filters' => array(
+                    array(
+                        'name' => 'StringTrim',
+                    ),
+                ),
+                'validators' => array(
+                    new \Module\News\Validator\TimePublish,
+                ),
+            ));
+        }
         // important
         $this->add(array(
             'name' => 'important',
