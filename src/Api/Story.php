@@ -18,6 +18,7 @@ use Zend\Json\Json;
 
 /*
  * Pi::api('story', 'news')->getStory($parameter, $type);
+ * Pi::api('story', 'news')->getStoryLight($parameter, $type = 'id');
  * Pi::api('story', 'news')->AttachCount($id);
  * Pi::api('story', 'news')->AttachList($id);
  * Pi::api('story', 'news')->attributeCount($id);
@@ -40,6 +41,14 @@ class Story extends AbstractApi
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $type);
         $story = $this->canonizeStory($story);
+        return $story;
+    }
+
+    public function getStoryLight($parameter, $type = 'id')
+    {
+        // Get product
+        $story = Pi::model('story', $this->getModule())->find($parameter, $type);
+        $story = $this->canonizeStoryLight($story);
         return $story;
     }
 

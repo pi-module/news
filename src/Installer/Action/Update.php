@@ -631,6 +631,66 @@ EOD;
             }
         }
 
+        // Update to version 1.7.5
+        if (version_compare($moduleVersion, '1.7.5', '<')) {
+            // Alter table : ADD type
+            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM('text', 'gallery', 'media', 'download', 'image', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD index
+            $sql = sprintf("ALTER TABLE %s ADD INDEX `topic_list_type` (`status`, `topic`, `time_publish`, `type`)", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD type
+            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'gallery', 'media', 'download', 'image', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD index
+            $sql = sprintf("ALTER TABLE %s ADD INDEX `story_list_type` (`status`, `id`, `type`)", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Update value
+            $select = $linkModel->select();
+            $rowset = $linkModel->selectWith($select);
+            foreach ($rowset as $row) {
+                $story = Pi::api('story', 'news')->getStoryLight($row->story);
+                $row->type = $story['type'];
+                $row->save();
+            }
+        }
+
         return true;
     }
 }
