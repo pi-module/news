@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Story.php" afterPath="$PROJECT_DIR$/src/Api/Story.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Installer/Action/Update.php" afterPath="$PROJECT_DIR$/src/Installer/Action/Update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/module.php" afterPath="$PROJECT_DIR$/config/module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/mysql.sql" afterPath="$PROJECT_DIR$/sql/mysql.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,70 +26,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="module.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/module.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.75">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysql.sql" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mysql.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8888888">
-              <caret line="74" column="7" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.49912435">
+              <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Update.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Update.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Installer/Action/Update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65968585">
-              <caret line="688" column="0" selection-start-line="688" selection-start-column="0" selection-end-line="688" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.75">
+              <caret line="636" column="137" selection-start-line="636" selection-start-column="137" selection-end-line="636" selection-end-column="137" />
               <folding>
-                <marker date="1450874765707" expanded="true" signature="2440:2546" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="3121:3169" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="3637:3683" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="7566:7675" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="8249:8314" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="8898:8953" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="9433:9491" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="9971:10030" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="10510:10569" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="11156:11239" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="11815:11829" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="12313:12471" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="12938:12995" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="13462:13541" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="14012:14079" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="14550:14632" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="17010:17087" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="17560:17694" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="18167:18282" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="18748:18805" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="22054:22167" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="22745:22830" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="23417:23508" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="24581:24712" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="25176:25262" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="25725:25866" placeholder="ALTER TABLE ..." />
-                <marker date="1450874765707" expanded="true" signature="26332:26399" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="2440:2546" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="3121:3169" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="3637:3683" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="7566:7675" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="8249:8314" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="8898:8953" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="9433:9491" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="9971:10030" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="10510:10569" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="11156:11239" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="11815:11829" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="12313:12471" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="12938:12995" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="13462:13541" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="14012:14079" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="14550:14632" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="17010:17087" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="17560:17694" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="18167:18282" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="18748:18805" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="22054:22167" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="22745:22830" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="23417:23508" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="24581:24735" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="25199:25285" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="25748:25912" placeholder="ALTER TABLE ..." />
+                <marker date="1450875157041" expanded="true" signature="26378:26445" placeholder="ALTER TABLE ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Story.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.230769">
-              <caret line="20" column="69" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="69" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -137,10 +115,10 @@
         <option value="$PROJECT_DIR$/src/Validator/TimePublish.php" />
         <option value="$PROJECT_DIR$/template/front/index-news.phtml" />
         <option value="$PROJECT_DIR$/src/Controller/Front/IndexController.php" />
-        <option value="$PROJECT_DIR$/sql/mysql.sql" />
         <option value="$PROJECT_DIR$/config/module.php" />
         <option value="$PROJECT_DIR$/src/Api/Story.php" />
         <option value="$PROJECT_DIR$/src/Installer/Action/Update.php" />
+        <option value="$PROJECT_DIR$/sql/mysql.sql" />
       </list>
     </option>
   </component>
@@ -233,64 +211,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Action" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="news" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -455,7 +375,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450343775600</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Improve sql">
+      <created>1450874848885</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1450874848885</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -503,7 +429,8 @@
     <MESSAGE value="Update language" />
     <MESSAGE value="Some fix on template" />
     <MESSAGE value="Add custom time publish option" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add custom time publish option" />
+    <MESSAGE value="Improve sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve sql" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -749,13 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/block.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="262" column="37" selection-start-line="262" selection-start-column="29" selection-end-line="262" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/block/item.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -852,22 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.75">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8888888">
-          <caret line="74" column="7" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.230769">
@@ -876,39 +780,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2408377">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/block.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="262" column="37" selection-start-line="262" selection-start-column="29" selection-end-line="262" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Installer/Action/Update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65968585">
-          <caret line="688" column="0" selection-start-line="688" selection-start-column="0" selection-end-line="688" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.75">
+          <caret line="636" column="137" selection-start-line="636" selection-start-column="137" selection-end-line="636" selection-end-column="137" />
           <folding>
-            <marker date="1450874765707" expanded="true" signature="2440:2546" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="3121:3169" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="3637:3683" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="7566:7675" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="8249:8314" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="8898:8953" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="9433:9491" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="9971:10030" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="10510:10569" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="11156:11239" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="11815:11829" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="12313:12471" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="12938:12995" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="13462:13541" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="14012:14079" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="14550:14632" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="17010:17087" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="17560:17694" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="18167:18282" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="18748:18805" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="22054:22167" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="22745:22830" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="23417:23508" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="24581:24712" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="25176:25262" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="25725:25866" placeholder="ALTER TABLE ..." />
-            <marker date="1450874765707" expanded="true" signature="26332:26399" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="2440:2546" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="3121:3169" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="3637:3683" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="7566:7675" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="8249:8314" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="8898:8953" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="9433:9491" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="9971:10030" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="10510:10569" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="11156:11239" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="11815:11829" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="12313:12471" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="12938:12995" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="13462:13541" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="14012:14079" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="14550:14632" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="17010:17087" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="17560:17694" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="18167:18282" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="18748:18805" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="22054:22167" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="22745:22830" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="23417:23508" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="24581:24735" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="25199:25285" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="25748:25912" placeholder="ALTER TABLE ..." />
+            <marker date="1450875157041" expanded="true" signature="26378:26445" placeholder="ALTER TABLE ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49912435">
+          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>

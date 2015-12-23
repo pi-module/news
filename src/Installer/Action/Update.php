@@ -634,7 +634,7 @@ EOD;
         // Update to version 1.7.5
         if (version_compare($moduleVersion, '1.7.5', '<')) {
             // Alter table : ADD type
-            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM('text', 'gallery', 'media', 'download', 'image', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $linkTable);
+            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM('text', 'article', 'magazine', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $linkTable);
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -658,7 +658,7 @@ EOD;
                 return false;
             }
             // Alter table : ADD type
-            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'gallery', 'media', 'download', 'image', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $storyTable);
+            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'article', 'magazine', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
