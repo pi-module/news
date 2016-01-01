@@ -39,18 +39,18 @@ if (!empty($author['largeUrl'])) {
     $this->headMeta($this->escape($author['largeUrl']), 'twitter:image');
 }
 ?>
-<div class="clearfix" itemscope itemtype="http://schema.org/Person">
+<div class="clearfix author-info" itemscope itemtype="http://schema.org/Person">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="panel panel-default h-entry">
-        <div class="panel-heading">
-            <h1 class="panel-title p-name" itemprop="name">
+    <div class="h-entry">
+        <div class="page-header">
+            <h1 class="p-name" itemprop="name">
                 <?php echo $this->escape($author['title']); ?>
             </h1>
         </div>
-        <div class="panel-body">
-            <div class="pull-left gallery itemImageList">
+        <div class="clearfix">
+            <div class="col-md-3 col-sm-4 col-xs-12 gallery itemImageList">
                 <?php if ($config['image_lightbox']) { ?>
                     <a href="<?php echo $this->escape($author['mediumUrl']); ?>"
                        title="<?php echo $this->escape($author['title']); ?>">
@@ -64,45 +64,44 @@ if (!empty($author['largeUrl'])) {
                          alt="<?php echo $this->escape($author['title']); ?>"/>
                 <?php } ?>
             </div>
-            <div class="p-summary" itemprop="description"><?php echo $author['text_description']; ?></div>
-            <div class="clearfix"></div>
-            <?php if ($config['social_sharing']) { ?>
-                <div class="clearfix">
-                    <div class="col-md-5 col-sm-10 col-xs-12 socialSharing">
-                        <?php echo $this->socialSharing(
-                            $config['social_sharing'],
-                            $this->escape($author['title']),
-                            $this->escape($author['storyUrl']),
-                            $this->escape($author['largeUrl'])
-                        ); ?>
-                    </div>
+            <div class="p-summary col-md-9 col-sm-8 col-xs-12">
+                <div itemprop="description clearfix">
+                    <?php echo $author['text_description']; ?>
                 </div>
-            <?php } ?>
+                <div class="clearfix socialSharing">
+                    <?php echo $this->socialSharing(
+                        $config['social_sharing'],
+                        $this->escape($author['title']),
+                        $this->escape($author['storyUrl']),
+                        $this->escape($author['largeUrl'])
+                    ); ?>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="index-list-author" itemtype="http://schema.org/ItemList">
+    <div class="index-list-author clearfix" itemtype="http://schema.org/ItemList">
         <div class="news-role">
             <?php foreach ($roles as $role) { ?>
-                <?php if (!empty($stores[$role['id']])) { ?>
-                    <h4><?php echo $this->escape($role['title']); ?></h4>
-                    <div class="list-group">
-                    <?php foreach ($stores[$role['id']] as $story) { ?>
-                        <a itemscope itemtype="http://schema.org/Article" class="list-group-item <?php echo $topic['column_class']; ?>"
-                           title="<?php echo $this->escape($story['title']); ?>"
-                           href="<?php echo $this->escape($story['storyUrl']); ?>">
-                            <?php if ($story['image']) { ?>
-                                <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                     alt="<?php echo $this->escape($story['title']); ?>"/>
+                <div class="clearfix">
+                    <?php if (!empty($stores[$role['id']])) { ?>
+                        <h4><?php echo $this->escape($role['title']); ?></h4>
+                        <div class="list-group">
+                            <?php foreach ($stores[$role['id']] as $story) { ?>
+                                <a itemscope itemtype="http://schema.org/Article" class="list-group-item col-md-4 col-sm-4 col-xs-12"
+                                   title="<?php echo $this->escape($story['title']); ?>"
+                                   href="<?php echo $this->escape($story['storyUrl']); ?>">
+                                    <?php if ($story['image']) { ?>
+                                        <img class="col-md-4 col-sm-4 col-xs-4" itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                             alt="<?php echo $this->escape($story['title']); ?>"/>
+                                    <?php } ?>
+                                    <span itemprop="name headline" class="col-md-8 col-sm-8 col-xs-8"><?php echo $this->escape($story['title']); ?></span>
+                                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                                </a>
                             <?php } ?>
-                            <span itemprop="name headline"><?php echo $this->escape($story['title']); ?></span>
-                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
-                        </a>
+                        </div>
                     <?php } ?>
-                <?php } ?>
                 </div>
-                <div class="clearfix"></div>
             <?php } ?>
         </div>
     </div>
-    <div class="clearfix"></div>
 </div>

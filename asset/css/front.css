@@ -22,6 +22,12 @@
     margin: 1px 5px;
 }
 
+.news .author-info .list-group img {
+    width: inherit;
+    height: 50px;
+    margin: inherit;
+}
+
 .news .table img {
     /* width: 32px;
     height: 32px; */
