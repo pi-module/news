@@ -531,8 +531,8 @@
                 <?php $firstStory = array_shift($block['resources']); ?>
                 <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-main">
                     <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
-                        <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
-                            <p>
+                        <div class="p-item h-card">
+                            <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
                                 <a itemprop="url" class="u-url"
                                    href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                                    title="<?php echo $this->escape($firstStory['title']); ?>">
@@ -540,9 +540,7 @@
                                          alt="<?php echo $this->escape($firstStory['title']); ?>"
                                          class="media-object img-rounded img-responsive u-photo"/>
                                 </a>
-                            </p>
-                        <?php } ?>
-                        <div class="p-item h-card">
+                            <?php } ?>
                             <h3 class="p-name itemSingleTitle" itemprop="name headline">
                                 <a itemprop="url" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                                    title="<?php echo $this->escape($firstStory['title']); ?>">
@@ -574,24 +572,24 @@
                                         <?php } ?>
                                     </ul>
                                 <?php } ?>
-                                <?php if ($block['showdesc']) { ?>
-                                    <div class="storyText p-summary"><?php echo $firstStory['text_summary']; ?></div>
-                                <?php } ?>
-                                <?php if ($block['showmore']) { ?>
-                                    <p><a href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
-                                          title="<?php echo $this->escape($firstStory['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                    </p>
-                                <?php } ?>
                             </div>
+                            <?php if ($block['showdesc']) { ?>
+                                <div class="storyText p-summary"><?php echo $firstStory['text_summary']; ?></div>
+                            <?php } ?>
+                            <?php if ($block['showmore']) { ?>
+                                <p><a href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
+                                      title="<?php echo $this->escape($firstStory['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                </p>
+                            <?php } ?>
+                            <meta itemprop="datePublished"
+                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
                         </div>
-                        <meta itemprop="datePublished"
-                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
                     </div>
                 </div>
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-sub">
                         <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
-                            <div class="col-md-5 col-sm-6 col-xs-6">
+                            <div class="col-md-3 col-sm-4 col-xs-5">
                                 <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                     <a itemprop="url" class="u-url"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -602,7 +600,7 @@
                                     </a>
                                 <?php } ?>
                             </div>
-                            <div class="col-md-7 col-sm-6 col-xs-6">
+                            <div class="col-md-9 col-sm-8 col-xs-7">
                                 <div class="p-item h-card">
                                     <h4 class="p-name itemSingleTitle" itemprop="name headline">
                                         <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
