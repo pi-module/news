@@ -95,6 +95,9 @@ class JsonController extends IndexController
         $where = array(
             'status' => 1,
             'time_update > ?' => $update,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
         );
         // Get story List
         $storyList = $this->storyJsonList($where);
@@ -126,6 +129,9 @@ class JsonController extends IndexController
                 'status' => 1,
                 'topic' => $topic['ids'],
                 'time_update > ?' => $update,
+                'type' => array(
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                )
             );
             // Get story List
             $storyList = $this->storyJsonList($where);
@@ -154,7 +160,9 @@ class JsonController extends IndexController
         $story = $this->getModel('story')->find($id);
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check item
-        if (!$story || $story['status'] != 1) {
+        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ))) {
             $storySingle = array();
         } else {
 
@@ -195,7 +203,9 @@ class JsonController extends IndexController
         // Set list
         $list = array();
         // Set info
-        $where1 = array('status' => 1);
+        $where1 = array('status' => 1, 'type' => array(
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        ));
         $where1['title LIKE ?'] = '%' . $keyword . '%';
         $where2['text_summary LIKE ?'] = '%' . $keyword . '%';
         $where3['text_description LIKE ?'] = '%' . $keyword . '%';

@@ -157,7 +157,15 @@ class Story extends AbstractApi
         $config = Pi::service('registry')->config->read($this->getModule());
         $related = array();
         $order = array('time_publish DESC', 'id DESC');
-        $where = array('status' => 1, 'story != ?' => $id, 'time_publish <= ?' => time(), 'topic' => $topic);
+        $where = array(
+            'status' => 1,
+            'story != ?' => $id,
+            'time_publish <= ?' => time(),
+            'topic' => $topic,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ),
+        );
         $columns = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
         $limit = intval($config['related_num']);
         // Get info from link table
@@ -180,7 +188,15 @@ class Story extends AbstractApi
         $link = array();
         $columns = array('story');
         // Select next
-        $where = array('status' => 1, 'story > ?' => $id, 'time_publish <= ?' => time(), 'topic' => $topic);
+        $where = array(
+            'status' => 1,
+            'story > ?' => $id,
+            'time_publish <= ?' => time(),
+            'topic' => $topic,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ),
+        );
         $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(array('id ASC'))->limit(1);
         $row = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
@@ -194,7 +210,15 @@ class Story extends AbstractApi
             )));
         }
         // Select Prev
-        $where = array('status' => 1, 'story <  ?' => $id, 'time_publish <= ?' => time(), 'topic' => $topic);
+        $where = array(
+            'status' => 1,
+            'story <  ?' => $id,
+            'time_publish <= ?' => time(),
+            'topic' => $topic,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
+        );
         $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(array('id ASC'))->limit(1);
         $row = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
@@ -487,7 +511,10 @@ class Story extends AbstractApi
             Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'story');
             // find and import
             $columns = array('id', 'slug', 'status');
-            $select = Pi::model('story', $this->getModule())->select()->columns($columns);
+            $where = array('type' => array(
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ));
+            $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where);
             $rowset = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url

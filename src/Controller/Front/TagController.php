@@ -56,7 +56,10 @@ class TagController extends IndexController
         // Set story info
         $where = array(
             'status' => 1,
-            'story' => $tagId
+            'story' => $tagId,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
         );
         // Get story List
         $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);

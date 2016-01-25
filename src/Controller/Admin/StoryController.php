@@ -47,6 +47,9 @@ class StoryController extends ActionController
         // Get
         if (empty($title)) {
             // Set where
+            $whereLink['type'] = array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            );
             if (!empty($status) && in_array($status, array(1, 2, 3, 4, 5))) {
                 $whereLink['status'] = $status;
             } elseif (!empty($status) && $status == 6) {
@@ -75,6 +78,9 @@ class StoryController extends ActionController
             }
         } else {
             $whereStory['title LIKE ?'] = '%' . $title . '%';
+            $whereStory['type'] = array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            );
         }
         // Set info
         $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');

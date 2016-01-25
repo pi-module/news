@@ -25,13 +25,14 @@ class IndexController extends ActionController
         // Get info from url
         $module = $this->params('module');
         $page = $this->params('page', 1);
-        $search = $this->params('q');
+        //$search = $this->params('q');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
+
         // Check set search
-        if (!empty($search)) {
+        /* if (!empty($search)) {
             // Unset page
             if (isset($search['page'])) {
                 unset($search['page']);
@@ -100,8 +101,6 @@ class IndexController extends ActionController
             // Get paginator
             $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
         }
-        // Spotlight
-        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set header and title
         if (isset($search['title'])
             && !empty($search['title'])
@@ -121,7 +120,28 @@ class IndexController extends ActionController
             $this->view()->headKeywords($seoKeywords, 'set');
         } else {
             $itemTitleH1 = __('List of Latest stories');
-        }
+        } */
+
+        // Set story info
+        $where = array(
+            'status' => 1,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
+        );
+        // Get story List
+        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
+        // Set paginator info
+        $template = array(
+            'controller' => 'index',
+            'action' => 'index',
+        );
+        // Get paginator
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
+        // Spotlight
+        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+        // Set header and title
+        $itemTitleH1 = __('List of Latest stories');
         // Set view
         $this->view()->setTemplate($topic['template']);
         $this->view()->assign('stores', $storyList);
@@ -134,7 +154,7 @@ class IndexController extends ActionController
         $this->view()->assign('newsTitleH1', $itemTitleH1);
     }
 
-    public function filterAction()
+    /* public function filterAction()
     {
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
@@ -158,7 +178,7 @@ class IndexController extends ActionController
             $url = array('action' => 'index');
             $this->jump($url, $message, 'error');
         }
-    }
+    } */
 
     public function storyList($where, $limit, $orderLink = 'publishDESC')
     {
@@ -169,6 +189,8 @@ class IndexController extends ActionController
         $offset = (int)($page - 1) * $limit;
         $order = $this->setLinkOrder($orderLink);
         $limit = intval($limit);
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
         // Set day limit
         if ($this->config('daylimit')) {
             $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
@@ -201,7 +223,7 @@ class IndexController extends ActionController
         return $story;
     }
 
-    public function searchList($where, $limit = 0, $orderLink = 'publishDESC')
+    /* public function searchList($where, $limit = 0, $orderLink = 'publishDESC')
     {
         // Set info
         $story = array();
@@ -225,7 +247,7 @@ class IndexController extends ActionController
         }
         // return item
         return $story;
-    }
+    } */
 
     public function storyJsonList($where)
     {
@@ -304,7 +326,7 @@ class IndexController extends ActionController
         return $paginator;
     }
 
-    public function searchPaginator($template, $where, $limit)
+    /* public function searchPaginator($template, $where, $limit)
     {
         $template['module'] = $this->params('module');
         $template['page'] = $this->params('page', 1);
@@ -316,7 +338,7 @@ class IndexController extends ActionController
         // paginator
         $paginator = $this->canonizePaginator($template);
         return $paginator;
-    }
+    } */
 
     public function canonizePaginator($template)
     {

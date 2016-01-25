@@ -32,7 +32,9 @@ class StoryController extends ActionController
         $story = $this->getModel('story')->find($slug, 'slug');
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check status
-        if (!$story || $story['status'] != 1) {
+        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ))) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The story not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');

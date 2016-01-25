@@ -27,7 +27,12 @@ class IndexController extends FeedController
         ));
         $columns = array('id', 'title', 'slug', 'text_summary', 'text_description', 'time_publish');
         $order = array('time_publish DESC', 'id DESC');
-        $where = array('status' => 1);
+        $where = array(
+            'status' => 1,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
+        );
         $limit = intval($this->config('feed_num'));
         $select = $this->getModel('story')->select()->columns($columns)->where($where)->order($order)->limit($limit);
         $rowset = $this->getModel('story')->selectWith($select);

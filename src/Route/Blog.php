@@ -131,7 +131,7 @@ class Blog extends Standard
                     break;
 
                 case 'index':
-                    if (isset($parts[0]) && $parts[0] == 'filter') {
+                    /* if (isset($parts[0]) && $parts[0] == 'filter') {
                         $matches['action'] = 'filter';
                     } else {
                         $matches['action'] = 'index';
@@ -142,7 +142,7 @@ class Blog extends Standard
                                 }
                             }
                         }
-                    }
+                    } */
                     break;
 
                 case 'microblog':
@@ -202,10 +202,9 @@ class Blog extends Standard
             $url['slug'] = $mergedParams['slug'];
         }
 
-        // Set slug
-        if (!empty($mergedParams['q'])) {
+        /* if (!empty($mergedParams['q'])) {
             $url['q'] = $mergedParams['q'];
-        }
+        } */
 
         if (!empty($mergedParams['id']) && $mergedParams['controller'] == 'json') {
             $url['id'] = 'id' . $this->paramDelimiter . $mergedParams['id'];

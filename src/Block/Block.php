@@ -30,6 +30,9 @@ class Block
         }
         // Set model and get information
         $whereLink['status'] = 1;
+        $whereLink['type'] = array(
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        );
         $columns = array('story' => new Expression('DISTINCT story'));
         $limit = intval($block['number']);
         // Set order
@@ -292,6 +295,9 @@ class Block
         }
         // Set model and get information
         $whereLink['status'] = 1;
+        $whereLink['type'] = array(
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        );
         $columns = array('story' => new Expression('DISTINCT story'));
         $order = array('time_publish DESC', 'id DESC');
         // select

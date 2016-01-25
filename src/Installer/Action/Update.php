@@ -691,6 +691,46 @@ EOD;
             }
         }
 
+        // Update to version 1.7.6
+        if (version_compare($moduleVersion, '1.7.6', '<')) {
+            // Alter table : ADD
+            $sql = sprintf("ALTER TABLE %s ADD `module` VARCHAR(16) NOT NULL DEFAULT 'news'", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD
+            $sql = sprintf("ALTER TABLE %s ADD `controller` VARCHAR(16) NOT NULL DEFAULT 'topic'", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD index
+            $sql = sprintf("ALTER TABLE %s ADD INDEX `topic_list_type_module` (`status`, `topic`, `time_publish`, `type`, `module`, `controller`)", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }

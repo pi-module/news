@@ -73,6 +73,8 @@ CREATE TABLE `{link}` (
   `status`       TINYINT(1) UNSIGNED                                                                                   NOT NULL DEFAULT '0',
   `uid`          INT(10) UNSIGNED                                                                                      NOT NULL DEFAULT '0',
   `type`         ENUM('text', 'post', 'article', 'magazine', 'event', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text',
+  `module`       VARCHAR(16)                                                                                           NOT NULL DEFAULT 'news',
+  `controller`   VARCHAR(16)                                                                                           NOT NULL DEFAULT 'topic',
   PRIMARY KEY (`id`),
   KEY `story` (`story`),
   KEY `topic` (`topic`),
@@ -82,6 +84,7 @@ CREATE TABLE `{link}` (
   KEY `type` (`type`),
   KEY `topic_list` (`status`, `topic`, `time_publish`),
   KEY `topic_list_type` (`status`, `topic`, `time_publish`, `type`),
+  KEY `topic_list_type_module` (`status`, `topic`, `time_publish`, `type`, `module`, `controller`),
   KEY `uid_list` (`status`, `topic`, `time_publish`, `uid`),
   KEY `story_list` (`status`, `story`, `time_publish`, `topic`),
   KEY `link_order` (`time_publish`, `id`)

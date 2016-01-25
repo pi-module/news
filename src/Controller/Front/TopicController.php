@@ -65,7 +65,13 @@ class TopicController extends IndexController
             $this->view()->assign('topics', $topics);
         } else {
             // Set story info
-            $where = array('status' => 1, 'topic' => $topic['ids'], /*'time_publish <= ?' => time(),*/);
+            $where = array(
+                'status' => 1,
+                'topic' => $topic['ids'],
+                'type' => array(
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                )
+            );
             // Get story List
             $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
             // Set paginator info
