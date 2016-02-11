@@ -19,6 +19,60 @@ use Pi\Application\Api\AbstractApi;
  * Pi::api('api', 'news')->saveStory();
  */
 
+/*
+ * Sample link array
+ */
+/*$link = array(
+    'story' => 1,
+    'time_publish' => time(),
+    'time_update' => time(),
+    'status' => 1,
+    'uid' => 1,
+    'type' => 'event',
+    'module' => array(
+        1 => array(
+            'name' => 'event',
+            'controller' => array(
+                1 => array(
+                    'name' => 'topic',
+                    'topic' => array(
+                        1, 2, 3, 4
+                    ),
+                ),
+            ),
+        ),
+        2 => array(
+            'name' => 'guide',
+            'controller' => array(
+                1 => array(
+                    'name' => 'category',
+                    'topic' => array(
+                        1, 2, 3, 4
+                    ),
+                ),
+                2 => array(
+                    'name' => 'location',
+                    'topic' => array(
+                        1, 2, 3, 4
+                    ),
+                ),
+                3 => array(
+                    'name' => 'item',
+                    'topic' => array(
+                        1, 2, 3, 4
+                    ),
+                ),
+                4 => array(
+                    'name' => 'owner',
+                    'topic' => array(
+                        1
+                    ),
+                ),
+            ),
+        ),
+    ),
+);*/
+
 class Api extends AbstractApi
 {
     public function addStory($values, $link)
@@ -71,7 +125,32 @@ class Api extends AbstractApi
     }
 
     public function setupLink($link)
-    {}
+    {
+        // Remove
+        Pi::model('link', $this->getModule())->delete(array('story' => $link['story']));
+        // Set
+        foreach ($link['module'] as $module) {
+            foreach ($module['controller'] as $controller) {
+                foreach ($controller['topic'] as $topic) {
+                    // Set link values
+                    $values['story'] = intval($link['story']);
+                    $values['time_publish'] = intval($link['time_publish']);
+                    $values['time_update'] = intval($link['time_update']);
+                    $values['status'] = intval($link['status']);
+                    $values['uid'] = intval($link['uid']);
+                    $values['type'] = $link['type'];
+                    // Set topic / controller / module
+                    $values['topic'] = intval($topic);
+                    $values['controller'] = $controller['name'];
+                    $values['module'] = $module['name'];
+                    // Save
+                    $row = Pi::model('link', $this->getModule())->createRow();
+                    $row->assign($values);
+                    $row->save();
+                }
+            }
+        }
+    }
 
     public function getSingleStory()
     {}
