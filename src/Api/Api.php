@@ -46,12 +46,6 @@ class Api extends AbstractApi
         if (!isset($values['uid']) || empty($values['uid'])) {
             $values['uid'] = Pi::user()->getId();
         }
-
-
-
-
-
-
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
         $story->assign($values);
@@ -67,8 +61,6 @@ class Api extends AbstractApi
         if (!isset($values['time_update']) || empty($values['time_update'])) {
             $values['time_update'] = time();
         }
-
-
         // Save story
         $story = Pi::model('story', $this->getModule())->find($values['id']);
         $story->assign($values);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="Start work on multi module option">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Api/Api.php" />
+    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Api.php" afterPath="$PROJECT_DIR$/src/Api/Api.php" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,60 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Api.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state vertical-scroll-proportion="1.0668348">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding>
                 <element signature="e#353#360#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Install.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Installer/Action/Install.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18113208">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <element signature="e#366#373#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysql.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="121" />
-              <folding>
-                <marker date="1453710091175" expanded="true" signature="0:4030" placeholder="CREATE TABLE..{story}..." />
-                <marker date="1453710091175" expanded="true" signature="4033:5773" placeholder="CREATE TABLE..{topic}..." />
-                <marker date="1453710091175" expanded="true" signature="5776:7799" placeholder="CREATE TABLE..{link}..." />
-                <marker date="1453710091175" expanded="true" signature="7802:8510" placeholder="CREATE TABLE..{spotlight}..." />
-                <marker date="1453710091175" expanded="true" signature="8513:10104" placeholder="CREATE TABLE..{attach}..." />
-                <marker date="1453710091175" expanded="true" signature="10107:11560" placeholder="CREATE TABLE..{field}..." />
-                <marker date="1453710091175" expanded="true" signature="11563:11859" placeholder="CREATE TABLE..{field_topic}..." />
-                <marker date="1453710091175" expanded="true" signature="11862:12251" placeholder="CREATE TABLE..{field_position}..." />
-                <marker date="1453710091175" expanded="true" signature="12254:12617" placeholder="CREATE TABLE..{field_data}..." />
-                <marker date="1453710091175" expanded="true" signature="12620:13660" placeholder="CREATE TABLE..{author}..." />
-                <marker date="1453710091175" expanded="true" signature="13663:13929" placeholder="CREATE TABLE..{author_role}..." />
-                <marker date="1453710091175" expanded="true" signature="13932:14528" placeholder="CREATE TABLE..{author_story}..." />
-                <marker date="1453710091175" expanded="true" signature="14531:15099" placeholder="CREATE TABLE..{microblog}..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="320" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -468,15 +422,22 @@
       <option name="project" value="LOCAL" />
       <updated>1453711492938</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Work on news API">
+      <created>1455197068296</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1455197068296</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="994" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26817447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26817447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253205" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -484,7 +445,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -518,7 +478,8 @@
     <MESSAGE value="Add custom time publish option" />
     <MESSAGE value="Improve sql" />
     <MESSAGE value="Start work on multi module option" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start work on multi module option" />
+    <MESSAGE value="Work on news API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on news API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -892,22 +853,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
+    <entry file="file://$PROJECT_DIR$/src/Installer/Action/Install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.1815889">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#353#360#0#PHP" expanded="true" />
+            <element signature="e#366#373#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Installer/Action/Install.php">
+    <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18113208">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="1.0668348">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
-            <element signature="e#366#373#0#PHP" expanded="true" />
+            <element signature="e#353#360#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
