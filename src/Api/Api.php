@@ -127,7 +127,9 @@ class Api extends AbstractApi
     public function setupLink($link)
     {
         // Remove
-        Pi::model('link', $this->getModule())->delete(array('story' => $link['story']));
+        Pi::model('link', $this->getModule())->delete(array(
+            'story' => $link['story']
+        ));
         // Set
         foreach ($link['module'] as $module) {
             foreach ($module['controller'] as $controller) {
