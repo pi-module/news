@@ -16,8 +16,8 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
- * Pi::api('api', 'news')->addStory($values, $link);
- * Pi::api('api', 'news')->editStory($values, $link);
+ * Pi::api('api', 'news')->addStory($values);
+ * Pi::api('api', 'news')->editStory($values);
  * Pi::api('api', 'news')->setupLink($link);
  * Pi::api('api', 'news')->getSingleStory($parameter, $type);
  */
@@ -77,7 +77,7 @@ use Pi\Application\Api\AbstractApi;
 
 class Api extends AbstractApi
 {
-    public function addStory($values, $link)
+    public function addStory($values)
     {
         // Check type
         if (!isset($values['type']) || !in_array($values['type'], array(
@@ -107,13 +107,11 @@ class Api extends AbstractApi
         $story->assign($values);
         $story->save();
         $story = Pi::api('story', 'news')->canonizeStoryLight($story);
-        // Setup link
-        $this->setupLink($link);
         // Return
         return $story;
     }
 
-    public function editStory($values, $link)
+    public function editStory($values)
     {
         // Check time_update
         if (!isset($values['time_update']) || empty($values['time_update'])) {
@@ -124,8 +122,6 @@ class Api extends AbstractApi
         $story->assign($values);
         $story->save();
         $story = Pi::api('story', 'news')->canonizeStoryLight($story);
-        // Setup link
-        $this->setupLink($link);
         // Return
         return $story;
     }
