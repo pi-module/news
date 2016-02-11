@@ -20,7 +20,7 @@ use Zend\Json\Json;
 /*
  * Pi::api('topic', 'news')->getTopic($parameter, $type = 'id');
  * Pi::api('topic', 'news')->canonizeTopic($topic);
- * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid);
+ * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
  * Pi::api('topic', 'news')->sitemap();
  * Pi::api('topic', 'news')->regenerateImage();
@@ -243,8 +243,17 @@ class Topic extends AbstractApi
         return $template;
     }
 
-    public function setLink($story, $topics, $publish, $update, $status, $uid)
-    {
+    public function setLink(
+        $story,
+        $topics,
+        $publish,
+        $update,
+        $status,
+        $uid,
+        $type = 'text',
+        $module = 'news',
+        $controller = 'topic'
+    ) {
         //Remove
         Pi::model('link', $this->getModule())->delete(array('story' => $story));
         // Add
@@ -257,6 +266,9 @@ class Topic extends AbstractApi
             $values['time_update'] = $update;
             $values['status'] = $status;
             $values['uid'] = $uid;
+            $values['type'] = $type;
+            $values['module'] = $module;
+            $values['controller'] = $controller;
             // Save
             $row = Pi::model('link', $this->getModule())->createRow();
             $row->assign($values);

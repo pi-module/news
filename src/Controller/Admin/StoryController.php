@@ -454,7 +454,7 @@ class StoryController extends ActionController
                 $row->assign($values);
                 $row->save();
                 // Topic
-                Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->time_update, $row->status, $row->uid);
+                Pi::api('topic', 'news')->setLink($row->id, $row->topic, $row->time_publish, $row->time_update, $row->status, $row->uid, $row->type);
                 // Author
                 Pi::api('author', 'news')->setAuthorStory($row->id, $row->time_publish, $row->status, $author);
                 // Tag
