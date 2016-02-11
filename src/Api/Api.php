@@ -136,25 +136,45 @@ class Api extends AbstractApi
         Pi::model('link', $this->getModule())->delete(array(
             'story' => $link['story']
         ));
-        // Set
+        // process link module
         foreach ($link['module'] as $module) {
-            foreach ($module['controller'] as $controller) {
-                foreach ($controller['topic'] as $topic) {
-                    // Set link values
-                    $values['story'] = intval($link['story']);
-                    $values['time_publish'] = intval($link['time_publish']);
-                    $values['time_update'] = intval($link['time_update']);
-                    $values['status'] = intval($link['status']);
-                    $values['uid'] = intval($link['uid']);
-                    $values['type'] = $link['type'];
-                    // Set topic / controller / module
-                    $values['topic'] = intval($topic);
-                    $values['controller'] = $controller['name'];
-                    $values['module'] = $module['name'];
-                    // Save
-                    $row = Pi::model('link', $this->getModule())->createRow();
-                    $row->assign($values);
-                    $row->save();
+            // Check module
+            if (isset($module['controller'])
+                && !empty($module['controller'])
+                && is_array($module['controller'])
+                && isset($module['name'])
+                && !empty($module['name'])
+            ) {
+                // process module controller
+                foreach ($module['controller'] as $controller) {
+                    // Check module controller
+                    if(isset($controller['topic'])
+                        && !empty($controller['topic'])
+                        && is_array($controller['topic'])
+                        && isset($controller['name'])
+                        && !empty($controller['name'])) {
+                        // process controller topic
+                        foreach ($controller['topic'] as $topic) {
+                            // Check controller topic
+                            if (isset($topic) && intval($topic) > 0) {
+                                // Set link values
+                                $values['story'] = intval($link['story']);
+                                $values['time_publish'] = intval($link['time_publish']);
+                                $values['time_update'] = intval($link['time_update']);
+                                $values['status'] = intval($link['status']);
+                                $values['uid'] = intval($link['uid']);
+                                $values['type'] = $link['type'];
+                                // Set topic / controller / module
+                                $values['topic'] = intval($topic);
+                                $values['controller'] = $controller['name'];
+                                $values['module'] = $module['name'];
+                                // Save
+                                $row = Pi::model('link', $this->getModule())->createRow();
+                                $row->assign($values);
+                                $row->save();
+                            }
+                        }
+                    }
                 }
             }
         }
