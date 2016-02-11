@@ -28,55 +28,11 @@
       <file leaf-file-name="Api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22824717">
-              <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.40857503">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#353#360#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Topic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Api/Topic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.0">
-              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="274" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mysql.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.384615">
-              <caret line="75" column="3" selection-start-line="75" selection-start-column="3" selection-end-line="75" selection-end-column="9" />
-              <folding>
-                <marker date="1453710091175" expanded="true" signature="0:4030" placeholder="CREATE TABLE..{story}..." />
-                <marker date="1453710091175" expanded="true" signature="4033:5773" placeholder="CREATE TABLE..{topic}..." />
-                <marker date="1453710091175" expanded="true" signature="5776:7799" placeholder="CREATE TABLE..{link}..." />
-                <marker date="1453710091175" expanded="true" signature="7802:8510" placeholder="CREATE TABLE..{spotlight}..." />
-                <marker date="1453710091175" expanded="true" signature="8513:10104" placeholder="CREATE TABLE..{attach}..." />
-                <marker date="1453710091175" expanded="true" signature="10107:11560" placeholder="CREATE TABLE..{field}..." />
-                <marker date="1453710091175" expanded="true" signature="11563:11859" placeholder="CREATE TABLE..{field_topic}..." />
-                <marker date="1453710091175" expanded="true" signature="11862:12251" placeholder="CREATE TABLE..{field_position}..." />
-                <marker date="1453710091175" expanded="true" signature="12254:12617" placeholder="CREATE TABLE..{field_data}..." />
-                <marker date="1453710091175" expanded="true" signature="12620:13660" placeholder="CREATE TABLE..{author}..." />
-                <marker date="1453710091175" expanded="true" signature="13663:13929" placeholder="CREATE TABLE..{author_role}..." />
-                <marker date="1453710091175" expanded="true" signature="13932:14528" placeholder="CREATE TABLE..{author_story}..." />
-                <marker date="1453710091175" expanded="true" signature="14531:15099" placeholder="CREATE TABLE..{microblog}..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoryController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.666667">
-              <caret line="456" column="147" selection-start-line="456" selection-start-column="147" selection-end-line="456" selection-end-column="147" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -491,7 +447,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455198874159</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Work on news API">
+      <created>1455199057392</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1455199057392</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -867,13 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.703704">
-          <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Installer/Action/Install.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1815889">
@@ -923,14 +878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667">
-          <caret line="456" column="147" selection-start-line="456" selection-start-column="147" selection-end-line="456" selection-end-column="147" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.384615">
@@ -961,10 +908,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-292.66666">
+          <caret line="456" column="147" selection-start-line="456" selection-start-column="147" selection-end-line="456" selection-end-column="147" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22824717">
-          <caret line="131" column="8" selection-start-line="131" selection-start-column="8" selection-end-line="131" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.40857503">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#353#360#0#PHP" expanded="true" />
           </folding>
