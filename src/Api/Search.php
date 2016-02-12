@@ -48,6 +48,9 @@ class Search extends AbstractSearch
      */
     protected $condition = array(
         'status' => 1,
+        'type' => array(
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        ),
     );
 
     /**
