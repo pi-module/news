@@ -419,6 +419,7 @@ class Story extends AbstractApi
         $story = $story->toArray();
         // Set times
         $story['time_publish_view'] = _date($story['time_publish']);
+        $story['time_publish_update'] = _date($story['time_update']);
         // Set story url
         $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
             'module' => $this->getModule(),
@@ -439,7 +440,6 @@ class Story extends AbstractApi
         unset($story['text_summary']);
         unset($story['text_description']);
         unset($story['time_create']);
-        unset($story['time_update']);
         unset($story['topic']);
         // return story
         return $story;

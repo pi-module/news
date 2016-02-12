@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="Work on news API">
+    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Api.php" afterPath="$PROJECT_DIR$/src/Api/Api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Author.php" afterPath="$PROJECT_DIR$/src/Api/Author.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Microblog.php" afterPath="$PROJECT_DIR$/src/Api/Microblog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Story.php" afterPath="$PROJECT_DIR$/src/Api/Story.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Topic.php" afterPath="$PROJECT_DIR$/src/Api/Topic.php" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Api.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9735183">
-              <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
+            <state vertical-scroll-proportion="-12.490909">
+              <caret line="122" column="28" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="28" />
               <folding>
                 <element signature="e#353#360#0#PHP" expanded="true" />
               </folding>
@@ -41,12 +38,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Story.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Story.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="47.333332">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="35" selection-end-column="3" />
-              <folding />
+            <state vertical-scroll-proportion="0.29508197">
+              <caret line="421" column="65" selection-start-line="421" selection-start-column="65" selection-end-line="421" selection-end-column="65" />
+              <folding>
+                <element signature="e#353#360#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StoryController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.090909">
+              <caret line="417" column="16" selection-start-line="417" selection-start-column="16" selection-end-line="418" selection-end-column="80" />
+              <folding>
+                <element signature="e#366#373#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +112,8 @@
         <option value="$PROJECT_DIR$/src/Api/Topic.php" />
         <option value="$PROJECT_DIR$/src/Controller/Admin/StoryController.php" />
         <option value="$PROJECT_DIR$/src/Model/Story.php" />
-        <option value="$PROJECT_DIR$/src/Api/Story.php" />
         <option value="$PROJECT_DIR$/src/Api/Api.php" />
+        <option value="$PROJECT_DIR$/src/Api/Story.php" />
       </list>
     </option>
   </component>
@@ -544,7 +555,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455200975210</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Work on news API">
+      <created>1455264432396</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1455264432396</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -553,6 +570,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23344104" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293979" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -561,7 +579,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -897,13 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.384615">
-          <caret line="75" column="3" selection-start-line="75" selection-start-column="3" selection-end-line="75" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Topic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.0">
@@ -943,16 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.296296">
-          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="139" selection-end-column="84" />
-          <folding>
-            <element signature="e#366#373#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Front/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1712418">
@@ -961,18 +961,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
+    <entry file="file://$PROJECT_DIR$/sql/mysql.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="47.333332">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="35" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.1171875">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="143" />
+          <folding>
+            <marker date="1453710091175" expanded="true" signature="0:4030" placeholder="CREATE TABLE..{story}..." />
+            <marker date="1453710091175" expanded="true" signature="4033:5773" placeholder="CREATE TABLE..{topic}..." />
+            <marker date="1453710091175" expanded="true" signature="5776:7799" placeholder="CREATE TABLE..{link}..." />
+            <marker date="1453710091175" expanded="true" signature="7802:8510" placeholder="CREATE TABLE..{spotlight}..." />
+            <marker date="1453710091175" expanded="true" signature="8513:10104" placeholder="CREATE TABLE..{attach}..." />
+            <marker date="1453710091175" expanded="true" signature="10107:11560" placeholder="CREATE TABLE..{field}..." />
+            <marker date="1453710091175" expanded="true" signature="11563:11859" placeholder="CREATE TABLE..{field_topic}..." />
+            <marker date="1453710091175" expanded="true" signature="11862:12251" placeholder="CREATE TABLE..{field_position}..." />
+            <marker date="1453710091175" expanded="true" signature="12254:12617" placeholder="CREATE TABLE..{field_data}..." />
+            <marker date="1453710091175" expanded="true" signature="12620:13660" placeholder="CREATE TABLE..{author}..." />
+            <marker date="1453710091175" expanded="true" signature="13663:13929" placeholder="CREATE TABLE..{author_role}..." />
+            <marker date="1453710091175" expanded="true" signature="13932:14528" placeholder="CREATE TABLE..{author_story}..." />
+            <marker date="1453710091175" expanded="true" signature="14531:15099" placeholder="CREATE TABLE..{microblog}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/StoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.090909">
+          <caret line="417" column="16" selection-start-line="417" selection-start-column="16" selection-end-line="418" selection-end-column="80" />
+          <folding>
+            <element signature="e#366#373#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9735183">
-          <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
+        <state vertical-scroll-proportion="-12.490909">
+          <caret line="122" column="28" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="28" />
+          <folding>
+            <element signature="e#353#360#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29508197">
+          <caret line="421" column="65" selection-start-line="421" selection-start-column="65" selection-end-line="421" selection-end-column="65" />
           <folding>
             <element signature="e#353#360#0#PHP" expanded="true" />
           </folding>

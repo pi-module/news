@@ -16,12 +16,13 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 use Pi\Paginator\Paginator;
 use Zend\Db\Sql\Predicate\Expression;
+use Zend\Json\Json;
 
 /*
  * Pi::api('api', 'news')->addStory($values);
  * Pi::api('api', 'news')->editStory($values);
  * Pi::api('api', 'news')->setupLink($link);
- * Pi::api('api', 'news')->getStorySingle($parameter, $field);
+ * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type);
  * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table);
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
  */
@@ -106,6 +107,8 @@ class Api extends AbstractApi
         if (!isset($values['uid']) || empty($values['uid'])) {
             $values['uid'] = Pi::user()->getId();
         }
+        // Topics
+        $values['topic'] = Json::encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
         $story->assign($values);
@@ -118,9 +121,9 @@ class Api extends AbstractApi
     public function editStory($values)
     {
         // Check time_update
-        if (!isset($values['time_update']) || empty($values['time_update'])) {
-            $values['time_update'] = time();
-        }
+        $values['time_update'] = time();
+        // Topics
+        $values['topic'] = Json::encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->find($values['id']);
         $story->assign($values);
