@@ -176,10 +176,7 @@ class Api extends AbstractApi
     public function uploadImage($file = array(), $prefix = '')
     {
         // Set result
-        $result = array(
-            'path' => '',
-            'image' => '',
-        );
+        $result = array();
         // upload image
         if (!empty($file['image']['name'])) {
             $config = Pi::service('registry')->config->read('news');
