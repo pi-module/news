@@ -130,8 +130,6 @@ class Api extends AbstractApi
         }
         // Topics
         $values['topic'] = Json::encode($values['topic']);
-        // Add submitter id
-        $values['uid'] = Pi::user()->getId();
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
         $story->assign($values);
