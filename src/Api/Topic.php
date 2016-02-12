@@ -18,7 +18,7 @@ use Zend\Db\Sql\Predicate\Expression;
 use Zend\Json\Json;
 
 /*
- * Pi::api('topic', 'news')->getTopic($parameter, $type = 'id');
+ * Pi::api('topic', 'news')->getTopic($parameter, $field = 'id');
  * Pi::api('topic', 'news')->canonizeTopic($topic);
  * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
@@ -28,10 +28,10 @@ use Zend\Json\Json;
 
 class Topic extends AbstractApi
 {
-    public function getTopic($parameter, $type = 'id')
+    public function getTopic($parameter, $field = 'id')
     {
         // Get topic
-        $topic = Pi::model('topic', $this->getModule())->find($parameter, $type);
+        $topic = Pi::model('topic', $this->getModule())->find($parameter, $field);
         $topic = $topic->toArray();
         $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
             'module' => $this->getModule(),

@@ -17,8 +17,9 @@ use Pi\Application\Api\AbstractApi;
 use Zend\Json\Json;
 
 /*
- * Pi::api('story', 'news')->getStory($parameter, $type);
- * Pi::api('story', 'news')->getStoryLight($parameter, $type = 'id');
+ * Pi::api('story', 'news')->getStory($parameter, $field);
+ * Pi::api('story', 'news')->getStoryLight($parameter, $field);
+ * Pi::api('story', 'news')->getStoryJson($parameter, $field)
  * Pi::api('story', 'news')->AttachCount($id);
  * Pi::api('story', 'news')->AttachList($id);
  * Pi::api('story', 'news')->attributeCount($id);
@@ -27,7 +28,7 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->getListFromId($id);
  * Pi::api('story', 'news')->getListFromIdLight($id);
  * Pi::api('story', 'news')->FavoriteList();
- * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
+ * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList, $authorSet);
  * Pi::api('story', 'news')->canonizeStoryLight($story);
  * Pi::api('story', 'news')->canonizeStoryJson($story);
  * Pi::api('story', 'news')->sitemap();
@@ -36,19 +37,27 @@ use Zend\Json\Json;
 
 class Story extends AbstractApi
 {
-    public function getStory($parameter, $type = 'id')
+    public function getStory($parameter, $field = 'id')
     {
         // Get product
-        $story = Pi::model('story', $this->getModule())->find($parameter, $type);
+        $story = Pi::model('story', $this->getModule())->find($parameter, $field);
         $story = $this->canonizeStory($story);
         return $story;
     }
 
-    public function getStoryLight($parameter, $type = 'id')
+    public function getStoryLight($parameter, $field = 'id')
     {
         // Get product
-        $story = Pi::model('story', $this->getModule())->find($parameter, $type);
+        $story = Pi::model('story', $this->getModule())->find($parameter, $field);
         $story = $this->canonizeStoryLight($story);
+        return $story;
+    }
+
+    public function getStoryJson($parameter, $field = 'id')
+    {
+        // Get product
+        $story = Pi::model('story', $this->getModule())->find($parameter, $field);
+        $story = $this->canonizeStoryJson($story);
         return $story;
     }
 
@@ -303,7 +312,7 @@ class Story extends AbstractApi
         }
     }
 
-    public function canonizeStory($story, $topicList = array(), $authorList = array())
+    public function canonizeStory($story, $topicList = array(), $authorList = array(), $authorSet = true)
     {
         // Check
         if (empty($story)) {
@@ -343,7 +352,7 @@ class Story extends AbstractApi
         }
         // Get author list
         $story['authors'] = array();
-        if ($config['show_author'] && !empty($authorList)) {
+        if ($config['show_author'] && !empty($authorList) && $authorSet) {
             $story['author'] = Json::decode($story['author'], true);
             if (!empty($story['author'])) {
                 foreach ($story['author'] as $author) {

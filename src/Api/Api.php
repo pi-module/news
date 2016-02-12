@@ -14,12 +14,16 @@ namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
+use Pi\Paginator\Paginator;
+use Zend\Db\Sql\Predicate\Expression;
 
 /*
  * Pi::api('api', 'news')->addStory($values);
  * Pi::api('api', 'news')->editStory($values);
  * Pi::api('api', 'news')->setupLink($link);
- * Pi::api('api', 'news')->getSingleStory($parameter, $type);
+ * Pi::api('api', 'news')->getStorySingle($parameter, $field);
+ * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table);
+ * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
  */
 
 /*
@@ -176,11 +180,144 @@ class Api extends AbstractApi
         }
     }
 
-    public function getSingleStory($parameter, $type)
+    public function getStorySingle($parameter, $field, $type = 'full')
     {
-        return Pi::api('story', 'news')->getStory($parameter, $type);
+        switch ($type) {
+            case 'json':
+                $story = Pi::api('story', 'news')->getStoryJson($parameter, $field);
+                break;
+
+            case 'light':
+                $story = Pi::api('story', 'news')->getStoryLight($parameter, $field);
+                break;
+
+            default:
+            case 'full':
+                $story = Pi::api('story', 'news')->getStory($parameter, $field);
+                break;
+        }
+        return $story;
     }
 
-    public function getListStory()
-    {}
+    public function getStoryList($where = array(), $order = array(), $offset = '', $limit = 10, $type = 'full', $table = 'link')
+    {
+        switch ($table) {
+            case 'story':
+                // Select from story table
+                $select = Pi::model('story', $this->getModule())->select();
+                if (!empty($where)) {
+                    $select->where($where);
+                }
+                if (!empty($order)) {
+                    $select->order($order);
+                }
+                if (!empty($offset)) {
+                    $select->offset($offset);
+                }
+                if (!empty($limit)) {
+                    $select->limit($limit);
+                }
+                $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                break;
+
+            default:
+            case 'link':
+                // Select from link table
+                $select = Pi::model('link', $this->getModule())->select();
+                if (!empty($where)) {
+                    $select->where($where);
+                }
+                if (!empty($order)) {
+                    $select->order($order);
+                }
+                if (!empty($offset)) {
+                    $select->offset($offset);
+                }
+                if (!empty($limit)) {
+                    $select->limit($limit);
+                }
+                $columns = array('story' => new Expression('DISTINCT story'));
+                $select->columns($columns);
+                $rowSetLink = Pi::model('link', $this->getModule())->selectWith($select);
+                foreach ($rowSetLink as $id) {
+                    $storyId[] = $id['story'];
+                }
+                // Select from story table
+                $whereStory = array('id' => $storyId);
+                $select = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
+                $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                break;
+        }
+
+        // Make list
+        $list = array();
+        $topicList = Pi::registry('topicList', 'news')->read();
+        foreach ($rowSet as $row) {
+            switch ($type) {
+                case 'json':
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryJson($row);
+                    break;
+
+                case 'light':
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryLight($row);
+                    break;
+
+                default:
+                case 'full':
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, array(), false);
+                    break;
+            }
+        }
+        return $list;
+    }
+
+    public function getStoryPaginator($template, $where = array(), $page = 1, $limit = 10, $table = 'link')
+    {
+        // Set count
+        switch ($table) {
+            case 'story':
+                $columns = array('count' => new Expression('count(*)'));
+                $select = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
+                $count = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                break;
+
+            default:
+            case 'link':
+                $columns = array('count' => new Expression('count(DISTINCT `story`)'));
+                $select = Pi::model('link', $this->getModule())->where($where)->columns($columns);
+                $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                break;
+        }
+        // Check template
+        $template['module'] = (isset($template['module'])) ? $template['module'] : 'news';
+        $template['controller'] = (isset($template['controller'])) ? $template['controller'] : 'index';
+        $template['action'] = (isset($template['action'])) ? $template['action'] : 'index';
+        $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
+        $template['id'] = (isset($template['id'])) ? $template['id'] : '';
+        $template['status'] = (isset($template['status'])) ? $template['status'] : '';
+        $template['topic'] = (isset($template['topic'])) ? $template['topic'] : '';
+        $template['uid'] = (isset($template['uid'])) ? $template['uid'] : '';
+        $template['title'] = (isset($template['title'])) ? $template['title'] : '';
+        // Set paginator
+        $paginator = Paginator::factory(intval($count));
+        $paginator->setItemCountPerPage($limit);
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setUrlOptions(array(
+            //'router' => $this->getEvent()->getRouter(),
+            //'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+            'params' => array_filter(array(
+                'module' => $template['module'],
+                'controller' => $template['controller'],
+                'action' => $template['action'],
+                'slug' => $template['slug'],
+                'id' => $template['id'],
+                'status' => $template['status'],
+                'topic' => $template['topic'],
+                'uid' => $template['uid'],
+                'title' => $template['title'],
+            )),
+        ));
+
+        return $paginator;
+    }
 }

@@ -17,16 +17,16 @@ use Pi\Application\Api\AbstractApi;
 use Pi\Filter;
 
 /*
- * Pi::api('microblog', 'news')->getMicroblog($parameter, $type);
+ * Pi::api('microblog', 'news')->getMicroblog($parameter, $field);
  * Pi::api('microblog', 'news')->canonizeMicroblog($microblog);
  */
 
 class Microblog extends AbstractApi
 {
-    public function getMicroblog($parameter, $type = 'id')
+    public function getMicroblog($parameter, $field = 'id')
     {
         // Get topic
-        $microblog = Pi::model('microblog', $this->getModule())->find($parameter, $type);
+        $microblog = Pi::model('microblog', $this->getModule())->find($parameter, $field);
         $microblog = $this->canonizeMicroblog($microblog);
         return $microblog;
     }
