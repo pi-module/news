@@ -18,7 +18,8 @@ use Zend\Db\Sql\Predicate\Expression;
 use Zend\Json\Json;
 
 /*
- * Pi::api('topic', 'news')->getTopic($parameter, $field = 'id');
+ * Pi::api('topic', 'news')->getTopic($parameter, $field;
+ * Pi::api('topic', 'news')->getTopicFull($parameter, $field);
  * Pi::api('topic', 'news')->canonizeTopic($topic);
  * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
@@ -38,6 +39,14 @@ class Topic extends AbstractApi
             'controller' => 'topic',
             'slug' => $topic['slug'],
         )));
+        return $topic;
+    }
+
+    public function getTopicFull($parameter, $field = 'id')
+    {
+        // Get topic
+        $topic = Pi::model('topic', $this->getModule())->find($parameter, $field);
+        $topic = $this->canonizeTopic($topic);
         return $topic;
     }
 

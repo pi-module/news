@@ -394,7 +394,7 @@ class Api extends AbstractApi
             default:
             case 'link':
                 $columns = array('count' => new Expression('count(DISTINCT `story`)'));
-                $select = Pi::model('link', $this->getModule())->where($where)->columns($columns);
+                $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
                 $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
                 break;
         }

@@ -343,6 +343,7 @@ class Story extends AbstractApi
         foreach ($story['topic'] as $topic) {
             if (!empty($topicList[$topic]['title'])) {
                 $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
+                $story['topics'][$topic]['slug'] = $topicList[$topic]['slug'];
                 $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                     'module' => $this->getModule(),
                     'controller' => 'topic',
