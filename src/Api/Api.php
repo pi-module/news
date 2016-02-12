@@ -13,8 +13,10 @@
 namespace Module\News\Api;
 
 use Pi;
+use Pi\Filter;
 use Pi\Application\Api\AbstractApi;
 use Pi\Paginator\Paginator;
+use Pi\File\Transfer\Upload;
 use Zend\Db\Sql\Predicate\Expression;
 use Zend\Json\Json;
 
@@ -22,6 +24,8 @@ use Zend\Json\Json;
  * Pi::api('api', 'news')->addStory($values);
  * Pi::api('api', 'news')->editStory($values);
  * Pi::api('api', 'news')->setupLink($link);
+ * Pi::api('api', 'news')->uploadImage($file, $prefix);
+ * Pi::api('api', 'news')->removeImage($id);
  * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type);
  * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table);
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
@@ -91,6 +95,23 @@ class Api extends AbstractApi
             ))) {
             return false;
         }
+        // Get config
+        $config = Pi::service('registry')->config->read('news');
+        // Set seo_title
+        $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+        $filter = new Filter\HeadTitle;
+        $values['seo_title'] = $filter($title);
+        // Set seo_keywords
+        $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace_space' => (bool)$config['force_replace_space'],
+        ));
+        $values['seo_keywords'] = $filter($keywords);
+        // Set seo_description
+        $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+        $filter = new Filter\HeadDescription;
+        $values['seo_description'] = $filter($description);
         // Check time_create
         if (!isset($values['time_create']) || empty($values['time_create'])) {
             $values['time_create'] = time();
@@ -109,6 +130,8 @@ class Api extends AbstractApi
         }
         // Topics
         $values['topic'] = Json::encode($values['topic']);
+        // Add submitter id
+        $values['uid'] = Pi::user()->getId();
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
         $story->assign($values);
@@ -120,8 +143,27 @@ class Api extends AbstractApi
 
     public function editStory($values)
     {
+        // Get config
+        $config = Pi::service('registry')->config->read('news');
+        // Set seo_title
+        $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+        $filter = new Filter\HeadTitle;
+        $values['seo_title'] = $filter($title);
+        // Set seo_keywords
+        $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
+        $filter = new Filter\HeadKeywords;
+        $filter->setOptions(array(
+            'force_replace_space' => (bool)$config['force_replace_space'],
+        ));
+        $values['seo_keywords'] = $filter($keywords);
+        // Set seo_description
+        $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+        $filter = new Filter\HeadDescription;
+        $values['seo_description'] = $filter($description);
         // Check time_update
-        $values['time_update'] = time();
+        if (!isset($values['time_update']) || empty($values['time_update'])) {
+            $values['time_update'] = time();
+        }
         // Topics
         $values['topic'] = Json::encode($values['topic']);
         // Save story
@@ -131,6 +173,71 @@ class Api extends AbstractApi
         $story = Pi::api('story', 'news')->canonizeStoryLight($story);
         // Return
         return $story;
+    }
+
+    public function uploadImage($file = array(), $prefix = '')
+    {
+        // Set result
+        $result = array(
+            'path' => '',
+            'image' => '',
+        );
+        // upload image
+        if (!empty($file['image']['name'])) {
+            $config = Pi::service('registry')->config->read('news');
+            // Set upload path
+            $result['path'] = sprintf('%s/%s', date('Y'), date('m'));
+            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $config['image_path'], $result['path']));
+            // Image name
+            $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path']);
+            // Upload
+            $uploader = new Upload;
+            $uploader->setDestination($originalPath);
+            $uploader->setRename($imageName);
+            $uploader->setExtension($config['image_extension']);
+            $uploader->setSize($config['image_size']);
+            if ($uploader->isValid()) {
+                $uploader->receive();
+                // Get image name
+                $result['image'] = $uploader->getUploaded('image');
+                // process image
+                Pi::api('image', 'news')->process($result['image'], $result['path']);
+            }
+        }
+        return $result;
+    }
+
+    public function removeImage($id = 0)
+    {
+        // Set result
+        $result = array(
+            'status' => 0,
+            'message' => '',
+        );
+        // Check id
+        if (isset($id) && intval($id) > 0) {
+            // Get story
+            $story = Pi::model('story', $this->getModule())->find($id);
+            if ($story) {
+                // clear DB
+                $story->image = '';
+                $story->path = '';
+                // Save
+                $story->save();
+                // Check
+                if ($story->path == '' && $story->image == '') {
+                    $result['message'] = sprintf(__('Image of %s removed'), $story->title);
+                    $result['status'] = 1;
+                } else {
+                    $result['message'] = __('Image not remove');
+                    $result['status'] = 0;
+                }
+            } else {
+                $result['message'] = __('Please select story');
+                $result['status'] = 0;
+            }
+        }
+        return $result;
     }
 
     public function setupLink($link)
