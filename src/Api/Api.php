@@ -173,18 +173,19 @@ class Api extends AbstractApi
         return $story;
     }
 
-    public function uploadImage($file = array(), $prefix = '')
+    public function uploadImage($file = array(), $prefix = '', $folder = '')
     {
         // Set result
         $result = array();
         // upload image
         if (!empty($file['image']['name'])) {
             $config = Pi::service('registry')->config->read('news');
+            $uploadFolder = !empty($folder) ? $folder : $config['image_path'];
             // Set upload path
             $result['path'] = sprintf('%s/%s', date('Y'), date('m'));
-            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $config['image_path'], $result['path']));
+            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $uploadFolder, $result['path']));
             // Image name
-            $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path']);
+            $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path'], $folder = '');
             // Upload
             $uploader = new Upload;
             $uploader->setDestination($originalPath);
@@ -196,7 +197,7 @@ class Api extends AbstractApi
                 // Get image name
                 $result['image'] = $uploader->getUploaded('image');
                 // process image
-                Pi::api('image', 'news')->process($result['image'], $result['path']);
+                Pi::api('image', 'news')->process($result['image'], $result['path'], $folder = '');
             }
         }
         return $result;
