@@ -91,25 +91,19 @@ if (!empty($story['largeUrl'])) {
                 <h2><?php echo $this->escape($story['subtitle']); ?></h2>
             <?php } ?>
             <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
-                <div class="gallery gallery-list text-center clearfix row">
-                    <div class="u-photo col-lg-3 col-md-4 col-xs-6 gallery-thumb">
-                        <a class="thumbnail" href="<?php echo $story['largeUrl']; ?>"
-                           title="<?php echo $this->escape($story['title']); ?>">
-                            <img itemprop="image" class="img-responsive" src="<?php echo $story['largeUrl']; ?>"
-                                 alt="<?php echo $this->escape($story['title']); ?>"/>
-                        </a>
-                    </div>
-                    <?php if (isset($attach['image']) && !empty($attach['image'])) { ?>
-                        <?php foreach ($attach['image'] as $image) { ?>
-                            <div class="u-photo col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="<?php echo $image['largeUrl']; ?>"
-                                   title="<?php echo $this->escape($image['title']); ?>">
-                                    <img itemprop="image" class="img-responsive" src="<?php echo $image['mediumUrl']; ?>"
-                                         alt="<?php echo $this->escape($image['title']); ?>"/>
+                <div class="gallery text-center col-md-12">
+                    <div class="storyImageMain">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="u-photo">
+                                <a href="<?php echo $story['largeUrl']; ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <img itemprop="image" class="img-responsive img-thumbnail" src="<?php echo $story['largeUrl']; ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
-                        <?php } ?>
-                    <?php } ?>
+                        </div>
+                    </div>
+                    <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
                 </div>
             <?php } ?>
             <div class="storyText e-content" itemprop="description"><?php echo $story['text_description']; ?></div>
@@ -149,20 +143,20 @@ if (!empty($story['largeUrl'])) {
         </div>
     </div>
     <?php //if ($config['show_nav']) { ?>
-        <div class="itemPager">
-            <ul class="pager">
-                <?php if (!empty($link['previous'])) { ?>
-                    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
-                                            href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
-                    </li>
-                <?php } ?>
-                <?php if (!empty($link['next'])) { ?>
-                    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
-                                        href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
+    <div class="itemPager">
+        <ul class="pager">
+            <?php if (!empty($link['previous'])) { ?>
+                <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
+                                        href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
+                </li>
+            <?php } ?>
+            <?php if (!empty($link['next'])) { ?>
+                <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
+                                    href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
     <?php //} ?>
     <?php /* if (isset($relateds) && !empty($relateds)) { ?>
         <div class="itemList itemRelated">

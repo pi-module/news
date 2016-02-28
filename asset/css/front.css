@@ -62,3 +62,17 @@
     width: 90px;
     height: 55px;
 }
+
+/* Gellery */
+.gallery-list {
+    margin-top: 30px;
+}
+
+.gallery-thumb {
+    margin-bottom: 30px;
+    height: 220px;
+}
+
+.gallery-thumb img {
+    max-height: 220px;
+}
