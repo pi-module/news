@@ -16,16 +16,18 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
- * Pi::api('image', 'news')->rename($image, $prefix, $path);
- * Pi::api('image', 'news')->process($image, $path;
+ * Pi::api('image', 'news')->rename($image, $prefix, $path, $imagePath);
+ * Pi::api('image', 'news')->process($image, $path, $imagePath);
  */
 
 class Image extends AbstractApi
 {
-    public function rename($image = '', $prefix = 'image_', $path = '')
+    public function rename($image = '', $prefix = 'image_', $path = '', $imagePath)
     {
+        // Get config
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
-
+        // Set image path
+        $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
         // Check image name
         if (empty($image)) {
             return $prefix . '%random%';
@@ -46,7 +48,7 @@ class Image extends AbstractApi
         }
         // Set original path
         $original = Pi::path(
-            sprintf('upload/%s/original/%s/%s', $config['image_path'], $path, $name)
+            sprintf('upload/%s/original/%s/%s', $imagePath, $path, $name)
         );
         // Check file exist
         if (Pi::service('file')->exists($original)) {
@@ -56,28 +58,30 @@ class Image extends AbstractApi
         return $name;
     }
 
-    public function process($image, $path)
+    public function process($image, $path, $imagePath)
     {
+        // Get config
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
-
+        // Set image path
+        $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
         // Set original path
         $original = Pi::path(
-            sprintf('upload/%s/original/%s/%s', $config['image_path'], $path, $image)
+            sprintf('upload/%s/original/%s/%s', $imagePath, $path, $image)
         );
 
         // Set large path
         $large = Pi::path(
-            sprintf('upload/%s/large/%s/%s', $config['image_path'], $path, $image)
+            sprintf('upload/%s/large/%s/%s', $imagePath, $path, $image)
         );
 
         // Set medium path
         $medium = Pi::path(
-            sprintf('upload/%s/medium/%s/%s', $config['image_path'], $path, $image)
+            sprintf('upload/%s/medium/%s/%s', $imagePath, $path, $image)
         );
 
         // Set thumb path
         $thumb = Pi::path(
-            sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $image)
+            sprintf('upload/%s/thumb/%s/%s', $imagePath, $path, $image)
         );
 
         // Set options

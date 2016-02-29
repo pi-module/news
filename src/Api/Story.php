@@ -17,9 +17,9 @@ use Pi\Application\Api\AbstractApi;
 use Zend\Json\Json;
 
 /*
- * Pi::api('story', 'news')->getStory($parameter, $field);
- * Pi::api('story', 'news')->getStoryLight($parameter, $field);
- * Pi::api('story', 'news')->getStoryJson($parameter, $field)
+ * Pi::api('story', 'news')->getStory($parameter, $field, $option);
+ * Pi::api('story', 'news')->getStoryLight($parameter, $field, $option);
+ * Pi::api('story', 'news')->getStoryJson($parameter, $field, $option)
  * Pi::api('story', 'news')->AttachCount($id);
  * Pi::api('story', 'news')->AttachList($id);
  * Pi::api('story', 'news')->attributeCount($id);
@@ -28,36 +28,36 @@ use Zend\Json\Json;
  * Pi::api('story', 'news')->getListFromId($id);
  * Pi::api('story', 'news')->getListFromIdLight($id);
  * Pi::api('story', 'news')->FavoriteList();
- * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList, $authorSet);
- * Pi::api('story', 'news')->canonizeStoryLight($story);
- * Pi::api('story', 'news')->canonizeStoryJson($story);
+ * Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList, $option);
+ * Pi::api('story', 'news')->canonizeStoryLight($story, $option);
+ * Pi::api('story', 'news')->canonizeStoryJson($story, $option);
  * Pi::api('story', 'news')->sitemap();
  * Pi::api('story', 'news')->regenerateImage();
  */
 
 class Story extends AbstractApi
 {
-    public function getStory($parameter, $field = 'id')
+    public function getStory($parameter, $field = 'id', $option = array())
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
-        $story = $this->canonizeStory($story);
+        $story = $this->canonizeStory($story, '', '', $option);
         return $story;
     }
 
-    public function getStoryLight($parameter, $field = 'id')
+    public function getStoryLight($parameter, $field = 'id', $option = array())
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
-        $story = $this->canonizeStoryLight($story);
+        $story = $this->canonizeStoryLight($story, $option);
         return $story;
     }
 
-    public function getStoryJson($parameter, $field = 'id')
+    public function getStoryJson($parameter, $field = 'id', $option = array())
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
-        $story = $this->canonizeStoryJson($story);
+        $story = $this->canonizeStoryJson($story, $option);
         return $story;
     }
 
@@ -312,7 +312,7 @@ class Story extends AbstractApi
         }
     }
 
-    public function canonizeStory($story, $topicList = array(), $authorList = array(), $authorSet = true)
+    public function canonizeStory($story, $topicList = array(), $authorList = array(), $option = array())
     {
         // Check
         if (empty($story)) {
@@ -320,6 +320,9 @@ class Story extends AbstractApi
         }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
+        // Set option
+        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
+        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
         // boject to array
         $story = $story->toArray();
         // Set text_summary
@@ -353,7 +356,7 @@ class Story extends AbstractApi
         }
         // Get author list
         $story['authors'] = array();
-        if ($config['show_author'] && !empty($authorList) && $authorSet) {
+        if ($config['show_author'] && !empty($authorList) && $option['authorSet']) {
             $story['author'] = Json::decode($story['author'], true);
             if (!empty($story['author'])) {
                 foreach ($story['author'] as $author) {
@@ -373,28 +376,28 @@ class Story extends AbstractApi
             // Set image original url
             $story['originalUrl'] = Pi::url(
                 sprintf('upload/%s/original/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
             // Set image large url
             $story['largeUrl'] = Pi::url(
                 sprintf('upload/%s/large/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
             // Set image medium url
             $story['mediumUrl'] = Pi::url(
                 sprintf('upload/%s/medium/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
                 sprintf('upload/%s/thumb/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
@@ -408,7 +411,7 @@ class Story extends AbstractApi
         return $story;
     }
 
-    public function canonizeStoryLight($story)
+    public function canonizeStoryLight($story, $option = array())
     {
         // Check
         if (empty($story)) {
@@ -416,6 +419,9 @@ class Story extends AbstractApi
         }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
+        // Set option
+        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
+        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
         // boject to array
         $story = $story->toArray();
         // Set times
@@ -432,7 +438,7 @@ class Story extends AbstractApi
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
                 sprintf('upload/%s/thumb/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
@@ -446,7 +452,7 @@ class Story extends AbstractApi
         return $story;
     }
 
-    public function canonizeStoryJson($story)
+    public function canonizeStoryJson($story, $option = array())
     {
         // Check
         if (empty($story)) {
@@ -454,6 +460,9 @@ class Story extends AbstractApi
         }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
+        // Set option
+        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
+        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
         // boject to array
         $story = $story->toArray();
         // Set story url
@@ -467,21 +476,21 @@ class Story extends AbstractApi
             // Set image large url
             $story['largeUrl'] = Pi::url(
                 sprintf('upload/%s/large/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
             // Set image medium url
             $story['mediumUrl'] = Pi::url(
                 sprintf('upload/%s/medium/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));
             // Set image thumb url
             $story['thumbUrl'] = Pi::url(
                 sprintf('upload/%s/thumb/%s/%s',
-                    $config['image_path'],
+                    $option['imagePath'],
                     $story['path'],
                     $story['image']
                 ));

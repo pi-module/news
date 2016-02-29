@@ -24,10 +24,10 @@ use Zend\Json\Json;
  * Pi::api('api', 'news')->addStory($values);
  * Pi::api('api', 'news')->editStory($values);
  * Pi::api('api', 'news')->setupLink($link);
- * Pi::api('api', 'news')->uploadImage($file, $prefix);
+ * Pi::api('api', 'news')->uploadImage($file, $prefix, $imagePath);
  * Pi::api('api', 'news')->removeImage($id);
- * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type);
- * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table);
+ * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type, $option);
+ * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table, $option);
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
  */
 
@@ -173,18 +173,20 @@ class Api extends AbstractApi
         return $story;
     }
 
-    public function uploadImage($file = array(), $prefix = '')
+    public function uploadImage($file = array(), $prefix = '', $imagePath = '')
     {
         // Set result
         $result = array();
         // upload image
         if (!empty($file['image']['name'])) {
             $config = Pi::service('registry')->config->read('news');
+            // Set image path
+            $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
             // Set upload path
             $result['path'] = sprintf('%s/%s', date('Y'), date('m'));
-            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $config['image_path'], $result['path']));
+            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $imagePath, $result['path']));
             // Image name
-            $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path']);
+            $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path'], $imagePath);
             // Upload
             $uploader = new Upload;
             $uploader->setDestination($originalPath);
@@ -196,7 +198,7 @@ class Api extends AbstractApi
                 // Get image name
                 $result['image'] = $uploader->getUploaded('image');
                 // process image
-                Pi::api('image', 'news')->process($result['image'], $result['path']);
+                Pi::api('image', 'news')->process($result['image'], $result['path'], $imagePath);
             }
         }
         return $result;
@@ -285,26 +287,29 @@ class Api extends AbstractApi
         }
     }
 
-    public function getStorySingle($parameter, $field, $type = 'full')
+    public function getStorySingle($parameter, $field, $type = 'full', $option = array())
     {
+        // Set option
+        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : false;
+
         switch ($type) {
             case 'json':
-                $story = Pi::api('story', 'news')->getStoryJson($parameter, $field);
+                $story = Pi::api('story', 'news')->getStoryJson($parameter, $field, $option);
                 break;
 
             case 'light':
-                $story = Pi::api('story', 'news')->getStoryLight($parameter, $field);
+                $story = Pi::api('story', 'news')->getStoryLight($parameter, $field, $option);
                 break;
 
             default:
             case 'full':
-                $story = Pi::api('story', 'news')->getStory($parameter, $field);
+                $story = Pi::api('story', 'news')->getStory($parameter, $field, $option);
                 break;
         }
         return $story;
     }
 
-    public function getStoryList($where = array(), $order = array(), $offset = '', $limit = 10, $type = 'full', $table = 'link')
+    public function getStoryList($where = array(), $order = array(), $offset = '', $limit = 10, $type = 'full', $table = 'link', $option = array())
     {
         switch ($table) {
             case 'story':
@@ -354,22 +359,25 @@ class Api extends AbstractApi
                 break;
         }
 
+        // Set option
+        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : false;
+
         // Make list
         $list = array();
         $topicList = Pi::registry('topicList', 'news')->read();
         foreach ($rowSet as $row) {
             switch ($type) {
                 case 'json':
-                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryJson($row);
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryJson($row, $option);
                     break;
 
                 case 'light':
-                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryLight($row);
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStoryLight($row, $option);
                     break;
 
                 default:
                 case 'full':
-                    $list[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, array(), false);
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, array(), $option);
                     break;
             }
         }
