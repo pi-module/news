@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-12-12 16:32+0330\n"
+"POT-Creation-Date: 2016-03-13 11:29+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,8 +15,31 @@ msgstr ""
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:122
-#: src/Form/StoryForm.php:148 template/admin/microblog-index.phtml:17
+#: src/Api/Api.php:226 src/Controller/Admin/AuthorController.php:262
+#: src/Controller/Admin/StoryController.php:297
+#: src/Controller/Admin/TopicController.php:121
+#, php-format
+msgid "Image of %s removed"
+msgstr "تصویر مربوط به %s حذف شد"
+
+#: src/Api/Api.php:229 src/Controller/Admin/AuthorController.php:265
+#: src/Controller/Admin/StoryController.php:300
+#: src/Controller/Admin/TopicController.php:124
+msgid "Image not remove"
+msgstr "تصویر حذف نشد"
+
+#: src/Api/Api.php:233 src/Controller/Admin/StoryController.php:219
+#: src/Controller/Admin/StoryController.php:268
+#: src/Controller/Admin/StoryController.php:304
+#: src/Controller/Admin/StoryController.php:343
+#: src/Controller/Admin/StoryController.php:590
+#: src/Controller/Admin/StoryController.php:742
+#: src/Controller/Admin/TopicController.php:128
+msgid "Please select story"
+msgstr "لطفا یک مطلب انتخاب کنید"
+
+#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:128
+#: src/Form/StoryForm.php:147 template/admin/microblog-index.phtml:17
 msgid "Text"
 msgstr "متن"
 
@@ -144,22 +167,22 @@ msgid "Please select field"
 msgstr "لطفا یک فیلد انتخاب کنید"
 
 #: src/Controller/Admin/AuthorController.php:98
-#: src/Controller/Admin/StoryController.php:180
+#: src/Controller/Admin/StoryController.php:186
 msgid "View filtered stores"
 msgstr "نمایش مطالب فیلتر شده"
 
 #: src/Controller/Admin/AuthorController.php:104
-#: src/Controller/Admin/StoryController.php:186
+#: src/Controller/Admin/StoryController.php:192
 msgid "Not valid"
 msgstr "صحیح نیست"
 
 #: src/Controller/Admin/AuthorController.php:110
-#: src/Controller/Admin/StoryController.php:192
+#: src/Controller/Admin/StoryController.php:198
 msgid "Not set"
 msgstr "هنوز تنظیم نشده"
 
 #: src/Controller/Admin/AuthorController.php:168
-#: src/Controller/Admin/StoryController.php:403
+#: src/Controller/Admin/StoryController.php:413
 #: src/Controller/Admin/TopicController.php:187
 msgid "Problem in upload image. please try again"
 msgstr "خطا در بارگذاری تصویر، دوباره تلاش کنید"
@@ -179,19 +202,6 @@ msgstr "اطلاعات اشتباه، لطفا بررسی کنید و دوبار
 #: template/admin/author-index.phtml:5 template/admin/author-index.phtml:7
 msgid "Add Author"
 msgstr "پدیدآورنده جدید"
-
-#: src/Controller/Admin/AuthorController.php:262
-#: src/Controller/Admin/StoryController.php:291
-#: src/Controller/Admin/TopicController.php:121
-#, php-format
-msgid "Image of %s removed"
-msgstr "تصویر مربوطز به %s حذف شد"
-
-#: src/Controller/Admin/AuthorController.php:265
-#: src/Controller/Admin/StoryController.php:294
-#: src/Controller/Admin/TopicController.php:124
-msgid "Image not remove"
-msgstr "تصویر حذف نشد"
 
 #: src/Controller/Admin/AuthorController.php:269
 msgid "Please select author"
@@ -280,48 +290,38 @@ msgstr "اسپات لایت انتخابی حذف شد"
 msgid "Please select spotlight"
 msgstr "لطفا یک اسپات لایت انتخاب کنید"
 
-#: src/Controller/Admin/StoryController.php:109
-#: src/Controller/Admin/TopicController.php:245 src/Form/StoryForm.php:151
+#: src/Controller/Admin/StoryController.php:115
+#: src/Controller/Admin/TopicController.php:245 src/Form/StoryForm.php:150
 #: template/admin/attach-add.phtml:67 template/admin/story-update.phtml:116
 msgid "Download"
 msgstr "دانلود"
 
-#: src/Controller/Admin/StoryController.php:113
-#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:150
+#: src/Controller/Admin/StoryController.php:119
+#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:149
 #: src/Form/TopicForm.php:120
 msgid "Media"
 msgstr "مدیا"
 
-#: src/Controller/Admin/StoryController.php:117 src/Form/StoryForm.php:149
+#: src/Controller/Admin/StoryController.php:123 src/Form/StoryForm.php:148
 msgid "Gallery"
 msgstr "گالری"
 
-#: src/Controller/Admin/StoryController.php:213
-#: src/Controller/Admin/StoryController.php:262
-#: src/Controller/Admin/StoryController.php:298
-#: src/Controller/Admin/StoryController.php:333
-#: src/Controller/Admin/StoryController.php:570
-#: src/Controller/Admin/StoryController.php:722
-#: src/Controller/Admin/TopicController.php:128
-msgid "Please select story"
-msgstr "لطفا یک مطلب انتخاب کنید"
-
-#: src/Controller/Admin/StoryController.php:251
+#: src/Controller/Admin/StoryController.php:257
 #, php-format
 msgid "%s story accept successfully"
 msgstr "مطلب %s با موفقیت تایید شد"
 
-#: src/Controller/Admin/StoryController.php:256
+#: src/Controller/Admin/StoryController.php:262
 #, php-format
 msgid "Error in accept %s story"
 msgstr "خطا در تایید %s"
 
-#: src/Controller/Admin/StoryController.php:483
+#: src/Controller/Admin/StoryController.php:500
 msgid "Story data saved successfully."
 msgstr "اطلاعات مطلب با موفقیت ذخیره شد"
 
-#: src/Controller/Admin/StoryController.php:510
-#: src/Controller/Admin/StoryController.php:671
+#: src/Controller/Admin/StoryController.php:530
+#: src/Controller/Admin/StoryController.php:691
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -334,8 +334,8 @@ msgstr ""
 "سایت نمایش داده شود ، و سپس بعد از کلیک بر روی دکمه ارسال ، در صفحه بعد در "
 "صورت تمایل میتوانید فایل خود را بارگذاری کنید"
 
-#: src/Controller/Admin/StoryController.php:514
-#: src/Controller/Admin/StoryController.php:675
+#: src/Controller/Admin/StoryController.php:534
+#: src/Controller/Admin/StoryController.php:695
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -349,8 +349,8 @@ msgstr ""
 "دکمه ارسال ، در صفحه بعد در صورت تمایل میتوانید ویدیو یا صدای خود را "
 "بارگذاری کنید"
 
-#: src/Controller/Admin/StoryController.php:518
-#: src/Controller/Admin/StoryController.php:679
+#: src/Controller/Admin/StoryController.php:538
+#: src/Controller/Admin/StoryController.php:699
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
@@ -358,8 +358,8 @@ msgstr ""
 "نوع مطلب شما <strong>گالری</strong> است. لطفا فرم زیر را تکمیل نمایید ، پس "
 "از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
 
-#: src/Controller/Admin/StoryController.php:523
-#: src/Controller/Admin/StoryController.php:684
+#: src/Controller/Admin/StoryController.php:543
+#: src/Controller/Admin/StoryController.php:704
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
@@ -367,20 +367,20 @@ msgstr ""
 "نوع مطلب شما <strong>متن</strong> است. لطفا اطلاعات مورد نظر خود را در فرم "
 "زیر درج نمایید"
 
-#: src/Controller/Admin/StoryController.php:555
+#: src/Controller/Admin/StoryController.php:575
 msgid "Add a Story"
 msgstr "مطلب جدید"
 
-#: src/Controller/Admin/StoryController.php:601
-#: src/Controller/Admin/StoryController.php:656
+#: src/Controller/Admin/StoryController.php:621
+#: src/Controller/Admin/StoryController.php:676
 msgid "Text data saved successfully."
 msgstr "اطلاعات متنی با موفقیت ذخیره شد"
 
-#: src/Controller/Admin/StoryController.php:690
+#: src/Controller/Admin/StoryController.php:710
 msgid "Manage additional information"
 msgstr "مدیریت اطلاعات اضافی"
 
-#: src/Controller/Admin/StoryController.php:720
+#: src/Controller/Admin/StoryController.php:740
 msgid "This story deleted"
 msgstr "مطلب انتخابی حذف شد"
 
@@ -520,7 +520,7 @@ msgid "Spotlight"
 msgstr "اسپات لایت"
 
 #: src/Controller/Admin/TopicController.php:64 src/Form/AttributeForm.php:74
-#: src/Form/StoryForm.php:163 src/Form/TopicForm.php:122
+#: src/Form/StoryForm.php:162 src/Form/TopicForm.php:122
 msgid "Topic"
 msgstr "موضوع"
 
@@ -574,39 +574,21 @@ msgstr "شما هنوز هیچ مطلبی را به فهرست علاقه مند
 msgid "All favourite stories by you"
 msgstr "تمام مطالب محبوب شما"
 
-#: src/Controller/Front/IndexController.php:86
-msgid "The search query is wrong."
-msgstr "کلمه مورد جستجو صحیح نیست"
-
-#: src/Controller/Front/IndexController.php:110
-#, php-format
-msgid "Search result of %s"
-msgstr "نتایج جستجوی %s"
-
-#: src/Controller/Front/IndexController.php:111
-#, php-format
-msgid "Search result of <strong>%s</strong>"
-msgstr "نتایج جستجوی <strong>%s</strong>"
-
-#: src/Controller/Front/IndexController.php:123
+#: src/Controller/Front/IndexController.php:144
 msgid "List of Latest stories"
 msgstr "فهرست آخرین مطالب ارسالی"
 
-#: src/Controller/Front/IndexController.php:157
-msgid "Search again"
-msgstr "جستجوی مجدد"
-
 #: src/Controller/Front/JsonController.php:90
-#: src/Controller/Front/JsonController.php:113
-#: src/Controller/Front/JsonController.php:145
+#: src/Controller/Front/JsonController.php:116
+#: src/Controller/Front/JsonController.php:151
 msgid "Password not set or wrong"
-msgstr ""
+msgstr "واژه رمز تنظیم نشده یا اشتباه است"
 
-#: src/Controller/Front/JsonController.php:191
+#: src/Controller/Front/JsonController.php:199
 msgid "The keyword not found."
 msgstr "کلمه کلیدی یافت نشد"
 
-#: src/Controller/Front/JsonController.php:206
+#: src/Controller/Front/JsonController.php:216
 #, php-format
 msgid "Stories related to %s"
 msgstr "مطالب مرتبط با %s"
@@ -625,11 +607,11 @@ msgstr "پست یافت نشد"
 msgid "All posts on microblog system"
 msgstr "تمام پست های سیستم میکروبلاگ"
 
-#: src/Controller/Front/StoryController.php:37
+#: src/Controller/Front/StoryController.php:39
 msgid "The story not found."
 msgstr "مطلب پیدا نشد"
 
-#: src/Controller/Front/StoryController.php:44
+#: src/Controller/Front/StoryController.php:46
 msgid "The Story not publish."
 msgstr "این مطلب هنوز منتشر نشده است"
 
@@ -645,12 +627,12 @@ msgstr "برچسب تنظیم نشده است"
 msgid "The tag not found."
 msgstr "برچسب یافت نشد"
 
-#: src/Controller/Front/TagController.php:74
+#: src/Controller/Front/TagController.php:77
 #, php-format
 msgid "All stores from %s"
 msgstr "همه مطالب از %s"
 
-#: src/Controller/Front/TagController.php:117
+#: src/Controller/Front/TagController.php:120
 msgid "List of all used tags"
 msgstr "فهرست همه برچسب ها"
 
@@ -662,7 +644,7 @@ msgstr "موضوع تنظیم نشده است"
 msgid "Topic not active."
 msgstr "موضوع غیر فعال است"
 
-#: src/Controller/Front/TopicController.php:110
+#: src/Controller/Front/TopicController.php:116
 #: template/front/topic-list.phtml:5 template/front/topic-list.phtml:7
 #: template/front/topic-list.phtml:9 template/front/topic-list.phtml:10
 msgid "List of all topics"
@@ -670,11 +652,11 @@ msgstr "فهرست همه موضوعات"
 
 #: src/Form/AttachForm.php:48 src/Form/AttributeForm.php:49
 #: src/Form/AuthorForm.php:48 src/Form/AuthorRoleForm.php:46
-#: src/Form/PositionForm.php:47 src/Form/StoryForm.php:59
+#: src/Form/PositionForm.php:47 src/Form/StoryForm.php:58
 #: src/Form/StorySearchForm.php:40 src/Form/TopicForm.php:64
 #: template/admin/attach-index.phtml:29 template/admin/attribute-index.phtml:57
 #: template/admin/author-index.phtml:18 template/admin/author-role.phtml:11
-#: template/admin/position-index.phtml:13 template/admin/story-index.phtml:88
+#: template/admin/position-index.phtml:13 template/admin/story-index.phtml:91
 #: template/admin/topic-index.phtml:13 template/front/index-table.phtml:16
 msgid "Title"
 msgstr "عنوان"
@@ -682,7 +664,7 @@ msgstr "عنوان"
 #: src/Form/AttachForm.php:60 src/Form/AttributeForm.php:89
 #: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
 #: src/Form/MicroblogForm.php:88 src/Form/PositionForm.php:73
-#: src/Form/SpotlightForm.php:105 src/Form/StoryForm.php:128
+#: src/Form/SpotlightForm.php:105 src/Form/StoryForm.php:127
 #: src/Form/TopicForm.php:100 template/admin/attach-add.phtml:82
 #: template/admin/story-update.phtml:103
 msgid "Status"
@@ -702,7 +684,7 @@ msgstr "آفلاین"
 #: src/Form/PositionForm.php:88 src/Form/PruneForm.php:44
 #: src/Form/RebuildForm.php:68 src/Form/RegenerateImageForm.php:46
 #: src/Form/SitemapForm.php:46 src/Form/SpotlightForm.php:119
-#: src/Form/StoryAdditionalForm.php:98 src/Form/StoryForm.php:349
+#: src/Form/StoryAdditionalForm.php:98 src/Form/StoryForm.php:361
 #: src/Form/TopicForm.php:438
 msgid "Submit"
 msgstr "ارسال"
@@ -761,7 +743,7 @@ msgstr ""
 msgid "Search"
 msgstr "جستجو"
 
-#: src/Form/AuthorForm.php:59 src/Form/StoryForm.php:82
+#: src/Form/AuthorForm.php:59 src/Form/StoryForm.php:81
 #: src/Form/TopicForm.php:75
 msgid "slug"
 msgstr "اسلاگ"
@@ -772,44 +754,44 @@ msgstr "توضیحات"
 
 #: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
 #: src/Form/MicroblogForm.php:90 src/Form/PositionForm.php:75
-#: src/Form/SpotlightForm.php:107 src/Form/StoryForm.php:130
+#: src/Form/SpotlightForm.php:107 src/Form/StoryForm.php:129
 #: src/Form/TopicForm.php:102 template/admin/attach-index.phtml:51
 #: template/admin/author-index.phtml:47 template/admin/author-role.phtml:36
 #: template/admin/microblog-index.phtml:49
-#: template/admin/microblog-index.phtml:61 template/admin/story-index.phtml:40
-#: template/admin/story-index.phtml:42 template/admin/story-index.phtml:93
-#: template/admin/story-index.phtml:148 template/admin/topic-index.phtml:59
+#: template/admin/microblog-index.phtml:61 template/admin/story-index.phtml:43
+#: template/admin/story-index.phtml:45 template/admin/story-index.phtml:96
+#: template/admin/story-index.phtml:151 template/admin/topic-index.phtml:59
 msgid "Published"
 msgstr "منتشر شده"
 
 #: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
 #: src/Form/MicroblogForm.php:91 src/Form/PositionForm.php:76
-#: src/Form/SpotlightForm.php:108 src/Form/StoryForm.php:131
+#: src/Form/SpotlightForm.php:108 src/Form/StoryForm.php:130
 #: src/Form/TopicForm.php:103 template/admin/attach-index.phtml:52
 #: template/admin/author-index.phtml:48 template/admin/author-role.phtml:37
-#: template/admin/microblog-index.phtml:62 template/admin/story-index.phtml:43
-#: template/admin/story-index.phtml:45 template/admin/story-index.phtml:149
+#: template/admin/microblog-index.phtml:62 template/admin/story-index.phtml:46
+#: template/admin/story-index.phtml:48 template/admin/story-index.phtml:152
 #: template/admin/topic-index.phtml:60
 msgid "Pending review"
 msgstr "در انتظار تایید"
 
 #: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
 #: src/Form/MicroblogForm.php:92 src/Form/PositionForm.php:77
-#: src/Form/SpotlightForm.php:109 src/Form/StoryForm.php:132
-#: src/Form/TopicForm.php:104 template/admin/story-index.phtml:46
-#: template/admin/story-index.phtml:48
+#: src/Form/SpotlightForm.php:109 src/Form/StoryForm.php:131
+#: src/Form/TopicForm.php:104 template/admin/story-index.phtml:49
+#: template/admin/story-index.phtml:51
 msgid "Draft"
 msgstr "پیش نویس"
 
 #: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
 #: src/Form/MicroblogForm.php:93 src/Form/PositionForm.php:78
-#: src/Form/SpotlightForm.php:110 src/Form/StoryForm.php:133
-#: src/Form/TopicForm.php:105 template/admin/story-index.phtml:49
-#: template/admin/story-index.phtml:51
+#: src/Form/SpotlightForm.php:110 src/Form/StoryForm.php:132
+#: src/Form/TopicForm.php:105 template/admin/story-index.phtml:52
+#: template/admin/story-index.phtml:54
 msgid "Private"
 msgstr "خصوصی"
 
-#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:230
+#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:242
 #: src/Form/TopicForm.php:144
 msgid "Remove image"
 msgstr "حذف تصویر"
@@ -826,7 +808,7 @@ msgstr "حذف تصویر"
 msgid "Image"
 msgstr "تصویر"
 
-#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:267
+#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:279
 #: src/Form/TopicForm.php:173
 msgid "SEO options"
 msgstr "گزینه های سئو"
@@ -856,8 +838,8 @@ msgstr "پست"
 #: template/admin/microblog-index.phtml:45
 #: template/admin/microblog-index.phtml:48
 #: template/admin/spotlight-index.phtml:33
-#: template/admin/spotlight-index.phtml:35 template/admin/story-index.phtml:137
-#: template/admin/story-index.phtml:138 template/admin/story-update.phtml:73
+#: template/admin/spotlight-index.phtml:35 template/admin/story-index.phtml:140
+#: template/admin/story-index.phtml:141 template/admin/story-update.phtml:73
 #: template/admin/story-view.phtml:51 template/admin/story-view.phtml:53
 msgid "Delete"
 msgstr "حذف"
@@ -971,111 +953,115 @@ msgstr "تاریخ انتشار"
 msgid "Expire date"
 msgstr "تاریخ ابطال"
 
-#: src/Form/StoryForm.php:52
+#: src/Form/StoryForm.php:51
 msgid "Text options"
 msgstr "گزینه های متن"
 
-#: src/Form/StoryForm.php:71
+#: src/Form/StoryForm.php:70
 msgid "Subtitle"
 msgstr "عنوان دوم"
 
-#: src/Form/StoryForm.php:93
+#: src/Form/StoryForm.php:92
 msgid "Short text"
 msgstr "متن خلاصه"
 
-#: src/Form/StoryForm.php:99
+#: src/Form/StoryForm.php:98
 msgid "Just show on story list and blocks"
 msgstr "فقط در فهرست مطالب و بلاک ها نمایش داده می شود"
 
-#: src/Form/StoryForm.php:106
+#: src/Form/StoryForm.php:105
 msgid "Main text"
 msgstr "متن اصلی"
 
-#: src/Form/StoryForm.php:112
+#: src/Form/StoryForm.php:111
 msgid "Only show on story page"
 msgstr "فقط در صفحه مطلب نمایش داده می شود"
 
-#: src/Form/StoryForm.php:120
+#: src/Form/StoryForm.php:119
 msgid "Mian options"
 msgstr "گزینه های اصلی"
 
-#: src/Form/StoryForm.php:134
+#: src/Form/StoryForm.php:133
 msgid "Remove"
 msgstr "حذف"
 
-#: src/Form/StoryForm.php:146 template/admin/attach-add.phtml:78
+#: src/Form/StoryForm.php:145 template/admin/attach-add.phtml:78
 #: template/admin/attribute-index.phtml:61 template/admin/story-update.phtml:99
 msgid "Type"
 msgstr "نوع"
 
-#: src/Form/StoryForm.php:174
+#: src/Form/StoryForm.php:173
 msgid "Main topic"
 msgstr "موضوع اصلی"
 
-#: src/Form/StoryForm.php:182
+#: src/Form/StoryForm.php:181
 msgid "Just use for breadcrumbs and mobile apps"
 msgstr "فقط برای ناوبری و نرم افزار موبایل استفاده می شود"
 
-#: src/Form/StoryForm.php:190 template/admin/story-view.phtml:8
+#: src/Form/StoryForm.php:189
+msgid "Publish time"
+msgstr "زمان انتشار"
+
+#: src/Form/StoryForm.php:202 template/admin/story-view.phtml:8
 #: template/front/index-media.phtml:25 template/front/index-news.phtml:19
 #: template/front/index-table.phtml:28 template/front/story-download.phtml:50
-#: template/front/story-gallery.phtml:50 template/front/story-media.phtml:52
-#: template/front/story-text.phtml:52
+#: template/front/story-gallery.phtml:50 template/front/story-image.phtml:50
+#: template/front/story-media.phtml:52 template/front/story-text.phtml:52
 msgid "Important"
 msgstr "مهم"
 
-#: src/Form/StoryForm.php:201
+#: src/Form/StoryForm.php:213
 msgid "Add as spotlight"
 msgstr "درج به عنوان اسپات لایت"
 
-#: src/Form/StoryForm.php:212
+#: src/Form/StoryForm.php:224
 msgid "Media options"
 msgstr "گزینه های چند رسانه ای"
 
-#: src/Form/StoryForm.php:246
+#: src/Form/StoryForm.php:258
 msgid "Upload image"
 msgstr "بارگذاری تصویر"
 
-#: src/Form/StoryForm.php:259
+#: src/Form/StoryForm.php:271
 msgid "Attach media"
 msgstr "بارگذاری مدیا"
 
-#: src/Form/StoryForm.php:274
+#: src/Form/StoryForm.php:286
 msgid "Meta Title"
 msgstr "عنوان متا ( Meta Title )"
 
-#: src/Form/StoryForm.php:280
+#: src/Form/StoryForm.php:292
 msgid ""
 "Between 10 to 70 character, better keep it empty to copy main title here"
 msgstr ""
 "بین ۱۰ تا ۷۰ کارکتر، بهتر است خالی رها شود تا عنوان مطلب جایگزین آن شود"
 
-#: src/Form/StoryForm.php:287
+#: src/Form/StoryForm.php:299
 msgid "Meta Keywords"
 msgstr "کلمات کلیدی متا ( Meta Keywords )"
 
-#: src/Form/StoryForm.php:293
+#: src/Form/StoryForm.php:305
 msgid "Between 5 to 12 words"
 msgstr "بین ۵ تا ۱۲ کلمه"
 
-#: src/Form/StoryForm.php:300
+#: src/Form/StoryForm.php:312
 msgid "Meta Description"
 msgstr "توضیح متا ( Meta Description )"
 
-#: src/Form/StoryForm.php:306
+#: src/Form/StoryForm.php:318
 msgid "Between 80 to 160 character"
 msgstr "بین ۸۰ تا ۱۶۰ کارکتر"
 
-#: src/Form/StoryForm.php:315 template/front/story-media.phtml:171
+#: src/Form/StoryForm.php:327 template/front/story-media.phtml:171
 #: template/front/story-text.phtml:170
 msgid "Tags"
 msgstr "برچسب ها"
 
-#: src/Form/StoryForm.php:319
+#: src/Form/StoryForm.php:331
 msgid "Use `|` as delimiter to separate tag terms"
 msgstr "با استفاده از `|` کلمات را از هم جدا کنید"
 
-#: src/Form/StoryForm.php:330
+#: src/Form/StoryForm.php:342
 msgid "Authors"
 msgstr "پدیدآورنده ها"
 
@@ -1372,18 +1358,18 @@ msgstr "فهرست فایل های پیوست شده"
 #: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:17
 #: template/admin/author-role.phtml:10 template/admin/microblog-index.phtml:16
 #: template/admin/position-index.phtml:12
-#: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:69
+#: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:72
 #: template/admin/topic-index.phtml:12
 msgid "ID"
 msgstr "شناسه"
 
-#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:70
+#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:73
 msgid "Information"
 msgstr "اطلاعات"
 
 #: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:19
 #: template/admin/author-role.phtml:12 template/admin/position-index.phtml:14
-#: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:99
+#: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:102
 #: template/admin/topic-index.phtml:15
 msgid "Action"
 msgstr "عملکرد"
@@ -1472,16 +1458,16 @@ msgstr "فهرست پدیدآورنده ها"
 
 #: template/admin/author-index.phtml:35 template/admin/author-index.phtml:37
 #: template/admin/microblog-index.phtml:38
-#: template/admin/microblog-index.phtml:40 template/admin/story-index.phtml:34
-#: template/admin/story-index.phtml:102 template/admin/story-view.phtml:42
+#: template/admin/microblog-index.phtml:40 template/admin/story-index.phtml:37
+#: template/admin/story-index.phtml:105 template/admin/story-view.phtml:42
 #: template/admin/story-view.phtml:44 template/admin/topic-index.phtml:33
 #: template/admin/topic-index.phtml:35
 msgid "View"
 msgstr "نمایش"
 
 #: template/admin/author-index.phtml:49 template/admin/author-role.phtml:38
-#: template/admin/microblog-index.phtml:63 template/admin/story-index.phtml:52
-#: template/admin/story-index.phtml:54 template/admin/story-index.phtml:150
+#: template/admin/microblog-index.phtml:63 template/admin/story-index.phtml:55
+#: template/admin/story-index.phtml:57 template/admin/story-index.phtml:153
 #: template/admin/topic-index.phtml:61
 msgid "Trash"
 msgstr "حذف شده"
@@ -1502,7 +1488,7 @@ msgstr "فهرست لینک های خروجی جیسون"
 msgid "List of posts"
 msgstr "فهرست پست ها"
 
-#: template/admin/microblog-index.phtml:51 template/admin/story-index.phtml:95
+#: template/admin/microblog-index.phtml:51 template/admin/story-index.phtml:98
 msgid "By"
 msgstr "به وسیله"
 
@@ -1541,59 +1527,63 @@ msgid "Add new text"
 msgstr "متن جدید"
 
 #: template/admin/story-index.phtml:21 template/admin/story-index.phtml:23
-msgid "Add new gallery"
-msgstr "گالری جدید"
+msgid "Add new gallery album"
+msgstr "آلبوم عکس جدید"
 
 #: template/admin/story-index.phtml:24 template/admin/story-index.phtml:26
+msgid "Add new single image"
+msgstr "عکس تکی جدید"
+
+#: template/admin/story-index.phtml:27 template/admin/story-index.phtml:29
 msgid "Add new media"
 msgstr "مدیا جدید"
 
-#: template/admin/story-index.phtml:27 template/admin/story-index.phtml:29
+#: template/admin/story-index.phtml:30 template/admin/story-index.phtml:32
 msgid "Add new download"
 msgstr "دانلود جدید"
 
-#: template/admin/story-index.phtml:37 template/admin/story-index.phtml:39
+#: template/admin/story-index.phtml:40 template/admin/story-index.phtml:42
 #: template/admin/topic-index.phtml:36 template/admin/topic-index.phtml:38
 msgid "All stories"
 msgstr "همه مطالب"
 
-#: template/admin/story-index.phtml:55 template/admin/story-index.phtml:57
+#: template/admin/story-index.phtml:58 template/admin/story-index.phtml:60
 msgid "System draft"
 msgstr "پیشنویس سیستمی"
 
-#: template/admin/story-index.phtml:66
+#: template/admin/story-index.phtml:69
 msgid "List of stories"
 msgstr "فهرست مطالب"
 
-#: template/admin/story-index.phtml:108 template/admin/story-index.phtml:162
+#: template/admin/story-index.phtml:111 template/admin/story-index.phtml:165
 msgid "Reject"
 msgstr "رد کردن"
 
-#: template/admin/story-index.phtml:113 template/admin/story-index.phtml:167
+#: template/admin/story-index.phtml:116 template/admin/story-index.phtml:170
 msgid "Accept"
 msgstr "تایید"
 
-#: template/admin/story-index.phtml:119
+#: template/admin/story-index.phtml:122
 msgid "Manage"
 msgstr "مدیریت"
 
-#: template/admin/story-index.phtml:122 template/admin/story-index.phtml:124
+#: template/admin/story-index.phtml:125 template/admin/story-index.phtml:127
 msgid "Edit basic information"
 msgstr "ویرایش اطلاعات پایه"
 
-#: template/admin/story-index.phtml:125 template/admin/story-index.phtml:127
+#: template/admin/story-index.phtml:128 template/admin/story-index.phtml:130
 msgid "Edit additional information"
 msgstr "ویرایش اطلاعات اضافی"
 
-#: template/admin/story-index.phtml:129 template/admin/story-index.phtml:131
+#: template/admin/story-index.phtml:132 template/admin/story-index.phtml:134
 msgid "Attach files"
 msgstr "پیوست فایل"
 
-#: template/admin/story-index.phtml:132 template/admin/story-index.phtml:134
+#: template/admin/story-index.phtml:135 template/admin/story-index.phtml:137
 msgid "Preview"
 msgstr "پیش نمایش"
 
-#: template/admin/story-index.phtml:156
+#: template/admin/story-index.phtml:159
 msgid "Accept story in process"
 msgstr "تایید مطلب در حال انجام است"
 
@@ -1609,17 +1599,17 @@ msgstr "حذف تصویر مطلب در حال انجام است"
 msgid "Update Time"
 msgstr "زمان به روز رسانی"
 
-#: template/admin/story-view.phtml:18 template/front/index-news.phtml:44
+#: template/admin/story-view.phtml:18 template/front/index-news.phtml:47
 #: template/front/index-table.phtml:21 template/front/story-download.phtml:67
-#: template/front/story-gallery.phtml:67 template/front/story-media.phtml:68
-#: template/front/story-text.phtml:68
+#: template/front/story-gallery.phtml:67 template/front/story-image.phtml:67
+#: template/front/story-media.phtml:68 template/front/story-text.phtml:68
 msgid "Read"
 msgstr "نمایش"
 
 #: template/admin/story-view.phtml:19 template/front/index-list.phtml:32
-#: template/front/index-news.phtml:50 template/front/story-download.phtml:82
-#: template/front/story-gallery.phtml:82 template/front/story-media.phtml:73
-#: template/front/story-text.phtml:73
+#: template/front/index-news.phtml:53 template/front/story-download.phtml:82
+#: template/front/story-gallery.phtml:82 template/front/story-image.phtml:82
+#: template/front/story-media.phtml:73 template/front/story-text.phtml:73
 msgid "Topics"
 msgstr "موضوع"
 
@@ -1745,15 +1735,15 @@ msgstr ""
 msgid "Rss Feed"
 msgstr "خوراک"
 
-#: template/front/index-news.phtml:39 template/front/story-download.phtml:62
-#: template/front/story-gallery.phtml:62 template/front/story-media.phtml:62
-#: template/front/story-text.phtml:62
+#: template/front/index-news.phtml:42 template/front/story-download.phtml:62
+#: template/front/story-gallery.phtml:62 template/front/story-image.phtml:62
+#: template/front/story-media.phtml:62 template/front/story-text.phtml:62
 msgid "Time"
 msgstr "زمان"
 
-#: template/front/index-news.phtml:45 template/front/story-download.phtml:68
-#: template/front/story-gallery.phtml:68 template/front/story-media.phtml:69
-#: template/front/story-text.phtml:69
+#: template/front/index-news.phtml:48 template/front/story-download.phtml:68
+#: template/front/story-gallery.phtml:68 template/front/story-image.phtml:68
+#: template/front/story-media.phtml:69 template/front/story-text.phtml:69
 msgid "Times"
 msgstr "دفعه"
 
@@ -1762,13 +1752,13 @@ msgstr "دفعه"
 msgid "Related storys"
 msgstr "مطالب مشابه"
 
-#: template/front/story-gallery.phtml:150 template/front/story-media.phtml:108
-#: template/front/story-text.phtml:107
+#: template/front/story-gallery.phtml:156 template/front/story-image.phtml:150
+#: template/front/story-media.phtml:108 template/front/story-text.phtml:107
 msgid "Previous"
 msgstr "قبلی"
 
-#: template/front/story-gallery.phtml:155 template/front/story-media.phtml:113
-#: template/front/story-text.phtml:112
+#: template/front/story-gallery.phtml:161 template/front/story-image.phtml:155
+#: template/front/story-media.phtml:113 template/front/story-text.phtml:112
 msgid "Next"
 msgstr "بعدی"
 
@@ -1789,6 +1779,21 @@ msgid "No topic has been made on this part yet. please check this page later"
 msgstr ""
 "هیچ اطلاعاتی از موضوعات هنوز در سیستم درج نشده است. لطفا بعدا از این صفحه را "
 "بررسی فرمایید."
+
+#~ msgid "The search query is wrong."
+#~ msgstr "کلمه مورد جستجو صحیح نیست"
+
+#~ msgid "Search result of %s"
+#~ msgstr "نتایج جستجوی %s"
+
+#~ msgid "Search result of <strong>%s</strong>"
+#~ msgstr "نتایج جستجوی <strong>%s</strong>"
+
+#~ msgid "Search again"
+#~ msgstr "جستجوی مجدد"
+
+#~ msgid "Add new gallery"
+#~ msgstr "گالری جدید"
 
 #~ msgid "Role list"
 #~ msgstr "فهرست نقش ها"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2015-12-12 16:33+0330\n"
+"POT-Creation-Date: 2016-03-13 11:28+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,12 +26,14 @@ msgstr ""
 #: template/block/item.phtml:157 template/block/item.phtml:236
 #: template/block/item.phtml:283 template/block/item.phtml:304
 #: template/block/item.phtml:343 template/block/item.phtml:396
-#: template/block/item.phtml:471 template/block/list.phtml:11
+#: template/block/item.phtml:471 template/block/item.phtml:555
+#: template/block/item.phtml:616 template/block/list.phtml:11
 #: template/block/spotlight.phtml:29 template/block/spotlight.phtml:92
 #: template/block/spotlight.phtml:157 template/block/spotlight.phtml:236
 #: template/block/spotlight.phtml:283 template/block/spotlight.phtml:304
 #: template/block/spotlight.phtml:343 template/block/spotlight.phtml:396
-#: template/block/spotlight.phtml:471 template/block/table.phtml:8
+#: template/block/spotlight.phtml:471 template/block/spotlight.phtml:557
+#: template/block/spotlight.phtml:618 template/block/table.phtml:8
 msgid "Time"
 msgstr ""
 
@@ -39,19 +41,22 @@ msgstr ""
 #: template/block/item.phtml:161 template/block/item.phtml:240
 #: template/block/item.phtml:288 template/block/item.phtml:307
 #: template/block/item.phtml:347 template/block/item.phtml:400
-#: template/block/item.phtml:475 template/block/list.phtml:16
+#: template/block/item.phtml:475 template/block/item.phtml:559
+#: template/block/item.phtml:620 template/block/list.phtml:16
 #: template/block/spotlight.phtml:33 template/block/spotlight.phtml:96
 #: template/block/spotlight.phtml:161 template/block/spotlight.phtml:240
 #: template/block/spotlight.phtml:288 template/block/spotlight.phtml:307
 #: template/block/spotlight.phtml:347 template/block/spotlight.phtml:400
-#: template/block/spotlight.phtml:475 template/block/table.phtml:10
+#: template/block/spotlight.phtml:475 template/block/spotlight.phtml:561
+#: template/block/spotlight.phtml:622 template/block/table.phtml:10
 msgid "Read"
 msgstr ""
 
 #: template/block/item.phtml:54 template/block/item.phtml:117
 #: template/block/item.phtml:182 template/block/item.phtml:261
-#: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
-#: template/block/spotlight.phtml:182 template/block/spotlight.phtml:261
+#: template/block/item.phtml:581 template/block/spotlight.phtml:54
+#: template/block/spotlight.phtml:117 template/block/spotlight.phtml:182
+#: template/block/spotlight.phtml:261 template/block/spotlight.phtml:582
 msgid "Read More"
 msgstr ""
 
@@ -65,9 +70,9 @@ msgstr ""
 msgid "Summary"
 msgstr ""
 
-#: template/block/item.phtml:532 template/block/item.phtml:533
+#: template/block/item.phtml:648 template/block/item.phtml:649
 #: template/block/list.phtml:25 template/block/list.phtml:26
-#: template/block/spotlight.phtml:532 template/block/spotlight.phtml:533
+#: template/block/spotlight.phtml:650 template/block/spotlight.phtml:651
 #: template/block/table.phtml:28 template/block/table.phtml:29
 #: template/block/topic.phtml:91 template/block/topic.phtml:92
 msgid "More stories"
