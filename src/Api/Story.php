@@ -340,7 +340,7 @@ class Story extends AbstractApi
             'slug' => $story['slug'],
         )));
         // Set topic information
-        $story['topic'] = Json::decode($story['topic']);
+        $story['topic'] = Json::decode($story['topic'], true);
         // Get topic list
         $topicList = (empty($topicList)) ? Pi::registry('topicList', 'news')->read() : $topicList;
         foreach ($story['topic'] as $topic) {
@@ -499,7 +499,7 @@ class Story extends AbstractApi
             $story['thumbUrl'] = '';
         }
         // Set topic
-        $topic = Json::decode($story['topic']);
+        $topic = Json::decode($story['topic'], true);
         // Set body
         $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
         $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");

@@ -343,7 +343,7 @@ class StoryController extends ActionController
             $this->jump(array('action' => 'index'), __('Please select story'));
         }
         // Set topic
-        $story['topic'] = Json::decode($story['topic']);
+        $story['topic'] = Json::decode($story['topic'], true);
         // Set image
         if ($story['image']) {
             $thumbUrl = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $story['path'], $story['image']);

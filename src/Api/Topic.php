@@ -266,7 +266,7 @@ class Topic extends AbstractApi
         //Remove
         Pi::model('link', $this->getModule())->delete(array('story' => $story));
         // Add
-        $newTopics = Json::decode($topics);
+        $newTopics = Json::decode($topics, true);
         foreach ($newTopics as $topic) {
             // Set array
             $values['topic'] = $topic;
