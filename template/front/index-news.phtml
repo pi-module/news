@@ -10,28 +10,31 @@ if (isset($searchResult) && $searchResult) {
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="index-news">
+    <div class="index-news clearfix">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="panel panel-default h-entry" itemscope itemtype="http://schema.org/Article">
-                <div class="panel-heading">
-                    <h3 class="panel-title p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
-                            class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
-                                                                                                    title="<?php echo $story['title']; ?>"
-                                                                                                    href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+            <div class="single-news h-entry " itemscope itemtype="http://schema.org/Article">
+                <div class="single-news-heading col-md-12">
+                    <h3 class="p-name" itemprop="name headline">
+                        <?php if ($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?>
+                        <a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
+                            <?php echo $this->escape($story['title']); ?>
+                        </a>
                     </h3>
                 </div>
-                <div class="panel-body">
+                <div class="single-news-body">
                     <?php if ($story['image']) { ?>
                         <div class="col-md-3 u-photo">
-                            <a class="thumbnail" itemprop="url" href="<?php echo $story['storyUrl']; ?>"
+                            <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
+                                <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         </div>
                     <?php } ?>
-                    <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                    <div class="storyText p-summary" itemprop="description">
+                        <?php echo $story['text_summary']; ?>
+                    </div>
                     <div class="clearfix">
                         <div class="pull-right">
                             <?php if ($topic['show_date']) { ?>
@@ -71,7 +74,8 @@ if (isset($searchResult) && $searchResult) {
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>
-        <div class="clearfix"></div>
     </div>
-    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
+    <div class="paginator">
+        <?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?>
+    </div>
 </div>

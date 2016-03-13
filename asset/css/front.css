@@ -76,3 +76,16 @@
 .gallery-thumb img {
     max-height: 220px;
 }
+
+/* story list */
+.single-news {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.single-news h3 {
+    padding: 1px;
+    margin: 1px 1px 10px 1px;
+    font-size: 18px;
+}
