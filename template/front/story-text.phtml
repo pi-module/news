@@ -85,9 +85,9 @@ if (!empty($story['largeUrl'])) {
                 <?php if ($story['subtitle']) { ?>
                     <p><?php echo $this->escape($story['subtitle']); ?></p>
                 <?php } ?>
-                <?php /*  <div class="clearfix p-summary" itemprop="description">
+                <div class="clearfix p-summary" itemprop="description">
                     <?php echo $story['text_summary']; ?>
-                </div>  */ ?>
+                </div>
                 <div class="clearfix e-content" itemprop="description">
                     <?php echo $story['text_description']; ?>
                 </div>
