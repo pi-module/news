@@ -48,7 +48,7 @@ class StoryController extends ActionController
         if (empty($title)) {
             // Set where
             $whereLink['type'] = array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             );
             if (!empty($status) && in_array($status, array(1, 2, 3, 4, 5))) {
                 $whereLink['status'] = $status;
@@ -79,7 +79,7 @@ class StoryController extends ActionController
         } else {
             $whereStory['title LIKE ?'] = '%' . $title . '%';
             $whereStory['type'] = array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             );
         }
         // Set info
@@ -120,7 +120,24 @@ class StoryController extends ActionController
                     break;
 
                 case 'gallery':
-                    $story[$row->id]['type_view'] = __('Gallery');
+                    $story[$row->id]['type_view'] = __('Gallery album');
+                    break;
+
+                case 'image':
+                    $story[$row->id]['type_view'] = __('Single image');
+                    break;
+
+                case 'post':
+                    // Set type
+                    $story[$row->id]['type_view'] = __('Blog post');
+                    // Set url
+                    if ($row->status == 1) {
+                        $story[$row->id]['storyUrl'] = $this->url('blog', array(
+                            'module' => 'blog',
+                            'controller' => 'post',
+                            'slug' => $row->slug
+                        ));
+                    }
                     break;
 
                 case 'text':

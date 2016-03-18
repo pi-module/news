@@ -42,7 +42,7 @@ class StoryController extends ActionController
         }
         // Check time_publish
         if ($story['time_publish'] > time()) {
-            $this->getResponse()->setStatusCode(404);
+            $this->getResponse()->setStatusCode(401);
             $this->terminate(__('The Story not publish.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
             return;
@@ -50,10 +50,8 @@ class StoryController extends ActionController
         // Update Hits
         $this->getModel('story')->increment('hits', array('id' => $story['id']));
         // Links
-        //if ($config['show_nav'] || $story['type'] == 'gallery') {
-            $link = Pi::api('story', 'news')->Link($story['id'], array($story['topic_main']));
-            $this->view()->assign('link', $link);
-        //}
+        $link = Pi::api('story', 'news')->Link($story['id'], array($story['topic_main']));
+        $this->view()->assign('link', $link);
         // Related
         if ($config['show_related']) {
             $related = Pi::api('story', 'news')->Related($story['id'], $story['topic_main']);
@@ -64,7 +62,7 @@ class StoryController extends ActionController
             $attach = Pi::api('story', 'news')->AttachList($story['id']);
             $this->view()->assign('attach', $attach);
         }
-        // attribute
+        // Attribute
         if ($config['show_attribute'] && $story['attribute']) {
             $attribute = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
             $this->view()->assign('attribute', $attribute);

@@ -30,6 +30,9 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                         <li><a title="<?php _e('Add new download'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'download')); ?>"><i
                                     class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                        <li><a title="<?php _e('Add new blog post'); ?>"
+                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
+                                    class="fa fa-globe"></i> <?php _e('Add new  blog post'); ?></a></li>
                     </ul>
                 </div>
                 <div class="btn-group">
@@ -89,7 +92,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                     <div class="row">
                         <div class="col-md-12">
                             <strong><?php _e('Title'); ?></strong> :
-                            ( <?php echo $this->escape($story['type_view']); ?> )
+                            <span class="text-danger"> ( <?php echo $this->escape($story['type_view']); ?> ) </span>
                             <?php echo $this->escape($story['title']); ?>
                         </div>
                         <div class="col-md-7">
