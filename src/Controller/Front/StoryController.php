@@ -113,6 +113,14 @@ class StoryController extends ActionController
                 $template = 'story-image';
                 break;
 
+            case 'magazine':
+                $template = 'story-magazine';
+                break;
+
+            case 'article':
+                $template = 'story-article';
+                break;
+
             case 'text':
             default:
                 $template = 'story-text';

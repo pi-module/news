@@ -8,6 +8,34 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="clearfix">
     <div class="admin-header clearfix">
+        <div class="col-md-12">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingHelp">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
+                            <i class="fa fa-plus"></i> <?php _e('Description about add new story'); ?>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHelp">
+                    <div class="panel-body">
+                        <p><?php _e('You can select many types on submit new story, each type have different template and view and useful for special usage'); ?></p>
+                        <ul class="list-unstyled">
+                            <li><strong class="text-danger"><?php _e('Text'); ?> :</strong> <?php _e('Text type, default view format main image set on center and under title and extra images and information set on sidebar'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Article'); ?> :</strong> <?php _e('Article view, main image and extra information set on sidebar and text set on center and under title'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Magazine'); ?> :</strong> <?php _e('Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Blog post'); ?> :</strong> <?php _e('You need install blog module and story show on blog system, for better SEO'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Image'); ?> :</strong> <?php _e('Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Gallery'); ?> :</strong> <?php _e('Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Media'); ?> :</strong> <?php _e('Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'); ?></li>
+                            <li><strong class="text-danger"><?php _e('Download'); ?> :</strong> <?php _e('Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'); ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
         <div class="col-md-7">
             <div class="nav">
                 <div class="btn-group">
@@ -17,13 +45,19 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                     <ul class="dropdown-menu" role="menu">
                         <li><a title="<?php _e('Add new text'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'text')); ?>"><i
-                                    class="fa fa-book"></i> <?php _e('Add new text'); ?></a></li>
+                                    class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
+                        <li><a title="<?php _e('Add new article'); ?>"
+                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'article')); ?>"><i
+                                    class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
+                        <li><a title="<?php _e('Add new magazine'); ?>"
+                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'magazine')); ?>"><i
+                                    class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
                         <li><a title="<?php _e('Add new gallery album'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'gallery')); ?>"><i
                                     class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
                         <li><a title="<?php _e('Add new single image'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'image')); ?>"><i
-                                    class="fa fa-camera"></i> <?php _e('Add new single image'); ?></a></li>
+                                    class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
                         <li><a title="<?php _e('Add new media'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'media')); ?>"><i
                                     class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
@@ -32,7 +66,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                     class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
                         <li><a title="<?php _e('Add new blog post'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
-                                    class="fa fa-globe"></i> <?php _e('Add new  blog post'); ?></a></li>
+                                    class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
                     </ul>
                 </div>
                 <div class="btn-group">

@@ -145,6 +145,8 @@ class StoryForm extends BaseForm
                 'label' => __('Type'),
                 'value_options' => array(
                     'text' => __('Text'),
+                    'article' => __('Article'),
+                    'magazine' => __('Magazine'),
                     'gallery' => __('Gallery album'),
                     'image' => __('Single image'),
                     'media' => __('Media'),

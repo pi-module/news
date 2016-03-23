@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2016-03-13 11:29+0330\n"
+"POT-Creation-Date: 2016-03-23 12:29+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _a;_t\n"
 "X-Poedit-Basepath: ../..\n"
@@ -676,7 +676,7 @@ msgstr "برچسب"
 msgid "Global public resource"
 msgstr "دسترسی های عمومی"
 
-#: template/admin/microblog-index.phtml:47 template/admin/story-index.phtml:140
+#: template/admin/microblog-index.phtml:47 template/admin/story-index.phtml:149
 msgid "Are you sure to delete this story?"
 msgstr "آیا اطمینان دارید که میخواهید این مطلب را حذف کنید؟"
 

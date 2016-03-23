@@ -111,6 +111,14 @@ class StoryController extends ActionController
             }
             // Set story type view
             switch ($row->type) {
+                case 'article':
+                    $story[$row->id]['type_view'] = __('Article');
+                    break;
+
+                case 'magazine':
+                    $story[$row->id]['type_view'] = __('Magazine');
+                    break;
+
                 case 'download':
                     $story[$row->id]['type_view'] = __('Download');
                     break;
@@ -551,13 +559,29 @@ class StoryController extends ActionController
                 $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
                 break;
 
+            case 'image':
+                $message = __('Your story type is <strong>Image</strong> , please completion this form and attach your image');
+                break;
+
             case 'gallery':
                 $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
                 break;
 
+            case 'post':
+                $message = __('Your story type is <strong>Blog post</strong> , write your post here and it will show on blog module');
+                break;
+
+            case 'article':
+                $message = __('Your story type is <strong>Article</strong> and you should add text information on form fields, image set on side bar');
+                break;
+
+            case 'magazine':
+                $message = __('Your story type is <strong>Magazine</strong> and you should add text information on form fields, image set on side bar');
+                break;
+
             case 'text':
             default:
-                $message = __('Your story type is <strong>Text</strong> and you shuold add text information on form fields');
+                $message = __('Your story type is <strong>Text</strong> and you should add text information on form fields, image set on top and center');
                 break;
         }
         // Get all attach files
