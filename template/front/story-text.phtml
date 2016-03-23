@@ -42,7 +42,7 @@ if (!empty($story['largeUrl'])) {
 <div class="clearfix" itemscope itemtype="http://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="news-story-page clearfix h-entry gallery">
+    <div class="news-story-page clearfix h-entry">
         <div class="col-md-8">
             <div class="news-story-page-body">
                 <div class="clearfix storyHeader">
@@ -83,7 +83,7 @@ if (!empty($story['largeUrl'])) {
                     </div>
                 </div>
                 <?php if ($story['image']) { ?>
-                    <div class="storyImageMain">
+                    <div class="storyImageMain gallery">
                         <div class="thumbnail u-photo">
                             <a href="<?php echo $story['largeUrl']; ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
@@ -132,7 +132,7 @@ if (!empty($story['largeUrl'])) {
         <div class="col-md-4">
             <div class="news-story-page-side">
                 <?php if (isset($attach['image']) && !empty($attach['image'])) { ?>
-                    <div class="storyImageAttach row">
+                    <div class="storyImageAttach row gallery">
                         <?php include $this->template('front/attach-image'); ?>
                     </div>
                 <?php } ?>
