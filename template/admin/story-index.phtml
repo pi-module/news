@@ -7,34 +7,58 @@ $this->jQuery();
 $this->js($this->assetModule('script/system-msg.js', 'system'));
 ?>
 <div class="clearfix">
-    <div class="admin-header clearfix">
+    <div class="admin-header clearfix row">
         <div class="col-md-12">
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingHelp">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
-                            <i class="fa fa-plus"></i> <?php _e('Description about add new story'); ?>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHelp">
-                    <div class="panel-body">
-                        <p><?php _e('You can select many types on submit new story, each type have different template and view and useful for special usage'); ?></p>
-                        <ul class="list-unstyled">
-                            <li><strong class="text-danger"><?php _e('Text'); ?> :</strong> <?php _e('Text type, default view format main image set on center and under title and extra images and information set on sidebar'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Article'); ?> :</strong> <?php _e('Article view, main image and extra information set on sidebar and text set on center and under title'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Magazine'); ?> :</strong> <?php _e('Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Blog post'); ?> :</strong> <?php _e('You need install blog module and story show on blog system, for better SEO'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Image'); ?> :</strong> <?php _e('Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Gallery'); ?> :</strong> <?php _e('Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Media'); ?> :</strong> <?php _e('Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'); ?></li>
-                            <li><strong class="text-danger"><?php _e('Download'); ?> :</strong> <?php _e('Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'); ?></li>
-                        </ul>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingHelp">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
+                                <i class="fa fa-plus"></i> <?php _e('Description about add new story'); ?>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseHelp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHelp">
+                        <table class="table table-condensed table-bordered">
+                            <tr>
+                                <td colspan="2"><?php _e('You can select many types on submit new story, each type have different template and view and useful for special usage'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Text'); ?></strong></td>
+                                <td><?php _e('Text type, default view format main image set on center and under title and extra images and information set on sidebar'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Article'); ?></strong></td>
+                                <td><?php _e('Article view, main image and extra information set on sidebar and text set on center and under title'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Magazine'); ?></strong></td>
+                                <td><?php _e('Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Blog post'); ?></strong></td>
+                                <td><?php _e('You need install blog module and story show on blog system, for better SEO'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Image'); ?></strong></td>
+                                <td><?php _e('Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Gallery'); ?></strong></td>
+                                <td><?php _e('Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Media'); ?></strong></td>
+                                <td><?php _e('Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'); ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong class="text-danger"><?php _e('Download'); ?></strong></td>
+                                <td> <?php _e('Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'); ?></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="col-md-7">
             <div class="nav">
@@ -139,7 +163,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                             <strong><?php _e('Action'); ?></strong> :
                             <span class="story-action">
                                 <?php if ($story['status'] == 1) { ?>
-                                <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>" target="_blank"><i class="fa fa-eye"></i>  <?php _e('View'); ?></a>
+                                    <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>" target="_blank"><i class="fa fa-eye"></i>  <?php _e('View'); ?></a>
                                 <?php } ?>
                                 <?php if ($story['status'] == 1) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"

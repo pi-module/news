@@ -325,7 +325,7 @@ msgstr "عکس تنها"
 #: src/Controller/Admin/StoryController.php:140 src/Form/StoryForm.php:154
 #: template/admin/story-index.phtml:28
 msgid "Blog post"
-msgstr "پست وبلاگ"
+msgstr "پست‌وبلاگ"
 
 #: src/Controller/Admin/StoryController.php:282
 #, php-format
@@ -375,6 +375,8 @@ msgid ""
 "Your story type is <strong>Image</strong> , please completion this form and "
 "attach your image"
 msgstr ""
+"نوع مطلب شما <strong>عکس</strong> است. لطفا فرم زیر را تکمیل نمایید و تصویر "
+"مورد نظر را پیوست فرمایید"
 
 #: src/Controller/Admin/StoryController.php:567
 #: src/Controller/Admin/StoryController.php:740
@@ -382,32 +384,41 @@ msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
 msgstr ""
-"نوع مطلب شما <strong>گالری</strong> است. لطفا فرم زیر را تکمیل نمایید ، پس "
-"از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست نمایید."
+"نوع مطلب شما <strong>آلبوم عکس</strong> است. لطفا فرم زیر را تکمیل نمایید ، "
+"پس از کلیک بر روی دکمه ارسال ، در صفحه بعدی متوانید تصاویر خود را پیوست "
+"نمایید."
 
 #: src/Controller/Admin/StoryController.php:571
 msgid ""
 "Your story type is <strong>Blog post</strong> , write your post here and it "
 "will show on blog module"
 msgstr ""
+"نوع مطلب شما <strong>پست وبلاگ</strong> است. لطفا فرم زیر را تکمیل نمایید ، "
+"مطلب شما در ماژول وبلاگ نمایش داده خواهد شد"
 
 #: src/Controller/Admin/StoryController.php:575
 msgid ""
 "Your story type is <strong>Article</strong> and you should add text "
 "information on form fields, image set on side bar"
 msgstr ""
+"نوع مطلب شما <strong>مقاله</strong> است. اطلاعات متن را در فرم زیر وارد "
+"نمایید ، تصویر در نوار کناری نمایش داده می شود."
 
 #: src/Controller/Admin/StoryController.php:579
 msgid ""
 "Your story type is <strong>Magazine</strong> and you should add text "
 "information on form fields, image set on side bar"
 msgstr ""
+"نوع مطلب شما <strong>مجله</strong> است. اطلاعات متن را در فرم زیر وارد "
+"نمایید ، تصویر در بالای متن نمایش داده می شود."
 
 #: src/Controller/Admin/StoryController.php:584
 msgid ""
 "Your story type is <strong>Text</strong> and you should add text information "
 "on form fields, image set on top and center"
 msgstr ""
+"نوع مطلب شما <strong>متن</strong> است. اطلاعات متن را در فرم زیر وارد "
+"نمایید ، تصویر در بالای متن نمایش داده می شود."
 
 #: src/Controller/Admin/StoryController.php:616
 msgid "Add a Story"
@@ -1578,29 +1589,39 @@ msgid ""
 "You can select many types on submit new story, each type have different "
 "template and view and useful for special usage"
 msgstr ""
+"شما میتوانید حالت های مختلف مطلب را هنگام یک ارسال جدید انتخاب نمایید، هر "
+"حالت یک الوی نمایشی متفاوت دارد و برای کاربرد خاصی مناسب است."
 
 #: template/admin/story-index.phtml:25
 msgid ""
 "Text type, default view format main image set on center and under title and "
 "extra images and information set on sidebar"
 msgstr ""
+"نوع متن ، حالت پیش فرض نمایش اطلاعات است که تصویر در بالا و مرکز و در زیر "
+"عنوان نمایش داده می شوند و اطلاعات اضافی و تصاویر بیشتر در نوار کنار"
 
 #: template/admin/story-index.phtml:26
 msgid ""
 "Article view, main image and extra information set on sidebar and text set "
 "on center and under title"
 msgstr ""
+"نوع مقاله که در آن تصویر اصلی و تصویر پیسوت اضافی و دیگر اطلاعات اضافی در "
+"نوار کنار نمایش داده می شودو متن در بخش اصلی و زیر عنوان قرار میگیرد"
 
 #: template/admin/story-index.phtml:27
 msgid ""
 "Magazine view, main and extra images set on center and text under them , "
 "after that extra information , without sidebar"
 msgstr ""
+"نوع مجله که تصویر اصلی و تصاویر اضافی در وسط و زیر عنوان قرار دارند ، در زیر "
+"آنها متن و در ادامه اطلاعات اضافی قرار میگیرد ، بدون نوار کناری"
 
 #: template/admin/story-index.phtml:28
 msgid ""
 "You need install blog module and story show on blog system, for better SEO"
 msgstr ""
+"شما باید ماژول وبلاگ را نصب نماییدو مطالب در سیستم وبلاگ نمایش داده می شوند "
+"این حالت برای SEO بهتر سایت مفید است"
 
 #: template/admin/story-index.phtml:29
 msgid ""
@@ -1608,6 +1629,10 @@ msgid ""
 "and images set under main and big image, you can use topic as gallery album "
 "and each story is single image on album"
 msgstr ""
+"نوع تصویر تنها که تصویر بزرگ در مرکز و زیر عنوان نمایش داده می شود دیگر متن "
+"ها و اطلاعات اضافی و تصاویر پیوست فرضی در زیر تصویر بزرگ درج می شوند، شما "
+"میتوانید نوع نمایش موضوع را به صورت گالری تنظیم نمایید که در این حالت هر "
+"موضوع یک آلبوم عکس و هر مطلب یک عکس تکی در آلبوم می شود"
 
 #: template/admin/story-index.phtml:30
 msgid "Gallery"
@@ -1619,6 +1644,10 @@ msgid ""
 "position, all other texts and extra information set under images, you can "
 "use topic as category for albums and each story is single album by images"
 msgstr ""
+"نوع نمایش آلبوم که در آن تصویر اصلی و دیگر تصاویر پیوست به صورت یک شکل در "
+"کنار هم به صورت یک آلبوم عکس نمایش داده می شوند ، شما میتوانید موضوع را به "
+"صورت یک شاخه مرجع برای آلبوم ها تعریف کنید و هر مطلب یک آلبوم جدید است که "
+"تصاویر به آن پیوست شده است"
 
 #: template/admin/story-index.phtml:31
 msgid ""
@@ -1626,12 +1655,19 @@ msgid ""
 "information on side bar and texts under player, you need attach mp4 or mp3 "
 "files to story or make audio / video attribute and put your media file link"
 msgstr ""
+"نوع نمایش میدا که پلیر ویدیو / صدا زیر عنوان اصلی نمایش داده می شود و "
+"اطلاعات اضافی در نوار کناری و متن ها در زیر پلیر قابل مشاهده است. شما باید "
+"فایل mp3 یا mp4 را به مطلب پیوست نمایید و یا از بخش خواص ، یک خاصیت جدید به "
+"شکل ویدیو / صدا بسازید و لینک فایل را در آن قرار دهید"
 
 #: template/admin/story-index.phtml:32
 msgid ""
 "Download template and show download button for get file by user, you need "
 "attach file to story or make file attribute and put your file link"
 msgstr ""
+"نوع مطلب به صورت الگوی دریافت فایل همراه با دکمه دانلود برای گرفتن فایل توسط "
+"کاربر است، شما باید فایل مورد نظر را به مطلب پیوست نمایید و یا از بخش خواص "
+"یک خاصیت جدید به شکل فایل ایجاده کرده و لینک فایل را درون آن درج کنید"
 
 #: template/admin/story-index.phtml:43
 msgid "Add new story"
@@ -1655,7 +1691,7 @@ msgstr "آلبوم عکس جدید"
 
 #: template/admin/story-index.phtml:58 template/admin/story-index.phtml:60
 msgid "Add new single image"
-msgstr "عکس تکی جدید"
+msgstr "عکس تنها جدید"
 
 #: template/admin/story-index.phtml:61 template/admin/story-index.phtml:63
 msgid "Add new media"
