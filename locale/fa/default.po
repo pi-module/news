@@ -325,7 +325,7 @@ msgstr "عکس تنها"
 #: src/Controller/Admin/StoryController.php:140 src/Form/StoryForm.php:154
 #: template/admin/story-index.phtml:28
 msgid "Blog post"
-msgstr "پست‌وبلاگ"
+msgstr "پست‌ وبلاگ"
 
 #: src/Controller/Admin/StoryController.php:282
 #, php-format
