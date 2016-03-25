@@ -3,7 +3,7 @@
         <div class="attach-audio">
             <?php foreach ($attach['audio'] as $audio) { ?>
                 <div class="pi-player clearfix">
-                    <?php echo $this->videojs($audio['fileUrl'], '', 640, 100); ?>
+                    <?php echo $this->videojs($audio['fileUrl'], $this->escape($story['largeUrl'])); ?>
                 </div>
             <?php } ?>
         </div>
