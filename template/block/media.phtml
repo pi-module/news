@@ -7,7 +7,7 @@
                         <div class="attach-video text-center">
                             <?php foreach ($story['media_attach']['video'] as $video) { ?>
                                 <div class="pi-player clearfix">
-                                    <?php echo $this->videojs($video['fileUrl'], $story['mediumUrl'], $block['width'], $block['height']); ?>
+                                    <?php echo $this->videojs($video['fileUrl'], $story['largeUrl']); ?>
                                 </div>
                             <?php } ?>
                         </div>
@@ -19,7 +19,7 @@
                             <?php foreach ($story['media_attribute']['video'] as $video) { ?>
                                 <?php if (!empty($video['data'])) { ?>
                                     <div class="pi-player clearfix">
-                                        <?php echo $this->videojs($video['data'], $story['mediumUrl'], $block['width'], $block['height']); ?>
+                                        <?php echo $this->videojs($video['data'], $story['largeUrl']); ?>
                                     </div>
                                 <?php } ?>
                             <?php } ?>
@@ -32,7 +32,7 @@
                         <div class="attach-audio text-center">
                             <?php foreach ($story['media_attach']['audio'] as $audio) { ?>
                                 <div class="pi-player clearfix">
-                                    <?php echo $this->videojs($audio['fileUrl'], '', 640, 100); ?>
+                                    <?php echo $this->videojs($audio['fileUrl'], $story['largeUrl']); ?>
                                 </div>
                             <?php } ?>
                         </div>
@@ -44,7 +44,7 @@
                             <?php foreach ($story['media_attribute']['audio'] as $audio) { ?>
                                 <?php if (!empty($audio['data'])) { ?>
                                     <div class="pi-player clearfix">
-                                        <?php echo $this->videojs($audio['data'], '', 640, 100); ?>
+                                        <?php echo $this->videojs($audio['data'], $story['largeUrl']); ?>
                                     </div>
                                 <?php } ?>
                             <?php } ?>
@@ -59,7 +59,11 @@
                         <?php echo $this->escape($story['title']); ?>
                     </a>
                 </h3>
-                <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                <?php if (!empty($story['text_summary'])) { ?>
+                    <div class="storyText p-summary">
+                        <?php echo $story['text_summary']; ?>
+                    </div>
+                <?php } ?>
             <?php } ?>
         <?php } ?>
     </div>

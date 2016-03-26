@@ -477,20 +477,6 @@ return array(
                 'filter' => 'text',
                 'value' => 'video',
             ),
-            'width' => array(
-                'title' => _a('Width'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'number_int',
-                'value' => 640,
-            ),
-            'height' => array(
-                'title' => _a('Height'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'number_int',
-                'value' => 480,
-            ),
             'showdesc' => array(
                 'title' => _a('Show text'),
                 'description' => '',
