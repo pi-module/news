@@ -27,8 +27,8 @@ class Topic extends Select
             $columns = array('id', 'pid', 'title');
             $order = array('title ASC', 'id ASC');
             // Get topic list
-            $select = Pi::model('topic', $this->options['module'])->select()->where($where)->columns($columns)->order($order);
-            $rowset = Pi::model('topic', $this->options['module'])->selectWith($select);
+            $select = Pi::model('topic', 'news')->select()->where($where)->columns($columns)->order($order);
+            $rowset = Pi::model('topic', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 $list[$row->id] = $row->toArray();
             }
