@@ -447,6 +447,10 @@ class Story extends AbstractApi
                     $story['path'],
                     $story['image']
                 ));
+        } elseif ($config['image_default']) {
+            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('news-thumb', $this->getModule());
+        } else {
+            $story['thumbUrl'] = '';
         }
         // unset
         unset($story['text_summary']);
