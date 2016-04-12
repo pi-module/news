@@ -4,6 +4,7 @@
     <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Story.php" afterPath="$PROJECT_DIR$/src/Api/Story.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/block/item.phtml" afterPath="$PROJECT_DIR$/template/block/item.phtml" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +46,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Story.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Story.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="506" column="36" selection-start-line="506" selection-start-column="36" selection-end-line="506" selection-end-column="36" />
+            <state relative-caret-position="353">
+              <caret line="450" column="77" selection-start-line="0" selection-start-column="0" selection-end-line="613" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="item.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/template/block/item.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="62">
+              <caret line="591" column="68" selection-start-line="591" selection-start-column="68" selection-end-line="591" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -86,7 +97,6 @@
         <option value="$PROJECT_DIR$/src/Controller/Admin/MicroblogController.php" />
         <option value="$PROJECT_DIR$/template/admin/microblog-index.phtml" />
         <option value="$PROJECT_DIR$/src/Block/Block.php" />
-        <option value="$PROJECT_DIR$/template/block/item.phtml" />
         <option value="$PROJECT_DIR$/template/block/spotlight.phtml" />
         <option value="$PROJECT_DIR$/src/Form/StoryForm.php" />
         <option value="$PROJECT_DIR$/src/Form/StoryFilter.php" />
@@ -105,6 +115,7 @@
         <option value="$PROJECT_DIR$/config/module.php" />
         <option value="$PROJECT_DIR$/config/config.php" />
         <option value="$PROJECT_DIR$/src/Api/Story.php" />
+        <option value="$PROJECT_DIR$/template/block/item.phtml" />
       </list>
     </option>
   </component>
@@ -165,6 +176,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="news" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="block" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -322,7 +365,7 @@
       <option name="presentableId" value="Default" />
       <updated>1441117078444</updated>
       <workItem from="1460441198430" duration="776000" />
-      <workItem from="1460447362303" duration="1671000" />
+      <workItem from="1460447362303" duration="4261000" />
     </task>
     <task id="LOCAL-00001" summary="Fix module">
       <created>1441117466564</created>
@@ -436,11 +479,18 @@
       <option name="project" value="LOCAL" />
       <updated>1460449010728</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add image">
+      <created>1460449041746</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1460449041746</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2447000" />
+    <option name="totallyTimeSpent" value="5037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1278" height="774" extended-state="4" />
@@ -663,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/block/item.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="645" column="18" selection-start-line="528" selection-start-column="8" selection-end-line="645" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/block/microblog.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -858,8 +901,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="506" column="36" selection-start-line="506" selection-start-column="36" selection-end-line="506" selection-end-column="36" />
+        <state relative-caret-position="353">
+          <caret line="450" column="77" selection-start-line="0" selection-start-column="0" selection-end-line="613" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/block/item.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="591" column="68" selection-start-line="591" selection-start-column="68" selection-end-line="591" selection-end-column="96" />
           <folding />
         </state>
       </provider>

@@ -529,7 +529,7 @@
         <?php } elseif ($block['type'] == 'magazine') { ?>
             <div class="news-item-block-magazine clearfix row">
                 <?php $firstStory = array_shift($block['resources']); ?>
-                <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-main">
+                <div class="col-md-3 col-sm-5 col-xs-12 news-item-block-magazine-main">
                     <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <div class="p-item h-card">
                             <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
@@ -586,61 +586,65 @@
                         </div>
                     </div>
                 </div>
-                <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-sub">
-                        <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
-                            <div class="col-md-3 col-sm-4 col-xs-5">
-                                <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                                    <a itemprop="url" class="u-url"
-                                       href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                       title="<?php echo $this->escape($story['title']); ?>">
-                                        <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                             alt="<?php echo $this->escape($story['title']); ?>"
-                                             class="media-object img-rounded img-responsive u-photo"/>
-                                    </a>
-                                <?php } ?>
-                            </div>
-                            <div class="col-md-9 col-sm-8 col-xs-7">
-                                <div class="p-item h-card">
-                                    <h4 class="p-name itemSingleTitle" itemprop="name headline">
-                                        <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                           title="<?php echo $this->escape($story['title']); ?>">
-                                            <?php echo $this->escape($story['title']); ?>
-                                        </a>
-                                    </h4>
-                                    <div class="clearfix">
-                                        <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
-                                            <ul class="text-muted list-inline">
-                                                <?php if ($block['showdate']) { ?>
-                                                    <li class="dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
-                                                        : <?php echo $this->escape($story['time_publish_view']); ?></li>
-                                                <?php } ?>
-                                                <?php if ($block['showhits']) { ?>
-                                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
-                                                        : <?php echo _number($this->escape($story['hits'])); ?></li>
-                                                <?php } ?>
-                                                <?php if ($block['showauthor']) { ?>
-                                                    <?php foreach ($story['authors'] as $author) { ?>
-                                                        <li>
-                                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                                            <a title="<?php echo $author['authorName']; ?>"
-                                                               href="<?php echo $author['authorUrl']; ?>">
-                                                                <?php echo $author['authorName']; ?>
-                                                            </a>
-                                                        </li>
-                                                    <?php } ?>
-                                                <?php } ?>
-                                            </ul>
+                <div class="col-md-9 col-sm-7 col-xs-12">
+                    <div class="row">
+                        <?php foreach ($block['resources'] as $story) { ?>
+                            <div class="col-md-6 col-sm-6 col-xs-12 news-item-block-magazine-sub">
+                                <div class="h-entry clearfix row" itemscope itemtype="http://schema.org/Article">
+                                    <div class="col-md-4 col-sm-4 col-xs-5">
+                                        <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                                            <a itemprop="url" class="u-url"
+                                               href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                               title="<?php echo $this->escape($story['title']); ?>">
+                                                <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                                     alt="<?php echo $this->escape($story['title']); ?>"
+                                                     class="media-object img-rounded img-responsive u-photo"/>
+                                            </a>
                                         <?php } ?>
                                     </div>
+                                    <div class="col-md-8 col-sm-8 col-xs-7">
+                                        <div class="p-item h-card">
+                                            <h4 class="p-name itemSingleTitle" itemprop="name headline">
+                                                <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                                   title="<?php echo $this->escape($story['title']); ?>">
+                                                    <?php echo $this->escape($story['title']); ?>
+                                                </a>
+                                            </h4>
+                                            <div class="clearfix">
+                                                <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
+                                                    <ul class="text-muted list-inline">
+                                                        <?php if ($block['showdate']) { ?>
+                                                            <li class="dt-published"><i
+                                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                                : <?php echo $this->escape($story['time_publish_view']); ?></li>
+                                                        <?php } ?>
+                                                        <?php if ($block['showhits']) { ?>
+                                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                                : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                                        <?php } ?>
+                                                        <?php if ($block['showauthor']) { ?>
+                                                            <?php foreach ($story['authors'] as $author) { ?>
+                                                                <li>
+                                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                                       href="<?php echo $author['authorUrl']; ?>">
+                                                                        <?php echo $author['authorName']; ?>
+                                                                    </a>
+                                                                </li>
+                                                            <?php } ?>
+                                                        <?php } ?>
+                                                    </ul>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <meta itemprop="datePublished"
+                                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                                    </div>
                                 </div>
-                                <meta itemprop="datePublished"
-                                      content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
-                <?php } ?>
+                </div>
             </div>
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>

@@ -402,10 +402,10 @@ class Story extends AbstractApi
                     $story['image']
                 ));
         } elseif ($config['image_default']) {
-            $story['originalUrl'] = Pi::service('asset')->getModuleAsset('news-original', $this->getModule());
-            $story['largeUrl'] = Pi::service('asset')->getModuleAsset('news-large', $this->getModule());
-            $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('news-medium', $this->getModule());
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('news-thumb', $this->getModule());
+            $story['originalUrl'] = Pi::service('asset')->getModuleAsset('image/news-original.jpg', $this->getModule());
+            $story['largeUrl'] = Pi::service('asset')->getModuleAsset('image/news-large.jpg', $this->getModule());
+            $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('image/news-medium.jpg', $this->getModule());
+            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
         } else {
             $story['originalUrl'] = '';
             $story['largeUrl'] = '';
@@ -448,7 +448,7 @@ class Story extends AbstractApi
                     $story['image']
                 ));
         } elseif ($config['image_default']) {
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('news-thumb', $this->getModule());
+            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
         } else {
             $story['thumbUrl'] = '';
         }
