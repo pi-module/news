@@ -346,6 +346,14 @@ return array(
             'value' => 10
         ),
         // Image
+        'image_default' => array(
+            'category' => 'image',
+            'title' => _a('Use default if image not set'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 0
+        ),
         'image_size' => array(
             'category' => 'image',
             'title' => _a('Image Size'),

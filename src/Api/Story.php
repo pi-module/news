@@ -401,6 +401,11 @@ class Story extends AbstractApi
                     $story['path'],
                     $story['image']
                 ));
+        } elseif ($config['image_default']) {
+            $story['originalUrl'] = Pi::service('asset')->getModuleAsset('news-original', $this->getModule());
+            $story['largeUrl'] = Pi::service('asset')->getModuleAsset('news-large', $this->getModule());
+            $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('news-medium', $this->getModule());
+            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('news-thumb', $this->getModule());
         } else {
             $story['originalUrl'] = '';
             $story['largeUrl'] = '';
