@@ -504,6 +504,7 @@ class Story extends AbstractApi
                     $story['image']
                 ));
         } else {
+            $story['largeUrl'] = '';
             $story['mediumUrl'] = '';
             $story['thumbUrl'] = '';
         }
