@@ -6,7 +6,7 @@
                     <div class="vertical-story-single h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <div class="row">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>">
                                         <img itemprop="image" class="img-responsive img-rounded u-photo"
@@ -15,7 +15,7 @@
                                     </a>
                                 </div>
                             <?php } ?>
-                            <div class="col-md-9 p-item h-card">
+                            <div class="<?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>col-md-8<?php } else { ?>col-md-12<?php } ?> p-item h-card">
                                 <div class="vertical-story-single-title p-name" itemprop="name headline">
                                     <h3 class="clearfix">
                                         <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
