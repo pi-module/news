@@ -125,6 +125,7 @@ return array(
                             'verticalcompressed' => _a('Vertical compressed'),
                             'horizontal' => _a('Horizontal'),
                             'magazine' => _a('Magazine'),
+                            'magazinewide' => _a('Magazine wide'),
                             'list' => _a('List'),
                             'table' => _a('Table'),
                             'slide' => _a('Slide'),
