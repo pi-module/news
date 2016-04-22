@@ -161,7 +161,6 @@ if (!empty($story['largeUrl'])) {
                     <?php include $this->template('front/attribute-audio'); ?>
                     <?php include $this->template('front/attach-video'); ?>
                     <?php include $this->template('front/attribute-video'); ?>
-                    <?php include $this->template('front/attribute-file'); ?>
                     <?php include $this->template('front/attach'); ?>
                 </div>
                 <?php if ($config['show_nav']) { ?>
@@ -184,7 +183,9 @@ if (!empty($story['largeUrl'])) {
         </div>
         <div class="col-md-4">
             <div class="news-story-page-side">
-                <?php include $this->template('front/attribute'); ?>
+                <div class="clearfix">
+                    <?php include $this->template('front/attribute'); ?>
+                </div>
                 <?php if (!empty($story['authors']) && $config['show_author']) { ?>
                     <div class="clearfix">
                         <?php foreach ($story['authors'] as $author) { ?>
