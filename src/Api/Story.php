@@ -564,8 +564,11 @@ class Story extends AbstractApi
         $config = Pi::service('registry')->config->read($this->getModule());
         // Set info
         $columns = array('id', 'image', 'path');
+        $where = array('type' => array(
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        ));
         $order = array('id ASC');
-        $select = Pi::model('story', $this->getModule())->select()->columns($columns)->order($order);
+        $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where)->order($order);
         $rowset = Pi::model('story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
             if (!empty($row->image) && !empty($row->path)) {
