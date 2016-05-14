@@ -66,4 +66,22 @@ class Search extends AbstractSearch
 
         return $link;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function buildImage(array $item)
+    {
+        // Get config
+        $config = Pi::service('registry')->config->read($this->getModule());
+
+        $image = Pi::url(
+            sprintf('upload/%s/thumb/%s/%s',
+                $config['image_path'],
+                $item['path'],
+                $item['image']
+            ));;
+
+        return $image;
+    }
 }
