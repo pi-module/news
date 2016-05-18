@@ -342,16 +342,18 @@ class Story extends AbstractApi
         // Set topic information
         $story['topic'] = Json::decode($story['topic'], true);
         // Get topic list
-        $topicList = (empty($topicList)) ? Pi::registry('topicList', 'news')->read() : $topicList;
-        foreach ($story['topic'] as $topic) {
-            if (!empty($topicList[$topic]['title'])) {
-                $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
-                $story['topics'][$topic]['slug'] = $topicList[$topic]['slug'];
-                $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module' => $this->getModule(),
-                    'controller' => 'topic',
-                    'slug' => $topicList[$topic]['slug'],
-                )));
+        if (!empty($story['topic'])) {
+            $topicList = (empty($topicList)) ? Pi::registry('topicList', 'news')->read() : $topicList;
+            foreach ($story['topic'] as $topic) {
+                if (!empty($topicList[$topic]['title'])) {
+                    $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
+                    $story['topics'][$topic]['slug'] = $topicList[$topic]['slug'];
+                    $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
+                        'module' => $this->getModule(),
+                        'controller' => 'topic',
+                        'slug' => $topicList[$topic]['slug'],
+                    )));
+                }
             }
         }
         // Get author list
