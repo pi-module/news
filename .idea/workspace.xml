@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="Work on news templates">
+    <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Search.php" afterPath="$PROJECT_DIR$/src/Api/Search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/Topic.php" afterPath="$PROJECT_DIR$/src/Api/Topic.php" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,12 +24,22 @@
     <favorites_list name="news" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Search.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Api/Search.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Topic.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Api/Topic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+            <state relative-caret-position="234">
+              <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="74" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="759">
+              <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -72,7 +82,6 @@
         <option value="$PROJECT_DIR$/src/Block/Block.php" />
         <option value="$PROJECT_DIR$/src/Controller/Feed/IndexController.php" />
         <option value="$PROJECT_DIR$/src/Model/Story.php" />
-        <option value="$PROJECT_DIR$/src/Api/Topic.php" />
         <option value="$PROJECT_DIR$/src/Api/Api.php" />
         <option value="$PROJECT_DIR$/src/Form/StoryForm.php" />
         <option value="$PROJECT_DIR$/template/admin/story-update.phtml" />
@@ -94,6 +103,7 @@
         <option value="$PROJECT_DIR$/template/front/attribute.phtml" />
         <option value="$PROJECT_DIR$/src/Api/Story.php" />
         <option value="$PROJECT_DIR$/src/Api/Search.php" />
+        <option value="$PROJECT_DIR$/src/Api/Topic.php" />
       </list>
     </option>
   </component>
@@ -139,6 +149,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,7 +202,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,7 +272,10 @@
       <workItem from="1463064909424" duration="736000" />
       <workItem from="1463066552036" duration="223000" />
       <workItem from="1463383030133" duration="37000" />
-      <workItem from="1463466828701" duration="866000" />
+      <workItem from="1463466828701" duration="894000" />
+      <workItem from="1463550517433" duration="359000" />
+      <workItem from="1463552435380" duration="949000" />
+      <workItem from="1463574549725" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Fix module">
       <created>1441117466564</created>
@@ -523,17 +536,24 @@
       <option name="project" value="LOCAL" />
       <updated>1461338805501</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update search">
+      <created>1463467729898</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1463467729898</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22901000" />
+    <option name="totallyTimeSpent" value="24248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="994" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17689823" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18416801" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293979" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,7 +598,8 @@
     <MESSAGE value="Start work on multi module option" />
     <MESSAGE value="Work on news API" />
     <MESSAGE value="Work on news templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on news templates" />
+    <MESSAGE value="update search" />
+    <option name="LAST_COMMIT_MESSAGE" value="update search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -895,13 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Topic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="266" column="8" selection-start-line="266" selection-start-column="8" selection-end-line="266" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/StoryFilter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -913,20 +927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="222" column="8" selection-start-line="222" selection-start-column="8" selection-end-line="229" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="513" column="115" selection-start-line="513" selection-start-column="115" selection-end-line="513" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -946,8 +946,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/Search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
+        <state relative-caret-position="1422">
           <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="328" column="103" selection-start-line="328" selection-start-column="33" selection-end-line="328" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="354" column="26" selection-start-line="354" selection-start-column="26" selection-end-line="354" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/Topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="74" selection-end-column="76" />
           <folding />
         </state>
       </provider>

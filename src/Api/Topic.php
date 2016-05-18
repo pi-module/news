@@ -20,6 +20,7 @@ use Zend\Json\Json;
 /*
  * Pi::api('topic', 'news')->getTopic($parameter, $field;
  * Pi::api('topic', 'news')->getTopicFull($parameter, $field);
+ * Pi::api('topic', 'news')->getTopicList();
  * Pi::api('topic', 'news')->canonizeTopic($topic);
  * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
@@ -48,6 +49,21 @@ class Topic extends AbstractApi
         $topic = Pi::model('topic', $this->getModule())->find($parameter, $field);
         $topic = $this->canonizeTopic($topic);
         return $topic;
+    }
+
+    public function getTopicList()
+    {
+        $topicList = array();
+        $columns = array('id', 'title');
+        $where = array('status' => 1);
+        $order = array('title ASC', 'id ASC');
+        $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where)->order($order);
+        $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            $topicList[$row->id]['id'] = $row->id;
+            $topicList[$row->id]['title'] = $row->title;
+        }
+        return $topicList;
     }
 
     /**
