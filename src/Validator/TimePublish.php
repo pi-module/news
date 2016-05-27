@@ -19,7 +19,7 @@ use DateTime;
 
 class TimePublish extends AbstractValidator
 {
-    const TAKEN = 'فimePublish';
+    const TAKEN = 'timePublish';
 
     /**
      * @var array
