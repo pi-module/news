@@ -64,7 +64,7 @@ return array(
             'permission' => 'microblog',
         ),
         array(
-            'title' => _a('Json'),
+            'title' => _a('Json output'),
             'controller' => 'json',
             'permission' => 'json',
         ),
@@ -122,7 +122,7 @@ return array(
             'block' => 1,
         ),
         array(
-            'title' => _a('Json'),
+            'label' => _a('Json output'),
             'controller' => 'json',
             'permission' => 'public',
             'block' => 0,
