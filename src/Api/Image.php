@@ -89,32 +89,47 @@ class Image extends AbstractApi
             'quality' => empty($config['image_quality']) ? 75 : $config['image_quality'],
         );
 
+        // Get image size
+        $size = getimagesize($original);
+
         // Resize to large
-        Pi::service('image')->resize(
-            $original,
-            array($config['image_largew'], $config['image_largeh'], true),
-            $large,
-            '',
-            $options
-        );
+        if ($size[0] > $config['image_largew'] && $size[1] > $config['image_largeh']) {
+            Pi::service('image')->resize(
+                $original,
+                array($config['image_largew'], $config['image_largeh'], true),
+                $large,
+                '',
+                $options
+            );
+        } else {
+            Pi::service('file')->copy($original, $large, trye);
+        }
 
         // Resize to medium
-        Pi::service('image')->resize(
-            $original,
-            array($config['image_mediumw'], $config['image_mediumh'], true),
-            $medium,
-            '',
-            $options
-        );
+        if ($size[0] > $config['image_mediumw'] && $size[1] > $config['image_mediumh']) {
+            Pi::service('image')->resize(
+                $original,
+                array($config['image_mediumw'], $config['image_mediumh'], true),
+                $medium,
+                '',
+                $options
+            );
+        } else {
+            Pi::service('file')->copy($original, $medium, trye);
+        }
 
         // Resize to thumb
-        Pi::service('image')->resize(
-            $original,
-            array($config['image_thumbw'], $config['image_thumbh'], true),
-            $thumb,
-            '',
-            $options
-        );
+        if ($size[0] > $config['image_thumbw'] && $size[1] > $config['image_thumbh']) {
+            Pi::service('image')->resize(
+                $original,
+                array($config['image_thumbw'], $config['image_thumbh'], true),
+                $thumb,
+                '',
+                $options
+            );
+        } else {
+            Pi::service('file')->copy($original, $thumb, trye);
+        }
 
         // Watermark
         if ($config['image_watermark']) {
