@@ -24,7 +24,7 @@ class Topic extends Model
         'pid',
         'title',
         'slug',
-        'text_summery',
+        'text_summary',
         'text_description',
         'image',
         'path',
