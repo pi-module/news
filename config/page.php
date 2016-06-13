@@ -121,5 +121,11 @@ return array(
             'permission' => 'favourite',
             'block' => 1,
         ),
+        array(
+            'title' => _a('Json'),
+            'controller' => 'json',
+            'permission' => 'public',
+            'block' => 0,
+        ),
     ),
 );

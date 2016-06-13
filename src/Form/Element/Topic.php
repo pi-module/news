@@ -26,6 +26,12 @@ class Topic extends Select
             $where = array('status' => 1);
             $columns = array('id', 'pid', 'title');
             $order = array('title ASC', 'id ASC');
+            // Set type
+            if (isset($this->options['type']) && in_array($this->options['type'], array('event', 'blog'))) {
+                $where['type'] = $this->options['type'];
+            } else {
+                $where['type'] = 'general';
+            }
             // Get topic list
             $select = Pi::model('topic', 'news')->select()->where($where)->columns($columns)->order($order);
             $rowset = Pi::model('topic', 'news')->selectWith($select);

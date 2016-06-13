@@ -79,6 +79,19 @@ class TopicForm extends BaseForm
                 'description' => '',
             )
         ));
+        // text_summary
+        $this->add(array(
+            'name' => 'text_summary',
+            'options' => array(
+                'label' => __('Short text'),
+            ),
+            'attributes' => array(
+                'type' => 'textarea',
+                'rows' => '5',
+                'cols' => '40',
+                'description' => __('Just show on story list and blocks'),
+            )
+        ));
         // text_description
         $this->add(array(
             'name' => 'text_description',
@@ -124,6 +137,22 @@ class TopicForm extends BaseForm
             ),
             'attributes' => array(
                 'description' => '',
+            ),
+        ));
+        // type
+        $this->add(array(
+            'name' => 'type',
+            'type' => 'select',
+            'options' => array(
+                'label' => __('Topic type'),
+                'value_options' => array(
+                    'general' => __('General'),
+                    'event' => __('Just event module'),
+                    'blog' => __('Just blog module'),
+                ),
+            ),
+            'attributes' => array(
+                'description' => __('Set type for use as general or special module'),
             ),
         ));
         // Image

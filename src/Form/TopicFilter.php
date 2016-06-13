@@ -55,6 +55,16 @@ class TopicFilter extends InputFilter
                 )),
             ),
         ));
+        // text_summary
+        $this->add(array(
+            'name' => 'text_summary',
+            'required' => false,
+            'filters' => array(
+                array(
+                    'name' => 'StringTrim',
+                ),
+            ),
+        ));
         // text_description
         $this->add(array(
             'name' => 'text_description',
@@ -78,6 +88,11 @@ class TopicFilter extends InputFilter
         // style
         $this->add(array(
             'name' => 'style',
+            'required' => false,
+        ));
+        // type
+        $this->add(array(
+            'name' => 'type',
             'required' => false,
         ));
         // seo_title

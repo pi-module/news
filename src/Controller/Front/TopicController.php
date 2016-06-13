@@ -38,7 +38,7 @@ class TopicController extends IndexController
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Check topic
-        if ($topic['status'] != 1) {
+        if ($topic['status'] != 1 || $topic['type'] != 'general') {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('Topic not active.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
@@ -105,7 +105,7 @@ class TopicController extends IndexController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get topic list
-        $where = array('status' => 1);
+        $where = array('status' => 1, 'type' => 'general');
         $order = array('time_create DESC', 'id DESC');
         $select = $this->getModel('topic')->select()->where($where)->order($order);
         $rowset = $this->getModel('topic')->selectWith($select);

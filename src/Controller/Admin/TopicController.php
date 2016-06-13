@@ -33,7 +33,7 @@ class TopicController extends ActionController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get info
-        $columns = array('id', 'title', 'slug', 'style', 'status');
+        $columns = array('id', 'title', 'slug', 'style', 'status', 'type');
         $order = array('id DESC', 'time_create DESC');
         $limit = intval($this->config('admin_perpage'));
         $offset = (int)($page - 1) * $this->config('admin_perpage');
@@ -67,6 +67,21 @@ class TopicController extends ActionController
                 case 'news':
                 default:
                     $list[$row->id]['style_view'] = __('News');
+                    break;
+            }
+            // Set topic style view
+            switch ($row->type) {
+                case 'blog':
+                    $list[$row->id]['type_view'] = __('Blog module');
+                    break;
+
+                case 'event':
+                    $list[$row->id]['type_view'] = __('Event module');
+                    break;
+
+                case 'general':
+                default:
+                    $list[$row->id]['type_view'] = __('General');
                     break;
             }
         }

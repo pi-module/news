@@ -731,6 +731,46 @@ EOD;
             }
         }
 
+        // Update to version 1.7.9
+        if (version_compare($moduleVersion, '1.7.9', '<')) {
+            // Alter table : ADD text_summary
+            $sql = sprintf("ALTER TABLE %s ADD `text_summary` TEXT", $topicTable);
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD type
+            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM('general', 'event', 'blog') NOT NULL DEFAULT 'general', ADD INDEX `type` (`type`)", $topicTable);
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+            // Alter table : ADD index
+            $sql = sprintf("ALTER TABLE %s ADD INDEX `topic_list_type` (`status`, `pid`, `id`, `type`)", $topicTable);
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }
