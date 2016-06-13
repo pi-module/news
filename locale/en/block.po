@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2016-03-23 12:29+0430\n"
+"POT-Creation-Date: 2016-06-13 12:51+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,18 +16,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:366
-#: template/block/item.phtml:419 template/block/spotlight.phtml:366
+#: template/block/gallery.phtml:58 template/block/item.phtml:372
+#: template/block/item.phtml:425 template/block/spotlight.phtml:366
 #: template/block/spotlight.phtml:419 template/block/topic.phtml:64
 msgid "View"
 msgstr ""
 
-#: template/block/item.phtml:29 template/block/item.phtml:92
-#: template/block/item.phtml:157 template/block/item.phtml:236
-#: template/block/item.phtml:283 template/block/item.phtml:304
-#: template/block/item.phtml:343 template/block/item.phtml:396
-#: template/block/item.phtml:471 template/block/item.phtml:555
-#: template/block/item.phtml:616 template/block/list.phtml:11
+#: template/block/item.phtml:32 template/block/item.phtml:98
+#: template/block/item.phtml:163 template/block/item.phtml:242
+#: template/block/item.phtml:289 template/block/item.phtml:310
+#: template/block/item.phtml:349 template/block/item.phtml:402
+#: template/block/item.phtml:477 template/block/item.phtml:569
+#: template/block/item.phtml:634 template/block/item.phtml:685
+#: template/block/item.phtml:762 template/block/list.phtml:11
 #: template/block/spotlight.phtml:29 template/block/spotlight.phtml:92
 #: template/block/spotlight.phtml:157 template/block/spotlight.phtml:236
 #: template/block/spotlight.phtml:283 template/block/spotlight.phtml:304
@@ -37,12 +38,13 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
-#: template/block/item.phtml:33 template/block/item.phtml:96
-#: template/block/item.phtml:161 template/block/item.phtml:240
-#: template/block/item.phtml:288 template/block/item.phtml:307
-#: template/block/item.phtml:347 template/block/item.phtml:400
-#: template/block/item.phtml:475 template/block/item.phtml:559
-#: template/block/item.phtml:620 template/block/list.phtml:16
+#: template/block/item.phtml:36 template/block/item.phtml:102
+#: template/block/item.phtml:167 template/block/item.phtml:246
+#: template/block/item.phtml:294 template/block/item.phtml:313
+#: template/block/item.phtml:353 template/block/item.phtml:406
+#: template/block/item.phtml:481 template/block/item.phtml:573
+#: template/block/item.phtml:638 template/block/item.phtml:689
+#: template/block/item.phtml:766 template/block/list.phtml:16
 #: template/block/spotlight.phtml:33 template/block/spotlight.phtml:96
 #: template/block/spotlight.phtml:161 template/block/spotlight.phtml:240
 #: template/block/spotlight.phtml:288 template/block/spotlight.phtml:307
@@ -52,25 +54,26 @@ msgstr ""
 msgid "Read"
 msgstr ""
 
-#: template/block/item.phtml:54 template/block/item.phtml:117
-#: template/block/item.phtml:182 template/block/item.phtml:261
-#: template/block/item.phtml:581 template/block/spotlight.phtml:54
-#: template/block/spotlight.phtml:117 template/block/spotlight.phtml:182
-#: template/block/spotlight.phtml:261 template/block/spotlight.phtml:582
+#: template/block/item.phtml:59 template/block/item.phtml:123
+#: template/block/item.phtml:188 template/block/item.phtml:267
+#: template/block/item.phtml:595 template/block/item.phtml:711
+#: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
+#: template/block/spotlight.phtml:182 template/block/spotlight.phtml:261
+#: template/block/spotlight.phtml:582
 msgid "Read More"
 msgstr ""
 
-#: template/block/item.phtml:299 template/block/spotlight.phtml:299
+#: template/block/item.phtml:305 template/block/spotlight.phtml:299
 #: template/block/table.phtml:4
 msgid "Title"
 msgstr ""
 
-#: template/block/item.phtml:301 template/block/spotlight.phtml:301
+#: template/block/item.phtml:307 template/block/spotlight.phtml:301
 #: template/block/table.phtml:6
 msgid "Summary"
 msgstr ""
 
-#: template/block/item.phtml:648 template/block/item.phtml:649
+#: template/block/item.phtml:797 template/block/item.phtml:798
 #: template/block/list.phtml:25 template/block/list.phtml:26
 #: template/block/spotlight.phtml:650 template/block/spotlight.phtml:651
 #: template/block/table.phtml:28 template/block/table.phtml:29
