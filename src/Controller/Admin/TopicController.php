@@ -293,6 +293,7 @@ class TopicController extends ActionController
                 }
                 // Clear registry
                 Pi::registry('topicList', 'news')->clear();
+                Pi::registry('topicRoute', 'news')->clear();
                 // jump
                 $message = __('Topic data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);

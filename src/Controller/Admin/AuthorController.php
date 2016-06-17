@@ -221,6 +221,7 @@ class AuthorController extends ActionController
                 }
                 // Clear registry
                 Pi::registry('authorList', 'news')->clear();
+                Pi::registry('authorRoute', 'news')->clear();
                 // jump
                 $message = __('Author data saved successfully.');
                 $this->jump(array('action' => 'index'), $message);
