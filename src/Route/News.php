@@ -125,6 +125,7 @@ class News extends Standard
                 }
             }
         } elseif (isset($parts[0])) {
+            $parts[0] = urldecode($parts[0]);
             $topicSlug = Pi::registry('topicRoute', 'news')->read();
             $authorSlug = Pi::registry('authorRoute', 'news')->read();
             if (in_array($parts[0], $topicSlug)) {
