@@ -51,11 +51,11 @@ class Topic extends AbstractApi
         return $topic;
     }
 
-    public function getTopicList()
+    public function getTopicList($type = 'general')
     {
         $topicList = array();
         $columns = array('id', 'title');
-        $where = array('status' => 1);
+        $where = array('status' => 1, 'type' => $type);
         $order = array('title ASC', 'id ASC');
         $select = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where)->order($order);
         $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
