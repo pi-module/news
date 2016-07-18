@@ -29,7 +29,7 @@ use Zend\Json\Json;
  * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type, $option);
  * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table, $option);
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
- * Pi::api('api', 'news')->getStoryRelated($id, $topic, $type);
+ * Pi::api('api', 'news')->getStoryRelated($where, $order);
  */
 
 /*
@@ -435,18 +435,11 @@ class Api extends AbstractApi
         return $paginator;
     }
 
-    public function getStoryRelated($id, $topic, $type)
+    public function getStoryRelated($where, $order)
     {
         // Set info
         $config = Pi::service('registry')->config->read($this->getModule());
         $related = array();
-        $order = array('time_publish DESC', 'id DESC');
-        $where = array(
-            'status' => 1,
-            'story != ?' => $id,
-            'topic' => $topic,
-            'type' => $type,
-        );
         $columns = array('story' => new Expression('DISTINCT story'));
         $limit = intval($config['related_num']);
         // Get info from link table
