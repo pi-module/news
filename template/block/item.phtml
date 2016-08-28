@@ -333,10 +333,11 @@
             </div>
         <?php } elseif ($block['type'] == 'slide') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery();
-                $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
+                $this->jQuery(array(
+                    'extension/owl.carousel.min.js',
+                    'extension/owl.carousel.css',
+                ));
                 $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
-                $this->css($this->assetModule('css/owl.carousel.css', 'news'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
@@ -385,11 +386,12 @@
             </div>
         <?php } elseif ($block['type'] == 'slidehover') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery();
-                $this->js($this->assetModule('js/owl.carousel.min.js', 'news'));
+                $this->jQuery(array(
+                    'extension/owl.carousel.min.js',
+                    'extension/owl.carousel.css',
+                ));
                 $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
-                $this->css($this->assetModule('css/owl.carousel.css', 'news'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
