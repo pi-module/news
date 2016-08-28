@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2016-06-13 12:52+0430\n"
+"POT-Creation-Date: 2016-08-28 18:51+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,56 +9,56 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _b\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: template/block/gallery.phtml:58 template/block/item.phtml:372
-#: template/block/item.phtml:425 template/block/spotlight.phtml:366
-#: template/block/spotlight.phtml:419 template/block/topic.phtml:64
+#: template/block/gallery.phtml:59 template/block/item.phtml:373
+#: template/block/item.phtml:427 template/block/spotlight.phtml:367
+#: template/block/spotlight.phtml:421 template/block/topic.phtml:65
 msgid "View"
 msgstr "مشاهده"
 
 #: template/block/item.phtml:32 template/block/item.phtml:98
 #: template/block/item.phtml:163 template/block/item.phtml:242
 #: template/block/item.phtml:289 template/block/item.phtml:310
-#: template/block/item.phtml:349 template/block/item.phtml:402
-#: template/block/item.phtml:477 template/block/item.phtml:569
-#: template/block/item.phtml:634 template/block/item.phtml:685
-#: template/block/item.phtml:762 template/block/list.phtml:11
+#: template/block/item.phtml:350 template/block/item.phtml:404
+#: template/block/item.phtml:479 template/block/item.phtml:571
+#: template/block/item.phtml:636 template/block/item.phtml:687
+#: template/block/item.phtml:764 template/block/list.phtml:11
 #: template/block/spotlight.phtml:29 template/block/spotlight.phtml:92
 #: template/block/spotlight.phtml:157 template/block/spotlight.phtml:236
 #: template/block/spotlight.phtml:283 template/block/spotlight.phtml:304
-#: template/block/spotlight.phtml:343 template/block/spotlight.phtml:396
-#: template/block/spotlight.phtml:471 template/block/spotlight.phtml:557
-#: template/block/spotlight.phtml:618 template/block/table.phtml:8
+#: template/block/spotlight.phtml:344 template/block/spotlight.phtml:398
+#: template/block/spotlight.phtml:473 template/block/spotlight.phtml:559
+#: template/block/spotlight.phtml:620 template/block/table.phtml:8
 msgid "Time"
 msgstr "زمان"
 
 #: template/block/item.phtml:36 template/block/item.phtml:102
 #: template/block/item.phtml:167 template/block/item.phtml:246
 #: template/block/item.phtml:294 template/block/item.phtml:313
-#: template/block/item.phtml:353 template/block/item.phtml:406
-#: template/block/item.phtml:481 template/block/item.phtml:573
-#: template/block/item.phtml:638 template/block/item.phtml:689
-#: template/block/item.phtml:766 template/block/list.phtml:16
+#: template/block/item.phtml:354 template/block/item.phtml:408
+#: template/block/item.phtml:483 template/block/item.phtml:575
+#: template/block/item.phtml:640 template/block/item.phtml:691
+#: template/block/item.phtml:768 template/block/list.phtml:16
 #: template/block/spotlight.phtml:33 template/block/spotlight.phtml:96
 #: template/block/spotlight.phtml:161 template/block/spotlight.phtml:240
 #: template/block/spotlight.phtml:288 template/block/spotlight.phtml:307
-#: template/block/spotlight.phtml:347 template/block/spotlight.phtml:400
-#: template/block/spotlight.phtml:475 template/block/spotlight.phtml:561
-#: template/block/spotlight.phtml:622 template/block/table.phtml:10
+#: template/block/spotlight.phtml:348 template/block/spotlight.phtml:402
+#: template/block/spotlight.phtml:477 template/block/spotlight.phtml:563
+#: template/block/spotlight.phtml:624 template/block/table.phtml:10
 msgid "Read"
 msgstr "نمایش"
 
 #: template/block/item.phtml:59 template/block/item.phtml:123
 #: template/block/item.phtml:188 template/block/item.phtml:267
-#: template/block/item.phtml:595 template/block/item.phtml:711
+#: template/block/item.phtml:597 template/block/item.phtml:713
 #: template/block/spotlight.phtml:54 template/block/spotlight.phtml:117
 #: template/block/spotlight.phtml:182 template/block/spotlight.phtml:261
-#: template/block/spotlight.phtml:582
+#: template/block/spotlight.phtml:584
 msgid "Read More"
 msgstr "ادامه"
 
@@ -72,11 +72,11 @@ msgstr "عنوان"
 msgid "Summary"
 msgstr "خلاصه"
 
-#: template/block/item.phtml:797 template/block/item.phtml:798
+#: template/block/item.phtml:799 template/block/item.phtml:800
 #: template/block/list.phtml:25 template/block/list.phtml:26
-#: template/block/spotlight.phtml:650 template/block/spotlight.phtml:651
+#: template/block/spotlight.phtml:652 template/block/spotlight.phtml:653
 #: template/block/table.phtml:28 template/block/table.phtml:29
-#: template/block/topic.phtml:91 template/block/topic.phtml:92
+#: template/block/topic.phtml:92 template/block/topic.phtml:93
 msgid "More stories"
 msgstr "موارد بیشتر"
 
