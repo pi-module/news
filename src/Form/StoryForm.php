@@ -138,21 +138,28 @@ class StoryForm extends BaseForm
             ),
         ));
         // type
+        if (!$this->option['admin_deactivate_view']) {
+            $option = array(
+                'text' => __('Text'),
+                'article' => __('Article'),
+                'magazine' => __('Magazine'),
+                'gallery' => __('Gallery album'),
+                'image' => __('Single image'),
+                'media' => __('Media'),
+                'download' => __('Download'),
+                'post' => __('Blog post'),
+            );
+        } else {
+            $option = array(
+                'post' => __('Blog post'),
+            );
+        }
         $this->add(array(
             'name' => 'type',
             'type' => 'select',
             'options' => array(
                 'label' => __('Type'),
-                'value_options' => array(
-                    'text' => __('Text'),
-                    'article' => __('Article'),
-                    'magazine' => __('Magazine'),
-                    'gallery' => __('Gallery album'),
-                    'image' => __('Single image'),
-                    'media' => __('Media'),
-                    'download' => __('Download'),
-                    'post' => __('Blog post'),
-                ),
+                'value_options' => $option,
             ),
             'attributes' => array(
                 'required' => true,

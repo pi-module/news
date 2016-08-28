@@ -66,32 +66,35 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <?php if (!$config['admin_deactivate_view']) { ?>
-                        <li><a title="<?php _e('Add new text'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'text')); ?>"><i
-                                    class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
-                        <li><a title="<?php _e('Add new article'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'article')); ?>"><i
-                                    class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
-                        <li><a title="<?php _e('Add new magazine'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'magazine')); ?>"><i
-                                    class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
-                        <li><a title="<?php _e('Add new gallery album'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'gallery')); ?>"><i
-                                    class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
-                        <li><a title="<?php _e('Add new single image'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'image')); ?>"><i
-                                    class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
-                        <li><a title="<?php _e('Add new media'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'media')); ?>"><i
-                                    class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
-                        <li><a title="<?php _e('Add new download'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'download')); ?>"><i
-                                    class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                            <li><a title="<?php _e('Add new text'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'text')); ?>"><i
+                                        class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
+                            <li><a title="<?php _e('Add new article'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'article')); ?>"><i
+                                        class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
+                            <li><a title="<?php _e('Add new magazine'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'magazine')); ?>"><i
+                                        class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
+                            <li><a title="<?php _e('Add new gallery album'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'gallery')); ?>"><i
+                                        class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
+                            <li><a title="<?php _e('Add new single image'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'image')); ?>"><i
+                                        class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
+                            <li><a title="<?php _e('Add new media'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'media')); ?>"><i
+                                        class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
+                            <li><a title="<?php _e('Add new download'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'download')); ?>"><i
+                                        class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
                         <?php } ?>
                         <?php if (Pi::service('module')->isActive('blog')) { ?>
-                        <li><a title="<?php _e('Add new blog post'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
-                                    class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
+                            <li><a title="<?php _e('Add new blog post'); ?>"
+                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
+                                        class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
+                        <?php } ?>
+                        <?php if (!Pi::service('module')->isActive('blog') && $config['admin_deactivate_view']) { ?>
+                            <li><?php _e('News module front page is deactivate'); ?></li>
                         <?php } ?>
                     </ul>
                 </div>

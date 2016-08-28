@@ -38,6 +38,8 @@ class StoryController extends ActionController
         $topic = $this->params('topic');
         $uid = $this->params('uid');
         $title = $this->params('title');
+        // Get Module Config
+        $config = Pi::service('registry')->config->read($module);
         // Set info
         $offset = (int)($page - 1) * $this->config('admin_perpage');
         $order = array('id DESC');
@@ -45,7 +47,7 @@ class StoryController extends ActionController
         $whereStory = array();
         $whereLink = array();
         // Get
-        if (empty($title)) {
+        /* if (empty($title)) {
             // Set where
             $whereLink['type'] = array(
                 'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
@@ -75,6 +77,27 @@ class StoryController extends ActionController
                 }
                 // Set info
                 $whereStory = array('id' => $storyId);
+            }
+        } else {
+            $whereStory['title LIKE ?'] = '%' . $title . '%';
+            $whereStory['type'] = array(
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            );
+        } */
+        if (empty($title)) {
+            // Set where
+            $whereStory['type'] = array(
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            );
+            if (!empty($status) && in_array($status, array(1, 2, 3, 4, 5))) {
+                $whereStory['status'] = $status;
+            } elseif (!empty($status) && $status == 6) {
+                $whereStory['status'] = 6;
+            } else {
+                $whereStory['status'] = array(1, 2, 3, 4);
+            }
+            if (!empty($uid)) {
+                $whereStory['uid'] = $uid;
             }
         } else {
             $whereStory['title LIKE ?'] = '%' . $title . '%';
@@ -159,7 +182,7 @@ class StoryController extends ActionController
             }
         }
         // Set count
-        if (empty($whereLink) && empty($whereStory)) {
+        /* if (empty($whereLink) && empty($whereStory)) {
             $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
             $select = $this->getModel('story')->select()->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
@@ -167,6 +190,15 @@ class StoryController extends ActionController
             $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(DISTINCT `story`)'));
             $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink);
             $count = $this->getModel('link')->selectWith($select)->current()->count;
+        } else {
+            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
+            $count = $this->getModel('story')->selectWith($select)->current()->count;
+        } */
+        if (empty($whereStory)) {
+            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $select = $this->getModel('story')->select()->columns($columnsLink);
+            $count = $this->getModel('story')->selectWith($select)->current()->count;
         } else {
             $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
             $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
@@ -201,6 +233,7 @@ class StoryController extends ActionController
         $this->view()->assign('stores', $story);
         $this->view()->assign('paginator', $paginator);
         $this->view()->assign('form', $form);
+        $this->view()->assign('config', $config);
     }
 
     public function processAction()
@@ -392,6 +425,7 @@ class StoryController extends ActionController
         }
         // Set type
         $option['type'] = $story['type'];
+        $option['admin_deactivate_view'] = $config['admin_deactivate_view'];
         // Set form
         $form = new StoryForm('story', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
