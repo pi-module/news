@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da6c7123-a0c1-48a9-b505-ba42cbca7306" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/asset/css/owl.carousel.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/asset/js/owl.carousel.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/block/gallery.phtml" afterPath="$PROJECT_DIR$/template/block/gallery.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/block/item.phtml" afterPath="$PROJECT_DIR$/template/block/item.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/block/spotlight.phtml" afterPath="$PROJECT_DIR$/template/block/spotlight.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/block/topic.phtml" afterPath="$PROJECT_DIR$/template/block/topic.phtml" />
     </list>
     <ignored path="news.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,21 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spotlight.phtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="spotlight.phtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/template/block/spotlight.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+            <state relative-caret-position="260">
+              <caret line="388" column="0" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topic.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topic.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/template/block/topic.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="52" column="61" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="61" />
+            <state relative-caret-position="53">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="51" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -126,8 +121,8 @@
         <option value="$PROJECT_DIR$/template/admin/tools-image.phtml" />
         <option value="$PROJECT_DIR$/template/block/gallery.phtml" />
         <option value="$PROJECT_DIR$/template/block/item.phtml" />
-        <option value="$PROJECT_DIR$/template/block/spotlight.phtml" />
         <option value="$PROJECT_DIR$/template/block/topic.phtml" />
+        <option value="$PROJECT_DIR$/template/block/spotlight.phtml" />
       </list>
     </option>
   </component>
@@ -352,7 +347,7 @@
       <workItem from="1469981433460" duration="111000" />
       <workItem from="1470751286167" duration="639000" />
       <workItem from="1472355242875" duration="1079000" />
-      <workItem from="1472390749332" duration="2048000" />
+      <workItem from="1472390749332" duration="2084000" />
     </task>
     <task id="LOCAL-00001" summary="Fix module">
       <created>1441117466564</created>
@@ -676,11 +671,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472392513883</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Use carousel from core">
+      <created>1472392810243</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1472392810243</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34156000" />
+    <option name="totallyTimeSpent" value="34192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="994" extended-state="6" />
@@ -738,7 +740,8 @@
     <MESSAGE value="Work on news route" />
     <MESSAGE value="Work on news admin hide module option" />
     <MESSAGE value="Work on admin view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work on admin view" />
+    <MESSAGE value="Use carousel from core" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use carousel from core" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1121,18 +1124,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/block/spotlight.phtml">
+    <entry file="file://$PROJECT_DIR$/template/block/topic.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+        <state relative-caret-position="53">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="51" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/block/topic.phtml">
+    <entry file="file://$PROJECT_DIR$/template/block/spotlight.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="52" column="61" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="61" />
+        <state relative-caret-position="260">
+          <caret line="388" column="0" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
           <folding />
         </state>
       </provider>
