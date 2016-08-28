@@ -23,7 +23,7 @@ use Zend\Json\Json;
 
 class TopicController extends ActionController
 {
-    protected $ImageTopicPrefix = 'topic_';
+    protected $ImageTopicPrefix = 'topic-';
 
     public function indexAction()
     {

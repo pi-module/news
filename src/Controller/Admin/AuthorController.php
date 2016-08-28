@@ -25,12 +25,7 @@ use Zend\Json\Json;
 
 class AuthorController extends ActionController
 {
-    protected $ImageAuthorPrefix = 'author_';
-
-    protected $authorColumns = array(
-        'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description',
-        'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
-    );
+    protected $ImageAuthorPrefix = 'author-';
 
     public function indexAction()
     {
@@ -169,12 +164,6 @@ class AuthorController extends ActionController
                     }
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
-                }
-                // Set just category fields
-                foreach (array_keys($values) as $key) {
-                    if (!in_array($key, $this->authorColumns)) {
-                        unset($values[$key]);
-                    }
                 }
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];

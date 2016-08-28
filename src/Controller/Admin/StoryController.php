@@ -27,7 +27,7 @@ use Zend\Json\Json;
 
 class StoryController extends ActionController
 {
-    protected $ImageStoryPrefix = 'image_';
+    protected $ImageStoryPrefix = 'image-';
 
     public function indexAction()
     {

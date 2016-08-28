@@ -22,7 +22,7 @@ use Zend\Json\Json;
 
 class AttachController extends ActionController
 {
-    protected $AttachPrefix = 'attach_';
+    protected $AttachPrefix = 'attach-';
 
     public function indexAction()
     {
