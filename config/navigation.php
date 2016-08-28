@@ -99,15 +99,26 @@ return array(
             'route' => 'admin',
             'controller' => 'attribute',
             'action' => 'index',
-        ),
-        'position' => array(
-            'label' => _a('Attribute position'),
-            'permission' => array(
-                'resource' => 'position',
+            'pages' => array(
+                'attribute' => array(
+                    'label' => _a('Attribute'),
+                    'permission' => array(
+                        'resource' => 'attribute',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'attribute',
+                    'action' => 'index',
+                ),
+                'position' => array(
+                    'label' => _a('Attribute position'),
+                    'permission' => array(
+                        'resource' => 'position',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'position',
+                    'action' => 'index',
+                ),
             ),
-            'route' => 'admin',
-            'controller' => 'position',
-            'action' => 'index',
         ),
         'author' => array(
             'label' => _a('Authors'),
@@ -117,15 +128,26 @@ return array(
             'route' => 'admin',
             'controller' => 'author',
             'action' => 'index',
-        ),
-        'role' => array(
-            'label' => _a('Author roles'),
-            'permission' => array(
-                'resource' => 'role',
+            'pages' => array(
+                'author' => array(
+                    'label' => _a('Authors'),
+                    'permission' => array(
+                        'resource' => 'author',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'author',
+                    'action' => 'index',
+                ),
+                'role' => array(
+                    'label' => _a('Author roles'),
+                    'permission' => array(
+                        'resource' => 'role',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'role',
+                    'action' => 'index',
+                ),
             ),
-            'route' => 'admin',
-            'controller' => 'role',
-            'action' => 'index',
         ),
         'microblog' => array(
             'label' => _a('Micro blog'),
@@ -144,15 +166,80 @@ return array(
             'route' => 'admin',
             'controller' => 'tools',
             'action' => 'index',
-        ),
-        'json' => array(
-            'label' => _a('Json'),
-            'permission' => array(
-                'resource' => 'json',
+            'pages' => array(
+                'tools' => array(
+                    'label' => _a('Tools'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'index',
+                ),
+                'rebuild' => array(
+                    'label' => _a('Rebuild'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'rebuild',
+                ),
+                'prune' => array(
+                    'label' => _a('Prune'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'prune',
+                ),
+                'spotlight' => array(
+                    'label' => _a('Spotlight'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'spotlight',
+                ),
+                'page' => array(
+                    'label' => _a('Page'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'page',
+                ),
+                'sitemap' => array(
+                    'label' => _a('Sitemap'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'sitemap',
+                ),
+                'image' => array(
+                    'label' => _a('Image'),
+                    'permission' => array(
+                        'resource' => 'tools',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'tools',
+                    'action' => 'image',
+                ),
+                'json' => array(
+                    'label' => _a('Json'),
+                    'permission' => array(
+                        'resource' => 'json',
+                    ),
+                    'route' => 'admin',
+                    'controller' => 'json',
+                    'action' => 'index',
+                ),
             ),
-            'route' => 'admin',
-            'controller' => 'json',
-            'action' => 'index',
         ),
     ),
 );
