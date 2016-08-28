@@ -21,6 +21,17 @@ class MediaController extends ActionController
     public function explorerAction()
     {
         // Get info from url
+        $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
+        // Get info from url
         $id = $this->params('id');
         // Check id
         if (!isset($id) || empty($id)) {
@@ -64,6 +75,13 @@ class MediaController extends ActionController
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Check id
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
@@ -106,6 +124,15 @@ class MediaController extends ActionController
         // Get info from url
         $id = $this->params('id');
         $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Check id
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);

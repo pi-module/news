@@ -60,16 +60,19 @@ class StoryFilter extends InputFilter
                 )),
             ),
         ));
-        // topic
-        $this->add(array(
-            'name' => 'topic',
-            'required' => true,
-        ));
-        // topic_main
-        $this->add(array(
-            'name' => 'topic_main',
-            'required' => true,
-        ));
+        // Check is not blog
+        if ($option['type'] != 'post') {
+            // topic
+            $this->add(array(
+                'name' => 'topic',
+                'required' => true,
+            ));
+            // topic_main
+            $this->add(array(
+                'name' => 'topic_main',
+                'required' => true,
+            ));
+        }
         // text_summary
         $this->add(array(
             'name' => 'text_summary',

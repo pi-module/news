@@ -96,6 +96,14 @@ return array(
             'filter' => 'number_int',
             'value' => 0
         ),
+        'admin_deactivate_view' => array(
+            'category' => 'admin',
+            'title' => _a('Deactivate module front pages'),
+            'description' => _a('Deactivate module front pages by 404 error code, useful if you want use module as service for event and blog and dont want publish any story as news'),
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 0
+        ),
         // Json
         'admin_json' => array(
             'category' => 'json',

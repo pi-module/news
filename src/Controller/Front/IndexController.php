@@ -28,6 +28,13 @@ class IndexController extends ActionController
         //$search = $this->params('q');
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
 

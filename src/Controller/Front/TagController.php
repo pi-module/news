@@ -23,6 +23,15 @@ class TagController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $slug = $this->params('slug');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Check tag
         if (!Pi::service('module')->isActive('tag')) {
             $this->getResponse()->setStatusCode(404);
@@ -30,8 +39,6 @@ class TagController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Check slug
@@ -99,6 +106,15 @@ class TagController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $tagList = array();
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Check tag module install or not
         if (Pi::service('module')->isActive('tag')) {
             $where = array('module' => $module);

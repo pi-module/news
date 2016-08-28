@@ -25,6 +25,13 @@ class AuthorController extends ActionController
         $slug = $this->params('slug');
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Get topic information from model
@@ -60,6 +67,13 @@ class AuthorController extends ActionController
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Set info
         $order = array('title ASC', 'id ASC');
         $where = array('status' => 1);

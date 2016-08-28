@@ -65,6 +65,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                         <i class="fa fa-plus"></i> <?php _e('Add new story'); ?> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
+                        <?php if (!$config['admin_deactivate_view']) { ?>
                         <li><a title="<?php _e('Add new text'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'text')); ?>"><i
                                     class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
@@ -86,9 +87,12 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                         <li><a title="<?php _e('Add new download'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'download')); ?>"><i
                                     class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                        <?php } ?>
+                        <?php if (Pi::service('module')->isActive('blog')) { ?>
                         <li><a title="<?php _e('Add new blog post'); ?>"
                                href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
                                     class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <div class="btn-group">

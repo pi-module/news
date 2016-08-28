@@ -139,12 +139,16 @@ class StoryController extends ActionController
                     // Set type
                     $story[$row->id]['type_view'] = __('Blog post');
                     // Set url
-                    if ($row->status == 1) {
-                        $story[$row->id]['storyUrl'] = $this->url('blog', array(
-                            'module' => 'blog',
-                            'controller' => 'post',
-                            'slug' => $row->slug
-                        ));
+                    if (Pi::service('module')->isActive('blog')) {
+                        if ($row->status == 1) {
+                            $story[$row->id]['storyUrl'] = $this->url('blog', array(
+                                'module' => 'blog',
+                                'controller' => 'post',
+                                'slug' => $row->slug
+                            ));
+                        }
+                    } else {
+                        $story[$row->id]['storyUrl'] = '';
                     }
                     break;
 
@@ -386,6 +390,8 @@ class StoryController extends ActionController
             $option['author'] = '';
             $option['role'] = '';
         }
+        // Set type
+        $option['type'] = $story['type'];
         // Set form
         $form = new StoryForm('story', $option);
         $form->setAttribute('enctype', 'multipart/form-data');

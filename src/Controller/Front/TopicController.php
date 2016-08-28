@@ -26,6 +26,13 @@ class TopicController extends IndexController
         $slug = $this->params('slug');
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic information from model
         $topic = $this->getModel('topic')->find($slug, 'slug');
         // Check slug set
@@ -104,6 +111,13 @@ class TopicController extends IndexController
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
+        // Check deactivate view
+        if ($config['admin_deactivate_view']) {
+            $this->getResponse()->setStatusCode(404);
+            $this->terminate(__('Page not found.'), '', 'error-404');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
         // Get topic list
         $where = array('status' => 1, 'type' => 'general');
         $order = array('time_create DESC', 'id DESC');
