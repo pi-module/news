@@ -8,6 +8,7 @@ CREATE TABLE `{story}` (
   `author`           VARCHAR(255)                                                                                           NOT NULL DEFAULT '',
   `text_summary`     MEDIUMTEXT,
   `text_description` MEDIUMTEXT,
+  `text_html`        TEXT,
   `seo_title`        VARCHAR(255)                                                                                           NOT NULL DEFAULT '',
   `seo_keywords`     VARCHAR(255)                                                                                           NOT NULL DEFAULT '',
   `seo_description`  VARCHAR(255)                                                                                           NOT NULL DEFAULT '',

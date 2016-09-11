@@ -20,8 +20,33 @@ class Story extends Model
      * {@inheritDoc}
      */
     protected $columns = array(
-        'id', 'title', 'subtitle', 'slug', 'topic', 'topic_main', 'author', 'text_summary', 'text_description',
-        'seo_title', 'seo_keywords', 'seo_description', 'important', 'status', 'time_create', 'time_update',
-        'time_publish', 'uid', 'hits', 'image', 'path', 'point', 'count', 'favourite', 'attach', 'attribute', 'type'
+        'id',
+        'title',
+        'subtitle',
+        'slug',
+        'topic',
+        'topic_main',
+        'author',
+        'text_summary',
+        'text_description',
+        'text_html',
+        'seo_title',
+        'seo_keywords',
+        'seo_description',
+        'important',
+        'status',
+        'time_create',
+        'time_update',
+        'time_publish',
+        'uid',
+        'hits',
+        'image',
+        'path',
+        'point',
+        'count',
+        'favourite',
+        'attach',
+        'attribute',
+        'type'
     );
 }

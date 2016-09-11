@@ -771,6 +771,22 @@ EOD;
             }
         }
 
+        // Update to version 1.8.3
+        if (version_compare($moduleVersion, '1.8.3', '<')) {
+            // Alter table : ADD text_html
+            $sql = sprintf("ALTER TABLE %s ADD `text_html` TEXT", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }

@@ -96,6 +96,14 @@ return array(
             'filter' => 'number_int',
             'value' => 0
         ),
+        'admin_text_extra' => array(
+            'category' => 'admin',
+            'title' => _a('Set custom html code'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 0
+        ),
         'admin_deactivate_view' => array(
             'category' => 'admin',
             'title' => _a('Deactivate module front pages'),

@@ -398,6 +398,7 @@ class StoryController extends ActionController
         // Set option
         $option = array();
         $option['admin_time_publish'] = $config['admin_time_publish'];
+        $option['admin_text_extra'] = $config['admin_text_extra'];
         // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();

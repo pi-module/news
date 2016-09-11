@@ -111,6 +111,21 @@ class StoryForm extends BaseForm
                 'description' => __('Only show on story page'),
             )
         ));
+        // text_html
+        if ($this->option['admin_text_extra']) {
+            $this->add(array(
+                'name' => 'text_html',
+                'options' => array(
+                    'label' => __('Extra html text'),
+                ),
+                'attributes' => array(
+                    'type' => 'textarea',
+                    'rows' => '5',
+                    'cols' => '40',
+                    'description' => __('Set custom html code to show under main text'),
+                )
+            ));
+        }
         // extra_main
         $this->add(array(
             'name' => 'extra_main',

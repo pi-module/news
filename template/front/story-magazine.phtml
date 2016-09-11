@@ -104,6 +104,11 @@ if (!empty($story['largeUrl'])) {
         <div class="clearfix e-content" itemprop="description">
             <?php echo $story['text_description']; ?>
         </div>
+        <?php if ($config['admin_text_extra'] && !empty($story['text_html'])) { ?>
+            <div class="clearfix">
+                <?php echo $story['text_html']; ?>
+            </div>
+        <?php } ?>
         <div class="storyMedia clearfix">
             <?php include $this->template('front/attach-audio'); ?>
             <?php include $this->template('front/attribute-audio'); ?>

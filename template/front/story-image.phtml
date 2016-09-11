@@ -106,7 +106,14 @@ if (!empty($story['largeUrl'])) {
                     <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
                 </div>
             <?php } ?>
-            <div class="storyText e-content" itemprop="description"><?php echo $story['text_description']; ?></div>
+            <div class="storyText e-content" itemprop="description">
+                <?php echo $story['text_description']; ?>
+            </div>
+            <?php if ($config['admin_text_extra'] && !empty($story['text_html'])) { ?>
+                <div class="clearfix">
+                    <?php echo $story['text_html']; ?>
+                </div>
+            <?php } ?>
             <div class="clearfix"></div>
             <?php include $this->template('front/attribute'); ?>
             <?php include $this->template('front/attribute-file'); ?>

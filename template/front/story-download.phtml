@@ -109,6 +109,11 @@ if (!empty($story['largeUrl'])) {
                     <div class="e-content" itemprop="description">
                         <?php echo $story['text_description']; ?>
                     </div>
+                    <?php if ($config['admin_text_extra'] && !empty($story['text_html'])) { ?>
+                        <div class="clearfix">
+                            <?php echo $story['text_html']; ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <?php if ($config['show_tag'] && isset($tag) && !empty($tag)) { ?>
                     <div class="well clearfix">

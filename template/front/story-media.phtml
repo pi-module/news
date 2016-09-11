@@ -91,12 +91,17 @@ if (!empty($story['largeUrl'])) {
                 <?php if ($story['subtitle']) { ?>
                     <p><?php echo $this->escape($story['subtitle']); ?></p>
                 <?php } ?>
-                <?php /*  <div class="clearfix p-summary" itemprop="description">
+                <div class="clearfix p-summary" itemprop="description">
                     <?php echo $story['text_summary']; ?>
-                </div>  */ ?>
+                </div>
                 <div class="clearfix e-content" itemprop="description">
                     <?php echo $story['text_description']; ?>
                 </div>
+                <?php if ($config['admin_text_extra'] && !empty($story['text_html'])) { ?>
+                    <div class="clearfix">
+                        <?php echo $story['text_html']; ?>
+                    </div>
+                <?php } ?>
                 <div class="storyMedia clearfix">
                     <?php include $this->template('front/attach'); ?>
                 </div>

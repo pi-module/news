@@ -93,6 +93,18 @@ class StoryFilter extends InputFilter
                 ),
             ),
         ));
+        // text_html
+        if ($option['admin_text_extra']) {
+            $this->add(array(
+                'name' => 'text_html',
+                'required' => false,
+                'filters' => array(
+                    array(
+                        'name' => 'StringTrim',
+                    ),
+                ),
+            ));
+        }
         // time_publish
         if ($option['admin_time_publish']) {
             $this->add(array(
