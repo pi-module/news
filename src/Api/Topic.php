@@ -24,6 +24,7 @@ use Zend\Json\Json;
  * Pi::api('topic', 'news')->canonizeTopic($topic);
  * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
+ * Pi::api('topic', 'news')->getTreeFull($list);
  * Pi::api('topic', 'news')->sitemap();
  * Pi::api('topic', 'news')->regenerateImage();
  */
@@ -319,22 +320,46 @@ class Topic extends AbstractApi
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
         }
-        $ids = $this->getTree($list, $id);
+        $ids = $this->getTreeId($list, $id);
         $ids = array_unique($ids);
         return $ids;
     }
 
-    public function getTree($elements, $id, $ids = array())
+    public function getTreeId($topics, $id, $ids = array())
     {
         $ids[$id] = $id;
-        foreach ($elements as $element) {
-            if ($element['pid'] == $id) {
-                $ids[$element['id']] = $element['id'];
-                $ids = $this->getTree($elements, $element['id'], $ids);
-                unset($elements[$element['id']]);
+        foreach ($topics as $topic) {
+            if ($topic['pid'] == $id) {
+                $ids[$topic['id']] = $topic['id'];
+                $ids = $this->getTreeId($topics, $topic['id'], $ids);
+                unset($topics[$topic['id']]);
             }
         }
         return $ids;
+    }
+
+    public function getTreeFull($elements, $parentId = 0)
+    {
+        $branch = array();
+        // Set category list as tree
+        foreach ($elements as $element) {
+            if ($element['pid'] == $parentId) {
+                $depth = 0;
+                $branch[$element['id']] = $element;
+                $branch[$element['id']]['depth'] = $depth;
+                $children = $this->getTreeFull($elements, $element['id']);
+                if ($children) {
+                    $depth++;
+                    foreach ($children as $key => $value) {
+                        $branch[$key] = $value;
+                        $branch[$key]['depth'] = $depth;
+                    }
+                }
+                unset($elements[$element['id']]);
+                unset($depth);
+            }
+        }
+        return $branch;
     }
 
     public function sitemap()

@@ -298,6 +298,13 @@ return array(
                 'filter' => 'string',
                 'value' => 0,
             ),
+            'tree' => array(
+                'title' => _a('Tree view'),
+                'description' => '',
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
             'showdesc' => array(
                 'title' => _a('Show text'),
                 'description' => '',

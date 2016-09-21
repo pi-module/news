@@ -191,6 +191,10 @@ class Block
         foreach ($rowset as $row) {
             $topic[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
+        //
+        if ($block['tree']) {
+            $topic = Pi::api('topic', 'news')->getTreeFull($topic);
+        }
         // Set block array
         $block['resources'] = $topic;
         return $block;
