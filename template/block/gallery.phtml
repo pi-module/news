@@ -2,7 +2,7 @@
 // Set width
 $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
 ?>
-<div class="news-block news-gallery-block gallery">
+<div class="news-block news-gallery-block gallery clearfix">
     <?php if ($block['type'] == 'simple') { ?>
         <?php if ($block['showeffect']) {
             $script = <<<'EOT'
@@ -23,20 +23,22 @@ EOT;
             $this->footScript()->appendScript($script);
         }
         ?>
-        <?php foreach ($block['resources'] as $gallery) { ?>
-            <?php if ($block['showeffect']) {
-                $hrefLink = $this->escape($gallery['largeUrl']);
-            } else {
-                $hrefLink = $this->escape($gallery['mediaUrl']);
-            } ?>
-            <div class="<?php echo $width; ?> h-entry" itemscope itemtype="http://schema.org/Article">
-                <a itemprop="url" class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>"
-                   href="<?php echo $hrefLink; ?>">
-                    <img itemprop="image" src="<?php echo $this->escape($gallery['thumbUrl']); ?>"
-                         alt="<?php echo $this->escape($gallery['title']); ?>"/>
-                </a>
-            </div>
-        <?php } ?>
+        <div class="row">
+            <?php foreach ($block['resources'] as $gallery) { ?>
+                <?php if ($block['showeffect']) {
+                    $hrefLink = $this->escape($gallery['largeUrl']);
+                } else {
+                    $hrefLink = $this->escape($gallery['mediaUrl']);
+                } ?>
+                <div class="<?php echo $width; ?> h-entry" itemscope itemtype="http://schema.org/Article">
+                    <a itemprop="url" class="thumbnail" title="<?php echo $this->escape($gallery['title']); ?>"
+                       href="<?php echo $hrefLink; ?>">
+                        <img itemprop="image" src="<?php echo $this->escape($gallery['thumbUrl']); ?>"
+                             alt="<?php echo $this->escape($gallery['title']); ?>"/>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
     <?php } elseif ($block['type'] == 'slide') { ?>
         <?php
         $this->jQuery(array(
