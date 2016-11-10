@@ -52,12 +52,13 @@
                                 </div>
                                 <div class="clearfix">
                                     <?php if ($block['showdesc']) { ?>
-                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                        <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                     <?php } ?>
                                     <?php if ($block['showmore']) { ?>
-                                        <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                              title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                        </p>
+                                        <div class="news-item-block-story-more">
+                                            <a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                               title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -116,12 +117,13 @@
                                     </ul>
                                 <?php } ?>
                                 <?php if ($block['showdesc']) { ?>
-                                    <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                    <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                 <?php } ?>
                                 <?php if ($block['showmore']) { ?>
-                                    <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                          title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                    </p>
+                                    <div class="news-item-block-story-more">
+                                        <a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                           title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>
@@ -154,7 +156,6 @@
                                         <?php echo $this->escape($story['title']); ?>
                                     </a>
                                 </h3>
-
                                 <div class="clearfix">
                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                         <ul class="text-muted list-inline">
@@ -181,12 +182,13 @@
                                         </ul>
                                     <?php } ?>
                                     <?php if ($block['showdesc']) { ?>
-                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                        <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                     <?php } ?>
                                     <?php if ($block['showmore']) { ?>
-                                        <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                              title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                        </p>
+                                        <div class="news-item-block-story-more">
+                                            <a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                               title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -214,9 +216,9 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'horizontal') { ?>
-            <div class="news-item-block-horizontal clearfix">
+            <div class="news-item-block-horizontal clearfix row">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="h-entry col-md-4" itemscope itemtype="http://schema.org/Article">
+                    <div class="h-entry col-md-3" itemscope itemtype="http://schema.org/Article">
                         <div class="news-item-block-horizontal-box clearfix">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -260,12 +262,13 @@
                                         </ul>
                                     <?php } ?>
                                     <?php if ($block['showdesc']) { ?>
-                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                        <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                     <?php } ?>
                                     <?php if ($block['showmore']) { ?>
-                                        <p><a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                        <div class="news-item-block-story-more">
+                                            <a href="<?php echo $this->escape($story['storyUrl']); ?>"
                                               title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                        </p>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -496,7 +499,7 @@
                                         <?php } ?>
                                     </ul>
                                     <?php if ($block['showdesc']) { ?>
-                                        <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                        <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                     <?php } ?>
                                     <meta itemprop="datePublished"
                                           content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
@@ -533,8 +536,14 @@
                             </a>
                             <?php if ($block['showdesc']) { ?>
                                 <div class="news-item-block-image-text">
-                                    <h2><?php echo $this->escape($story['title']); ?></h2>
-                                    <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                    <h2>
+                                        <a itemprop="url" class="u-url"
+                                           href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                           title="<?php echo $this->escape($story['title']); ?>">
+                                            <?php echo $this->escape($story['title']); ?>
+                                        </a>
+                                    </h2>
+                                    <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                 </div>
                             <?php } ?>
                             <meta itemprop="datePublished"
@@ -596,12 +605,13 @@
                                     <?php } ?>
                                 </div>
                                 <?php if ($block['showdesc']) { ?>
-                                    <div class="storyText p-summary"><?php echo $firstStory['text_summary']; ?></div>
+                                    <div class="news-item-block-summary p-summary"><?php echo $firstStory['text_summary']; ?></div>
                                 <?php } ?>
                                 <?php if ($block['showmore']) { ?>
-                                    <p><a href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
-                                          title="<?php echo $this->escape($firstStory['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                    </p>
+                                    <div class="news-item-block-story-more">
+                                        <a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                           title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                    </div>
                                 <?php } ?>
                                 <meta itemprop="datePublished"
                                       content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
@@ -712,12 +722,13 @@
                                         <?php } ?>
                                     </div>
                                     <?php if ($block['showdesc']) { ?>
-                                        <div class="storyText p-summary"><?php echo $firstStory['text_summary']; ?></div>
+                                        <div class="news-item-block-summary p-summary"><?php echo $firstStory['text_summary']; ?></div>
                                     <?php } ?>
                                     <?php if ($block['showmore']) { ?>
-                                        <p><a href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
-                                              title="<?php echo $this->escape($firstStory['title']); ?>"><?php echo _b('Read More'); ?></a>
-                                        </p>
+                                        <div class="news-item-block-story-more">
+                                            <a href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                               title="<?php echo $this->escape($story['title']); ?>"><?php echo _b('Read More'); ?></a>
+                                        </div>
                                     <?php } ?>
                                     <meta itemprop="datePublished"
                                           content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
