@@ -517,7 +517,7 @@
         <?php } elseif ($block['type'] == 'image') { ?>
             <div class="news-item-block-image clearfix">
                 <div class="row">
-                    <?php if ($block['number'] === 1) {
+                    <?php if ($block['number'] == 1) {
                         $class = 'col-md-12 col-sm-12 col-xs-12';
                     } else {
                         $class = 'col-md-6 col-sm-6 col-xs-12';
@@ -531,6 +531,12 @@
                                      alt="<?php echo $this->escape($story['title']); ?>"
                                      class="img-responsive u-photo"/>
                             </a>
+                            <?php if ($block['showdesc']) { ?>
+                                <div class="news-item-block-image-text">
+                                    <h2><?php echo $this->escape($story['title']); ?></h2>
+                                    <div class="storyText p-summary"><?php echo $story['text_summary']; ?></div>
+                                </div>
+                            <?php } ?>
                             <meta itemprop="datePublished"
                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                             <meta itemprop="name"
