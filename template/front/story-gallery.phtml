@@ -88,7 +88,9 @@ if (!empty($story['largeUrl'])) {
                 <?php } ?>
             </div>
             <?php if ($story['subtitle']) { ?>
-                <h2><?php echo $this->escape($story['subtitle']); ?></h2>
+                <div class="clearfix story-subtitle">
+                    <h2><?php echo $this->escape($story['subtitle']); ?></h2>
+                </div>
             <?php } ?>
             <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
                 <div class="gallery gallery-list text-center clearfix row">
