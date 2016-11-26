@@ -20,6 +20,7 @@ use Pi\File\Transfer\Upload;
 use Module\News\Form\TopicForm;
 use Module\News\Form\TopicFilter;
 use Zend\Json\Json;
+use Zend\Db\Sql\Predicate\Expression;
 
 class TopicController extends ActionController
 {
@@ -90,7 +91,7 @@ class TopicController extends ActionController
             return $this->redirect()->toRoute('', array('action' => 'update'));
         }
         // Set paginator
-        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $count = array('count' => new Expression('count(*)'));
         $select = $this->getModel('topic')->select()->columns($count);
         $count = $this->getModel('topic')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
@@ -432,7 +433,7 @@ class TopicController extends ActionController
             'action' => $name,
         );
         // Get count
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         $select = Pi::model('page')->select()->where($where)->columns($columns);
         $count = Pi::model('page')->selectWith($select)->current()->count;
         // Set page

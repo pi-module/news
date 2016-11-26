@@ -24,6 +24,7 @@ use Module\News\Form\StoryAdditionalFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
 use Zend\Json\Json;
+use Zend\Db\Sql\Predicate\Expression;
 
 class StoryController extends ActionController
 {
@@ -68,7 +69,7 @@ class StoryController extends ActionController
             // Get info from link table
             if (!empty($whereLink)) {
                 // Set columns
-                $columnsLink = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
+                $columnsLink = array('story' => new Expression('DISTINCT story'));
                 $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
                 $rowset = $this->getModel('link')->selectWith($select)->toArray();
                 // Make list
@@ -183,24 +184,24 @@ class StoryController extends ActionController
         }
         // Set count
         /* if (empty($whereLink) && empty($whereStory)) {
-            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $columnsLink = array('count' => new Expression('count(*)'));
             $select = $this->getModel('story')->select()->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
         } elseif (empty($title) && !empty($whereStory)) {
-            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(DISTINCT `story`)'));
+            $columnsLink = array('count' => new Expression('count(DISTINCT `story`)'));
             $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink);
             $count = $this->getModel('link')->selectWith($select)->current()->count;
         } else {
-            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $columnsLink = array('count' => new Expression('count(*)'));
             $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
         } */
         if (empty($whereStory)) {
-            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $columnsLink = array('count' => new Expression('count(*)'));
             $select = $this->getModel('story')->select()->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
         } else {
-            $columnsLink = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+            $columnsLink = array('count' => new Expression('count(*)'));
             $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
             $count = $this->getModel('story')->selectWith($select)->current()->count;
         }

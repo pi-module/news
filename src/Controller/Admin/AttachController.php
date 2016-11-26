@@ -19,6 +19,7 @@ use Pi\File\Transfer\Upload;
 use Module\News\Form\AttachForm;
 use Module\News\Form\AttachFilter;
 use Zend\Json\Json;
+use Zend\Db\Sql\Predicate\Expression;
 
 class AttachController extends ActionController
 {
@@ -56,7 +57,7 @@ class AttachController extends ActionController
             )));
         }
         // Set paginator
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         $select = $this->getModel('attach')->select()->columns($columns);
         $count = $this->getModel('attach')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));

@@ -17,6 +17,7 @@ use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Module\News\Form\MicroblogForm;
 use Module\News\Form\MicroblogFilter;
+use Zend\Db\Sql\Predicate\Expression;
 
 class MicroblogController extends ActionController
 {
@@ -54,7 +55,7 @@ class MicroblogController extends ActionController
             }
         }
         // Set paginator
-        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $count = array('count' => new Expression('count(*)'));
         $select = $this->getModel('microblog')->select()->columns($count);
         $count = $this->getModel('microblog')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));

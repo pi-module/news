@@ -304,7 +304,7 @@ class Topic extends AbstractApi
 
     public function topicCount()
     {
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         $select = Pi::model('topic', $this->getModule())->select()->columns($columns);
         $count = Pi::model('topic', $this->getModule())->selectWith($select)->current()->count;
         return $count;

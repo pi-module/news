@@ -17,6 +17,7 @@ use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Module\News\Form\SpotlightForm;
 use Module\News\Form\SpotlightFilter;
+use Zend\Db\Sql\Predicate\Expression;
 
 class SpotlightController extends ActionController
 {
@@ -77,7 +78,7 @@ class SpotlightController extends ActionController
             $spotlightList[$row->id]['time_expire_view'] = _date($spotlightList[$row->id]['time_expire']);
         }
         // Set paginator
-        $count = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $count = array('count' => new Expression('count(*)'));
         $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($count);
         $count = $this->getModel('spotlight')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));

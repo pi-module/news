@@ -15,6 +15,7 @@ namespace Module\News\Api;
 use Pi;
 use Pi\Application\Api\AbstractApi;
 use Zend\Json\Json;
+use Zend\Db\Sql\Predicate\Expression;
 
 /*
  * Pi::api('story', 'news')->getStory($parameter, $field, $option);
@@ -68,7 +69,7 @@ class Story extends AbstractApi
     {
         // set info
         $where = array('item_id' => $id, 'item_table' => 'story');
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         // Get attach count
         $select = Pi::model('attach', $this->getModule())->select()->columns($columns)->where($where);
         $count = Pi::model('attach', $this->getModule())->selectWith($select)->current()->count;
@@ -149,7 +150,7 @@ class Story extends AbstractApi
     {
         // set info
         $where = array('story' => $id);
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         // Get attribute count
         $select = Pi::model('field_data', $this->getModule())->select()->columns($columns)->where($where);
         $count = Pi::model('field_data', $this->getModule())->selectWith($select)->current()->count;
@@ -175,7 +176,7 @@ class Story extends AbstractApi
                 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             ),
         );
-        $columns = array('story' => new \Zend\Db\Sql\Predicate\Expression('DISTINCT story'));
+        $columns = array('story' => new Expression('DISTINCT story'));
         $limit = intval($config['related_num']);
         // Get info from link table
         $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);

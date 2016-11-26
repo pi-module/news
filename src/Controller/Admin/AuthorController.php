@@ -22,6 +22,7 @@ use Module\News\Form\AuthorFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
 use Zend\Json\Json;
+use Zend\Db\Sql\Predicate\Expression;
 
 class AuthorController extends ActionController
 {
@@ -51,7 +52,7 @@ class AuthorController extends ActionController
             $author[$row->id]['time_create'] = _date($author[$row->id]['time_create']);
         }
         // Set paginator
-        $columns = array('count' => new \Zend\Db\Sql\Predicate\Expression('count(*)'));
+        $columns = array('count' => new Expression('count(*)'));
         $select = $this->getModel('author')->select()->where($where)->columns($columns);
         $count = $this->getModel('author')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
