@@ -1,0 +1,9 @@
+<?php
+
+$script = <<<'EOT'
+    $(function() {
+        $('.index-media .thumbnail').matchHeight();
+    });
+EOT;
+
+$this->footScript()->appendScript($script);
