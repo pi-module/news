@@ -125,6 +125,8 @@ if (!empty($story['largeUrl'])) {
             </div>
         </div>
         <div class="col-md-4">
+
+            <?php include $this->template('front/partial/sticky'); ?>
             <div class="news-story-page-side">
                 <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
                     <div class="gallery">
