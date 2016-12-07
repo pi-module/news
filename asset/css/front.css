@@ -94,3 +94,18 @@
 .storyImageMain .thumbnail {
     border: 0px;
 }
+
+.news-story-page-side{
+    margin-top:76px;
+}
+
+.news-story-page-body .p-summary{
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.news-story-page-body h2{
+    font-style:italic;
+    font-weight: normal;
+    display: inline-block;
+}
