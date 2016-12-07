@@ -109,11 +109,3 @@
     font-weight: normal;
     display: inline-block;
 }
-
-.news-story-page-body h2:after{
-    content: '';
-    border-bottom: 2px solid #dcdada;
-    width: 320px;
-    display: block;
-    margin-top: 10px;
-}
