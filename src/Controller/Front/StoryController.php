@@ -54,8 +54,21 @@ class StoryController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Update Hits
-        $this->getModel('story')->increment('hits', array('id' => $story['id']));
+        if(!isset($_SESSION['hits_news'][$story['id']])){
+            if(!isset($_SESSION['hits_news'])){
+                $_SESSION['hits_news'] = array();
+            }
+
+            $_SESSION['hits_news'][$story['id']] = false;
+        }
+
+        if(!$_SESSION['hits_news'][$story['id']]){
+            $this->getModel('story')->increment('hits', array('id' => $story['id']));
+            $_SESSION['hits_news'][$story['id']] = true;
+        }
+
         // Links
         $link = Pi::api('story', 'news')->Link($story['id'], array($story['topic_main']));
         $this->view()->assign('link', $link);
