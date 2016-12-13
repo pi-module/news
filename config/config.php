@@ -424,7 +424,7 @@ return array(
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 400
+            'value' => 500
         ),
         'image_mediumw' => array(
             'category' => 'image',
@@ -432,7 +432,7 @@ return array(
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 400
+            'value' => 500
         ),
         'image_thumbh' => array(
             'category' => 'image',
@@ -440,7 +440,7 @@ return array(
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 200
+            'value' => 250
         ),
         'image_thumbw' => array(
             'category' => 'image',
@@ -448,7 +448,7 @@ return array(
             'description' => '',
             'edit' => 'text',
             'filter' => 'number_int',
-            'value' => 200
+            'value' => 250
         ),
         'image_lightbox' => array(
             'category' => 'image',
