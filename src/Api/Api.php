@@ -311,6 +311,7 @@ class Api extends AbstractApi
 
     public function getStoryList($where = array(), $order = array(), $offset = '', $limit = 10, $type = 'full', $table = 'link', $option = array())
     {
+        $list = array();
         switch ($table) {
             case 'story':
                 // Select from story table
@@ -349,13 +350,18 @@ class Api extends AbstractApi
                 $columns = array('story' => new Expression('DISTINCT story'));
                 $select->columns($columns);
                 $rowSetLink = Pi::model('link', $this->getModule())->selectWith($select);
+                $storyId = array();
                 foreach ($rowSetLink as $id) {
                     $storyId[] = $id['story'];
                 }
                 // Select from story table
-                $whereStory = array('id' => $storyId);
-                $select = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
-                $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                if (!empty($storyId)) {
+                    $whereStory = array('id' => $storyId);
+                    $select = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
+                    $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                } else {
+                    return $list;
+                }
                 break;
         }
 
@@ -363,7 +369,6 @@ class Api extends AbstractApi
         $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : false;
 
         // Make list
-        $list = array();
         $topicList = Pi::registry('topicList', 'news')->read();
         foreach ($rowSet as $row) {
             switch ($type) {
