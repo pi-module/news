@@ -18,7 +18,6 @@ use Pi\Application\Api\AbstractApi;
 use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Zend\Db\Sql\Predicate\Expression;
-use Zend\Json\Json;
 
 /*
  * Pi::api('api', 'news')->addStory($values);
@@ -130,7 +129,7 @@ class Api extends AbstractApi
             $values['uid'] = Pi::user()->getId();
         }
         // Topics
-        $values['topic'] = Json::encode($values['topic']);
+        $values['topic'] = json_encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
         $story->assign($values);
@@ -164,7 +163,7 @@ class Api extends AbstractApi
             $values['time_update'] = time();
         }
         // Topics
-        $values['topic'] = Json::encode($values['topic']);
+        $values['topic'] = json_encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->find($values['id']);
         $story->assign($values);

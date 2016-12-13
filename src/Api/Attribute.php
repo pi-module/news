@@ -14,7 +14,6 @@ namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
-use Zend\Json\Json;
 
 /*
  * Pi::api('attribute', 'news')->Get($topic);

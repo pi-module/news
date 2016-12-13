@@ -1,10 +1,4 @@
-<?php
-$this->css($this->assetModule('css/front.css'));
-// Set robots nofollow
-if (isset($searchResult) && $searchResult) {
-    $this->headMeta('noindex', 'robots');
-}
-?>
+<?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -13,8 +7,8 @@ if (isset($searchResult) && $searchResult) {
     <div class="index-news clearfix">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="single-news h-entry " itemscope itemtype="http://schema.org/Article">
-                <div class="single-news-heading col-md-12">
+            <div class="single-news h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                <div class="single-news-heading">
                     <h3 class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?>
                         <a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
@@ -23,52 +17,52 @@ if (isset($searchResult) && $searchResult) {
                     </h3>
                 </div>
                 <div class="single-news-body">
-                    <?php if ($story['image']) { ?>
-                        <div class="col-md-3 u-photo">
-                            <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
-                               title="<?php echo $this->escape($story['title']); ?>">
-                                <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
-                                     alt="<?php echo $this->escape($story['title']); ?>"/>
-                            </a>
+                    <div class="clearfix">
+                        <?php if ($story['image']) { ?>
+                            <div class="col-md-3 u-photo">
+                                <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"/>
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <div class="storyText p-summary" itemprop="description">
+                            <?php echo $story['text_summary']; ?>
                         </div>
-                    <?php } ?>
-                    <div class="storyText p-summary" itemprop="description">
-                        <?php echo $story['text_summary']; ?>
                     </div>
                     <div class="clearfix">
-                        <div class="pull-right">
+                        <ul class="list-inline small">
                             <?php if ($topic['show_date']) { ?>
-                                <span class="itemPostDate dt-published" itemprop="datePublished">
-							<?php _e('Time'); ?>: <?php echo $this->escape($story['time_publish_view']); ?>
-						</span>
+                                <li class="itemPostDate dt-published" itemprop="datePublished">
+                                    <?php _e('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
+                                </li>
                             <?php } ?>
                             <?php if ($topic['show_hits']) { ?>
-                                <span class="itemStats">
-							<?php _e('Read'); ?>
-                                    : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
-						</span>
+                                <li class="itemStats">
+                                    <?php _e('Read'); ?> : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+                                </li>
                             <?php } ?>
-                        </div>
-                        <?php if ($topic['show_topic']) { ?>
-                            <div class="pull-left"><?php _e('Topics'); ?> :
-                                <?php foreach ($story['topics'] as $storyTopic) { ?>
-                                    <span class=" p-category" itemprop="about"><a
-                                            title="<?php echo $storyTopic['title']; ?>"
-                                            href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-                                <?php } ?>
-                            </div>
-                        <?php } ?>
-                        <?php if (!empty($story['authors'])) { ?>
-                            <div class="pull-left">
-                                <?php foreach ($story['authors'] as $author) { ?>
-                                    <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?>
-                                        : <a title="<?php echo $author['authorName']; ?>"
-                                             href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
-                                <?php } ?>
-                            </div>
-                        <?php } ?>
+                            <?php if ($topic['show_topic']) { ?>
+                                <li>
+                                    <?php _e('Topics'); ?> : <?php foreach ($story['topics'] as $storyTopic) { ?>
+                                        <span class=" p-category" itemprop="about"><a
+                                                title="<?php echo $storyTopic['title']; ?>"
+                                                href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                                    <?php } ?>
+                                </li>
+                            <?php } ?>
+                            <?php if (!empty($story['authors'])) { ?>
+                                <li>
+                                    <?php foreach ($story['authors'] as $author) { ?>
+                                        <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?>
+                                            : <a title="<?php echo $author['authorName']; ?>"
+                                                 href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                                    <?php } ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
                 <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
             </div>

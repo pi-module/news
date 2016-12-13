@@ -14,7 +14,6 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-use Zend\Json\Json;
 
 class JsonController extends IndexController
 {
@@ -32,21 +31,21 @@ class JsonController extends IndexController
         $config = Pi::service('registry')->config->read($module);
         // Check json
         if (!$config['admin_json']) {
-            echo Json::encode($story);
+            echo json_encode($story);
             exit;
         }
         // Get topic information from model
         $topic = $this->getModel('topic')->find($topic);
         // Check slug set
         if(empty($topic)) {
-            echo Json::encode($story);
+            echo json_encode($story);
             exit;
         }
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Check topic
         if ($topic['status'] != 1) {
-            echo Json::encode($story);
+            echo json_encode($story);
             exit;
         }
         // Check topic style
@@ -59,12 +58,12 @@ class JsonController extends IndexController
             foreach ($rowset as $row) {
                 $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
             }
-            echo Json::encode($topics);
+            echo json_encode($topics);
             exit;
         } else {
             // Get story List
             $storyList = $this->jsonList($topic, $start, $limit);
-            echo Json::encode($storyList);
+            echo json_encode($storyList);
             exit;
         }
     } */

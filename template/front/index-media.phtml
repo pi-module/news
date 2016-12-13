@@ -1,16 +1,10 @@
-<?php
-$this->css($this->assetModule('css/front.css'));
-// Set robots nofollow
-if (isset($searchResult) && $searchResult) {
-    $this->headMeta('noindex', 'robots');
-}
-?>
+<?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="index-media">
+    <div class="index-media clearfix">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
             <div class="thumbnail text-center h-entry" itemscope itemtype="http://schema.org/Article">
@@ -32,9 +26,7 @@ if (isset($searchResult) && $searchResult) {
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>
-        <div class="clearfix"></div>
     </div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>
-
 <?php include $this->template('front/partial/match-height'); ?>

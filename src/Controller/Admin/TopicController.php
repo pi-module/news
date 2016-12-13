@@ -19,7 +19,6 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\TopicForm;
 use Module\News\Form\TopicFilter;
-use Zend\Json\Json;
 use Zend\Db\Sql\Predicate\Expression;
 
 class TopicController extends ActionController
@@ -222,7 +221,7 @@ class TopicController extends ActionController
                 $setting['show_subid'] = $values['show_subid'];
                 $setting['set_page'] = $values['set_page'];
                 $setting['attach'] = $values['attach'];
-                $values['setting'] = Json::encode($setting);
+                $values['setting'] = json_encode($setting);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $filter = new Filter\HeadTitle;
@@ -303,7 +302,7 @@ class TopicController extends ActionController
             }
         } else {
             if ($id) {
-                $setting = Json::decode($topic['setting'], true);
+                $setting = json_decode($topic['setting'], true);
                 $topic = array_merge($topic, $setting);
                 $form->setData($topic);
             }
@@ -326,7 +325,7 @@ class TopicController extends ActionController
             // remove topic links
             $this->getModel('link')->delete(array('topic' => $row->id));
             // Get this topic stores and remove
-            $select = $this->getModel('story')->select()->columns(array('id', 'path', 'image'))->where(array('topic' => Json::encode(array($row->id))));
+            $select = $this->getModel('story')->select()->columns(array('id', 'path', 'image'))->where(array('topic' => json_encode(array($row->id))));
             $rowset = $this->getModel('story')->selectWith($select)->toArray();
             foreach ($rowset as $story) {
                 // Attach

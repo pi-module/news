@@ -23,7 +23,6 @@ use Module\News\Form\StoryAdditionalForm;
 use Module\News\Form\StoryAdditionalFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
-use Zend\Json\Json;
 use Zend\Db\Sql\Predicate\Expression;
 
 class StoryController extends ActionController
@@ -45,48 +44,11 @@ class StoryController extends ActionController
         $offset = (int)($page - 1) * $this->config('admin_perpage');
         $order = array('id DESC');
         $limit = intval($this->config('admin_perpage'));
+        $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
+        $users = array();
+        // Set where
         $whereStory = array();
-        $whereLink = array();
-        // Get
-        /* if (empty($title)) {
-            // Set where
-            $whereLink['type'] = array(
-                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            );
-            if (!empty($status) && in_array($status, array(1, 2, 3, 4, 5))) {
-                $whereLink['status'] = $status;
-            } elseif (!empty($status) && $status == 6) {
-                $whereStory['status'] = 6;
-            } else {
-                $whereLink['status'] = array(1, 2, 3, 4);
-            }
-            if (!empty($topic)) {
-                $whereLink['topic'] = $topic;
-            }
-            if (!empty($uid)) {
-                $whereLink['uid'] = $uid;
-            }
-            // Get info from link table
-            if (!empty($whereLink)) {
-                // Set columns
-                $columnsLink = array('story' => new Expression('DISTINCT story'));
-                $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink)->order($order)->offset($offset)->limit($limit);
-                $rowset = $this->getModel('link')->selectWith($select)->toArray();
-                // Make list
-                foreach ($rowset as $id) {
-                    $storyId[] = $id['story'];
-                }
-                // Set info
-                $whereStory = array('id' => $storyId);
-            }
-        } else {
-            $whereStory['title LIKE ?'] = '%' . $title . '%';
-            $whereStory['type'] = array(
-                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            );
-        } */
         if (empty($title)) {
-            // Set where
             $whereStory['type'] = array(
                 'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             );
@@ -102,27 +64,28 @@ class StoryController extends ActionController
             }
         } else {
             $whereStory['title LIKE ?'] = '%' . $title . '%';
+            $whereStory['status'] = array(1, 2, 3, 4, 5);
             $whereStory['type'] = array(
                 'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             );
         }
-        // Set info
-        $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
         // Get list of story
-        if (empty($whereStory)) {
-            $select = $this->getModel('story')->select()->columns($columnStory)->order($order)->offset($offset)->limit($limit);
-            $rowset = $this->getModel('story')->selectWith($select);
-        } else {
-            $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order);
-            $rowset = $this->getModel('story')->selectWith($select);
-        }
+        $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order)->offset($offset)->limit($limit);
+        $rowset = $this->getModel('story')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
             $story[$row->id] = $row->toArray();
             $story[$row->id]['time_publish'] = _date($story[$row->id]['time_publish']);
-            $story[$row->id]['user'] = Pi::user()->get($row->uid, array(
-                'id', 'identity', 'name', 'email'
-            ));
+            // Get use
+            if (isset($users[$row->uid]) && !empty($users[$row->uid])) {
+                $story[$row->id]['user'] = $users[$row->uid];
+            } else {
+                $user = Pi::user()->get($row->uid, array(
+                    'id', 'identity', 'name', 'email'
+                ));
+                $story[$row->id]['user'] = $user;
+                $users[$row->uid] = $user;
+            }
             // Set url
             if ($row->status == 1) {
                 $story[$row->id]['storyUrl'] = $this->url('news', array(
@@ -183,28 +146,9 @@ class StoryController extends ActionController
             }
         }
         // Set count
-        /* if (empty($whereLink) && empty($whereStory)) {
-            $columnsLink = array('count' => new Expression('count(*)'));
-            $select = $this->getModel('story')->select()->columns($columnsLink);
-            $count = $this->getModel('story')->selectWith($select)->current()->count;
-        } elseif (empty($title) && !empty($whereStory)) {
-            $columnsLink = array('count' => new Expression('count(DISTINCT `story`)'));
-            $select = $this->getModel('link')->select()->where($whereLink)->columns($columnsLink);
-            $count = $this->getModel('link')->selectWith($select)->current()->count;
-        } else {
-            $columnsLink = array('count' => new Expression('count(*)'));
-            $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
-            $count = $this->getModel('story')->selectWith($select)->current()->count;
-        } */
-        if (empty($whereStory)) {
-            $columnsLink = array('count' => new Expression('count(*)'));
-            $select = $this->getModel('story')->select()->columns($columnsLink);
-            $count = $this->getModel('story')->selectWith($select)->current()->count;
-        } else {
-            $columnsLink = array('count' => new Expression('count(*)'));
-            $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
-            $count = $this->getModel('story')->selectWith($select)->current()->count;
-        }
+        $columnsLink = array('count' => new Expression('count(*)'));
+        $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
+        $count = $this->getModel('story')->selectWith($select)->current()->count;
         // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
@@ -407,7 +351,7 @@ class StoryController extends ActionController
             $this->jump(array('action' => 'index'), __('Please select story'));
         }
         // Set topic
-        $story['topic'] = Json::decode($story['topic'], true);
+        $story['topic'] = json_decode($story['topic'], true);
         // Set image
         if ($story['image']) {
             $thumbUrl = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $story['path'], $story['image']);
@@ -483,9 +427,9 @@ class StoryController extends ActionController
                     $values['image'] = '';
                 }
                 // Topics
-                $values['topic'] = Json::encode(array_unique($values['topic']));
+                $values['topic'] = json_encode(array_unique($values['topic']));
                 // Author
-                $values['author'] = (empty($author)) ? '' : Json::encode($author);
+                $values['author'] = (empty($author)) ? '' : json_encode($author);
                 // Set seo_title
                 $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $filter = new Filter\HeadTitle;
@@ -658,7 +602,7 @@ class StoryController extends ActionController
         $this->view()->assign('title', __('Add a Story'));
         $this->view()->assign('message', $message);
         $this->view()->assign('story', $story);
-        $this->view()->assign('content', Json::encode($contents));
+        $this->view()->assign('content', json_encode($contents));
     }
 
     public function additionalAction()

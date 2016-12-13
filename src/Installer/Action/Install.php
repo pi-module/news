@@ -15,7 +15,6 @@ namespace Module\News\Installer\Action;
 use Pi;
 use Pi\Application\Installer\Action\Install as BasicInstall;
 use Zend\EventManager\Event;
-use Zend\Json\Json;
 
 class Install extends BasicInstall
 {
@@ -84,7 +83,7 @@ class Install extends BasicInstall
             'status' => '1',
             'style' => 'news',
             'uid' => Pi::user()->getId(),
-            'setting' => Json::encode($setting),
+            'setting' => json_encode($setting),
         );
         $topicModel->insert($topicData);
 
@@ -106,7 +105,7 @@ class Install extends BasicInstall
             'title' => __('Hello World'),
             'subtitle' => __('This is subtitle for this story'),
             'slug' => __('hello-world'),
-            'topic' => Json::encode(array('1')),
+            'topic' => json_encode(array('1')),
             'topic_main' => 1,
             'text_summary' => __('This is a short text and you can edit this part easy. for read more infor please click on title or more link'),
             'text_description' => __('This is more text. you can edit this part easy too and if you want you can add new topics and new storys'),

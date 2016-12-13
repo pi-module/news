@@ -19,7 +19,6 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\AuthorRoleForm;
 use Module\News\Form\AuthorRoleFilter;
-use Zend\Json\Json;
 
 class roleController extends ActionController
 {

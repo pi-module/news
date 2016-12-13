@@ -18,7 +18,6 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\AttachForm;
 use Module\News\Form\AttachFilter;
-use Zend\Json\Json;
 use Zend\Db\Sql\Predicate\Expression;
 
 class AttachController extends ActionController
@@ -117,7 +116,7 @@ class AttachController extends ActionController
         }
         // Set view
         $this->view()->setTemplate('attach-add');
-        $this->view()->assign('content', Json::encode($contents));
+        $this->view()->assign('content', json_encode($contents));
         $this->view()->assign('story', $story);
         $this->view()->assign('title', sprintf(__('Attach files to %s'), $story['title']));
     }
@@ -261,7 +260,7 @@ class AttachController extends ActionController
             }
         }
         $this->view()->setTemplate(false)->setLayout('layout-content');
-        return Json::encode($return);
+        return json_encode($return);
     }
 
     public function deleteAction()

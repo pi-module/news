@@ -16,7 +16,6 @@ use Pi;
 use Pi\Application\Installer\Action\Update as BasicUpdate;
 use Pi\Application\Installer\SqlSchema;
 use Zend\EventManager\Event;
-use Zend\Json\Json;
 
 class Update extends BasicUpdate
 {
@@ -510,7 +509,7 @@ EOD;
             $select = $topicModel->select();
             $rowset = $topicModel->selectWith($select);
             foreach ($rowset as $row) {
-                $setting = Json::decode($row->setting, true);
+                $setting = json_decode($row->setting, true);
                 // Check attach
                 if (!empty($setting['attach_title']) && !empty($setting['attach_link'])) {
                     // Set save array
@@ -535,7 +534,7 @@ EOD;
                 unset($setting['attach_title']);
                 unset($setting['attach_link']);
                 unset($setting['attach_download_count']);
-                $setting = Json::encode($setting);
+                $setting = json_encode($setting);
                 // Save value
                 $row->setting = $setting;
                 $row->save();

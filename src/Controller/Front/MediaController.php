@@ -14,7 +14,6 @@ namespace Module\News\Controller\Front;
 
 use Pi;
 use Pi\Mvc\Controller\ActionController;
-use Zend\Json\Json;
 
 class MediaController extends ActionController
 {
@@ -142,9 +141,9 @@ class MediaController extends ActionController
         }
         // find topic anhd update cint
         $topic = $this->getModel('topic')->find($id);
-        $setting = Json::decode($topic->setting, true);
+        $setting = json_decode($topic->setting, true);
         $setting['attach_download_count'] = $setting['attach_download_count'] + 1;
-        $topic->setting = Json::encode($setting);
+        $topic->setting = json_encode($setting);
         $topic->save();
         // redirect
         return $this->redirect()->toUrl($setting['attach_link']);

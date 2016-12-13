@@ -21,7 +21,6 @@ use Module\News\Form\AuthorForm;
 use Module\News\Form\AuthorFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
-use Zend\Json\Json;
 use Zend\Db\Sql\Predicate\Expression;
 
 class AuthorController extends ActionController

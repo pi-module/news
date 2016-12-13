@@ -1,16 +1,10 @@
-<?php
-$this->css($this->assetModule('css/front.css'));
-// Set robots nofollow
-if (isset($searchResult) && $searchResult) {
-    $this->headMeta('noindex', 'robots');
-}
-?>
+<?php $this->css($this->assetModule('css/front.css')); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="index-list">
+    <div class="index-list clearfix">
         <ul class="list-group">
             <?php foreach ($stores as $story) { ?>
                 <li class="list-group-item <?php echo $topic['column_class']; ?> h-entry clearfix" itemscope
@@ -51,7 +45,6 @@ if (isset($searchResult) && $searchResult) {
                 </li>
             <?php } ?>
         </ul>
-        <div class="clearfix"></div>
     </div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>

@@ -14,7 +14,6 @@ namespace Module\News\Block;
 
 use Pi;
 use Zend\Db\Sql\Predicate\Expression;
-use Zend\Json\Json;
 
 class Block
 {

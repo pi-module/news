@@ -15,7 +15,6 @@ namespace Module\News\Api;
 use Pi;
 use Pi\Application\Api\AbstractApi;
 use Zend\Db\Sql\Predicate\Expression;
-use Zend\Json\Json;
 
 /*
  * Pi::api('topic', 'news')->getTopic($parameter, $field;
@@ -78,7 +77,7 @@ class Topic extends AbstractApi
         if (isset($topic) && !empty($topic) && is_object($topic)) {
             $topic = $topic->toArray();
             // Get setting
-            $setting = Json::decode($topic['setting'], true);
+            $setting = json_decode($topic['setting'], true);
             $topic = array_merge($topic, $setting);
             // Set topic url
             $topic['topicUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
@@ -283,7 +282,7 @@ class Topic extends AbstractApi
         //Remove
         Pi::model('link', $this->getModule())->delete(array('story' => $story));
         // Add
-        $newTopics = Json::decode($topics, true);
+        $newTopics = json_decode($topics, true);
         foreach ($newTopics as $topic) {
             // Set array
             $values['topic'] = $topic;

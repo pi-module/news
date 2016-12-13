@@ -14,7 +14,6 @@ namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
-use Zend\Json\Json;
 use Zend\Db\Sql\Predicate\Expression;
 
 /*
@@ -341,7 +340,7 @@ class Story extends AbstractApi
             'slug' => $story['slug'],
         )));
         // Set topic information
-        $story['topic'] = Json::decode($story['topic'], true);
+        $story['topic'] = json_decode($story['topic'], true);
         // Get topic list
         if (!empty($story['topic'])) {
             $topicList = (empty($topicList)) ? Pi::registry('topicList', 'news')->read() : $topicList;
@@ -360,7 +359,7 @@ class Story extends AbstractApi
         // Get author list
         $story['authors'] = array();
         if ($config['show_author'] && !empty($authorList) && $option['authorSet']) {
-            $story['author'] = Json::decode($story['author'], true);
+            $story['author'] = json_decode($story['author'], true);
             if (!empty($story['author'])) {
                 foreach ($story['author'] as $author) {
                     if (!empty($author['author'])) {
@@ -512,7 +511,7 @@ class Story extends AbstractApi
             $story['thumbUrl'] = '';
         }
         // Set topic
-        $topic = Json::decode($story['topic'], true);
+        $topic = json_decode($story['topic'], true);
         // Set body
         $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
         $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
