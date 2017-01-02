@@ -116,9 +116,12 @@ class IndexController extends ActionController
     {
         // Set info
         $story = array();
-        $limit = 150;
         $page = $this->params('page', 1);
         $module = $this->params('module');
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Set info
+        $limit = $config['json_perpage'];
         $offset = (int)($page - 1) * $limit;
         $order = array('time_publish DESC', 'id DESC');
         // Set info
