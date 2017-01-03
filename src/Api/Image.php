@@ -14,6 +14,8 @@ namespace Module\News\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /*
  * Pi::api('image', 'news')->rename($image, $prefix, $path, $imagePath);
@@ -116,7 +118,7 @@ class Image extends AbstractApi
         return $name;
     }
 
-    public function process($image, $path, $imagePath)
+    public function process($image, $path, $imagePath, $cropping = null)
     {
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
@@ -147,46 +149,66 @@ class Image extends AbstractApi
             'quality' => empty($config['image_quality']) ? 75 : $config['image_quality'],
         );
 
+        $originalForThumbProcessing = $original;
+
+        $config = Pi::service('registry')->config->read('news');
+        $isCropEnabled = isset($config['image_crop']) && $config['image_crop'] == 1;
+
+        if($cropping && $isCropEnabled){
+            $croppingData = json_decode($cropping);
+
+            if(!empty($croppingData)){
+                $croppingData = (object) $croppingData;
+
+                $imagine = new \Imagine\Gd\Imagine();
+                $image = $imagine->open($original);
+                $originalCropped = preg_replace('/(.*)\.(.*)$/', '$1.cropped.$2', $original);
+                $image->crop(new Point($croppingData->x, $croppingData->y), new Box($croppingData->width, $croppingData->height))->save($originalCropped);
+
+                $originalForThumbProcessing = $originalCropped;
+            }
+        }
+
         // Get image size
-        $size = getimagesize($original);
+        $size = getimagesize($originalForThumbProcessing);
 
         // Resize to large
-        if ($size[0] > $config['image_largew'] && $size[1] > $config['image_largeh']) {
+        if ($cropping || ($size[0] > $config['image_largew'] && $size[1] > $config['image_largeh'])) {
             Pi::service('image')->resize(
-                $original,
+                $originalForThumbProcessing,
                 array($config['image_largew'], $config['image_largeh'], true),
                 $large,
                 '',
                 $options
             );
         } else {
-            Pi::service('file')->copy($original, $large, trye);
+            Pi::service('file')->copy($original, $large, true);
         }
 
         // Resize to medium
-        if ($size[0] > $config['image_mediumw'] && $size[1] > $config['image_mediumh']) {
+        if ($cropping || ($size[0] > $config['image_mediumw'] && $size[1] > $config['image_mediumh'])) {
             Pi::service('image')->resize(
-                $original,
+                $originalForThumbProcessing,
                 array($config['image_mediumw'], $config['image_mediumh'], true),
                 $medium,
                 '',
                 $options
             );
         } else {
-            Pi::service('file')->copy($original, $medium, trye);
+            Pi::service('file')->copy($original, $medium, true);
         }
 
         // Resize to thumb
-        if ($size[0] > $config['image_thumbw'] && $size[1] > $config['image_thumbh']) {
+        if ($cropping || ($size[0] > $config['image_thumbw'] && $size[1] > $config['image_thumbh'])) {
             Pi::service('image')->resize(
-                $original,
+                $originalForThumbProcessing,
                 array($config['image_thumbw'], $config['image_thumbh'], true),
                 $thumb,
                 '',
                 $options
             );
         } else {
-            Pi::service('file')->copy($original, $thumb, trye);
+            Pi::service('file')->copy($original, $thumb, true);
         }
 
         // Watermark
