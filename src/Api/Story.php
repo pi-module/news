@@ -576,7 +576,7 @@ class Story extends AbstractApi
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path
                 $original = Pi::path(
-                    sprintf('upload/%s/large/%s/%s',
+                    sprintf('upload/%s/original/%s/%s',
                         $config['image_path'],
                         $row->path,
                         $row->image
