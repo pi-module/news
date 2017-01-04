@@ -219,12 +219,21 @@ class Api extends AbstractApi
             $uploader->setRename($imageName);
             $uploader->setExtension($config['image_extension']);
             $uploader->setSize($config['image_size']);
+
+            if($config['image_largew'] && $config['image_largeh']){
+                $uploader->setImageSize(array('minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']));
+            }
+
             if ($uploader->isValid()) {
                 $uploader->receive();
                 // Get image name
                 $result['image'] = $uploader->getUploaded('image');
                 // process image
                 Pi::api('image', 'news')->process($result['image'], $result['path'], $imagePath, $cropping);
+            } else {
+                $uploaderMessages = $uploader->getMessages();
+
+                $result = implode('; ', $uploaderMessages);
             }
         }
         return $result;
