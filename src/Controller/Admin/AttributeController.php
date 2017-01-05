@@ -28,6 +28,7 @@ class AttributeController extends ActionController
         $select = $this->getModel('field')->select()->order(array('order ASC'));
         $rowset = $this->getModel('field')->selectWith($select);
         // Make list
+        $field = array();
         foreach ($rowset as $row) {
             $field[$row->position][$row->id] = $row->toArray();
             $field[$row->position][$row->id]['position_view'] = $position[$row->position];
