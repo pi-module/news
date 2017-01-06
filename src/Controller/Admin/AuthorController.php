@@ -46,6 +46,7 @@ class AuthorController extends ActionController
         $select = $this->getModel('author')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('author')->selectWith($select);
         // Make list
+        $author = array();
         foreach ($rowset as $row) {
             $author[$row->id] = $row->toArray();
             $author[$row->id]['time_create'] = _date($author[$row->id]['time_create']);

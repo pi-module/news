@@ -786,6 +786,20 @@ EOD;
             }
         }
 
+        if (version_compare($moduleVersion, '1.8.5', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD `cropping` TEXT NULL DEFAULT NULL AFTER `path`", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }

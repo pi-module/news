@@ -42,6 +42,7 @@ class Story extends Model
         'hits',
         'image',
         'path',
+        'cropping',
         'point',
         'count',
         'favourite',

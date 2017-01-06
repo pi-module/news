@@ -105,7 +105,7 @@ class MediaController extends ActionController
                 $attach['file']
             );
         } else {
-            $url = sprintf('%s?%s/%s/%s/%s/%s',
+            $url = sprintf('%s?%s/%s/%s/original/%s/%s',
                 Pi::url('www/script/download.php'),
                 'upload',
                 $config['file_path'],

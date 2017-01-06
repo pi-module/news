@@ -72,7 +72,7 @@ class Search extends AbstractSearch
     /**
      * {@inheritDoc}
      */
-    protected function buildImage(array $item)
+    protected function buildImage(array $item, $table = '')
     {
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());

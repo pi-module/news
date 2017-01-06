@@ -21,6 +21,7 @@ CREATE TABLE `{story}` (
   `hits`             INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
   `image`            VARCHAR(255)                                                                                           NOT NULL DEFAULT '',
   `path`             VARCHAR(16)                                                                                            NOT NULL DEFAULT '',
+  `cropping`         TEXT,
   `point`            INT(10)                                                                                                NOT NULL DEFAULT '0',
   `count`            INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
   `favourite`        INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',

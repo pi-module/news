@@ -31,12 +31,14 @@ class SpotlightController extends ActionController
         $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($columns);
         $idSet = $this->getModel('spotlight')->selectWith($select)->toArray();
         // Set topics and stores
+        $topicArr = array();
+        $storyArr = array();
         foreach ($idSet as $spotlight) {
             $topicArr[] = $spotlight['topic'];
             $storyArr[] = $spotlight['story'];
         }
         // Get topics
-        $whereTopic = array('id' => array_unique($topicArr));
+        $whereTopic = $topicArr ? array('id' => array_unique($topicArr)) : array();
         $columns = array('id', 'title', 'slug');
         $select = $this->getModel('topic')->select()->where($whereTopic)->columns($columns);
         $topicSet = $this->getModel('topic')->selectWith($select);
@@ -55,7 +57,7 @@ class SpotlightController extends ActionController
             'slug' => ''
         );
         // Get stores
-        $whereStory = array('id' => array_unique($storyArr));
+        $whereStory = $storyArr ? array('id' => array_unique($storyArr)) : array();
         $columns = array('id', 'title', 'slug');
         $select = $this->getModel('story')->select()->where($whereStory)->columns($columns);
         $storySet = $this->getModel('story')->selectWith($select);
@@ -68,6 +70,7 @@ class SpotlightController extends ActionController
         $select = $this->getModel('spotlight')->select()->where($whereSpotlight)->order($order);
         $spotlightSet = $this->getModel('spotlight')->selectWith($select);
         // Make spotlight list
+        $spotlightList = array();
         foreach ($spotlightSet as $row) {
             $spotlightList[$row->id] = $row->toArray();
             $spotlightList[$row->id]['storytitle'] = $storyList[$row->story]['title'];

@@ -86,7 +86,7 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Api extends AbstractApi
 {
-    public function addStory($values)
+    public function addStory($values, $processEventImage = false)
     {
         // Check type
         if (!isset($values['type']) || !in_array($values['type'], array(
@@ -132,14 +132,27 @@ class Api extends AbstractApi
         $values['topic'] = json_encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->createRow();
+
+        $imageToProcess = false;
+
+        // check cropping udpate
+        if($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']){
+            $imageToProcess = true;
+        }
+
         $story->assign($values);
         $story->save();
+
+        if($processEventImage && $imageToProcess){
+            Pi::api('image', 'news')->process($story['image'], $story['path'], 'event/image', $story['cropping']);
+        }
+
         $story = Pi::api('story', 'news')->canonizeStoryLight($story);
         // Return
         return $story;
     }
 
-    public function editStory($values)
+    public function editStory($values, $processEventImage = false)
     {
         // Get config
         $config = Pi::service('registry')->config->read('news');
@@ -166,14 +179,27 @@ class Api extends AbstractApi
         $values['topic'] = json_encode($values['topic']);
         // Save story
         $story = Pi::model('story', $this->getModule())->find($values['id']);
+
+        $imageToProcess = false;
+
+        // check cropping udpate
+        if($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']){
+            $imageToProcess = true;
+        }
+
         $story->assign($values);
         $story->save();
+
+        if($processEventImage && $imageToProcess){
+            Pi::api('image', 'news')->process($story['image'], $story['path'], 'event/image', $story['cropping']);
+        }
+
         $story = Pi::api('story', 'news')->canonizeStoryLight($story);
         // Return
         return $story;
     }
 
-    public function uploadImage($file = array(), $prefix = '', $imagePath = '')
+    public function uploadImage($file = array(), $prefix = '', $imagePath = '', $cropping = null)
     {
         // Set result
         $result = array();
@@ -193,12 +219,21 @@ class Api extends AbstractApi
             $uploader->setRename($imageName);
             $uploader->setExtension($config['image_extension']);
             $uploader->setSize($config['image_size']);
+
+            if($config['image_largew'] && $config['image_largeh']){
+                $uploader->setImageSize(array('minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']));
+            }
+
             if ($uploader->isValid()) {
                 $uploader->receive();
                 // Get image name
                 $result['image'] = $uploader->getUploaded('image');
                 // process image
-                Pi::api('image', 'news')->process($result['image'], $result['path'], $imagePath);
+                Pi::api('image', 'news')->process($result['image'], $result['path'], $imagePath, $cropping);
+            } else {
+                $uploaderMessages = $uploader->getMessages();
+
+                $result = implode('; ', $uploaderMessages);
             }
         }
         return $result;
