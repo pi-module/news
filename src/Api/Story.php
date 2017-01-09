@@ -319,16 +319,24 @@ class Story extends AbstractApi
             return '';
         }
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        if(!isset($this->config)){
+            $this->config = Pi::service('registry')->config->read($this->getModule());
+        }
+
         // Set option
         $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
-        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
+        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $this->config['image_path'];
         // boject to array
         $story = $story->toArray();
         // Set text_summary
-        $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
+
+        if(!isset($this->markupService)){
+            $this->markupService = Pi::service('markup');
+        }
+
+        $story['text_summary'] = $this->markupService->render($story['text_summary'], 'html', 'html');
         // Set text_description
-        $story['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
+        $story['text_description'] = $this->markupService->render($story['text_description'], 'html', 'html');
         // Set times
         $story['time_create_view'] = _date($story['time_create']);
         $story['time_publish_view'] = _date($story['time_publish']);
@@ -358,7 +366,7 @@ class Story extends AbstractApi
         }
         // Get author list
         $story['authors'] = array();
-        if ($config['show_author'] && !empty($authorList) && $option['authorSet']) {
+        if ($this->config['show_author'] && !empty($authorList) && $option['authorSet']) {
             $story['author'] = json_decode($story['author'], true);
             if (!empty($story['author'])) {
                 foreach ($story['author'] as $author) {
@@ -403,7 +411,7 @@ class Story extends AbstractApi
                     $story['path'],
                     $story['image']
                 ));
-        } elseif ($config['image_default']) {
+        } elseif ($this->config['image_default']) {
             $story['originalUrl'] = Pi::service('asset')->getModuleAsset('image/news-original.jpg', $this->getModule());
             $story['largeUrl'] = Pi::service('asset')->getModuleAsset('image/news-large.jpg', $this->getModule());
             $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('image/news-medium.jpg', $this->getModule());
