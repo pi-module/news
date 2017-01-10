@@ -519,7 +519,7 @@ class Story extends AbstractApi
             $story['thumbUrl'] = '';
         }
         // Set topic
-        $topic = json_decode($story['topic'], true);
+        //$topic = json_decode($story['topic'], true);
         // Set body
         $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
         $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
@@ -531,11 +531,13 @@ class Story extends AbstractApi
             'subtitle' => $story['subtitle'],
             'time_publish' => $story['time_publish'],
             'time_publish_view' => _date($story['time_publish']),
+            'time_update' => $story['time_update'],
+            'time_update_view' => _date($story['time_update']),
             'thumbUrl' => $story['thumbUrl'],
             'mediumUrl' => $story['mediumUrl'],
             'largeUrl' => $story['largeUrl'],
             'storyUrl' => $story['storyUrl'],
-            'topic' => $topic[0],
+            'topic' => $story['topic_main'],
             'image' => $story['image'],
             'body' => $body,
         );
