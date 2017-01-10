@@ -95,10 +95,6 @@
     border: 0px;
 }
 
-.news-story-page-side{
-    margin-top:126px;
-}
-
 .news-story-page-body .p-summary{
     margin-bottom:20px;
     font-weight:bold;
@@ -108,4 +104,16 @@
     font-style:italic;
     font-weight: normal;
     display: inline-block;
+}
+
+.itemUnderHead{
+    margin-bottom: 5px;
+    font-size: .9em;
+}
+
+.page-header h1, .page-header h2 {
+    padding: 1px 0 5px 0;
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: normal !important;
 }
