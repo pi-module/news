@@ -1,5 +1,17 @@
-.news-story-page-body h2{
-    font-style:italic;
-    font-weight: normal;
-    display: inline-block;
+.news-block h3{
+    margin-top:0;
+}
+
+.news-block .news-block-more{
+    margin-top:10px;
+}
+
+.vertical-story-single{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.news-block .storyImage{
+    padding-right:0;
 }

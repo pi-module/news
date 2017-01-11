@@ -1,3 +1,4 @@
+<?php $this->css($this->assetModule('css/block.css', 'news')); ?>
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'vertical') { ?>
@@ -6,7 +7,7 @@
                     <div class="vertical-story-single h-entry clearfix" itemscope itemtype="http://schema.org/Article">
                         <div class="row">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
-                                <div class="col-md-4">
+                                <div class="col-md-4 storyImage">
                                     <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>">
                                         <img itemprop="image" class="img-responsive img-rounded u-photo"
