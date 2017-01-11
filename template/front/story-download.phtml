@@ -56,7 +56,7 @@ if (!empty($story['largeUrl'])) {
 
     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
     <div class="clearfix small itemUnderHead">
-        <ul class="list-inline text-muted">
+        <ul class="list-inline text-muted pull-right">
             <?php if ($config['show_date']) { ?>
                 <li class="itemPostDate dt-published">
                     <i class="fa fa-calendar"></i> <?php _e('Time'); ?>
