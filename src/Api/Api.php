@@ -220,7 +220,7 @@ class Api extends AbstractApi
             $uploader->setExtension($config['image_extension']);
             $uploader->setSize($config['image_size']);
 
-            if($config['image_largew'] && $config['image_largeh']){
+            if(isset($config['image_crop']) && $config['image_crop'] && $config['image_largew'] && $config['image_largeh']){
                 $uploader->setImageSize(array('minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']));
             }
 
