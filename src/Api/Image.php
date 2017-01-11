@@ -154,6 +154,9 @@ class Image extends AbstractApi
         $config = Pi::service('registry')->config->read('news');
         $isCropEnabled = isset($config['image_crop']) && $config['image_crop'] == 1;
 
+        // Get image size
+        $size = getimagesize($originalForThumbProcessing);
+
         if($cropping && $isCropEnabled){
             $croppingData = json_decode($cropping);
 
@@ -161,19 +164,13 @@ class Image extends AbstractApi
                 $croppingData = (object) $croppingData;
 
                 $imagine = new \Imagine\Gd\Imagine();
-                $image = $imagine->open($original);
-                $originalCropped = preg_replace('/(.*)\.(.*)$/', '$1.cropped.$2', $original);
-                $image->crop(new Point($croppingData->x, $croppingData->y), new Box($croppingData->width, $croppingData->height))->save($originalCropped);
-
-                $originalForThumbProcessing = $originalCropped;
+                $originalForThumbProcessing = $imagine->open($original);
+                $originalForThumbProcessing->crop(new Point($croppingData->x, $croppingData->y), new Box($croppingData->width, $croppingData->height));
             }
         }
 
-        // Get image size
-        $size = getimagesize($originalForThumbProcessing);
-
         // Resize to large
-        if ($cropping || ($size[0] > $config['image_largew'] && $size[1] > $config['image_largeh'])) {
+        if (!empty($croppingData) || ($size[0] > $config['image_largew'] && $size[1] > $config['image_largeh'])) {
             Pi::service('image')->resize(
                 $originalForThumbProcessing,
                 array($config['image_largew'], $config['image_largeh'], true),
@@ -186,7 +183,7 @@ class Image extends AbstractApi
         }
 
         // Resize to medium
-        if ($cropping || ($size[0] > $config['image_mediumw'] && $size[1] > $config['image_mediumh'])) {
+        if (!empty($croppingData) || ($size[0] > $config['image_mediumw'] && $size[1] > $config['image_mediumh'])) {
             Pi::service('image')->resize(
                 $originalForThumbProcessing,
                 array($config['image_mediumw'], $config['image_mediumh'], true),
@@ -199,7 +196,7 @@ class Image extends AbstractApi
         }
 
         // Resize to thumb
-        if ($cropping || ($size[0] > $config['image_thumbw'] && $size[1] > $config['image_thumbh'])) {
+        if (!empty($croppingData) || ($size[0] > $config['image_thumbw'] && $size[1] > $config['image_thumbh'])) {
             Pi::service('image')->resize(
                 $originalForThumbProcessing,
                 array($config['image_thumbw'], $config['image_thumbh'], true),
