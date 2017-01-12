@@ -4,29 +4,30 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="row index-media clearfix">
+    <div class="row index-media clearfix match-height-list">
         <?php foreach ($stores as $story) { ?>
-            <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
+            <?php if ($topic['column_class']) { ?><div class="col-xs-12 <?php echo $topic['column_class']; ?>"><?php } ?>
             <div class="thumbnail text-center h-entry" itemscope itemtype="http://schema.org/Article">
-                <?php if ($story['image']) { ?>
-                    <a class="u-photo" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
-                        <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
-                             alt="<?php echo $this->escape($story['title']); ?>"/>
-                    </a>
-                <?php } ?>
-                <div class="caption">
-                    <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
-                            class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
-                                                                                                    title="<?php echo $story['title']; ?>"
-                                                                                                    href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
-                    </h4>
-                    <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                <div class="hover-style">
+                    <?php if ($story['image']) { ?>
+                        <a class="u-photo" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
+                            <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
+                                 alt="<?php echo $this->escape($story['title']); ?>"/>
+                        </a>
+                    <?php } ?>
+                    <div class="caption">
+                        <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
+                                class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
+                                                                                                        title="<?php echo $story['title']; ?>"
+                                                                                                        href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+                        </h4>
+                        <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                    </div>
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                 </div>
-                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>
     </div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>
-<?php include $this->template('front/partial/match-height'); ?>

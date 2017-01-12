@@ -365,7 +365,7 @@ return array(
         // Crop
         'image_crop' => array(
             'category' => 'image',
-            'title' => _a('User cropping'),
+            'title' => _a('Activate Image cropping'),
             'description' => '',
             'edit' => 'checkbox',
             'filter' => 'number_int',

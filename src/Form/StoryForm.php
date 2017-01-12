@@ -253,45 +253,28 @@ class StoryForm extends BaseForm
                 'label' => __('Media options'),
             ),
         ));
-        // Image
-        if ($this->thumbUrl) {
-            $this->add(array(
-                'name' => 'imageview',
-                'type' => 'Module\News\Form\Element\Image',
-                'options' => array(//'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'src' => $this->thumbUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'remove',
-                'type' => 'Module\News\Form\Element\Remove',
-                'options' => array(
-                    'label' => __('Remove image'),
-                ),
-                'attributes' => array(
-                    'link' => $this->removeUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'image',
-                'attributes' => array(
-                    'type' => 'hidden',
-                ),
-            ));
-        } else {
-            $this->add(array(
-                'name' => 'image',
-                'options' => array(
-                    'label' => __('Upload image'),
-                ),
-                'attributes' => array(
-                    'type' => 'file',
-                    'description' => '',
-                )
-            ));
-        }
+
+        $this->add(array(
+            'name' => 'image',
+            'options' => array(
+                'label' => __($this->thumbUrl ? "Change image" : "Image"),
+            ),
+            'attributes' => array(
+                'type' => 'file',
+            )
+        ));
+
+        $this->add(array(
+            'name' => 'imageview',
+            'type' => 'Module\News\Form\Element\Image',
+            'options' => array('label' => __('Uploaded image'),
+            ),
+            'attributes' => array(
+                'src' => $this->thumbUrl ?: ' ',
+                'type' => $this->thumbUrl ? 'image' : 'hidden'
+            ),
+        ));
+
         // Attach
         $this->add(array(
             'name' => 'attach',

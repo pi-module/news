@@ -4,9 +4,9 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="index-topic">
+    <div class="index-topic match-height-list">
         <?php foreach ($topics as $topic) { ?>
-            <div class="col-md-2 col-sm-2 col-xs-3 text-center" itemscope itemtype="http://schema.org/Article">
+            <div class="col-xs-12 col-md-2 col-sm-2 col-xs-3 text-center" itemscope itemtype="http://schema.org/Article">
                 <div class="thumbnail h-entry">
                     <?php if ($topic['image']) { ?>
                         <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>"
@@ -28,4 +28,3 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<?php include $this->template('front/partial/match-height'); ?>

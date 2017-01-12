@@ -38,6 +38,8 @@ if (isset($story['text_summary']) && !empty($story['text_summary'])) {
 if (!empty($story['largeUrl'])) {
     $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
 }
+
+$this->sticky();
 ?>
 <div class="clearfix" itemscope itemtype="http://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
@@ -82,7 +84,7 @@ if (!empty($story['largeUrl'])) {
         </ul>
     </div>
 
-    <div class="row news-story-page clearfix h-entry">
+    <div class="row news-story-page clearfix h-entry" id="sticky-container">
         <div class="col-md-8">
             <div class="news-story-page-body">
                 <?php if ($story['image']) { ?>
@@ -140,8 +142,7 @@ if (!empty($story['largeUrl'])) {
             </div>
         </div>
         <div class="col-md-4">
-            <?php include $this->template('front/partial/sticky'); ?>
-            <div class="news-story-page-side">
+            <div class="news-story-page-side" id="sticky-sidebar">
                 <?php if (isset($attach['image']) && !empty($attach['image'])) { ?>
                     <div class="storyImageAttach row gallery">
                         <?php include $this->template('front/attach-image'); ?>
