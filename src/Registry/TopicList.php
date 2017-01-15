@@ -36,11 +36,11 @@ class TopicList extends AbstractRegistry
         $rowset = Pi::model('topic', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
             $return[$row->id] = $row->toArray();
-            $return[$row->id]['url'] = Pi::service('url')->assemble('news', array(
+            $return[$row->id]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                 'module' => $this->module,
                 'controller' => 'topic',
                 'slug' => $return[$row->id]['slug'],
-            ));
+            )));
         }
         return $return;
     }
