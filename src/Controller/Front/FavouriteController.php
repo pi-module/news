@@ -62,15 +62,17 @@ class FavouriteController extends IndexController
         }
         // Set story info
         $where = array('status' => 1, 'story' => $storyId);
-        // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
-        // Set paginator info
+        
+		// Set paginator info
         $template = array(
             'controller' => 'favourite',
             'action' => 'index',
         );
-        // Get paginator
-        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
+         // Get paginator
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+        // Get story List
+        $storyList = $this->storyList($paginator, $topic['show_order_link']);
+  
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
 

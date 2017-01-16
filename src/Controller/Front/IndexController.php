@@ -70,15 +70,17 @@ class IndexController extends ActionController
                     'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
                 )
             );
-            // Get story List
-            $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
+
             // Set paginator info
             $template = array(
                 'controller' => 'index',
                 'action' => 'index',
             );
             // Get paginator
-            $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
+            $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+            // Get story List
+            $storyList = $this->storyList($paginator, $topic['show_order_link']);
+            
             // Spotlight
             $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
             // Set header and title
@@ -96,28 +98,14 @@ class IndexController extends ActionController
         }
     }
 
-    public function storyList($where, $limit, $orderLink = 'publishDESC')
+   
+    public function storyList($paginator, $orderLink = 'publishDESC')
     {
-        // Set info
         $story = array();
-        $page = $this->params('page', 1);
-        $module = $this->params('module');
-        $offset = (int)($page - 1) * $limit;
         $order = $this->setLinkOrder($orderLink);
-        $limit = intval($limit);
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Set day limit
-        if ($this->config('daylimit')) {
-            $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
-        }
-        // Set info
-        $columns = array('story' => new Expression('DISTINCT story'));
-        // Get info from link table
-        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit($limit);
-        $rowset = $this->getModel('link')->selectWith($select)->toArray();
+        
         // Make list
-        foreach ($rowset as $id) {
+        foreach ($paginator as $id) {
             $storyId[] = $id['story'];
         }
         if (empty($storyId)) {
@@ -175,41 +163,51 @@ class IndexController extends ActionController
         return $story;
     }
 
-    public function storyPaginator($template, $where, $limit)
+    public function storyPaginator($template, $where, $itemPerPage, $order)
     {
-        $template['module'] = $this->params('module');
-        $template['page'] = $this->params('page', 1);
-        $template['limit'] = $limit;
-        // get count
-        $columns = array('count' => new Expression('count(DISTINCT `story`)'));
-        $select = $this->getModel('link')->select()->where($where)->columns($columns);
-        $template['count'] = $this->getModel('link')->selectWith($select)->current()->count;
-        // paginator
-        $paginator = $this->canonizePaginator($template);
-        return $paginator;
-    }
+        // Set info
+        $story = array();
+        $page = $this->params('page', 1);
+        $order = $this->setLinkOrder($orderLink);
 
-    public function canonizePaginator($template)
-    {
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+        // Set day limit
+        if ($this->config('daylimit')) {
+            $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
+        }
+        
+        // Set info
+        $columns = array('story' => new Expression('DISTINCT story'));
+        // Get info from link table
+        $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order);
+        
+        $resultSetPrototype = new  \Zend\Db\ResultSet\ResultSet();
+        $paginatorAdapter = new \Zend\Paginator\Adapter\DbSelect(
+            $select,
+            $this->getModel('link')->getAdapter(),
+            $resultSetPrototype
+        );  
+           
         $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
         $template['action'] = (isset($template['action'])) ? $template['action'] : 'index';
-
+        $template['module'] = $this->params('module');
         $options = array();
         if (isset($template['q']) && !empty($template['q'])) {
             foreach ($template['q'] as $key => $value) {
                 $options['query'][$key] = $value;
             }
         }
-
+    
         // paginator
-        $paginator = Paginator::factory(intval($template['count']));
-        $paginator->setItemCountPerPage(intval($template['limit']));
-        $paginator->setCurrentPageNumber(intval($template['page']));
+        $paginator = new \Pi\Paginator\Paginator($paginatorAdapter);
+        $paginator->setItemCountPerPage(intval($itemPerPage));
+        $paginator->setCurrentPageNumber(intval($page));
         $paginator->setUrlOptions(array(
             'router' => $this->getEvent()->getRouter(),
             'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
             'params' => array_filter(array(
-                'module' => $this->getModule(),
+                'module' => $template['module'],
                 'controller' => $template['controller'],
                 'action' => $template['action'],
                 'slug' => $template['slug'],
