@@ -75,11 +75,13 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         $story = Pi::api('story', 'news')->getStory($params['slug'], 'slug');
                         // Check topic_mai
                         if ($story['topic_main'] > 0) {
-                            $topic = Pi::api('topic', 'news')->getTopic($story['topic_main']);
-                            $result[] = array(
-                                'label' => $topic['title'],
-                                'href' => $topic['topicUrl'],
-                            );
+                            $topicTree = $this->getParentList($story['topic_main']);
+                            foreach ($topicTree as $topic) {
+                                $result[] = array(
+                                    'label' => $topic['title'],
+                                    'href' => Pi::url($topic['url']),
+                                );
+                            }
                         }
                         $result[] = array(
                             'label' => $story['title'],
@@ -117,8 +119,19 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                     //'action' => 'list',
                                 ))),
                             );
-                            // Set link
+                            // Get topic
                             $topic = Pi::api('topic', 'news')->getTopic($params['slug'], 'slug');
+                            // Get topic list
+                            if ($topic['pid'] > 0) {
+                                $topicList = $this->getParentList($topic['pid']);
+                                foreach ($topicList as $topicSingle) {
+                                    $result[] = array(
+                                        'label' => $topicSingle['title'],
+                                        'href' => Pi::url($topicSingle['url']),
+                                    );
+                                }
+                            }
+                            // Set link
                             $result[] = array(
                                 'label' => $topic['title'],
                             );
@@ -151,27 +164,62 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         break;
                 }
             } else {
-                if (isset($params['q']) && !empty($params['q'])) {
-                    $result[] = array(
+                $result = array(
+                    array(
                         'label' => $moduleData['title'],
-                        'href' => Pi::url(Pi::service('url')->assemble('news', array(
-                            'module' => $this->getModule(),
-                        ))),
-                    );
-                    $result[] = array(
-                        'label' => __('Search result'),
-                    );
-                } else {
-                    $result = array(
-                        array(
-                            'label' => $moduleData['title'],
-                        ),
-                    );
-                }
+                    ),
+                );
             }
             return $result;
         } else {
             return '';
         }
+    }
+
+    public function getParentList($id)
+    {
+        $result = array();
+        $topicList = Pi::registry('topicList', 'news')->read();
+
+        $result[$id] = $topicList[$id];
+        if ($topicList[$id]['pid'] > 0) {
+            $id = $topicList[$id]['pid'];
+            $result[$id] = $topicList[$id];
+            if ($topicList[$id]['pid'] > 0) {
+                $id = $topicList[$id]['pid'];
+                $result[$id] = $topicList[$id];
+                if ($topicList[$id]['pid'] > 0) {
+                    $id = $topicList[$id]['pid'];
+                    $result[$id] = $topicList[$id];
+                    if ($topicList[$id]['pid'] > 0) {
+                        $id = $topicList[$id]['pid'];
+                        $result[$id] = $topicList[$id];
+                        if ($topicList[$id]['pid'] > 0) {
+                            $id = $topicList[$id]['pid'];
+                            $result[$id] = $topicList[$id];
+                            if ($topicList[$id]['pid'] > 0) {
+                                $id = $topicList[$id]['pid'];
+                                $result[$id] = $topicList[$id];
+                                if ($topicList[$id]['pid'] > 0) {
+                                    $id = $topicList[$id]['pid'];
+                                    $result[$id] = $topicList[$id];
+                                    if ($topicList[$id]['pid'] > 0) {
+                                        $id = $topicList[$id]['pid'];
+                                        $result[$id] = $topicList[$id];
+                                        if ($topicList[$id]['pid'] > 0) {
+                                            $id = $topicList[$id]['pid'];
+                                            $result[$id] = $topicList[$id];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $result;
+
     }
 }
