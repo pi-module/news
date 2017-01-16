@@ -35,39 +35,66 @@ class IndexController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
-        // Get topic or homepage setting
-        $topic = Pi::api('topic', 'news')->canonizeTopic();
-        // Set story info
-        $where = array(
-            'status' => 1,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
-        );
-        // Set paginator info
-        $template = array(
-            'controller' => 'index',
-            'action' => 'index',
-        );
-        // Get paginator
-        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
-        // Get story List
-        $storyList = $this->storyList($paginator, $topic['show_order_link']);
-        
-        // Spotlight
-        $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
-        // Set header and title
-        $itemTitleH1 = __('List of Latest stories');
-        // Set view
-        $this->view()->setTemplate($topic['template']);
-        $this->view()->assign('stores', $storyList);
-        $this->view()->assign('paginator', $paginator);
-        $this->view()->assign('topic', $topic);
-        $this->view()->assign('config', $config);
-        $this->view()->assign('spotlight', $spotlight);
-        $this->view()->assign('showIndexDesc', 1);
-        $this->view()->assign('page', $page);
-        $this->view()->assign('newsTitleH1', $itemTitleH1);
+        // Check index
+        if ($config['style'] == 'topic') {
+            // Get topic list
+            $where = array('status' => 1, 'type' => 'general');
+            $order = array('time_create DESC', 'id DESC');
+            $select = $this->getModel('topic')->select()->where($where)->order($order);
+            $rowset = $this->getModel('topic')->selectWith($select);
+            foreach ($rowset as $row) {
+                $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
+            }
+            // Set header and title
+            $title = __('List of all topics');
+            // Set seo_keywords
+            $filter = new Filter\HeadKeywords;
+            $filter->setOptions(array(
+                'force_replace_space' => true
+            ));
+            $seoKeywords = $filter($title);
+            // Set view
+            $this->view()->headTitle($title);
+            $this->view()->headdescription($title, 'set');
+            $this->view()->headkeywords($seoKeywords, 'set');
+            $this->view()->setTemplate('topic-list');
+            $this->view()->assign('topics', $topics);
+            $this->view()->assign('config', $config);
+        } else {
+            // Get topic or homepage setting
+            $topic = Pi::api('topic', 'news')->canonizeTopic();
+            // Set story info
+            $where = array(
+                'status' => 1,
+                'type' => array(
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                )
+            );
+            // Set paginator info
+            $template = array(
+                'controller' => 'index',
+                'action' => 'index',
+            );
+            // Get paginator
+            $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+            // Get story List
+            $storyList = $this->storyList($paginator, $topic['show_order_link']);
+            
+            // Spotlight
+            $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+            // Set header and title
+            $itemTitleH1 = __('List of Latest stories');
+            // Set view
+            $this->view()->setTemplate($topic['template']);
+            $this->view()->assign('stores', $storyList);
+            $this->view()->assign('paginator', $paginator);
+            $this->view()->assign('topic', $topic);
+            $this->view()->assign('config', $config);
+            $this->view()->assign('spotlight', $spotlight);
+            $this->view()->assign('showIndexDesc', 1);
+            $this->view()->assign('page', $page);
+            $this->view()->assign('newsTitleH1', $itemTitleH1);
+        }
     }
 
    
