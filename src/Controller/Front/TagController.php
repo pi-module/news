@@ -68,8 +68,6 @@ class TagController extends IndexController
                 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
             )
         );
-        // Get story List
-        $storyList = $this->storyList($where, $topic['show_perpage'], $topic['show_order_link']);
         // Set paginator info
         $template = array(
             'controller' => 'tag',
@@ -77,7 +75,10 @@ class TagController extends IndexController
             'slug' => urlencode($slug),
         );
         // Get paginator
-        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage']);
+        $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+        // Get story List
+        $storyList = $this->storyList($paginator, $topic['show_order_link']);
+  
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
         // Set header and title
