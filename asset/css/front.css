@@ -145,3 +145,14 @@
 .match-height-list > div .thumbnail{
     width: 100%;
 }
+
+
+.itemUnderHead{
+    margin-bottom:20px;
+}
+
+.itemUnderHead:after{
+    content:'';
+    display:block;
+    clear:both;
+}
