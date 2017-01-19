@@ -64,9 +64,8 @@
                                 </div>
                             </div>
                         </div>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
-                    <meta itemprop="datePublished"
-                          content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'verticalwide') { ?>
@@ -128,8 +127,7 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <meta itemprop="datePublished"
-                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
@@ -193,8 +191,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <meta itemprop="datePublished"
-                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } else { ?>
                         <div class="h-entry list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
@@ -207,10 +204,8 @@
                                     </a>
                                 </h4>
                             </div>
-                            <meta itemprop="image"
-                                  content="<?php echo $this->escape($story['mediumUrl']); ?>"/>
-                            <meta itemprop="datePublished"
-                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                            <meta itemprop="image" content="<?php echo $this->escape($story['mediumUrl']); ?>"/>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } ?>
                     <?php $i++; ?>
@@ -273,8 +268,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <meta itemprop="datePublished"
-                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     </div>
                 <?php } ?>
@@ -383,8 +377,7 @@
                              alt="<?php echo $this->escape($story['title']); ?>">
 
                         <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
-                        <meta itemprop="datePublished"
-                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
@@ -437,8 +430,7 @@
                              alt="<?php echo $this->escape($story['title']); ?>">
 
                         <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
-                        <meta itemprop="datePublished"
-                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
@@ -502,8 +494,7 @@
                                     <?php if ($block['showdesc']) { ?>
                                         <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                     <?php } ?>
-                                    <meta itemprop="datePublished"
-                                          content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                                 </div>
                             </div>
                             <?php $i++; ?>
@@ -547,12 +538,9 @@
                                     <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
                                 </div>
                             <?php } ?>
-                            <meta itemprop="datePublished"
-                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
-                            <meta itemprop="name"
-                                  content="<?php echo $this->escape($story['title']); ?>"/>
-                            <meta itemprop="headline"
-                                  content="<?php echo $this->escape($story['title']); ?>"/>
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                            <meta itemprop="name" content="<?php echo $this->escape($story['title']); ?>"/>
+                            <meta itemprop="headline" content="<?php echo $this->escape($story['title']); ?>"/>
                         </div>
                     <?php } ?>
                 </div>
