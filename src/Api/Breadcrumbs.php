@@ -112,13 +112,13 @@ class Breadcrumbs extends AbstractBreadcrumbs
                     case 'topic':
                         if (!empty($params['slug'])) {
                             // Set link
-                            $result[] = array(
+                            /* $result[] = array(
                                 'label' => __('Topic list'),
                                 'href' => Pi::url(Pi::service('url')->assemble('news', array(
                                     'controller' => 'topic',
                                     //'action' => 'list',
                                 ))),
-                            );
+                            ); */
                             // Get topic
                             $topic = Pi::api('topic', 'news')->getTopic($params['slug'], 'slug');
                             // Get topic list
