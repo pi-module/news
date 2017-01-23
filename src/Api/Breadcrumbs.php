@@ -181,34 +181,34 @@ class Breadcrumbs extends AbstractBreadcrumbs
         $result = array();
         $topicList = Pi::registry('topicList', 'news')->read();
 
-        $result[$id] = $topicList[$id];
+        $result[] = $topicList[$id];
         if ($topicList[$id]['pid'] > 0) {
             $id = $topicList[$id]['pid'];
-            $result[$id] = $topicList[$id];
+            $result[] = $topicList[$id];
             if ($topicList[$id]['pid'] > 0) {
                 $id = $topicList[$id]['pid'];
-                $result[$id] = $topicList[$id];
+                $result[] = $topicList[$id];
                 if ($topicList[$id]['pid'] > 0) {
                     $id = $topicList[$id]['pid'];
-                    $result[$id] = $topicList[$id];
+                    $result[] = $topicList[$id];
                     if ($topicList[$id]['pid'] > 0) {
                         $id = $topicList[$id]['pid'];
-                        $result[$id] = $topicList[$id];
+                        $result[] = $topicList[$id];
                         if ($topicList[$id]['pid'] > 0) {
                             $id = $topicList[$id]['pid'];
-                            $result[$id] = $topicList[$id];
+                            $result[] = $topicList[$id];
                             if ($topicList[$id]['pid'] > 0) {
                                 $id = $topicList[$id]['pid'];
-                                $result[$id] = $topicList[$id];
+                                $result[] = $topicList[$id];
                                 if ($topicList[$id]['pid'] > 0) {
                                     $id = $topicList[$id]['pid'];
-                                    $result[$id] = $topicList[$id];
+                                    $result[] = $topicList[$id];
                                     if ($topicList[$id]['pid'] > 0) {
                                         $id = $topicList[$id]['pid'];
-                                        $result[$id] = $topicList[$id];
+                                        $result[] = $topicList[$id];
                                         if ($topicList[$id]['pid'] > 0) {
                                             $id = $topicList[$id]['pid'];
-                                            $result[$id] = $topicList[$id];
+                                            $result[] = $topicList[$id];
                                         }
                                     }
                                 }
@@ -219,6 +219,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
             }
         }
 
+        sort($result);
         return $result;
 
     }
