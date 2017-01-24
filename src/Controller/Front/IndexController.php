@@ -168,7 +168,8 @@ class IndexController extends ActionController
         // Set info
         $story = array();
         $page = $this->params('page', 1);
-        $order = $this->setLinkOrder($orderLink);
+        $order = $this->setLinkOrder($order);
+        $module = $this->params('module');
 
         // Get config
         $config = Pi::service('registry')->config->read($module);
