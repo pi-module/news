@@ -108,6 +108,19 @@ if (!empty($story['largeUrl'])) {
                     <p><?php echo $this->escape($story['subtitle']); ?></p>
                 </div>
             <?php } ?>
+
+            <?php if ($config['admin_text_extra'] && !empty($story['text_html'])) { ?>
+                <div class="clearfix">
+                    <div class="col-md-6 col-md-offset-3">
+                        <?php echo $story['text_html']; ?>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <div class="clearfix p-summary" itemprop="description">
+                <?php echo $story['text_summary']; ?>
+            </div>
+
             <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
                 <div class="gallery gallery-list text-center clearfix row">
                     <div class="u-photo col-lg-3 col-md-4 col-xs-6 gallery-thumb">
