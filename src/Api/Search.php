@@ -78,7 +78,6 @@ class Search extends AbstractSearch
                 break;
         }
 
-
         return $link;
     }
 
