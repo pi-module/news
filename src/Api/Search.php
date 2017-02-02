@@ -20,7 +20,10 @@ class Search extends AbstractSearch
     /**
      * {@inheritDoc}
      */
-    protected $table = 'story';
+    protected $table = array(
+        'story',
+        'topic',
+    );
 
     /**
      * {@inheritDoc}
@@ -39,7 +42,7 @@ class Search extends AbstractSearch
         'title' => 'title',
         'text_summary' => 'content',
         'time_create' => 'time',
-        'uid' => 'uid',
+        //'uid' => 'uid',
         'slug' => 'slug',
         'image' => 'image',
         'path' => 'path',
@@ -50,21 +53,31 @@ class Search extends AbstractSearch
      */
     protected $condition = array(
         'status' => 1,
-        'type' => array(
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-        ),
     );
 
     /**
      * {@inheritDoc}
      */
-    protected function buildUrl(array $item)
+    protected function buildUrl(array $item, $table = '')
     {
-        $link = Pi::url(Pi::service('url')->assemble('news', array(
-            'module' => $this->getModule(),
-            'controller' => 'story',
-            'slug' => $item['slug'],
-        )));
+        switch ($table) {
+            case 'story':
+                $link = Pi::url(Pi::service('url')->assemble('news', array(
+                    'module' => $this->getModule(),
+                    'controller' => 'story',
+                    'slug' => $item['slug'],
+                )));
+                break;
+
+            case 'topic':
+                $link = Pi::url(Pi::service('url')->assemble('news', array(
+                    'module' => $this->getModule(),
+                    'controller' => 'topic',
+                    'slug' => $item['slug'],
+                )));
+                break;
+        }
+
 
         return $link;
     }
@@ -88,5 +101,24 @@ class Search extends AbstractSearch
         }
 
         return $image;
+    }
+
+    protected function buildCondition(array $terms, array $condition = array(), array $columns = array(), $table = '')
+    {
+        switch ($table) {
+            case 'story':
+                $condition['type'] = array(
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                );
+                break;
+
+            case 'topic':
+                $condition['type'] = array(
+                    'general'
+                );
+                break;
+        }
+
+        return Parent::buildCondition($terms, $condition, $columns, $table);
     }
 }
