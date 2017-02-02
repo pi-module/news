@@ -103,6 +103,9 @@ class Search extends AbstractSearch
         return $image;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     protected function buildCondition(array $terms, array $condition = array(), array $columns = array(), $table = '')
     {
         switch ($table) {
