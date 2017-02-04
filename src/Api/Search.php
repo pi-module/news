@@ -59,7 +59,7 @@ class Search extends AbstractSearch
      * {@inheritDoc}
      */
     protected $order = array(
-        'time_publish DESC',
+        'time_create DESC',
         'id DESC'
     );
 
