@@ -421,11 +421,17 @@ class StoryController extends ActionController
                         // process image
                         Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
-                        $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
+                        $messages = $uploader->getMessages();
+                        $this->jump(array('action' => 'update', 'id' => $id), $messages ? implode('; ', $messages) : __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
+
+                if (isset($values['image']) && $values['image'] == '') {
+                    unset($values['image']);
+                }
+
                 // Topics
                 $values['topic'] = json_encode(array_unique($values['topic']));
                 // Author
