@@ -1,7 +1,7 @@
-<div class="news-block news-list-block" itemscope itemtype="http://schema.org/ItemList">
+<div class="news-block news-list-block" itemscope itemtype="https://schema.org/ItemList">
     <ul class="list-unstyled">
         <?php foreach ($block['resources'] as $story) { ?>
-            <li class="h-entry" itemscope itemtype="http://schema.org/Article" itemprop="itemListElement">
+            <li class="h-entry" itemscope itemtype="https://schema.org/Article" itemprop="itemListElement">
 			<span class="itemTitle p-name" itemprop="name">
 				<a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                    title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>

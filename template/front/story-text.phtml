@@ -41,7 +41,7 @@ if (!empty($story['largeUrl'])) {
 
 $this->sticky();
 ?>
-<div class="clearfix" itemscope itemtype="http://schema.org/Article">
+<div class="clearfix" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
 
@@ -217,7 +217,7 @@ $this->sticky();
                         </div>
                         <div class="list-group">
                             <?php foreach ($relateds as $related) { ?>
-                                <div class="list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
+                                <div class="list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($related['image']) { ?>
