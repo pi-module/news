@@ -37,6 +37,11 @@ class StoryController extends ActionController
         $authorList = Pi::registry('authorList', 'news')->read();
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
+
+        if($slug != $story['slug']){
+            return $this->redirect()->toRoute('', array('slug' => $story['slug']))->setStatusCode(301);
+        }
+
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check status
         if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
