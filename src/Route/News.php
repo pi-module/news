@@ -243,6 +243,9 @@ class News extends Standard
         if (empty($url)) {
             return $this->prefix;
         }
-        return $this->paramDelimiter . $url;
+
+        $finalUrl = rtrim($this->paramDelimiter . $url, '/');
+
+        return $finalUrl;
     }
 }

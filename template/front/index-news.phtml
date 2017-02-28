@@ -7,7 +7,7 @@
     <div class="index-news clearfix">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="single-news h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+            <div class="single-news h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                 <div class="single-news-heading">
                     <h3 class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?>
