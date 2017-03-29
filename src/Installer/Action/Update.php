@@ -800,6 +800,20 @@ EOD;
             }
         }
 
+        if (version_compare($moduleVersion, '1.8.6', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_idx` (`title`, `text_description`);", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }
