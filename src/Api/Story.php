@@ -640,9 +640,9 @@ class Story extends AbstractApi
             foreach($storyCollection as $story){
 
                 /**
-                 * Check if media item have already migrate
+                 * Check if media item have already migrate or no image to migrate
                  */
-                if($story->main_image){
+                if($story->main_image || empty($story["image"]) || empty($story["path"])){
                     continue;
                 }
 
@@ -662,9 +662,10 @@ class Story extends AbstractApi
                 $mediaData['title'] = $story->title;
                 $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
 
-                $story->main_image = $mediaId;
-
-                $story->save();
+                if($mediaId){
+                    $story->main_image = $mediaId;
+                    $story->save();
+                }
             }
         }
     }
