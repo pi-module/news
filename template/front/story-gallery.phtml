@@ -126,7 +126,8 @@ if (!empty($story['largeUrl'])) {
                     <div class="u-photo col-lg-3 col-md-4 col-xs-6 gallery-thumb">
                         <a class="thumbnail" href="<?php echo $story['largeUrl']; ?>"
                            title="<?php echo $this->escape($story['title']); ?>">
-                            <img itemprop="image" class="img-responsive" src="<?php echo $story['largeUrl']; ?>"
+                            <img itemprop="image" class="img-responsive"
+                                 src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     </div>
@@ -135,8 +136,9 @@ if (!empty($story['largeUrl'])) {
                             <div class="u-photo col-lg-3 col-md-4 col-xs-6 thumb">
                                 <a class="thumbnail" href="<?php echo $image['largeUrl']; ?>"
                                    title="<?php echo $this->escape($image['title']); ?>">
-                                    <img itemprop="image" class="img-responsive" src="<?php echo $image['mediumUrl']; ?>"
-                                         alt="<?php echo $this->escape($image['title']); ?>"/>
+                                    <img itemprop="image" class="img-responsive"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
                         <?php } ?>

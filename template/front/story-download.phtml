@@ -99,7 +99,7 @@ $this->sticky();
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" class="img-responsive"
-                                         src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>

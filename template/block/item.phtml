@@ -11,7 +11,7 @@
                                     <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>">
                                         <img itemprop="image" class="img-responsive img-rounded u-photo"
-                                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                             src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"/>
                                     </a>
                                 </div>
