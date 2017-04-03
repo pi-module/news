@@ -817,7 +817,7 @@ EOD;
 
 
         if (version_compare($moduleVersion, '1.8.7', '<')) {
-            $sql = sprintf("ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`;", $storyTable);
+            $sql = sprintf("ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` VARCHAR(255) NULL AFTER `main_image`;", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {

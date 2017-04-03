@@ -664,8 +664,34 @@ class Story extends AbstractApi
 
                 if($mediaId){
                     $story->main_image = $mediaId;
-                    $story->save();
                 }
+
+                $additionalImagesArray = array();
+
+                $attachList = Pi::api('attach', $this->module)->attachList($story->id);
+
+                foreach($attachList as $type => $list){
+                    foreach($list as $file){
+                        $attachPath = sprintf('upload/%s/original/%s/%s',
+                            $config['image_path'],
+                            $file['path'],
+                            $file['file']
+                        );
+
+                        $mediaData['title'] = $file['title'];
+                        $mediaData['count'] = $file['hits'];
+
+                        $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
+
+                        $additionalImagesArray[] = $mediaId;
+                    }
+                }
+
+                if($additionalImagesArray){
+                    $story->additional_images = implode(',', $additionalImagesArray);
+                }
+
+                $story->save();
             }
         }
     }

@@ -263,13 +263,12 @@ class StoryForm extends BaseForm
         ));
 
         $this->add(array(
-            'name' => 'image',
+            'name' => 'additional_images',
+            'type' => 'Module\Media\Form\Element\Media',
             'options' => array(
-                'label' => __($this->thumbUrl ? "Change image" : "Image"),
+                'label' => __('Additional images'),
+                'media_gallery' => true,
             ),
-            'attributes' => array(
-                'type' => 'file',
-            )
         ));
 
         // extra_seo
