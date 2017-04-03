@@ -36,11 +36,6 @@ return array(
     ),
     // Admin section
     'admin' => array(
-        'attach' => array(
-            'title' => _a('Attach'),
-            'access' => array(//'admin',
-            ),
-        ),
         'author' => array(
             'title' => _a('Authors'),
             'access' => array(//'admin',

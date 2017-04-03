@@ -82,15 +82,6 @@ return array(
             'controller' => 'spotlight',
             'action' => 'index',
         ),
-        'attach' => array(
-            'label' => _a('Attaced'),
-            'permission' => array(
-                'resource' => 'attach',
-            ),
-            'route' => 'admin',
-            'controller' => 'attach',
-            'action' => 'index',
-        ),
         'attribute' => array(
             'label' => _a('Attribute'),
             'permission' => array(

@@ -204,44 +204,35 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Set info
-        $where = array('type' => 'image');
+
         $order = array('time_create DESC', 'id DESC');
         $limit = intval($block['number']);
         // Select
-        $select = Pi::model('attach', $module)->select()->where($where)->order($order)->limit($limit);
-        $rowset = Pi::model('attach', $module)->selectWith($select);
+        $select = Pi::model('story', $module)->select()->order($order)->limit($limit);
+        $rowset = Pi::model('story', $module)->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $list[$row->id] = $row->toArray();
-            // Set image links
-            $list[$row->id]['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
-            $list[$row->id]['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
-            $list[$row->id]['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
+
+            $galleryImagesLarge = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 1024, 768);
+            $galleryImagesMedium = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 800, 600);
+            $galleryImagesThumb = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 320, 240);
+
+            foreach($galleryImagesLarge as $key => $galleryImageLarge){
+                $list[$row->id . '-' . $key] = $galleryImageLarge;
+                // Set image links
+                $list[$row->id . '-' . $key]['largeUrl'] = $galleryImageLarge['resized_url'];
+                $list[$row->id . '-' . $key]['mediumUrl'] = $galleryImagesMedium[$key]['resized_url'];
+                $list[$row->id . '-' . $key]['thumbUrl'] = $galleryImagesThumb[$key]['resized_url'];
+            }
+
             // Set mediaUrl
-            $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
-                'module' => $module,
-                'controller' => 'media',
-                'action' => 'explorer',
-                'id' => $list[$row->id]['id'],
-            ));
+//            $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
+//                'module' => $module,
+//                'controller' => 'media',
+//                'action' => 'explorer',
+//                'id' => $list[$row->id]['id'],
+//            ));
+
         }
         // Set block array
         $block['resources'] = $list;
