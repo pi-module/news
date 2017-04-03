@@ -147,6 +147,7 @@ class StoryFilter extends InputFilter
             'required' => false,
         ));
 
+
         // image
         $this->add(array(
             'name' => 'image',
