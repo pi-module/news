@@ -255,6 +255,14 @@ class StoryForm extends BaseForm
         ));
 
         $this->add(array(
+            'name' => 'main_image',
+            'type' => 'Module\Media\Form\Element\Media',
+            'options' => array(
+                'label' => __('Main image'),
+            ),
+        ));
+
+        $this->add(array(
             'name' => 'image',
             'options' => array(
                 'label' => __($this->thumbUrl ? "Change image" : "Image"),

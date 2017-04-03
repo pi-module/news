@@ -814,6 +814,26 @@ EOD;
             }
         }
 
+
+
+        if (version_compare($moduleVersion, '1.8.7', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`;", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        if (version_compare($moduleVersion, '1.8.8', '<')) {
+            Pi::api('story', 'news')->migrateMedia();
+        }
+
         return true;
     }
 }

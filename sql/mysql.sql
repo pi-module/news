@@ -41,6 +41,7 @@ CREATE TABLE `{story}` (
 );
 
 ALTER TABLE `{story}` ADD FULLTEXT `search_idx` (`title`, `text_description`);
+ALTER TABLE `{story}` ADD `main_image` INT NULL AFTER `cropping`;
 
 
 CREATE TABLE `{topic}` (

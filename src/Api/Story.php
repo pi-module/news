@@ -626,4 +626,46 @@ class Story extends AbstractApi
             }
         }
     }
+
+    public function migrateMedia(){
+        if (Pi::service("module")->isActive("media")) {
+            // Get config
+            $config = Pi::service('registry')->config->read($this->getModule());
+
+            $storyModel = Pi::model("story", $this->getModule());
+
+            $select = $storyModel->select();
+            $storyCollection = $storyModel->selectWith($select);
+
+            foreach($storyCollection as $story){
+
+                /**
+                 * Check if media item have already migrate
+                 */
+                if($story->main_image){
+                    continue;
+                }
+
+                $mediaData = array(
+                    'active' => 1,
+                    'time_created' => time(),
+                    'uid'   => $story->uid,
+                    'count' => 0,
+                );
+
+                $imagePath = sprintf("upload/%s/original/%s/%s",
+                    $config["image_path"],
+                    $story["path"],
+                    $story["image"]
+                );
+
+                $mediaData['title'] = $story->title;
+                $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
+
+                $story->main_image = $mediaId;
+
+                $story->save();
+            }
+        }
+    }
 }
