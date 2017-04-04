@@ -205,35 +205,32 @@ class Block
         $block = array();
         $block = array_merge($block, $options);
 
-        $order = array('time_create DESC', 'id DESC');
+        $where = array('module' => 'news', 'object_name' => 'story');
         $limit = intval($block['number']);
         // Select
-        $select = Pi::model('story', $module)->select()->order($order)->limit($limit);
-        $rowset = Pi::model('story', $module)->selectWith($select);
+        $select = Pi::model('link', 'media')->select()->where($where)->limit($limit);
+        $rowset = Pi::model('link', 'media')->selectWith($select);
+
+        $list = array();
         // Make list
         foreach ($rowset as $row) {
 
-            $galleryImagesLarge = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 1024, 768);
-            $galleryImagesMedium = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 800, 600);
-            $galleryImagesThumb = Pi::api('doc','media')->getGalleryLinkData($row['additional_images'], 320, 240);
+            $media = Pi::model('doc', 'media')->find($row->id);
 
-            foreach($galleryImagesLarge as $key => $galleryImageLarge){
-                $list[$row->id . '-' . $key] = $galleryImageLarge;
-                // Set image links
-                $list[$row->id . '-' . $key]['largeUrl'] = $galleryImageLarge['resized_url'];
-                $list[$row->id . '-' . $key]['mediumUrl'] = $galleryImagesMedium[$key]['resized_url'];
-                $list[$row->id . '-' . $key]['thumbUrl'] = $galleryImagesThumb[$key]['resized_url'];
-            }
+            $imageLarge = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(800, 600);
+            $imageMedium = Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(800, 600);
+            $imageThumb = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(320, 240);
 
-            // Set mediaUrl
-//            $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
-//                'module' => $module,
-//                'controller' => 'media',
-//                'action' => 'explorer',
-//                'id' => $list[$row->id]['id'],
-//            ));
+            $data = array(
+                'title' => $media->title,
+                'largeUrl' => $imageLarge,
+                'mediumUrl' => $imageMedium,
+                'thumbUrl' => $imageThumb,
+            );
 
+            $list[] = $data;
         }
+
         // Set block array
         $block['resources'] = $list;
         return $block;

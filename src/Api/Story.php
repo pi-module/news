@@ -381,47 +381,6 @@ class Story extends AbstractApi
                 }
             }
         }
-        // Set image url
-        if ($story['image']) {
-            // Set image original url
-            $story['originalUrl'] = Pi::url(
-                sprintf('upload/%s/original/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image large url
-            $story['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image medium url
-            $story['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } elseif ($this->config['image_default']) {
-            $story['originalUrl'] = Pi::service('asset')->getModuleAsset('image/news-original.jpg', $this->getModule());
-            $story['largeUrl'] = Pi::service('asset')->getModuleAsset('image/news-large.jpg', $this->getModule());
-            $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('image/news-medium.jpg', $this->getModule());
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
-        } else {
-            $story['originalUrl'] = '';
-            $story['largeUrl'] = '';
-            $story['mediumUrl'] = '';
-            $story['thumbUrl'] = '';
-        }
         // return story
         return $story;
     }
@@ -448,20 +407,7 @@ class Story extends AbstractApi
             'controller' => 'story',
             'slug' => $story['slug'],
         )));
-        // Set image url
-        if ($story['image']) {
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } elseif ($config['image_default']) {
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
-        } else {
-            $story['thumbUrl'] = '';
-        }
+
         // unset
         unset($story['text_summary']);
         unset($story['text_description']);
@@ -490,34 +436,7 @@ class Story extends AbstractApi
             'controller' => 'story',
             'slug' => $story['slug'],
         )));
-        // Set image url
-        if ($story['image']) {
-            // Set image large url
-            $story['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image medium url
-            $story['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } else {
-            $story['largeUrl'] = '';
-            $story['mediumUrl'] = '';
-            $story['thumbUrl'] = '';
-        }
+
         // Set topic
         //$topic = json_decode($story['topic'], true);
         // Set body
@@ -533,10 +452,6 @@ class Story extends AbstractApi
             'time_publish_view' => _date($story['time_publish']),
             'time_update' => $story['time_update'],
             'time_update_view' => _date($story['time_update']),
-            'thumbUrl' => $story['thumbUrl'],
-            'mediumUrl' => $story['mediumUrl'],
-            'largeUrl' => $story['largeUrl'],
-            'storyUrl' => $story['storyUrl'],
             'topic' => $story['topic_main'],
             'image' => $story['image'],
             'body' => $body,
