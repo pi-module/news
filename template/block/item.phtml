@@ -678,6 +678,9 @@
                                                     <?php } ?>
                                                 </div>
                                             </div>
+                                            <?php if ($block['showdesc']) { ?>
+                                                <div class="news-item-block-summary p-summary"><?php echo $story['text_summary']; ?></div>
+                                            <?php } ?>
                                             <meta itemprop="datePublished"
                                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                                         </div>

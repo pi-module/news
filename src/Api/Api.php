@@ -28,6 +28,7 @@ use Zend\Db\Sql\Predicate\Expression;
  * Pi::api('api', 'news')->getStorySingle($parameter, $field, $type, $option);
  * Pi::api('api', 'news')->getStoryList($where, $order, $offset, $limit, $type, $table, $option);
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
+ * Pi::api('api', 'news')->getStoryCount($where, $table);
  * Pi::api('api', 'news')->getStoryRelated($where, $order);
  */
 
@@ -472,6 +473,28 @@ class Api extends AbstractApi
         ));
 
         return $paginator;
+    }
+
+    public function getStoryCount($where = array(), $table = 'link')
+    {
+        // Set count
+        switch ($table) {
+            case 'story':
+                $columns = array('count' => new Expression('count(*)'));
+                $select = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
+                $count = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                break;
+
+            default:
+            case 'link':
+                $columns = array('count' => new Expression('count(DISTINCT `story`)'));
+                $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
+                $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                break;
+        }
+
+
+        return $count;
     }
 
     public function getStoryRelated($where, $order)
