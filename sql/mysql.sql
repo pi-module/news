@@ -40,6 +40,9 @@ CREATE TABLE `{story}` (
   KEY `story_order` (`time_publish`, `id`)
 );
 
+ALTER TABLE `{story}` ADD FULLTEXT `search_idx` (`title`, `text_description`);
+
+
 CREATE TABLE `{topic}` (
   `id`               INT(10) UNSIGNED                                              NOT NULL AUTO_INCREMENT,
   `pid`              INT(5) UNSIGNED                                               NOT NULL DEFAULT '0',
