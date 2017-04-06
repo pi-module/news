@@ -218,7 +218,7 @@ class Block
             $media = Pi::model('doc', 'media')->find($row->id);
 
             $imageLarge = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(800, 600);
-            $imageMedium = Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(800, 600);
+            $imageMedium = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(800, 600);
             $imageThumb = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->thumb(320, 240);
 
             $data = array(
