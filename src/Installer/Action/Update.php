@@ -830,10 +830,6 @@ EOD;
             }
         }
 
-        if (version_compare($moduleVersion, '2.0.1', '<')) {
-            Pi::api('story', 'news')->migrateMedia();
-        }
-
         if (version_compare($moduleVersion, '2.0.2', '<')) {
             $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_title_idx` (`title`);", $storyTable);
 

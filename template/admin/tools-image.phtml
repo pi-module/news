@@ -1,6 +1,16 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <h3><?php echo $this->escape($title); ?></h3>
-    <div class="alert alert-success"><?php echo $this->escape($message); ?></div>
-    <?php echo $this->form($form); ?>
+
+    <div id="message-box">
+        <?php if (isset($message)) { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <?php echo $message; ?>
+            </div>
+        <?php } ?>
+    </div>
+
+    <hr />
+    <a href="<?php echo $this->url('', array('action' => 'migrateMedia')); ?>" class="btn btn-primary"><?php echo _a('Launch migration tool'); ?></a>
 </div>

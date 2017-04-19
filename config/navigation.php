@@ -212,14 +212,14 @@ return array(
                     'controller' => 'tools',
                     'action' => 'sitemap',
                 ),
-                'image' => array(
-                    'label' => _a('Image'),
+                'media' => array(
+                    'label' => _a('Media'),
                     'permission' => array(
                         'resource' => 'tools',
                     ),
                     'route' => 'admin',
                     'controller' => 'tools',
-                    'action' => 'image',
+                    'action' => 'media',
                 ),
                 'json' => array(
                     'label' => _a('Json'),
