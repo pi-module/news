@@ -8,9 +8,9 @@
                             <a itemprop="url" class="u-url col-xs-4"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                     alt="<?php echo $this->escape($story['title']); ?>"
-                                     class="media-object img-rounded img-responsive u-photo"/>
+                                <img itemprop="image" class="media-object img-rounded img-responsive u-photo"
+                                src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>"
+                                alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         <?php } ?>
                         <div class="media-body p-item h-card">

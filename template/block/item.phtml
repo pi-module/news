@@ -4,19 +4,20 @@
         <?php if ($block['type'] == 'vertical') { ?>
             <div class="news-item-block-vertical clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
                     <div class="vertical-story-single h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <div class="row">
-                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                 <div class="col-xs-4 storyImage">
                                     <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>">
                                         <img itemprop="image" class="img-responsive img-rounded u-photo"
-                                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                             src="<?php echo $thumbUrl; ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"/>
                                     </a>
                                 </div>
                             <?php } ?>
-                            <div class="<?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>col-xs-8<?php } else { ?>col-md-12<?php } ?> p-item h-card">
+                            <div class="<?php if ($block['showimage'] && !empty($thumbUrl)) { ?>col-xs-8<?php } else { ?>col-md-12<?php } ?> p-item h-card">
                                 <div class="vertical-story-single-title p-name" itemprop="name headline">
                                     <h3 class="clearfix">
                                         <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -71,13 +72,15 @@
         <?php } elseif ($block['type'] == 'verticalwide') { ?>
             <div class="news-item-block-verticalwide clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                     <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
-                        <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                        <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                             <div class="clearfix">
                                 <a itemprop="url" class="u-url"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                    <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
                                          class="media-object img-responsive u-photo"/>
                                 </a>
@@ -135,14 +138,16 @@
             <div class="news-item-block-verticalcompressed list-group clearfix">
                 <?php $i = 1; ?>
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                     <?php if ($i == 1) { ?>
                         <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
-                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                 <div class="clearfix">
                                     <a itemprop="url" class="u-url"
                                        href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
-                                        <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                        <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"
                                              class="media-object img-responsive u-photo"/>
                                     </a>
@@ -204,7 +209,7 @@
                                     </a>
                                 </h4>
                             </div>
-                            <meta itemprop="image" content="<?php echo $this->escape($story['mediumUrl']); ?>"/>
+                            <meta itemprop="image" content="<?php echo $this->escape($mediumUrl); ?>"/>
                             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } ?>
@@ -214,12 +219,14 @@
         <?php } elseif ($block['type'] == 'horizontal') { ?>
             <div class="news-item-block-horizontal clearfix row">
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                     <div class="h-entry col-md-3" itemscope itemtype="https://schema.org/Article">
                         <div class="news-item-block-horizontal-box clearfix">
-                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                    <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
                                          class="media-object img-responsive u-photo"/>
                                 </a>
@@ -339,6 +346,8 @@
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
                          itemtype="https://schema.org/Article">
                         <div class="hover-caption">
@@ -367,13 +376,13 @@
                             <p>
                                 <a itemprop="url" class="u-url hover-caption-more"
                                    title="<?php echo $this->escape($story['title']); ?>"
-                                   href="<?php echo $this->escape($story['storyUrl']); ?>">
+                                   href="<?php echo $this->escape($thumbUrl); ?>">
                                     <?php echo _b('View'); ?>
                                 </a>
                             </p>
                         </div>
                         <img itemprop="image" class="media-object img-responsive u-photo"
-                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                             src="<?php echo $this->escape($thumbUrl); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>">
 
                         <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
@@ -392,6 +401,8 @@
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
+                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
                          itemtype="https://schema.org/Article">
                         <div class="hover-caption">
@@ -426,7 +437,7 @@
                             </p>
                         </div>
                         <img itemprop="image" class="media-object img-responsive u-photo"
-                             src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                             src="<?php echo $this->escape($thumbUrl); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>">
 
                         <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
@@ -452,12 +463,14 @@
                     <div class="carousel-inner">
                         <?php $i = 1; ?>
                         <?php foreach ($block['resources'] as $story) { ?>
+                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                            <?php $largeUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(800, 600); ?>
                             <div class="h-entry item<?php if ($i == 1) {
                                 echo ' active';
                             } ?>" itemscope itemtype="https://schema.org/Article">
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" src="<?php echo $this->escape($story['largeUrl']); ?>"
+                                    <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
                                          class="img-responsive u-photo" />
                                 </a>
@@ -518,11 +531,13 @@
                         $class = 'col-md-6 col-sm-6 col-xs-12';
                     } ?>
                     <?php foreach ($block['resources'] as $story) { ?>
+                        <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                        <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                         <div class="h-entry clearfix <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
                             <a itemprop="url" class="u-url"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"
                                      class="img-responsive u-photo"/>
                             </a>
@@ -552,11 +567,12 @@
                     <div class="news-item-block-magazine-main">
                         <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
-                                <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
+                                <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($firstStory['main_image'])->thumb(320, 240); ?>
+                                <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
                                     <a itemprop="url" class="u-url"
                                        href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                                        title="<?php echo $this->escape($firstStory['title']); ?>">
-                                        <img itemprop="image" src="<?php echo $this->escape($firstStory['mediumUrl']); ?>"
+                                        <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                              alt="<?php echo $this->escape($firstStory['title']); ?>"
                                              class="media-object img-rounded img-responsive u-photo"/>
                                     </a>
@@ -611,15 +627,17 @@
                 <div class="col-md-9 col-sm-7 col-xs-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
+                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                            <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
                                         <div class="col-md-4 col-sm-4 col-xs-5">
-                                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                                 <a itemprop="url" class="u-url"
                                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                                    title="<?php echo $this->escape($story['title']); ?>">
-                                                    <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                                    <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
                                                          class="media-object img-rounded img-responsive u-photo"/>
                                                 </a>
@@ -726,11 +744,12 @@
                                           content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
-                                    <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
+                                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($firstStory['main_image'])->thumb(320, 240); ?>
+                                    <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
                                         <a itemprop="url" class="u-url"
                                            href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                                            title="<?php echo $this->escape($firstStory['title']); ?>">
-                                            <img itemprop="image" src="<?php echo $this->escape($firstStory['mediumUrl']); ?>"
+                                            <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                                  alt="<?php echo $this->escape($firstStory['title']); ?>"
                                                  class="media-object img-rounded img-responsive u-photo"/>
                                         </a>
@@ -743,15 +762,17 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
+                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
+                            <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
                                         <div class="col-md-4 col-sm-4 col-xs-5">
-                                            <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
+                                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                                 <a itemprop="url" class="u-url"
                                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                                    title="<?php echo $this->escape($story['title']); ?>">
-                                                    <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
+                                                    <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
                                                          class="media-object img-rounded img-responsive u-photo"/>
                                                 </a>

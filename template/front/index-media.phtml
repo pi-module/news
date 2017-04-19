@@ -11,7 +11,7 @@
                 <div class="hover-style">
                     <?php if ($story['image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
-                            <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
+                            <img itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(260, 230); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     <?php } ?>

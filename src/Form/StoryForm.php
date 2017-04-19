@@ -255,34 +255,22 @@ class StoryForm extends BaseForm
         ));
 
         $this->add(array(
-            'name' => 'image',
+            'name' => 'main_image',
+            'type' => 'Module\Media\Form\Element\Media',
             'options' => array(
-                'label' => __($this->thumbUrl ? "Change image" : "Image"),
+                'label' => __('Main image'),
             ),
-            'attributes' => array(
-                'type' => 'file',
-            )
         ));
 
         $this->add(array(
-            'name' => 'imageview',
-            'type' => 'Module\News\Form\Element\Image',
-            'options' => array('label' => __('Uploaded image'),
-            ),
-            'attributes' => array(
-                'src' => $this->thumbUrl ?: ' ',
-                'type' => $this->thumbUrl ? 'image' : 'hidden'
+            'name' => 'additional_images',
+            'type' => 'Module\Media\Form\Element\Media',
+            'options' => array(
+                'label' => __('Additional images'),
+                'media_gallery' => true,
             ),
         ));
 
-        // Attach
-        $this->add(array(
-            'name' => 'attach',
-            'type' => 'Module\News\Form\Element\Attach',
-            'options' => array(
-                'label' => __('Attach media'),
-            ),
-        ));
         // extra_seo
         $this->add(array(
             'name' => 'extra_seo',

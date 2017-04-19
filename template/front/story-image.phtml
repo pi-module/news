@@ -115,7 +115,8 @@ if (!empty($story['largeUrl'])) {
                             <div class="u-photo">
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" class="img-responsive img-thumbnail" src="<?php echo $story['largeUrl']; ?>"
+                                    <img itemprop="image" class="img-responsive"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(1280, 960); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>

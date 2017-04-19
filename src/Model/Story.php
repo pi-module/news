@@ -43,6 +43,8 @@ class Story extends Model
         'image',
         'path',
         'cropping',
+        'main_image',
+        'additional_images',
         'point',
         'count',
         'favourite',
@@ -50,4 +52,6 @@ class Story extends Model
         'attribute',
         'type'
     );
+
+    protected $mediaLinks = array('main_image', 'additional_images');
 }

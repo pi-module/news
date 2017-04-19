@@ -124,19 +124,24 @@ if (!empty($story['largeUrl'])) {
             <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
                 <div class="gallery gallery-list text-center clearfix row">
                     <div class="u-photo col-lg-3 col-md-4 col-xs-6 gallery-thumb">
-                        <a class="thumbnail" href="<?php echo $story['largeUrl']; ?>"
+                        <a class="thumbnail" href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(720, 420); ?>"
                            title="<?php echo $this->escape($story['title']); ?>">
-                            <img itemprop="image" class="img-responsive" src="<?php echo $story['largeUrl']; ?>"
+                            <img itemprop="image" class="img-responsive"
+                                 src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     </div>
-                    <?php if (isset($attach['image']) && !empty($attach['image'])) { ?>
-                        <?php foreach ($attach['image'] as $image) { ?>
+
+                    <?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 320, 200) ?>
+                    <?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 900, 600) ?>
+                    <?php if ($galleryImages) { ?>
+                        <?php foreach ($galleryImages as $key => $galleryImage) { ?>
                             <div class="u-photo col-lg-3 col-md-4 col-xs-6 thumb">
-                                <a class="thumbnail" href="<?php echo $image['largeUrl']; ?>"
-                                   title="<?php echo $this->escape($image['title']); ?>">
-                                    <img itemprop="image" class="img-responsive" src="<?php echo $image['mediumUrl']; ?>"
-                                         alt="<?php echo $this->escape($image['title']); ?>"/>
+                                <a class="thumbnail" href="<?php echo $galleryImagesBig[$key]['resized_url']; ?>"
+                                   title="<?php echo $this->escape($galleryImage['title']); ?>">
+                                    <img itemprop="image" class="img-responsive"
+                                         src="<?php echo $galleryImage['resized_url']; ?>"
+                                         alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
                                 </a>
                             </div>
                         <?php } ?>
