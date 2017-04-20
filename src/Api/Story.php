@@ -575,7 +575,10 @@ class Story extends AbstractApi
                      * Check if media item exists
                      */
                     if(empty($story["image"]) || empty($story["path"])){
-                        $msg .= __("Missing image or path value from db for Story ID") . " " .  $story->id . "<br>";
+
+                        $draft = $story->status == 3 ? ' (' . __('Draft') . ')' : '';
+
+                        $msg .= __("Missing image or path value from db for Story ID") . " " .  $story->id . $draft . "<br>";
                     } else {
                         $imagePath = sprintf("upload/%s/original/%s/%s",
                             $config["image_path"],
@@ -600,19 +603,23 @@ class Story extends AbstractApi
 
                     foreach($attachList as $type => $list){
                         foreach($list as $file){
-                            $attachPath = sprintf('upload/%s/original/%s/%s',
-                                $config['image_path'],
-                                $file['path'],
-                                $file['file']
-                            );
+                            if(empty($file["file"]) || empty($file["path"])){
+                                $msg .= __("Missing file or path value from db for attachment ID") . " " .  $file->id . "<br>";
+                            } else {
+                                $attachPath = sprintf('upload/%s/original/%s/%s',
+                                    $config['image_path'],
+                                    $file['path'],
+                                    $file['file']
+                                );
 
-                            $mediaData['title'] = $file['title'];
-                            $mediaData['count'] = $file['hits'];
+                                $mediaData['title'] = $file['title'];
+                                $mediaData['count'] = $file['hits'];
 
-                            $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
+                                $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
 
-                            if($mediaId){
-                                $additionalImagesArray[] = $mediaId;
+                                if($mediaId){
+                                    $additionalImagesArray[] = $mediaId;
+                                }
                             }
                         }
                     }
