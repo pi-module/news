@@ -238,10 +238,12 @@ class ToolsController extends ActionController
 
     public function migrateMediaAction(){
 
-        Pi::api('story', 'news')->migrateMedia();
+        $msg = Pi::api('story', 'news')->migrateMedia();
 
         $messenger = $this->plugin('flashMessenger');
         $messenger->addSuccessMessage(__('Media have migrate successfully'));
+
+        $messenger->addWarningMessage($msg);
 
         $this->redirect()->toRoute(null, array('action' => 'media'));
     }

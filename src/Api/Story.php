@@ -544,6 +544,9 @@ class Story extends AbstractApi
 
     public function migrateMedia(){
         if (Pi::service("module")->isActive("media")) {
+
+            $msg = '';
+
             // Get config
             $config = Pi::service('registry')->config->read($this->getModule());
 
@@ -554,12 +557,7 @@ class Story extends AbstractApi
 
             foreach($storyCollection as $story){
 
-                /**
-                 * Check if media item have already migrate or no image to migrate
-                 */
-                if($story->main_image || empty($story["image"]) || empty($story["path"])){
-                    continue;
-                }
+                $toSave = false;
 
                 $mediaData = array(
                     'active' => 1,
@@ -568,46 +566,71 @@ class Story extends AbstractApi
                     'count' => 0,
                 );
 
-                $imagePath = sprintf("upload/%s/original/%s/%s",
-                    $config["image_path"],
-                    $story["path"],
-                    $story["image"]
-                );
+                /**
+                 * Check if media item have already migrate or no image to migrate
+                 */
+                if(!$story->main_image){
 
-                $mediaData['title'] = $story->title;
-                $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
-
-                if($mediaId){
-                    $story->main_image = $mediaId;
-                }
-
-                $additionalImagesArray = array();
-
-                $attachList = Pi::api('attach', $this->module)->attachList($story->id);
-
-                foreach($attachList as $type => $list){
-                    foreach($list as $file){
-                        $attachPath = sprintf('upload/%s/original/%s/%s',
-                            $config['image_path'],
-                            $file['path'],
-                            $file['file']
+                    /**
+                     * Check if media item exists
+                     */
+                    if(empty($story["image"]) || empty($story["path"])){
+                        $msg .= __("Missing image or path value from db for Story ID") . " " .  $story->id . "<br>";
+                    } else {
+                        $imagePath = sprintf("upload/%s/original/%s/%s",
+                            $config["image_path"],
+                            $story["path"],
+                            $story["image"]
                         );
 
-                        $mediaData['title'] = $file['title'];
-                        $mediaData['count'] = $file['hits'];
+                        $mediaData['title'] = $story->title;
+                        $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
 
-                        $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
-
-                        $additionalImagesArray[] = $mediaId;
+                        if($mediaId){
+                            $story->main_image = $mediaId;
+                            $toSave = true;
+                        }
                     }
                 }
 
-                if($additionalImagesArray){
-                    $story->additional_images = implode(',', $additionalImagesArray);
+                if(!$story->additional_images){
+                    $additionalImagesArray = array();
+
+                    $attachList = Pi::api('attach', $this->module)->attachList($story->id);
+
+                    foreach($attachList as $type => $list){
+                        foreach($list as $file){
+                            $attachPath = sprintf('upload/%s/original/%s/%s',
+                                $config['image_path'],
+                                $file['path'],
+                                $file['file']
+                            );
+
+                            $mediaData['title'] = $file['title'];
+                            $mediaData['count'] = $file['hits'];
+
+                            $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
+
+                            if($mediaId){
+                                $additionalImagesArray[] = $mediaId;
+                            }
+                        }
+                    }
+
+                    if($additionalImagesArray){
+                        $story->additional_images = implode(',', $additionalImagesArray);
+                        $toSave = true;
+                    }
                 }
 
-                $story->save();
+                if($toSave){
+                    $story->save();
+                }
             }
+
+            return $msg;
         }
+
+        return false;
     }
 }
