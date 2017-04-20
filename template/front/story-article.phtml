@@ -132,19 +132,24 @@ $this->sticky();
         </div>
         <div class="col-md-4">
             <div class="news-story-page-side" id="sticky-sidebar">
-                <?php if ($story['image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
+                <?php if ($story['main_image'] || $story['additional_images']) { ?>
                     <div class="gallery">
-                        <div class="storyImageMain">
-                            <div class="thumbnail u-photo">
-                                <a href="<?php echo $story['largeUrl']; ?>"
-                                   title="<?php echo $this->escape($story['title']); ?>">
-                                    <img itemprop="image" class="img-responsive"
-                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
-                                         alt="<?php echo $this->escape($story['title']); ?>"/>
-                                </a>
+                        <?php if ($story['main_image']) { ?>
+                            <div class="storyImageMain">
+                                <div class="thumbnail u-photo">
+                                    <a href="<?php echo $story['largeUrl']; ?>"
+                                       title="<?php echo $this->escape($story['title']); ?>">
+                                        <img itemprop="image" class="img-responsive"
+                                             src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
+                                             alt="<?php echo $this->escape($story['title']); ?>"/>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="storyImageAttach row"><?php include $this->template('front/attach-image'); ?></div>
+                        <?php } ?>
+
+                        <?php if ($story['additional_images']) { ?>
+                            <div class="storyImageAttach row"><?php include $this->template('front/attach-image'); ?></div>
+                        <?php } ?>
                     </div>
                 <?php } ?>
                 <div class="clearfix">
