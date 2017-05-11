@@ -477,6 +477,17 @@ class Story extends AbstractApi
             'image' => $story['image'],
             'body' => $body,
         );
+
+        if ($story['main_image']) {
+            $storyJson['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $storyJson['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $storyJson['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(150, 100));
+        } else {
+            $storyJson['largeUrl'] = '';
+            $storyJson['mediumUrl'] = '';
+            $storyJson['thumbUrl'] = '';
+        }
+
         // return item
         return $storyJson;
     }

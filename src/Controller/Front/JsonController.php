@@ -359,6 +359,59 @@ class JsonController extends IndexController
         return $storySingle;
     }
 
+    /* public function storySubmitAction()
+    {
+        $result = array();
+        // Check password
+        if (!$this->checkPassword()) {
+            $this->getResponse()->setStatusCode(401);
+            $this->terminate(__('Password not set or wrong'), '', 'error-denied');
+            $this->view()->setLayout('layout-simple');
+            return;
+        }
+        if ($this->request->isPost()) {
+            $data = $this->request->getPost();
+            $data = $data->toArray();
+            if (isset($data['uid']) &&
+                !empty($data['uid']) &&
+                $data['uid'] > 0 &&
+                isset($data['title']) &&
+                !empty($data['title']) &&
+                isset($data['body']) &&
+                !empty($data['body'])) {
+
+                $id = uniqid('story-');
+                $row = $this->getModel('story')->createRow();
+                $row->title = _strip($data['title']);
+                $row->slug = $id;
+                $row->status = 2;
+                $row->time_create = time();
+                $row->type = 'text';
+                $row->text_description = _strip($data['body']);
+                $row->uid = intval($data['uid']);
+                $row->main_image = '';
+                $row->additional_images = '';
+                $row->save();
+                $result = array(
+                    'status' => 1,
+                    'message' => 'OK',
+                );
+            } else {
+                $result = array(
+                    'status' => 0,
+                    'message' => 'Error story 1',
+                );
+            }
+        } else {
+            $result = array(
+                'status' => 0,
+                'message' => 'Error story 2',
+            );
+        }
+
+        return $result;
+    } */
+
     public function filterSearchAction() {
         // Get info from url
         $module = $this->params('module');
