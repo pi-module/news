@@ -22,7 +22,7 @@
                             <span class="label label-danger"><?php _e('Important'); ?></span>
                             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                         <?php } ?>
-                        <?php if ($story['image']) { ?>
+                        <?php if ($story['main_image']) { ?>
                             <img itemprop="image"
                                  src="<?php echo $this->escape($story['thumbUrl']); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>

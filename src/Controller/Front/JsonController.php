@@ -198,8 +198,8 @@ class JsonController extends IndexController
         $story = array();
         $count = 0;
 
-        $offset = (int)($page - 1) * $config['view_perpage'];
         $limit = (intval($limit) > 0) ? intval($limit) : intval($config['view_perpage']);
+        $offset = (int)($page - 1) * $limit;
 
         // Set topic on where link
         if (isset($topicIDList) && !empty($topicIDList)) {
@@ -336,16 +336,23 @@ class JsonController extends IndexController
             $storySingle = array();
         } else {
 
-            $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
-            $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
-            $body = str_replace("<p>&nbsp;</p>", "", $body);
+            // Set text_summary
+            $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
+            $story['text_summary'] = strip_tags($story['text_summary'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_summary'] = str_replace("<p>&nbsp;</p>", "", $story['text_summary']);
+
+            // Set text_description
+            $story['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
+            $story['text_description'] = strip_tags($story['text_description'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_description'] = str_replace("<p>&nbsp;</p>", "", $story['text_description']);
 
             $storySingle = array(
                 'id' => $story['id'],
                 'title' => $story['title'],
                 'subtitle' => $story['subtitle'],
                 'topic' => $story['topic'][0],
-                'body' => $body,
+                'text_summary' => $story['text_summary'],
+                'text_description' => $story['text_description'],
                 'time_publish' => $story['time_publish'],
                 'time_publish_view' => $story['time_publish_view'],
                 'storyUrl' => $story['storyUrl'],

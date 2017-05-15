@@ -210,7 +210,7 @@ if (!empty($story['largeUrl'])) {
                         <div class="list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <?php if ($related['image']) { ?>
+                                    <?php if ($related['main_image']) { ?>
                                         <img itemprop="image" class="img-responsive u-photo"
                                              src="<?php echo $this->escape($related['thumbUrl']); ?>"
                                              alt="<?php echo $this->escape($related['title']); ?>"/>
