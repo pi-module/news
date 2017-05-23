@@ -39,7 +39,7 @@ if (!empty($story['largeUrl'])) {
     $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
 }
 ?>
-<div class="clearfix" itemscope itemtype="https://schema.org/Article">
+<div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
 
