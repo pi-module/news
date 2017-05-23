@@ -74,7 +74,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                     case 'story':
                         $story = Pi::api('story', 'news')->getStory($params['slug'], 'slug');
                         // Check topic_mai
-                        if ($story['topic_main'] > 0) {
+                        if ($story['topic_main'] > 0 && $config['view_breadcrumbs_topic']) {
                             $topicTree = $this->getParentList($story['topic_main']);
                             foreach ($topicTree as $topic) {
                                 $result[] = array(
@@ -122,7 +122,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             // Get topic
                             $topic = Pi::api('topic', 'news')->getTopic($params['slug'], 'slug');
                             // Get topic list
-                            if ($topic['pid'] > 0) {
+                            if ($topic['pid'] > 0 && $config['view_breadcrumbs_topic']) {
                                 $topicList = $this->getParentList($topic['pid']);
                                 foreach ($topicList as $topicSingle) {
                                     $result[] = array(

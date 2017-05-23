@@ -304,6 +304,14 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
+        'view_breadcrumbs_topic' => array(
+            'category' => 'show',
+            'title' => _a('Show topics on breadcrumbs'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
         'show_related' => array(
             'category' => 'show',
             'title' => _a('Show related news'),
