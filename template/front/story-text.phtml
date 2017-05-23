@@ -88,10 +88,10 @@ $this->sticky();
     <div class="row news-story-page clearfix h-entry" id="sticky-container">
         <div class="col-md-8">
             <div class="news-story-page-body">
-                <?php if ($story['image']) { ?>
+                <?php if ($story['main_image']) { ?>
                     <div class="storyImageMain gallery">
                         <div class="thumbnail u-photo">
-                            <a href="<?php echo $story['largeUrl']; ?>"
+                            <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(1024, 768); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" class="img-responsive"
                                      src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"

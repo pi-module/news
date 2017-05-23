@@ -94,10 +94,10 @@ $this->sticky();
                     </div>
                 <?php } ?>
                 <div class="clearfix">
-                    <?php if ($story['image']) { ?>
+                    <?php if ($story['main_image'] || $story['additional_images']) { ?>
                         <div class="storyImageMain gallery pull-left col-md-4">
                             <div class="thumbnail u-photo">
-                                <a href="<?php echo $story['largeUrl']; ?>"
+                                <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(1024, 768); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" class="img-responsive"
                                          src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
