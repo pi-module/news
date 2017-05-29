@@ -10,7 +10,7 @@
                         </h2>
                     </div>
                     <div class="spotlightBody">
-                        <?php if ($spotlight['top']['image']) { ?>
+                        <?php if ($spotlight['top']['main_image']) { ?>
                             <div class="itemImageList left">
                                 <?php if ($config['image_lightbox']) { ?>
                                     <a href="<?php echo $spotlight['top']['mediumUrl']; ?>"
@@ -41,7 +41,7 @@
                                 </h4>
                             </div>
                             <div class="spotlightBody">
-                                <?php if ($story['image'] && $config['spotlight_image']) { ?>
+                                <?php if ($story['main_image'] && $config['spotlight_image']) { ?>
                                     <div class="itemImageList left">
                                         <?php if ($config['image_lightbox']) { ?>
                                             <a href="<?php echo $story['mediumUrl']; ?>"

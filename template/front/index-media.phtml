@@ -22,6 +22,11 @@
                                                                                                         href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
                         </h4>
                         <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                        <?php if ($topic['show_date']) { ?>
+                            <div class="itemPostDate dt-published">
+                                <?php echo $this->escape($story['time_publish_view']); ?>
+                            </div>
+                        <?php } ?>
                     </div>
                     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                 </div>

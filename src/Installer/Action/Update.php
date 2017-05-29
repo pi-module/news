@@ -801,7 +801,7 @@ EOD;
         }
 
         if (version_compare($moduleVersion, '1.8.6', '<')) {
-            $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_idx` (`title`, `text_description`);", $storyTable);
+            /* $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_idx` (`title`, `text_description`);", $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
@@ -811,7 +811,7 @@ EOD;
                         . $exception->getMessage(),
                 ));
                 return false;
-            }
+            } */
         }
 
 
@@ -831,7 +831,7 @@ EOD;
         }
 
         if (version_compare($moduleVersion, '2.0.2', '<')) {
-            $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_title_idx` (`title`);", $storyTable);
+            /* $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_title_idx` (`title`);", $storyTable);
 
             try {
                 $storyAdapter->query($sql, 'execute');
@@ -855,7 +855,7 @@ EOD;
                         . $exception->getMessage(),
                 ));
                 return false;
-            }
+            } */
         }
 
         if (version_compare($moduleVersion, '2.0.4', '<')) {

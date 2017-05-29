@@ -40,7 +40,7 @@ if ($shareImage) {
     $this->headMeta($shareImage, 'twitter:image');
 }
 ?>
-<div class="clearfix" itemscope itemtype="https://schema.org/Article">
+<div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
 
@@ -211,7 +211,7 @@ if ($shareImage) {
                         <div class="list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <?php if ($related['image']) { ?>
+                                    <?php if ($related['main_image']) { ?>
                                         <img itemprop="image" class="img-responsive u-photo"
                                              src="<?php echo $this->escape($related['thumbUrl']); ?>"
                                              alt="<?php echo $this->escape($related['title']); ?>"/>

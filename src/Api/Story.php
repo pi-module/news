@@ -381,6 +381,17 @@ class Story extends AbstractApi
                 }
             }
         }
+
+        if ($story['main_image']) {
+            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(150, 100));
+        } else {
+            $story['largeUrl'] = '';
+            $story['mediumUrl'] = '';
+            $story['thumbUrl'] = '';
+        }
+
         // return story
         return $story;
     }
@@ -407,6 +418,16 @@ class Story extends AbstractApi
             'controller' => 'story',
             'slug' => $story['slug'],
         )));
+
+        if ($story['main_image']) {
+            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(150, 100));
+        } else {
+            $story['largeUrl'] = '';
+            $story['mediumUrl'] = '';
+            $story['thumbUrl'] = '';
+        }
 
         // unset
         unset($story['text_summary']);
@@ -456,6 +477,17 @@ class Story extends AbstractApi
             'image' => $story['image'],
             'body' => $body,
         );
+
+        if ($story['main_image']) {
+            $storyJson['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $storyJson['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240));
+            $storyJson['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(150, 100));
+        } else {
+            $storyJson['largeUrl'] = '';
+            $storyJson['mediumUrl'] = '';
+            $storyJson['thumbUrl'] = '';
+        }
+
         // return item
         return $storyJson;
     }
