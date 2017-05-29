@@ -18,11 +18,11 @@
                 </div>
                 <div class="single-news-body">
                     <div class="clearfix">
-                        <?php if ($story['image']) { ?>
+                        <?php if ($story['main_image']) { ?>
                             <div class="col-md-3 u-photo">
                                 <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
+                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
