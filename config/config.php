@@ -370,16 +370,6 @@ return array(
             'value' => 10
         ),
 
-        // Crop
-        'image_crop' => array(
-            'category' => 'image',
-            'title' => _a('Activate Image cropping'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 0
-        ),
-
         // Image
         'image_default' => array(
             'category' => 'image',
