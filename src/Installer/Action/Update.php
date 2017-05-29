@@ -858,6 +858,21 @@ EOD;
             }
         }
 
+        if (version_compare($moduleVersion, '2.0.4', '<')) {
+            $query = "ALTER TABLE %s CHANGE `additional_images` `additional_images` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;";
+            $sql = sprintf($query, $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }
