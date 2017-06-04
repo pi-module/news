@@ -82,7 +82,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => '',
+                'description' => 'this value will be used as URL value, must be unique and short',
             )
         ));
         // text_summary
@@ -95,7 +95,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '5',
                 'cols' => '40',
-                'description' => __('Just show on story list and blocks'),
+                'description' => __('Just shown on story list and blocks'),
             )
         ));
         // text_description
@@ -108,7 +108,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'editor',
-                'description' => __('Only show on story page'),
+                'description' => __('Only shown on story page'),
             )
         ));
         // text_html
@@ -131,7 +131,7 @@ class StoryForm extends BaseForm
             'name' => 'extra_main',
             'type' => 'fieldset',
             'options' => array(
-                'label' => __('Mian options'),
+                'label' => __('Main options'),
             ),
         ));
         // status
@@ -302,7 +302,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => __('Between 5 to 12 words'),
+                'description' => __('Between 5 to 12 words / not used anymore by search engines'),
             )
         ));
         // seo_description
