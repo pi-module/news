@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2017-06-05 21:29+0200\n"
+"POT-Creation-Date: 2017-06-05 21:57+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
@@ -1025,6 +1025,12 @@ msgstr "Options texte"
 msgid "Subtitle"
 msgstr "Sous-titre"
 
+#: src/Form/StoryForm.php:85
+msgid "Used as story URL value : must be unique, short, and user oriented"
+msgstr ""
+"Utilisé comme valeur d'URL / Adresse pour l'article : il doit être unique, "
+"court et orienté utilisateur"
+
 #: src/Form/StoryForm.php:92 src/Form/TopicForm.php:86
 msgid "Short text"
 msgstr "Texte introductif"
@@ -1123,7 +1129,7 @@ msgid ""
 "it will be automaticaly populated with main title values"
 msgstr ""
 "N'est plus utilisé par les moteurs de recherche : entre 5 et 12 mots / "
-"laisser vide, il sera remplit automatiquement par les valeurs du titre de "
+"laisser vide, il sera rempli automatiquement par les valeurs du titre de "
 "l'actualité"
 
 #: src/Form/StoryForm.php:312
