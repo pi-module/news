@@ -82,7 +82,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => 'Used as story URL value : must be unique, short, and user oriented',
+                'description' => __('Used as story URL value : must be unique, short, and user oriented'),
             )
         ));
         // text_summary
