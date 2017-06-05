@@ -302,7 +302,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => __('Not used anymore by search engines : Between 5 to 12 words / left it empty, it will be automaticaly populated with main title values'),
+                'description' => __('Not used anymore by search engines : between 5 to 12 words / left it empty, it will be automaticaly populated with main title values'),
             )
         ));
         // seo_description
