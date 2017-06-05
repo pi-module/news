@@ -309,7 +309,7 @@ msgstr "Image unique"
 #: src/Controller/Admin/StoryController.php:127 src/Form/StoryForm.php:165
 #: src/Form/StoryForm.php:169 template/admin/story-index.phtml:37
 msgid "Blog post"
-msgstr "article de Blog"
+msgstr "Article Blog"
 
 #: src/Controller/Admin/StoryController.php:264
 #, php-format
@@ -1634,14 +1634,14 @@ msgstr "Voir l'actualité"
 
 #: template/admin/story-index.phtml:17
 msgid "Description about add new story"
-msgstr "Description lors de l'ajout d'un nouvel article"
+msgstr "Aide sur les types d'actualités à choisir lors d'un nouvel ajout"
 
 #: template/admin/story-index.phtml:23
 msgid ""
 "You can select many types on submit new story, each type have different "
 "template and view and useful for special usage"
 msgstr ""
-"Vous pouvez choisir parmi plusieurs types de Template pour chaque article. "
+"Vous pouvez choisir parmi plusieurs types de Template pour chaque actualité. "
 "Chaque type de Template propose un affichage pour un usage spécifique"
 
 #: template/admin/story-index.phtml:26
