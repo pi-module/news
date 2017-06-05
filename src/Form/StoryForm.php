@@ -82,7 +82,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'text',
-                'description' => '',
+                'description' => 'Used as story URL value : must be unique, short, and user oriented',
             )
         ));
         // text_summary
@@ -95,7 +95,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '5',
                 'cols' => '40',
-                'description' => __('Just show on story list and blocks'),
+                'description' => __('Just shown on story list and blocks'),
             )
         ));
         // text_description
@@ -108,7 +108,7 @@ class StoryForm extends BaseForm
             ),
             'attributes' => array(
                 'type' => 'editor',
-                'description' => __('Only show on story page'),
+                'description' => __('Only shown on story page'),
             )
         ));
         // text_html
@@ -131,7 +131,7 @@ class StoryForm extends BaseForm
             'name' => 'extra_main',
             'type' => 'fieldset',
             'options' => array(
-                'label' => __('Mian options'),
+                'label' => __('Main options'),
             ),
         ));
         // status
@@ -289,7 +289,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => __('Between 10 to 70 character, better keep it empty to copy main title here'),
+                'description' => __('Displayed in search Engine result pages as Title : between 10 to 70 character. If empty, will be popuated automaticaly by main title value'),
             )
         ));
         // seo_keywords
@@ -302,7 +302,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '2',
                 'cols' => '40',
-                'description' => __('Between 5 to 12 words'),
+                'description' => __('Not used anymore by search engines : between 5 to 12 words / left it empty, it will be automaticaly populated with main title values'),
             )
         ));
         // seo_description
@@ -315,7 +315,7 @@ class StoryForm extends BaseForm
                 'type' => 'textarea',
                 'rows' => '3',
                 'cols' => '40',
-                'description' => __('Between 80 to 160 character'),
+                'description' => __('Displayed in search Engine result pages : quick summary to incitate user to click, between 80 to 160 character'),
             )
         ));
         // tag
