@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2017-04-20 18:15+0200\n"
+"POT-Creation-Date: 2017-06-05 21:57+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../..\n"
@@ -107,7 +107,7 @@ msgstr "Liste de Sujets"
 msgid "Post list"
 msgstr "Liste des publications"
 
-#: src/Api/Story.php:579 src/Form/AuthorForm.php:88
+#: src/Api/Story.php:611 src/Form/AuthorForm.php:88
 #: src/Form/AuthorRoleForm.php:62 src/Form/MicroblogForm.php:92
 #: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
 #: src/Form/StoryForm.php:146 src/Form/TopicForm.php:117
@@ -115,13 +115,17 @@ msgstr "Liste des publications"
 msgid "Draft"
 msgstr "Brouillon"
 
-#: src/Api/Story.php:581
+#: src/Api/Story.php:613
 msgid "Missing image or path value from db for Story ID"
 msgstr ""
+"Image ou valeur du chemin manquante dans la base de donnée pour l'actualité "
+"ID"
 
-#: src/Api/Story.php:607
+#: src/Api/Story.php:639
 msgid "Missing file or path value from db for attachment ID"
 msgstr ""
+"Image ou valeur du chemin manquante dans la base de donnée pour "
+"l'attachement ID"
 
 #: src/Controller/Admin/AttributeController.php:53
 msgid "Attribute field type not set."
@@ -192,7 +196,7 @@ msgstr "Merci de sélectionner l'auteur"
 #: src/Controller/Front/MicroblogController.php:40
 #: src/Controller/Front/MicroblogController.php:84
 msgid "Microblog system not active"
-msgstr ""
+msgstr "Le système de Microblog n'est pas actif"
 
 #: src/Controller/Admin/MicroblogController.php:132
 msgid "Post saved successfully."
@@ -202,13 +206,13 @@ msgstr "La publication a été enregistrée avec succès."
 #: template/admin/microblog-index.phtml:8
 #: template/admin/microblog-index.phtml:10
 msgid "New post"
-msgstr ""
+msgstr "Nouvel article"
 
 #: src/Controller/Admin/MicroblogController.php:145
 #: template/admin/microblog-index.phtml:5
 #: template/admin/microblog-index.phtml:7
 msgid "New news"
-msgstr ""
+msgstr "Nouvelle actualité"
 
 #: src/Controller/Admin/MicroblogController.php:147
 msgid "Update"
@@ -273,12 +277,12 @@ msgstr "Merci de sélectionner le Spotlight"
 #: src/Controller/Admin/StoryController.php:102 src/Form/StoryForm.php:159
 #: template/admin/story-index.phtml:29
 msgid "Article"
-msgstr ""
+msgstr "Article"
 
 #: src/Controller/Admin/StoryController.php:106 src/Form/StoryForm.php:160
 #: template/admin/story-index.phtml:33
 msgid "Magazine"
-msgstr ""
+msgstr "Magazine"
 
 #: src/Controller/Admin/StoryController.php:110
 #: src/Controller/Admin/TopicController.php:260 src/Form/StoryForm.php:164
@@ -305,7 +309,7 @@ msgstr "Image unique"
 #: src/Controller/Admin/StoryController.php:127 src/Form/StoryForm.php:165
 #: src/Form/StoryForm.php:169 template/admin/story-index.phtml:37
 msgid "Blog post"
-msgstr ""
+msgstr "Article Blog"
 
 #: src/Controller/Admin/StoryController.php:264
 #, php-format
@@ -563,11 +567,11 @@ msgstr "Actualité"
 
 #: src/Controller/Admin/TopicController.php:75
 msgid "Blog module"
-msgstr ""
+msgstr "Module Blog"
 
 #: src/Controller/Admin/TopicController.php:79
 msgid "Event module"
-msgstr ""
+msgstr "Module Evènement"
 
 #: src/Controller/Admin/TopicController.php:84 src/Form/TopicForm.php:149
 msgid "General"
@@ -647,20 +651,35 @@ msgstr "Liste de tous les sujets"
 msgid "List of Latest stories"
 msgstr "Liste des dernières actualités"
 
-#: src/Controller/Front/JsonController.php:89
-#: src/Controller/Front/JsonController.php:115
-#: src/Controller/Front/JsonController.php:150
-msgid "Password not set or wrong"
-msgstr ""
+#: src/Controller/Front/JsonController.php:131
+#: template/admin/story-index.phtml:135
+msgid "List of stories"
+msgstr "Liste des actualités"
 
-#: src/Controller/Front/JsonController.php:198
+#: src/Controller/Front/JsonController.php:152
+#, php-format
+msgid "List of stories on %s topic"
+msgstr "Liste des actualités de la catégorie %s"
+
+#: src/Controller/Front/JsonController.php:168
+#, php-format
+msgid "All stories from %s"
+msgstr "Toutes les actualités de %s"
+
+#: src/Controller/Front/JsonController.php:260
+#: src/Controller/Front/JsonController.php:286
+#: src/Controller/Front/JsonController.php:321
+msgid "Password not set or wrong"
+msgstr "Le mot de passe n'est pas défini ou est erronné"
+
+#: src/Controller/Front/JsonController.php:429
 msgid "The keyword not found."
 msgstr "Le mot clef n'a pas été trouvé"
 
-#: src/Controller/Front/JsonController.php:215
+#: src/Controller/Front/JsonController.php:446
 #, php-format
 msgid "Stories related to %s"
-msgstr ""
+msgstr "Articles relatifs à %s"
 
 #: src/Controller/Front/MediaController.php:38
 #: src/Controller/Front/MediaController.php:87
@@ -674,7 +693,7 @@ msgstr "L'actualité n'a pas été trouvée."
 
 #: src/Controller/Front/MicroblogController.php:129
 msgid "All posts on microblog system"
-msgstr ""
+msgstr "Tous les articles du système de microblog"
 
 #: src/Controller/Front/StoryController.php:51
 msgid "The story not found."
@@ -764,6 +783,7 @@ msgstr ""
 #: src/Form/AttributeForm.php:78
 msgid "Set allowed topics ( main topic ) to use this attribute"
 msgstr ""
+"Définir les sujets autorisés (sujet principal) pour utiliser cet attribut"
 
 #: src/Form/AttributeForm.php:104 template/admin/attribute-index.phtml:65
 msgid "Set"
@@ -881,7 +901,7 @@ msgstr "Description SEO"
 
 #: src/Form/MicroblogForm.php:49
 msgid "Post"
-msgstr ""
+msgstr "Contribution"
 
 #: src/Form/MicroblogForm.php:94 src/Form/PositionForm.php:79
 #: src/Form/TopicForm.php:119 template/admin/attach-add.phtml:50
@@ -1005,32 +1025,38 @@ msgstr "Options texte"
 msgid "Subtitle"
 msgstr "Sous-titre"
 
+#: src/Form/StoryForm.php:85
+msgid "Used as story URL value : must be unique, short, and user oriented"
+msgstr ""
+"Utilisé comme valeur d'URL / Adresse pour l'article : il doit être unique, "
+"court et orienté utilisateur"
+
 #: src/Form/StoryForm.php:92 src/Form/TopicForm.php:86
 msgid "Short text"
 msgstr "Texte introductif"
 
-#: src/Form/StoryForm.php:98 src/Form/TopicForm.php:92
-msgid "Just show on story list and blocks"
-msgstr "Afficher uniquement dans la liste des articles et des blocs"
+#: src/Form/StoryForm.php:98
+msgid "Just shown on story list and blocks"
+msgstr "Affiché uniquement dans la liste des articles et des blocs"
 
 #: src/Form/StoryForm.php:105
 msgid "Main text"
 msgstr "Corps de texte"
 
 #: src/Form/StoryForm.php:111
-msgid "Only show on story page"
-msgstr ""
+msgid "Only shown on story page"
+msgstr "Afficher uniquement sur la page actualité"
 
 #: src/Form/StoryForm.php:119
 msgid "Extra html text"
-msgstr ""
+msgstr "Texte extra html"
 
 #: src/Form/StoryForm.php:125
 msgid "Set custom html code to show under main text"
-msgstr ""
+msgstr "Définir un code html personnalisé à afficher sous le texte principal"
 
 #: src/Form/StoryForm.php:134
-msgid "Mian options"
+msgid "Main options"
 msgstr "Options principales"
 
 #: src/Form/StoryForm.php:148
@@ -1057,10 +1083,10 @@ msgstr "Date de publication"
 
 #: src/Form/StoryForm.php:231 template/admin/story-view.phtml:8
 #: template/front/index-media.phtml:20 template/front/index-news.phtml:13
-#: template/front/index-table.phtml:22 template/front/story-article.phtml:52
-#: template/front/story-download.phtml:52 template/front/story-gallery.phtml:50
-#: template/front/story-image.phtml:50 template/front/story-magazine.phtml:50
-#: template/front/story-media.phtml:52 template/front/story-text.phtml:52
+#: template/front/index-table.phtml:22 template/front/story-article.phtml:53
+#: template/front/story-download.phtml:53 template/front/story-gallery.phtml:51
+#: template/front/story-image.phtml:51 template/front/story-magazine.phtml:51
+#: template/front/story-media.phtml:53 template/front/story-text.phtml:53
 msgid "Important"
 msgstr "Important"
 
@@ -1081,37 +1107,47 @@ msgid "Additional images"
 msgstr "Images Additionnelles"
 
 #: src/Form/StoryForm.php:286
-#| msgid "Title"
 msgid "Meta Title"
 msgstr "Meta Title"
 
 #: src/Form/StoryForm.php:292
 msgid ""
-"Between 10 to 70 character, better keep it empty to copy main title here"
+"Displayed in search Engine result pages as Title : between 10 to 70 "
+"character. If empty, will be popuated automaticaly by main title value"
 msgstr ""
+"Affiché dans la page de résultat des moteurs de recherche : entre 10 et 70 "
+"caractères. Si vide, il sera rempli automatiquement par la valeur du titre "
+"de l'actualité"
 
 #: src/Form/StoryForm.php:299
-#| msgid "SEO Keywords"
 msgid "Meta Keywords"
 msgstr "Meta Keywords"
 
 #: src/Form/StoryForm.php:305
-msgid "Between 5 to 12 words"
+msgid ""
+"Not used anymore by search engines : between 5 to 12 words / left it empty, "
+"it will be automaticaly populated with main title values"
 msgstr ""
+"N'est plus utilisé par les moteurs de recherche : entre 5 et 12 mots / "
+"laisser vide, il sera rempli automatiquement par les valeurs du titre de "
+"l'actualité"
 
 #: src/Form/StoryForm.php:312
-#| msgid "Description"
 msgid "Meta Description"
 msgstr "Meta Description"
 
 #: src/Form/StoryForm.php:318
-msgid "Between 80 to 160 character"
+msgid ""
+"Displayed in search Engine result pages : quick summary to incitate user to "
+"click, between 80 to 160 character"
 msgstr ""
+"Affiché dans la page de résultat des moteurs de recherche : résumé rapide "
+"pour inciter les utilisateurs à cliquer, entre 80 et 160 caractères."
 
-#: src/Form/StoryForm.php:327 template/front/story-article.phtml:188
-#: template/front/story-download.phtml:127
-#: template/front/story-magazine.phtml:174 template/front/story-media.phtml:184
-#: template/front/story-text.phtml:184
+#: src/Form/StoryForm.php:327 template/front/story-article.phtml:189
+#: template/front/story-download.phtml:128
+#: template/front/story-magazine.phtml:175 template/front/story-media.phtml:185
+#: template/front/story-text.phtml:185
 msgid "Tags"
 msgstr "Tags"
 
@@ -1127,6 +1163,10 @@ msgstr "Auteurs"
 msgid "Parent Topic"
 msgstr "Sujet Parent"
 
+#: src/Form/TopicForm.php:92
+msgid "Just show on story list and blocks"
+msgstr "Afficher uniquement dans la liste des articles et des blocs"
+
 #: src/Form/TopicForm.php:128
 msgid "Topic Style"
 msgstr "Style d'actualité"
@@ -1137,15 +1177,15 @@ msgstr "Type d'actualité"
 
 #: src/Form/TopicForm.php:150
 msgid "Just event module"
-msgstr ""
+msgstr "Seulement le module Evènement"
 
 #: src/Form/TopicForm.php:151
 msgid "Just blog module"
-msgstr ""
+msgstr "Seulement le module Blog"
 
 #: src/Form/TopicForm.php:155
 msgid "Set type for use as general or special module"
-msgstr ""
+msgstr "Définir le type d'usage : comme module général ou module spécial"
 
 #: src/Form/TopicForm.php:249
 msgid "Extra options"
@@ -1450,7 +1490,7 @@ msgstr "Action"
 
 #: template/admin/attach-index.phtml:30
 msgid "Item"
-msgstr ""
+msgstr "Elément"
 
 #: template/admin/attach-index.phtml:34 template/admin/attach-index.phtml:36
 msgid "Get"
@@ -1480,32 +1520,32 @@ msgstr "Ajouter un champs Texte"
 #: template/admin/attribute-index.phtml:15
 #: template/admin/attribute-index.phtml:17
 msgid "Add link field"
-msgstr ""
+msgstr "Ajouter champ lien"
 
 #: template/admin/attribute-index.phtml:18
 #: template/admin/attribute-index.phtml:20
 msgid "Add video field"
-msgstr ""
+msgstr "Ajouter un champ video"
 
 #: template/admin/attribute-index.phtml:21
 #: template/admin/attribute-index.phtml:23
 msgid "Add audio field"
-msgstr ""
+msgstr "Ajoute un champ audio"
 
 #: template/admin/attribute-index.phtml:24
 #: template/admin/attribute-index.phtml:26
 msgid "Add file field"
-msgstr ""
+msgstr "Ajouter un champ fichier"
 
 #: template/admin/attribute-index.phtml:27
 #: template/admin/attribute-index.phtml:29
 msgid "Add currency field"
-msgstr ""
+msgstr "Ajouter un champ devise"
 
 #: template/admin/attribute-index.phtml:30
 #: template/admin/attribute-index.phtml:32
 msgid "Add date field"
-msgstr ""
+msgstr "Ajouter un champ date"
 
 #: template/admin/attribute-index.phtml:33
 #: template/admin/attribute-index.phtml:35
@@ -1520,7 +1560,7 @@ msgstr "Ajouter un champ Select"
 #: template/admin/attribute-index.phtml:39
 #: template/admin/attribute-index.phtml:41
 msgid "Add checkbox field"
-msgstr ""
+msgstr "Ajouter un champs checkbox"
 
 #: template/admin/attribute-index.phtml:45
 msgid "List of attributes"
@@ -1571,6 +1611,8 @@ msgid ""
 "Microblog system is inactive, if you want use it , please active it from "
 "module config"
 msgstr ""
+"Le système de Microblog est inactif : si vous souhaitez l'utiliser, merci de "
+"l'activer depuis la configuration du module"
 
 #: template/admin/position-index.phtml:9
 msgid "List of positions"
@@ -1592,36 +1634,47 @@ msgstr "Voir l'actualité"
 
 #: template/admin/story-index.phtml:17
 msgid "Description about add new story"
-msgstr ""
+msgstr "Aide sur les types d'actualités à choisir lors d'un nouvel ajout"
 
 #: template/admin/story-index.phtml:23
 msgid ""
 "You can select many types on submit new story, each type have different "
 "template and view and useful for special usage"
 msgstr ""
+"Vous pouvez choisir parmi plusieurs types de Template pour chaque actualité. "
+"Chaque type de Template propose un affichage pour un usage spécifique"
 
 #: template/admin/story-index.phtml:26
 msgid ""
 "Text type, default view format main image set on center and under title and "
 "extra images and information set on sidebar"
 msgstr ""
+"Type texte : vue par défaut, l'image principale est au centre sous le titre, "
+"les autres images/informations sont affichées dans la sidebar sur le côté"
 
 #: template/admin/story-index.phtml:30
 msgid ""
 "Article view, main image and extra information set on sidebar and text set "
 "on center and under title"
 msgstr ""
+"Type Article : l'image principale et les autres informations sont sur le "
+"côté, le texte est au centre sous le titre"
 
 #: template/admin/story-index.phtml:34
 msgid ""
 "Magazine view, main and extra images set on center and text under them , "
 "after that extra information , without sidebar"
 msgstr ""
+"Type Magazine : l'image principale et les images additionnelles sont "
+"affichées au centre, le texte en dessous, puis les informations "
+"additionnelles, sans sidebar"
 
 #: template/admin/story-index.phtml:38
 msgid ""
 "You need install blog module and story show on blog system, for better SEO"
 msgstr ""
+"Il est nécessaire d'installer le module blog : les articles seront affichés "
+"dans le module (meilleur SEO)"
 
 #: template/admin/story-index.phtml:42
 msgid ""
@@ -1629,6 +1682,9 @@ msgid ""
 "and images set under main and big image, you can use topic as gallery album "
 "and each story is single image on album"
 msgstr ""
+"Image seule affichées en grand au centre et sous le titre, les autres textes "
+"et informations/images sont affichés sous l'image principale comme album "
+"gallerie, chaque article est une image d'un album"
 
 #: template/admin/story-index.phtml:45
 msgid "Gallery"
@@ -1640,6 +1696,10 @@ msgid ""
 "position, all other texts and extra information set under images, you can "
 "use topic as category for albums and each story is single album by images"
 msgstr ""
+"Type Album Gallerie : l'image principale et les images additionnelles sont "
+"affichées sous forme d'album, les textes et autres informations sont "
+"affichées sous la image, vous pouvez utiliser le sujet comme catégorie de "
+"l'album et chaque article est un album d'image unique"
 
 #: template/admin/story-index.phtml:50
 msgid ""
@@ -1647,12 +1707,19 @@ msgid ""
 "information on side bar and texts under player, you need attach mp4 or mp3 "
 "files to story or make audio / video attribute and put your media file link"
 msgstr ""
+"Type Media Video ou Audio Player : player affiché sous le titre, les "
+"informations additionnelles sont affichées sur le côté et les textes sous le "
+"player, vous devez attacher les fichiers mp4/mp3 à l'article ou créer un "
+"attribut de type audiot/video et y définir le lien fichier"
 
 #: template/admin/story-index.phtml:54
 msgid ""
 "Download template and show download button for get file by user, you need "
 "attach file to story or make file attribute and put your file link"
 msgstr ""
+"Type Téléchargement : affiche un bouton de téléchargement pour récupérer un "
+"fichier, vous devez attacher un fichier à votre actualité ou créer un champs "
+"attribut Fichier et y mettre l'url de votre fichier"
 
 #: template/admin/story-index.phtml:65
 msgid "Add new story"
@@ -1692,7 +1759,7 @@ msgstr "Ajouter une nouvel article blog"
 
 #: template/admin/story-index.phtml:97
 msgid "News module front page is deactivate"
-msgstr ""
+msgstr "La homepage Module News est désactivée"
 
 #: template/admin/story-index.phtml:106 template/admin/story-index.phtml:108
 #: template/admin/topic-index.phtml:38 template/admin/topic-index.phtml:40
@@ -1701,11 +1768,7 @@ msgstr "Toutes les actualités"
 
 #: template/admin/story-index.phtml:124 template/admin/story-index.phtml:126
 msgid "System draft"
-msgstr ""
-
-#: template/admin/story-index.phtml:135
-msgid "List of stories"
-msgstr "Liste des actualités"
+msgstr "Brouillon système"
 
 #: template/admin/story-index.phtml:177 template/admin/story-index.phtml:228
 msgid "Reject"
@@ -1737,7 +1800,7 @@ msgstr "La validation de l'actualité est en cours"
 
 #: template/admin/story-update.phtml:54
 msgid "Just close the attach system after finish upload"
-msgstr ""
+msgstr "Fermer simplement le système d'attachement après la fin de l'upload"
 
 #: template/admin/story-update.phtml:262
 msgid "Remove image story in process"
@@ -1748,19 +1811,19 @@ msgid "Update Time"
 msgstr "Date mise à jour"
 
 #: template/admin/story-view.phtml:18 template/front/index-news.phtml:43
-#: template/front/index-table.phtml:15 template/front/story-article.phtml:70
-#: template/front/story-download.phtml:70 template/front/story-gallery.phtml:68
-#: template/front/story-image.phtml:68 template/front/story-magazine.phtml:68
-#: template/front/story-media.phtml:70 template/front/story-text.phtml:70
+#: template/front/index-table.phtml:15 template/front/story-article.phtml:71
+#: template/front/story-download.phtml:71 template/front/story-gallery.phtml:69
+#: template/front/story-image.phtml:69 template/front/story-magazine.phtml:69
+#: template/front/story-media.phtml:71 template/front/story-text.phtml:71
 msgid "Read"
 msgstr "Lu"
 
 #: template/admin/story-view.phtml:19 template/front/index-list.phtml:26
-#: template/front/index-news.phtml:48 template/front/story-article.phtml:75
-#: template/front/story-download.phtml:75 template/front/story-gallery.phtml:73
-#: template/front/story-gallery.phtml:98 template/front/story-image.phtml:73
-#: template/front/story-image.phtml:98 template/front/story-magazine.phtml:73
-#: template/front/story-media.phtml:75 template/front/story-text.phtml:75
+#: template/front/index-news.phtml:48 template/front/story-article.phtml:76
+#: template/front/story-download.phtml:76 template/front/story-gallery.phtml:74
+#: template/front/story-gallery.phtml:99 template/front/story-image.phtml:74
+#: template/front/story-image.phtml:99 template/front/story-magazine.phtml:74
+#: template/front/story-media.phtml:76 template/front/story-text.phtml:76
 msgid "Topics"
 msgstr "Sujets"
 
@@ -1824,7 +1887,7 @@ msgstr "Style"
 
 #: template/admin/topic-index.phtml:15
 msgid "Module"
-msgstr ""
+msgstr "Module"
 
 #: template/admin/topic-update.phtml:16
 msgid "Remove image topic in process"
@@ -1867,53 +1930,53 @@ msgstr ""
 msgid "Rss Feed"
 msgstr "Flux RSS"
 
-#: template/front/index-news.phtml:38 template/front/story-article.phtml:64
-#: template/front/story-download.phtml:64 template/front/story-gallery.phtml:62
-#: template/front/story-image.phtml:62 template/front/story-magazine.phtml:62
-#: template/front/story-media.phtml:64 template/front/story-text.phtml:64
+#: template/front/index-news.phtml:38 template/front/story-article.phtml:65
+#: template/front/story-download.phtml:65 template/front/story-gallery.phtml:63
+#: template/front/story-image.phtml:63 template/front/story-magazine.phtml:63
+#: template/front/story-media.phtml:65 template/front/story-text.phtml:65
 msgid "Time"
 msgstr "Date"
 
-#: template/front/index-news.phtml:43 template/front/story-article.phtml:71
-#: template/front/story-download.phtml:71 template/front/story-gallery.phtml:69
-#: template/front/story-image.phtml:69 template/front/story-magazine.phtml:69
-#: template/front/story-media.phtml:71 template/front/story-text.phtml:71
+#: template/front/index-news.phtml:43 template/front/story-article.phtml:72
+#: template/front/story-download.phtml:72 template/front/story-gallery.phtml:70
+#: template/front/story-image.phtml:70 template/front/story-magazine.phtml:70
+#: template/front/story-media.phtml:72 template/front/story-text.phtml:72
 msgid "Times"
 msgstr "Fois"
 
-#: template/front/story-article.phtml:120
-#: template/front/story-download.phtml:183
-#: template/front/story-gallery.phtml:192 template/front/story-image.phtml:176
-#: template/front/story-magazine.phtml:130 template/front/story-media.phtml:120
-#: template/front/story-text.phtml:131
+#: template/front/story-article.phtml:121
+#: template/front/story-download.phtml:184
+#: template/front/story-gallery.phtml:193 template/front/story-image.phtml:177
+#: template/front/story-magazine.phtml:131 template/front/story-media.phtml:121
+#: template/front/story-text.phtml:132
 msgid "Previous"
 msgstr "Précédent"
 
-#: template/front/story-article.phtml:125
-#: template/front/story-download.phtml:188
-#: template/front/story-gallery.phtml:197 template/front/story-image.phtml:181
-#: template/front/story-magazine.phtml:135 template/front/story-media.phtml:125
-#: template/front/story-text.phtml:136
+#: template/front/story-article.phtml:126
+#: template/front/story-download.phtml:189
+#: template/front/story-gallery.phtml:198 template/front/story-image.phtml:182
+#: template/front/story-magazine.phtml:136 template/front/story-media.phtml:126
+#: template/front/story-text.phtml:137
 msgid "Next"
 msgstr "Suivant"
 
-#: template/front/story-article.phtml:205
-#: template/front/story-download.phtml:159
-#: template/front/story-magazine.phtml:191 template/front/story-media.phtml:201
-#: template/front/story-text.phtml:201
+#: template/front/story-article.phtml:206
+#: template/front/story-download.phtml:160
+#: template/front/story-magazine.phtml:192 template/front/story-media.phtml:202
+#: template/front/story-text.phtml:202
 msgid "Share if you like"
 msgstr "Partagez si vous aimez !"
 
-#: template/front/story-article.phtml:220
-#: template/front/story-download.phtml:225
-#: template/front/story-magazine.phtml:206 template/front/story-media.phtml:216
-#: template/front/story-text.phtml:216
+#: template/front/story-article.phtml:221
+#: template/front/story-download.phtml:226
+#: template/front/story-magazine.phtml:207 template/front/story-media.phtml:217
+#: template/front/story-text.phtml:217
 msgid "Related storys"
 msgstr "Actualités connexes"
 
-#: template/front/story-download.phtml:145
+#: template/front/story-download.phtml:146
 msgid "Score"
-msgstr ""
+msgstr "Score"
 
 #: template/front/tag-list.phtml:20
 msgid ""

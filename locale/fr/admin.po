@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2017-04-20 18:13+0200\n"
+"POT-Creation-Date: 2017-06-05 21:48+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _a;_t\n"
 "X-Poedit-Basepath: ../..\n"
@@ -472,172 +472,172 @@ msgid "Show breadcrumbs"
 msgstr "Afficher les Breadcrumb"
 
 #: config/config.php:309
+msgid "Show topics on breadcrumbs"
+msgstr "Afficher les sujets dans le breadcrumb"
+
+#: config/config.php:317
 msgid "Show related news"
 msgstr "Afficher les actualités connexes"
 
-#: config/config.php:317
+#: config/config.php:325
 msgid "related number"
 msgstr "nombre éléments"
 
-#: config/config.php:325
+#: config/config.php:333
 msgid "Show latest news"
 msgstr "Afficher les dernières news"
 
-#: config/config.php:333
+#: config/config.php:341
 msgid "latest number"
 msgstr "dernier nombre"
 
-#: config/config.php:341
+#: config/config.php:349
 msgid "Just show news from X days ago"
 msgstr "Afficher uniquement les actualités des X derniers jours"
 
-#: config/config.php:342
+#: config/config.php:350
 msgid "Set 0 for show all news, Or set day number for limit news in days"
 msgstr ""
 "Définir à 0 pour afficher toutes les actualités, ou définir un nombre de "
 "jour pour limiter le nombre d'actualités"
 
-#: config/config.php:350
+#: config/config.php:358
 msgid "Show feed icon"
 msgstr "Afficher l'icône Flux RSS"
 
-#: config/config.php:358
+#: config/config.php:366
 msgid "Feed number"
 msgstr "Nombre de flux"
 
-#: config/config.php:368
-msgid "Activate Image cropping"
-msgstr "Activer le crop image"
-
-#: config/config.php:378
+#: config/config.php:376
 msgid "Use default if image not set"
 msgstr "Utiliser l'image par défaut si aucune image définie"
 
-#: config/config.php:386
+#: config/config.php:384
 msgid "Image Size"
 msgstr "Poids de l'image"
 
-#: config/config.php:394
+#: config/config.php:392
 msgid "Image quality"
 msgstr "Qualité Image"
 
-#: config/config.php:395
+#: config/config.php:393
 msgid "Between 0 to 100 and support both of JPG and PNG, default is 75"
 msgstr "Entre 0 et 100 pour le JPG et le PNG, par défaut 75"
 
-#: config/config.php:402
+#: config/config.php:400
 msgid "Image path"
 msgstr "Chemin Image"
 
-#: config/config.php:410
+#: config/config.php:408
 msgid "Image Extension"
 msgstr "Extensions Image"
 
-#: config/config.php:418
+#: config/config.php:416
 msgid "Large Image height"
 msgstr "Hauteur des Images Larges"
 
-#: config/config.php:426
+#: config/config.php:424
 msgid "Large Image width"
 msgstr "Largeur des Images Larges"
 
-#: config/config.php:434
+#: config/config.php:432
 msgid "Medium Image height"
 msgstr "Hauteur des Images Medium"
 
-#: config/config.php:442
+#: config/config.php:440
 msgid "Medium Image width"
 msgstr "Largeur des Images Medium"
 
-#: config/config.php:450
+#: config/config.php:448
 msgid "Thumb Image height"
 msgstr "Hauteur des Images Miniatures"
 
-#: config/config.php:458
+#: config/config.php:456
 msgid "Thumb Image width"
 msgstr "Largeur des Images Miniatures"
 
-#: config/config.php:466
+#: config/config.php:464
 msgid "Use lightbox"
 msgstr "Utiliser Lightbox"
 
-#: config/config.php:474
+#: config/config.php:472
 msgid "Add Watermark"
 msgstr "Ajouter un Watemark"
 
-#: config/config.php:482
+#: config/config.php:480
 msgid "Watermark Image"
 msgstr "Image Watermark"
 
-#: config/config.php:489
+#: config/config.php:487
 msgid "Watermark Positio"
 msgstr "Position Watermark"
 
-#: config/config.php:495
+#: config/config.php:493
 msgid "Top Left"
 msgstr "En haut à gauche"
 
-#: config/config.php:496
+#: config/config.php:494
 msgid "Top Right"
 msgstr "En haut à droite"
 
-#: config/config.php:497
+#: config/config.php:495
 msgid "Bottom Left"
 msgstr "En bas à gauche"
 
-#: config/config.php:498
+#: config/config.php:496
 msgid "Bottom Right"
 msgstr "En bas à droite"
 
-#: config/config.php:508
+#: config/config.php:506
 msgid "Social sharing items"
 msgstr "Réseaux Sociaux affichés"
 
-#: config/config.php:522
+#: config/config.php:520
 msgid "Number of stories"
 msgstr "Nombre d'actualités"
 
-#: config/config.php:530
+#: config/config.php:528
 msgid "Show Image for sub spotlights"
 msgstr "Afficher l'image pour les sous-Spotlights"
 
-#: config/config.php:538
+#: config/config.php:536
 msgid "Spotlight story number for registry"
 msgstr "Nombre de la news Spotlight à afficher"
 
-#: config/config.php:547
+#: config/config.php:545
 msgid "Use vote system"
 msgstr "Utiliser le système d'appréciation Vote"
 
-#: config/config.php:556
+#: config/config.php:554
 msgid "Use favourite system"
 msgstr "Utiliser le système de favoris Favorite"
 
-#: config/config.php:565
+#: config/config.php:563
 msgid "Description for index page"
 msgstr "Texte Introductif pour la page Index"
 
-#: config/config.php:573
+#: config/config.php:571
 msgid "Force replace space by comma(,)"
 msgstr "Forcer le remplacement de l'espace par la virgule (,)"
 
-#: config/config.php:582
+#: config/config.php:580
 msgid "File Size"
 msgstr "Poids Image"
 
-#: config/config.php:590
+#: config/config.php:588
 msgid "File path"
 msgstr "Chemin Image"
 
-#: config/config.php:598
+#: config/config.php:596
 msgid "File Extension"
 msgstr "Extensions Fichier"
 
-#: config/config.php:607
+#: config/config.php:605
 msgid "Active microblog system"
 msgstr "Activer le système micro-blog"
 
-#: config/config.php:615
+#: config/config.php:613
 msgid "Micro blog perpage"
 msgstr "Micro blog Nombre par page"
 
@@ -734,6 +734,9 @@ msgstr ""
 "Ceci permet de migrer les anciens médias (fichiers, images) associés aux "
 "news et events (image principale / additionnelles), pour les stocker dans le "
 "module Media"
+
+#~ msgid "Activate Image cropping"
+#~ msgstr "Activer le crop image"
 
 #~ msgid "Number of stroies for each topic"
 #~ msgstr "Nombre d'actualités pour chaque sujet"
