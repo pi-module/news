@@ -217,7 +217,7 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'horizontal') { ?>
-            <div class="news-item-block-horizontal clearfix row">
+            <div class="news-item-block-horizontal clearfix row match-height-list">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>
                     <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>
