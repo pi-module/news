@@ -9,7 +9,7 @@
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" class="media-object img-rounded img-responsive u-photo"
-                                src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(105, 70); ?>"
+                                src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
                                 alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         <?php } ?>
