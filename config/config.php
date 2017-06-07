@@ -427,6 +427,22 @@ return array(
             'filter' => 'number_int',
             'value' => 1200
         ),
+        'image_itemw' => array(
+            'category' => 'image',
+            'title' => _a('Item Image width'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 800
+        ),
+        'image_itemh' => array(
+            'category' => 'image',
+            'title' => _a('Item Image height'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 800
+        ),
         'image_mediumh' => array(
             'category' => 'image',
             'title' => _a('Medium Image height'),
