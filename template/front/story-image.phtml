@@ -22,7 +22,7 @@ EOT;
 }
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(800, 600);
+$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
 $this->headMeta($this->escape($story['title']), 'og:title', 'property');
 $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
@@ -117,7 +117,7 @@ if ($shareImage) {
                                 <a href="<?php echo $story['largeUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" class="img-responsive"
-                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(1280, 960); ?>"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>

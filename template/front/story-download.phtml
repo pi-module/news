@@ -22,7 +22,7 @@ EOT;
 }
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(800, 600);
+$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
 $this->headMeta($this->escape($story['title']), 'og:title', 'property');
 $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
@@ -97,10 +97,10 @@ $this->sticky();
                     <?php if ($story['main_image'] || $story['additional_images']) { ?>
                         <div class="storyImageMain gallery pull-left col-md-4">
                             <div class="thumbnail u-photo">
-                                <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(1024, 768); ?>"
+                                <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" class="img-responsive"
-                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(320, 240); ?>"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>

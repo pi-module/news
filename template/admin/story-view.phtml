@@ -27,7 +27,7 @@
             <div class="itemBody">
                 <?php if ($story['image']) { ?>
                     <div class="itemImage gallery pull-left">
-                        <img class="img-thumbnail" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->thumb(150, 100); ?>"
+                        <img class="img-thumbnail" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"/>
                     </div>
                 <?php } ?>
