@@ -1,5 +1,5 @@
-<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'medium') ?>
-<?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'large') ?>
+<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'medium', null, null, false, array(), 'news') ?>
+<?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'large', null, null, false, array(), 'news') ?>
 
 <?php if ($galleryImages) { ?>
     <div class="clearfix">
