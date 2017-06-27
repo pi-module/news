@@ -7,11 +7,11 @@
     <div class="row index-media clearfix match-height-list">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="col-xs-12 <?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="thumbnail text-center h-entry" itemscope itemtype="http://schema.org/Article">
+            <div class="thumbnail text-center h-entry" itemscope itemtype="https://schema.org/Article">
                 <div class="hover-style">
-                    <?php if ($story['image']) { ?>
+                    <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
-                            <img itemprop="image" src="<?php echo $story['mediumUrl']; ?>"
+                            <img itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     <?php } ?>
@@ -22,6 +22,11 @@
                                                                                                         href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
                         </h4>
                         <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                        <?php if ($topic['show_date']) { ?>
+                            <div class="itemPostDate dt-published">
+                                <?php echo $this->escape($story['time_publish_view']); ?>
+                            </div>
+                        <?php } ?>
                     </div>
                     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
                 </div>

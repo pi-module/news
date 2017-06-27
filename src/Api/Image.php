@@ -81,7 +81,7 @@ class Image extends AbstractApi
         'צ' => 'c', 'ק' => 'q', 'ר' => 'r', 'ש' => 'w', 'ת' => 't', '™' => 'tm',
     );
         
-    public function rename($image = '', $prefix = 'image_', $path = '', $imagePath)
+    public function rename($image = '', $prefix = 'image_', $path = '', $imagePath = null)
     {
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');
@@ -118,7 +118,7 @@ class Image extends AbstractApi
         return $name;
     }
 
-    public function process($image, $path, $imagePath, $cropping = null)
+    public function process($image, $path, $imagePath = null, $cropping = null)
     {
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule(), 'image');

@@ -40,6 +40,11 @@ CREATE TABLE `{story}` (
   KEY `story_order` (`time_publish`, `id`)
 );
 
+ALTER TABLE `{story}` ADD FULLTEXT `search_idx` (`title`, `text_description`);
+ALTER TABLE `{story}` ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` TEXT NULL AFTER `main_image`;
+ALTER TABLE `{story}` ADD FULLTEXT `search_title_idx` (`title`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_description_idx` (`text_description`);
+
 CREATE TABLE `{topic}` (
   `id`               INT(10) UNSIGNED                                              NOT NULL AUTO_INCREMENT,
   `pid`              INT(5) UNSIGNED                                               NOT NULL DEFAULT '0',

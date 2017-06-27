@@ -304,6 +304,14 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
+        'view_breadcrumbs_topic' => array(
+            'category' => 'show',
+            'title' => _a('Show topics on breadcrumbs'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
         'show_related' => array(
             'category' => 'show',
             'title' => _a('Show related news'),
@@ -362,16 +370,6 @@ return array(
             'value' => 10
         ),
 
-        // Crop
-        'image_crop' => array(
-            'category' => 'image',
-            'title' => _a('Activate Image cropping'),
-            'description' => '',
-            'edit' => 'checkbox',
-            'filter' => 'number_int',
-            'value' => 0
-        ),
-
         // Image
         'image_default' => array(
             'category' => 'image',
@@ -428,6 +426,22 @@ return array(
             'edit' => 'text',
             'filter' => 'number_int',
             'value' => 1200
+        ),
+        'image_itemw' => array(
+            'category' => 'image',
+            'title' => _a('Item Image width'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 800
+        ),
+        'image_itemh' => array(
+            'category' => 'image',
+            'title' => _a('Item Image height'),
+            'description' => '',
+            'edit' => 'text',
+            'filter' => 'number_int',
+            'value' => 800
         ),
         'image_mediumh' => array(
             'category' => 'image',

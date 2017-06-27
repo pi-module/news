@@ -140,6 +140,19 @@ class StoryFilter extends InputFilter
             'name' => 'type',
             'required' => true,
         ));
+
+        // Main image
+        $this->add(array(
+            'name' => 'main_image',
+            'required' => false,
+        ));
+
+        // Main image
+        $this->add(array(
+            'name' => 'additional_images',
+            'required' => false,
+        ));
+
         // image
         $this->add(array(
             'name' => 'image',

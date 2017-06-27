@@ -6,9 +6,9 @@
     <?php include $this->template('front/advertisement'); ?>
     <div class="index-topic match-height-list">
         <?php foreach ($topics as $topic) { ?>
-            <div class="col-xs-12 col-md-2 col-sm-2 col-xs-3 text-center" itemscope itemtype="http://schema.org/Article">
+            <div class="col-xs-12 col-md-2 col-sm-2 col-xs-3 text-center" itemscope itemtype="https://schema.org/Article">
                 <div class="thumbnail h-entry">
-                    <?php if ($topic['image']) { ?>
+                    <?php if ($topic['main_image']) { ?>
                         <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>"
                            href="<?php echo $this->escape($topic['topicUrl']); ?>">
                             <img itemprop="image" src="<?php echo $this->escape($topic['thumbUrl']); ?>"

@@ -204,45 +204,33 @@ class Block
         // Set options
         $block = array();
         $block = array_merge($block, $options);
-        // Get config
-        $config = Pi::service('registry')->config->read($module);
-        // Set info
-        $where = array('type' => 'image');
-        $order = array('time_create DESC', 'id DESC');
+
+        $where = array('module' => 'news', 'object_name' => 'story');
         $limit = intval($block['number']);
         // Select
-        $select = Pi::model('attach', $module)->select()->where($where)->order($order)->limit($limit);
-        $rowset = Pi::model('attach', $module)->selectWith($select);
+        $select = Pi::model('link', 'media')->select()->where($where)->limit($limit);
+        $rowset = Pi::model('link', 'media')->selectWith($select);
+
+        $list = array();
         // Make list
         foreach ($rowset as $row) {
-            $list[$row->id] = $row->toArray();
-            // Set image links
-            $list[$row->id]['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
-            $list[$row->id]['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
-            $list[$row->id]['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $config['image_path'],
-                    $list[$row->id]['path'],
-                    $list[$row->id]['file']
-                ));
-            // Set mediaUrl
-            $list[$row->id]['mediaUrl'] = Pi::service('url')->assemble('news', array(
-                'module' => $module,
-                'controller' => 'media',
-                'action' => 'explorer',
-                'id' => $list[$row->id]['id'],
-            ));
+
+            $media = Pi::model('doc', 'media')->find($row->id);
+
+            $imageLarge = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('large');
+            $imageMedium = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('medium');
+            $imageThumb = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('thumbnail');
+
+            $data = array(
+                'title' => $media->title,
+                'largeUrl' => $imageLarge,
+                'mediumUrl' => $imageMedium,
+                'thumbUrl' => $imageThumb,
+            );
+
+            $list[] = $data;
         }
+
         // Set block array
         $block['resources'] = $list;
         return $block;

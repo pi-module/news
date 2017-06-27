@@ -14,11 +14,6 @@ return array(
     // Admin section
     'admin' => array(
         array(
-            'title' => _a('Attach'),
-            'controller' => 'attach',
-            'permission' => 'attach',
-        ),
-        array(
             'title' => _a('Authors'),
             'controller' => 'author',
             'permission' => 'author',

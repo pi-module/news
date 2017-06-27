@@ -82,15 +82,6 @@ return array(
             'controller' => 'spotlight',
             'action' => 'index',
         ),
-        'attach' => array(
-            'label' => _a('Attaced'),
-            'permission' => array(
-                'resource' => 'attach',
-            ),
-            'route' => 'admin',
-            'controller' => 'attach',
-            'action' => 'index',
-        ),
         'attribute' => array(
             'label' => _a('Attribute'),
             'permission' => array(
@@ -221,14 +212,14 @@ return array(
                     'controller' => 'tools',
                     'action' => 'sitemap',
                 ),
-                'image' => array(
-                    'label' => _a('Image'),
+                'media' => array(
+                    'label' => _a('Media'),
                     'permission' => array(
                         'resource' => 'tools',
                     ),
                     'route' => 'admin',
                     'controller' => 'tools',
-                    'action' => 'image',
+                    'action' => 'media',
                 ),
                 'json' => array(
                     'label' => _a('Json'),

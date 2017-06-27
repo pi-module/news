@@ -3,14 +3,14 @@
         <?php if ($block['type'] == 'vertical') { ?>
             <div class="news-item-block-vertical clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                    <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                             <a itemprop="url" class="u-url col-xs-4"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                     alt="<?php echo $this->escape($story['title']); ?>"
-                                     class="media-object img-rounded img-responsive u-photo"/>
+                                <img itemprop="image" class="media-object img-rounded img-responsive u-photo"
+                                src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
+                                alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         <?php } ?>
                         <div class="media-body p-item h-card">
@@ -64,7 +64,7 @@
         <?php } elseif ($block['type'] == 'verticalwide') { ?>
             <div class="news-item-block-verticalwide clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                    <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                             <div class="clearfix">
                                 <a itemprop="url" class="u-url"
@@ -129,7 +129,7 @@
                 <?php $i = 1; ?>
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php if ($i == 1) { ?>
-                        <div class="media h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                        <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                 <div class="clearfix">
                                     <a itemprop="url" class="u-url"
@@ -188,7 +188,7 @@
                                   content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         </div>
                     <?php } else { ?>
-                        <div class="h-entry list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
+                        <div class="h-entry list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
                                 <h4 class="p-name" itemprop="name headline">
                                     <i class="fa fa-angle-left"></i>
@@ -210,7 +210,7 @@
         <?php } elseif ($block['type'] == 'horizontal') { ?>
             <div class="news-item-block-horizontal clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="h-entry col-md-4" itemscope itemtype="http://schema.org/Article">
+                    <div class="h-entry col-md-4" itemscope itemtype="https://schema.org/Article">
                         <div class="news-item-block-horizontal-box clearfix">
                             <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -270,10 +270,10 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'list') { ?>
-            <div class="news-item-block-list clearfix" itemscope itemtype="http://schema.org/ItemList">
+            <div class="news-item-block-list clearfix" itemscope itemtype="https://schema.org/ItemList">
                 <ul class="list-unstyled">
                     <?php foreach ($block['resources'] as $story) { ?>
-                        <li class="h-entry" itemscope itemtype="http://schema.org/Article" itemprop="itemListElement">
+                        <li class="h-entry" itemscope itemtype="https://schema.org/Article" itemprop="itemListElement">
 			                <span class="itemTitle p-name" itemprop="name">
 				                <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
@@ -308,7 +308,7 @@
                         <?php } ?>
                     </tr>
                     <?php foreach ($block['resources'] as $story) { ?>
-                        <tr class="odd h-entry" itemscope itemtype="http://schema.org/Article">
+                        <tr class="odd h-entry" itemscope itemtype="https://schema.org/Article">
                             <td class="p-name" itemprop="name"><a href="<?php echo $this->escape($story['storyUrl']); ?>"
                                                                   title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
                             </td>
@@ -336,7 +336,7 @@
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
-                         itemtype="http://schema.org/Article">
+                         itemtype="https://schema.org/Article">
                         <div class="hover-caption">
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
@@ -390,7 +390,7 @@
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
-                         itemtype="http://schema.org/Article">
+                         itemtype="https://schema.org/Article">
                         <div class="hover-caption">
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
@@ -452,7 +452,7 @@
                         <?php foreach ($block['resources'] as $story) { ?>
                             <div class="h-entry item<?php if ($i == 1) {
                                 echo ' active';
-                            } ?>" itemscope itemtype="http://schema.org/Article">
+                            } ?>" itemscope itemtype="https://schema.org/Article">
                                 <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($story['largeUrl']); ?>"
@@ -511,7 +511,7 @@
         <?php } elseif ($block['type'] == 'image') { ?>
             <div class="news-item-block-image clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                    <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <a itemprop="url" class="u-url"
                            href="<?php echo $this->escape($story['storyUrl']); ?>"
                            title="<?php echo $this->escape($story['title']); ?>">
@@ -532,7 +532,7 @@
             <div class="news-item-block-magazine clearfix row">
                 <?php $firstStory = array_shift($block['resources']); ?>
                 <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-main">
-                    <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                    <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($firstStory['mediumUrl'])) { ?>
                             <p>
                                 <a itemprop="url" class="u-url"
@@ -592,7 +592,7 @@
                 </div>
                 <?php foreach ($block['resources'] as $story) { ?>
                     <div class="col-md-4 col-sm-6 col-xs-12 news-item-block-magazine-sub">
-                        <div class="h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+                        <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="col-md-5 col-sm-6 col-xs-6">
                                 <?php if ($block['showimage'] && !empty($story['thumbUrl'])) { ?>
                                     <a itemprop="url" class="u-url"

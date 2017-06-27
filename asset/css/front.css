@@ -100,8 +100,11 @@
     font-weight:bold;
 }
 
+.news .p-summary{
+    margin-bottom:15px;
+}
+
 .news-story-page-body h2{
-    font-style:italic;
     font-weight: normal;
     display: inline-block;
 }

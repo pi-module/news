@@ -800,6 +800,79 @@ EOD;
             }
         }
 
+        if (version_compare($moduleVersion, '1.8.6', '<')) {
+            /* $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_idx` (`title`, `text_description`);", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            } */
+        }
+
+
+
+        if (version_compare($moduleVersion, '2.0.0', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` VARCHAR(255) NULL AFTER `main_image`;", $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
+        if (version_compare($moduleVersion, '2.0.2', '<')) {
+            /* $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_title_idx` (`title`);", $storyTable);
+
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+
+            $sql = sprintf("ALTER TABLE %s ADD FULLTEXT `search_description_idx` (`text_description`);", $storyTable);
+
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            } */
+        }
+
+        if (version_compare($moduleVersion, '2.0.4', '<')) {
+            $query = "ALTER TABLE %s CHANGE `additional_images` `additional_images` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;";
+            $sql = sprintf($query, $storyTable);
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }

@@ -51,6 +51,21 @@ class Search extends AbstractSearch
     /**
      * {@inheritDoc}
      */
+    protected $customMeta = array(
+        'Module\News\Model\Story' => array(
+            'id' => 'id',
+            'title' => 'title',
+            'text_summary' => 'content',
+            'time_create' => 'time',
+            'slug' => 'slug',
+            'main_image' => 'main_image',
+            'path' => 'path',
+        ),
+    );
+
+    /**
+     * {@inheritDoc}
+     */
     protected $condition = array(
         'status' => 1,
     );
@@ -98,6 +113,11 @@ class Search extends AbstractSearch
         $config = Pi::service('registry')->config->read($this->getModule());
 
         $image = '';
+
+        if (isset($item['main_image']) && !empty($item['main_image'])) {
+            return (string) Pi::api('doc','media')->getSingleLinkUrl($item['main_image'])->setConfigModule('news')->thumb('medium');
+        }
+
         if (isset($item['image']) && !empty($item['image'])) {
             $image = Pi::url(
                 sprintf('upload/%s/thumb/%s/%s',

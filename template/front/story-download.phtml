@@ -22,26 +22,27 @@ EOT;
 }
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
+$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
 $this->headMeta($this->escape($story['title']), 'og:title', 'property');
 $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
     $this->headMeta(_strip($story['text_summary']), 'og:description', 'property');
 }
-if (!empty($story['largeUrl'])) {
-    $this->headMeta($this->escape($story['largeUrl']), 'og:image', 'property');
+if ($shareImage) {
+    $this->headMeta($shareImage, 'og:image', 'property');
 }
 // Set twitter for meta
 $this->headMeta($this->escape($story['title']), 'twitter:title');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
     $this->headMeta(_strip($story['text_summary']), 'twitter:description');
 }
-if (!empty($story['largeUrl'])) {
-    $this->headMeta($this->escape($story['largeUrl']), 'twitter:image');
+if ($shareImage) {
+    $this->headMeta($shareImage, 'twitter:image');
 }
 
 $this->sticky();
 ?>
-<div class="clearfix" itemscope itemtype="http://schema.org/Article">
+<div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
 
@@ -93,13 +94,13 @@ $this->sticky();
                     </div>
                 <?php } ?>
                 <div class="clearfix">
-                    <?php if ($story['image']) { ?>
+                    <?php if ($story['main_image'] || $story['additional_images']) { ?>
                         <div class="storyImageMain gallery pull-left col-md-4">
                             <div class="thumbnail u-photo">
-                                <a href="<?php echo $story['largeUrl']; ?>"
+                                <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" class="img-responsive"
-                                         src="<?php echo $this->escape($story['mediumUrl']); ?>"
+                                         src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
@@ -226,7 +227,7 @@ $this->sticky();
                         </div>
                         <div class="list-group">
                             <?php foreach ($relateds as $related) { ?>
-                                <div class="list-group-item clearfix" itemscope itemtype="http://schema.org/Article">
+                                <div class="list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($related['image']) { ?>

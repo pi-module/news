@@ -7,7 +7,7 @@
     <div class="index-news clearfix">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="<?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="single-news h-entry clearfix" itemscope itemtype="http://schema.org/Article">
+            <div class="single-news h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                 <div class="single-news-heading">
                     <h3 class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?>
@@ -18,11 +18,11 @@
                 </div>
                 <div class="single-news-body">
                     <div class="clearfix">
-                        <?php if ($story['image']) { ?>
+                        <?php if ($story['main_image']) { ?>
                             <div class="col-md-3 u-photo">
                                 <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo $story['thumbUrl']; ?>"
+                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>

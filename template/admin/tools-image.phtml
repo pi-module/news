@@ -1,6 +1,17 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <h3><?php echo $this->escape($title); ?></h3>
-    <div class="alert alert-success"><?php echo $this->escape($message); ?></div>
-    <?php echo $this->form($form); ?>
+
+    <div id="message-box">
+        <?php if (isset($message)) { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <?php echo $message; ?>
+            </div>
+        <?php } ?>
+    </div>
+
+    <hr />
+    <a href="<?php echo $this->url('', array('action' => 'migrateMedia')); ?>" class="btn btn-primary"><?php echo _a('Launch migration tool'); ?></a> &nbsp;&nbsp;&nbsp;
+    <?php echo _a('That migrates old media data (files, images) for story news and events (main image / additionals) to new media module. You can relaunch the script as many times as needed : the script bypasses correct already moved images.'); ?>
 </div>

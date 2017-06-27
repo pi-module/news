@@ -381,47 +381,17 @@ class Story extends AbstractApi
                 }
             }
         }
-        // Set image url
-        if ($story['image']) {
-            // Set image original url
-            $story['originalUrl'] = Pi::url(
-                sprintf('upload/%s/original/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image large url
-            $story['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image medium url
-            $story['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } elseif ($this->config['image_default']) {
-            $story['originalUrl'] = Pi::service('asset')->getModuleAsset('image/news-original.jpg', $this->getModule());
-            $story['largeUrl'] = Pi::service('asset')->getModuleAsset('image/news-large.jpg', $this->getModule());
-            $story['mediumUrl'] = Pi::service('asset')->getModuleAsset('image/news-medium.jpg', $this->getModule());
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
+
+        if ($story['main_image']) {
+            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
+            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
         } else {
-            $story['originalUrl'] = '';
             $story['largeUrl'] = '';
             $story['mediumUrl'] = '';
             $story['thumbUrl'] = '';
         }
+
         // return story
         return $story;
     }
@@ -448,20 +418,17 @@ class Story extends AbstractApi
             'controller' => 'story',
             'slug' => $story['slug'],
         )));
-        // Set image url
-        if ($story['image']) {
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } elseif ($config['image_default']) {
-            $story['thumbUrl'] = Pi::service('asset')->getModuleAsset('image/news-thumb.jpg', $this->getModule());
+
+        if ($story['main_image']) {
+            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
+            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
         } else {
+            $story['largeUrl'] = '';
+            $story['mediumUrl'] = '';
             $story['thumbUrl'] = '';
         }
+
         // unset
         unset($story['text_summary']);
         unset($story['text_description']);
@@ -490,34 +457,7 @@ class Story extends AbstractApi
             'controller' => 'story',
             'slug' => $story['slug'],
         )));
-        // Set image url
-        if ($story['image']) {
-            // Set image large url
-            $story['largeUrl'] = Pi::url(
-                sprintf('upload/%s/large/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image medium url
-            $story['mediumUrl'] = Pi::url(
-                sprintf('upload/%s/medium/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-            // Set image thumb url
-            $story['thumbUrl'] = Pi::url(
-                sprintf('upload/%s/thumb/%s/%s',
-                    $option['imagePath'],
-                    $story['path'],
-                    $story['image']
-                ));
-        } else {
-            $story['largeUrl'] = '';
-            $story['mediumUrl'] = '';
-            $story['thumbUrl'] = '';
-        }
+
         // Set topic
         //$topic = json_decode($story['topic'], true);
         // Set body
@@ -533,14 +473,21 @@ class Story extends AbstractApi
             'time_publish_view' => _date($story['time_publish']),
             'time_update' => $story['time_update'],
             'time_update_view' => _date($story['time_update']),
-            'thumbUrl' => $story['thumbUrl'],
-            'mediumUrl' => $story['mediumUrl'],
-            'largeUrl' => $story['largeUrl'],
-            'storyUrl' => $story['storyUrl'],
             'topic' => $story['topic_main'],
             'image' => $story['image'],
             'body' => $body,
         );
+
+        if ($story['main_image']) {
+            $storyJson['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $storyJson['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
+            $storyJson['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
+        } else {
+            $storyJson['largeUrl'] = '';
+            $storyJson['mediumUrl'] = '';
+            $storyJson['thumbUrl'] = '';
+        }
+
         // return item
         return $storyJson;
     }
@@ -625,5 +572,104 @@ class Story extends AbstractApi
                 }
             }
         }
+    }
+
+    public function migrateMedia(){
+        if (Pi::service("module")->isActive("media")) {
+
+            $msg = '';
+
+            // Get config
+            $config = Pi::service('registry')->config->read($this->getModule());
+
+            $storyModel = Pi::model("story", $this->getModule());
+
+            $select = $storyModel->select();
+            $storyCollection = $storyModel->selectWith($select);
+
+            foreach($storyCollection as $story){
+
+                $toSave = false;
+
+                $mediaData = array(
+                    'active' => 1,
+                    'time_created' => time(),
+                    'uid'   => $story->uid,
+                    'count' => 0,
+                );
+
+                /**
+                 * Check if media item have already migrate or no image to migrate
+                 */
+                if(!$story->main_image){
+
+                    /**
+                     * Check if media item exists
+                     */
+                    if(empty($story["image"]) || empty($story["path"])){
+
+                        $draft = $story->status == 3 ? ' (' . __('Draft') . ')' : '';
+
+                        $msg .= __("Missing image or path value from db for Story ID") . " " .  $story->id . $draft . "<br>";
+                    } else {
+                        $imagePath = sprintf("upload/%s/original/%s/%s",
+                            $config["image_path"],
+                            $story["path"],
+                            $story["image"]
+                        );
+
+                        $mediaData['title'] = $story->title;
+                        $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
+
+                        if($mediaId){
+                            $story->main_image = $mediaId;
+                            $toSave = true;
+                        }
+                    }
+                }
+
+                if(!$story->additional_images){
+                    $additionalImagesArray = array();
+
+                    $attachList = Pi::api('attach', $this->module)->attachList($story->id);
+
+                    foreach($attachList as $type => $list){
+                        foreach($list as $file){
+                            if(empty($file["file"]) || empty($file["path"])){
+                                $msg .= __("Missing file or path value from db for attachment ID") . " " .  $file->id . "<br>";
+                            } else {
+                                $attachPath = sprintf('upload/%s/original/%s/%s',
+                                    $config['image_path'],
+                                    $file['path'],
+                                    $file['file']
+                                );
+
+                                $mediaData['title'] = $file['title'];
+                                $mediaData['count'] = $file['hits'];
+
+                                $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
+
+                                if($mediaId){
+                                    $additionalImagesArray[] = $mediaId;
+                                }
+                            }
+                        }
+                    }
+
+                    if($additionalImagesArray){
+                        $story->additional_images = implode(',', $additionalImagesArray);
+                        $toSave = true;
+                    }
+                }
+
+                if($toSave){
+                    $story->save();
+                }
+            }
+
+            return $msg;
+        }
+
+        return false;
     }
 }
