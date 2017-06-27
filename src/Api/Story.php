@@ -274,7 +274,7 @@ class Story extends AbstractApi
         $uid = Pi::user()->getId();
         // Check user
         if ($uid > 0) {
-            $favoriteIds = Pi::api('favourite', 'favourite')->userFavourite($uid, $this->getModule(), 10);
+            $favoriteIds = Pi::api('favourite', 'favourite')->userFavourite($uid, $this->getModule());
             // Check list of ides
             if (!empty($favoriteIds)) {
                 // Get config
