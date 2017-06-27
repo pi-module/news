@@ -293,13 +293,8 @@ class Story extends AbstractApi
                         'slug' => $row->slug,
                     )));
                     $story['image'] = '';
-                    if ($row->image) {
-                        $story['image'] = Pi::url(
-                            sprintf('upload/%s/thumb/%s/%s',
-                                $config['image_path'],
-                                $row->path,
-                                $row->image
-                            ));
+                    if ($row->main_image) {
+                        $story["image"] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('thumbnail'));
                     }
                     $list[$row->id] = $story;
                 }
