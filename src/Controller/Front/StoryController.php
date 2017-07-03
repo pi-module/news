@@ -119,6 +119,13 @@ class StoryController extends ActionController
             $favourite['table'] = 'story';
             $favourite['module'] = $module;
             $this->view()->assign('favourite', $favourite);
+            
+            $configFavourite = Pi::service('registry')->config->read('favourite');
+            if ($configFavourite['favourite_list']) {
+                $favouriteList = Pi::api('favourite', 'favourite')->listItemFavourite('news', 'story', $story['id']);
+                $this->view()->assign('favouriteList', $favouriteList);
+            }
+            
         }
         // Set template
         switch ($story['type']) {

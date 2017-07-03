@@ -1,0 +1,28 @@
+<table id="item-list" class="table table-striped table-bordered table-condensed">
+    <tr>
+        <th class="col-md-1"><?php _e('Image'); ?></th>
+        <th class="col-md-3"><?php _e('Name'); ?></th>
+        <th class="col-md-2"><?php _e('Category'); ?></th>
+        <th class="col-md-2"><?php _e('Publish date'); ?></th>
+
+    </tr>
+    <?php foreach ($favouriteList as $favourite) { ?>
+        <tr>
+            <td class="favorite-nopadding text-center">
+                 <img width="100%" src="<?php echo $this->escape($favourite['image']); ?>"
+                     alt="<?php echo $this->escape($favourite['title']); ?>"/>
+            </td>
+            <td>
+                <a title="<?php echo $this->escape($favourite['title']); ?>"
+                   href="<?php echo $this->escape($favourite['url']); ?>"><?php echo $this->escape($favourite['title']); ?></a>
+            </td>
+            <td><?php foreach ($favourite['categories'] as $category) { ?>
+                    <span class="guide-margin"><a title="<?php echo $this->escape($category['title']); ?>"
+                                                  href="<?php echo $this->escape($category['categoryUrl']); ?>"><?php echo $this->escape($category['title']); ?></a></span>
+                <?php } ?>
+            </td>
+            <td><?php echo $this->escape(_date($favourite['time_publish'])); ?></td>
+            
+        </tr>
+    <?php } ?>
+</table>
