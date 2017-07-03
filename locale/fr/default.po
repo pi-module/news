@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2017-06-05 21:57+0200\n"
+"POT-Creation-Date: 2017-07-03 22:49+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
@@ -16,20 +16,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/Api/Api.php:262 src/Controller/Admin/AuthorController.php:253
+#: src/Api/Api.php:265 src/Controller/Admin/AuthorController.php:253
 #: src/Controller/Admin/StoryController.php:304
 #: src/Controller/Admin/TopicController.php:136
 #, php-format
 msgid "Image of %s removed"
 msgstr "L'image de %s a été supprimée"
 
-#: src/Api/Api.php:265 src/Controller/Admin/AuthorController.php:256
+#: src/Api/Api.php:268 src/Controller/Admin/AuthorController.php:256
 #: src/Controller/Admin/StoryController.php:307
 #: src/Controller/Admin/TopicController.php:139
 msgid "Image not remove"
 msgstr "L'image n'a pas été supprimée"
 
-#: src/Api/Api.php:269 src/Controller/Admin/StoryController.php:226
+#: src/Api/Api.php:272 src/Controller/Admin/StoryController.php:226
 #: src/Controller/Admin/StoryController.php:275
 #: src/Controller/Admin/StoryController.php:311
 #: src/Controller/Admin/StoryController.php:351
@@ -38,6 +38,21 @@ msgstr "L'image n'a pas été supprimée"
 #: src/Controller/Admin/TopicController.php:143
 msgid "Please select story"
 msgstr "Merci de sélectionner un actualité"
+
+#: src/Api/Api.php:568 src/Controller/Front/JsonController.php:131
+#: template/admin/story-index.phtml:135
+msgid "List of stories"
+msgstr "Liste des actualités"
+
+#: src/Api/Api.php:589 src/Controller/Front/JsonController.php:152
+#, php-format
+msgid "List of stories on %s topic"
+msgstr "Liste des actualités de la catégorie %s"
+
+#: src/Api/Api.php:605 src/Controller/Front/JsonController.php:168
+#, php-format
+msgid "All stories from %s"
+msgstr "Toutes les actualités de %s"
 
 #: src/Api/Attribute.php:59 src/Controller/Admin/StoryController.php:144
 #: src/Form/StoryForm.php:158 template/admin/microblog-index.phtml:17
@@ -107,7 +122,7 @@ msgstr "Liste de Sujets"
 msgid "Post list"
 msgstr "Liste des publications"
 
-#: src/Api/Story.php:611 src/Form/AuthorForm.php:88
+#: src/Api/Story.php:638 src/Form/AuthorForm.php:88
 #: src/Form/AuthorRoleForm.php:62 src/Form/MicroblogForm.php:92
 #: src/Form/PositionForm.php:77 src/Form/SpotlightForm.php:109
 #: src/Form/StoryForm.php:146 src/Form/TopicForm.php:117
@@ -115,13 +130,13 @@ msgstr "Liste des publications"
 msgid "Draft"
 msgstr "Brouillon"
 
-#: src/Api/Story.php:613
+#: src/Api/Story.php:640
 msgid "Missing image or path value from db for Story ID"
 msgstr ""
 "Image ou valeur du chemin manquante dans la base de donnée pour l'actualité "
 "ID"
 
-#: src/Api/Story.php:639
+#: src/Api/Story.php:666
 msgid "Missing file or path value from db for attachment ID"
 msgstr ""
 "Image ou valeur du chemin manquante dans la base de donnée pour "
@@ -651,21 +666,6 @@ msgstr "Liste de tous les sujets"
 msgid "List of Latest stories"
 msgstr "Liste des dernières actualités"
 
-#: src/Controller/Front/JsonController.php:131
-#: template/admin/story-index.phtml:135
-msgid "List of stories"
-msgstr "Liste des actualités"
-
-#: src/Controller/Front/JsonController.php:152
-#, php-format
-msgid "List of stories on %s topic"
-msgstr "Liste des actualités de la catégorie %s"
-
-#: src/Controller/Front/JsonController.php:168
-#, php-format
-msgid "All stories from %s"
-msgstr "Toutes les actualités de %s"
-
 #: src/Controller/Front/JsonController.php:260
 #: src/Controller/Front/JsonController.php:286
 #: src/Controller/Front/JsonController.php:321
@@ -771,7 +771,7 @@ msgstr "Hors Ligne"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: src/Form/AttributeForm.php:61
+#: src/Form/AttributeForm.php:61 template/front/partial/favourite-list.phtml:4
 msgid "Name"
 msgstr "Nom"
 
@@ -876,6 +876,7 @@ msgstr "Supprimer l'image"
 
 #: src/Form/AuthorForm.php:124 src/Form/TopicForm.php:189
 #: template/admin/story-index.phtml:41
+#: template/front/partial/favourite-list.phtml:3
 msgid "Image"
 msgstr "Image"
 
@@ -1010,6 +1011,7 @@ msgstr ""
 "Sujet"
 
 #: src/Form/SpotlightForm.php:80 template/admin/spotlight-index.phtml:15
+#: template/front/partial/favourite-list.phtml:6
 msgid "Publish date"
 msgstr "Date publication"
 
@@ -1144,7 +1146,7 @@ msgstr ""
 "Affiché dans la page de résultat des moteurs de recherche : résumé rapide "
 "pour inciter les utilisateurs à cliquer, entre 80 et 160 caractères."
 
-#: src/Form/StoryForm.php:327 template/front/story-article.phtml:189
+#: src/Form/StoryForm.php:327 template/front/story-article.phtml:194
 #: template/front/story-download.phtml:128
 #: template/front/story-magazine.phtml:175 template/front/story-media.phtml:185
 #: template/front/story-text.phtml:185
@@ -1944,6 +1946,10 @@ msgstr "Date"
 msgid "Times"
 msgstr "Fois"
 
+#: template/front/partial/favourite-list.phtml:5
+msgid "Category"
+msgstr "Catégorie"
+
 #: template/front/story-article.phtml:121
 #: template/front/story-download.phtml:184
 #: template/front/story-gallery.phtml:193 template/front/story-image.phtml:177
@@ -1960,14 +1966,18 @@ msgstr "Précédent"
 msgid "Next"
 msgstr "Suivant"
 
-#: template/front/story-article.phtml:206
+#: template/front/story-article.phtml:167
+msgid "Vote to this event"
+msgstr "Voter pour cet évènement"
+
+#: template/front/story-article.phtml:211
 #: template/front/story-download.phtml:160
 #: template/front/story-magazine.phtml:192 template/front/story-media.phtml:202
 #: template/front/story-text.phtml:202
 msgid "Share if you like"
 msgstr "Partagez si vous aimez !"
 
-#: template/front/story-article.phtml:221
+#: template/front/story-article.phtml:226
 #: template/front/story-download.phtml:226
 #: template/front/story-magazine.phtml:207 template/front/story-media.phtml:217
 #: template/front/story-text.phtml:217
