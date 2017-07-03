@@ -153,16 +153,21 @@ $this->sticky();
                         <?php } ?>
                     </div>
                 <?php } ?>
-                <div class="clearfix">
-                    <ul class="list-inline">
-                        <li><?php if (!empty($vote)) {
-                                include $this->template('votebar.phtml', 'front', 'vote');
-                            } ?></li>
-                        <li><?php if (!empty($favourite)) {
-                                include $this->template('favouritebar.phtml', 'front', 'favourite');
-                            } ?></li>
-                    </ul>
-                </div>
+                <?php if (!empty($favourite)) { ?>
+                    <div class="clearfix eventFavourite">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <?php include $this->template('favouritebar', 'front', 'favourite'); ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if (!empty($vote)) { ?>
+                    <div class="well clearfix eventVote">
+                        <h2><?php _e('Vote to this event'); ?></h2>
+                        <?php include $this->template('votebar', 'front', 'vote'); ?>
+                    </div>
+                <?php } ?>
                 <?php if (!empty($story['authors']) && $config['show_author']) { ?>
                     <div class="clearfix">
                         <?php foreach ($story['authors'] as $author) { ?>

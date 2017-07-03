@@ -278,20 +278,52 @@ class Story extends AbstractApi
             // Check list of ides
             if (!empty($favoriteIds)) {
                 // Get config
+                
+                // TOPIC
+                $select = Pi::model('topic', $this->getModule())->select();
+                $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
+                $topics = array();
+                foreach ($rowset as $row) {
+                    $topics[$row->id] = array(
+                        'title' => $row->title,
+                        'categoryUrl' => Pi::url(Pi::service("url")->assemble("news", array(
+                            "module" => $this->getModule(),
+                            "controller" => "category",
+                            "slug" => $row->slug,
+                        )))
+                    );
+                }
+                //
+                
                 $config = Pi::service('registry')->config->read($this->getModule());
                 // Set list
                 $list = array();
-                $where = array('id' => $favoriteIds, 'status' => 1);
-                $select = Pi::model('story', $this->getModule())->select()->where($where);
+                $where = array(
+                    'id' => $favoriteIds, 
+                    'status' => 1,
+                    'type' => array(
+                       'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+                   )
+                );
+                
+                
+                $select = Pi::model('story', $this->getModule())->select()->columns(array('title', 'slug', 'time_publish', 'main_image', 'id', 'topic'))->where($where);
                 $rowset = Pi::model('story', $this->getModule())->selectWith($select);
                 foreach ($rowset as $row) {
-                    $story = array();
-                    $story['title'] = $row->title;
+                    $story = $row->toArray();
+                    
                     $story['url'] = Pi::url(Pi::service('url')->assemble('news', array(
                         'module' => $this->getModule(),
                         'controller' => 'story',
                         'slug' => $row->slug,
                     )));
+                    
+                    $story['categories'] = array();
+                    $storyTopics = json_decode($story['topic']);
+                    foreach ($storyTopics as $idTopic) {
+                        $story['categories'][] = $topics[$idTopic];
+                    }
+                    
                     $story['image'] = '';
                     if ($row->main_image) {
                         $story["image"] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('thumbnail'));
