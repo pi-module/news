@@ -239,7 +239,7 @@ class JsonController extends IndexController
             'stories' => $story,
             'paginator' => array(
                 'count' => $count,
-                'limit' => intval($config['view_perpage']),
+                'limit' => $limit,
                 'page' => $page,
             ),
             'condition' => array(

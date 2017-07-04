@@ -30,6 +30,9 @@ use Zend\Db\Sql\Predicate\Expression;
  * Pi::api('api', 'news')->getStoryPaginator($template, $where, $page, $limit, $table);
  * Pi::api('api', 'news')->getStoryCount($where, $table);
  * Pi::api('api', 'news')->getStoryRelated($where, $order);
+ * Pi::api('api', 'news')->jsonList($options);
+ * Pi::api('api', 'news')->jsonSingle($id);
+ * Pi::api('api', 'news')->jsonSubmit($data);
  */
 
 /*
@@ -516,5 +519,249 @@ class Api extends AbstractApi
             $related = Pi::api('story', 'news')->getListFromIdLight($storyId);
         }
         return $related;
+    }
+
+    public function jsonList($options)
+    {
+        // Get info from url
+        $module = $this->getModule();
+
+        // Set has search result
+        $hasSearchResult = true;
+
+        // Clean title
+        if (Pi::service('module')->isActive('search') && isset($options['title']) && !empty($options['title'])) {
+            $options['title'] = Pi::api('api', 'search')->parseQuery($options['title']);
+        } elseif (isset($options['title']) && !empty($options['title'])) {
+            $options['title'] = _strip($options['title']);
+        } else {
+            $options['title'] = '';
+        }
+
+        // Clean params
+        $paramsClean = array();
+        foreach ($_GET as $key => $value) {
+            $key = _strip($key);
+            $value = _strip($value);
+            $paramsClean[$key] = $value;
+        }
+
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
+
+        // Set empty result
+        $result = array(
+            'stories' => array(),
+            'paginator' => array(),
+            'condition' => array(),
+        );
+
+        // Set where link
+        $whereLink = array(
+            'status' => 1,
+            'type' => array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            )
+        );
+
+        // Set page title
+        $pageTitle = __('List of stories');
+
+        // Set order
+        $order = array('time_publish DESC', 'id DESC');
+
+        // Get topic information from model
+        if (!empty($options['topic'])) {
+            // Get topic
+            $topic = Pi::api('topic', 'news')->getTopicFull($options['topic'], 'slug');
+            // Check topic
+            if (!$topic || $topic['status'] != 1) {
+                return $result;
+            }
+            $topicIDList = array();
+            $topicIDList[] = $topic['id'];
+            if (isset($topic['ids']) && !empty($topic['ids'])) {
+                foreach ($topic['ids'] as $topicSingle) {
+                    $topicIDList[] = $topicSingle;
+                }
+            }
+            // Set page title
+            $pageTitle = sprintf(__('List of stories on %s topic'), $topic['title']);
+        }
+
+        // Get tag list
+        if (!empty($options['tag'])) {
+            $storyIDTag = array();
+            // Check favourite
+            if (!Pi::service('module')->isActive('tag')) {
+                return $result;
+            }
+            // Get id from tag module
+            $tagList = Pi::service('tag')->getList($options['tag'], $module);
+            foreach ($tagList as $tagSingle) {
+                $storyIDTag[] = $tagSingle['item'];
+            }
+            // Set header and title
+            $pageTitle = sprintf(__('All stories from %s'), $options['tag']);
+        }
+
+        // Set story ID list
+        $checkTitle = false;
+        $storyIDList = array(
+            'title' => array(),
+        );
+
+        // Check title from story table
+        if (isset($options['title']) && !empty($options['title'])) {
+            $checkTitle = true;
+            $titles = is_array($options['title']) ? $options['title'] : array($options['title']);
+            $columns = array('id');
+            $select = Pi::model('story', $module)->select()->columns($columns)->where(function ($where) use ($titles) {
+                $whereMain = clone $where;
+                $whereKey = clone $where;
+                $whereMain->equalTo('status', 1);
+                foreach ($titles as $title) {
+                    $whereKey->like('title', '%' . $title . '%')->and;
+                }
+                $where->andPredicate($whereMain)->andPredicate($whereKey);
+            })->order($order);
+            $rowset = Pi::model('story', $module)->selectWith($select);
+            foreach ($rowset as $row) {
+                $storyIDList['title'][$row->id] = $row->id;
+            }
+        }
+
+        // Set info
+        $story = array();
+        $count = 0;
+
+        $limit = (intval($options['limit']) > 0) ? intval($options['limit']) : intval($config['view_perpage']);
+        $offset = (int)($options['page'] - 1) * $limit;
+
+        // Set topic on where link
+        if (isset($topicIDList) && !empty($topicIDList)) {
+            $whereLink['topic'] = $topicIDList;
+        }
+
+        // Set story on where link from title and attribute
+        if ($checkTitle) {
+            if (!empty($storyIDList)) {
+                $whereLink['story'] = $storyIDList;
+            } else {
+                $hasSearchResult = false;
+            }
+        }
+
+        // Set tag story on where link
+        if (!empty($tag) && isset($storyIDTag)) {
+            if (isset($whereLink['story']) && !empty($whereLink['story'])) {
+                $whereLink['story'] = array_intersect($storyIDTag, $whereLink['story']);
+            } elseif (!isset($whereLink['story']) || empty($whereLink['story'])) {
+                $whereLink['story'] = $storyIDTag;
+            } else {
+                $hasSearchResult = false;
+            }
+        }
+
+        // Check has Search Result
+        if ($hasSearchResult) {
+            // Get story
+            $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, 'full', 'link');
+            $count = Pi::api('api', 'news')->getStoryCount($whereLink, 'link');
+            $story = array_values($story);
+        }
+
+        // Set result
+        $result = array(
+            'stories' => $story,
+            'paginator' => array(
+                'count' => $count,
+                'limit' => $limit,
+                'page' => $options['page'],
+            ),
+            'condition' => array(
+                'title' => $pageTitle,
+            ),
+        );
+
+        return $result;
+    }
+
+    public function jsonSingle($id)
+    {
+        // Find story
+        $story = Pi::api('story', 'news')->getStory($id);
+        // Check item
+        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            ))) {
+            $storySingle = array();
+        } else {
+
+            // Set text_summary
+            $story['text_summary'] = strip_tags($story['text_summary'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_summary'] = str_replace("<p>&nbsp;</p>", "", $story['text_summary']);
+
+            // Set text_description
+            $story['text_description'] = strip_tags($story['text_description'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_description'] = str_replace("<p>&nbsp;</p>", "", $story['text_description']);
+
+            $storySingle = array(
+                'id' => $story['id'],
+                'title' => $story['title'],
+                'subtitle' => $story['subtitle'],
+                'topic' => $story['topic'][0],
+                'text_summary' => $story['text_summary'],
+                'text_description' => $story['text_description'],
+                'time_publish' => $story['time_publish'],
+                'time_publish_view' => $story['time_publish_view'],
+                'storyUrl' => $story['storyUrl'],
+                'largeUrl' => $story['largeUrl'],
+                'mediumUrl' => $story['mediumUrl'],
+                'thumbUrl' => $story['thumbUrl'],
+            );
+        }
+        $storySingle = array($storySingle);
+        // Set view
+        return $storySingle;
+    }
+
+    public function jsonSubmit($data)
+    {
+        $result = array();
+        $result['status'] = 0;
+
+        // Set object to array
+        $data = $data->toArray();
+        // Check
+        if (isset($data['uid']) &&
+            !empty($data['uid']) &&
+            $data['uid'] > 0 &&
+            isset($data['title']) &&
+            !empty($data['title']) &&
+            isset($data['body']) &&
+            !empty($data['body'])) {
+
+            // Set slug
+            $slug = uniqid('story-');
+
+            // Save
+            $row = Pi::model('story', 'news')->createRow();
+            $row->title = _strip($data['title']);
+            $row->slug = $slug;
+            $row->status = 2;
+            $row->time_create = time();
+            $row->type = 'text';
+            $row->text_description = _strip($data['body']);
+            $row->uid = intval($data['uid']);
+            $row->main_image = '';
+            $row->additional_images = '';
+            $row->save();
+
+            // Set status
+            $result['status'] = 1;
+        }
+
+        return $result;
     }
 }
