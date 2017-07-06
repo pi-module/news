@@ -332,10 +332,10 @@ class Story extends AbstractApi
                 }
                 return $list;
             } else {
-                return '';
+                return array();
             }
         } else {
-            return '';
+            return array();
         }
     }
 
