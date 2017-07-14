@@ -97,8 +97,9 @@ $this->sticky();
                     <?php if ($story['main_image'] || $story['additional_images']) { ?>
                         <div class="storyImageMain gallery pull-left col-md-4">
                             <div class="thumbnail u-photo">
-                                <a href="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>"
-                                   title="<?php echo $this->escape($story['title']); ?>">
+                                <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
+                                <a href="<?php echo $media['resized_url']; ?>"
+                                   title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
                                     <img itemprop="image" class="img-responsive"
                                          src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
