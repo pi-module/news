@@ -326,16 +326,16 @@ class Story extends AbstractApi
                     
                     $story['image'] = '';
                     if ($row->main_image) {
-                        $story["image"] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('thumbnail'));
+                        $story["image"] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('medium'));
                     }
                     $list[$row->id] = $story;
                 }
                 return $list;
             } else {
-                return '';
+                return array();
             }
         } else {
-            return '';
+            return array();
         }
     }
 

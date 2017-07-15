@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2017-06-05 21:48+0200\n"
+"POT-Creation-Date: 2017-07-03 22:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc-Pi\n"
@@ -542,102 +542,110 @@ msgid "Large Image width"
 msgstr "Largeur des Images Larges"
 
 #: config/config.php:432
+msgid "Item Image width"
+msgstr "Largeur des Images Item"
+
+#: config/config.php:440
+msgid "Item Image height"
+msgstr "Hauteur des Images Item"
+
+#: config/config.php:448
 msgid "Medium Image height"
 msgstr "Hauteur des Images Medium"
 
-#: config/config.php:440
+#: config/config.php:456
 msgid "Medium Image width"
 msgstr "Largeur des Images Medium"
 
-#: config/config.php:448
+#: config/config.php:464
 msgid "Thumb Image height"
 msgstr "Hauteur des Images Miniatures"
 
-#: config/config.php:456
+#: config/config.php:472
 msgid "Thumb Image width"
 msgstr "Largeur des Images Miniatures"
 
-#: config/config.php:464
+#: config/config.php:480
 msgid "Use lightbox"
 msgstr "Utiliser Lightbox"
 
-#: config/config.php:472
+#: config/config.php:488
 msgid "Add Watermark"
 msgstr "Ajouter un Watemark"
 
-#: config/config.php:480
+#: config/config.php:496
 msgid "Watermark Image"
 msgstr "Image Watermark"
 
-#: config/config.php:487
+#: config/config.php:503
 msgid "Watermark Positio"
 msgstr "Position Watermark"
 
-#: config/config.php:493
+#: config/config.php:509
 msgid "Top Left"
 msgstr "En haut à gauche"
 
-#: config/config.php:494
+#: config/config.php:510
 msgid "Top Right"
 msgstr "En haut à droite"
 
-#: config/config.php:495
+#: config/config.php:511
 msgid "Bottom Left"
 msgstr "En bas à gauche"
 
-#: config/config.php:496
+#: config/config.php:512
 msgid "Bottom Right"
 msgstr "En bas à droite"
 
-#: config/config.php:506
+#: config/config.php:522
 msgid "Social sharing items"
 msgstr "Réseaux Sociaux affichés"
 
-#: config/config.php:520
+#: config/config.php:536
 msgid "Number of stories"
 msgstr "Nombre d'actualités"
 
-#: config/config.php:528
+#: config/config.php:544
 msgid "Show Image for sub spotlights"
 msgstr "Afficher l'image pour les sous-Spotlights"
 
-#: config/config.php:536
+#: config/config.php:552
 msgid "Spotlight story number for registry"
 msgstr "Nombre de la news Spotlight à afficher"
 
-#: config/config.php:545
+#: config/config.php:561
 msgid "Use vote system"
 msgstr "Utiliser le système d'appréciation Vote"
 
-#: config/config.php:554
+#: config/config.php:570
 msgid "Use favourite system"
 msgstr "Utiliser le système de favoris Favorite"
 
-#: config/config.php:563
+#: config/config.php:579
 msgid "Description for index page"
 msgstr "Texte Introductif pour la page Index"
 
-#: config/config.php:571
+#: config/config.php:587
 msgid "Force replace space by comma(,)"
 msgstr "Forcer le remplacement de l'espace par la virgule (,)"
 
-#: config/config.php:580
+#: config/config.php:596
 msgid "File Size"
 msgstr "Poids Image"
 
-#: config/config.php:588
+#: config/config.php:604
 msgid "File path"
 msgstr "Chemin Image"
 
-#: config/config.php:596
+#: config/config.php:612
 msgid "File Extension"
 msgstr "Extensions Fichier"
 
-#: config/config.php:605
+#: config/config.php:621
 msgid "Active microblog system"
 msgstr "Activer le système micro-blog"
 
-#: config/config.php:613
+#: config/config.php:629
 msgid "Micro blog perpage"
 msgstr "Micro blog Nombre par page"
 
