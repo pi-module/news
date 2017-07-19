@@ -109,7 +109,7 @@ if ($shareImage) {
                     <p><?php echo $this->escape($story['subtitle']); ?></p>
                 </div>
             <?php } ?>
-            <?php if ($story['main_image'] || (isset($attach['image']) && !empty($attach['image']))) { ?>
+            <?php if ($story['main_image'] || $story['additional_images']) { ?>
                 <div class="gallery text-center col-md-12">
                     <div class="storyImageMain">
                         <div class="col-sm-12 col-md-12">
@@ -124,7 +124,11 @@ if ($shareImage) {
                             </div>
                         </div>
                     </div>
-                    <div class="storyImageAttach"><?php include $this->template('front/attach-image'); ?></div>
+                    <?php if (isset($story['additional_images']) && !empty($story['additional_images'])) { ?>
+                        <div class="storyImageAttach">
+                            <?php include $this->template('front/attach-image'); ?>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php } ?>
             <div class="storyText e-content" itemprop="description">

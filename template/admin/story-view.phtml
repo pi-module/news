@@ -25,7 +25,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="itemBody">
-                <?php if ($story['image']) { ?>
+                <?php if ($story['main_image']) { ?>
                     <div class="itemImage gallery pull-left">
                         <img class="img-thumbnail" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"/>
