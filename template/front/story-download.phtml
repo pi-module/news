@@ -105,7 +105,7 @@ $this->sticky();
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
-                            <?php if (isset($attach['image']) && !empty($attach['image'])) { ?>
+                            <?php if (isset($story['additional_images']) && !empty($story['additional_images'])) { ?>
                                 <div class="storyImageAttach row gallery">
                                     <?php include $this->template('front/attach-image'); ?>
                                 </div>
@@ -231,7 +231,7 @@ $this->sticky();
                                 <div class="list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <?php if ($related['image']) { ?>
+                                            <?php if ($related['main_image']) { ?>
                                                 <img itemprop="image" class="img-responsive u-photo"
                                                      src="<?php echo $this->escape($related['thumbUrl']); ?>"
                                                      alt="<?php echo $this->escape($related['title']); ?>"/>
