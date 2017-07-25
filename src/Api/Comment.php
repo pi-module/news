@@ -78,4 +78,14 @@ class Comment extends AbstractComment
         }
         return $item;
     }
+    
+    public function canonize($id)
+    {
+        $data = Pi::api('story', 'news')->getStory($id);
+        return array(
+            'url' => $data['storytUrl'],
+            'title' => $data['title'],
+        );
+    }
+
 }
