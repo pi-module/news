@@ -97,7 +97,11 @@ if ($shareImage) {
                         </a>
                     </div>
                 </div>
-                <div class="storyImageAttach row"><?php include $this->template('front/attach-image'); ?></div>
+                <?php if (isset($story['additional_images']) && !empty($story['additional_images'])) { ?>
+                    <div class="storyImageAttach row">
+                        <?php include $this->template('front/attach-image'); ?>
+                    </div>
+                <?php } ?>
             </div>
         <?php } ?>
         <?php if ($story['subtitle']) { ?>
