@@ -83,7 +83,7 @@ class Comment extends AbstractComment
     {
         $data = Pi::api('story', 'news')->getStory($id);
         return array(
-            'url' => $data['storytUrl'],
+            'url' => $data['storyUrl'],
             'title' => $data['title'],
         );
     }
