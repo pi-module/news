@@ -665,8 +665,12 @@ class Api extends AbstractApi
 
         // Check has Search Result
         if ($hasSearchResult) {
+            // Set option
+            $storyOptions = array(
+                'getUser' => $options['getUser'],
+            );
             // Get story
-            $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, 'full', 'link');
+            $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, 'full', 'link', $storyOptions);
             $count = Pi::api('api', 'news')->getStoryCount($whereLink, 'link');
             $story = array_values($story);
         }
@@ -687,7 +691,7 @@ class Api extends AbstractApi
         return $result;
     }
 
-    public function jsonSingle($id)
+    public function jsonSingle($id, $getUser = false)
     {
         // Find story
         $story = Pi::api('story', 'news')->getStory($id);
@@ -720,6 +724,14 @@ class Api extends AbstractApi
                 'mediumUrl' => $story['mediumUrl'],
                 'thumbUrl' => $story['thumbUrl'],
             );
+
+            if ($getUser) {
+                $user = Pi::user()->get($story['uid'], array(
+                    'id', 'identity', 'name', 'email'
+                ));
+                $storySingle['userName'] = $user['name'];
+                $storySingle['userAvatar'] = '';
+            }
         }
         $storySingle = array($storySingle);
         // Set view
