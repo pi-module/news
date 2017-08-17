@@ -10,13 +10,14 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
-use Pi\Filter;
 use Pi\Application\Api\AbstractApi;
-use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
+use Pi\Filter;
+use Pi\Paginator\Paginator;
 use Zend\Db\Sql\Predicate\Expression;
 
 /*
@@ -96,7 +97,8 @@ class Api extends AbstractApi
         if (!isset($values['type']) || !in_array($values['type'], array(
                 'text', 'post', 'article', 'magazine', 'event',
                 'image', 'gallery', 'media', 'download', 'feed'
-            ))) {
+            ))
+        ) {
             return false;
         }
         // Get config
@@ -140,14 +142,14 @@ class Api extends AbstractApi
         $imageToProcess = false;
 
         // check cropping udpate
-        if($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']){
+        if ($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']) {
             $imageToProcess = true;
         }
 
         $story->assign($values);
         $story->save();
 
-        if($processEventImage && $imageToProcess){
+        if ($processEventImage && $imageToProcess) {
             Pi::api('image', 'news')->process($story['image'], $story['path'], 'event/image', $story['cropping']);
         }
 
@@ -187,14 +189,14 @@ class Api extends AbstractApi
         $imageToProcess = false;
 
         // check cropping udpate
-        if($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']){
+        if ($processEventImage && isset($values['cropping']) && $values['cropping'] != $story['cropping']) {
             $imageToProcess = true;
         }
 
         $story->assign($values);
         $story->save();
 
-        if($processEventImage && $imageToProcess){
+        if ($processEventImage && $imageToProcess) {
             Pi::api('image', 'news')->process($story['image'], $story['path'], 'event/image', $story['cropping']);
         }
 
@@ -224,7 +226,7 @@ class Api extends AbstractApi
             $uploader->setExtension($config['image_extension']);
             $uploader->setSize($config['image_size']);
 
-            if(isset($config['image_crop']) && $config['image_crop'] && $config['image_largew'] && $config['image_largeh']){
+            if (isset($config['image_crop']) && $config['image_crop'] && $config['image_largew'] && $config['image_largeh']) {
                 $uploader->setImageSize(array('minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']));
             }
 
@@ -294,11 +296,12 @@ class Api extends AbstractApi
                 // process module controller
                 foreach ($module['controller'] as $controller) {
                     // Check module controller
-                    if(isset($controller['topic'])
+                    if (isset($controller['topic'])
                         && !empty($controller['topic'])
                         && is_array($controller['topic'])
                         && isset($controller['name'])
-                        && !empty($controller['name'])) {
+                        && !empty($controller['name'])
+                    ) {
                         // process controller topic
                         foreach ($controller['topic'] as $topic) {
                             // Check controller topic
@@ -696,18 +699,19 @@ class Api extends AbstractApi
         // Find story
         $story = Pi::api('story', 'news')->getStory($id);
         // Check item
-        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
+        if (!$story || $story['status'] != 1 || !in_array($story['type'], array(
                 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ))) {
+            ))
+        ) {
             $storySingle = array();
         } else {
 
             // Set text_summary
-            $story['text_summary'] = strip_tags($story['text_summary'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_summary'] = strip_tags($story['text_summary'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $story['text_summary'] = str_replace("<p>&nbsp;</p>", "", $story['text_summary']);
 
             // Set text_description
-            $story['text_description'] = strip_tags($story['text_description'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_description'] = strip_tags($story['text_description'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $story['text_description'] = str_replace("<p>&nbsp;</p>", "", $story['text_description']);
 
             $storySingle = array(
@@ -752,10 +756,54 @@ class Api extends AbstractApi
             isset($data['title']) &&
             !empty($data['title']) &&
             isset($data['body']) &&
-            !empty($data['body'])) {
+            !empty($data['body'])
+        ) {
 
             // Set slug
             $slug = uniqid('story-');
+
+            // Set image
+            $imageId = '';
+            if (isset($data['image'])) {
+                // Save image
+                $imageFile = sprintf('upload/news/app/%s.jpg', $slug);
+                $imagePath = Pi::path($imageFile);
+                $ifp = fopen($imagePath, 'wb');
+                fwrite($ifp, base64_decode($data['image']));
+                fclose($ifp);
+                // Insert to media module
+                if (Pi::service('file')->exists($imagePath)) {
+                    // From media module
+                    $options      = Pi::service('media')->getOption('local', 'options');
+                    $rootPath     = $options['root_path'];
+                    $baseFilename = basename($imagePath);
+                    $path         = Pi::api('doc', 'media')->getMediaPath($baseFilename);
+                    $slug         = Pi::api('doc', 'media')->getSlugFilename($baseFilename);
+                    $destination  = $rootPath . $path . $slug;
+                    $mediaData    = array(
+                        'active'       => 1,
+                        'time_created' => time(),
+                        'uid'          => intval($data['uid']),
+                        'count'        => 1,
+                        'title'        => _strip($data['title']),
+                        'mimetype'     => 'image/jpeg',
+                        'path'         => $path,
+                        'filename'     => $slug,
+                    );
+
+                    Pi::service('file')->mkdir($rootPath . $path);
+                    if(!is_file($destination)){
+                        Pi::service('file')->copy($imagePath, $destination);
+                    }
+
+                    $mediaEntity = Pi::model('doc', 'media')->select(array('filename' => $slug))->current();
+                    if(!$mediaEntity || !$mediaEntity->id){
+                        $mediaEntity = Pi::model('doc', 'media')->createRow($mediaData);
+                        $mediaEntity->save();
+                        $imageId = $mediaEntity->id;
+                    }
+                }
+            }
 
             // Save
             $row = Pi::model('story', 'news')->createRow();
@@ -766,7 +814,7 @@ class Api extends AbstractApi
             $row->type = 'text';
             $row->text_description = _strip($data['body']);
             $row->uid = intval($data['uid']);
-            $row->main_image = '';
+            $row->main_image = $imageId;
             $row->additional_images = '';
             $row->save();
 
