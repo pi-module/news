@@ -39,8 +39,6 @@ class TagController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
-        // Get topic or homepage setting
-        $topic = Pi::api('topic', 'news')->canonizeTopic();
         // Check slug
         if (!isset($slug) || empty($slug)) {
             $this->getResponse()->setStatusCode(404);
@@ -60,6 +58,15 @@ class TagController extends IndexController
             $this->terminate(__('The tag not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
         }
+        // Get topic or homepage setting
+        $topic = Pi::api('topic', 'news')->canonizeTopic();
+        if ($topic['style'] == 'topic') {
+            $topic['style'] = 'news';
+            $topic['template'] = 'index-news';
+            $topic['show_columns'] = '1';
+            $topic['column_class'] = '';
+        }
+
         // Set story info
         $where = array(
             'status' => 1,
@@ -72,7 +79,7 @@ class TagController extends IndexController
         $template = array(
             'controller' => 'tag',
             'action' => 'term',
-            'slug' => urlencode($slug),
+            'slug' => $slug,
         );
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
