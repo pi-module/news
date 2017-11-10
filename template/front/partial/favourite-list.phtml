@@ -1,12 +1,11 @@
 <?php Pi::service('i18n')->load(array('module/news', 'default')); ?>
-
+<h5><?php _e('Favourite news'); ?></h5>
 <table id="item-list" class="table table-striped table-bordered table-condensed">
     <tr>
-        <th class="col-md-1"><?php _e('Image'); ?></th>
-        <th class="col-md-5"><?php _e('Name'); ?></th>
+        <th class="col-md-<?php echo $isProfil ? '2' : '1' ?>"><?php _e('Image'); ?></th>
+        <th class="col-md-4"><?php _e('Name'); ?></th>
         <th class="col-md-3"><?php _e('Category'); ?></th>
-        <th class="col-md-3"><?php _e('Publish date'); ?></th>
-
+        <th class="col-md-<?php echo $isProfil ? '3' : '4' ?>"><?php _e('Publish date'); ?></th>
     </tr>
     <?php foreach ($favouriteList as $favourite) { ?>
         <tr>
