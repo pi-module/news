@@ -28,7 +28,8 @@ class News extends Standard
     );
 
     protected $controllerList = array(
-        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog'
+        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog',
+        'cron'
     );
 
     /**
@@ -51,6 +52,9 @@ class News extends Standard
             // Make Match
             if (isset($matches['controller'])) {
                 switch ($matches['controller']) {
+                    case 'cron':
+                        $matches['action'] = $parts[1];
+                        break;
                     case 'index':
                         $matches['action'] = 'index';
                         break;
