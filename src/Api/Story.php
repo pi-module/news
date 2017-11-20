@@ -412,7 +412,7 @@ class Story extends AbstractApi
             }
         }
 
-        if ($option['getUser']) {
+        if (isset($option['getUser']) && $option['getUser']) {
             $user = Pi::user()->get($story['uid'], array(
                 'id', 'identity', 'name', 'email'
             ));
