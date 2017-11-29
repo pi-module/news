@@ -247,4 +247,44 @@ class ToolsController extends ActionController
 
         $this->redirect()->toRoute(null, array('action' => 'media'));
     }
+
+
+
+    /**
+     * Generate all media files Main image only
+     * @return array
+     */
+    public function generatePicturesAction()
+    {
+        $nbPicturesToGenerate = 0;
+        $messenger = $this->plugin('flashMessenger');
+        $sizes = array('thumbnail', 'medium', 'item', 'large');
+
+        try{
+            $storyCollection = Pi::model('story', 'news')->select(array());
+
+            foreach($storyCollection as $storyEntity){
+                foreach($sizes as $size){
+                    $mainImage = (string) Pi::api('doc','media')->getSingleLinkUrl($storyEntity['main_image'])->setConfigModule('news')->thumb($size);
+                    if($mainImage){
+                        $nbPicturesToGenerate++;
+                    }
+
+                    foreach(explode(',', $storyEntity['additional_images']) as $mediaId){
+                        $image = (string) Pi::api('doc','media')->getSingleLinkUrl($mediaId)->setConfigModule('news')->thumb($size);
+                        if($image){
+                            $nbPicturesToGenerate++;
+                        }
+                    }
+                }
+            }
+
+            $messenger->addSuccessMessage(sprintf(__('%s picture(s) has been generated or already exists'), $nbPicturesToGenerate));
+
+        } catch(Exception $e){
+            $messenger->addErrorMessage($e->getMessage());
+        }
+
+        $this->redirect()->toRoute(null, array('action' => 'index'));
+    }
 }

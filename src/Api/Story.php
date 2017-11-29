@@ -412,6 +412,13 @@ class Story extends AbstractApi
             }
         }
 
+        if (isset($option['getUser']) && $option['getUser']) {
+            $user = Pi::user()->get($story['uid'], array(
+                'id', 'identity', 'name', 'email'
+            ));
+            $story['user'] = $user['name'];
+        }
+
         if ($story['main_image']) {
             $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
             $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
