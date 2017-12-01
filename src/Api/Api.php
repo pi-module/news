@@ -108,7 +108,7 @@ class Api extends AbstractApi
         $filter = new Filter\HeadTitle;
         $values['seo_title'] = $filter($title);
         // Set seo_keywords
-        $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
+        $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(array(
             'force_replace_space' => (bool)$config['force_replace_space'],
@@ -158,25 +158,27 @@ class Api extends AbstractApi
         return $story;
     }
 
-    public function editStory($values, $processEventImage = false)
+    public function editStory($values, $processEventImage = false, $updateSeo = true)
     {
         // Get config
         $config = Pi::service('registry')->config->read('news');
-        // Set seo_title
-        $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-        $filter = new Filter\HeadTitle;
-        $values['seo_title'] = $filter($title);
-        // Set seo_keywords
-        $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
-        $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => (bool)$config['force_replace_space'],
-        ));
-        $values['seo_keywords'] = $filter($keywords);
-        // Set seo_description
-        $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-        $filter = new Filter\HeadDescription;
-        $values['seo_description'] = $filter($description);
+        if ($updateSeo) {
+            // Set seo_title
+            $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+            $filter = new Filter\HeadTitle;
+            $values['seo_title'] = $filter($title);
+            // Set seo_keywords
+            $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
+            $filter = new Filter\HeadKeywords;
+            $filter->setOptions(array(
+                'force_replace_space' => (bool)$config['force_replace_space'],
+            ));
+            $values['seo_keywords'] = $filter($keywords);
+            // Set seo_description
+            $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+            $filter = new Filter\HeadDescription;
+            $values['seo_description'] = $filter($description);
+        }
         // Check time_update
         if (!isset($values['time_update']) || empty($values['time_update'])) {
             $values['time_update'] = time();

@@ -441,7 +441,7 @@ class StoryController extends ActionController
                 $filter = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
                 // Set seo_keywords
-                $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : $values['title'];
+                $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
                 $filter = new Filter\HeadKeywords;
                 $filter->setOptions(array(
                     'force_replace_space' => (bool)$this->config('force_replace_space'),

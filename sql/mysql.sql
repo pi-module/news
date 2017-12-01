@@ -47,10 +47,11 @@ CREATE TABLE `{story}` (
   FULLTEXT `search_description_idx` (`text_description`)
 );
 
-/* ALTER TABLE `{story}` ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` TEXT NULL AFTER `main_image`;
-ALTER TABLE `{story}` ADD FULLTEXT `search_idx` (`title`, `text_description`);
-ALTER TABLE `{story}` ADD FULLTEXT `search_title_idx` (`title`);
-ALTER TABLE `{story}` ADD FULLTEXT `search_description_idx` (`text_description`); */
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_title_idx` (`seo_title`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_keywords_idx` (`seo_keywords`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_description_idx` (`seo_description`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_idx_2` (`title`, `text_description`, `seo_title`, `seo_keywords`, `seo_description`);
+
 
 CREATE TABLE `{topic}` (
   `id`               INT(10) UNSIGNED                                              NOT NULL AUTO_INCREMENT,

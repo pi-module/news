@@ -873,6 +873,29 @@ EOD;
             }
         }
 
+        if (version_compare($moduleVersion, '2.0.5', '<')) {
+
+            $sql = <<<SQL
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_title_idx` (`seo_title`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_keywords_idx` (`seo_keywords`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_seo_description_idx` (`seo_description`);
+ALTER TABLE `{story}` ADD FULLTEXT `search_idx_2` (`title`, `text_description`, `seo_title`, `seo_keywords`, `seo_description`);
+SQL;
+
+            $sql = str_replace('{story}', $storyTable, $sql);
+
+            try {
+                $storyAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult('db', array(
+                    'status' => false,
+                    'message' => 'Table alter query failed: '
+                        . $exception->getMessage(),
+                ));
+                return false;
+            }
+        }
+
         return true;
     }
 }
