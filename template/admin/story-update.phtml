@@ -87,7 +87,7 @@ $this->Backbone();
                             <div class="upload-carousel-item-img">
                                 <img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>"/>
                             </div>
-                            <br/>
+                            <br>
                         </div>
                         <div class="mr10">
                             <strong><?php _e('Id'); ?> </strong>
@@ -125,7 +125,7 @@ $this->Backbone();
         </div>
     </div>
 </script>
-<script type="text/javascript">
+<script>
     var page = {
         form: $("form#block"),
         init: function () {
@@ -256,7 +256,7 @@ $this->Backbone();
     new carouselListView;
     page.init();
 </script>
-<script type="text/javascript">
+<script>
     (function ($) {
         $("#story-form").on("click", ".remove-image", function () {
             systemMessage.wait("<?php _e('Remove image story in process'); ?>");
