@@ -371,6 +371,41 @@ return array(
         ),
 
         // Image
+
+        // Image
+        'image_maxw'    => array(
+            'category'    => 'image',
+            'title'       => _t('Max Image width (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => 2000
+        ),
+        'image_maxh'    => array(
+            'category'    => 'image',
+            'title'       => _t('Max Image height (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => 2000
+        ),
+        'image_minw'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image width (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => 600
+        ),
+        'image_minh'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image height (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => 600
+        ),
+
         'image_default' => array(
             'category' => 'image',
             'title' => _a('Use default if image not set'),
