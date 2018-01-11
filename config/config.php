@@ -372,30 +372,14 @@ return array(
 
         // Image
 
-        // Image
-        'image_maxw'    => array(
-            'category'    => 'image',
-            'title'       => _t('Max Image width (upload)'),
-            'description' => '',
-            'edit'        => 'text',
-            'filter'      => 'number_int',
-            'value'       => 2000
-        ),
-        'image_maxh'    => array(
-            'category'    => 'image',
-            'title'       => _t('Max Image height (upload)'),
-            'description' => '',
-            'edit'        => 'text',
-            'filter'      => 'number_int',
-            'value'       => 2000
-        ),
+
         'image_minw'    => array(
             'category'    => 'image',
             'title'       => _t('Min Image width (upload)'),
             'description' => '',
             'edit'        => 'text',
             'filter'      => 'number_int',
-            'value'       => 600
+            'value'       => ''
         ),
         'image_minh'    => array(
             'category'    => 'image',
@@ -403,7 +387,7 @@ return array(
             'description' => '',
             'edit'        => 'text',
             'filter'      => 'number_int',
-            'value'       => 600
+            'value'       => ''
         ),
 
         'image_default' => array(
