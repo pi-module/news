@@ -1,4 +1,4 @@
-<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'medium', null, null, false, array(), 'news') ?>
+<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], array(100,320,767,479), null, null, false, array(), 'news') ?>
 <?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'large', null, null, false, array(), 'news') ?>
 <?php if ($galleryImages) { ?>
     <div class="clearfix">
@@ -8,8 +8,18 @@
                     <div class="thumbnail u-photo">
                         <a href="<?php echo $galleryImagesBig[$key]['resized_url']; ?>"
                            title="<?php echo $this->escape($galleryImage['title']); ?><?php if($galleryImage['copyright']) echo ' - ' . $galleryImage['copyright'] ?>">
-                            <img itemprop="image" src="<?php echo $galleryImage['resized_url']; ?>"
-                                 alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
+
+                            <picture>
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][479]; ?>" media="(max-width: 479px)">
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][767]; ?>" media="(max-width: 767px)">
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][320]; ?>" media="(max-width: 991px)">
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][320]; ?>" media="(max-width: 1199px)">
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][100]; ?>" media="(max-width: 1366px)">
+                                <source data-srcset="<?php echo $galleryImage['resized_url'][100]; ?>" media="(max-width: 2800px)">
+
+                                <img itemprop="image" class="img-responsive" src="<?php echo $galleryImage['resized_url'][767]; ?>"
+                                     alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
+                            </picture>
                         </a>
                     </div>
                 </div>
