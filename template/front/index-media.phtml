@@ -1,4 +1,6 @@
 <?php $this->css($this->assetModule('css/front.css')); ?>
+<?php $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js')); ?>
+
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -11,7 +13,9 @@
                 <div class="hover-style">
                     <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
-                            <img itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                            <img itemprop="image" class="lazyload"
+                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAEElEQVR42mP8/58BCBghFAAj/wP/DcJIqAAAAABJRU5ErkJggg=="
+                                 data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     <?php } ?>
