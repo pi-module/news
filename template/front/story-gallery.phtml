@@ -39,6 +39,9 @@ if (isset($story['text_summary']) && !empty($story['text_summary'])) {
 if ($shareImage) {
     $this->headMeta($shareImage, 'twitter:image');
 }
+
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
+
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
@@ -128,8 +131,9 @@ if ($shareImage) {
                         <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                         <a class="thumbnail" href="<?php echo $media['resized_url']; ?>"
                            title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
-                            <img itemprop="image" class="img-responsive"
-                                 src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                            <img itemprop="image" class="img-responsive lazyload"
+                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                 data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     </div>
@@ -141,8 +145,9 @@ if ($shareImage) {
                             <div class="u-photo col-lg-3 col-md-4 col-xs-6 thumb">
                                 <a class="thumbnail" href="<?php echo $galleryImagesBig[$key]['resized_url']; ?>"
                                    title="<?php echo $this->escape($galleryImage['title']); ?><?php if($galleryImage['copyright']) echo ' - ' . $galleryImage['copyright'] ?>">
-                                    <img itemprop="image" class="img-responsive"
-                                         src="<?php echo $galleryImage['resized_url']; ?>"
+                                    <img itemprop="image" class="img-responsive lazyload"
+                                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                         data-src="<?php echo $galleryImage['resized_url']; ?>"
                                          alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
                                 </a>
                             </div>

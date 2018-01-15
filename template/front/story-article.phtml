@@ -41,6 +41,8 @@ if ($shareImage) {
 }
 
 $this->sticky();
+
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
@@ -141,8 +143,9 @@ $this->sticky();
                                     <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                                     <a href="<?php echo $media['resized_url']; ?>"
                                        title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
-                                        <img itemprop="image" class="img-responsive"
-                                             src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                        <img itemprop="image" class="img-responsive lazyload"
+                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                             data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"/>
                                     </a>
                                 </div>
@@ -233,8 +236,9 @@ $this->sticky();
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($related['main_image']) { ?>
-                                                <img itemprop="image" class="img-responsive u-photo"
-                                                     src="<?php echo $this->escape($related['thumbUrl']); ?>"
+                                                <img itemprop="image" class="img-responsive u-photo lazyload"
+                                                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                     data-src="<?php echo $this->escape($related['thumbUrl']); ?>"
                                                      alt="<?php echo $this->escape($related['title']); ?>"/>
                                             <?php } ?>
                                         </div>
