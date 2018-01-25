@@ -259,6 +259,7 @@ class StoryForm extends BaseForm
             'type' => 'Module\Media\Form\Element\Media',
             'options' => array(
                 'label' => __('Main image'),
+                'module' => 'news',
             ),
         ));
 
@@ -268,6 +269,7 @@ class StoryForm extends BaseForm
             'options' => array(
                 'label' => __('Additional images'),
                 'media_gallery' => true,
+                'module' => 'news',
             ),
         ));
 

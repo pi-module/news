@@ -371,6 +371,25 @@ return array(
         ),
 
         // Image
+
+
+        'image_minw'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image width (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => ''
+        ),
+        'image_minh'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image height (upload)'),
+            'description' => '',
+            'edit'        => 'text',
+            'filter'      => 'number_int',
+            'value'       => ''
+        ),
+
         'image_default' => array(
             'category' => 'image',
             'title' => _a('Use default if image not set'),

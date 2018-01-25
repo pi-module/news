@@ -216,7 +216,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
         <span class="label label-danger"><?php _e('Trash'); ?></span>
     </p>
 </div>
-<script type="text/javascript">
+<script>
     (function ($) {
         $("#story-list").on("click", ".story-action button", function () {
             systemMessage.wait("<?php _e('Accept story in process'); ?>");

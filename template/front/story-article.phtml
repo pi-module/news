@@ -41,6 +41,8 @@ if ($shareImage) {
 }
 
 $this->sticky();
+
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
@@ -141,9 +143,19 @@ $this->sticky();
                                     <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                                     <a href="<?php echo $media['resized_url']; ?>"
                                        title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
-                                        <img itemprop="image" class="img-responsive"
-                                             src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
-                                             alt="<?php echo $this->escape($story['title']); ?>"/>
+
+                                        <picture>
+                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(479,479); ?>" media="(max-width: 479px)">
+                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(720,720); ?>" media="(max-width: 991px)">
+                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(295,295); ?>" media="(max-width: 1199px)">
+                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 1366px)">
+                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 2800px)">
+
+                                            <img itemprop="image" class="img-responsive lazyload"
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                                 alt="<?php echo $this->escape($story['title']); ?>"/>
+                                        </picture>
                                     </a>
                                 </div>
                             </div>
@@ -233,8 +245,9 @@ $this->sticky();
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($related['main_image']) { ?>
-                                                <img itemprop="image" class="img-responsive u-photo"
-                                                     src="<?php echo $this->escape($related['thumbUrl']); ?>"
+                                                <img itemprop="image" class="img-responsive u-photo lazyload"
+                                                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                     data-src="<?php echo $this->escape($related['thumbUrl']); ?>"
                                                      alt="<?php echo $this->escape($related['title']); ?>"/>
                                             <?php } ?>
                                         </div>
