@@ -19,7 +19,7 @@ $('.gallery').each(function() {
 EOT;
             $this->jQuery(array(
                 'extension/jquery.magnific-popup.min.js',
-                'extension/magnific-popup.css',
+                'extension/magnific-popup.min.css',
             ));
             $this->footScript()->appendScript($script);
         }
@@ -44,7 +44,7 @@ EOT;
         <?php
         $this->jQuery(array(
             'extension/owl.carousel.min.js',
-            'extension/owl.carousel.css',
+            'extension/owl.carousel.min.css',
         ));
         $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
         $this->js($this->assetModule('js/caption.hover.js', 'news'));
