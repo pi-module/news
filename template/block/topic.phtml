@@ -50,7 +50,7 @@
                     'extension/owl.carousel.min.js',
                     'extension/owl.carousel.min.css',
                 ));
-                $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
             } ?>
             <div class="news-topic-block-slide owl-carousel text-center clearfix hover-captions-container">
