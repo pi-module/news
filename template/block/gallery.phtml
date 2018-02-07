@@ -7,20 +7,20 @@ $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md
     <?php if ($block['type'] == 'simple') { ?>
         <?php if ($block['showeffect']) {
             $script = <<<'EOT'
-$('.gallery').each(function() {
-	$(this).magnificPopup({
-   		delegate: 'a',
-   		type: 'image',
-   		gallery: {
-   			enabled:true
-   		}
-	});
+window.addEventListener('DOMContentLoaded', function() {
+    $('.gallery').each(function() {
+        $(this).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled:true
+            }
+        });
+    });
 });
 EOT;
-            $this->jQuery(array(
-                'extension/jquery.magnific-popup.min.js',
-                'extension/magnific-popup.min.css',
-            ));
+            $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('deferr' => 'defer')));
+            $this->jQuery('extension/magnific-popup.min.css');
             $this->footScript()->appendScript($script);
         }
         ?>
