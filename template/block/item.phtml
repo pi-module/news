@@ -1,4 +1,4 @@
-<?php $this->css($this->assetModule('css/block.css', 'news')); ?>
+<?php $this->css(array($this->assetModule('css/block.css', 'news') => array('defer' => 'defer'))); ?>
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'vertical') { ?>
