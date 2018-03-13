@@ -1,4 +1,4 @@
-<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], array(100,320,767,479), null, null, false, array(), 'news') ?>
+<?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], array(100,320,767,479), null, null, false, array(), 'news', true) ?>
 <?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 'large', null, null, false, array(), 'news') ?>
 <?php if ($galleryImages) { ?>
     <div class="clearfix">
@@ -17,7 +17,7 @@
                                 <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo $galleryImage['resized_url'][100]; ?>" media="(max-width: 1366px)">
                                 <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo $galleryImage['resized_url'][100]; ?>" media="(max-width: 2800px)">
 
-                                <img itemprop="image" class="img-responsive" src="<?php echo $galleryImage['resized_url'][767]; ?>"
+                                <img itemprop="image" class="img-responsive lazyload" src="<?php echo $galleryImage['resized_url'][767]; ?>"
                                      alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
                             </picture>
                         </a>
