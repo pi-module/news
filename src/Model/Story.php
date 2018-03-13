@@ -19,6 +19,11 @@ class Story extends Model
     /**
      * {@inheritDoc}
      */
+    protected $rowClass = 'Module\News\Model\Story\RowGateway';
+
+    /**
+     * {@inheritDoc}
+     */
     protected $columns = array(
         'id',
         'title',
