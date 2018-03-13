@@ -1,23 +1,23 @@
 <?php
 // Load front.css
-$this->css($this->assetModule('css/front.css'));
+$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
 // Image lightbox
 if ($config['image_lightbox']) {
     $script = <<<'EOT'
-        $('.gallery').each(function() {
-    		$(this).magnificPopup({
-        		delegate: 'a',
-        		type: 'image',
-        		gallery: {
-          			enabled:true
-        		}
-    		});
-		});
+window.addEventListener('DOMContentLoaded', function() {
+    $('.gallery').each(function() {
+        $(this).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled:true
+            }
+        });
+    });
+});
 EOT;
-    $this->jQuery(array(
-        'extension/jquery.magnific-popup.min.js',
-        'extension/magnific-popup.css',
-    ));
+    $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
+    $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
     $this->footScript()->appendScript($script);
 }
 // Set Open Graph tags for meta
@@ -42,7 +42,7 @@ if ($shareImage) {
 
 $this->sticky();
 
-$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async'));
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
@@ -145,11 +145,11 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
                                        title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
 
                                         <picture>
-                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(479,479); ?>" media="(max-width: 479px)">
-                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(720,720); ?>" media="(max-width: 991px)">
-                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(295,295); ?>" media="(max-width: 1199px)">
-                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 1366px)">
-                                            <source data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 2800px)">
+                                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(479,479); ?>" media="(max-width: 479px)">
+                                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(720,720); ?>" media="(max-width: 991px)">
+                                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(295,295); ?>" media="(max-width: 1199px)">
+                                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 1366px)">
+                                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(360,360); ?>" media="(max-width: 2800px)">
 
                                             <img itemprop="image" class="img-responsive lazyload"
                                                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="

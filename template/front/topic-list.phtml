@@ -1,5 +1,5 @@
 <?php
-$this->css($this->assetModule('css/front.css'));
+$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
 $this->headMeta(__('List of all topics'), 'og:title', 'property');

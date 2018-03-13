@@ -1,23 +1,23 @@
 <?php
 // Load front.css
-$this->css($this->assetModule('css/front.css'));
+$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
 // Image lightbox
 if ($config['image_lightbox']) {
     $script = <<<'EOT'
-        $('.gallery').each(function() {
-    		$(this).magnificPopup({
-        		delegate: 'a',
-        		type: 'image',
-        		gallery: {
-          			enabled:true
-        		}
-    		});
-		});
+window.addEventListener('DOMContentLoaded', function() {
+    $('.gallery').each(function() {
+        $(this).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled:true
+            }
+        });
+    });
+});
 EOT;
-    $this->jQuery(array(
-        'extension/jquery.magnific-popup.min.js',
-        'extension/magnific-popup.css',
-    ));
+    $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
+    $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
     $this->footScript()->appendScript($script);
 }
 // Set Open Graph tags for meta
@@ -40,7 +40,7 @@ if ($shareImage) {
     $this->headMeta($shareImage, 'twitter:image');
 }
 
-$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'));
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async'));
 
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
