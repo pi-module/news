@@ -44,6 +44,9 @@ $this->sticky();
 
 $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async'));
 ?>
+
+<?php include $this->template('front/partial/hits-ajax'); ?>
+
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/advertisement'); ?>
@@ -55,7 +58,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
 					    <?php _e('Important'); ?>
 				    </span>
             <?php } ?>
-            <?php echo $this->escape($story['title']); ?>
+            <?php echo $this->escape($story['title']); ?> <?php echo rand() ?>
         </h1>
     </div>
 
@@ -71,7 +74,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
             <?php if ($config['show_hits']) { ?>
                 <li class="itemStats">
                     <i class="fa fa-eye"></i> <?php _e('Read'); ?>
-                    : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
+                    : <span class="hitsCounter"></span> <?php _e('Times'); ?>
                 </li>
             <?php } ?>
             <?php if ($config['show_topic']) { ?>
