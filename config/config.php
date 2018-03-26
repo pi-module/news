@@ -371,6 +371,33 @@ return array(
         ),
 
         // Image
+
+
+        'image_minw'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image width (upload)'),
+            'description' => _t('This config can override media module value'),
+            'edit'        => 'text',
+            'filter' => 'string',
+            'value'       => ''
+        ),
+        'image_minh'    => array(
+            'category'    => 'image',
+            'title'       => _t('Min Image height (upload)'),
+            'description' => _t('This config can override media module value'),
+            'edit'        => 'text',
+            'filter' => 'string',
+            'value'       => ''
+        ),
+        'image_quality' => array(
+            'category' => 'image',
+            'title' => _a('Image quality'),
+            'description' => _a('Between 0 to 100 and support both of JPG and PNG, default is 75. This config can override media module value'),
+            'edit' => 'text',
+            'filter' => 'string',
+            'value' => 75
+        ),
+
         'image_default' => array(
             'category' => 'image',
             'title' => _a('Use default if image not set'),
@@ -386,14 +413,6 @@ return array(
             'edit' => 'text',
             'filter' => 'number_int',
             'value' => 1000000
-        ),
-        'image_quality' => array(
-            'category' => 'image',
-            'title' => _a('Image quality'),
-            'description' => _a('Between 0 to 100 and support both of JPG and PNG, default is 75'),
-            'edit' => 'text',
-            'filter' => 'number_int',
-            'value' => 75
         ),
         'image_path' => array(
             'category' => 'image',

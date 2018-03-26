@@ -1,4 +1,4 @@
-<?php $this->css($this->assetModule('css/block.css', 'news')); ?>
+<?php $this->css(array($this->assetModule('css/block.css', 'news') => array('defer' => 'defer'))); ?>
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'vertical') { ?>
@@ -338,9 +338,9 @@
             <?php if ($block['blockEffect']) {
                 $this->jQuery(array(
                     'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.css',
+                    'extension/owl.carousel.min.css',
                 ));
-                $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
@@ -392,9 +392,9 @@
             <?php if ($block['blockEffect']) {
                 $this->jQuery(array(
                     'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.css',
+                    'extension/owl.carousel.min.css',
                 ));
-                $this->js($this->assetModule('js/owl.carousel.config.js', 'news'));
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">

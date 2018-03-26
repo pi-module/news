@@ -20,7 +20,7 @@ $this->Backbone();
         <?php echo $this->form($form); ?>
     </div>
     <!-- Attach media Modal -->
-    <div class="modal fade" id="attachFile" tabindex="-1" role="dialog" aria-labelledby="attachFileLabel">
+    <div class="modal fade" id="attachFile" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,20 +74,20 @@ $this->Backbone();
                     data-link="<?php echo $this->url('', array('controller' => 'attach', 'action' => 'delete')); ?>id/<%= data.id %>"><i
                     class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
         </div>
-        <div class="modal fade" id="info-attach-<%= data.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="info-attach-<%= data.id %>" tabindex="-1" role="dialog"
              aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 id="myModalLabel"><%= data.title %></h4>
+                        <h4 ><%= data.title %></h4>
                     </div>
                     <div class="modal-body">
                         <div class="pull-right">
                             <div class="upload-carousel-item-img">
                                 <img class="img-thumbnail" src="<%= data.preview %>" alt="<%= data.title %>"/>
                             </div>
-                            <br/>
+                            <br>
                         </div>
                         <div class="mr10">
                             <strong><?php _e('Id'); ?> </strong>
@@ -125,7 +125,7 @@ $this->Backbone();
         </div>
     </div>
 </script>
-<script type="text/javascript">
+<script>
     var page = {
         form: $("form#block"),
         init: function () {
@@ -256,7 +256,7 @@ $this->Backbone();
     new carouselListView;
     page.init();
 </script>
-<script type="text/javascript">
+<script>
     (function ($) {
         $("#story-form").on("click", ".remove-image", function () {
             systemMessage.wait("<?php _e('Remove image story in process'); ?>");

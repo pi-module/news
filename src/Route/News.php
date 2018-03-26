@@ -106,6 +106,10 @@ class News extends Standard
                             $matches['password'] = $this->decode($parts[7]);
                         }
 
+                        if($matches['action'] == 'hit'){
+                            $matches['slug'] = $this->decode($parts[2]);
+                        }
+
                         break;
 
                     case 'media':
