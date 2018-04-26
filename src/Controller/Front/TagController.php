@@ -96,6 +96,12 @@ class TagController extends IndexController
             'force_replace_space' => true
         ));
         $seoKeywords = $filter($title);
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'tag');
+        }
+
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');
@@ -148,6 +154,12 @@ class TagController extends IndexController
             'force_replace_space' => true
         ));
         $seoKeywords = $filter($title);
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'tagList');
+        }
+
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');

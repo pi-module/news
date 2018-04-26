@@ -48,6 +48,12 @@ class AuthorController extends ActionController
         $roles = Pi::api('author', 'news')->getFormRole();
         // Get story
         $storyList = Pi::api('author', 'news')->getStoryList($author['id'], $roles);
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'author', $author['id']);
+        }
+
         // Set view
         $this->view()->headTitle($author['seo_title']);
         $this->view()->headdescription($author['seo_description'], 'set');
@@ -93,6 +99,11 @@ class AuthorController extends ActionController
             'force_replace_space' => true
         ));
         $seoKeywords = $filter($title);
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'authorList');
+        }
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');
