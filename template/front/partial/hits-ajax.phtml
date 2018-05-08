@@ -1,0 +1,15 @@
+<?php
+$hitsAjaxUrl = Pi::url($this->url('', array(
+    'controller' => 'json',
+    'action' => 'hit',
+    'slug' => $story['slug'],
+)));
+?>
+<script>
+    $(document).ready(function(){
+        $.getJSON("<?php echo $hitsAjaxUrl ?>", function( result ) {
+            var hits = result.hits;
+            $('.hitsCounter').html(hits);
+        });
+    });
+</script>

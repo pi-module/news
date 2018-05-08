@@ -460,6 +460,7 @@ class Api extends AbstractApi
         $template['topic'] = (isset($template['topic'])) ? $template['topic'] : '';
         $template['uid'] = (isset($template['uid'])) ? $template['uid'] : '';
         $template['title'] = (isset($template['title'])) ? $template['title'] : '';
+        $template['status'] = (isset($template['status'])) ? $template['status'] : '';
         // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($limit);
@@ -477,6 +478,7 @@ class Api extends AbstractApi
                 'topic' => $template['topic'],
                 'uid' => $template['uid'],
                 'title' => $template['title'],
+                'status' => $template['status'],
             )),
         ));
 
