@@ -140,17 +140,15 @@
                     <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <?php if ($i == 1) { ?>
                         <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
-                            <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
-                                <div class="clearfix">
-                                    <a itemprop="url" class="u-url"
-                                       href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                       title="<?php echo $this->escape($story['title']); ?>">
-                                        <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
-                                             alt="<?php echo $this->escape($story['title']); ?>"
-                                             class="media-object img-responsive u-photo"/>
-                                    </a>
-                                </div>
-                            <?php } ?>
+                            <div class="clearfix">
+                                <a itemprop="url" class="u-url"
+                                   href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($story['title']); ?>">
+                                    <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
+                                         alt="<?php echo $this->escape($story['title']); ?>"
+                                         class="media-object img-responsive u-photo"/>
+                                </a>
+                            </div>
                             <div class="media-body p-item h-card">
                                 <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -342,49 +340,52 @@
                 ));
                 $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
             } ?>
-            <div class="owl-carousel text-center clearfix hover-captions-container">
+            <div class="owl-carousel text-center clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
                     <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
-                    <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
-                         itemtype="https://schema.org/Article">
-                        <div class="hover-caption">
-                            <ul class="list-unstyled">
-                                <?php if ($block['showdate']) { ?>
-                                    <li class="dt-published"><i
-                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
-                                        : <?php echo $this->escape($story['time_publish_view']); ?></li>
-                                <?php } ?>
-                                <?php if ($block['showhits']) { ?>
-                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
-                                        : <?php echo _number($this->escape($story['hits'])); ?></li>
-                                <?php } ?>
-                                <?php if ($block['showauthor']) { ?>
-                                    <?php foreach ($story['authors'] as $author) { ?>
-                                        <li>
-                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                            <a title="<?php echo $author['authorName']; ?>"
-                                               href="<?php echo $author['authorUrl']; ?>">
-                                                <?php echo $author['authorName']; ?>
-                                            </a>
-                                        </li>
+                    <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope itemtype="https://schema.org/Article">
+                        <div class="thumbnail">
+                            <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                               title="<?php echo $this->escape($story['title']); ?>">
+                                <img itemprop="image" class="media-object img-responsive u-photo"
+                                     src="<?php echo $this->escape($thumbUrl); ?>"
+                                     alt="<?php echo $this->escape($story['title']); ?>">
+                            </a>
+                            <div class="caption">
+                                <h3 itemprop="name headline">
+                                    <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                       title="<?php echo $this->escape($story['title']); ?>">
+                                        <?php echo $this->escape($story['title']); ?>
+                                    </a>
+                                </h3>
+                                <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
+                                <ul class="list-unstyled">
+                                    <?php if ($block['showdate']) { ?>
+                                        <li class="dt-published"><i
+                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                            : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                     <?php } ?>
+                                    <?php if ($block['showhits']) { ?>
+                                        <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                    <?php } ?>
+                                    <?php if ($block['showauthor']) { ?>
+                                        <?php foreach ($story['authors'] as $author) { ?>
+                                            <li>
+                                                <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <a title="<?php echo $author['authorName']; ?>"
+                                                   href="<?php echo $author['authorUrl']; ?>">
+                                                    <?php echo $author['authorName']; ?>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ul>
                                 <?php } ?>
-                            </ul>
-                            <p>
-                                <a itemprop="url" class="u-url hover-caption-more"
-                                   title="<?php echo $this->escape($story['title']); ?>"
-                                   href="<?php echo $this->escape($thumbUrl); ?>">
-                                    <?php echo _b('View'); ?>
-                                </a>
-                            </p>
+                                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                            </div>
                         </div>
-                        <img itemprop="image" class="media-object img-responsive u-photo"
-                             src="<?php echo $this->escape($thumbUrl); ?>"
-                             alt="<?php echo $this->escape($story['title']); ?>">
-
-                        <h3 itemprop="name headline"><?php echo $this->escape($story['title']); ?></h3>
-                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
                 <?php } ?>
             </div>
