@@ -29,7 +29,7 @@ class News extends Standard
 
     protected $controllerList = array(
         'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog',
-        'cron'
+        'cron', 'api'
     );
 
     /**
@@ -128,6 +128,15 @@ class News extends Standard
                             } elseif (isset($parts[1]) && $parts[1] == 'topic') {
                                 $matches['topic'] = intval($parts[2]);
                             }
+                        }
+                        break;
+
+                    // api controller
+                    case 'api':
+
+                        if ($parts[1] == 'favourite') {
+                            $matches['action'] = 'favourite';
+                            $matches['slug'] = $this->decode($parts[2]);
                         }
                         break;
                 }

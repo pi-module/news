@@ -180,12 +180,12 @@
     }
 }
 
-.news .hover-style {
+.news .thumbnail .hover-style {
     position: relative;
     padding-bottom: 10px;
 }
 
-.news .itemPostDate {
+.news .thumbnail .itemPostDate {
     position: absolute;
     bottom: 0;
     left: 0;

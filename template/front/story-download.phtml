@@ -154,7 +154,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                         <?php } ?>
                         <?php if (!empty($favourite)) { ?>
                             <li>
-                                <?php include $this->template('favouritebar.phtml', 'front', 'favourite'); ?>
+                                <?php include $this->template('partial/favourite-loader', 'front'); ?>
                             </li>
                         <?php } ?>
                     </ul>
