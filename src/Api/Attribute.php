@@ -37,8 +37,8 @@ class Attribute extends AbstractApi
     {
         // Set return
         $return = array(
-            'attribute' => '',
-            'field' => '',
+            'attribute' => [],
+            'field' => [],
         );
         // Get position list
         $position = $this->attributePositionForm();

@@ -158,6 +158,12 @@ class StoryController extends ActionController
                 $template = 'story-text';
                 break;
         }
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'story', $story['id']);
+        }
+
         // Set view
         $this->view()->headTitle($story['seo_title']);
         $this->view()->headdescription($story['seo_description'], 'set');

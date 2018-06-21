@@ -63,6 +63,12 @@ class MediaController extends ActionController
         }
         // update
         $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'explorer', $attach['id']);
+        }
+
         // redirect
         return $this->redirect()->toUrl($item['url']);
     }
@@ -92,6 +98,12 @@ class MediaController extends ActionController
         $attach = $this->getModel('attach')->find($id)->toArray();
         // update
         $this->getModel('attach')->increment('hits', array('id' => $attach['id']));
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'download', $attach['id']);
+        }
+
         // Make download link
         if ($attach['type'] == 'link') {
             $url = $attach['url'];

@@ -35,6 +35,12 @@ class IndexController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'index');
+        }
+
         // Check index
         if ($config['style'] == 'topic') {
             // Get topic list

@@ -97,6 +97,12 @@ class TopicController extends IndexController
             $this->view()->assign('paginator', $paginator);
             $this->view()->assign('spotlight', $spotlight);
         }
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'topic', $topic['id']);
+        }
+
         // Set view
         $this->view()->headTitle($topic['seo_title']);
         $this->view()->headdescription($topic['seo_description'], 'set');
@@ -135,6 +141,12 @@ class TopicController extends IndexController
             'force_replace_space' => true
         ));
         $seoKeywords = $filter($title);
+
+        // Save statistics
+        if (Pi::service('module')->isActive('statistics')) {
+            Pi::api('log', 'statistics')->save('news', 'topicList');
+        }
+
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headdescription($title, 'set');

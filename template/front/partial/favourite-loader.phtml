@@ -1,0 +1,20 @@
+<?php //include $this->template('favouritebar', 'front', 'favourite'); ?>
+
+
+<div id="favouriteWrapper"></div>
+
+<?php
+$eventAjaxUrl = Pi::url($this->url('', array(
+    'controller' => 'api',
+    'action' => 'favourite',
+    'slug' => $story['slug'],
+)));
+
+?>
+<script>
+    $(document).ready(function(){
+        $.get("<?php echo $eventAjaxUrl ?>", function( html ) {
+            $('#favouriteWrapper').html(html);
+        });
+    });
+</script>
