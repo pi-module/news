@@ -451,7 +451,7 @@ class Api extends AbstractApi
                 $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
                 break;
         }
-        echo $count;exit;
+
         // Check template
         $template['module'] = (isset($template['module'])) ? $template['module'] : 'news';
         $template['controller'] = (isset($template['controller'])) ? $template['controller'] : 'index';
