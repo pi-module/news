@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -20,24 +21,30 @@ class AuthorRoleFilter extends InputFilter
     public function __construct()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'required' => true,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'     => 'title',
+                'required' => true,
+                'filters'  => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'status',
+                'required' => true,
+            ]
+        );
     }
 }

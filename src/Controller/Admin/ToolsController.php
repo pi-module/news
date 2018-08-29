@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -39,18 +40,18 @@ class ToolsController extends ActionController
             // Set form date
             $values = $this->request->getPost();
             // Get all story
-            $where = array('time_publish > ?' => strtotime($values['start']), 'time_publish < ?' => strtotime($values['end']));
-            $columns = array('id', 'title', 'slug', 'seo_title', 'seo_keywords', 'seo_description');
-            $order = array('id ASC');
-            $select = $this->getModel('story')->select()->where($where)->columns($columns)->order($order);
-            $rowset = $this->getModel('story')->selectWith($select);
+            $where   = ['time_publish > ?' => strtotime($values['start']), 'time_publish < ?' => strtotime($values['end'])];
+            $columns = ['id', 'title', 'slug', 'seo_title', 'seo_keywords', 'seo_description'];
+            $order   = ['id ASC'];
+            $select  = $this->getModel('story')->select()->where($where)->columns($columns)->order($order);
+            $rowset  = $this->getModel('story')->selectWith($select);
             // Do rebuild
             switch ($values['rebuild']) {
                 case 'slug':
                     foreach ($rowset as $row) {
                         $filter = new Filter\Slug;
-                        $slug = $filter($row->slug);
-                        $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
+                        $slug   = $filter($row->slug);
+                        $this->getModel('story')->update(['slug' => $slug], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
                     break;
@@ -58,15 +59,15 @@ class ToolsController extends ActionController
                 case 'slug_title':
                     foreach ($rowset as $row) {
                         $filter = new Filter\Slug;
-                        $slug = $filter($row->title);
-                        $this->getModel('story')->update(array('slug' => $slug), array('id' => $row->id));
+                        $slug   = $filter($row->title);
+                        $this->getModel('story')->update(['slug' => $slug], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
                     break;
 
                 case 'slug_id':
                     foreach ($rowset as $row) {
-                        $this->getModel('story')->update(array('slug' => $row->id), array('id' => $row->id));
+                        $this->getModel('story')->update(['slug' => $row->id], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild slug, all story slug update');
                     break;
@@ -74,8 +75,8 @@ class ToolsController extends ActionController
                 case 'seo_title':
                     foreach ($rowset as $row) {
                         $filter = new Filter\HeadTitle;
-                        $title = $filter($row->title);
-                        $this->getModel('story')->update(array('seo_title' => $title), array('id' => $row->id));
+                        $title  = $filter($row->title);
+                        $this->getModel('story')->update(['seo_title' => $title], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild SEO title, all story SEO title update');
                     break;
@@ -83,20 +84,22 @@ class ToolsController extends ActionController
                 case 'seo_keywords':
                     foreach ($rowset as $row) {
                         $filter = new Filter\HeadKeywords;
-                        $filter->setOptions(array(
-                            'force_replace_space' => true
-                        ));
+                        $filter->setOptions(
+                            [
+                                'force_replace_space' => true,
+                            ]
+                        );
                         $keywords = $filter($row->title);
-                        $this->getModel('story')->update(array('seo_keywords' => $keywords), array('id' => $row->id));
+                        $this->getModel('story')->update(['seo_keywords' => $keywords], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild SEO keywords, all story SEO keywords update');
                     break;
 
                 case 'seo_description':
                     foreach ($rowset as $row) {
-                        $filter = new Filter\HeadDescription;
+                        $filter      = new Filter\HeadDescription;
                         $description = $filter($row->title);
-                        $this->getModel('story')->update(array('seo_description' => $description), array('id' => $row->id));
+                        $this->getModel('story')->update(['seo_description' => $description], ['id' => $row->id]);
                     }
                     $message = __('Finish Rebuild SEO description, all story SEO description update');
                     break;
@@ -111,13 +114,13 @@ class ToolsController extends ActionController
 
     public function pruneAction()
     {
-        $form = new PruneForm('prune', $this->getModule());
+        $form    = new PruneForm('prune', $this->getModule());
         $message = __('You can prune all old stores, from selected topic.');
         if ($this->request->isPost()) {
             // Set form date
             $values = $this->request->getPost();
             // Set where date
-            $where = array('time_publish < ?' => strtotime($values['date']));
+            $where = ['time_publish < ?' => strtotime($values['date'])];
             // Set topics if select
             //if ($values['topic'] && is_array($values['topic'])) {
             //    $where['topic'] = $values['topic'];
@@ -143,7 +146,7 @@ class ToolsController extends ActionController
     public function spotlightAction()
     {
         // Delete spotlights
-        $where = array('time_expire < ?' => time());
+        $where  = ['time_expire < ?' => time()];
         $number = $this->getModel('spotlight')->delete($where);
         if ($number) {
             // Set class
@@ -160,22 +163,22 @@ class ToolsController extends ActionController
 
     public function pageAction()
     {
-        $form = new PageForm('page');
+        $form    = new PageForm('page');
         $message = __('Remove all topic pages from system page table. and keep just module default pages');
         if ($this->request->isPost()) {
             // Set form date
             $values = $this->request->getPost()->toArray();
             if ($values['confirm']) {
-                $where1 = array(
-                    'section' => 'front',
-                    'module' => $this->getModule(),
-                    'controller' => 'topic',
+                $where1 = [
+                    'section'     => 'front',
+                    'module'      => $this->getModule(),
+                    'controller'  => 'topic',
                     'action != ?' => 'list',
-                );
+                ];
                 $select = Pi::model('page')->select()->where($where1);
                 $rowset = Pi::model('page')->selectWith($select);
                 foreach ($rowset as $row) {
-                    if (!in_array($row->action, array('list', ''))) {
+                    if (!in_array($row->action, ['list', ''])) {
                         $row->delete();
                     }
                 }
@@ -194,7 +197,7 @@ class ToolsController extends ActionController
 
     public function sitemapAction()
     {
-        $form = new SitemapForm('sitemap');
+        $form    = new SitemapForm('sitemap');
         $message = __('Rebuild thie module links on sitemap module tabels');
         if ($this->request->isPost()) {
             // Set form date
@@ -228,7 +231,6 @@ class ToolsController extends ActionController
     }
 
 
-
     public function mediaAction()
     {
         // Set view
@@ -236,7 +238,8 @@ class ToolsController extends ActionController
         $this->view()->assign('title', __('Media'));
     }
 
-    public function migrateMediaAction(){
+    public function migrateMediaAction()
+    {
 
         $msg = Pi::api('story', 'news')->migrateMedia();
 
@@ -245,34 +248,34 @@ class ToolsController extends ActionController
 
         $messenger->addWarningMessage($msg);
 
-        $this->redirect()->toRoute(null, array('action' => 'media'));
+        $this->redirect()->toRoute(null, ['action' => 'media']);
     }
-
 
 
     /**
      * Generate all media files Main image only
+     *
      * @return array
      */
     public function generatePicturesAction()
     {
         $nbPicturesToGenerate = 0;
-        $messenger = $this->plugin('flashMessenger');
-        $sizes = array('thumbnail', 'medium', 'item', 'large');
+        $messenger            = $this->plugin('flashMessenger');
+        $sizes                = ['thumbnail', 'medium', 'item', 'large'];
 
-        try{
-            $storyCollection = Pi::model('story', 'news')->select(array());
+        try {
+            $storyCollection = Pi::model('story', 'news')->select([]);
 
-            foreach($storyCollection as $storyEntity){
-                foreach($sizes as $size){
-                    $mainImage = (string) Pi::api('doc','media')->getSingleLinkUrl($storyEntity['main_image'])->setConfigModule('news')->thumb($size);
-                    if($mainImage){
+            foreach ($storyCollection as $storyEntity) {
+                foreach ($sizes as $size) {
+                    $mainImage = (string)Pi::api('doc', 'media')->getSingleLinkUrl($storyEntity['main_image'])->setConfigModule('news')->thumb($size);
+                    if ($mainImage) {
                         $nbPicturesToGenerate++;
                     }
 
-                    foreach(explode(',', $storyEntity['additional_images']) as $mediaId){
-                        $image = (string) Pi::api('doc','media')->getSingleLinkUrl($mediaId)->setConfigModule('news')->thumb($size);
-                        if($image){
+                    foreach (explode(',', $storyEntity['additional_images']) as $mediaId) {
+                        $image = (string)Pi::api('doc', 'media')->getSingleLinkUrl($mediaId)->setConfigModule('news')->thumb($size);
+                        if ($image) {
                             $nbPicturesToGenerate++;
                         }
                     }
@@ -281,10 +284,10 @@ class ToolsController extends ActionController
 
             $messenger->addSuccessMessage(sprintf(__('%s picture(s) has been generated or already exists'), $nbPicturesToGenerate));
 
-        } catch(Exception $e){
+        } catch (Exception $e) {
             $messenger->addErrorMessage($e->getMessage());
         }
 
-        $this->redirect()->toRoute(null, array('action' => 'index'));
+        $this->redirect()->toRoute(null, ['action' => 'index']);
     }
 }

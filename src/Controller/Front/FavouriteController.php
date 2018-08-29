@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -61,18 +62,18 @@ class FavouriteController extends IndexController
             return;
         }
         // Set story info
-        $where = array('status' => 1, 'story' => $storyId);
-        
-		// Set paginator info
-        $template = array(
+        $where = ['status' => 1, 'story' => $storyId];
+
+        // Set paginator info
+        $template = [
             'controller' => 'favourite',
-            'action' => 'index',
-        );
-         // Get paginator
+            'action'     => 'index',
+        ];
+        // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
         // Get story List
         $storyList = $this->storyList($paginator, $topic['show_order_link']);
-  
+
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
 
@@ -80,9 +81,11 @@ class FavouriteController extends IndexController
         $title = __('All favourite stories by you');
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => true
-        ));
+        $filter->setOptions(
+            [
+                'force_replace_space' => true,
+            ]
+        );
         $seoKeywords = $filter($title);
 
         // Save statistics

@@ -5,27 +5,27 @@
                 <div class="media single-post">
                     <div class="media-body">
                         <?php if ($microblog['topic'] == 0) { ?>
-                        <div class="clearfix">
-                            <ul class="list-inline">
-                                <li>
-                                    <div class="text-center">
+                            <div class="clearfix">
+                                <ul class="list-inline">
+                                    <li>
+                                        <div class="text-center">
+                                            <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
+                                                <?php echo $microblog['user']['avatar']; ?>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
                                         <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
-                                            <?php echo $microblog['user']['avatar']; ?>
+                                            <?php echo $microblog['user']['name']; ?>
                                         </a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
-                                        <?php echo $microblog['user']['name']; ?>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo $microblog['microblogUrl']; ?>" title="<?php echo $microblog['seo_title']; ?>">
-                                        <?php echo $microblog['time_create_view']; ?>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $microblog['microblogUrl']; ?>" title="<?php echo $microblog['seo_title']; ?>">
+                                            <?php echo $microblog['time_create_view']; ?>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         <?php } ?>
                         <div class="clearfix">
                             <?php echo $microblog['post']; ?>

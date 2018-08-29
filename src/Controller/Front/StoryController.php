@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -20,7 +21,7 @@ class StoryController extends ActionController
     public function indexAction()
     {
         // Get info from url
-        $slug = $this->params('slug');
+        $slug   = $this->params('slug');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -38,15 +39,19 @@ class StoryController extends ActionController
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
 
-        if($slug != $story['slug']){
-            return $this->redirect()->toRoute('', array('slug' => $story['slug']))->setStatusCode(301);
+        if ($slug != $story['slug']) {
+            return $this->redirect()->toRoute('', ['slug' => $story['slug']])->setStatusCode(301);
         }
 
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check status
-        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ))) {
+        if (!$story || $story['status'] != 1
+            || !in_array(
+                $story['type'], [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ]
+            )
+        ) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The story not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
@@ -61,21 +66,21 @@ class StoryController extends ActionController
         }
 
         // Update Hits
-        if(!isset($_SESSION['hits_news'][$story['id']])){
-            if(!isset($_SESSION['hits_news'])){
-                $_SESSION['hits_news'] = array();
+        if (!isset($_SESSION['hits_news'][$story['id']])) {
+            if (!isset($_SESSION['hits_news'])) {
+                $_SESSION['hits_news'] = [];
             }
 
             $_SESSION['hits_news'][$story['id']] = false;
         }
 
-        if(!$_SESSION['hits_news'][$story['id']]){
-            $this->getModel('story')->increment('hits', array('id' => $story['id']));
+        if (!$_SESSION['hits_news'][$story['id']]) {
+            $this->getModel('story')->increment('hits', ['id' => $story['id']]);
             $_SESSION['hits_news'][$story['id']] = true;
         }
 
         // Links
-        $link = Pi::api('story', 'news')->Link($story['id'], array($story['topic_main']));
+        $link = Pi::api('story', 'news')->Link($story['id'], [$story['topic_main']]);
         $this->view()->assign('link', $link);
         // Related
         if ($config['show_related']) {
@@ -104,28 +109,28 @@ class StoryController extends ActionController
         } */
         // Set vote
         if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
-            $vote['point'] = $story['point'];
-            $vote['count'] = $story['count'];
-            $vote['item'] = $story['id'];
-            $vote['table'] = 'story';
+            $vote['point']  = $story['point'];
+            $vote['count']  = $story['count'];
+            $vote['item']   = $story['id'];
+            $vote['table']  = 'story';
             $vote['module'] = $module;
-            $vote['type'] = 'star';
+            $vote['type']   = 'star';
             $this->view()->assign('vote', $vote);
         }
         // favourite
         if ($config['favourite_bar'] && Pi::service('module')->isActive('favourite')) {
-            $favourite['is'] = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
-            $favourite['item'] = $story['id'];
-            $favourite['table'] = 'story';
+            $favourite['is']     = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
+            $favourite['item']   = $story['id'];
+            $favourite['table']  = 'story';
             $favourite['module'] = $module;
             $this->view()->assign('favourite', $favourite);
-            
+
             $configFavourite = Pi::service('registry')->config->read('favourite');
             if ($configFavourite['favourite_list']) {
                 $favouriteList = Pi::api('favourite', 'favourite')->listItemFavourite('news', 'story', $story['id']);
                 $this->view()->assign('favouriteList', $favouriteList);
             }
-            
+
         }
         // Set template
         switch ($story['type']) {

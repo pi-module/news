@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -46,32 +47,46 @@ class Microblog extends AbstractApi
         // Set times
         $microblog['time_create_view'] = _date($microblog['time_create']);
         // Set story url
-        $microblog['microblogUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module' => $this->getModule(),
-            'controller' => 'microblog',
-            'id' => $microblog['id'],
-        )));
+        $microblog['microblogUrl'] = Pi::url(
+            Pi::service('url')->assemble(
+                'news', [
+                'module'     => $this->getModule(),
+                'controller' => 'microblog',
+                'id'         => $microblog['id'],
+            ]
+            )
+        );
         // Set user
-        $microblog['user'] = Pi::user()->get($microblog['uid'], array(
-            'id', 'identity', 'name', 'email'
-        ));
+        $microblog['user'] = Pi::user()->get(
+            $microblog['uid'], [
+            'id', 'identity', 'name', 'email',
+        ]
+        );
         // Set avatar
-        $microblog['user']['avatar'] = Pi::service('user')->avatar($microblog['uid'], 'large', array(
-            'alt' => $microblog['user']['name'],
+        $microblog['user']['avatar'] = Pi::service('user')->avatar(
+            $microblog['uid'], 'large', [
+            'alt'   => $microblog['user']['name'],
             'class' => 'img-circle',
-        ));
+        ]
+        );
         // profile url
-        $microblog['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
-            'id' => $microblog['uid'],
-        )));
+        $microblog['profileUrl'] = Pi::url(
+            Pi::service('user')->getUrl(
+                'profile', [
+                'id' => $microblog['uid'],
+            ]
+            )
+        );
         // Set SEO
-        $microblog['seo_title'] = mb_substr(strip_tags($microblog['post']), 0, 60, 'utf-8' ) . " ... ";
-        $microblog['seo_description'] = mb_substr(strip_tags($microblog['post']), 0, 160, 'utf-8' ) . " ... ";
-        $microblog['seo_keywords'] = mb_substr(strip_tags($microblog['post']), 0, 160, 'utf-8' );
-        $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => true,
-        ));
+        $microblog['seo_title']       = mb_substr(strip_tags($microblog['post']), 0, 60, 'utf-8') . " ... ";
+        $microblog['seo_description'] = mb_substr(strip_tags($microblog['post']), 0, 160, 'utf-8') . " ... ";
+        $microblog['seo_keywords']    = mb_substr(strip_tags($microblog['post']), 0, 160, 'utf-8');
+        $filter                       = new Filter\HeadKeywords;
+        $filter->setOptions(
+            [
+                'force_replace_space' => true,
+            ]
+        );
         $microblog['seo_keywords'] = $filter($microblog['seo_keywords']);
         // return story
         return $microblog;

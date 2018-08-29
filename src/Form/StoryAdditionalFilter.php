@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -17,24 +18,28 @@ use Zend\InputFilter\InputFilter;
 
 class StoryAdditionalFilter extends InputFilter
 {
-    public function __construct($option = array())
+    public function __construct($option = [])
     {
         // Set attribute position
         $position = Pi::api('attribute', 'news')->attributePositionForm();
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // Set attribute
         if (!empty($option['field'])) {
             foreach ($position as $key => $value) {
                 if (!empty($option['field'][$key])) {
                     foreach ($option['field'][$key] as $field) {
-                        $this->add(array(
-                            'name' => $field['id'],
-                            'required' => false,
-                        ));
+                        $this->add(
+                            [
+                                'name'     => $field['id'],
+                                'required' => false,
+                            ]
+                        );
                     }
                 }
             }

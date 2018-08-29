@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Route;
 
 use Pi;
@@ -19,18 +20,21 @@ class News extends Standard
 {
     /**
      * Default values.
+     *
      * @var array
      */
-    protected $defaults = array(
-        'module' => 'news',
-        'controller' => 'index',
-        'action' => 'index'
-    );
+    protected $defaults
+        = [
+            'module'     => 'news',
+            'controller' => 'index',
+            'action'     => 'index',
+        ];
 
-    protected $controllerList = array(
-        'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog',
-        'cron', 'api'
-    );
+    protected $controllerList
+        = [
+            'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog',
+            'cron', 'api',
+        ];
 
     /**
      * {@inheritDoc}
@@ -42,8 +46,8 @@ class News extends Standard
      */
     protected function parse($path)
     {
-        $matches = array();
-        $parts = array_filter(explode($this->structureDelimiter, $path));
+        $matches = [];
+        $parts   = array_filter(explode($this->structureDelimiter, $path));
 
         // Set controller
         $matches = array_merge($this->defaults, $matches);
@@ -74,7 +78,7 @@ class News extends Standard
                     case 'tag':
                         if ($parts[1] == 'term') {
                             $matches['action'] = 'term';
-                            $matches['slug'] = urldecode($parts[2]);
+                            $matches['slug']   = urldecode($parts[2]);
                         } elseif ($parts[1] == 'list') {
                             $matches['action'] = 'list';
                         }
@@ -106,7 +110,7 @@ class News extends Standard
                             $matches['password'] = $this->decode($parts[7]);
                         }
 
-                        if($matches['action'] == 'hit'){
+                        if ($matches['action'] == 'hit') {
                             $matches['slug'] = $this->decode($parts[2]);
                         }
 
@@ -114,13 +118,13 @@ class News extends Standard
 
                     case 'media':
                         $matches['action'] = $this->decode($parts[1]);
-                        $matches['id'] = intval($parts[2]);
+                        $matches['id']     = intval($parts[2]);
                         break;
 
                     case 'microblog':
                         if (isset($parts[1]) && !empty($parts[1])) {
                             $matches['action'] = 'index';
-                            $matches['id'] = intval($parts[1]);
+                            $matches['id']     = intval($parts[1]);
                         } else {
                             $matches['action'] = 'list';
                             if (isset($parts[1]) && $parts[1] == 'uid') {
@@ -136,27 +140,27 @@ class News extends Standard
 
                         if ($parts[1] == 'favourite') {
                             $matches['action'] = 'favourite';
-                            $matches['slug'] = $this->decode($parts[2]);
+                            $matches['slug']   = $this->decode($parts[2]);
                         }
                         break;
                 }
             }
         } elseif (isset($parts[0])) {
-            $parts[0] = urldecode($parts[0]);
-            $topicSlug = Pi::registry('topicRoute', 'news')->read();
+            $parts[0]   = urldecode($parts[0]);
+            $topicSlug  = Pi::registry('topicRoute', 'news')->read();
             $authorSlug = Pi::registry('authorRoute', 'news')->read();
             if (in_array($parts[0], $topicSlug)) {
                 $matches['controller'] = 'topic';
-                $matches['action'] = 'index';
-                $matches['slug'] = $this->decode($parts[0]);
+                $matches['action']     = 'index';
+                $matches['slug']       = $this->decode($parts[0]);
             } elseif (in_array($parts[0], $authorSlug)) {
                 $matches['controller'] = 'author';
-                $matches['action'] = 'index';
-                $matches['slug'] = $this->decode($parts[0]);
+                $matches['action']     = 'index';
+                $matches['slug']       = $this->decode($parts[0]);
             } else {
                 $matches['controller'] = 'story';
-                $matches['action'] = 'index';
-                $matches['slug'] = $this->decode($parts[0]);
+                $matches['action']     = 'index';
+                $matches['slug']       = $this->decode($parts[0]);
             }
         }
 
@@ -172,15 +176,16 @@ class News extends Standard
      * assemble(): Defined by Route interface.
      *
      * @see    Route::assemble()
+     *
      * @param  array $params
      * @param  array $options
+     *
      * @return string
      */
     public function assemble(
-        array $params = array(),
-        array $options = array()
-    )
-    {
+        array $params = [],
+        array $options = []
+    ) {
         $mergedParams = array_merge($this->defaults, $params);
         if (!$mergedParams) {
             return $this->prefix;

@@ -10,117 +10,117 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Admin section
-    'admin' => array(
-        array(
-            'title' => _a('Authors'),
+    'admin' => [
+        [
+            'title'      => _a('Authors'),
             'controller' => 'author',
             'permission' => 'author',
-        ),
-        array(
-            'title' => _a('Author roles'),
+        ],
+        [
+            'title'      => _a('Author roles'),
             'controller' => 'role',
             'permission' => 'role',
-        ),
-        array(
-            'title' => _a('Attribute'),
+        ],
+        [
+            'title'      => _a('Attribute'),
             'controller' => 'attribute',
             'permission' => 'attribute',
-        ),
-        array(
-            'label' => _a('Attribute position'),
+        ],
+        [
+            'label'      => _a('Attribute position'),
             'controller' => 'position',
             'permission' => 'position',
-        ),
-        array(
-            'title' => _a('Spotlight'),
+        ],
+        [
+            'title'      => _a('Spotlight'),
             'controller' => 'spotlight',
             'permission' => 'spotlight',
-        ),
-        array(
-            'title' => _a('Story'),
+        ],
+        [
+            'title'      => _a('Story'),
             'controller' => 'story',
             'permission' => 'story',
-        ),
-        array(
-            'title' => _a('Tools'),
+        ],
+        [
+            'title'      => _a('Tools'),
             'controller' => 'tools',
             'permission' => 'tools',
-        ),
-        array(
-            'title' => _a('Topic'),
+        ],
+        [
+            'title'      => _a('Topic'),
             'controller' => 'topic',
             'permission' => 'topic',
-        ),
-        array(
-            'title' => _a('Micro blog'),
+        ],
+        [
+            'title'      => _a('Micro blog'),
             'controller' => 'microblog',
             'permission' => 'microblog',
-        ),
-        array(
-            'title' => _a('Json output'),
+        ],
+        [
+            'title'      => _a('Json output'),
             'controller' => 'json',
             'permission' => 'json',
-        ),
-    ),
+        ],
+    ],
     // Front section
-    'front' => array(
-        array(
-            'title' => _a('Index page'),
+    'front' => [
+        [
+            'title'      => _a('Index page'),
             'controller' => 'index',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Topic'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Topic'),
             'controller' => 'topic',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Story'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Story'),
             'controller' => 'story',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Tag'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Tag'),
             'controller' => 'tag',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Topic list'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Topic list'),
             'controller' => 'topic',
-            'action' => 'list',
+            'action'     => 'list',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Tag list'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Tag list'),
             'controller' => 'tag',
-            'action' => 'list',
+            'action'     => 'list',
             'permission' => 'public',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Authors'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Authors'),
             'controller' => 'author',
             'permission' => 'author',
-            'block' => 1,
-        ),
-        array(
-            'title' => _a('Favourite'),
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Favourite'),
             'controller' => 'favourite',
             'permission' => 'favourite',
-            'block' => 1,
-        ),
-        array(
-            'label' => _a('Json output'),
+            'block'      => 1,
+        ],
+        [
+            'label'      => _a('Json output'),
             'controller' => 'json',
             'permission' => 'public',
-            'block' => 0,
-        ),
-    ),
-);
+            'block'      => 0,
+        ],
+    ],
+];

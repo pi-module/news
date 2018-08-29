@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -17,7 +18,7 @@ use Pi\Form\Form as BaseForm;
 
 class AuthorRoleForm extends BaseForm
 {
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null, $options = [])
     {
         parent::__construct($name);
     }
@@ -33,44 +34,52 @@ class AuthorRoleForm extends BaseForm
     public function init()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'attributes' => array(
-                'type' => 'hidden',
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'id',
+                'attributes' => [
+                    'type' => 'hidden',
+                ],
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'options' => array(
-                'label' => __('Title'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'title',
+                'options'    => [
+                    'label' => __('Title'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Status'),
-                'value_options' => array(
-                    1 => __('Published'),
-                    2 => __('Pending review'),
-                    3 => __('Draft'),
-                    4 => __('Private'),
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'status',
+                'type'    => 'select',
+                'options' => [
+                    'label'         => __('Status'),
+                    'value_options' => [
+                        1 => __('Published'),
+                        2 => __('Pending review'),
+                        3 => __('Draft'),
+                        4 => __('Private'),
+                    ],
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }

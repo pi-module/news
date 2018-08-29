@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form\Element;
 
 use Pi;
@@ -22,11 +23,11 @@ class Attach extends ZendButton
      */
     public function getAttributes()
     {
-        $this->Attributes = array(
-            'class' => 'btn btn-success btn-lg',
+        $this->Attributes = [
+            'class'       => 'btn btn-success btn-lg',
             'data-toggle' => 'modal',
             'data-target' => '#attachFile',
-        );
+        ];
         return $this->Attributes;
     }
 }

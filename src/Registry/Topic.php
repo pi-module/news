@@ -11,6 +11,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Registry;
 
 use Pi;
@@ -27,18 +28,18 @@ class Topic extends AbstractRegistry
     /**
      * {@inheritDoc}
      */
-    protected function loadDynamic($options = array())
+    protected function loadDynamic($options = [])
     {
-        $list = array();
-        $where = array('status' => 1);
-        $columns = array('id', 'slug');
-        $select = Pi::model('topic', $this->module)->select()->where($where)->columns($columns);
-        $rowset = Pi::model('topic', $this->module)->selectWith($select);
+        $list    = [];
+        $where   = ['status' => 1];
+        $columns = ['id', 'slug'];
+        $select  = Pi::model('topic', $this->module)->select()->where($where)->columns($columns);
+        $rowset  = Pi::model('topic', $this->module)->selectWith($select);
         foreach ($rowset as $row) {
-            $item = array(
+            $item           = [
                 'name' => sprintf('topic-%s', $row->id),
                 'slug' => $row->slug,
-            );
+            ];
             $list[$row->id] = $item;
         }
         return $list;
@@ -50,8 +51,8 @@ class Topic extends AbstractRegistry
      */
     public function read()
     {
-        $options = array();
-        $result = $this->loadData($options);
+        $options = [];
+        $result  = $this->loadData($options);
 
         return $result;
     }

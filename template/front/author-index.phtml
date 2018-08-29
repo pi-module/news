@@ -1,8 +1,9 @@
 <?php
-$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
+$this->css($this->assetModule('css/front.css'), ['defer' => 'defer']);
 // Image lightbox
 if ($config['image_lightbox']) {
-    $script = <<<'EOT'
+    $script
+        = <<<'EOT'
 window.addEventListener('DOMContentLoaded', function() {
     $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -15,8 +16,8 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 EOT;
-    $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
-    $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
+    $this->jQuery(['extension/jquery.magnific-popup.min.js' => ['defer' => 'defer']]);
+    $this->jQuery('extension/magnific-popup.min.css', ['defer' => 'defer']);
     $this->footScript()->appendScript($script);
 }
 
@@ -91,11 +92,14 @@ if (!empty($author['largeUrl'])) {
                                    title="<?php echo $this->escape($story['title']); ?>"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>">
                                     <?php if ($story['main_image']) { ?>
-                                        <img class="col-md-4 col-sm-4 col-xs-4" itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                        <img class="col-md-4 col-sm-4 col-xs-4" itemprop="image"
+                                             src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                                 'medium'
+                                             ); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"/>
                                     <?php } ?>
                                     <span itemprop="name headline" class="col-md-8 col-sm-8 col-xs-8"><?php echo $this->escape($story['title']); ?></span>
-                                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                                 </a>
                             <?php } ?>
                         </div>

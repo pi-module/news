@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -26,23 +27,27 @@ class PruneForm extends BaseForm
     public function init()
     {
         // date
-        $this->add(array(
-            'name' => 'date',
-            'options' => array(
-                'label' => __('All contacts Before'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'value' => date('Y-m-d', strtotime('-48 week')),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'date',
+                'options'    => [
+                    'label' => __('All contacts Before'),
+                ],
+                'attributes' => [
+                    'type'  => 'text',
+                    'value' => date('Y-m-d', strtotime('-48 week')),
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }	

@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -22,7 +23,7 @@ class AuthorController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
-        $slug = $this->params('slug');
+        $slug   = $this->params('slug');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Check deactivate view
@@ -69,7 +70,7 @@ class AuthorController extends ActionController
     public function listAction()
     {
         // Get page
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -81,9 +82,9 @@ class AuthorController extends ActionController
             return;
         }
         // Set info
-        $order = array('title ASC', 'id ASC');
-        $where = array('status' => 1);
-        $author = array();
+        $order  = ['title ASC', 'id ASC'];
+        $where  = ['status' => 1];
+        $author = [];
         // Get list of author
         $select = $this->getModel('author')->select()->where($where)->order($order);
         $rowset = $this->getModel('author')->selectWith($select);
@@ -95,9 +96,11 @@ class AuthorController extends ActionController
         $title = __('List of all authors');
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => true
-        ));
+        $filter->setOptions(
+            [
+                'force_replace_space' => true,
+            ]
+        );
         $seoKeywords = $filter($title);
 
         // Save statistics

@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -24,39 +25,40 @@ class Story extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id',
-        'title',
-        'subtitle',
-        'slug',
-        'topic',
-        'topic_main',
-        'author',
-        'text_summary',
-        'text_description',
-        'text_html',
-        'seo_title',
-        'seo_keywords',
-        'seo_description',
-        'important',
-        'status',
-        'time_create',
-        'time_update',
-        'time_publish',
-        'uid',
-        'hits',
-        'image',
-        'path',
-        'cropping',
-        'main_image',
-        'additional_images',
-        'point',
-        'count',
-        'favourite',
-        'attach',
-        'attribute',
-        'type'
-    );
+    protected $columns
+        = [
+            'id',
+            'title',
+            'subtitle',
+            'slug',
+            'topic',
+            'topic_main',
+            'author',
+            'text_summary',
+            'text_description',
+            'text_html',
+            'seo_title',
+            'seo_keywords',
+            'seo_description',
+            'important',
+            'status',
+            'time_create',
+            'time_update',
+            'time_publish',
+            'uid',
+            'hits',
+            'image',
+            'path',
+            'cropping',
+            'main_image',
+            'additional_images',
+            'point',
+            'count',
+            'favourite',
+            'attach',
+            'attribute',
+            'type',
+        ];
 
-    protected $mediaLinks = array('main_image', 'additional_images');
+    protected $mediaLinks = ['main_image', 'additional_images'];
 }

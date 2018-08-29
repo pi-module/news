@@ -24,17 +24,19 @@ class TimePublish extends AbstractValidator
     /**
      * @var array
      */
-    protected $messageTemplates = array(
-        self::TAKEN => 'Time format is not valid, true format is : Y-m-d H:i:s , for example : 2015-12-12 08:00:00',
-    );
+    protected $messageTemplates
+        = [
+            self::TAKEN => 'Time format is not valid, true format is : Y-m-d H:i:s , for example : 2015-12-12 08:00:00',
+        ];
 
-    protected $options = array();
+    protected $options = [];
 
     /**
      * Name validate
      *
      * @param  mixed $value
      * @param  array $context
+     *
      * @return boolean
      */
     public function isValid($value, $context = null)
@@ -42,7 +44,7 @@ class TimePublish extends AbstractValidator
         $this->setValue($value);
         if (null !== $value) {
             $format = 'Y-m-d H:i:s';
-            $date = DateTime::createFromFormat($format, $value);
+            $date   = DateTime::createFromFormat($format, $value);
             if (!$date || $date->format($format) != $value) {
                 $this->error(static::TAKEN);
                 return false;

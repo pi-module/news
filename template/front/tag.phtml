@@ -3,8 +3,8 @@
         <?php foreach ($tag as $term) { ?>
             <span class="tagItem">
                 <a title="<?php echo $this->escape($term); ?>"
-                   href="<?php echo Pi::url($this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)))); ?>"><i
-                        class="fa fa-tag"></i> <?php echo $this->escape($term); ?></a>
+                   href="<?php echo Pi::url($this->url('', ['controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)])); ?>"><i
+                            class="fa fa-tag"></i> <?php echo $this->escape($term); ?></a>
             </span>
         <?php } ?>
     </div>

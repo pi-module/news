@@ -18,7 +18,7 @@ use Pi\Form\Form as BaseForm;
 
 class MicroblogForm extends BaseForm
 {
-    public function __construct($name = null, $option = array())
+    public function __construct($name = null, $option = [])
     {
         $this->module = Pi::service('module')->current();
         $this->option = $option;
@@ -36,75 +36,89 @@ class MicroblogForm extends BaseForm
     public function init()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'attributes' => array(
-                'type' => 'hidden',
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'id',
+                'attributes' => [
+                    'type' => 'hidden',
+                ],
+            ]
+        );
         // post
-        $this->add(array(
-            'name' => 'post',
-            'options' => array(
-                'label' => __('Post'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '10',
-                'cols' => '40',
-                'required' => true,
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'post',
+                'options'    => [
+                    'label' => __('Post'),
+                ],
+                'attributes' => [
+                    'type'     => 'textarea',
+                    'rows'     => '10',
+                    'cols'     => '40',
+                    'required' => true,
+                ],
+            ]
+        );
         // topic
         if ($this->option == 'post') {
-            $this->add(array(
-                'name' => 'topic',
-                'attributes' => array(
-                    'type' => 'hidden',
-                    'value' => 0,
-                ),
-            ));
+            $this->add(
+                [
+                    'name'       => 'topic',
+                    'attributes' => [
+                        'type'  => 'hidden',
+                        'value' => 0,
+                    ],
+                ]
+            );
         } elseif ($this->option == 'news') {
-            $this->add(array(
-                'name' => 'topic',
-                'attributes' => array(
-                    'type' => 'hidden',
-                    'value' => 1,
-                ),
-            ));
-        } else  {
-            $this->add(array(
-                'name' => 'topic',
-                'attributes' => array(
-                    'type' => 'hidden',
-                ),
-            ));
+            $this->add(
+                [
+                    'name'       => 'topic',
+                    'attributes' => [
+                        'type'  => 'hidden',
+                        'value' => 1,
+                    ],
+                ]
+            );
+        } else {
+            $this->add(
+                [
+                    'name'       => 'topic',
+                    'attributes' => [
+                        'type' => 'hidden',
+                    ],
+                ]
+            );
         }
         // status
-        $this->add(array(
-            'name' => 'status',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Status'),
-                'value_options' => array(
-                    1 => __('Published'),
-                    2 => __('Pending review'),
-                    3 => __('Draft'),
-                    4 => __('Private'),
-                    5 => __('Delete'),
-                ),
-            ),
-            'attributes' => array(
-                'required' => true,
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'status',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Status'),
+                    'value_options' => [
+                        1 => __('Published'),
+                        2 => __('Pending review'),
+                        3 => __('Draft'),
+                        4 => __('Private'),
+                        5 => __('Delete'),
+                    ],
+                ],
+                'attributes' => [
+                    'required' => true,
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }

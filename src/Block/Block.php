@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Block;
 
 use Pi;
@@ -17,44 +18,44 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Block
 {
-    public static function item($options = array(), $module = null)
+    public static function item($options = [], $module = null)
     {
         // Set options
-        $block = array();
-        $block = array_merge($block, $options);
-        $whereLink = array();
+        $block     = [];
+        $block     = array_merge($block, $options);
+        $whereLink = [];
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
         }
         // Set model and get information
         $whereLink['status'] = 1;
-        $whereLink['type'] = array(
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-        );
-        $columns = array('story' => new Expression('DISTINCT story'));
-        $limit = intval($block['number']);
+        $whereLink['type']   = [
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+        ];
+        $columns             = ['story' => new Expression('DISTINCT story')];
+        $limit               = intval($block['number']);
         // Set order
         switch ($block['order']) {
             case 'random':
-                $order = array(new Expression('RAND()'));
+                $order = [new Expression('RAND()')];
                 break;
 
             case 'updateASC':
-                $order = array('time_update ASC', 'id ASC');;
+                $order = ['time_update ASC', 'id ASC'];;
                 break;
 
             case 'updateDESC':
-                $order = array('time_update DESC', 'id DESC');;
+                $order = ['time_update DESC', 'id DESC'];;
                 break;
 
             case 'publishASC':
-                $order = array('time_publish ASC', 'id ASC');;
+                $order = ['time_publish ASC', 'id ASC'];;
                 break;
 
             case 'publishDESC':
             default:
-                $order = array('time_publish DESC', 'id DESC');;
+                $order = ['time_publish DESC', 'id DESC'];;
                 break;
         }
         //
@@ -63,7 +64,7 @@ class Block
         if (!$block['notShowSpotlight']) {
             $ids = Pi::registry('spotlightStoryId', 'news')->read();
             foreach ($ids as $id) {
-                $select->where(array('story != ?' => $id));
+                $select->where(['story != ?' => $id]);
             }
         }
         // Get info from link table
@@ -74,7 +75,7 @@ class Block
             $storyId[] = $id['story'];
         }
         // Set info
-        $whereStory = array('status' => 1, 'id' => $storyId);
+        $whereStory = ['status' => 1, 'id' => $storyId];
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
@@ -86,7 +87,7 @@ class Block
         foreach ($rowset as $row) {
             $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
             if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
             }
         }
         // Set block array
@@ -94,36 +95,36 @@ class Block
         return $block;
     }
 
-    public static function spotlight($options = array(), $module = null)
+    public static function spotlight($options = [], $module = null)
     {
         // Set options
-        $block = array();
+        $block = [];
         $block = array_merge($block, $options);
         // Set model and get information
-        $whereSpotlight['status'] = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time());
-        $columns = array('story' => new Expression('DISTINCT story'));
-        $limit = intval($block['number']);
+        $whereSpotlight['status'] = ['status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()];
+        $columns                  = ['story' => new Expression('DISTINCT story')];
+        $limit                    = intval($block['number']);
         // Set order
         switch ($block['order']) {
             case 'random':
-                $order = array(new Expression('RAND()'));
+                $order = [new Expression('RAND()')];
                 break;
 
             case 'updateASC':
-                $order = array('time_update ASC', 'id ASC');;
+                $order = ['time_update ASC', 'id ASC'];;
                 break;
 
             case 'updateDESC':
-                $order = array('time_update DESC', 'id DESC');;
+                $order = ['time_update DESC', 'id DESC'];;
                 break;
 
             case 'publishASC':
-                $order = array('time_publish ASC', 'id ASC');;
+                $order = ['time_publish ASC', 'id ASC'];;
                 break;
 
             case 'publishDESC':
             default:
-                $order = array('time_publish DESC', 'id DESC');;
+                $order = ['time_publish DESC', 'id DESC'];;
                 break;
         }
         // Get info from link table
@@ -134,7 +135,7 @@ class Block
             $storyId[] = $id['story'];
         }
         // Set info
-        $whereStory = array('status' => 1, 'id' => $storyId);
+        $whereStory = ['status' => 1, 'id' => $storyId];
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
@@ -146,7 +147,7 @@ class Block
         foreach ($rowset as $row) {
             $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
             if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
             }
         }
         // Set block array
@@ -154,33 +155,33 @@ class Block
         return $block;
     }
 
-    public static function topic($options = array(), $module = null)
+    public static function topic($options = [], $module = null)
     {
         // Set options
-        $block = array();
+        $block = [];
         $block = array_merge($block, $options);
         // Set model and get information
-        $where = array('status' => 1);
+        $where = ['status' => 1];
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
         }
         // Set order
         switch ($block['order']) {
             case 'titleASC':
-                $order = array('title ASC', 'id ASC');
+                $order = ['title ASC', 'id ASC'];
                 break;
 
             case 'titleDESC':
-                $order = array('title DESC', 'id DESC');
+                $order = ['title DESC', 'id DESC'];
                 break;
 
             case 'createASC':
-                $order = array('time_create ASC', 'id ASC');
+                $order = ['time_create ASC', 'id ASC'];
                 break;
 
             case 'createDESC':
             default:
-                $order = array('time_create DESC', 'id DESC');
+                $order = ['time_create DESC', 'id DESC'];
                 break;
         }
         // Get info from topic table
@@ -199,34 +200,34 @@ class Block
         return $block;
     }
 
-    public static function gallery($options = array(), $module = null)
+    public static function gallery($options = [], $module = null)
     {
         // Set options
-        $block = array();
+        $block = [];
         $block = array_merge($block, $options);
 
-        $where = array('module' => 'news', 'object_name' => 'story');
+        $where = ['module' => 'news', 'object_name' => 'story'];
         $limit = intval($block['number']);
         // Select
         $select = Pi::model('link', 'media')->select()->where($where)->limit($limit);
         $rowset = Pi::model('link', 'media')->selectWith($select);
 
-        $list = array();
+        $list = [];
         // Make list
         foreach ($rowset as $row) {
 
             $media = Pi::model('doc', 'media')->find($row->id);
 
-            $imageLarge = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('large');
-            $imageMedium = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('medium');
-            $imageThumb = (string) Pi::api('doc','media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('thumbnail');
+            $imageLarge  = (string)Pi::api('doc', 'media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('large');
+            $imageMedium = (string)Pi::api('doc', 'media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('medium');
+            $imageThumb  = (string)Pi::api('doc', 'media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('thumbnail');
 
-            $data = array(
-                'title' => $media->title,
-                'largeUrl' => $imageLarge,
+            $data = [
+                'title'     => $media->title,
+                'largeUrl'  => $imageLarge,
                 'mediumUrl' => $imageMedium,
-                'thumbUrl' => $imageThumb,
-            );
+                'thumbUrl'  => $imageThumb,
+            ];
 
             $list[] = $data;
         }
@@ -236,22 +237,22 @@ class Block
         return $block;
     }
 
-    public static function microblog($options = array(), $module = null)
+    public static function microblog($options = [], $module = null)
     {
         // Set options
-        $block = array();
+        $block = [];
         $block = array_merge($block, $options);
         // Get config
-        $config = Pi::service('registry')->config->read($module);
+        $config                    = Pi::service('registry')->config->read($module);
         $block['microblog_active'] = $config['microblog_active'];
         // Set info
-        $microblog = array();
-        $where = array('status' => 1);
-        $order = array('time_create DESC', 'id DESC');
-        $limit = intval($block['number']);
+        $microblog = [];
+        $where     = ['status' => 1];
+        $order     = ['time_create DESC', 'id DESC'];
+        $limit     = intval($block['number']);
         // Check uid and topic
         if (intval($block['uid']) > 0) {
-            $where['uid'] = intval($block['uid']);
+            $where['uid']   = intval($block['uid']);
             $where['topic'] = 0;
         } elseif (isset($block['topicid']) && !empty($block['topicid'])) {
             $where['topic'] = 1;
@@ -261,36 +262,38 @@ class Block
         $rowset = Pi::model('microblog', $module)->selectWith($select);
         // Process information
         foreach ($rowset as $row) {
-            $microblog[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
-            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar($microblog[$row->id]['uid'], 'medium', array(
-                'alt' => $microblog[$row->id]['user']['name'],
+            $microblog[$row->id]                   = Pi::api('microblog', 'news')->canonizeMicroblog($row);
+            $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar(
+                $microblog[$row->id]['uid'], 'medium', [
+                'alt'   => $microblog[$row->id]['user']['name'],
                 'class' => 'img-circle',
-            ));
+            ]
+            );
         }
         // Set block array
         $block['resources'] = $microblog;
         return $block;
     }
 
-    public static function media($options = array(), $module = null)
+    public static function media($options = [], $module = null)
     {
         // Set options
-        $block = array();
+        $block = [];
         $block = array_merge($block, $options);
         // Set info
-        $story = array();
-        $whereLink = array();
+        $story     = [];
+        $whereLink = [];
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
         }
         // Set model and get information
         $whereLink['status'] = 1;
-        $whereLink['type'] = array(
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-        );
-        $columns = array('story' => new Expression('DISTINCT story'));
-        $order = array('time_publish DESC', 'id DESC');
+        $whereLink['type']   = [
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+        ];
+        $columns             = ['story' => new Expression('DISTINCT story')];
+        $order               = ['time_publish DESC', 'id DESC'];
         // select
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit(1);
         $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
@@ -299,7 +302,7 @@ class Block
             $storyId[] = $id['story'];
         }
         // Set info
-        $whereStory = array('status' => 1, 'id' => $storyId);
+        $whereStory = ['status' => 1, 'id' => $storyId];
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
@@ -309,11 +312,11 @@ class Block
         $rowset = Pi::model('story', $module)->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
-            $story[$row->id]['media_attach'] = Pi::api('story', 'news')->AttachList($row->id);
+            $story[$row->id]                    = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+            $story[$row->id]['media_attach']    = Pi::api('story', 'news')->AttachList($row->id);
             $story[$row->id]['media_attribute'] = Pi::api('attribute', 'news')->Story($row->id, $row->topic_main);
             if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8' ) . "...";
+                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
             }
         }
         // Set block array

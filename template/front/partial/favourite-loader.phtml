@@ -4,16 +4,20 @@
 <div id="favouriteWrapper"></div>
 
 <?php
-$eventAjaxUrl = Pi::url($this->url('', array(
-    'controller' => 'api',
-    'action' => 'favourite',
-    'slug' => $story['slug'],
-)));
+$eventAjaxUrl = Pi::url(
+    $this->url(
+        '', [
+        'controller' => 'api',
+        'action'     => 'favourite',
+        'slug'       => $story['slug'],
+    ]
+    )
+);
 
 ?>
 <script>
-    $(document).ready(function(){
-        $.get("<?php echo $eventAjaxUrl ?>", function( html ) {
+    $(document).ready(function () {
+        $.get("<?php echo $eventAjaxUrl ?>", function (html) {
             $('#favouriteWrapper').html(html);
         });
     });

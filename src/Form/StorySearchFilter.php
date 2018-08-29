@@ -21,14 +21,16 @@ class StorySearchFilter extends InputFilter
     public function __construct()
     {
         // title
-        $this->add(array(
-            'name' => 'title',
-            'required' => false,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'     => 'title',
+                'required' => false,
+                'filters'  => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+            ]
+        );
     }
 }

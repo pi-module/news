@@ -2,10 +2,14 @@
 <div class="clearfix">
     <div class="well">
         <h3><?php _e('How this part work?'); ?></h3>
-        <p><?php _e('Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '); ?></p>
+        <p><?php _e(
+                'Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '
+            ); ?></p>
         <ul>
             <li><strong><?php _e('Rebuild'); ?></strong>
-                : <?php _e('You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'); ?>
+                : <?php _e(
+                    'You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'
+                ); ?>
             </li>
             <li><strong><?php _e('Prune'); ?></strong>
                 : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
@@ -28,7 +32,7 @@
                     <?php echo _a('This tool can pre-generate media cache according to media module parameters'); ?>
                 </p>
                 <p>
-                    <a href="<?php echo $this->url('', array('action' => 'generatePictures')); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo $this->url('', ['action' => 'generatePictures']); ?>" class="btn btn-primary btn-sm">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                         <?php echo _a('Pre-generate media cache'); ?>
                     </a>

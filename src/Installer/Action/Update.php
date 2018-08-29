@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Installer\Action;
 
 use Pi;
@@ -25,7 +26,7 @@ class Update extends BasicUpdate
     protected function attachDefaultListeners()
     {
         $events = $this->events;
-        $events->attach('update.pre', array($this, 'updateSchema'));
+        $events->attach('update.pre', [$this, 'updateSchema']);
         parent::attachDefaultListeners();
 
         return $this;
@@ -39,53 +40,57 @@ class Update extends BasicUpdate
         $moduleVersion = $e->getParam('version');
 
         // Set story model
-        $storyModel = Pi::model('story', $this->module);
-        $storyTable = $storyModel->getTable();
+        $storyModel   = Pi::model('story', $this->module);
+        $storyTable   = $storyModel->getTable();
         $storyAdapter = $storyModel->getAdapter();
 
         // Set topic model
-        $topicModel = Pi::model('topic', $this->module);
-        $topicTable = $topicModel->getTable();
+        $topicModel   = Pi::model('topic', $this->module);
+        $topicTable   = $topicModel->getTable();
         $topicAdapter = $topicModel->getAdapter();
 
         // Set author model
-        $authorModel = Pi::model('author', $this->module);
-        $authorTable = $authorModel->getTable();
+        $authorModel   = Pi::model('author', $this->module);
+        $authorTable   = $authorModel->getTable();
         $authorAdapter = $authorModel->getAdapter();
 
         // Set field model
-        $fieldModel = Pi::model('field', $this->module);
-        $fieldTable = $fieldModel->getTable();
+        $fieldModel   = Pi::model('field', $this->module);
+        $fieldTable   = $fieldModel->getTable();
         $fieldAdapter = $fieldModel->getAdapter();
 
         // Set attach model
-        $attachModel = Pi::model('attach', $this->module);
-        $attachTable = $attachModel->getTable();
+        $attachModel   = Pi::model('attach', $this->module);
+        $attachTable   = $attachModel->getTable();
         $attachAdapter = $attachModel->getAdapter();
 
         // Set microblog model
-        $microblogModel = Pi::model('microblog', $this->module);
-        $microblogTable = $microblogModel->getTable();
+        $microblogModel   = Pi::model('microblog', $this->module);
+        $microblogTable   = $microblogModel->getTable();
         $microblogAdapter = $microblogModel->getAdapter();
 
         // Set link model
-        $linkModel = Pi::model('link', $this->module);
-        $linkTable = $linkModel->getTable();
+        $linkModel   = Pi::model('link', $this->module);
+        $linkTable   = $linkModel->getTable();
         $linkAdapter = $linkModel->getAdapter();
 
         // Update to version 1.2.0
         if (version_compare($moduleVersion, '1.2.0', '<')) {
             // Alter table field `type`
-            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM( 'text', 'gallery', 'media', 'download' )
-        		NOT NULL DEFAULT 'text'", $storyTable);
+            $sql = sprintf(
+                "ALTER TABLE %s ADD `type` ENUM( 'text', 'gallery', 'media', 'download' )
+        		NOT NULL DEFAULT 'text'", $storyTable
+            );
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -97,11 +102,13 @@ class Update extends BasicUpdate
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
@@ -110,11 +117,13 @@ class Update extends BasicUpdate
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -122,7 +131,8 @@ class Update extends BasicUpdate
         // Update to version 1.2.5
         if (version_compare($moduleVersion, '1.2.5', '<')) {
             // Add table of author
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{author}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `title` varchar (255) NOT NULL,
@@ -151,17 +161,20 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
 
                 return false;
             }
 
             // Add table of author
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{author_role}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `title` varchar (255) NOT NULL,
@@ -176,17 +189,20 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
 
                 return false;
             }
 
             // Add table of author
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{author_story}` (
     `id` int (10) unsigned NOT NULL auto_increment,
     `story` int(10) unsigned NOT NULL,
@@ -208,11 +224,13 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
 
                 return false;
             }
@@ -225,11 +243,13 @@ EOD;
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -242,11 +262,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -258,11 +280,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
@@ -271,11 +295,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
@@ -284,11 +310,13 @@ EOD;
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
@@ -297,11 +325,13 @@ EOD;
             try {
                 $authorAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -314,11 +344,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -330,23 +362,30 @@ EOD;
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : CHANGE `type`
-            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox') NOT NULL DEFAULT 'text'", $fieldTable);
+            $sql = sprintf(
+                "ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'link', 'currency', 'date', 'number', 'select', 'video', 'audio', 'file', 'checkbox') NOT NULL DEFAULT 'text'",
+                $fieldTable
+            );
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD `icon`
@@ -354,11 +393,13 @@ EOD;
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD `name`
@@ -366,11 +407,13 @@ EOD;
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD `position`
@@ -378,11 +421,13 @@ EOD;
             try {
                 $fieldAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : CHANGE `extra`
@@ -390,16 +435,19 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
             // Add table of field_topic
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{field_topic}` (
   `id`    INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `field` INT(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -415,16 +463,19 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
             // Add table of field_position
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{field_position}` (
   `id`     INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
   `title`  VARCHAR(255)        NOT NULL DEFAULT '',
@@ -442,11 +493,13 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -458,23 +511,30 @@ EOD;
             try {
                 $attachAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : CHANGE `extra`
-            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'link', 'other') NOT NULL DEFAULT 'image'", $attachTable);
+            $sql = sprintf(
+                "ALTER TABLE %s CHANGE `type` `type` ENUM('archive', 'image', 'video', 'audio', 'pdf', 'doc', 'link', 'other') NOT NULL DEFAULT 'image'",
+                $attachTable
+            );
             try {
                 $attachAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD item_table
@@ -482,11 +542,13 @@ EOD;
             try {
                 $attachAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD url
@@ -494,11 +556,13 @@ EOD;
             try {
                 $attachAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -513,14 +577,14 @@ EOD;
                 // Check attach
                 if (!empty($setting['attach_title']) && !empty($setting['attach_link'])) {
                     // Set save array
-                    $values['title'] = $setting['attach_title'];
-                    $values['url'] = $setting['attach_link'];
-                    $values['hits'] = $setting['attach_download_count'];
-                    $values['item_id'] = $row->id;
-                    $values['item_table'] = 'topic';
+                    $values['title']       = $setting['attach_title'];
+                    $values['url']         = $setting['attach_link'];
+                    $values['hits']        = $setting['attach_download_count'];
+                    $values['item_id']     = $row->id;
+                    $values['item_table']  = 'topic';
                     $values['time_create'] = time();
-                    $values['type'] = 'link';
-                    $values['status'] = 1;
+                    $values['type']        = 'link';
+                    $values['status']      = 1;
                     // save in DB
                     $attach = $attachModel->createRow();
                     $attach->assign($values);
@@ -544,7 +608,8 @@ EOD;
         // Update to version 1.6.4
         if (version_compare($moduleVersion, '1.6.4', '<')) {
             // Add table of microblog
-            $sql = <<<'EOD'
+            $sql
+                = <<<'EOD'
 CREATE TABLE `{microblog}` (
   `id`          INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
   `post`        TEXT,
@@ -564,11 +629,13 @@ EOD;
             try {
                 $sqlHandler->queryContent($sql);
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'SQL schema query for author table failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
 
@@ -577,11 +644,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -593,11 +662,13 @@ EOD;
             try {
                 $microblogAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -609,11 +680,13 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Update time_update
@@ -621,11 +694,13 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -633,15 +708,20 @@ EOD;
         // Update to version 1.7.5
         if (version_compare($moduleVersion, '1.7.5', '<')) {
             // Alter table : ADD type
-            $sql = sprintf("ALTER TABLE %s ADD `type` ENUM('text', 'post', 'article', 'magazine', 'event', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $linkTable);
+            $sql = sprintf(
+                "ALTER TABLE %s ADD `type` ENUM('text', 'post', 'article', 'magazine', 'event', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)",
+                $linkTable
+            );
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD index
@@ -649,23 +729,30 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD type
-            $sql = sprintf("ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'post', 'article', 'magazine', 'event', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)", $storyTable);
+            $sql = sprintf(
+                "ALTER TABLE %s CHANGE `type` `type` ENUM('text', 'post', 'article', 'magazine', 'event', 'image', 'gallery', 'media', 'download', 'feed') NOT NULL DEFAULT 'text', ADD INDEX (`type`)",
+                $storyTable
+            );
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD index
@@ -673,18 +760,20 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Update value
             $select = $linkModel->select();
             $rowset = $linkModel->selectWith($select);
             foreach ($rowset as $row) {
-                $story = Pi::api('story', 'news')->getStoryLight($row->story);
+                $story     = Pi::api('story', 'news')->getStoryLight($row->story);
                 $row->type = $story['type'];
                 $row->save();
             }
@@ -697,11 +786,13 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD
@@ -709,11 +800,13 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD index
@@ -721,11 +814,13 @@ EOD;
             try {
                 $linkAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -737,11 +832,13 @@ EOD;
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD type
@@ -749,11 +846,13 @@ EOD;
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
             // Alter table : ADD index
@@ -761,11 +860,13 @@ EOD;
             try {
                 $topicAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -777,11 +878,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -791,11 +894,13 @@ EOD;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -815,17 +920,20 @@ EOD;
         }
 
 
-
         if (version_compare($moduleVersion, '2.0.0', '<')) {
-            $sql = sprintf("ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` VARCHAR(255) NULL AFTER `main_image`;", $storyTable);
+            $sql = sprintf(
+                "ALTER TABLE %s ADD `main_image` INT NULL AFTER `cropping`, ADD `additional_images` VARCHAR(255) NULL AFTER `main_image`;", $storyTable
+            );
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
@@ -860,22 +968,25 @@ EOD;
 
         if (version_compare($moduleVersion, '2.0.4', '<')) {
             $query = "ALTER TABLE %s CHANGE `additional_images` `additional_images` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;";
-            $sql = sprintf($query, $storyTable);
+            $sql   = sprintf($query, $storyTable);
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }
 
         if (version_compare($moduleVersion, '2.0.5', '<')) {
 
-            $sql = <<<SQL
+            $sql
+                = <<<SQL
 ALTER TABLE `{story}` ADD FULLTEXT `search_seo_title_idx` (`seo_title`);
 ALTER TABLE `{story}` ADD FULLTEXT `search_seo_keywords_idx` (`seo_keywords`);
 ALTER TABLE `{story}` ADD FULLTEXT `search_seo_description_idx` (`seo_description`);
@@ -887,11 +998,13 @@ SQL;
             try {
                 $storyAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult(
+                    'db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]
+                );
                 return false;
             }
         }

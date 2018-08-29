@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -17,11 +18,11 @@ use Pi\Form\Form as BaseForm;
 
 class TopicForm extends BaseForm
 {
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null, $options = [])
     {
-        $this->module = Pi::service('module')->current();
-        $this->category = array(0 => 'Root');
-        $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
+        $this->module    = Pi::service('module')->current();
+        $this->category  = [0 => 'Root'];
+        $this->thumbUrl  = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
     }
@@ -37,435 +38,509 @@ class TopicForm extends BaseForm
     public function init()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'attributes' => array(
-                'type' => 'hidden',
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'id',
+                'attributes' => [
+                    'type' => 'hidden',
+                ],
+            ]
+        );
         // pid
-        $this->add(array(
-            'name' => 'pid',
-            'type' => 'Module\News\Form\Element\Topic',
-            'options' => array(
-                'label' => __('Parent Topic'),
-                'module' => $this->module,
-                'topic' => '',
-            ),
-            'attributes' => array(
-                'size' => 1,
-                'multiple' => 0,
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'pid',
+                'type'       => 'Module\News\Form\Element\Topic',
+                'options'    => [
+                    'label'  => __('Parent Topic'),
+                    'module' => $this->module,
+                    'topic'  => '',
+                ],
+                'attributes' => [
+                    'size'     => 1,
+                    'multiple' => 0,
+                ],
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'options' => array(
-                'label' => __('Title'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'title',
+                'options'    => [
+                    'label' => __('Title'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // slug
-        $this->add(array(
-            'name' => 'slug',
-            'options' => array(
-                'label' => __('slug'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'slug',
+                'options'    => [
+                    'label' => __('slug'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // text_summary
-        $this->add(array(
-            'name' => 'text_summary',
-            'options' => array(
-                'label' => __('Short text'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '5',
-                'cols' => '40',
-                'description' => __('Just show on story list and blocks'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'text_summary',
+                'options'    => [
+                    'label' => __('Short text'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '5',
+                    'cols'        => '40',
+                    'description' => __('Just show on story list and blocks'),
+                ],
+            ]
+        );
         // text_description
-        $this->add(array(
-            'name' => 'text_description',
-            'options' => array(
-                'label' => __('Description'),
-                'editor' => 'html',
-                'set' => '',
-            ),
-            'attributes' => array(
-                'type' => 'editor',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'text_description',
+                'options'    => [
+                    'label'  => __('Description'),
+                    'editor' => 'html',
+                    'set'    => '',
+                ],
+                'attributes' => [
+                    'type'        => 'editor',
+                    'description' => '',
+                ],
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Status'),
-                'value_options' => array(
-                    1 => __('Published'),
-                    2 => __('Pending review'),
-                    3 => __('Draft'),
-                    4 => __('Private'),
-                    5 => __('Delete'),
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'status',
+                'type'    => 'select',
+                'options' => [
+                    'label'         => __('Status'),
+                    'value_options' => [
+                        1 => __('Published'),
+                        2 => __('Pending review'),
+                        3 => __('Draft'),
+                        4 => __('Private'),
+                        5 => __('Delete'),
+                    ],
+                ],
+            ]
+        );
         // style
-        $this->add(array(
-            'name' => 'style',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Topic Style'),
-                'value_options' => array(
-                    'news' => __('News'),
-                    'list' => __('List'),
-                    'table' => __('Table'),
-                    'media' => __('Media'),
-                    'spotlight' => __('Spotlight'),
-                    'topic' => __('Topic'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => '',
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'style',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Topic Style'),
+                    'value_options' => [
+                        'news'      => __('News'),
+                        'list'      => __('List'),
+                        'table'     => __('Table'),
+                        'media'     => __('Media'),
+                        'spotlight' => __('Spotlight'),
+                        'topic'     => __('Topic'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // type
-        $this->add(array(
-            'name' => 'type',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Topic type'),
-                'value_options' => array(
-                    'general' => __('General'),
-                    'event' => __('Just event module'),
-                    'blog' => __('Just blog module'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => __('Set type for use as general or special module'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'type',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Topic type'),
+                    'value_options' => [
+                        'general' => __('General'),
+                        'event'   => __('Just event module'),
+                        'blog'    => __('Just blog module'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => __('Set type for use as general or special module'),
+                ],
+            ]
+        );
         // Image
         if ($this->thumbUrl) {
-            $this->add(array(
-                'name' => 'imageview',
-                'type' => 'Module\News\Form\Element\Image',
-                'options' => array(//'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'src' => $this->thumbUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'remove',
-                'type' => 'Module\News\Form\Element\Remove',
-                'options' => array(
-                    'label' => __('Remove image'),
-                ),
-                'attributes' => array(
-                    'link' => $this->removeUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'image',
-                'attributes' => array(
-                    'type' => 'hidden',
-                ),
-            ));
+            $this->add(
+                [
+                    'name'       => 'imageview',
+                    'type'       => 'Module\News\Form\Element\Image',
+                    'options'    => [//'label' => __('Image'),
+                    ],
+                    'attributes' => [
+                        'src' => $this->thumbUrl,
+                    ],
+                ]
+            );
+            $this->add(
+                [
+                    'name'       => 'remove',
+                    'type'       => 'Module\News\Form\Element\Remove',
+                    'options'    => [
+                        'label' => __('Remove image'),
+                    ],
+                    'attributes' => [
+                        'link' => $this->removeUrl,
+                    ],
+                ]
+            );
+            $this->add(
+                [
+                    'name'       => 'image',
+                    'attributes' => [
+                        'type' => 'hidden',
+                    ],
+                ]
+            );
         } else {
-            $this->add(array(
-                'name' => 'image',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'file',
-                    'description' => '',
-                )
-            ));
+            $this->add(
+                [
+                    'name'       => 'image',
+                    'options'    => [
+                        'label' => __('Image'),
+                    ],
+                    'attributes' => [
+                        'type'        => 'file',
+                        'description' => '',
+                    ],
+                ]
+            );
         }
         // extra_seo
-        $this->add(array(
-            'name' => 'extra_seo',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('SEO options'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'extra_seo',
+                'type'    => 'fieldset',
+                'options' => [
+                    'label' => __('SEO options'),
+                ],
+            ]
+        );
         // seo_title
-        $this->add(array(
-            'name' => 'seo_title',
-            'options' => array(
-                'label' => __('SEO Title'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '2',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_title',
+                'options'    => [
+                    'label' => __('SEO Title'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '2',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // seo_keywords
-        $this->add(array(
-            'name' => 'seo_keywords',
-            'options' => array(
-                'label' => __('SEO Keywords'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '2',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_keywords',
+                'options'    => [
+                    'label' => __('SEO Keywords'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '2',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // seo_description
-        $this->add(array(
-            'name' => 'seo_description',
-            'options' => array(
-                'label' => __('SEO Description'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '3',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_description',
+                'options'    => [
+                    'label' => __('SEO Description'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '3',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // extra
-        $this->add(array(
-            'name' => 'extra_settings',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('Extra options'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'extra_settings',
+                'type'    => 'fieldset',
+                'options' => [
+                    'label' => __('Extra options'),
+                ],
+            ]
+        );
         // show_config
-        $this->add(array(
-            'name' => 'show_config',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Extra Config Options Type'),
-                'value_options' => array(
-                    'topic' => __('Use topic options'),
-                    'module' => __('Use module options'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => __('Use topic option whit select topic options or set it to module to use module option'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'show_config',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Extra Config Options Type'),
+                    'value_options' => [
+                        'topic'  => __('Use topic options'),
+                        'module' => __('Use module options'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => __('Use topic option whit select topic options or set it to module to use module option'),
+                ],
+            ]
+        );
         // perpage
-        $this->add(array(
-            'name' => 'show_perpage',
-            'options' => array(
-                'label' => __('Perpage'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_perpage',
+                'options'    => [
+                    'label' => __('Perpage'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // columns
-        $this->add(array(
-            'name' => 'show_columns',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Columns'),
-                'value_options' => array(
-                    1 => __('One column'),
-                    2 => __('Two columns'),
-                    3 => __('Three columns'),
-                    4 => __('Four columns'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_columns',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Columns'),
+                    'value_options' => [
+                        1 => __('One column'),
+                        2 => __('Two columns'),
+                        3 => __('Three columns'),
+                        4 => __('Four columns'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // set_page
-        $this->add(array(
-            'name' => 'set_page',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Set as system page'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'set_page',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Set as system page'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_order_link
-        $this->add(array(
-            'name' => 'show_order_link',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Story order'),
-                'value_options' => array(
-                    'publishDESC' => __('Publish time DESC'),
-                    'publishASC' => __('Publish time ASC'),
-                    'random' => __('Random'),
-                ),
-            ),
-            'attributes' => array(
-                'description' => __('Story list order options'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_order_link',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('Story order'),
+                    'value_options' => [
+                        'publishDESC' => __('Publish time DESC'),
+                        'publishASC'  => __('Publish time ASC'),
+                        'random'      => __('Random'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => __('Story list order options'),
+                ],
+            ]
+        );
         // show_topic
-        $this->add(array(
-            'name' => 'show_topic',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Topic'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_topic',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Topic'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_topicinfo
-        $this->add(array(
-            'name' => 'show_topicinfo',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Topic Information'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_topicinfo',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Topic Information'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_date
-        $this->add(array(
-            'name' => 'show_date',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Date'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_date',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Date'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_pdf
-        $this->add(array(
-            'name' => 'show_pdf',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show DPF'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_pdf',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show DPF'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_print
-        $this->add(array(
-            'name' => 'show_print',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Print'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_print',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Print'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_mail
-        $this->add(array(
-            'name' => 'show_mail',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Mail'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_mail',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Mail'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_hits
-        $this->add(array(
-            'name' => 'show_hits',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Hits'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_hits',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Hits'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_tag
-        $this->add(array(
-            'name' => 'show_tag',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Tags'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_tag',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Tags'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // show_subid
-        $this->add(array(
-            'name' => 'show_subid',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Show Subtopic stories on main topic'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'show_subid',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Show Subtopic stories on main topic'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // extra_attach
-        $this->add(array(
-            'name' => 'extra_attach',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('Attach file options'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'extra_attach',
+                'type'    => 'fieldset',
+                'options' => [
+                    'label' => __('Attach file options'),
+                ],
+            ]
+        );
         // attach
-        $this->add(array(
-            'name' => 'attach',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Check for attach file'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'attach',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Check for attach file'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // attach_title
-        $this->add(array(
-            'name' => 'attach_title',
-            'options' => array(
-                'label' => __('File title'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'attach_title',
+                'options'    => [
+                    'label' => __('File title'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // attach_link
-        $this->add(array(
-            'name' => 'attach_link',
-            'options' => array(
-                'label' => __('File link'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'attach_link',
+                'options'    => [
+                    'label' => __('File link'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }

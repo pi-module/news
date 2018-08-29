@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -19,8 +20,9 @@ class Attach extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id', 'title', 'file', 'path', 'url', 'item_table', 'item_id', 'time_create',
-        'size', 'type', 'status', 'hits'
-    );
+    protected $columns
+        = [
+            'id', 'title', 'file', 'path', 'url', 'item_table', 'item_id', 'time_create',
+            'size', 'type', 'status', 'hits',
+        ];
 }

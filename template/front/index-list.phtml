@@ -1,4 +1,4 @@
-<?php $this->css($this->assetModule('css/front.css'), array('defer' => 'defer')); ?>
+<?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -26,8 +26,8 @@
                             <div class="clearfix small"> <?php _e('Topics'); ?> :
                                 <?php foreach ($story['topics'] as $storyTopic) { ?>
                                     <span class=" p-category" itemprop="about"><a
-                                            title="<?php echo $storyTopic['title']; ?>"
-                                            href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                                                title="<?php echo $storyTopic['title']; ?>"
+                                                href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
                                 <?php } ?>
                             </div>
                         <?php } ?>
@@ -35,13 +35,13 @@
                             <div class="clearfix small">
                                 <?php foreach ($story['authors'] as $author) { ?>
                                     <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a
-                                            title="<?php echo $author['authorName']; ?>"
-                                            href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                                                title="<?php echo $author['authorName']; ?>"
+                                                href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
                                 <?php } ?>
                             </div>
                         <?php } ?>
                     </div>
-                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                 </li>
             <?php } ?>
         </ul>

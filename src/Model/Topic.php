@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -19,24 +20,25 @@ class Topic extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id',
-        'pid',
-        'title',
-        'slug',
-        'text_summary',
-        'text_description',
-        'image',
-        'path',
-        'seo_title',
-        'seo_keywords',
-        'seo_description',
-        'uid',
-        'time_create',
-        'time_update',
-        'setting',
-        'status',
-        'style',
-        'type',
-    );
+    protected $columns
+        = [
+            'id',
+            'pid',
+            'title',
+            'slug',
+            'text_summary',
+            'text_description',
+            'image',
+            'path',
+            'seo_title',
+            'seo_keywords',
+            'seo_description',
+            'uid',
+            'time_create',
+            'time_update',
+            'setting',
+            'status',
+            'style',
+            'type',
+        ];
 }

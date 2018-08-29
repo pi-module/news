@@ -9,11 +9,11 @@ if (isset($topic['title']) && !empty($topic['title'])) {
 if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
     $this->headMeta($this->escape($topic['topicUrl']), 'og:url', 'property');
 } elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
-    $this->headMeta(Pi::url($this->url('', array('module' => 'news'))), 'og:url', 'property');
+    $this->headMeta(Pi::url($this->url('', ['module' => 'news'])), 'og:url', 'property');
 }
 if (isset($topic['text_description']) && !empty($topic['text_description'])) {
     $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
-} elseif(isset($config['text_description_index']) && !empty($config['text_description_index'])) {
+} elseif (isset($config['text_description_index']) && !empty($config['text_description_index'])) {
     $this->headMeta(_strip($config['text_description_index']), 'og:description', 'property');
 }
 if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
@@ -27,7 +27,7 @@ if (isset($topic['title']) && !empty($topic['title'])) {
 }
 if (isset($topic['text_description']) && !empty($topic['text_description'])) {
     $this->headMeta(_strip($topic['text_description']), 'twitter:description');
-} elseif(isset($config['text_description_index']) && !empty($config['text_description_index'])) {
+} elseif (isset($config['text_description_index']) && !empty($config['text_description_index'])) {
     $this->headMeta(_strip($config['text_description_index']), 'twitter:description');
 }
 if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
@@ -37,7 +37,8 @@ if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
 <?php if ($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['image']))) {
     // Image lightbox
     if ($config['image_lightbox']) {
-        $script = <<<'EOT'
+        $script
+            = <<<'EOT'
 window.addEventListener('DOMContentLoaded', function() {
     $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -50,15 +51,15 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 EOT;
-        $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
-        $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
+        $this->jQuery(['extension/jquery.magnific-popup.min.js' => ['defer' => 'defer']]);
+        $this->jQuery('extension/magnific-popup.min.css', ['defer' => 'defer']);
         $this->footScript()->appendScript($script);
     }
-?>
+    ?>
     <div class="topicinfo h-entry clearfix" itemscope itemtype="https://schema.org/Article">
         <div class="page-header">
             <h1 itemprop="name headline" class="p-name"><?php echo $this->escape($topic['title']); ?></h1>
-            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>"/>
         </div>
         <div class="clearfix">
             <?php if (!empty($topic['image'])) { ?>
@@ -98,7 +99,7 @@ EOT;
     <div class="topicinfo h-entry clearfix" itemscope itemtype="https://schema.org/Article">
         <div class="page-header">
             <h1 itemprop="name headline" class="p-name"><?php echo $this->escape($topic['title']); ?></h1>
-            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>" />
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $topic['time_create'])); ?>"/>
         </div>
     </div>
 <?php } ?>
@@ -106,7 +107,7 @@ EOT;
     <div class="topicinfo h-entry clearfix" itemscope itemtype="https://schema.org/Article">
         <div class="page-header">
             <h1 itemprop="name headline" class="p-name"><?php echo $newsTitleH1; ?></h1>
-            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", time())); ?>" />
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", time())); ?>"/>
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
             <div itemprop="description" class="well newsIndexDescription clearfix">

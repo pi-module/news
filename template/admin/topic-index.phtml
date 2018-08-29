@@ -2,8 +2,8 @@
 <div class="clearfix">
     <p>
         <a class="btn btn-primary" title="<?php _e('Add Topic'); ?>"
-           href="<?php echo $this->url('', array('controller' => 'topic', 'action' => 'update')); ?>"><i
-                class="fa fa-folder-open"></i><?php _e('Add Topic'); ?></a>
+           href="<?php echo $this->url('', ['controller' => 'topic', 'action' => 'update']); ?>"><i
+                    class="fa fa-folder-open"></i><?php _e('Add Topic'); ?></a>
     </p>
 
     <h3><?php _e('List of topics'); ?></h3>
@@ -33,14 +33,14 @@
                 <td><?php echo $this->escape($topic['type_view']); ?></td>
                 <td>
                     <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>"
-                       href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug']))); ?>"><i
-                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                       href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug'])]); ?>"><i
+                                class="fa fa-eye"></i> <?php _e('View'); ?></a>
                     <a class="btn btn-primary btn-xs" title="<?php _e('All stories'); ?>"
-                       href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'topic' => $topic['id'])); ?>"><i
-                            class="fa fa-eye"></i> <?php _e('All stories'); ?></a>
+                       href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'topic' => $topic['id']]); ?>"><i
+                                class="fa fa-eye"></i> <?php _e('All stories'); ?></a>
                     <a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>"
-                       href="<?php echo $this->url('', array('action' => 'update', 'id' => $topic['id'])); ?>"><i
-                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $topic['id']]); ?>"><i
+                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                     <?php /* if ($config['admin_json']) { ?>
                         <a class="btn btn-primary btn-xs" title="<?php _e('Json'); ?>"
                            href="<?php echo $this->url('news', array(

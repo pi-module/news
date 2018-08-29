@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -24,52 +25,60 @@ class MicroblogController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get info
-        $list = array();
-        $order = array('id DESC');
-        $limit = intval($this->config('admin_perpage'));
+        $list   = [];
+        $order  = ['id DESC'];
+        $limit  = intval($this->config('admin_perpage'));
         $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $where = array('status' => array(1, 2, 3, 4));
+        $where  = ['status' => [1, 2, 3, 4]];
         $select = $this->getModel('microblog')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('microblog')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $list[$row->id] = $row->toArray();
+            $list[$row->id]                 = $row->toArray();
             $list[$row->id]['time_publish'] = _date($list[$row->id]['time_publish']);
-            $list[$row->id]['user'] = Pi::user()->get($row->uid, array(
-                'id', 'identity', 'name', 'email'
-            ));
+            $list[$row->id]['user']         = Pi::user()->get(
+                $row->uid, [
+                'id', 'identity', 'name', 'email',
+            ]
+            );
             // Set url
             if ($row->status == 1) {
-                $list[$row->id]['microblogUrl'] = $this->url('news', array(
-                    'module' => $module,
+                $list[$row->id]['microblogUrl'] = $this->url(
+                    'news', [
+                    'module'     => $module,
                     'controller' => 'microblog',
-                    'id' => $row->id
-                ));
+                    'id'         => $row->id,
+                ]
+                );
             } else {
                 $list[$row->id]['microblogUrl'] = '';
             }
         }
         // Set paginator
-        $count = array('count' => new Expression('count(*)'));
-        $select = $this->getModel('microblog')->select()->columns($count);
-        $count = $this->getModel('microblog')->selectWith($select)->current()->count;
+        $count     = ['count' => new Expression('count(*)')];
+        $select    = $this->getModel('microblog')->select()->columns($count);
+        $count     = $this->getModel('microblog')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $this->getModule(),
-                'controller' => 'microblog',
-                'action' => 'index',
-            )),
-        ));
+        $paginator->setUrlOptions(
+            [
+                'router' => $this->getEvent()->getRouter(),
+                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $this->getModule(),
+                        'controller' => 'microblog',
+                        'action'     => 'index',
+                    ]
+                ),
+            ]
+        );
         // Set view
         $this->view()->setTemplate('microblog-index');
         $this->view()->assign('list', $list);
@@ -80,8 +89,8 @@ class MicroblogController extends ActionController
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
-        $type = $this->params('type');
+        $id     = $this->params('id');
+        $type   = $this->params('type');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -93,9 +102,9 @@ class MicroblogController extends ActionController
             return;
         }
         //
-        $option = array(
+        $option = [
             'type' => $type,
-        );
+        ];
         // Set form
         $form = new MicroblogForm('microblog', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
@@ -107,7 +116,7 @@ class MicroblogController extends ActionController
                 $values = $form->getData();
                 if (empty($values['id'])) {
                     $values['time_create'] = time();
-                    $values['uid'] = Pi::user()->getId();
+                    $values['uid']         = Pi::user()->getId();
                 }
                 // Save values
                 if (!empty($values['id'])) {
@@ -120,17 +129,21 @@ class MicroblogController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url($this->url('news', array(
-                        'module' => $module,
-                        'controller' => 'microblog',
-                        'id' => $row->id
-                    )));
+                    $loc = Pi::url(
+                        $this->url(
+                            'news', [
+                            'module'     => $module,
+                            'controller' => 'microblog',
+                            'id'         => $row->id,
+                        ]
+                        )
+                    );
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'microblog', $row->id);
                 }
                 // Jump
                 $message = __('Post saved successfully.');
-                $this->jump(array('action' => 'index'), $message);
+                $this->jump(['action' => 'index'], $message);
             }
         } else {
             if ($id) {
@@ -158,7 +171,7 @@ class MicroblogController extends ActionController
         // Get information
         $this->view()->setTemplate(false);
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -176,16 +189,20 @@ class MicroblogController extends ActionController
             $row->save();
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
-                $loc = Pi::url($this->url('news', array(
-                    'module' => $module,
-                    'controller' => 'microblog',
-                    'id' => $row->id
-                )));
+                $loc = Pi::url(
+                    $this->url(
+                        'news', [
+                        'module'     => $module,
+                        'controller' => 'microblog',
+                        'id'         => $row->id,
+                    ]
+                    )
+                );
                 Pi::api('sitemap', 'sitemap')->remove($loc);
             }
             // Remove page
-            $this->jump(array('action' => 'index'), __('This post deleted'));
+            $this->jump(['action' => 'index'], __('This post deleted'));
         }
-        $this->jump(array('action' => 'index'), __('Please select post'));
+        $this->jump(['action' => 'index'], __('Please select post'));
     }
 }

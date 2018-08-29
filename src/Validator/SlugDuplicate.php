@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Validator;
 
 use Pi;
@@ -22,26 +23,29 @@ class SlugDuplicate extends AbstractValidator
     /**
      * @var array
      */
-    protected $messageTemplates = array(
-        self::TAKEN => 'This slug already exists',
-    );
+    protected $messageTemplates
+        = [
+            self::TAKEN => 'This slug already exists',
+        ];
 
-    protected $options = array(
-        'module', 'table'
-    );
+    protected $options
+        = [
+            'module', 'table',
+        ];
 
     /**
      * Slug validate
      *
      * @param  mixed $value
      * @param  array $context
+     *
      * @return boolean
      */
     public function isValid($value, $context = null)
     {
         $this->setValue($value);
         if (null !== $value) {
-            $where = array('slug' => $value);
+            $where = ['slug' => $value];
             if (!empty($context['id'])) {
                 $where['id <> ?'] = $context['id'];
             }

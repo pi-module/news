@@ -15,9 +15,13 @@ class RowGateway extends \Pi\Db\RowGateway\RowGateway
 {
     public function save($rePopulate = true, $filter = true)
     {
-        $url = Pi::url(Pi::service('url')->assemble('news', array(
-            'slug' => $this->slug,
-        )));
+        $url = Pi::url(
+            Pi::service('url')->assemble(
+                'news', [
+                'slug' => $this->slug,
+            ]
+            )
+        );
 
         Pi::service('cache')->flushCacheByUrl($url, 'news');
 

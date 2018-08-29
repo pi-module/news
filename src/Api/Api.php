@@ -94,29 +94,34 @@ class Api extends AbstractApi
     public function addStory($values, $processEventImage = false)
     {
         // Check type
-        if (!isset($values['type']) || !in_array($values['type'], array(
+        if (!isset($values['type'])
+            || !in_array(
+                $values['type'], [
                 'text', 'post', 'article', 'magazine', 'event',
-                'image', 'gallery', 'media', 'download', 'feed'
-            ))
+                'image', 'gallery', 'media', 'download', 'feed',
+            ]
+            )
         ) {
             return false;
         }
         // Get config
         $config = Pi::service('registry')->config->read('news');
         // Set seo_title
-        $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-        $filter = new Filter\HeadTitle;
+        $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+        $filter              = new Filter\HeadTitle;
         $values['seo_title'] = $filter($title);
         // Set seo_keywords
         $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
-        $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => (bool)$config['force_replace_space'],
-        ));
+        $filter   = new Filter\HeadKeywords;
+        $filter->setOptions(
+            [
+                'force_replace_space' => (bool)$config['force_replace_space'],
+            ]
+        );
         $values['seo_keywords'] = $filter($keywords);
         // Set seo_description
-        $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-        $filter = new Filter\HeadDescription;
+        $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+        $filter                    = new Filter\HeadDescription;
         $values['seo_description'] = $filter($description);
         // Check time_create
         if (!isset($values['time_create']) || empty($values['time_create'])) {
@@ -164,19 +169,21 @@ class Api extends AbstractApi
         $config = Pi::service('registry')->config->read('news');
         if ($updateSeo) {
             // Set seo_title
-            $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-            $filter = new Filter\HeadTitle;
+            $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+            $filter              = new Filter\HeadTitle;
             $values['seo_title'] = $filter($title);
             // Set seo_keywords
             $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
-            $filter = new Filter\HeadKeywords;
-            $filter->setOptions(array(
-                'force_replace_space' => (bool)$config['force_replace_space'],
-            ));
+            $filter   = new Filter\HeadKeywords;
+            $filter->setOptions(
+                [
+                    'force_replace_space' => (bool)$config['force_replace_space'],
+                ]
+            );
             $values['seo_keywords'] = $filter($keywords);
             // Set seo_description
-            $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-            $filter = new Filter\HeadDescription;
+            $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+            $filter                    = new Filter\HeadDescription;
             $values['seo_description'] = $filter($description);
         }
         // Check time_update
@@ -207,10 +214,10 @@ class Api extends AbstractApi
         return $story;
     }
 
-    public function uploadImage($file = array(), $prefix = '', $imagePath = '', $cropping = null)
+    public function uploadImage($file = [], $prefix = '', $imagePath = '', $cropping = null)
     {
         // Set result
-        $result = array();
+        $result = [];
         // upload image
         if (!empty($file['image']['name'])) {
             $config = Pi::service('registry')->config->read('news');
@@ -218,7 +225,7 @@ class Api extends AbstractApi
             $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
             // Set upload path
             $result['path'] = sprintf('%s/%s', date('Y'), date('m'));
-            $originalPath = Pi::path(sprintf('upload/%s/original/%s', $imagePath, $result['path']));
+            $originalPath   = Pi::path(sprintf('upload/%s/original/%s', $imagePath, $result['path']));
             // Image name
             $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $prefix, $result['path'], $imagePath);
             // Upload
@@ -229,7 +236,7 @@ class Api extends AbstractApi
             $uploader->setSize($config['image_size']);
 
             if (isset($config['image_crop']) && $config['image_crop'] && $config['image_largew'] && $config['image_largeh']) {
-                $uploader->setImageSize(array('minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']));
+                $uploader->setImageSize(['minwidth' => $config['image_largew'], 'minheight' => $config['image_largeh']]);
             }
 
             if ($uploader->isValid()) {
@@ -250,10 +257,10 @@ class Api extends AbstractApi
     public function removeImage($id = 0)
     {
         // Set result
-        $result = array(
-            'status' => 0,
+        $result = [
+            'status'  => 0,
             'message' => '',
-        );
+        ];
         // Check id
         if (isset($id) && intval($id) > 0) {
             // Get story
@@ -261,20 +268,20 @@ class Api extends AbstractApi
             if ($story) {
                 // clear DB
                 $story->image = '';
-                $story->path = '';
+                $story->path  = '';
                 // Save
                 $story->save();
                 // Check
                 if ($story->path == '' && $story->image == '') {
                     $result['message'] = sprintf(__('Image of %s removed'), $story->title);
-                    $result['status'] = 1;
+                    $result['status']  = 1;
                 } else {
                     $result['message'] = __('Image not remove');
-                    $result['status'] = 0;
+                    $result['status']  = 0;
                 }
             } else {
                 $result['message'] = __('Please select story');
-                $result['status'] = 0;
+                $result['status']  = 0;
             }
         }
         return $result;
@@ -283,9 +290,11 @@ class Api extends AbstractApi
     public function setupLink($link)
     {
         // Remove
-        Pi::model('link', $this->getModule())->delete(array(
-            'story' => $link['story']
-        ));
+        Pi::model('link', $this->getModule())->delete(
+            [
+                'story' => $link['story'],
+            ]
+        );
         // process link module
         foreach ($link['module'] as $module) {
             // Check module
@@ -309,16 +318,16 @@ class Api extends AbstractApi
                             // Check controller topic
                             if (isset($topic) && intval($topic) > 0) {
                                 // Set link values
-                                $values['story'] = intval($link['story']);
+                                $values['story']        = intval($link['story']);
                                 $values['time_publish'] = intval($link['time_publish']);
-                                $values['time_update'] = intval($link['time_update']);
-                                $values['status'] = intval($link['status']);
-                                $values['uid'] = intval($link['uid']);
-                                $values['type'] = $link['type'];
+                                $values['time_update']  = intval($link['time_update']);
+                                $values['status']       = intval($link['status']);
+                                $values['uid']          = intval($link['uid']);
+                                $values['type']         = $link['type'];
                                 // Set topic / controller / module
-                                $values['topic'] = intval($topic);
+                                $values['topic']      = intval($topic);
                                 $values['controller'] = $controller['name'];
-                                $values['module'] = $module['name'];
+                                $values['module']     = $module['name'];
                                 // Save
                                 $row = Pi::model('link', $this->getModule())->createRow();
                                 $row->assign($values);
@@ -331,7 +340,7 @@ class Api extends AbstractApi
         }
     }
 
-    public function getStorySingle($parameter, $field, $type = 'full', $option = array())
+    public function getStorySingle($parameter, $field, $type = 'full', $option = [])
     {
         // Set option
         $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : false;
@@ -353,9 +362,9 @@ class Api extends AbstractApi
         return $story;
     }
 
-    public function getStoryList($where = array(), $order = array(), $offset = '', $limit = 10, $type = 'full', $table = 'link', $option = array())
+    public function getStoryList($where = [], $order = [], $offset = '', $limit = 10, $type = 'full', $table = 'link', $option = [])
     {
-        $list = array();
+        $list = [];
         switch ($table) {
             case 'story':
                 // Select from story table
@@ -391,18 +400,18 @@ class Api extends AbstractApi
                 if (!empty($limit)) {
                     $select->limit($limit);
                 }
-                $columns = array('story' => new Expression('DISTINCT story'));
+                $columns = ['story' => new Expression('DISTINCT story')];
                 $select->columns($columns);
                 $rowSetLink = Pi::model('link', $this->getModule())->selectWith($select);
-                $storyId = array();
+                $storyId    = [];
                 foreach ($rowSetLink as $id) {
                     $storyId[] = $id['story'];
                 }
                 // Select from story table
                 if (!empty($storyId)) {
-                    $whereStory = array('id' => $storyId);
-                    $select = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
-                    $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                    $whereStory = ['id' => $storyId];
+                    $select     = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
+                    $rowSet     = Pi::model('story', $this->getModule())->selectWith($select);
                 } else {
                     return $list;
                 }
@@ -426,80 +435,84 @@ class Api extends AbstractApi
 
                 default:
                 case 'full':
-                    $list[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, array(), $option);
+                    $list[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, [], $option);
                     break;
             }
         }
         return $list;
     }
 
-    public function getStoryPaginator($template, $where = array(), $page = 1, $limit = 10, $table = 'link')
+    public function getStoryPaginator($template, $where = [], $page = 1, $limit = 10, $table = 'link')
     {
         // Set count
         switch ($table) {
             case 'story':
-                $columns = array('count' => new Expression('count(*)'));
-                $select = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
-                $count = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                $columns = ['count' => new Expression('count(*)')];
+                $select  = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
+                $count   = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
                 break;
 
             default:
             case 'link':
-                $columns = array('count' => new Expression('count(DISTINCT `story`)'));
-                $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
-                $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                $columns = ['count' => new Expression('count(DISTINCT `story`)')];
+                $select  = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
+                $count   = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
                 break;
         }
         // Check template
-        $template['module'] = (isset($template['module'])) ? $template['module'] : 'news';
+        $template['module']     = (isset($template['module'])) ? $template['module'] : 'news';
         $template['controller'] = (isset($template['controller'])) ? $template['controller'] : 'index';
-        $template['action'] = (isset($template['action'])) ? $template['action'] : 'index';
-        $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
-        $template['id'] = (isset($template['id'])) ? $template['id'] : '';
-        $template['status'] = (isset($template['status'])) ? $template['status'] : '';
-        $template['topic'] = (isset($template['topic'])) ? $template['topic'] : '';
-        $template['uid'] = (isset($template['uid'])) ? $template['uid'] : '';
-        $template['title'] = (isset($template['title'])) ? $template['title'] : '';
-        $template['status'] = (isset($template['status'])) ? $template['status'] : '';
+        $template['action']     = (isset($template['action'])) ? $template['action'] : 'index';
+        $template['slug']       = (isset($template['slug'])) ? $template['slug'] : '';
+        $template['id']         = (isset($template['id'])) ? $template['id'] : '';
+        $template['status']     = (isset($template['status'])) ? $template['status'] : '';
+        $template['topic']      = (isset($template['topic'])) ? $template['topic'] : '';
+        $template['uid']        = (isset($template['uid'])) ? $template['uid'] : '';
+        $template['title']      = (isset($template['title'])) ? $template['title'] : '';
+        $template['status']     = (isset($template['status'])) ? $template['status'] : '';
         // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            //'router' => $this->getEvent()->getRouter(),
-            //'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $template['module'],
-                'controller' => $template['controller'],
-                'action' => $template['action'],
-                'slug' => $template['slug'],
-                'id' => $template['id'],
-                'status' => $template['status'],
-                'topic' => $template['topic'],
-                'uid' => $template['uid'],
-                'title' => $template['title'],
-                'status' => $template['status'],
-            )),
-        ));
+        $paginator->setUrlOptions(
+            [
+                //'router' => $this->getEvent()->getRouter(),
+                //'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $template['module'],
+                        'controller' => $template['controller'],
+                        'action'     => $template['action'],
+                        'slug'       => $template['slug'],
+                        'id'         => $template['id'],
+                        'status'     => $template['status'],
+                        'topic'      => $template['topic'],
+                        'uid'        => $template['uid'],
+                        'title'      => $template['title'],
+                        'status'     => $template['status'],
+                    ]
+                ),
+            ]
+        );
 
         return $paginator;
     }
 
-    public function getStoryCount($where = array(), $table = 'link')
+    public function getStoryCount($where = [], $table = 'link')
     {
         // Set count
         switch ($table) {
             case 'story':
-                $columns = array('count' => new Expression('count(*)'));
-                $select = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
-                $count = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                $columns = ['count' => new Expression('count(*)')];
+                $select  = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
+                $count   = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
                 break;
 
             default:
             case 'link':
-                $columns = array('count' => new Expression('count(DISTINCT `story`)'));
-                $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
-                $count = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                $columns = ['count' => new Expression('count(DISTINCT `story`)')];
+                $select  = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
+                $count   = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
                 break;
         }
 
@@ -510,10 +523,10 @@ class Api extends AbstractApi
     public function getStoryRelated($where, $order)
     {
         // Set info
-        $config = Pi::service('registry')->config->read($this->getModule());
-        $related = array();
-        $columns = array('story' => new Expression('DISTINCT story'));
-        $limit = intval($config['related_num']);
+        $config  = Pi::service('registry')->config->read($this->getModule());
+        $related = [];
+        $columns = ['story' => new Expression('DISTINCT story')];
+        $limit   = intval($config['related_num']);
         // Get info from link table
         $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
@@ -546,10 +559,10 @@ class Api extends AbstractApi
         }
 
         // Clean params
-        $paramsClean = array();
+        $paramsClean = [];
         foreach ($_GET as $key => $value) {
-            $key = _strip($key);
-            $value = _strip($value);
+            $key               = _strip($key);
+            $value             = _strip($value);
             $paramsClean[$key] = $value;
         }
 
@@ -557,25 +570,25 @@ class Api extends AbstractApi
         $config = Pi::service('registry')->config->read($module);
 
         // Set empty result
-        $result = array(
-            'stories' => array(),
-            'paginator' => array(),
-            'condition' => array(),
-        );
+        $result = [
+            'stories'   => [],
+            'paginator' => [],
+            'condition' => [],
+        ];
 
         // Set where link
-        $whereLink = array(
+        $whereLink = [
             'status' => 1,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
-        );
+            'type'   => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
 
         // Set page title
         $pageTitle = __('List of stories');
 
         // Set order
-        $order = array('time_publish DESC', 'id DESC');
+        $order = ['time_publish DESC', 'id DESC'];
 
         // Get topic information from model
         if (!empty($options['topic'])) {
@@ -585,7 +598,7 @@ class Api extends AbstractApi
             if (!$topic || $topic['status'] != 1) {
                 return $result;
             }
-            $topicIDList = array();
+            $topicIDList   = [];
             $topicIDList[] = $topic['id'];
             if (isset($topic['ids']) && !empty($topic['ids'])) {
                 foreach ($topic['ids'] as $topicSingle) {
@@ -598,7 +611,7 @@ class Api extends AbstractApi
 
         // Get tag list
         if (!empty($options['tag'])) {
-            $storyIDTag = array();
+            $storyIDTag = [];
             // Check favourite
             if (!Pi::service('module')->isActive('tag')) {
                 return $result;
@@ -613,36 +626,38 @@ class Api extends AbstractApi
         }
 
         // Set story ID list
-        $checkTitle = false;
-        $storyIDList = array(
-            'title' => array(),
-        );
+        $checkTitle  = false;
+        $storyIDList = [
+            'title' => [],
+        ];
 
         // Check title from story table
         if (isset($options['title']) && !empty($options['title'])) {
             $checkTitle = true;
-            $titles = is_array($options['title']) ? $options['title'] : array($options['title']);
-            $columns = array('id');
-            $select = Pi::model('story', $module)->select()->columns($columns)->where(function ($where) use ($titles) {
-                $whereMain = clone $where;
-                $whereKey = clone $where;
-                $whereMain->equalTo('status', 1);
-                foreach ($titles as $title) {
-                    $whereKey->like('title', '%' . $title . '%')->and;
+            $titles     = is_array($options['title']) ? $options['title'] : [$options['title']];
+            $columns    = ['id'];
+            $select     = Pi::model('story', $module)->select()->columns($columns)->where(
+                function ($where) use ($titles) {
+                    $whereMain = clone $where;
+                    $whereKey  = clone $where;
+                    $whereMain->equalTo('status', 1);
+                    foreach ($titles as $title) {
+                        $whereKey->like('title', '%' . $title . '%')->and;
+                    }
+                    $where->andPredicate($whereMain)->andPredicate($whereKey);
                 }
-                $where->andPredicate($whereMain)->andPredicate($whereKey);
-            })->order($order);
-            $rowset = Pi::model('story', $module)->selectWith($select);
+            )->order($order);
+            $rowset     = Pi::model('story', $module)->selectWith($select);
             foreach ($rowset as $row) {
                 $storyIDList['title'][$row->id] = $row->id;
             }
         }
 
         // Set info
-        $story = array();
+        $story = [];
         $count = 0;
 
-        $limit = (intval($options['limit']) > 0) ? intval($options['limit']) : intval($config['view_perpage']);
+        $limit  = (intval($options['limit']) > 0) ? intval($options['limit']) : intval($config['view_perpage']);
         $offset = (int)($options['page'] - 1) * $limit;
 
         // Set topic on where link
@@ -673,9 +688,9 @@ class Api extends AbstractApi
         // Check has Search Result
         if ($hasSearchResult) {
             // Set option
-            $storyOptions = array(
+            $storyOptions = [
                 'getUser' => $options['getUser'],
-            );
+            ];
             // Get story
             $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, 'full', 'link', $storyOptions);
             $count = Pi::api('api', 'news')->getStoryCount($whereLink, 'link');
@@ -683,17 +698,17 @@ class Api extends AbstractApi
         }
 
         // Set result
-        $result = array(
-            'stories' => $story,
-            'paginator' => array(
+        $result = [
+            'stories'   => $story,
+            'paginator' => [
                 'count' => $count,
                 'limit' => $limit,
-                'page' => $options['page'],
-            ),
-            'condition' => array(
+                'page'  => $options['page'],
+            ],
+            'condition' => [
                 'title' => $pageTitle,
-            ),
-        );
+            ],
+        ];
 
         return $result;
     }
@@ -703,11 +718,14 @@ class Api extends AbstractApi
         // Find story
         $story = Pi::api('story', 'news')->getStory($id);
         // Check item
-        if (!$story || $story['status'] != 1 || !in_array($story['type'], array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ))
+        if (!$story || $story['status'] != 1
+            || !in_array(
+                $story['type'], [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ]
+            )
         ) {
-            $storySingle = array();
+            $storySingle = [];
         } else {
 
             // Set text_summary
@@ -718,49 +736,51 @@ class Api extends AbstractApi
             $story['text_description'] = strip_tags($story['text_description'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $story['text_description'] = str_replace("<p>&nbsp;</p>", "", $story['text_description']);
 
-            $storySingle = array(
-                'id' => $story['id'],
-                'title' => $story['title'],
-                'subtitle' => $story['subtitle'],
-                'topic' => $story['topic'][0],
-                'text_summary' => $story['text_summary'],
-                'text_description' => $story['text_description'],
-                'time_publish' => $story['time_publish'],
+            $storySingle = [
+                'id'                => $story['id'],
+                'title'             => $story['title'],
+                'subtitle'          => $story['subtitle'],
+                'topic'             => $story['topic'][0],
+                'text_summary'      => $story['text_summary'],
+                'text_description'  => $story['text_description'],
+                'time_publish'      => $story['time_publish'],
                 'time_publish_view' => $story['time_publish_view'],
-                'storyUrl' => $story['storyUrl'],
-                'largeUrl' => $story['largeUrl'],
-                'mediumUrl' => $story['mediumUrl'],
-                'thumbUrl' => $story['thumbUrl'],
-            );
+                'storyUrl'          => $story['storyUrl'],
+                'largeUrl'          => $story['largeUrl'],
+                'mediumUrl'         => $story['mediumUrl'],
+                'thumbUrl'          => $story['thumbUrl'],
+            ];
 
             if ($getUser) {
-                $user = Pi::user()->get($story['uid'], array(
-                    'id', 'identity', 'name', 'email'
-                ));
-                $storySingle['userName'] = $user['name'];
+                $user                      = Pi::user()->get(
+                    $story['uid'], [
+                    'id', 'identity', 'name', 'email',
+                ]
+                );
+                $storySingle['userName']   = $user['name'];
                 $storySingle['userAvatar'] = '';
             }
         }
-        $storySingle = array($storySingle);
+        $storySingle = [$storySingle];
         // Set view
         return $storySingle;
     }
 
     public function jsonSubmit($data)
     {
-        $result = array();
+        $result           = [];
         $result['status'] = 0;
 
         // Set object to array
         $data = $data->toArray();
         // Check
-        if (isset($data['uid']) &&
-            !empty($data['uid']) &&
-            $data['uid'] > 0 &&
-            isset($data['title']) &&
-            !empty($data['title']) &&
-            isset($data['body']) &&
-            !empty($data['body'])
+        if (isset($data['uid'])
+            && !empty($data['uid'])
+            && $data['uid'] > 0
+            && isset($data['title'])
+            && !empty($data['title'])
+            && isset($data['body'])
+            && !empty($data['body'])
         ) {
 
             // Set slug
@@ -772,7 +792,7 @@ class Api extends AbstractApi
                 // Save image
                 $imageFile = sprintf('upload/news/app/%s.jpg', $slug);
                 $imagePath = Pi::path($imageFile);
-                $ifp = fopen($imagePath, 'wb');
+                $ifp       = fopen($imagePath, 'wb');
                 fwrite($ifp, base64_decode($data['image']));
                 fclose($ifp);
                 // Insert to media module
@@ -784,7 +804,7 @@ class Api extends AbstractApi
                     $path         = Pi::api('doc', 'media')->getMediaPath($baseFilename);
                     $slug         = Pi::api('doc', 'media')->getSlugFilename($baseFilename);
                     $destination  = $rootPath . $path . $slug;
-                    $mediaData    = array(
+                    $mediaData    = [
                         'active'       => 1,
                         'time_created' => time(),
                         'uid'          => intval($data['uid']),
@@ -793,15 +813,15 @@ class Api extends AbstractApi
                         'mimetype'     => 'image/jpeg',
                         'path'         => $path,
                         'filename'     => $slug,
-                    );
+                    ];
 
                     Pi::service('file')->mkdir($rootPath . $path);
-                    if(!is_file($destination)){
+                    if (!is_file($destination)) {
                         Pi::service('file')->copy($imagePath, $destination);
                     }
 
-                    $mediaEntity = Pi::model('doc', 'media')->select(array('filename' => $slug))->current();
-                    if(!$mediaEntity || !$mediaEntity->id){
+                    $mediaEntity = Pi::model('doc', 'media')->select(['filename' => $slug])->current();
+                    if (!$mediaEntity || !$mediaEntity->id) {
                         $mediaEntity = Pi::model('doc', 'media')->createRow($mediaData);
                         $mediaEntity->save();
                         $imageId = $mediaEntity->id;
@@ -810,15 +830,15 @@ class Api extends AbstractApi
             }
 
             // Save
-            $row = Pi::model('story', 'news')->createRow();
-            $row->title = _strip($data['title']);
-            $row->slug = $slug;
-            $row->status = 2;
-            $row->time_create = time();
-            $row->type = 'text';
-            $row->text_description = _strip($data['body']);
-            $row->uid = intval($data['uid']);
-            $row->main_image = $imageId;
+            $row                    = Pi::model('story', 'news')->createRow();
+            $row->title             = _strip($data['title']);
+            $row->slug              = $slug;
+            $row->status            = 2;
+            $row->time_create       = time();
+            $row->type              = 'text';
+            $row->text_description  = _strip($data['body']);
+            $row->uid               = intval($data['uid']);
+            $row->main_image        = $imageId;
             $row->additional_images = '';
             $row->save();
 

@@ -1,4 +1,4 @@
-<?php $this->css($this->assetModule('css/front.css'), array('defer' => 'defer')); ?>
+<?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -22,7 +22,10 @@
                             <div class="col-md-3 u-photo">
                                 <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img class="img-responsive img-thumbnail" itemprop="image" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                    <img class="img-responsive img-thumbnail" itemprop="image"
+                                         src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                             'medium'
+                                         ); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
@@ -47,8 +50,8 @@
                                 <li>
                                     <?php _e('Topics'); ?> : <?php foreach ($story['topics'] as $storyTopic) { ?>
                                         <span class=" p-category" itemprop="about"><a
-                                                title="<?php echo $storyTopic['title']; ?>"
-                                                href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
+                                                    title="<?php echo $storyTopic['title']; ?>"
+                                                    href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
                                     <?php } ?>
                                 </li>
                             <?php } ?>
@@ -64,7 +67,7 @@
                         </ul>
                     </div>
                 </div>
-                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>

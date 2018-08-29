@@ -16,7 +16,7 @@
                 <span class="itemPostDate"><?php _e('Update Time'); ?>
                     : <?php echo $this->escape($story['time_publish_view']); ?></span>
                 <span class="itemStats"><?php _e('Read'); ?>: <?php echo $this->escape($story['hits']); ?></span>
-				<span class="itemtopics"><?php _e('Topics'); ?>:
+                <span class="itemtopics"><?php _e('Topics'); ?>:
                     <?php foreach ($story['topics'] as $storyTopic) { ?>
                         <a title="<?php echo $storyTopic['title']; ?>"
                            href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a> ,
@@ -27,7 +27,8 @@
             <div class="itemBody">
                 <?php if ($story['main_image']) { ?>
                     <div class="itemImage gallery pull-left">
-                        <img class="img-thumbnail" src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
+                        <img class="img-thumbnail"
+                             src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"/>
                     </div>
                 <?php } ?>
@@ -37,17 +38,17 @@
             </div>
             <div class="clearfix well well-sm">
                 <a class="btn btn-primary" title="<?php _e('Back'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'index')); ?>"><i
-                        class="fa fa-arrow-left"></i>  <?php _e('Back'); ?></a>
+                   href="<?php echo $this->url('', ['action' => 'index']); ?>"><i
+                            class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('View'); ?>"
-                   href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug']))); ?>"><i
-                        class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                   href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug'])]); ?>"><i
+                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i
-                        class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                   href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
+                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Delete'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"><i
-                        class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+                   href="<?php echo $this->url('', ['action' => 'delete', 'id' => $story['id']]); ?>"><i
+                            class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
             </div>
         </div>
     </div>

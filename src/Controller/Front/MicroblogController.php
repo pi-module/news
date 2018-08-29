@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -23,7 +24,7 @@ class MicroblogController extends ActionController
     public function indexAction()
     {
         // Get info from url
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -52,7 +53,7 @@ class MicroblogController extends ActionController
             return;
         }
         // Update Hits
-        $this->getModel('microblog')->increment('hits', array('id' => $microblog['id']));
+        $this->getModel('microblog')->increment('hits', ['id' => $microblog['id']]);
         // Set view
         $this->view()->headTitle($microblog['seo_title']);
         $this->view()->headdescription($microblog['seo_description'], 'set');
@@ -66,9 +67,9 @@ class MicroblogController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
-        $uid = $this->params('uid');
-        $topic = $this->params('topic');
-        $page = $this->params('page', 1);
+        $uid    = $this->params('uid');
+        $topic  = $this->params('topic');
+        $page   = $this->params('page', 1);
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Check deactivate view
@@ -86,19 +87,19 @@ class MicroblogController extends ActionController
             return;
         }
         // Set info
-        $list = array();
-        $where = array('status' => 1);
+        $list  = [];
+        $where = ['status' => 1];
         // Check uid and topic
         if (isset($uid) && intval($uid) > 0) {
-            $where['uid'] = intval($uid);
+            $where['uid']   = intval($uid);
             $where['topic'] = 0;
         } elseif (isset($topic) && intval($topic) > 0) {
             $where['topic'] = 1;
         }
         // Set info
-        $order = array('time_create DESC', 'id DESC');
+        $order  = ['time_create DESC', 'id DESC'];
         $offset = (int)($page - 1) * $this->config('microblog_perpage');
-        $limit = intval($this->config('microblog_perpage'));
+        $limit  = intval($this->config('microblog_perpage'));
         // Get info
         $select = $this->getModel('microblog')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('microblog')->selectWith($select);
@@ -107,31 +108,37 @@ class MicroblogController extends ActionController
             $list[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
         }
         // get count
-        $columns = array('count' => new Expression('count(*)'));
-        $select = $this->getModel('microblog')->select()->where($where)->columns($columns);
-        $count = $this->getModel('microblog')->selectWith($select)->current()->count;
+        $columns = ['count' => new Expression('count(*)')];
+        $select  = $this->getModel('microblog')->select()->where($where)->columns($columns);
+        $count   = $this->getModel('microblog')->selectWith($select)->current()->count;
         // paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage(intval($limit));
         $paginator->setCurrentPageNumber(intval($page));
-        $paginator->setUrlOptions(array(
-            'router'    => $this->getEvent()->getRouter(),
-            'route'     => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params'    => array_filter(array(
-                'module'        => $this->getModule(),
-                'controller'    => 'microblog',
-                'action'        => 'list',
-                'uid'           => $uid,
-                'topic'         => $topic,
-            )),
-        ));
+        $paginator->setUrlOptions(
+            [
+                'router' => $this->getEvent()->getRouter(),
+                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $this->getModule(),
+                        'controller' => 'microblog',
+                        'action'     => 'list',
+                        'uid'        => $uid,
+                        'topic'      => $topic,
+                    ]
+                ),
+            ]
+        );
         // Set header and title
         $title = __('All posts on microblog system');
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => true
-        ));
+        $filter->setOptions(
+            [
+                'force_replace_space' => true,
+            ]
+        );
         $seoKeywords = $filter($title);
         // Set view
         $this->view()->headTitle($title);

@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -25,26 +26,30 @@ class SitemapForm extends BaseForm
     public function init()
     {
         // type
-        $this->add(array(
-            'name' => 'type',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Select for rebuild'),
-                'value_options' => array(
-                    1 => __('All of tables'),
-                    2 => __('Just story table'),
-                    3 => __('Just topic table'),
-                    4 => __('Just author table'),
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'type',
+                'type'    => 'select',
+                'options' => [
+                    'label'         => __('Select for rebuild'),
+                    'value_options' => [
+                        1 => __('All of tables'),
+                        2 => __('Just story table'),
+                        3 => __('Just topic table'),
+                        4 => __('Just author table'),
+                    ],
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }	

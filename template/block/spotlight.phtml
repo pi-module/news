@@ -9,8 +9,10 @@
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" class="media-object img-rounded img-responsive u-photo"
-                                src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
-                                alt="<?php echo $this->escape($story['title']); ?>"/>
+                                     src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                         'thumbnail'
+                                     ); ?>"
+                                     alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         <?php } ?>
                         <div class="media-body p-item h-card">
@@ -26,7 +28,7 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
-                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
@@ -89,7 +91,7 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
-                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
@@ -154,7 +156,7 @@
                                         <ul class="text-muted list-inline">
                                             <?php if ($block['showdate']) { ?>
                                                 <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
@@ -233,7 +235,7 @@
                                         <ul class="text-muted list-inline small">
                                             <?php if ($block['showdate']) { ?>
                                                 <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
@@ -310,7 +312,9 @@
                     <?php foreach ($block['resources'] as $story) { ?>
                         <tr class="odd h-entry" itemscope itemtype="https://schema.org/Article">
                             <td class="p-name" itemprop="name"><a href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                                                  title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+                                                                  title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape(
+                                        $story['title']
+                                    ); ?></a>
                             </td>
                             <?php if ($block['showdesc']) { ?>
                                 <td class="p-summary"><?php echo $this->escape($story['text_summary']); ?></td>
@@ -327,11 +331,13 @@
             </div>
         <?php } elseif ($block['type'] == 'slide') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery(array(
-                    'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.min.css',
-                ));
-                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+                $this->jQuery(
+                    [
+                        'extension/owl.carousel.min.js',
+                        'extension/owl.carousel.min.css',
+                    ]
+                );
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
@@ -341,7 +347,7 @@
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
                                     <li class="dt-published"><i
-                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showhits']) { ?>
@@ -380,11 +386,13 @@
             </div>
         <?php } elseif ($block['type'] == 'slidehover') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery(array(
-                    'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.min.css',
-                ));
-                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+                $this->jQuery(
+                    [
+                        'extension/owl.carousel.min.js',
+                        'extension/owl.carousel.min.css',
+                    ]
+                );
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
@@ -395,7 +403,7 @@
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
                                     <li class="dt-published"><i
-                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showhits']) { ?>
@@ -457,7 +465,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($story['largeUrl']); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="img-responsive u-photo" />
+                                         class="img-responsive u-photo"/>
                                 </a>
 
                                 <div class="carousel-caption">
@@ -470,7 +478,7 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
-                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
@@ -556,7 +564,7 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
-                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($firstStory['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
@@ -617,7 +625,7 @@
                                             <ul class="text-muted list-inline">
                                                 <?php if ($block['showdate']) { ?>
                                                     <li class="dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
                                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                                 <?php } ?>
                                                 <?php if ($block['showhits']) { ?>

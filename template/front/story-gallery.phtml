@@ -1,9 +1,10 @@
 <?php
 // Load front.css
-$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
+$this->css($this->assetModule('css/front.css'), ['defer' => 'defer']);
 // Image lightbox
 if ($config['image_lightbox']) {
-    $script = <<<'EOT'
+    $script
+        = <<<'EOT'
 window.addEventListener('DOMContentLoaded', function() {
     $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -16,13 +17,13 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 EOT;
-    $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
-    $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
+    $this->jQuery(['extension/jquery.magnific-popup.min.js' => ['defer' => 'defer']]);
+    $this->jQuery('extension/magnific-popup.min.css', ['defer' => 'defer']);
     $this->footScript()->appendScript($script);
 }
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-$shareImage = (string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
+$shareImage = (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
 $this->headMeta($this->escape($story['title']), 'og:title', 'property');
 $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
@@ -40,7 +41,7 @@ if ($shareImage) {
     $this->headMeta($shareImage, 'twitter:image');
 }
 
-$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async'));
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'async']);
 
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
@@ -58,7 +59,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
         </h1>
     </div>
 
-    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
     <div class="clearfix small itemUnderHead">
         <ul class="list-inline text-muted pull-right">
             <?php if ($config['show_date']) { ?>
@@ -93,8 +94,8 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                     <div class="pull-left">
                         <?php foreach ($story['authors'] as $author) { ?>
                             <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a
-                                    title="<?php echo $author['authorName']; ?>"
-                                    href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
+                                        title="<?php echo $author['authorName']; ?>"
+                                        href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
                         <?php } ?>
                     </div>
                 <?php } ?>
@@ -128,23 +129,26 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
             <?php if ($story['main_image'] || $story['additional_images']) { ?>
                 <div class="gallery gallery-list text-center clearfix row">
                     <div class="u-photo col-lg-3 col-md-4 col-xs-6 gallery-thumb">
-                        <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
+                        <?php $media = Pi::api('doc', 'media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                         <a class="thumbnail" href="<?php echo $media['resized_url']; ?>"
-                           title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
+                           title="<?php echo $this->escape($story['title']); ?><?php if ($media['copyright']) echo ' - ' . $media['copyright'] ?>">
                             <img itemprop="image" class="img-responsive lazyload"
                                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                 data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                 data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                     'medium'
+                                 ); ?>"
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         </a>
                     </div>
 
-                    <?php $galleryImages = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 320, 200) ?>
-                    <?php $galleryImagesBig = Pi::api('doc','media')->getGalleryLinkData($story['additional_images'], 900, 600) ?>
+                    <?php $galleryImages = Pi::api('doc', 'media')->getGalleryLinkData($story['additional_images'], 320, 200) ?>
+                    <?php $galleryImagesBig = Pi::api('doc', 'media')->getGalleryLinkData($story['additional_images'], 900, 600) ?>
                     <?php if ($galleryImages) { ?>
                         <?php foreach ($galleryImages as $key => $galleryImage) { ?>
                             <div class="u-photo col-lg-3 col-md-4 col-xs-6 thumb">
                                 <a class="thumbnail" href="<?php echo $galleryImagesBig[$key]['resized_url']; ?>"
-                                   title="<?php echo $this->escape($galleryImage['title']); ?><?php if($galleryImage['copyright']) echo ' - ' . $galleryImage['copyright'] ?>">
+                                   title="<?php echo $this->escape($galleryImage['title']); ?><?php if ($galleryImage['copyright']) echo ' - '
+                                       . $galleryImage['copyright'] ?>">
                                     <img itemprop="image" class="img-responsive lazyload"
                                          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                          data-src="<?php echo $galleryImage['resized_url']; ?>"
@@ -192,20 +196,20 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
         </div>
     </div>
     <?php //if ($config['show_nav']) { ?>
-        <div class="itemPager">
-            <ul class="pager">
-                <?php if (!empty($link['previous'])) { ?>
-                    <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
-                                            href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
-                    </li>
-                <?php } ?>
-                <?php if (!empty($link['next'])) { ?>
-                    <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
-                                        href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
+    <div class="itemPager">
+        <ul class="pager">
+            <?php if (!empty($link['previous'])) { ?>
+                <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
+                                        href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
+                </li>
+            <?php } ?>
+            <?php if (!empty($link['next'])) { ?>
+                <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
+                                    href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
     <?php //} ?>
     <?php /* if (isset($relateds) && !empty($relateds)) { ?>
         <div class="itemList itemRelated">
@@ -222,7 +226,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
 </div>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('iframe').wrap('<div class="iframe-wrapper">');
     });
 </script>

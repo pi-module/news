@@ -3,8 +3,8 @@
     <div class="admin-header clearfix">
         <div class="col-md-7">
             <a class="btn btn-primary" title="<?php _e('Add Author'); ?>"
-               href="<?php echo $this->url('', array('controller' => 'author', 'action' => 'update')); ?>"><i
-                    class="fa fa-plus"></i> <?php _e('Add Author'); ?></a>
+               href="<?php echo $this->url('', ['controller' => 'author', 'action' => 'update']); ?>"><i
+                        class="fa fa-plus"></i> <?php _e('Add Author'); ?></a>
         </div>
         <div class="col-md-5">
             <?php echo $this->form($form, 'inline'); ?>
@@ -28,16 +28,18 @@
                 ?>
                 <tr>
                     <td><span
-                            class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($author['id']); ?></span>
+                                class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($author['id']); ?></span>
                     </td>
                     <td><?php echo $this->escape($author['title']); ?></td>
                     <td>
                         <a class="btn btn-primary" title="<?php _e('View'); ?>"
-                           href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'author', 'slug' => $this->escape($author['slug']))); ?>"><i
-                                class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                           href="<?php echo $this->url(
+                               'news', ['module' => $module, 'controller' => 'author', 'slug' => $this->escape($author['slug'])]
+                           ); ?>"><i
+                                    class="fa fa-eye"></i> <?php _e('View'); ?></a>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
-                           href="<?php echo $this->url('', array('action' => 'update', 'id' => $author['id'])); ?>"><i
-                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                           href="<?php echo $this->url('', ['action' => 'update', 'id' => $author['id']]); ?>"><i
+                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                     </td>
                 </tr>
             <?php } ?>

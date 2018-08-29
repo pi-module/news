@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -71,10 +72,10 @@ class JsonController extends IndexController
     public function indexAction()
     {
         // Set return
-        $return = array(
+        $return = [
             'website' => Pi::url(),
-            'module' => $this->params('module'),
-        );
+            'module'  => $this->params('module'),
+        ];
         // Set view
         return $return;
     }
@@ -83,11 +84,11 @@ class JsonController extends IndexController
     {
         // Get info from url
         $module = $this->params('module');
-        $page = $this->params('page', 1);
-        $title = $this->params('title');
-        $topic = $this->params('topic');
-        $tag = $this->params('tag');
-        $limit = $this->params('limit');
+        $page   = $this->params('page', 1);
+        $title  = $this->params('title');
+        $topic  = $this->params('topic');
+        $tag    = $this->params('tag');
+        $limit  = $this->params('limit');
 
         // Set has search result
         $hasSearchResult = true;
@@ -102,10 +103,10 @@ class JsonController extends IndexController
         }
 
         // Clean params
-        $paramsClean = array();
+        $paramsClean = [];
         foreach ($_GET as $key => $value) {
-            $key = _strip($key);
-            $value = _strip($value);
+            $key               = _strip($key);
+            $value             = _strip($value);
             $paramsClean[$key] = $value;
         }
 
@@ -113,25 +114,25 @@ class JsonController extends IndexController
         $config = Pi::service('registry')->config->read($module);
 
         // Set empty result
-        $result = array(
-            'stories' => array(),
-            'paginator' => array(),
-            'condition' => array(),
-        );
+        $result = [
+            'stories'   => [],
+            'paginator' => [],
+            'condition' => [],
+        ];
 
         // Set where link
-        $whereLink = array(
+        $whereLink = [
             'status' => 1,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
-        );
+            'type'   => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
 
         // Set page title
         $pageTitle = __('List of stories');
 
         // Set order
-        $order = array('time_publish DESC', 'id DESC');
+        $order = ['time_publish DESC', 'id DESC'];
 
         // Get topic information from model
         if (!empty($topic)) {
@@ -141,7 +142,7 @@ class JsonController extends IndexController
             if (!$topic || $topic['status'] != 1) {
                 return $result;
             }
-            $topicIDList = array();
+            $topicIDList   = [];
             $topicIDList[] = $topic['id'];
             if (isset($topic['ids']) && !empty($topic['ids'])) {
                 foreach ($topic['ids'] as $topicSingle) {
@@ -154,7 +155,7 @@ class JsonController extends IndexController
 
         // Get tag list
         if (!empty($tag)) {
-            $storyIDTag = array();
+            $storyIDTag = [];
             // Check favourite
             if (!Pi::service('module')->isActive('tag')) {
                 return $result;
@@ -169,36 +170,38 @@ class JsonController extends IndexController
         }
 
         // Set story ID list
-        $checkTitle = false;
-        $storyIDList = array(
-            'title' => array(),
-        );
+        $checkTitle  = false;
+        $storyIDList = [
+            'title' => [],
+        ];
 
         // Check title from story table
         if (isset($title) && !empty($title)) {
             $checkTitle = true;
-            $titles = is_array($title) ? $title : array($title);
-            $columns = array('id');
-            $select = $this->getModel('story')->select()->columns($columns)->where(function ($where) use ($titles) {
-                $whereMain = clone $where;
-                $whereKey = clone $where;
-                $whereMain->equalTo('status', 1);
-                foreach ($titles as $title) {
-                    $whereKey->like('title', '%' . $title . '%')->and;
+            $titles     = is_array($title) ? $title : [$title];
+            $columns    = ['id'];
+            $select     = $this->getModel('story')->select()->columns($columns)->where(
+                function ($where) use ($titles) {
+                    $whereMain = clone $where;
+                    $whereKey  = clone $where;
+                    $whereMain->equalTo('status', 1);
+                    foreach ($titles as $title) {
+                        $whereKey->like('title', '%' . $title . '%')->and;
+                    }
+                    $where->andPredicate($whereMain)->andPredicate($whereKey);
                 }
-                $where->andPredicate($whereMain)->andPredicate($whereKey);
-            })->order($order);
-            $rowset = $this->getModel('story')->selectWith($select);
+            )->order($order);
+            $rowset     = $this->getModel('story')->selectWith($select);
             foreach ($rowset as $row) {
                 $storyIDList['title'][$row->id] = $row->id;
             }
         }
 
         // Set info
-        $story = array();
+        $story = [];
         $count = 0;
 
-        $limit = (intval($limit) > 0) ? intval($limit) : intval($config['view_perpage']);
+        $limit  = (intval($limit) > 0) ? intval($limit) : intval($config['view_perpage']);
         $offset = (int)($page - 1) * $limit;
 
         // Set topic on where link
@@ -235,17 +238,17 @@ class JsonController extends IndexController
         }
 
         // Set result
-        $result = array(
-            'stories' => $story,
-            'paginator' => array(
+        $result = [
+            'stories'   => $story,
+            'paginator' => [
                 'count' => $count,
                 'limit' => $limit,
-                'page' => $page,
-            ),
-            'condition' => array(
+                'page'  => $page,
+            ],
+            'condition' => [
                 'title' => $pageTitle,
-            ),
-        );
+            ],
+        ];
 
         return $result;
     }
@@ -262,13 +265,13 @@ class JsonController extends IndexController
             return;
         }
         // Set story info
-        $where = array(
-            'status' => 1,
+        $where = [
+            'status'          => 1,
             'time_update > ?' => $update,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
-        );
+            'type'            => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
         // Get story List
         $storyList = $this->storyJsonList($where);
         // Set view
@@ -278,7 +281,7 @@ class JsonController extends IndexController
     public function storyTopicAction()
     {
         // Get info from url
-        $id = $this->params('id', 0);
+        $id     = $this->params('id', 0);
         $update = $this->params('update', 0);
         // Check password
         if (!$this->checkPassword()) {
@@ -292,17 +295,17 @@ class JsonController extends IndexController
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
         // Check category
         if (!$topic || $topic['status'] != 1) {
-            $storyList = array();
+            $storyList = [];
         } else {
             // Set story info
-            $where = array(
-                'status' => 1,
-                'topic' => $topic['ids'],
+            $where = [
+                'status'          => 1,
+                'topic'           => $topic['ids'],
                 'time_update > ?' => $update,
-                'type' => array(
-                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-                )
-            );
+                'type'            => [
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+                ],
+            ];
             // Get story List
             $storyList = $this->storyJsonList($where);
         }
@@ -313,7 +316,7 @@ class JsonController extends IndexController
     public function storySingleAction()
     {
         // Get info from url
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Check password
         if (!$this->checkPassword()) {
@@ -330,38 +333,42 @@ class JsonController extends IndexController
         $story = $this->getModel('story')->find($id);
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check item
-        if (!$story || $story['status'] != 1 || !in_array($story['type'] , array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ))) {
-            $storySingle = array();
+        if (!$story || $story['status'] != 1
+            || !in_array(
+                $story['type'], [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ]
+            )
+        ) {
+            $storySingle = [];
         } else {
 
             // Set text_summary
             $story['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
-            $story['text_summary'] = strip_tags($story['text_summary'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_summary'] = strip_tags($story['text_summary'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $story['text_summary'] = str_replace("<p>&nbsp;</p>", "", $story['text_summary']);
 
             // Set text_description
             $story['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
-            $story['text_description'] = strip_tags($story['text_description'],"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $story['text_description'] = strip_tags($story['text_description'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
             $story['text_description'] = str_replace("<p>&nbsp;</p>", "", $story['text_description']);
 
-            $storySingle = array(
-                'id' => $story['id'],
-                'title' => $story['title'],
-                'subtitle' => $story['subtitle'],
-                'topic' => $story['topic'][0],
-                'text_summary' => $story['text_summary'],
-                'text_description' => $story['text_description'],
-                'time_publish' => $story['time_publish'],
+            $storySingle = [
+                'id'                => $story['id'],
+                'title'             => $story['title'],
+                'subtitle'          => $story['subtitle'],
+                'topic'             => $story['topic'][0],
+                'text_summary'      => $story['text_summary'],
+                'text_description'  => $story['text_description'],
+                'time_publish'      => $story['time_publish'],
                 'time_publish_view' => $story['time_publish_view'],
-                'storyUrl' => $story['storyUrl'],
-                'largeUrl' => $story['largeUrl'],
-                'mediumUrl' => $story['mediumUrl'],
-                'thumbUrl' => $story['thumbUrl'],
-            );
+                'storyUrl'          => $story['storyUrl'],
+                'largeUrl'          => $story['largeUrl'],
+                'mediumUrl'         => $story['mediumUrl'],
+                'thumbUrl'          => $story['thumbUrl'],
+            ];
         }
-        $storySingle = array($storySingle);
+        $storySingle = [$storySingle];
         // Set view
         return $storySingle;
     }
@@ -419,9 +426,10 @@ class JsonController extends IndexController
         return $result;
     } */
 
-    public function filterSearchAction() {
+    public function filterSearchAction()
+    {
         // Get info from url
-        $module = $this->params('module');
+        $module  = $this->params('module');
         $keyword = $this->params('keyword');
         // Check keyword not empty
         if (empty($keyword)) {
@@ -431,41 +439,42 @@ class JsonController extends IndexController
             return;
         }
         // Set list
-        $list = array();
+        $list = [];
         // Set info
-        $where1 = array('status' => 1, 'type' => array(
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-        ));
-        $where1['title LIKE ?'] = '%' . $keyword . '%';
-        $where2['text_summary LIKE ?'] = '%' . $keyword . '%';
+        $where1                            = ['status' => 1, 'type' => [
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+        ]];
+        $where1['title LIKE ?']            = '%' . $keyword . '%';
+        $where2['text_summary LIKE ?']     = '%' . $keyword . '%';
         $where3['text_description LIKE ?'] = '%' . $keyword . '%';
-        $order = array('time_create DESC', 'id DESC');
+        $order                             = ['time_create DESC', 'id DESC'];
         // Item list header
-        $list[] = array(
+        $list[] = [
             'class' => ' class="dropdown-header"',
             'title' => sprintf(__('Stories related to %s'), $keyword),
-            'url' => '#',
+            'url'   => '#',
             'image' => Pi::service('asset')->logo(),
-        );
+        ];
         // Get list of product
         $select = $this->getModel('story')->select()->where($where1)->where($where2, 'OR')->where($where2, 'OR')->order($order)->limit(10);
         $rowset = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $story = Pi::api('story', 'news')->canonizeStoryLight($row);
-            $list[] = array(
+            $story  = Pi::api('story', 'news')->canonizeStoryLight($row);
+            $list[] = [
                 'class' => '',
                 'title' => $story['title'],
-                'url' => $story['productUrl'],
+                'url'   => $story['productUrl'],
                 'image' => isset($story['thumbUrl']) ? $story['thumbUrl'] : Pi::service('asset')->logo(),
-            );
+            ];
         }
         // Set view
         return $list;
     }
 
-    public function checkPassword() {
+    public function checkPassword()
+    {
         // Get info from url
-        $module = $this->params('module');
+        $module   = $this->params('module');
         $password = $this->params('password');
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -492,14 +501,14 @@ class JsonController extends IndexController
         // Update Hits
         if (!isset($_SESSION['hits_news'][$story['id']])) {
             if (!isset($_SESSION['hits_news'])) {
-                $_SESSION['hits_news'] = array();
+                $_SESSION['hits_news'] = [];
             }
 
             $_SESSION['hits_news'][$story['id']] = false;
         }
 
         if (!$_SESSION['hits_news'][$story['id']]) {
-            Pi::model('story', 'news')->increment('hits', array('id' => $story['id']));
+            Pi::model('story', 'news')->increment('hits', ['id' => $story['id']]);
             $_SESSION['hits_news'][$story['id']] = true;
         }
 
@@ -508,9 +517,9 @@ class JsonController extends IndexController
          */
         $story = Pi::model('story', 'news')->find($slug, 'slug');
 
-        return array(
+        return [
             'status' => 1,
-            'hits' => (int) $story->hits,
-        );
+            'hits'   => (int)$story->hits,
+        ];
     }
 }

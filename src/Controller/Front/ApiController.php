@@ -14,7 +14,7 @@ class ApiController extends ActionController
 
         Pi::service('log')->mute();
 
-        $slug = $this->params('slug');
+        $slug   = $this->params('slug');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
@@ -22,14 +22,14 @@ class ApiController extends ActionController
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
 
-//        print_r($story); die();
+        //        print_r($story); die();
 
 
         // favourite
         if ($config['favourite_bar'] && Pi::service('module')->isActive('favourite')) {
-            $favourite['is'] = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
-            $favourite['item'] = $story['id'];
-            $favourite['table'] = 'story';
+            $favourite['is']     = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
+            $favourite['item']   = $story['id'];
+            $favourite['table']  = 'story';
             $favourite['module'] = $module;
             $view->assign('favourite', $favourite);
 

@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -30,15 +31,15 @@ class AuthorController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
-        $title = $this->params('title');
+        $title  = $this->params('title');
         // Set info
         $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $order = array('title DESC', 'id DESC');
-        $limit = intval($this->config('admin_perpage'));
+        $order  = ['title DESC', 'id DESC'];
+        $limit  = intval($this->config('admin_perpage'));
         // Get
-        $where = array();
+        $where = [];
         if (!empty($title)) {
             $where['title LIKE ?'] = '%' . $title . '%';
         }
@@ -46,34 +47,38 @@ class AuthorController extends ActionController
         $select = $this->getModel('author')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('author')->selectWith($select);
         // Make list
-        $author = array();
+        $author = [];
         foreach ($rowset as $row) {
-            $author[$row->id] = $row->toArray();
+            $author[$row->id]                = $row->toArray();
             $author[$row->id]['time_create'] = _date($author[$row->id]['time_create']);
         }
         // Set paginator
-        $columns = array('count' => new Expression('count(*)'));
-        $select = $this->getModel('author')->select()->where($where)->columns($columns);
-        $count = $this->getModel('author')->selectWith($select)->current()->count;
+        $columns   = ['count' => new Expression('count(*)')];
+        $select    = $this->getModel('author')->select()->where($where)->columns($columns);
+        $count     = $this->getModel('author')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $this->getModule(),
-                'controller' => 'author',
-                'action' => 'index',
-                'title' => $title,
-            )),
-        ));
-        // Set form
-        $values = array(
-            'title' => $title,
+        $paginator->setUrlOptions(
+            [
+                'router' => $this->getEvent()->getRouter(),
+                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $this->getModule(),
+                        'controller' => 'author',
+                        'action'     => 'index',
+                        'title'      => $title,
+                    ]
+                ),
+            ]
         );
-        $form = new StorySearchForm('search');
-        $form->setAttribute('action', $this->url('', array('action' => 'process')));
+        // Set form
+        $values = [
+            'title' => $title,
+        ];
+        $form   = new StorySearchForm('search');
+        $form->setAttribute('action', $this->url('', ['action' => 'process']));
         $form->setData($values);
         // Set view
         $this->view()->setTemplate('author-index');
@@ -90,23 +95,23 @@ class AuthorController extends ActionController
             $form->setInputFilter(new StorySearchFilter());
             $form->setData($data);
             if ($form->isValid()) {
-                $values = $form->getData();
+                $values  = $form->getData();
                 $message = __('View filtered stores');
-                $url = array(
+                $url     = [
                     'action' => 'index',
-                    'title' => $values['title'],
-                );
+                    'title'  => $values['title'],
+                ];
             } else {
                 $message = __('Not valid');
-                $url = array(
+                $url     = [
                     'action' => 'index',
-                );
+                ];
             }
         } else {
             $message = __('Not set');
-            $url = array(
+            $url     = [
                 'action' => 'index',
-            );
+            ];
         }
         return $this->jump($url, $message);
     }
@@ -114,16 +119,16 @@ class AuthorController extends ActionController
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
-        $option = array();
+        $option = [];
         // Find author
         if ($id) {
             $author = $this->getModel('author')->find($id)->toArray();
             if ($author['image']) {
-                $author['thumbUrl'] = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $author['path'], $author['image']);
-                $option['thumbUrl'] = Pi::url($author['thumbUrl']);
-                $option['removeUrl'] = $this->url('', array('action' => 'remove', 'id' => $author['id']));
+                $author['thumbUrl']  = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $author['path'], $author['image']);
+                $option['thumbUrl']  = Pi::url($author['thumbUrl']);
+                $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $author['id']]);
             }
         }
         // Set form
@@ -133,8 +138,8 @@ class AuthorController extends ActionController
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
             // Set slug
-            $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $filter = new Filter\Slug;
+            $slug         = ($data['slug']) ? $data['slug'] : $data['title'];
+            $filter       = new Filter\Slug;
             $data['slug'] = $filter($slug);
             // Form filter
             $form->setInputFilter(new AuthorFilter);
@@ -145,7 +150,7 @@ class AuthorController extends ActionController
                 if (!empty($file['image']['name'])) {
                     // Set upload path
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
-                    $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+                    $originalPath   = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
                     // Image name
                     $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageAuthorPrefix, $values['path']);
                     // Upload
@@ -161,25 +166,27 @@ class AuthorController extends ActionController
                         // process image
                         Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
-                        $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
+                        $this->jump(['action' => 'update'], __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
                 // Set seo_title
-                $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $filter = new Filter\HeadTitle;
+                $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+                $filter              = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
-                $filter = new Filter\HeadKeywords;
-                $filter->setOptions(array(
-                    'force_replace_space' => (bool)$this->config('force_replace_space'),
-                ));
+                $filter   = new Filter\HeadKeywords;
+                $filter->setOptions(
+                    [
+                        'force_replace_space' => (bool)$this->config('force_replace_space'),
+                    ]
+                );
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
-                $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $filter = new Filter\HeadDescription;
+                $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+                $filter                    = new Filter\HeadDescription;
                 $values['seo_description'] = $filter($description);
                 // Set if new
                 if (empty($values['id'])) {
@@ -201,11 +208,15 @@ class AuthorController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url($this->url('news', array(
-                        'module' => $module,
-                        'controller' => 'author',
-                        'slug' => $values['slug']
-                    )));
+                    $loc = Pi::url(
+                        $this->url(
+                            'news', [
+                            'module'     => $module,
+                            'controller' => 'author',
+                            'slug'       => $values['slug'],
+                        ]
+                        )
+                    );
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);
                 }
@@ -214,7 +225,7 @@ class AuthorController extends ActionController
                 Pi::registry('authorRoute', 'news')->clear();
                 // jump
                 $message = __('Author data saved successfully.');
-                $this->jump(array('action' => 'index'), $message);
+                $this->jump(['action' => 'index'], $message);
             } else {
                 $message = __('Invalid data, please check and re-submit.');
             }
@@ -247,22 +258,22 @@ class AuthorController extends ActionController
             Pi::service('file')->remove($files); */
             // clear DB
             $author->image = '';
-            $author->path = '';
+            $author->path  = '';
             // Save
             if ($author->save()) {
                 $message = sprintf(__('Image of %s removed'), $author->title);
-                $status = 1;
+                $status  = 1;
             } else {
                 $message = __('Image not remove');
-                $status = 0;
+                $status  = 0;
             }
         } else {
             $message = __('Please select author');
-            $status = 0;
+            $status  = 0;
         }
-        return array(
-            'status' => $status,
+        return [
+            'status'  => $status,
             'message' => $message,
-        );
+        ];
     }
 }

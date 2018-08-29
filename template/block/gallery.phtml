@@ -6,7 +6,8 @@ $width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md
 <div class="news-block news-gallery-block gallery clearfix">
     <?php if ($block['type'] == 'simple') { ?>
         <?php if ($block['showeffect']) {
-            $script = <<<'EOT'
+            $script
+                = <<<'EOT'
 window.addEventListener('DOMContentLoaded', function() {
     $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -19,8 +20,8 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 EOT;
-            $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
-            $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
+            $this->jQuery(['extension/jquery.magnific-popup.min.js' => ['defer' => 'defer']]);
+            $this->jQuery('extension/magnific-popup.min.css', ['defer' => 'defer']);
             $this->footScript()->appendScript($script);
         }
         ?>
@@ -42,11 +43,13 @@ EOT;
         </div>
     <?php } elseif ($block['type'] == 'slide') { ?>
         <?php
-        $this->jQuery(array(
-            'extension/owl.carousel.min.js',
-            'extension/owl.carousel.min.css',
-        ));
-        $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+        $this->jQuery(
+            [
+                'extension/owl.carousel.min.js',
+                'extension/owl.carousel.min.css',
+            ]
+        );
+        $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
         $this->js($this->assetModule('js/caption.hover.js', 'news'));
         ?>
         <div class="owl-carousel text-center clearfix hover-captions-container">

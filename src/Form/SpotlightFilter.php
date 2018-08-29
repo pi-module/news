@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -20,34 +21,46 @@ class SpotlightFilter extends InputFilter
     public function __construct()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // story
-        $this->add(array(
-            'name' => 'story',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'story',
+                'required' => true,
+            ]
+        );
         // topic
-        $this->add(array(
-            'name' => 'topic',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'topic',
+                'required' => true,
+            ]
+        );
         // time_publish
-        $this->add(array(
-            'name' => 'time_publish',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'time_publish',
+                'required' => true,
+            ]
+        );
         // time_expire
-        $this->add(array(
-            'name' => 'time_expire',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'time_expire',
+                'required' => true,
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'status',
+                'required' => true,
+            ]
+        );
     }
 }

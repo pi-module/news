@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -22,7 +23,7 @@ class TopicController extends IndexController
     {
         // Get info from url
         $module = $this->params('module');
-        $slug = $this->params('slug');
+        $slug   = $this->params('slug');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Check deactivate view
@@ -53,16 +54,16 @@ class TopicController extends IndexController
         // Check topic style
         if ($topic['style'] == 'topic') {
             // Get topic list
-            $where = array('status' => 1, 'pid' => $topic['id']);
-            $order = array('id DESC');
+            $where  = ['status' => 1, 'pid' => $topic['id']];
+            $order  = ['id DESC'];
             $select = $this->getModel('topic')->select()->where($where)->order($order);
             $rowset = $this->getModel('topic')->selectWith($select);
             foreach ($rowset as $row) {
                 // Reset topic setting
                 if (!empty($row) && is_object($row)) {
-                    $setting = json_decode($row->setting, true);
+                    $setting               = json_decode($row->setting, true);
                     $setting['show_subid'] = 0;
-                    $row->setting = json_encode($setting);
+                    $row->setting          = json_encode($setting);
                 }
                 // Canonize topic
                 $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
@@ -71,25 +72,25 @@ class TopicController extends IndexController
             $this->view()->assign('topics', $topics);
         } else {
             // Set story info
-            $where = array(
+            $where = [
                 'status' => 1,
-                'topic' => $topic['ids'],
-                'type' => array(
-                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-                )
-            );
+                'topic'  => $topic['ids'],
+                'type'   => [
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+                ],
+            ];
 
             // Set paginator info
-            $template = array(
+            $template = [
                 'controller' => 'topic',
-                'action' => 'index',
-                'slug' => $topic['slug'],
-            );
+                'action'     => 'index',
+                'slug'       => $topic['slug'],
+            ];
             // Get paginator
             $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
             // Get story List
             $storyList = $this->storyList($paginator, $topic['show_order_link']);
-        
+
             // Spotlight
             $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
             // Set view
@@ -126,8 +127,8 @@ class TopicController extends IndexController
             return;
         }
         // Get topic list
-        $where = array('status' => 1, 'type' => 'general');
-        $order = array('time_create DESC', 'id DESC');
+        $where  = ['status' => 1, 'type' => 'general'];
+        $order  = ['time_create DESC', 'id DESC'];
         $select = $this->getModel('topic')->select()->where($where)->order($order);
         $rowset = $this->getModel('topic')->selectWith($select);
         foreach ($rowset as $row) {
@@ -137,9 +138,11 @@ class TopicController extends IndexController
         $title = __('List of all topics');
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
-        $filter->setOptions(array(
-            'force_replace_space' => true
-        ));
+        $filter->setOptions(
+            [
+                'force_replace_space' => true,
+            ]
+        );
         $seoKeywords = $filter($title);
 
         // Save statistics

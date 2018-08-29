@@ -1,9 +1,9 @@
 <?php
-$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
+$this->css($this->assetModule('css/front.css'), ['defer' => 'defer']);
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
 $this->headMeta(__('List of all topics'), 'og:title', 'property');
-$this->headMeta(Pi::url($this->url('', array('module' => 'news', 'controller' => 'topic'))), 'og:url', 'property');
+$this->headMeta(Pi::url($this->url('', ['module' => 'news', 'controller' => 'topic'])), 'og:url', 'property');
 $this->headMeta(__('List of all topics'), 'og:description', 'property');
 // Set twitter for meta
 $this->headMeta(__('List of all topics'), 'twitter:title');
@@ -21,12 +21,12 @@ $this->headMeta(__('List of all topics'), 'twitter:description');
                 <div class="col-xs-12 col-sm-6 col-md-3" itemprop="itemListElement">
                     <div class="thumbnail">
                         <?php if (!empty($topic['image'])) { ?>
-                        <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
-                           title="<?php echo $this->escape($topic['title']); ?>">
-                            <img itemprop="image" class="u-photo"
-                                 src="<?php echo $this->escape($topic['mediumUrl']); ?>"
-                                 alt="<?php echo $this->escape($topic['title']); ?>">
-                        </a>
+                            <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
+                               title="<?php echo $this->escape($topic['title']); ?>">
+                                <img itemprop="image" class="u-photo"
+                                     src="<?php echo $this->escape($topic['mediumUrl']); ?>"
+                                     alt="<?php echo $this->escape($topic['title']); ?>">
+                            </a>
                         <?php } ?>
                         <div class="caption">
                             <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"

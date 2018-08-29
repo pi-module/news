@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -19,7 +20,8 @@ class Spotlight extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id', 'story', 'topic', 'uid', 'time_publish', 'time_expire', 'status'
-    );
+    protected $columns
+        = [
+            'id', 'story', 'topic', 'uid', 'time_publish', 'time_expire', 'status',
+        ];
 }

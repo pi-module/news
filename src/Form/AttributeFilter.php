@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -20,51 +21,65 @@ class AttributeFilter extends InputFilter
     public function __construct($options)
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'required' => true,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'     => 'title',
+                'required' => true,
+                'filters'  => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+            ]
+        );
         // name
-        $this->add(array(
-            'name' => 'name',
-            'required' => true,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-            'validators' => array(
-                new \Module\News\Validator\NameDuplicate(array(
-                    'module' => Pi::service('module')->current(),
-                    'table' => 'field',
-                )),
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'name',
+                'required'   => true,
+                'filters'    => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+                'validators' => [
+                    new \Module\News\Validator\NameDuplicate(
+                        [
+                            'module' => Pi::service('module')->current(),
+                            'table'  => 'field',
+                        ]
+                    ),
+                ],
+            ]
+        );
         // topic
-        $this->add(array(
-            'name' => 'topic',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'topic',
+                'required' => true,
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'status',
+                'required' => true,
+            ]
+        );
         // position
-        $this->add(array(
-            'name' => 'position',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'position',
+                'required' => true,
+            ]
+        );
         // type
         /* $this->add(array(
             'name' => 'type',
@@ -72,30 +87,40 @@ class AttributeFilter extends InputFilter
         )); */
         if ($options['type'] == 'select') {
             // data
-            $this->add(array(
-                'name' => 'data',
-                'required' => false,
-            ));
+            $this->add(
+                [
+                    'name'     => 'data',
+                    'required' => false,
+                ]
+            );
             // default
-            $this->add(array(
-                'name' => 'default',
-                'required' => false,
-            ));
+            $this->add(
+                [
+                    'name'     => 'default',
+                    'required' => false,
+                ]
+            );
         }
         // information
-        $this->add(array(
-            'name' => 'information',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'information',
+                'required' => false,
+            ]
+        );
         // icon
-        $this->add(array(
-            'name' => 'icon',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'icon',
+                'required' => false,
+            ]
+        );
         // search
-        $this->add(array(
-            'name' => 'search',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'search',
+                'required' => false,
+            ]
+        );
     }
 }

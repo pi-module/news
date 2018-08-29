@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -19,7 +20,8 @@ class Microblog extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id', 'post', 'status', 'uid', 'hits', 'time_create', 'topic'
-    );
+    protected $columns
+        = [
+            'id', 'post', 'status', 'uid', 'hits', 'time_create', 'topic',
+        ];
 }

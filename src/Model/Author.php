@@ -10,6 +10,7 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Model;
 
 use Pi\Application\Model\Model;
@@ -19,8 +20,9 @@ class Author extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = array(
-        'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description',
-        'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status'
-    );
+    protected $columns
+        = [
+            'id', 'title', 'slug', 'text_description', 'seo_title', 'seo_keywords', 'seo_description',
+            'time_create', 'time_update', 'uid', 'hits', 'image', 'path', 'status',
+        ];
 }
