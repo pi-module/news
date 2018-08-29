@@ -154,25 +154,27 @@ class StoryForm extends BaseForm
             ]
         );
         // status
-        $this->add(
-            [
-                'name'       => 'status',
-                'type'       => 'select',
-                'options'    => [
-                    'label'         => __('Status'),
-                    'value_options' => [
-                        1 => __('Published'),
-                        2 => __('Pending review'),
-                        3 => __('Draft'),
-                        4 => __('Private'),
-                        5 => __('Remove'),
+        if ($this->option['user_allow_confirm']) {
+            $this->add(
+                [
+                    'name'       => 'status',
+                    'type'       => 'select',
+                    'options'    => [
+                        'label'         => __('Status'),
+                        'value_options' => [
+                            1 => __('Published'),
+                            2 => __('Pending review'),
+                            3 => __('Draft'),
+                            4 => __('Private'),
+                            5 => __('Remove'),
+                        ],
                     ],
-                ],
-                'attributes' => [
-                    'required' => true,
-                ],
-            ]
-        );
+                    'attributes' => [
+                        'required' => true,
+                    ],
+                ]
+            );
+        }
         // type
         if (!$this->option['admin_deactivate_view']) {
             $option = [

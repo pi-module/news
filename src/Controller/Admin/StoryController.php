@@ -83,8 +83,8 @@ class StoryController extends ActionController
             } else {
                 $user                    = Pi::user()->get(
                     $row->uid, [
-                    'id', 'identity', 'name', 'email',
-                ]
+                        'id', 'identity', 'name', 'email',
+                    ]
                 );
                 $story[$row->id]['user'] = $user;
                 $users[$row->uid]        = $user;
@@ -93,10 +93,10 @@ class StoryController extends ActionController
             if ($row->status == 1) {
                 $story[$row->id]['storyUrl'] = $this->url(
                     'news', [
-                    'module'     => $module,
-                    'controller' => 'story',
-                    'slug'       => $row->slug,
-                ]
+                        'module'     => $module,
+                        'controller' => 'story',
+                        'slug'       => $row->slug,
+                    ]
                 );
             } else {
                 $story[$row->id]['storyUrl'] = '';
@@ -135,10 +135,10 @@ class StoryController extends ActionController
                         if ($row->status == 1) {
                             $story[$row->id]['storyUrl'] = $this->url(
                                 'blog', [
-                                'module'     => 'blog',
-                                'controller' => 'post',
-                                'slug'       => $row->slug,
-                            ]
+                                    'module'     => 'blog',
+                                    'controller' => 'post',
+                                    'slug'       => $row->slug,
+                                ]
                             );
                         }
                     } else {
@@ -241,7 +241,7 @@ class StoryController extends ActionController
         $this->view()->assign('story', $story);
     }
 
-    public function acceptAction()
+    /* public function acceptAction()
     {
         // Get id and status
         $module = $this->params('module');
@@ -266,10 +266,10 @@ class StoryController extends ActionController
                     $loc = Pi::url(
                         $this->url(
                             'news', [
-                            'module'     => $module,
-                            'controller' => 'story',
-                            'slug'       => $story->slug,
-                        ]
+                                'module'     => $module,
+                                'controller' => 'story',
+                                'slug'       => $story->slug,
+                            ]
                         )
                     );
                     // Update sitemap
@@ -293,7 +293,7 @@ class StoryController extends ActionController
             $return['storystatus'] = 0;
         }
         return $return;
-    }
+    } */
 
     public function removeAction()
     {
@@ -356,10 +356,26 @@ class StoryController extends ActionController
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+
+        // Get user
+        $uid          = Pi::user()->getId();
+
+        // Set confirmation access
+        $allowConfirm = 1;
+        if ($config['admin_confirmation_limit'] && !empty($config['admin_confirmation_role'])) {
+            $roles        = Pi::service('user')->getRole($uid, 'admin');
+            if (!in_array($config['admin_confirmation_role'], $roles)) {
+                $allowConfirm = 0;
+            }
+        }
+
         // Set option
-        $option                       = [];
-        $option['admin_time_publish'] = $config['admin_time_publish'];
-        $option['admin_text_extra']   = $config['admin_text_extra'];
+        $option                             = [];
+        $option['admin_time_publish']       = $config['admin_time_publish'];
+        $option['admin_text_extra']         = $config['admin_text_extra'];
+        $option['admin_confirmation_limit'] = $config['admin_confirmation_limit'];
+        $option['admin_confirmation_role']  = $config['admin_confirmation_role'];
+        $option['user_allow_confirm']       = $allowConfirm;
         // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();
@@ -473,7 +489,7 @@ class StoryController extends ActionController
                 $values['seo_description'] = $filter($description);
                 // Set time
                 if ($story['status'] == 6) {
-                    $values['uid']         = Pi::user()->getId();
+                    $values['uid']         = $uid;
                     $values['time_create'] = time();
                     if ($values['time_publish'] && $config['admin_time_publish']) {
                         $values['time_publish'] = strtotime($values['time_publish']);
@@ -486,6 +502,12 @@ class StoryController extends ActionController
                         $values['time_publish'] = strtotime($values['time_publish']);
                     }
                 }
+
+                // Check confirm access
+                if (!$allowConfirm) {
+                    $values['status'] = 2;
+                }
+
                 // Save values
                 $row = $this->getModel('story')->find($values['id']);
                 $row->assign($values);
@@ -508,10 +530,10 @@ class StoryController extends ActionController
                     $loc = Pi::url(
                         $this->url(
                             'news', [
-                            'module'     => $module,
-                            'controller' => 'story',
-                            'slug'       => $values['slug'],
-                        ]
+                                'module'     => $module,
+                                'controller' => 'story',
+                                'slug'       => $values['slug'],
+                            ]
                         )
                     );
                     // Update sitemap
@@ -526,7 +548,7 @@ class StoryController extends ActionController
                     $spotlightValues                 = [];
                     $spotlightValues['time_publish'] = time();
                     $spotlightValues['time_expire']  = time() + (60 * 60 * 24 * 14);
-                    $spotlightValues['uid']          = Pi::user()->getId();
+                    $spotlightValues['uid']          = $uid;
                     $spotlightValues['story']        = $row->id;
                     $spotlightValues['topic']        = 0;
                     $spotlightValues['status']       = $row->status;
@@ -617,19 +639,19 @@ class StoryController extends ActionController
             $content[$attach->id]['downloadUrl'] = Pi::url(
                 $this->url(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'media',
-                    'action'     => 'download',
-                    'id'         => $attach->id,
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'media',
+                        'action'     => 'download',
+                        'id'         => $attach->id,
+                    ]
                 )
             );
             $content[$attach->id]['editUrl']     = $this->url(
                 '', [
-                'controller' => 'attach',
-                'action'     => 'edit',
-                'id'         => $attach->id,
-            ]
+                    'controller' => 'attach',
+                    'action'     => 'edit',
+                    'id'         => $attach->id,
+                ]
             );
             $content[$attach->id]['preview']     = Pi::api('attach', 'news')->filePreview(
                 $content[$attach->id]['type'],
@@ -807,10 +829,10 @@ class StoryController extends ActionController
                 $loc = Pi::url(
                     $this->url(
                         'news', [
-                        'module'     => $module,
-                        'controller' => 'story',
-                        'slug'       => $row->slug,
-                    ]
+                            'module'     => $module,
+                            'controller' => 'story',
+                            'slug'       => $row->slug,
+                        ]
                     )
                 );
                 Pi::api('sitemap', 'sitemap')->remove($loc);

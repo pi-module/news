@@ -59,12 +59,12 @@ return [
     ],
     'item'     => [
         // Generic
-        'advertisement'          => [
+        'advertisement'            => [
             'title' => _a('Advertisement'),
             'edit'  => 'textarea',
         ],
         // Admin
-        'admin_perpage'          => [
+        'admin_perpage'            => [
             'category'    => 'admin',
             'title'       => _a('Perpage'),
             'description' => '',
@@ -72,7 +72,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 50,
         ],
-        'admin_setpage'          => [
+        'admin_setpage'            => [
             'category'    => 'admin',
             'title'       => _a('Set topic as system page for support customise layout for blocks'),
             'description' => '',
@@ -80,7 +80,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
-        'admin_setauthor'        => [
+        'admin_setauthor'          => [
             'category'    => 'admin',
             'title'       => _a('Set story authors'),
             'description' => '',
@@ -88,7 +88,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'admin_time_publish'     => [
+        'admin_time_publish'       => [
             'category'    => 'admin',
             'title'       => _a('Set custom publish time'),
             'description' => '',
@@ -96,7 +96,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
-        'admin_text_extra'       => [
+        'admin_text_extra'         => [
             'category'    => 'admin',
             'title'       => _a('Set custom html code'),
             'description' => '',
@@ -104,7 +104,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
-        'admin_deactivate_view'  => [
+        'admin_deactivate_view'    => [
             'category'    => 'admin',
             'title'       => _a('Deactivate module front pages'),
             'description' => _a(
@@ -114,8 +114,26 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
+        'admin_confirmation_limit' => [
+            'category'    => 'admin',
+            'title'       => _a('Confirmation limit'),
+            'description' => _a(
+                'Set limit for confirmation and publish stories, if checked just selected role can be publish news'
+            ),
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0,
+        ],
+        'admin_confirmation_role'  => [
+            'category'    => 'admin',
+            'title'       => _a('Confirmation role'),
+            'description' => _a('Set allowed role name than have access to confirm and publish news'),
+            'edit'        => 'text',
+            'filter'      => 'string',
+            'value'       => 'admin',
+        ],
         // Json
-        'admin_json'             => [
+        'admin_json'               => [
             'category'    => 'json',
             'title'       => _a('Active json output'),
             'description' => '',
@@ -123,7 +141,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'json_perpage'           => [
+        'json_perpage'             => [
             'category'    => 'json',
             'title'       => _a('Perpage on json output'),
             'description' => '',
@@ -131,7 +149,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 100,
         ],
-        'json_check_password'    => [
+        'json_check_password'      => [
             'category'    => 'json',
             'title'       => _a('Check password for json output'),
             'description' => '',
@@ -139,7 +157,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
-        'json_password'          => [
+        'json_password'            => [
             'category'    => 'json',
             'title'       => _a('Password for json output'),
             'description' => _a('After use on mobile device , do not change it'),
@@ -148,7 +166,7 @@ return [
             'value'       => md5(rand(1, 99999)),
         ],
         // Show
-        'style'                  => [
+        'style'                    => [
             'title'       => _a('Show Style'),
             'description' => ' ',
             'edit'        => [
@@ -168,7 +186,7 @@ return [
             'value'       => 'news',
             'category'    => 'show',
         ],
-        'show_perpage'           => [
+        'show_perpage'             => [
             'category'    => 'show',
             'title'       => _a('Perpage'),
             'description' => '',
@@ -176,7 +194,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 5,
         ],
-        'show_columns'           => [
+        'show_columns'             => [
             'title'       => _a('Columns'),
             'description' => ' ',
             'edit'        => [
@@ -194,7 +212,7 @@ return [
             'value'       => 1,
             'category'    => 'show',
         ],
-        'show_order_link'        => [
+        'show_order_link'          => [
             'title'       => _a('Story order'),
             'description' => _a('Story list order options'),
             'edit'        => [
@@ -210,7 +228,7 @@ return [
             'value'       => 'publishDESC',
             'category'    => 'show',
         ],
-        'show_subid'             => [
+        'show_subid'               => [
             'category'    => 'show',
             'title'       => _a('Show Subtopic stories on main topic'),
             'description' => '',
@@ -218,7 +236,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_topic'             => [
+        'show_topic'               => [
             'category'    => 'show',
             'title'       => _a('Show Topic'),
             'description' => '',
@@ -226,7 +244,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_topicinfo'         => [
+        'show_topicinfo'           => [
             'category'    => 'show',
             'title'       => _a('Show Topic Information'),
             'description' => '',
@@ -234,7 +252,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_author'            => [
+        'show_author'              => [
             'category'    => 'show',
             'title'       => _a('Show author'),
             'description' => '',
@@ -242,7 +260,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_date'              => [
+        'show_date'                => [
             'category'    => 'show',
             'title'       => _a('Show Date'),
             'description' => '',
@@ -250,7 +268,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_hits'              => [
+        'show_hits'                => [
             'category'    => 'show',
             'title'       => _a('Show Hits'),
             'description' => '',
@@ -258,7 +276,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_tag'               => [
+        'show_tag'                 => [
             'category'    => 'show',
             'title'       => _a('Show Tags'),
             'description' => '',
@@ -266,7 +284,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_attach'            => [
+        'show_attach'              => [
             'category'    => 'show',
             'title'       => _a('Show attach files'),
             'description' => '',
@@ -274,7 +292,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_attribute'         => [
+        'show_attribute'           => [
             'category'    => 'show',
             'title'       => _a('Show attribute information'),
             'description' => '',
@@ -282,7 +300,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_nav'               => [
+        'show_nav'                 => [
             'category'    => 'show',
             'title'       => _a('Show navigation'),
             'description' => '',
@@ -290,7 +308,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_spotlight'         => [
+        'show_spotlight'           => [
             'category'    => 'show',
             'title'       => _a('Show spotlight'),
             'description' => '',
@@ -298,7 +316,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
-        'view_breadcrumbs'       => [
+        'view_breadcrumbs'         => [
             'category'    => 'show',
             'title'       => _a('Show breadcrumbs'),
             'description' => '',
@@ -306,7 +324,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'view_breadcrumbs_topic' => [
+        'view_breadcrumbs_topic'   => [
             'category'    => 'show',
             'title'       => _a('Show topics on breadcrumbs'),
             'description' => '',
@@ -314,7 +332,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'show_related'           => [
+        'show_related'             => [
             'category'    => 'show',
             'title'       => _a('Show related news'),
             'description' => '',
@@ -322,7 +340,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'related_num'            => [
+        'related_num'              => [
             'category'    => 'show',
             'title'       => _a('related number'),
             'description' => '',
@@ -330,7 +348,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 10,
         ],
-        'show_latest'            => [
+        'show_latest'              => [
             'category'    => 'show',
             'title'       => _a('Show latest news'),
             'description' => '',
@@ -338,7 +356,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'latest_num'             => [
+        'latest_num'               => [
             'category'    => 'show',
             'title'       => _a('latest number'),
             'description' => '',
@@ -346,7 +364,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 10,
         ],
-        'daylimit'               => [
+        'daylimit'                 => [
             'category'    => 'show',
             'title'       => _a('Just show news from X days ago'),
             'description' => _a('Set 0 for show all news, Or set day number for limit news in days'),
@@ -355,7 +373,7 @@ return [
             'value'       => 0,
         ],
         // Feed
-        'feed_icon'              => [
+        'feed_icon'                => [
             'category'    => 'feed',
             'title'       => _a('Show feed icon'),
             'description' => '',
@@ -363,7 +381,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 1,
         ],
-        'feed_num'               => [
+        'feed_num'                 => [
             'category'    => 'feed',
             'title'       => _a('Feed number'),
             'description' => '',
@@ -371,10 +389,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 10,
         ],
-
         // Image
-
-
         'image_minw'    => [
             'category'    => 'image',
             'title'       => _t('Min Image width (upload)'),

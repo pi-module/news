@@ -158,12 +158,14 @@ class StoryFilter extends InputFilter
             ]
         );
         // status
-        $this->add(
-            [
-                'name'     => 'status',
-                'required' => true,
-            ]
-        );
+        if ($option['user_allow_confirm']) {
+            $this->add(
+                [
+                    'name'     => 'status',
+                    'required' => true,
+                ]
+            );
+        }
         // type
         $this->add(
             [

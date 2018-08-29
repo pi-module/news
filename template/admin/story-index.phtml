@@ -1,12 +1,13 @@
 <?php
-$this->css(
+/* $this->css(
     [
         $this->assetModule('css/admin.css'),
         $this->assetModule('script/system-ui.css', 'system'),
     ]
 );
 $this->jQuery();
-$this->js($this->assetModule('script/system-msg.js', 'system'));
+$this->js($this->assetModule('script/system-msg.js', 'system')); */
+$this->css($this->assetModule('css/admin.css'));
 ?>
 <div class="clearfix">
     <div class="admin-header clearfix row">
@@ -188,7 +189,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                     <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        target="_blank"><i class="fa fa-eye"></i> <?php _e('View'); ?></a>
                                 <?php } ?>
-                                <?php if ($story['status'] == 1) { ?>
+                                <?php /* if ($story['status'] == 1) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"
                                             class="btn btn-warning btn-xs" data-toggle="button"
                                             data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '2']); ?>">
@@ -198,7 +199,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                             class="btn btn-success btn-xs" data-toggle="button"
                                             data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '1']); ?>">
                                         <i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
-                                <?php } ?>
+                                <?php } */ ?>
                             </span>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
@@ -236,7 +237,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
         <span class="label label-danger"><?php _e('Trash'); ?></span>
     </p>
 </div>
-<script>
+<?php /* <script>
     (function ($) {
         $("#story-list").on("click", ".story-action button", function () {
             systemMessage.wait("<?php _e('Accept story in process'); ?>");
@@ -262,4 +263,4 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
             });
         });
     })(jQuery)
-</script>
+</script> */ ?>
