@@ -2,8 +2,8 @@
 <div class="clearfix">
     <p>
         <a class="btn btn-primary" title="<?php _e('Add Spotlight'); ?>"
-           href="<?php echo $this->url('', array('controller' => 'spotlight', 'action' => 'update')); ?>"><i
-                class="fa fa-user"></i> <?php _e('Add Spotlight'); ?></a>
+           href="<?php echo $this->url('', ['controller' => 'spotlight', 'action' => 'update']); ?>"><i
+                    class="fa fa-user"></i> <?php _e('Add Spotlight'); ?></a>
     </p>
 
     <h3><?php _e('List of spotlights'); ?></h3>
@@ -17,7 +17,9 @@
             <th><?php _e('Action'); ?></th>
         </tr>
         <?php foreach ($spotlightList as $spotlight) { ?>
-            <tr <?php if ($spotlight['time_expire'] < time()) { echo ' class="danger"';} ?>>
+            <tr <?php if ($spotlight['time_expire'] < time()) {
+                echo ' class="danger"';
+            } ?>>
                 <td><?php echo $this->escape($spotlight['id']); ?></td>
                 <td><?php echo $this->escape($spotlight['storytitle']); ?></a></td>
                 <td><?php echo $this->escape($spotlight['topictitle']); ?></td>
@@ -25,14 +27,16 @@
                 <td><?php echo $this->escape($spotlight['time_expire_view']); ?></td>
                 <td>
                     <a class="btn btn-primary" title="<?php _e('Veiw story'); ?>"
-                       href="<?php echo $this->url('news', array('module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug']))); ?>"><i
-                            class="fa fa-edit"></i> <?php _e('Veiw story'); ?></a>
+                       href="<?php echo $this->url(
+                           'news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug'])]
+                       ); ?>"><i
+                                class="fa fa-edit"></i> <?php _e('Veiw story'); ?></a>
                     <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
-                       href="<?php echo $this->url('', array('action' => 'update', 'id' => $spotlight['id'])); ?>"><i
-                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $spotlight['id']]); ?>"><i
+                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                     <a class="btn btn-danger" title="<?php _e('Delete'); ?>"
-                       href="<?php echo $this->url('', array('action' => 'delete', 'id' => $spotlight['id'])); ?>"><i
-                            class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+                       href="<?php echo $this->url('', ['action' => 'delete', 'id' => $spotlight['id']]); ?>"><i
+                                class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
                 </td>
             </tr>
         <?php } ?>

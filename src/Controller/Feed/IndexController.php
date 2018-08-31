@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Feed;
 
 use Pi;
@@ -20,34 +21,40 @@ class IndexController extends FeedController
 {
     public function indexAction()
     {
-        $feed = $this->getDataModel(array(
-            'title' => __('News feed'),
-            'description' => __('Recent News.'),
-            'date_created' => time(),
-        ));
-        $columns = array('id', 'title', 'slug', 'text_summary', 'text_description', 'time_publish');
-        $order = array('time_publish DESC', 'id DESC');
-        $where = array(
-            'status' => 1,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
+        $feed    = $this->getDataModel(
+            [
+                'title'        => __('News feed'),
+                'description'  => __('Recent News.'),
+                'date_created' => time(),
+            ]
         );
-        $limit = intval($this->config('feed_num'));
-        $select = $this->getModel('story')->select()->columns($columns)->where($where)->order($order)->limit($limit);
-        $rowset = $this->getModel('story')->selectWith($select);
+        $columns = ['id', 'title', 'slug', 'text_summary', 'text_description', 'time_publish'];
+        $order   = ['time_publish DESC', 'id DESC'];
+        $where   = [
+            'status' => 1,
+            'type'   => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
+        $limit   = intval($this->config('feed_num'));
+        $select  = $this->getModel('story')->select()->columns($columns)->where($where)->order($order)->limit($limit);
+        $rowset  = $this->getModel('story')->selectWith($select);
         foreach ($rowset as $row) {
-            $entry = array();
-            $entry['title'] = $row->title;
-            $description = (empty($row->text_summary)) ? $row->text_description : $row->text_summary;
-            $entry['description'] = strtolower(trim($description));
+            $entry                  = [];
+            $entry['title']         = $row->title;
+            $description            = (empty($row->text_summary)) ? $row->text_description : $row->text_summary;
+            $entry['description']   = strtolower(trim($description));
             $entry['date_modified'] = (int)$row->time_publish;
-            $entry['link'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module' => $this->getModule(),
-                'controller' => 'story',
-                'slug' => $row->slug,
-            )));
-            $feed->entry = $entry;
+            $entry['link']          = Pi::url(
+                Pi::service('url')->assemble(
+                    'news', [
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $row->slug,
+                ]
+                )
+            );
+            $feed->entry            = $entry;
         }
         return $feed;
     }

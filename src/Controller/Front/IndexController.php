@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Front;
 
 use Pi;
@@ -24,7 +25,7 @@ class IndexController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         //$search = $this->params('q');
         // Get config
         $config = Pi::service('registry')->config->read($module);
@@ -44,8 +45,8 @@ class IndexController extends ActionController
         // Check index
         if ($config['style'] == 'topic') {
             // Get topic list
-            $where = array('status' => 1, 'type' => 'general');
-            $order = array('time_create DESC', 'id DESC');
+            $where  = ['status' => 1, 'type' => 'general'];
+            $order  = ['time_create DESC', 'id DESC'];
             $select = $this->getModel('topic')->select()->where($where)->order($order);
             $rowset = $this->getModel('topic')->selectWith($select);
             foreach ($rowset as $row) {
@@ -55,9 +56,11 @@ class IndexController extends ActionController
             $title = __('List of all topics');
             // Set seo_keywords
             $filter = new Filter\HeadKeywords;
-            $filter->setOptions(array(
-                'force_replace_space' => true
-            ));
+            $filter->setOptions(
+                [
+                    'force_replace_space' => true,
+                ]
+            );
             $seoKeywords = $filter($title);
             // Set view
             $this->view()->headTitle($title);
@@ -70,23 +73,23 @@ class IndexController extends ActionController
             // Get topic or homepage setting
             $topic = Pi::api('topic', 'news')->canonizeTopic();
             // Set story info
-            $where = array(
+            $where = [
                 'status' => 1,
-                'type' => array(
-                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-                )
-            );
+                'type'   => [
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+                ],
+            ];
 
             // Set paginator info
-            $template = array(
+            $template = [
                 'controller' => 'index',
-                'action' => 'index',
-            );
+                'action'     => 'index',
+            ];
             // Get paginator
             $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
             // Get story List
             $storyList = $this->storyList($paginator, $topic['show_order_link']);
-            
+
             // Spotlight
             $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
             // Set header and title
@@ -104,12 +107,12 @@ class IndexController extends ActionController
         }
     }
 
-   
+
     public function storyList($paginator, $orderLink = 'publishDESC')
     {
-        $story = array();
+        $story = [];
         $order = $this->setLinkOrder($orderLink);
-        
+
         // Make list
         foreach ($paginator as $id) {
             $storyId[] = $id['story'];
@@ -118,7 +121,7 @@ class IndexController extends ActionController
             return $story;
         }
         // Set info
-        $where = array('status' => 1, 'id' => $storyId);
+        $where = ['status' => 1, 'id' => $storyId];
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
         // Get author list
@@ -136,17 +139,17 @@ class IndexController extends ActionController
     public function storyJsonList($where)
     {
         // Set info
-        $story = array();
-        $page = $this->params('page', 1);
+        $story  = [];
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Set info
-        $limit = $config['json_perpage'];
+        $limit  = $config['json_perpage'];
         $offset = (int)($page - 1) * $limit;
-        $order = array('time_publish DESC', 'id DESC');
+        $order  = ['time_publish DESC', 'id DESC'];
         // Set info
-        $columns = array('story' => new Expression('DISTINCT story'));
+        $columns = ['story' => new Expression('DISTINCT story')];
         // Get info from link table
         $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('link')->selectWith($select)->toArray();
@@ -158,7 +161,7 @@ class IndexController extends ActionController
             return $story;
         }
         // Set info
-        $where = array('status' => 1, 'id' => $storyId);
+        $where = ['status' => 1, 'id' => $storyId];
         // Get list of story
         $select = $this->getModel('story')->select()->where($where)->order($order);
         $rowset = $this->getModel('story')->selectWith($select);
@@ -172,9 +175,9 @@ class IndexController extends ActionController
     public function storyPaginator($template, $where, $itemPerPage, $order)
     {
         // Set info
-        $story = array();
-        $page = $this->params('page', 1);
-        $order = $this->setLinkOrder($order);
+        $story  = [];
+        $page   = $this->params('page', 1);
+        $order  = $this->setLinkOrder($order);
         $module = $this->params('module');
 
         // Get config
@@ -183,44 +186,48 @@ class IndexController extends ActionController
         if ($this->config('daylimit')) {
             $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
         }
-        
+
         // Set info
-        $columns = array('story' => new Expression('DISTINCT story'));
+        $columns = ['story' => new Expression('DISTINCT story')];
         // Get info from link table
         $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order);
-        
+
         $resultSetPrototype = new  \Zend\Db\ResultSet\ResultSet();
-        $paginatorAdapter = new \Zend\Paginator\Adapter\DbSelect(
+        $paginatorAdapter   = new \Zend\Paginator\Adapter\DbSelect(
             $select,
             $this->getModel('link')->getAdapter(),
             $resultSetPrototype
-        );  
-           
-        $template['slug'] = (isset($template['slug'])) ? $template['slug'] : '';
+        );
+
+        $template['slug']   = (isset($template['slug'])) ? $template['slug'] : '';
         $template['action'] = (isset($template['action'])) ? $template['action'] : 'index';
         $template['module'] = $this->params('module');
-        $options = array();
+        $options            = [];
         if (isset($template['q']) && !empty($template['q'])) {
             foreach ($template['q'] as $key => $value) {
                 $options['query'][$key] = $value;
             }
         }
-    
+
         // paginator
         $paginator = new \Pi\Paginator\Paginator($paginatorAdapter);
         $paginator->setItemCountPerPage(intval($itemPerPage));
         $paginator->setCurrentPageNumber(intval($page));
-        $paginator->setUrlOptions(array(
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $template['module'],
-                'controller' => $template['controller'],
-                'action' => $template['action'],
-                'slug' => $template['slug'],
-            )),
-            'options' => $options,
-        ));
+        $paginator->setUrlOptions(
+            [
+                'router'  => $this->getEvent()->getRouter(),
+                'route'   => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params'  => array_filter(
+                    [
+                        'module'     => $template['module'],
+                        'controller' => $template['controller'],
+                        'action'     => $template['action'],
+                        'slug'       => $template['slug'],
+                    ]
+                ),
+                'options' => $options,
+            ]
+        );
         return $paginator;
     }
 
@@ -229,16 +236,16 @@ class IndexController extends ActionController
         // Set order
         switch ($sort) {
             case 'random':
-                $order = array(new Expression('RAND()'));
+                $order = [new Expression('RAND()')];
                 break;
 
             case 'publishASC':
-                $order = array('time_publish ASC', 'id ASC');
+                $order = ['time_publish ASC', 'id ASC'];
                 break;
 
             case 'publishDESC':
             default:
-                $order = array('time_publish DESC', 'id DESC');
+                $order = ['time_publish DESC', 'id DESC'];
                 break;
         }
         return $order;

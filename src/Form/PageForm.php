@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -25,23 +26,27 @@ class PageForm extends BaseForm
     public function init()
     {
         // confirm
-        $this->add(array(
-            'name' => 'confirm',
-            'type' => 'checkbox',
-            'options' => array(
-                'label' => __('Confirm to remove all topic pages'),
-            ),
-            'attributes' => array(
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'confirm',
+                'type'       => 'checkbox',
+                'options'    => [
+                    'label' => __('Confirm to remove all topic pages'),
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }	

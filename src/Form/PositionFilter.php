@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
@@ -21,29 +21,37 @@ class PositionFilter extends InputFilter
     public function __construct()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'required' => true,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'     => 'title',
+                'required' => true,
+                'filters'  => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+            ]
+        );
         // order
-        $this->add(array(
-            'name' => 'order',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'order',
+                'required' => false,
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'status',
+                'required' => false,
+            ]
+        );
     }
 }

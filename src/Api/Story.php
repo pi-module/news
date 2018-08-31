@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -37,7 +38,7 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Story extends AbstractApi
 {
-    public function getStory($parameter, $field = 'id', $option = array())
+    public function getStory($parameter, $field = 'id', $option = [])
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
@@ -45,7 +46,7 @@ class Story extends AbstractApi
         return $story;
     }
 
-    public function getStoryLight($parameter, $field = 'id', $option = array())
+    public function getStoryLight($parameter, $field = 'id', $option = [])
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
@@ -53,7 +54,7 @@ class Story extends AbstractApi
         return $story;
     }
 
-    public function getStoryJson($parameter, $field = 'id', $option = array())
+    public function getStoryJson($parameter, $field = 'id', $option = [])
     {
         // Get product
         $story = Pi::model('story', $this->getModule())->find($parameter, $field);
@@ -67,13 +68,13 @@ class Story extends AbstractApi
     public function AttachCount($id)
     {
         // set info
-        $where = array('item_id' => $id, 'item_table' => 'story');
-        $columns = array('count' => new Expression('count(*)'));
+        $where   = ['item_id' => $id, 'item_table' => 'story'];
+        $columns = ['count' => new Expression('count(*)')];
         // Get attach count
         $select = Pi::model('attach', $this->getModule())->select()->columns($columns)->where($where);
-        $count = Pi::model('attach', $this->getModule())->selectWith($select)->current()->count;
+        $count  = Pi::model('attach', $this->getModule())->selectWith($select)->current()->count;
         // Set attach count
-        Pi::model('story', $this->getModule())->update(array('attach' => $count), array('id' => $id));
+        Pi::model('story', $this->getModule())->update(['attach' => $count], ['id' => $id]);
     }
 
     /**
@@ -84,59 +85,73 @@ class Story extends AbstractApi
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // Set info
-        $where = array('item_id' => $id, 'item_table' => 'story', 'status' => 1);
-        $order = array('time_create DESC', 'id DESC');
+        $where = ['item_id' => $id, 'item_table' => 'story', 'status' => 1];
+        $order = ['time_create DESC', 'id DESC'];
         // Get all attach files
         $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $file[$row->type][$row->id] = $row->toArray();
+            $file[$row->type][$row->id]                = $row->toArray();
             $file[$row->type][$row->id]['time_create'] = _date($file[$row->type][$row->id]['time_create']);
             // Set file link
             if ($file[$row->type][$row->id]['type'] == 'image') {
-                $file[$row->type][$row->id]['largeUrl'] = Pi::url(
-                    sprintf('upload/%s/large/%s/%s',
+                $file[$row->type][$row->id]['largeUrl']  = Pi::url(
+                    sprintf(
+                        'upload/%s/large/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
                 $file[$row->type][$row->id]['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s',
+                    sprintf(
+                        'upload/%s/medium/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
-                $file[$row->type][$row->id]['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s',
+                    )
+                );
+                $file[$row->type][$row->id]['thumbUrl']  = Pi::url(
+                    sprintf(
+                        'upload/%s/thumb/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
             } elseif ($file[$row->type][$row->id]['type'] == 'other') {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
-                    sprintf('upload/%s/%s/%s/%s',
+                    sprintf(
+                        'upload/%s/%s/%s/%s',
                         $config['file_path'],
                         'file',
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
             } else {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
-                    sprintf('upload/%s/%s/%s/%s',
+                    sprintf(
+                        'upload/%s/%s/%s/%s',
                         $config['file_path'],
                         $file[$row->type][$row->id]['type'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
             }
             // Set download url
-            $file[$row->type][$row->id]['downloadUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module' => $this->getModule(),
-                'controller' => 'media',
-                'action' => 'download',
-                'id' => $row->id,
-            )));
+            $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
+                Pi::service('url')->assemble(
+                    'news', [
+                    'module'     => $this->getModule(),
+                    'controller' => 'media',
+                    'action'     => 'download',
+                    'id'         => $row->id,
+                ]
+                )
+            );
         }
         // return
         return $file;
@@ -148,13 +163,13 @@ class Story extends AbstractApi
     public function attributeCount($id)
     {
         // set info
-        $where = array('story' => $id);
-        $columns = array('count' => new Expression('count(*)'));
+        $where   = ['story' => $id];
+        $columns = ['count' => new Expression('count(*)')];
         // Get attribute count
         $select = Pi::model('field_data', $this->getModule())->select()->columns($columns)->where($where);
-        $count = Pi::model('field_data', $this->getModule())->selectWith($select)->current()->count;
+        $count  = Pi::model('field_data', $this->getModule())->selectWith($select)->current()->count;
         // Set attribute count
-        Pi::model('story', $this->getModule())->update(array('attribute' => $count), array('id' => $id));
+        Pi::model('story', $this->getModule())->update(['attribute' => $count], ['id' => $id]);
     }
 
     /**
@@ -163,20 +178,20 @@ class Story extends AbstractApi
     public function Related($id, $topic)
     {
         // Set info
-        $config = Pi::service('registry')->config->read($this->getModule());
-        $related = array();
-        $order = array('time_publish DESC', 'id DESC');
-        $where = array(
-            'status' => 1,
-            'story != ?' => $id,
+        $config  = Pi::service('registry')->config->read($this->getModule());
+        $related = [];
+        $order   = ['time_publish DESC', 'id DESC'];
+        $where   = [
+            'status'            => 1,
+            'story != ?'        => $id,
             'time_publish <= ?' => time(),
-            'topic' => $topic,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ),
-        );
-        $columns = array('story' => new Expression('DISTINCT story'));
-        $limit = intval($config['related_num']);
+            'topic'             => $topic,
+            'type'              => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
+        $columns = ['story' => new Expression('DISTINCT story')];
+        $limit   = intval($config['related_num']);
         // Get info from link table
         $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
@@ -194,59 +209,67 @@ class Story extends AbstractApi
     public function Link($id, $topic)
     {
         // Set info
-        $link = array();
-        $columns = array('story');
+        $link    = [];
+        $columns = ['story'];
         // Select next
-        $where = array(
-            'status' => 1,
-            'story > ?' => $id,
+        $where  = [
+            'status'            => 1,
+            'story > ?'         => $id,
             'time_publish <= ?' => time(),
-            'topic' => $topic,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ),
-        );
-        $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(array('id ASC'))->limit(1);
-        $row = Pi::model('link', $this->getModule())->selectWith($select)->current();
+            'topic'             => $topic,
+            'type'              => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
+        $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(['id ASC'])->limit(1);
+        $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
-            $row = $row->toArray();
-            $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
+            $row                   = $row->toArray();
+            $story                 = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['next']['title'] = $story['title'];
-            $link['next']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module' => $this->getModule(),
-                'controller' => 'story',
-                'slug' => $story['slug'],
-            )));
+            $link['next']['url']   = Pi::url(
+                Pi::service('url')->assemble(
+                    'news', [
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $story['slug'],
+                ]
+                )
+            );
         }
         // Select Prev
-        $where = array(
-            'status' => 1,
-            'story <  ?' => $id,
+        $where  = [
+            'status'            => 1,
+            'story <  ?'        => $id,
             'time_publish <= ?' => time(),
-            'topic' => $topic,
-            'type' => array(
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            )
-        );
-        $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(array('id ASC'))->limit(1);
-        $row = Pi::model('link', $this->getModule())->selectWith($select)->current();
+            'topic'             => $topic,
+            'type'              => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ],
+        ];
+        $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(['id ASC'])->limit(1);
+        $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
-            $row = $row->toArray();
-            $story = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
+            $row                       = $row->toArray();
+            $story                     = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
             $link['previous']['title'] = $story['title'];
-            $link['previous']['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                'module' => $this->getModule(),
-                'controller' => 'story',
-                'slug' => $story['slug'],
-            )));
+            $link['previous']['url']   = Pi::url(
+                Pi::service('url')->assemble(
+                    'news', [
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $story['slug'],
+                ]
+                )
+            );
         }
         return $link;
     }
 
     public function getListFromId($id)
     {
-        $list = array();
-        $where = array('id' => $id, 'status' => 1);
+        $list   = [];
+        $where  = ['id' => $id, 'status' => 1];
         $select = Pi::model('story', $this->getModule())->select()->where($where);
         $rowset = Pi::model('story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
@@ -257,9 +280,9 @@ class Story extends AbstractApi
 
     public function getListFromIdLight($id)
     {
-        $list = array();
-        $where = array('id' => $id, 'status' => 1);
-        $order = array('time_publish DESC', 'id DESC');
+        $list   = [];
+        $where  = ['id' => $id, 'status' => 1];
+        $order  = ['time_publish DESC', 'id DESC'];
         $select = Pi::model('story', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
@@ -273,83 +296,95 @@ class Story extends AbstractApi
         // Get user id
         if ($uid == null) {
             $uid = Pi::user()->getId();
-        }       
-        
+        }
+
         // Check user
         if ($uid > 0) {
             $favoriteIds = Pi::api('favourite', 'favourite')->userFavourite($uid, $this->getModule());
             // Check list of ides
             if (!empty($favoriteIds)) {
                 // Get config
-                
+
                 // TOPIC
                 $select = Pi::model('topic', $this->getModule())->select();
                 $rowset = Pi::model('topic', $this->getModule())->selectWith($select);
-                $topics = array();
+                $topics = [];
                 foreach ($rowset as $row) {
-                    $topics[$row->id] = array(
-                        'title' => $row->title,
-                        'categoryUrl' => Pi::url(Pi::service("url")->assemble("news", array(
-                            "module" => $this->getModule(),
-                            "controller" => "category",
-                            "slug" => $row->slug,
-                        )))
-                    );
+                    $topics[$row->id] = [
+                        'title'       => $row->title,
+                        'categoryUrl' => Pi::url(
+                            Pi::service("url")->assemble(
+                                "news", [
+                                "module"     => $this->getModule(),
+                                "controller" => "category",
+                                "slug"       => $row->slug,
+                            ]
+                            )
+                        ),
+                    ];
                 }
                 //
-                
+
                 $config = Pi::service('registry')->config->read($this->getModule());
                 // Set list
-                $list = array();
-                $where = array(
-                    'id' => $favoriteIds, 
+                $list  = [];
+                $where = [
+                    'id'     => $favoriteIds,
                     'status' => 1,
-                    'type' => array(
-                       'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-                   )
+                    'type'   => [
+                        'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+                    ],
+                ];
+
+
+                $select = Pi::model('story', $this->getModule())->select()->columns(['title', 'slug', 'time_publish', 'main_image', 'id', 'topic'])->where(
+                    $where
                 );
-                
-                
-                $select = Pi::model('story', $this->getModule())->select()->columns(array('title', 'slug', 'time_publish', 'main_image', 'id', 'topic'))->where($where);
                 $rowset = Pi::model('story', $this->getModule())->selectWith($select);
                 foreach ($rowset as $row) {
                     $story = $row->toArray();
-                    
-                    $story['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                        'module' => $this->getModule(),
-                        'controller' => 'story',
-                        'slug' => $row->slug,
-                    )));
-                    
-                    $story['categories'] = array();
-                    $storyTopics = json_decode($story['topic']);
+
+                    $story['url'] = Pi::url(
+                        Pi::service('url')->assemble(
+                            'news', [
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $row->slug,
+                        ]
+                        )
+                    );
+
+                    $story['categories'] = [];
+                    $storyTopics         = json_decode($story['topic']);
                     foreach ($storyTopics as $idTopic) {
                         $story['categories'][] = $topics[$idTopic];
                     }
-                    
+
                     $story['image'] = '';
                     if ($row->main_image) {
-                        $story["image"] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('medium'));
+                        $story["image"] = Pi::url(
+                            (string)Pi::api('doc', 'media')->getSingleLinkUrl($row->main_image)->setConfigModule('news')->thumb('medium')
+                        );
                     }
                     $list[$row->id] = $story;
                 }
                 return $list;
             } else {
-                return array();
+                return [];
             }
         } else {
-            return array();
+            return [];
         }
     }
 
-    public function canonizeStory($story, $topicList = array(), $authorList = array(), $option = array())
+    public function canonizeStory($story, $topicList = [], $authorList = [], $option = [])
     {
         // Check
         if (empty($story)) {
             return '';
         }
         // Get config
-        if(!isset($this->config)){
+        if (!isset($this->config)) {
             $this->config = Pi::service('registry')->config->read($this->getModule());
         }
 
@@ -360,7 +395,7 @@ class Story extends AbstractApi
         $story = $story->toArray();
         // Set text_summary
 
-        if(!isset($this->markupService)){
+        if (!isset($this->markupService)) {
             $this->markupService = Pi::service('markup');
         }
 
@@ -368,15 +403,19 @@ class Story extends AbstractApi
         // Set text_description
         $story['text_description'] = $this->markupService->render($story['text_description'], 'html', 'html');
         // Set times
-        $story['time_create_view'] = _date($story['time_create']);
+        $story['time_create_view']  = _date($story['time_create']);
         $story['time_publish_view'] = _date($story['time_publish']);
-        $story['time_update_view'] = _date($story['time_update']);
+        $story['time_update_view']  = _date($story['time_update']);
         // Set story url
-        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module' => $this->getModule(),
-            'controller' => 'story',
-            'slug' => $story['slug'],
-        )));
+        $story['storyUrl'] = Pi::url(
+            Pi::service('url')->assemble(
+                'news', [
+                'module'     => $this->getModule(),
+                'controller' => 'story',
+                'slug'       => $story['slug'],
+            ]
+            )
+        );
         // Set topic information
         $story['topic'] = json_decode($story['topic'], true);
         // Get topic list
@@ -385,55 +424,61 @@ class Story extends AbstractApi
             foreach ($story['topic'] as $topic) {
                 if (!empty($topicList[$topic]['title'])) {
                     $story['topics'][$topic]['title'] = $topicList[$topic]['title'];
-                    $story['topics'][$topic]['slug'] = $topicList[$topic]['slug'];
-                    $story['topics'][$topic]['url'] = Pi::url(Pi::service('url')->assemble('news', array(
-                        'module' => $this->getModule(),
-                        'controller' => 'topic',
-                        'slug' => $topicList[$topic]['slug'],
-                    )));
+                    $story['topics'][$topic]['slug']  = $topicList[$topic]['slug'];
+                    $story['topics'][$topic]['url']   = Pi::url(
+                        Pi::service('url')->assemble(
+                            'news', [
+                            'module'     => $this->getModule(),
+                            'controller' => 'topic',
+                            'slug'       => $topicList[$topic]['slug'],
+                        ]
+                        )
+                    );
                 }
             }
         }
         // Get author list
-        $story['authors'] = array();
+        $story['authors'] = [];
         if ($this->config['show_author'] && !empty($authorList) && $option['authorSet']) {
             $story['author'] = json_decode($story['author'], true);
             if (!empty($story['author'])) {
                 foreach ($story['author'] as $author) {
                     if (!empty($author['author'])) {
-                        $authors = array();
-                        $authors['authorName'] = $authorList['author'][$author['author']]['title'];
-                        $authors['authorUrl'] = $authorList['author'][$author['author']]['url'];
+                        $authors                   = [];
+                        $authors['authorName']     = $authorList['author'][$author['author']]['title'];
+                        $authors['authorUrl']      = $authorList['author'][$author['author']]['url'];
                         $authors['authorThumbUrl'] = $authorList['author'][$author['author']]['thumbUrl'];
-                        $authors['authorRole'] = $authorList['role'][$author['role']]['title'];
-                        $story['authors'][] = $authors;
+                        $authors['authorRole']     = $authorList['role'][$author['role']]['title'];
+                        $story['authors'][]        = $authors;
                     }
                 }
             }
         }
 
         if (isset($option['getUser']) && $option['getUser']) {
-            $user = Pi::user()->get($story['uid'], array(
-                'id', 'identity', 'name', 'email'
-            ));
+            $user          = Pi::user()->get(
+                $story['uid'], [
+                'id', 'identity', 'name', 'email',
+            ]
+            );
             $story['user'] = $user['name'];
         }
 
         if ($story['main_image']) {
-            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
-            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
-            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
+            $story['largeUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
+            $story['thumbUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
         } else {
-            $story['largeUrl'] = '';
+            $story['largeUrl']  = '';
             $story['mediumUrl'] = '';
-            $story['thumbUrl'] = '';
+            $story['thumbUrl']  = '';
         }
 
         // return story
         return $story;
     }
 
-    public function canonizeStoryLight($story, $option = array())
+    public function canonizeStoryLight($story, $option = [])
     {
         // Check
         if (empty($story)) {
@@ -447,23 +492,27 @@ class Story extends AbstractApi
         // boject to array
         $story = $story->toArray();
         // Set times
-        $story['time_publish_view'] = _date($story['time_publish']);
+        $story['time_publish_view']   = _date($story['time_publish']);
         $story['time_publish_update'] = _date($story['time_update']);
         // Set story url
-        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module' => $this->getModule(),
-            'controller' => 'story',
-            'slug' => $story['slug'],
-        )));
+        $story['storyUrl'] = Pi::url(
+            Pi::service('url')->assemble(
+                'news', [
+                'module'     => $this->getModule(),
+                'controller' => 'story',
+                'slug'       => $story['slug'],
+            ]
+            )
+        );
 
         if ($story['main_image']) {
-            $story['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
-            $story['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
-            $story['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
+            $story['largeUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
+            $story['thumbUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
         } else {
-            $story['largeUrl'] = '';
+            $story['largeUrl']  = '';
             $story['mediumUrl'] = '';
-            $story['thumbUrl'] = '';
+            $story['thumbUrl']  = '';
         }
 
         // unset
@@ -475,7 +524,7 @@ class Story extends AbstractApi
         return $story;
     }
 
-    public function canonizeStoryJson($story, $option = array())
+    public function canonizeStoryJson($story, $option = [])
     {
         // Check
         if (empty($story)) {
@@ -489,40 +538,48 @@ class Story extends AbstractApi
         // boject to array
         $story = $story->toArray();
         // Set story url
-        $story['storyUrl'] = Pi::url(Pi::service('url')->assemble('news', array(
-            'module' => $this->getModule(),
-            'controller' => 'story',
-            'slug' => $story['slug'],
-        )));
+        $story['storyUrl'] = Pi::url(
+            Pi::service('url')->assemble(
+                'news', [
+                'module'     => $this->getModule(),
+                'controller' => 'story',
+                'slug'       => $story['slug'],
+            ]
+            )
+        );
 
         // Set topic
         //$topic = json_decode($story['topic'], true);
         // Set body
         $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
-        $body = strip_tags($body,"<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+        $body = strip_tags($body, "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
         $body = str_replace("<p>&nbsp;</p>", "", $body);
         // Set return array
-        $storyJson = array(
-            'id' => $story['id'],
-            'title' => $story['title'],
-            'subtitle' => $story['subtitle'],
-            'time_publish' => $story['time_publish'],
+        $storyJson = [
+            'id'                => $story['id'],
+            'title'             => $story['title'],
+            'subtitle'          => $story['subtitle'],
+            'time_publish'      => $story['time_publish'],
             'time_publish_view' => _date($story['time_publish']),
-            'time_update' => $story['time_update'],
-            'time_update_view' => _date($story['time_update']),
-            'topic' => $story['topic_main'],
-            'image' => $story['image'],
-            'body' => $body,
-        );
+            'time_update'       => $story['time_update'],
+            'time_update_view'  => _date($story['time_update']),
+            'topic'             => $story['topic_main'],
+            'image'             => $story['image'],
+            'body'              => $body,
+        ];
 
         if ($story['main_image']) {
-            $storyJson['largeUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
-            $storyJson['mediumUrl'] = Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
-            $storyJson['thumbUrl'] =  Pi::url((string) Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
+            $storyJson['largeUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
+            $storyJson['mediumUrl'] = Pi::url(
+                (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium')
+            );
+            $storyJson['thumbUrl']  = Pi::url(
+                (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail')
+            );
         } else {
-            $storyJson['largeUrl'] = '';
+            $storyJson['largeUrl']  = '';
             $storyJson['mediumUrl'] = '';
-            $storyJson['thumbUrl'] = '';
+            $storyJson['thumbUrl']  = '';
         }
 
         // return item
@@ -535,19 +592,23 @@ class Story extends AbstractApi
             // Remove old links
             Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'story');
             // find and import
-            $columns = array('id', 'slug', 'status');
-            $where = array('type' => array(
-                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            ));
-            $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where);
-            $rowset = Pi::model('story', $this->getModule())->selectWith($select);
+            $columns = ['id', 'slug', 'status'];
+            $where   = ['type' => [
+                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ]];
+            $select  = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where);
+            $rowset  = Pi::model('story', $this->getModule())->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
-                $loc = Pi::url(Pi::service('url')->assemble('news', array(
-                    'module' => $this->getModule(),
-                    'controller' => 'story',
-                    'slug' => $row->slug,
-                )));
+                $loc = Pi::url(
+                    Pi::service('url')->assemble(
+                        'news', [
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'slug'       => $row->slug,
+                    ]
+                    )
+                );
                 // Add to sitemap
                 Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'story', $row->id);
             }
@@ -559,43 +620,51 @@ class Story extends AbstractApi
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // Set info
-        $columns = array('id', 'image', 'path');
-        $where = array('type' => array(
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-        ));
-        $order = array('id ASC');
-        $select = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where)->order($order);
-        $rowset = Pi::model('story', $this->getModule())->selectWith($select);
+        $columns = ['id', 'image', 'path'];
+        $where   = ['type' => [
+            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+        ]];
+        $order   = ['id ASC'];
+        $select  = Pi::model('story', $this->getModule())->select()->columns($columns)->where($where)->order($order);
+        $rowset  = Pi::model('story', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path
                 $original = Pi::path(
-                    sprintf('upload/%s/original/%s/%s',
+                    sprintf(
+                        'upload/%s/original/%s/%s',
                         $config['image_path'],
                         $row->path,
                         $row->image
-                    ));
+                    )
+                );
                 // Set image large path
                 $images['large'] = Pi::path(
-                    sprintf('upload/%s/large/%s/%s',
+                    sprintf(
+                        'upload/%s/large/%s/%s',
                         $config['image_path'],
                         $row->path,
                         $row->image
-                    ));
+                    )
+                );
                 // Set image medium path
                 $images['medium'] = Pi::path(
-                    sprintf('upload/%s/medium/%s/%s',
+                    sprintf(
+                        'upload/%s/medium/%s/%s',
                         $config['image_path'],
                         $row->path,
                         $row->image
-                    ));
+                    )
+                );
                 // Set image thumb path
                 $images['thumb'] = Pi::path(
-                    sprintf('upload/%s/thumb/%s/%s',
+                    sprintf(
+                        'upload/%s/thumb/%s/%s',
                         $config['image_path'],
                         $row->path,
                         $row->image
-                    ));
+                    )
+                );
                 // Check original exist of not
                 if (file_exists($original)) {
                     // Remove old images
@@ -611,7 +680,8 @@ class Story extends AbstractApi
         }
     }
 
-    public function migrateMedia(){
+    public function migrateMedia()
+    {
         if (Pi::service("module")->isActive("media")) {
 
             $msg = '';
@@ -621,61 +691,63 @@ class Story extends AbstractApi
 
             $storyModel = Pi::model("story", $this->getModule());
 
-            $select = $storyModel->select();
+            $select          = $storyModel->select();
             $storyCollection = $storyModel->selectWith($select);
 
-            foreach($storyCollection as $story){
+            foreach ($storyCollection as $story) {
 
                 $toSave = false;
 
-                $mediaData = array(
-                    'active' => 1,
+                $mediaData = [
+                    'active'       => 1,
                     'time_created' => time(),
-                    'uid'   => $story->uid,
-                    'count' => 0,
-                );
+                    'uid'          => $story->uid,
+                    'count'        => 0,
+                ];
 
                 /**
                  * Check if media item have already migrate or no image to migrate
                  */
-                if(!$story->main_image){
+                if (!$story->main_image) {
 
                     /**
                      * Check if media item exists
                      */
-                    if(empty($story["image"]) || empty($story["path"])){
+                    if (empty($story["image"]) || empty($story["path"])) {
 
                         $draft = $story->status == 3 ? ' (' . __('Draft') . ')' : '';
 
-                        $msg .= __("Missing image or path value from db for Story ID") . " " .  $story->id . $draft . "<br>";
+                        $msg .= __("Missing image or path value from db for Story ID") . " " . $story->id . $draft . "<br>";
                     } else {
-                        $imagePath = sprintf("upload/%s/original/%s/%s",
+                        $imagePath = sprintf(
+                            "upload/%s/original/%s/%s",
                             $config["image_path"],
                             $story["path"],
                             $story["image"]
                         );
 
                         $mediaData['title'] = $story->title;
-                        $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
+                        $mediaId            = Pi::api('doc', 'media')->insertMedia($mediaData, $imagePath);
 
-                        if($mediaId){
+                        if ($mediaId) {
                             $story->main_image = $mediaId;
-                            $toSave = true;
+                            $toSave            = true;
                         }
                     }
                 }
 
-                if(!$story->additional_images){
-                    $additionalImagesArray = array();
+                if (!$story->additional_images) {
+                    $additionalImagesArray = [];
 
                     $attachList = Pi::api('attach', $this->module)->attachList($story->id);
 
-                    foreach($attachList as $type => $list){
-                        foreach($list as $file){
-                            if(empty($file["file"]) || empty($file["path"])){
-                                $msg .= __("Missing file or path value from db for attachment ID") . " " .  $file->id . "<br>";
+                    foreach ($attachList as $type => $list) {
+                        foreach ($list as $file) {
+                            if (empty($file["file"]) || empty($file["path"])) {
+                                $msg .= __("Missing file or path value from db for attachment ID") . " " . $file->id . "<br>";
                             } else {
-                                $attachPath = sprintf('upload/%s/original/%s/%s',
+                                $attachPath = sprintf(
+                                    'upload/%s/original/%s/%s',
                                     $config['image_path'],
                                     $file['path'],
                                     $file['file']
@@ -686,20 +758,20 @@ class Story extends AbstractApi
 
                                 $mediaId = Pi::api('doc', 'media')->insertMedia($mediaData, $attachPath);
 
-                                if($mediaId){
+                                if ($mediaId) {
                                     $additionalImagesArray[] = $mediaId;
                                 }
                             }
                         }
                     }
 
-                    if($additionalImagesArray){
+                    if ($additionalImagesArray) {
                         $story->additional_images = implode(',', $additionalImagesArray);
-                        $toSave = true;
+                        $toSave                   = true;
                     }
                 }
 
-                if($toSave){
+                if ($toSave) {
                     $story->save();
                 }
             }

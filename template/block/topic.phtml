@@ -3,7 +3,9 @@
         <?php if ($block['type'] == 'vertical') { ?>
             <div class="thumbnails">
                 <?php foreach ($block['resources'] as $topic) { ?>
-                    <div class="col-sm-6 col-md-6 h-review<?php if (isset($topic['depth'])) { echo sprintf(' depth-%s', $topic['depth']);} ?>" itemprop="itemListElement">
+                    <div class="col-sm-6 col-md-6 h-review<?php if (isset($topic['depth'])) {
+                        echo sprintf(' depth-%s', $topic['depth']);
+                    } ?>" itemprop="itemListElement">
                         <div class="thumbnail p-item h-card">
                             <?php if ($topic['image']) { ?>
                                 <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
@@ -28,7 +30,9 @@
         <?php } elseif ($block['type'] == 'list') { ?>
             <ul class="list-unstyled clearfix">
                 <?php foreach ($block['resources'] as $topic) { ?>
-                    <li itemprop="itemListElement" <?php if (isset($topic['depth'])) { echo sprintf('class="depth-%s"', $topic['depth']);} ?>>
+                    <li itemprop="itemListElement" <?php if (isset($topic['depth'])) {
+                        echo sprintf('class="depth-%s"', $topic['depth']);
+                    } ?>>
                         <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
                            title="<?php echo $this->escape($topic['title']); ?>">
                             <span itemprop="name"><?php echo $this->escape($topic['title']); ?></span>
@@ -39,23 +43,29 @@
         <?php } elseif ($block['type'] == 'listgroup') { ?>
             <div class="list-group clearfix">
                 <?php foreach ($block['resources'] as $topic) { ?>
-                    <a itemprop="itemListElement" class="list-group-item <?php if (isset($topic['depth'])) { echo sprintf(' depth-%s', $topic['depth']);} ?>"
+                    <a itemprop="itemListElement" class="list-group-item <?php if (isset($topic['depth'])) {
+                        echo sprintf(' depth-%s', $topic['depth']);
+                    } ?>"
                        href="<?php echo $this->escape($topic['topicUrl']); ?>"
                        title="<?php echo $this->escape($topic['title']); ?>"><?php echo $this->escape($topic['title']); ?></a>
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'slide') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery(array(
-                    'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.min.css',
-                ));
-                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+                $this->jQuery(
+                    [
+                        'extension/owl.carousel.min.js',
+                        'extension/owl.carousel.min.css',
+                    ]
+                );
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
             } ?>
             <div class="news-topic-block-slide owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $topic) { ?>
-                    <div class="item hover-captions hover-captions-slide<?php if (isset($topic['depth'])) { echo sprintf(' depth-%s', $topic['depth']);} ?>" itemprop="itemListElement">
+                    <div class="item hover-captions hover-captions-slide<?php if (isset($topic['depth'])) {
+                        echo sprintf(' depth-%s', $topic['depth']);
+                    } ?>" itemprop="itemListElement">
                         <div class="hover-caption">
                             <h3 itemprop="name"><?php echo $this->escape($topic['title']); ?></h3>
                             <p>
@@ -75,7 +85,9 @@
         <?php } elseif ($block['type'] == 'image') { ?>
             <div class="news-topic-block-image text-center">
                 <?php foreach ($block['resources'] as $topic) { ?>
-                    <div class="p-item h-card h-review<?php if (isset($topic['depth'])) { echo sprintf(' depth-%s', $topic['depth']);} ?>" itemprop="itemListElement">
+                    <div class="p-item h-card h-review<?php if (isset($topic['depth'])) {
+                        echo sprintf(' depth-%s', $topic['depth']);
+                    } ?>" itemprop="itemListElement">
                         <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
                            href="<?php echo $this->escape($topic['topicUrl']); ?>">
                             <img itemprop="image" class="img-responsive u-photo"

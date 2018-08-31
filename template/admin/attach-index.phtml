@@ -33,14 +33,14 @@
                     <td>
                         <a class="btn btn-primary" rel="external" title="<?php _e('Get'); ?>"
                            href="<?php echo $file['downloadUrl']; ?>"><i
-                                class="fa fa-download-alt"></i> <?php _e('Get'); ?></a>
+                                    class="fa fa-download-alt"></i> <?php _e('Get'); ?></a>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
-                           href="<?php echo $this->url('', array('action' => 'edit', 'id' => $file['id'])); ?>"><i
-                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                           href="<?php echo $this->url('', ['action' => 'edit', 'id' => $file['id']]); ?>"><i
+                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                         <?php if ($file['item_table'] == 'story') { ?>
                             <a class="btn btn-primary" title="<?php _e('Edit from story'); ?>"
-                               href="<?php echo $this->url('', array('action' => 'add', 'id' => $file['item_id'])); ?>"><i
-                                    class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
+                               href="<?php echo $this->url('', ['action' => 'add', 'id' => $file['item_id']]); ?>"><i
+                                        class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
                         <?php } ?>
                     </td>
                 </tr>

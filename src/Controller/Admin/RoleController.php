@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -22,16 +23,17 @@ use Module\News\Form\AuthorRoleFilter;
 
 class roleController extends ActionController
 {
-    protected $authorRoleColumns = array(
-        'id', 'title', 'status'
-    );
+    protected $authorRoleColumns
+        = [
+            'id', 'title', 'status',
+        ];
 
     public function indexAction()
     {
         // Get page
         $module = $this->params('module');
         // Set info
-        $order = array('title DESC', 'id DESC');
+        $order = ['title DESC', 'id DESC'];
         // Get list of author
         $select = $this->getModel('author_role')->select()->order($order);
         $rowset = $this->getModel('author_role')->selectWith($select);
@@ -47,7 +49,7 @@ class roleController extends ActionController
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Set form
         $form = new AuthorRoleForm('role');
@@ -75,7 +77,7 @@ class roleController extends ActionController
                 Pi::registry('authorList', 'news')->clear();
                 // jump
                 $message = __('Role data saved successfully.');
-                $this->jump(array('action' => 'index'), $message);
+                $this->jump(['action' => 'index'], $message);
             } else {
                 $message = __('Invalid data, please check and re-submit.');
             }

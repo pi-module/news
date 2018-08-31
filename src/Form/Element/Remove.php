@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form\Element;
 
 use Pi;
@@ -22,11 +23,11 @@ class Remove extends ZendButton
      */
     public function getAttributes()
     {
-        $this->Attributes = array(
-            'class' => 'btn btn-danger btn-sm remove-image',
+        $this->Attributes = [
+            'class'       => 'btn btn-danger btn-sm remove-image',
             'data-toggle' => 'button',
-            'data-link' => $this->attributes['link'],
-        );
+            'data-link'   => $this->attributes['link'],
+        ];
         return $this->Attributes;
     }
 }

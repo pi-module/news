@@ -3,11 +3,11 @@
     <div class="clearfix">
         <p>
             <!-- <a class="btn btn-primary" title="<?php _e('New news'); ?>"
-               href="<?php echo $this->url('', array('controller' => 'microblog', 'action' => 'update', 'type' => 'news')); ?>"><i
+               href="<?php echo $this->url('', ['controller' => 'microblog', 'action' => 'update', 'type' => 'news']); ?>"><i
                     class="fa fa-folder-open"></i><?php _e('New news'); ?></a> -->
             <a class="btn btn-primary" title="<?php _e('New post'); ?>"
-               href="<?php echo $this->url('', array('controller' => 'microblog', 'action' => 'update', 'type' => 'post')); ?>"><i
-                    class="fa fa-folder-open"></i><?php _e('New post'); ?></a>
+               href="<?php echo $this->url('', ['controller' => 'microblog', 'action' => 'update', 'type' => 'post']); ?>"><i
+                        class="fa fa-folder-open"></i><?php _e('New post'); ?></a>
         </p>
 
         <h3><?php _e('List of posts'); ?></h3>
@@ -28,7 +28,7 @@
                 ?>
                 <tr>
                     <td><span
-                            class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($microblog['id']); ?></span>
+                                class="label <?php echo $labelIdClass; ?>"><?php echo $this->escape($microblog['id']); ?></span>
                     </td>
                     <td>
                         <p><?php echo $this->escape($microblog['post']); ?></p>
@@ -37,15 +37,15 @@
                             <?php if (!empty($microblog['microblogUrl'])) { ?>
                                 <a class="btn btn-primary btn-xs" title="<?php _e('View'); ?>"
                                    href="<?php echo $this->escape($microblog['microblogUrl']); ?>"><i
-                                        class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
                             <?php } ?>
                             <a class="btn btn-primary btn-xs" title="<?php _e('Edit'); ?>"
-                               href="<?php echo $this->url('', array('action' => 'update', 'id' => $microblog['id'])); ?>"><i
-                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                               href="<?php echo $this->url('', ['action' => 'update', 'id' => $microblog['id']]); ?>"><i
+                                        class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
                             <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>"
-                               href="<?php echo $this->url('', array('action' => 'delete', 'id' => $microblog['id'])); ?>"
+                               href="<?php echo $this->url('', ['action' => 'delete', 'id' => $microblog['id']]); ?>"
                                onclick="return confirm('<?php echo _a('Are you sure to delete this story?'); ?>')"><i
-                                    class="fa fa-trash"></i> <?php _e('Delete'); ?></a>
+                                        class="fa fa-trash"></i> <?php _e('Delete'); ?></a>
                             <strong><?php _e('Published'); ?></strong>
                             : <?php echo $this->escape($microblog['time_publish']); ?>
                             <strong><?php _e('By'); ?></strong>

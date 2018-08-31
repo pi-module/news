@@ -1,5 +1,5 @@
-<?php $this->css($this->assetModule('css/front.css'), array('defer' => 'defer')); ?>
-<?php $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async')); ?>
+<?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
+<?php $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'async']); ?>
 
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
@@ -14,23 +14,39 @@
                     <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
                             <picture>
-                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(479,479); ?>" media="(max-width: 479px)">
-                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(720,720); ?>" media="(max-width: 991px)">
-                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(270,270); ?>" media="(max-width: 1366px)">
-                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(290,290); ?>" media="(max-width: 2800px)">
+                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-srcset="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                            479, 479
+                                        ); ?>" media="(max-width: 479px)">
+                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-srcset="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                            720, 720
+                                        ); ?>" media="(max-width: 991px)">
+                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-srcset="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                            270, 270
+                                        ); ?>" media="(max-width: 1366px)">
+                                <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                        data-srcset="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                            290, 290
+                                        ); ?>" media="(max-width: 2800px)">
 
                                 <img itemprop="image" class="img-responsive lazyload"
                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAEElEQVR42mP8/58BCBghFAAj/wP/DcJIqAAAAABJRU5ErkJggg=="
-                                     data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                     data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                         'medium'
+                                     ); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"/>
                             </picture>
                         </a>
                     <?php } ?>
                     <div class="caption">
                         <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
-                                class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
-                                                                                                        title="<?php echo htmlentities($story['title']); ?>"
-                                                                                                        href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+                                    class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
+                                                                                                            title="<?php echo htmlentities($story['title']); ?>"
+                                                                                                            href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape(
+                                    $story['title']
+                                ); ?></a>
                         </h4>
                         <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
                         <?php if ($topic['show_date']) { ?>
@@ -39,7 +55,7 @@
                             </div>
                         <?php } ?>
                     </div>
-                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                 </div>
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>

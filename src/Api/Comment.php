@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -30,20 +31,20 @@ class Comment extends AbstractComment
     public function get($item)
     {
 
-        $result = array();
-        $items = (array)$item;
+        $result = [];
+        $items  = (array)$item;
 
         // Set options
         $story = Pi::api('story', 'news')->getListFromId($items);
 
         foreach ($items as $id) {
-            $result[$id] = array(
-                'id' => $story[$id]['id'],
+            $result[$id] = [
+                'id'    => $story[$id]['id'],
                 'title' => $story[$id]['title'],
-                'url' => $story[$id]['storyUrl'],
-                'uid' => $story[$id]['uid'],
-                'time' => $story[$id]['time_create'],
-            );
+                'url'   => $story[$id]['storyUrl'],
+                'uid'   => $story[$id]['uid'],
+                'time'  => $story[$id]['time_create'],
+            ];
         }
 
         if (is_scalar($item)) {
@@ -72,20 +73,20 @@ class Comment extends AbstractComment
             && !empty($params['slug'])
         ) {
             $story = Pi::api('story', 'news')->getStory($params['slug'], 'slug');
-            $item = $story['id'];
+            $item  = $story['id'];
         } else {
             $item = false;
         }
         return $item;
     }
-    
+
     public function canonize($id)
     {
         $data = Pi::api('story', 'news')->getStory($id);
-        return array(
-            'url' => $data['storyUrl'],
+        return [
+            'url'   => $data['storyUrl'],
             'title' => $data['title'],
-        );
+        ];
     }
 
 }

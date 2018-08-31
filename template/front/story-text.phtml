@@ -1,9 +1,10 @@
 <?php
 // Load front.css
-$this->css($this->assetModule('css/front.css'), array('defer' => 'defer'));
+$this->css($this->assetModule('css/front.css'), ['defer' => 'defer']);
 // Image lightbox
 if ($config['image_lightbox']) {
-    $script = <<<'EOT'
+    $script
+        = <<<'EOT'
 window.addEventListener('DOMContentLoaded', function() {
     $('.gallery').each(function() {
         $(this).magnificPopup({
@@ -16,8 +17,8 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 EOT;
-    $this->jQuery(array('extension/jquery.magnific-popup.min.js' => array('defer' => 'defer')));
-    $this->jQuery('extension/magnific-popup.min.css', array('defer' => 'defer'));
+    $this->jQuery(['extension/jquery.magnific-popup.min.js' => ['defer' => 'defer']]);
+    $this->jQuery('extension/magnific-popup.min.css', ['defer' => 'defer']);
     $this->footScript()->appendScript($script);
 }
 // Set Open Graph tags for meta
@@ -42,7 +43,7 @@ if ($shareImage) {
 
 $this->sticky();
 
-$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 'async'));
+$this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'async']);
 
 ?>
 <div class="clearfix news-single-story" itemscope itemtype="https://schema.org/Article">
@@ -60,7 +61,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
         </h1>
     </div>
 
-    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
     <div class="clearfix small itemUnderHead">
         <ul class="list-inline text-muted pull-right">
             <?php if ($config['show_date']) { ?>
@@ -94,12 +95,14 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                 <?php if ($story['main_image']) { ?>
                     <div class="storyImageMain gallery">
                         <div class="thumbnail u-photo">
-                            <?php $media = Pi::api('doc','media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
+                            <?php $media = Pi::api('doc', 'media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                             <a href="<?php echo $media['resized_url']; ?>"
-                               title="<?php echo $this->escape($story['title']); ?><?php if($media['copyright']) echo ' - ' . $media['copyright'] ?>">
+                               title="<?php echo $this->escape($story['title']); ?><?php if ($media['copyright']) echo ' - ' . $media['copyright'] ?>">
                                 <img itemprop="image" class="img-responsive lazyload"
                                      src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                     data-src="<?php echo Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
+                                     data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
+                                         'medium'
+                                     ); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"/>
                             </a>
                         </div>
@@ -192,7 +195,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                             <?php foreach ($tag as $term) { ?>
                                 <li class="tagItem">
                                     <a title="<?php echo $this->escape($term); ?>"
-                                       href="<?php echo Pi::url($this->url('', array('controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)))); ?>">
+                                       href="<?php echo Pi::url($this->url('', ['controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)])); ?>">
                                         <i class="fa fa-tag"></i> <?php echo $this->escape($term); ?>
                                     </a>
                                 </li>
@@ -227,10 +230,10 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                                     <div class="row">
                                         <div class="col-md-4">
                                             <?php if ($related['main_image']) { ?>
-                                            <img itemprop="image" class="img-responsive u-photo lazyload"
-                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                 data-src="<?php echo $this->escape($related['thumbUrl']); ?>"
-                                                 alt="<?php echo $this->escape($related['title']); ?>"/>
+                                                <img itemprop="image" class="img-responsive u-photo lazyload"
+                                                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                     data-src="<?php echo $this->escape($related['thumbUrl']); ?>"
+                                                     alt="<?php echo $this->escape($related['title']); ?>"/>
                                             <?php } ?>
                                         </div>
                                         <div class="col-md-8">
@@ -238,7 +241,8 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
                                                href="<?php echo $this->escape($related['storyUrl']); ?>">
                                                 <span class="p-name" itemprop="name headline"><?php echo $this->escape($related['title']); ?></span>
                                             </a>
-                                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $related['time_publish'])); ?>" />
+                                            <meta itemprop="datePublished"
+                                                  content="<?php echo $this->escape(date("Y-m-d H:i:s", $related['time_publish'])); ?>"/>
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +256,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), array('async' => 
 </div>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('iframe').wrap('<div class="iframe-wrapper">');
     });
 </script>

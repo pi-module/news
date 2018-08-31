@@ -1,27 +1,27 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // route name
-    'news' => array(
-        'name' => 'news',
-        'type' => 'Module\News\Route\News',
-        'options' => array(
-            'route' => '/news',
-            'defaults' => array(
-                'module' => 'news',
+    'news' => [
+        'name'    => 'news',
+        'type'    => 'Module\News\Route\News',
+        'options' => [
+            'route'    => '/news',
+            'defaults' => [
+                'module'     => 'news',
                 'controller' => 'index',
-                'action' => 'index'
-            )
-        ),
-    )
-);
+                'action'     => 'index',
+            ],
+        ],
+    ],
+];

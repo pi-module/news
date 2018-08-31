@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form;
 
 use Pi;
@@ -17,9 +18,9 @@ use Pi\Form\Form as BaseForm;
 
 class AuthorForm extends BaseForm
 {
-    public function __construct($name = null, $options = array())
+    public function __construct($name = null, $options = [])
     {
-        $this->thumbUrl = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
+        $this->thumbUrl  = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
     }
@@ -35,154 +36,182 @@ class AuthorForm extends BaseForm
     public function init()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'attributes' => array(
-                'type' => 'hidden',
-            ),
-        ));
+        $this->add(
+            [
+                'name'       => 'id',
+                'attributes' => [
+                    'type' => 'hidden',
+                ],
+            ]
+        );
         // title
-        $this->add(array(
-            'name' => 'title',
-            'options' => array(
-                'label' => __('Title'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'title',
+                'options'    => [
+                    'label' => __('Title'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // slug
-        $this->add(array(
-            'name' => 'slug',
-            'options' => array(
-                'label' => __('slug'),
-            ),
-            'attributes' => array(
-                'type' => 'text',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'slug',
+                'options'    => [
+                    'label' => __('slug'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                ],
+            ]
+        );
         // text_description
-        $this->add(array(
-            'name' => 'text_description',
-            'options' => array(
-                'label' => __('Description'),
-                'editor' => 'html',
-                'set' => '',
-            ),
-            'attributes' => array(
-                'type' => 'editor',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'text_description',
+                'options'    => [
+                    'label'  => __('Description'),
+                    'editor' => 'html',
+                    'set'    => '',
+                ],
+                'attributes' => [
+                    'type'        => 'editor',
+                    'description' => '',
+                ],
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'type' => 'select',
-            'options' => array(
-                'label' => __('Status'),
-                'value_options' => array(
-                    1 => __('Published'),
-                    2 => __('Pending review'),
-                    3 => __('Draft'),
-                    4 => __('Private'),
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'status',
+                'type'    => 'select',
+                'options' => [
+                    'label'         => __('Status'),
+                    'value_options' => [
+                        1 => __('Published'),
+                        2 => __('Pending review'),
+                        3 => __('Draft'),
+                        4 => __('Private'),
+                    ],
+                ],
+            ]
+        );
         // Image
         if ($this->thumbUrl) {
-            $this->add(array(
-                'name' => 'imageview',
-                'type' => 'Module\News\Form\Element\Image',
-                'options' => array(//'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'src' => $this->thumbUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'remove',
-                'type' => 'Module\News\Form\Element\Remove',
-                'options' => array(
-                    'label' => __('Remove image'),
-                ),
-                'attributes' => array(
-                    'link' => $this->removeUrl,
-                ),
-            ));
-            $this->add(array(
-                'name' => 'image',
-                'attributes' => array(
-                    'type' => 'hidden',
-                ),
-            ));
+            $this->add(
+                [
+                    'name'       => 'imageview',
+                    'type'       => 'Module\News\Form\Element\Image',
+                    'options'    => [//'label' => __('Image'),
+                    ],
+                    'attributes' => [
+                        'src' => $this->thumbUrl,
+                    ],
+                ]
+            );
+            $this->add(
+                [
+                    'name'       => 'remove',
+                    'type'       => 'Module\News\Form\Element\Remove',
+                    'options'    => [
+                        'label' => __('Remove image'),
+                    ],
+                    'attributes' => [
+                        'link' => $this->removeUrl,
+                    ],
+                ]
+            );
+            $this->add(
+                [
+                    'name'       => 'image',
+                    'attributes' => [
+                        'type' => 'hidden',
+                    ],
+                ]
+            );
         } else {
-            $this->add(array(
-                'name' => 'image',
-                'options' => array(
-                    'label' => __('Image'),
-                ),
-                'attributes' => array(
-                    'type' => 'file',
-                    'description' => '',
-                )
-            ));
+            $this->add(
+                [
+                    'name'       => 'image',
+                    'options'    => [
+                        'label' => __('Image'),
+                    ],
+                    'attributes' => [
+                        'type'        => 'file',
+                        'description' => '',
+                    ],
+                ]
+            );
         }
         // extra_seo
-        $this->add(array(
-            'name' => 'extra_seo',
-            'type' => 'fieldset',
-            'options' => array(
-                'label' => __('SEO options'),
-            ),
-        ));
+        $this->add(
+            [
+                'name'    => 'extra_seo',
+                'type'    => 'fieldset',
+                'options' => [
+                    'label' => __('SEO options'),
+                ],
+            ]
+        );
         // seo_title
-        $this->add(array(
-            'name' => 'seo_title',
-            'options' => array(
-                'label' => __('SEO Title'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '2',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_title',
+                'options'    => [
+                    'label' => __('SEO Title'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '2',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // seo_keywords
-        $this->add(array(
-            'name' => 'seo_keywords',
-            'options' => array(
-                'label' => __('SEO Keywords'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '2',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_keywords',
+                'options'    => [
+                    'label' => __('SEO Keywords'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '2',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // seo_description
-        $this->add(array(
-            'name' => 'seo_description',
-            'options' => array(
-                'label' => __('SEO Description'),
-            ),
-            'attributes' => array(
-                'type' => 'textarea',
-                'rows' => '3',
-                'cols' => '40',
-                'description' => '',
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'seo_description',
+                'options'    => [
+                    'label' => __('SEO Description'),
+                ],
+                'attributes' => [
+                    'type'        => 'textarea',
+                    'rows'        => '3',
+                    'cols'        => '40',
+                    'description' => '',
+                ],
+            ]
+        );
         // Save
-        $this->add(array(
-            'name' => 'submit',
-            'type' => 'submit',
-            'attributes' => array(
-                'value' => __('Submit'),
-            )
-        ));
+        $this->add(
+            [
+                'name'       => 'submit',
+                'type'       => 'submit',
+                'attributes' => [
+                    'value' => __('Submit'),
+                ],
+            ]
+        );
     }
 }

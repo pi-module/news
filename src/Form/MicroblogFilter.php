@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
@@ -21,29 +21,37 @@ class MicroblogFilter extends InputFilter
     public function __construct()
     {
         // id
-        $this->add(array(
-            'name' => 'id',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'id',
+                'required' => false,
+            ]
+        );
         // post
-        $this->add(array(
-            'name' => 'post',
-            'required' => true,
-            'filters' => array(
-                array(
-                    'name' => 'StringTrim',
-                ),
-            ),
-        ));
+        $this->add(
+            [
+                'name'     => 'post',
+                'required' => true,
+                'filters'  => [
+                    [
+                        'name' => 'StringTrim',
+                    ],
+                ],
+            ]
+        );
         // topic
-        $this->add(array(
-            'name' => 'topic',
-            'required' => false,
-        ));
+        $this->add(
+            [
+                'name'     => 'topic',
+                'required' => false,
+            ]
+        );
         // status
-        $this->add(array(
-            'name' => 'status',
-            'required' => true,
-        ));
+        $this->add(
+            [
+                'name'     => 'status',
+                'required' => true,
+            ]
+        );
     }
 }

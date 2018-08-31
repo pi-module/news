@@ -1,236 +1,236 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
-    'front' => array(
-        'favourite' => array(
-            'label' => _a('Favourite'),
-            'permission' => array(
+return [
+    'front' => [
+        'favourite' => [
+            'label'      => _a('Favourite'),
+            'permission' => [
                 'resource' => 'public',
-            ),
-            'route' => 'news',
-            'module' => 'news',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
             'controller' => 'favourite',
-            'action' => 'index',
-        ),
+            'action'     => 'index',
+        ],
 
-        'topic' => array(
-            'label' => _a('Topic list'),
-            'permission' => array(
+        'topic' => [
+            'label'      => _a('Topic list'),
+            'permission' => [
                 'resource' => 'public',
-            ),
-            'route' => 'news',
-            'module' => 'news',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
             'controller' => 'topic',
-        ),
+        ],
 
-        'tag' => array(
-            'label' => _a('Tag list'),
-            'permission' => array(
+        'tag' => [
+            'label'      => _a('Tag list'),
+            'permission' => [
                 'resource' => 'public',
-            ),
-            'route' => 'news',
-            'module' => 'news',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
             'controller' => 'tag',
-            'action' => 'list',
-        ),
+            'action'     => 'list',
+        ],
 
-        'author' => array(
-            'label' => _a('Author list'),
-            'permission' => array(
+        'author' => [
+            'label'      => _a('Author list'),
+            'permission' => [
                 'resource' => 'author',
-            ),
-            'route' => 'news',
-            'module' => 'news',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
             'controller' => 'author',
-        ),
-    ),
-    'admin' => array(
-        'story' => array(
-            'label' => _a('Story'),
-            'permission' => array(
+        ],
+    ],
+    'admin' => [
+        'story'     => [
+            'label'      => _a('Story'),
+            'permission' => [
                 'resource' => 'story',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'story',
-            'action' => 'index',
-        ),
-        'topic' => array(
-            'label' => _a('Topic'),
-            'permission' => array(
+            'action'     => 'index',
+        ],
+        'topic'     => [
+            'label'      => _a('Topic'),
+            'permission' => [
                 'resource' => 'topic',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'topic',
-            'action' => 'index',
-        ),
-        'spotlight' => array(
-            'label' => _a('Spotlight'),
-            'permission' => array(
+            'action'     => 'index',
+        ],
+        'spotlight' => [
+            'label'      => _a('Spotlight'),
+            'permission' => [
                 'resource' => 'spotlight',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'spotlight',
-            'action' => 'index',
-        ),
-        'attribute' => array(
-            'label' => _a('Attribute'),
-            'permission' => array(
+            'action'     => 'index',
+        ],
+        'attribute' => [
+            'label'      => _a('Attribute'),
+            'permission' => [
                 'resource' => 'attribute',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'attribute',
-            'action' => 'index',
-            'pages' => array(
-                'attribute' => array(
-                    'label' => _a('Attribute'),
-                    'permission' => array(
+            'action'     => 'index',
+            'pages'      => [
+                'attribute' => [
+                    'label'      => _a('Attribute'),
+                    'permission' => [
                         'resource' => 'attribute',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'attribute',
-                    'action' => 'index',
-                ),
-                'position' => array(
-                    'label' => _a('Attribute position'),
-                    'permission' => array(
+                    'action'     => 'index',
+                ],
+                'position'  => [
+                    'label'      => _a('Attribute position'),
+                    'permission' => [
                         'resource' => 'position',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'position',
-                    'action' => 'index',
-                ),
-            ),
-        ),
-        'author' => array(
-            'label' => _a('Authors'),
-            'permission' => array(
+                    'action'     => 'index',
+                ],
+            ],
+        ],
+        'author'    => [
+            'label'      => _a('Authors'),
+            'permission' => [
                 'resource' => 'author',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'author',
-            'action' => 'index',
-            'pages' => array(
-                'author' => array(
-                    'label' => _a('Authors'),
-                    'permission' => array(
+            'action'     => 'index',
+            'pages'      => [
+                'author' => [
+                    'label'      => _a('Authors'),
+                    'permission' => [
                         'resource' => 'author',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'author',
-                    'action' => 'index',
-                ),
-                'role' => array(
-                    'label' => _a('Author roles'),
-                    'permission' => array(
+                    'action'     => 'index',
+                ],
+                'role'   => [
+                    'label'      => _a('Author roles'),
+                    'permission' => [
                         'resource' => 'role',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'role',
-                    'action' => 'index',
-                ),
-            ),
-        ),
-        'microblog' => array(
-            'label' => _a('Micro blog'),
-            'permission' => array(
+                    'action'     => 'index',
+                ],
+            ],
+        ],
+        'microblog' => [
+            'label'      => _a('Micro blog'),
+            'permission' => [
                 'resource' => 'microblog',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'microblog',
-            'action' => 'index',
-        ),
-        'tools' => array(
-            'label' => _a('Tools'),
-            'permission' => array(
+            'action'     => 'index',
+        ],
+        'tools'     => [
+            'label'      => _a('Tools'),
+            'permission' => [
                 'resource' => 'tools',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'tools',
-            'action' => 'index',
-            'pages' => array(
-                'tools' => array(
-                    'label' => _a('Tools'),
-                    'permission' => array(
+            'action'     => 'index',
+            'pages'      => [
+                'tools'     => [
+                    'label'      => _a('Tools'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'index',
-                ),
-                'rebuild' => array(
-                    'label' => _a('Rebuild'),
-                    'permission' => array(
+                    'action'     => 'index',
+                ],
+                'rebuild'   => [
+                    'label'      => _a('Rebuild'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'rebuild',
-                ),
-                'prune' => array(
-                    'label' => _a('Prune'),
-                    'permission' => array(
+                    'action'     => 'rebuild',
+                ],
+                'prune'     => [
+                    'label'      => _a('Prune'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'prune',
-                ),
-                'spotlight' => array(
-                    'label' => _a('Spotlight'),
-                    'permission' => array(
+                    'action'     => 'prune',
+                ],
+                'spotlight' => [
+                    'label'      => _a('Spotlight'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'spotlight',
-                ),
-                'page' => array(
-                    'label' => _a('Page'),
-                    'permission' => array(
+                    'action'     => 'spotlight',
+                ],
+                'page'      => [
+                    'label'      => _a('Page'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'page',
-                ),
-                'sitemap' => array(
-                    'label' => _a('Sitemap'),
-                    'permission' => array(
+                    'action'     => 'page',
+                ],
+                'sitemap'   => [
+                    'label'      => _a('Sitemap'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'sitemap',
-                ),
-                'media' => array(
-                    'label' => _a('Media'),
-                    'permission' => array(
+                    'action'     => 'sitemap',
+                ],
+                'media'     => [
+                    'label'      => _a('Media'),
+                    'permission' => [
                         'resource' => 'tools',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'tools',
-                    'action' => 'media',
-                ),
-                'json' => array(
-                    'label' => _a('Json'),
-                    'permission' => array(
+                    'action'     => 'media',
+                ],
+                'json'      => [
+                    'label'      => _a('Json'),
+                    'permission' => [
                         'resource' => 'json',
-                    ),
-                    'route' => 'admin',
+                    ],
+                    'route'      => 'admin',
                     'controller' => 'json',
-                    'action' => 'index',
-                ),
-            ),
-        ),
-    ),
-);
+                    'action'     => 'index',
+                ],
+            ],
+        ],
+    ],
+];

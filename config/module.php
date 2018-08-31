@@ -1,46 +1,46 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Module meta
-    'meta' => array(
-        'title' => _a('News'),
+    'meta'       => [
+        'title'       => _a('News'),
         'description' => _a('Manage News and Blog'),
-        'version' => '2.0.7',
-        'license' => 'New BSD',
-        'logo' => 'image/logo.png',
-        'readme' => 'docs/readme.txt',
-        'demo' => 'http://pialog.org',
-        'icon' => 'fa-rocket',
-    ),
-    'dependency'    => array(
+        'version'     => '2.0.9',
+        'license'     => 'New BSD',
+        'logo'        => 'image/logo.png',
+        'readme'      => 'docs/readme.txt',
+        'demo'        => 'http://piengine.org',
+        'icon'        => 'fa-rocket',
+    ],
+    'dependency' => [
         'media',
-    ),
+    ],
     // Author information
-    'author' => array(
-        'Name' => 'Hossein Azizabadi',
-        'email' => 'azizabadi@faragostaresh.com',
-        'website' => 'http://pialog.org',
-        'credits' => 'Pi Engine Team'
-    ),
+    'author'     => [
+        'Name'    => 'Hossein Azizabadi',
+        'email'   => 'azizabadi@faragostaresh.com',
+        'website' => 'http://piengine.org',
+        'credits' => 'Pi Engine Team',
+    ],
     // resource
-    'resource' => array(
-        'database' => 'database.php',
-        'config' => 'config.php',
+    'resource'   => [
+        'database'   => 'database.php',
+        'config'     => 'config.php',
         'permission' => 'permission.php',
-        'block' => 'block.php',
-        'page' => 'page.php',
+        'block'      => 'block.php',
+        'page'       => 'page.php',
         'navigation' => 'navigation.php',
-        'route' => 'route.php',
-        'comment' => 'comment.php',
-    )
-);
+        'route'      => 'route.php',
+        'comment'    => 'comment.php',
+    ],
+];

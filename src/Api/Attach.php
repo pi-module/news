@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -30,53 +31,63 @@ class Attach extends AbstractApi
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
         // Set info
-        $file = array();
-        $where = array('item_id' => $id, 'status' => 1, 'item_table' => $parent);
-        $order = array('time_create ASC', 'id ASC');
+        $file  = [];
+        $where = ['item_id' => $id, 'status' => 1, 'item_table' => $parent];
+        $order = ['time_create ASC', 'id ASC'];
         // Get all attach files
         $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $file[$row->type][$row->id] = $row->toArray();
+            $file[$row->type][$row->id]                     = $row->toArray();
             $file[$row->type][$row->id]['time_create_view'] = _date($file[$row->type][$row->id]['time_create']);
             if ($file[$row->type][$row->id]['type'] == 'image') {
                 // Set image original url
                 $file[$row->type][$row->id]['originalUrl'] = Pi::url(
-                    sprintf('upload/%s/original/%s/%s',
+                    sprintf(
+                        'upload/%s/original/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
                 // Set image large url
                 $file[$row->type][$row->id]['largeUrl'] = Pi::url(
-                    sprintf('upload/%s/large/%s/%s',
+                    sprintf(
+                        'upload/%s/large/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
                 // Set image medium url
                 $file[$row->type][$row->id]['mediumUrl'] = Pi::url(
-                    sprintf('upload/%s/medium/%s/%s',
+                    sprintf(
+                        'upload/%s/medium/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
                 // Set image thumb url
                 $file[$row->type][$row->id]['thumbUrl'] = Pi::url(
-                    sprintf('upload/%s/thumb/%s/%s',
+                    sprintf(
+                        'upload/%s/thumb/%s/%s',
                         $config['image_path'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
             } else {
                 $file[$row->type][$row->id]['fileUrl'] = Pi::url(
-                    sprintf('upload/%s/%s/%s/%s',
+                    sprintf(
+                        'upload/%s/%s/%s/%s',
                         $config['file_path'],
                         $file[$row->type][$row->id]['type'],
                         $file[$row->type][$row->id]['path'],
                         $file[$row->type][$row->id]['file']
-                    ));
+                    )
+                );
             }
         }
         // return
@@ -89,10 +100,10 @@ class Attach extends AbstractApi
         $config = Pi::service('registry')->config->read($this->getModule());
 
         if ($type == 'image') {
-            $image = sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $file);
+            $image   = sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $file);
             $preview = Pi::url($image);
         } else {
-            $image = sprintf('image/%s.png', $type);
+            $image   = sprintf('image/%s.png', $type);
             $preview = Pi::service('asset')->getModuleAsset($image, $this->getModule());
         }
         return $preview;

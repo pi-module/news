@@ -2,7 +2,8 @@
 
 $siteUrl = "http://local.envie-de-queyras.com/";
 
-function getUrlContent($url){
+function getUrlContent($url)
+{
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -10,11 +11,11 @@ function getUrlContent($url){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
     curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-    $data = curl_exec($ch);
-    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $data        = curl_exec($ch);
+    $httpcode    = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
     curl_close($ch);
-    return ($httpcode>=200 && $httpcode<300) ? array('data' => $data, 'contentType' => $contentType) : false;
+    return ($httpcode >= 200 && $httpcode < 300) ? ['data' => $data, 'contentType' => $contentType] : false;
 }
 
 $data = getUrlContent(trim($siteUrl, '/') . '/news/cron/generatePictures');

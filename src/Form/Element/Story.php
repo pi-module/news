@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form\Element;
 
 use Pi;
@@ -26,13 +27,13 @@ class Story extends Select
             if (isset($this->options['story'])) {
                 $options = $this->options['story'];
             }
-            $limit = (isset($this->options['limit'])) ? $this->options['limit'] : 50;
-            $columns = array('id', 'title');
-            $order = array('time_create DESC', 'id DESC');
-            $select = Pi::model('story', $this->options['module'])->select()->columns($columns)->order($order)->limit($limit);
-            $rowset = Pi::model('story', $this->options['module'])->selectWith($select);
+            $limit   = (isset($this->options['limit'])) ? $this->options['limit'] : 50;
+            $columns = ['id', 'title'];
+            $order   = ['time_create DESC', 'id DESC'];
+            $select  = Pi::model('story', $this->options['module'])->select()->columns($columns)->order($order)->limit($limit);
+            $rowset  = Pi::model('story', $this->options['module'])->selectWith($select);
             foreach ($rowset as $row) {
-                $list[$row->id] = $row->toArray();
+                $list[$row->id]    = $row->toArray();
                 $options[$row->id] = $list[$row->id]['title'];
             }
             $this->valueOptions = $options;
@@ -45,11 +46,11 @@ class Story extends Select
      */
     public function getAttributes()
     {
-        $this->Attributes = array(
-            'size' => 5,
+        $this->Attributes = [
+            'size'     => 5,
             'multiple' => 1,
-            'class' => 'form-control',
-        );
+            'class'    => 'form-control',
+        ];
         // check form size
         if (isset($this->attributes['size'])) {
             $this->Attributes['size'] = $this->attributes['size'];

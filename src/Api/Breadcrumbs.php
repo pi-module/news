@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Api;
 
 use Pi;
@@ -33,42 +34,50 @@ class Breadcrumbs extends AbstractBreadcrumbs
             // Make tree
             if (!empty($params['controller']) && $params['controller'] != 'index') {
                 // Set index
-                $result = array(
-                    array(
+                $result = [
+                    [
                         'label' => $moduleData['title'],
-                        'href' => Pi::url(Pi::service('url')->assemble('news', array(
-                            'module' => $this->getModule(),
-                        ))),
-                    ),
-                );
+                        'href'  => Pi::url(
+                            Pi::service('url')->assemble(
+                                'news', [
+                                'module' => $this->getModule(),
+                            ]
+                            )
+                        ),
+                    ],
+                ];
                 // Set
                 switch ($params['controller']) {
                     case 'author':
                         if (!empty($params['slug'])) {
                             // Set link
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Author list'),
-                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
-                                    'controller' => 'author',
-                                    //'action' => 'list',
-                                ))),
-                            );
+                                'href'  => Pi::url(
+                                    Pi::service('url')->assemble(
+                                        'news', [
+                                        'controller' => 'author',
+                                        //'action' => 'list',
+                                    ]
+                                    )
+                                ),
+                            ];
                             // Set link
-                            $author = Pi::api('author', 'news')->getAuthor($params['slug'], 'slug');
-                            $result[] = array(
+                            $author   = Pi::api('author', 'news')->getAuthor($params['slug'], 'slug');
+                            $result[] = [
                                 'label' => $author['title'],
-                            );
+                            ];
                         } else {
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Author list'),
-                            );
+                            ];
                         }
                         break;
 
                     case 'favourite':
-                        $result[] = array(
+                        $result[] = [
                             'label' => __('Favourite list'),
-                        );
+                        ];
                         break;
 
                     case 'story':
@@ -77,35 +86,39 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         if ($story['topic_main'] > 0 && $config['view_breadcrumbs_topic']) {
                             $topicTree = $this->getParentList($story['topic_main']);
                             foreach ($topicTree as $topic) {
-                                $result[] = array(
+                                $result[] = [
                                     'label' => $topic['title'],
-                                    'href' => Pi::url($topic['url']),
-                                );
+                                    'href'  => Pi::url($topic['url']),
+                                ];
                             }
                         }
-                        $result[] = array(
+                        $result[] = [
                             'label' => $story['title'],
-                        );
+                        ];
                         break;
 
                     case 'tag':
                         if (!empty($params['slug'])) {
                             // Set link
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Tag list'),
-                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
-                                    'controller' => 'tag',
-                                    'action' => 'list',
-                                ))),
-                            );
+                                'href'  => Pi::url(
+                                    Pi::service('url')->assemble(
+                                        'news', [
+                                        'controller' => 'tag',
+                                        'action'     => 'list',
+                                    ]
+                                    )
+                                ),
+                            ];
                             // Set link
-                            $result[] = array(
+                            $result[] = [
                                 'label' => $params['slug'],
-                            );
+                            ];
                         } else {
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Tag list'),
-                            );
+                            ];
                         }
                         break;
 
@@ -125,50 +138,54 @@ class Breadcrumbs extends AbstractBreadcrumbs
                             if ($topic['pid'] > 0 && $config['view_breadcrumbs_topic']) {
                                 $topicList = $this->getParentList($topic['pid']);
                                 foreach ($topicList as $topicSingle) {
-                                    $result[] = array(
+                                    $result[] = [
                                         'label' => $topicSingle['title'],
-                                        'href' => Pi::url($topicSingle['url']),
-                                    );
+                                        'href'  => Pi::url($topicSingle['url']),
+                                    ];
                                 }
                             }
                             // Set link
-                            $result[] = array(
+                            $result[] = [
                                 'label' => $topic['title'],
-                            );
+                            ];
                         } else {
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Topic list'),
-                            );
+                            ];
                         }
                         break;
 
                     case 'microblog':
                         if (!empty($params['id'])) {
                             // Set link
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Post list'),
-                                'href' => Pi::url(Pi::service('url')->assemble('news', array(
-                                    'controller' => 'microblog',
-                                ))),
-                            );
+                                'href'  => Pi::url(
+                                    Pi::service('url')->assemble(
+                                        'news', [
+                                        'controller' => 'microblog',
+                                    ]
+                                    )
+                                ),
+                            ];
                             // Set link
                             $microblog = Pi::api('microblog', 'news')->getMicroblog($params['id']);
-                            $result[] = array(
+                            $result[]  = [
                                 'label' => $microblog['seo_title'],
-                            );
+                            ];
                         } else {
-                            $result[] = array(
+                            $result[] = [
                                 'label' => __('Post list'),
-                            );
+                            ];
                         }
                         break;
                 }
             } else {
-                $result = array(
-                    array(
+                $result = [
+                    [
                         'label' => $moduleData['title'],
-                    ),
-                );
+                    ],
+                ];
             }
             return $result;
         } else {
@@ -178,36 +195,36 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
     public function getParentList($id)
     {
-        $result = array();
+        $result    = [];
         $topicList = Pi::registry('topicList', 'news')->read();
 
         $result[] = $topicList[$id];
         if ($topicList[$id]['pid'] > 0) {
-            $id = $topicList[$id]['pid'];
+            $id       = $topicList[$id]['pid'];
             $result[] = $topicList[$id];
             if ($topicList[$id]['pid'] > 0) {
-                $id = $topicList[$id]['pid'];
+                $id       = $topicList[$id]['pid'];
                 $result[] = $topicList[$id];
                 if ($topicList[$id]['pid'] > 0) {
-                    $id = $topicList[$id]['pid'];
+                    $id       = $topicList[$id]['pid'];
                     $result[] = $topicList[$id];
                     if ($topicList[$id]['pid'] > 0) {
-                        $id = $topicList[$id]['pid'];
+                        $id       = $topicList[$id]['pid'];
                         $result[] = $topicList[$id];
                         if ($topicList[$id]['pid'] > 0) {
-                            $id = $topicList[$id]['pid'];
+                            $id       = $topicList[$id]['pid'];
                             $result[] = $topicList[$id];
                             if ($topicList[$id]['pid'] > 0) {
-                                $id = $topicList[$id]['pid'];
+                                $id       = $topicList[$id]['pid'];
                                 $result[] = $topicList[$id];
                                 if ($topicList[$id]['pid'] > 0) {
-                                    $id = $topicList[$id]['pid'];
+                                    $id       = $topicList[$id]['pid'];
                                     $result[] = $topicList[$id];
                                     if ($topicList[$id]['pid'] > 0) {
-                                        $id = $topicList[$id]['pid'];
+                                        $id       = $topicList[$id]['pid'];
                                         $result[] = $topicList[$id];
                                         if ($topicList[$id]['pid'] > 0) {
-                                            $id = $topicList[$id]['pid'];
+                                            $id       = $topicList[$id]['pid'];
                                             $result[] = $topicList[$id];
                                         }
                                     }

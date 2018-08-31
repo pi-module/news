@@ -10,35 +10,35 @@ $this->jQuery('ui/jquery-ui.min.js');
         </button>
         <ul class="dropdown-menu" role="menu">
             <li><a title="<?php _e('Add text field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'text')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add text field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'text']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add text field'); ?></a></li>
             <li><a title="<?php _e('Add link field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'link')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add link field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'link']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add link field'); ?></a></li>
             <li><a title="<?php _e('Add video field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'video')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add video field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'video']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add video field'); ?></a></li>
             <li><a title="<?php _e('Add audio field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'audio')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add audio field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'audio']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add audio field'); ?></a></li>
             <li><a title="<?php _e('Add file field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'file')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add file field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'file']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add file field'); ?></a></li>
             <li><a title="<?php _e('Add currency field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'currency')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add currency field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'currency']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add currency field'); ?></a></li>
             <li><a title="<?php _e('Add date field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'date')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add date field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'date']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add date field'); ?></a></li>
             <li><a title="<?php _e('Add number field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'number')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add number field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'number']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add number field'); ?></a></li>
             <li><a title="<?php _e('Add select field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'select')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add select field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'select']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add select field'); ?></a></li>
             <li><a title="<?php _e('Add checkbox field'); ?>"
-                   href="<?php echo $this->url('', array('action' => 'update', 'type' => 'checkbox')); ?>"><i
-                        class="fa fa-file"></i> <?php _e('Add checkbox field'); ?></a></li>
+                   href="<?php echo $this->url('', ['action' => 'update', 'type' => 'checkbox']); ?>"><i
+                            class="fa fa-file"></i> <?php _e('Add checkbox field'); ?></a></li>
         </ul>
     </div>
 
@@ -67,11 +67,11 @@ $this->jQuery('ui/jquery-ui.min.js');
                                     </div>
                                     <div class="col-md-2">
                                         <a class="btn btn-link" title="<?php _e('Edit'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'update', 'type' => $field['type'], 'id' => $field['id'])); ?>"><i
-                                                class="fa fa-edit"></i></a>
+                                           href="<?php echo $this->url('', ['action' => 'update', 'type' => $field['type'], 'id' => $field['id']]); ?>"><i
+                                                    class="fa fa-edit"></i></a>
                                         <a class="btn btn-link" title="<?php _e('Delete'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'delete', 'id' => $field['id'])); ?>"><i
-                                                class="fa fa-trash-o"></i></a>
+                                           href="<?php echo $this->url('', ['action' => 'delete', 'id' => $field['id']]); ?>"><i
+                                                    class="fa fa-trash-o"></i></a>
                                         <span class="label <?php if ($field['status']) {
                                             echo 'label-success';
                                         } else {
@@ -97,7 +97,7 @@ $this->jQuery('ui/jquery-ui.min.js');
         $('#attribute-sort .attribute-field').sortable({
             update: function (event, ui) {
                 var list = $(this).sortable('serialize');
-                $.post("<?php echo $this->url('', array('action' => 'sort')); ?>", list);
+                $.post("<?php echo $this->url('', ['action' => 'sort']); ?>", list);
             }
         });
     });

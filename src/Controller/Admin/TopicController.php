@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -28,17 +29,17 @@ class TopicController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Get info
-        $columns = array('id', 'title', 'slug', 'style', 'status', 'type');
-        $order = array('id DESC', 'time_create DESC');
-        $limit = intval($this->config('admin_perpage'));
-        $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $select = $this->getModel('topic')->select()->columns($columns)->order($order)->offset($offset)->limit($limit);
-        $rowset = $this->getModel('topic')->selectWith($select);
+        $columns = ['id', 'title', 'slug', 'style', 'status', 'type'];
+        $order   = ['id DESC', 'time_create DESC'];
+        $limit   = intval($this->config('admin_perpage'));
+        $offset  = (int)($page - 1) * $this->config('admin_perpage');
+        $select  = $this->getModel('topic')->select()->columns($columns)->order($order)->offset($offset)->limit($limit);
+        $rowset  = $this->getModel('topic')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
@@ -87,24 +88,28 @@ class TopicController extends ActionController
         }
         // Go to time_update page if empty
         if (empty($list)) {
-            return $this->redirect()->toRoute('', array('action' => 'update'));
+            return $this->redirect()->toRoute('', ['action' => 'update']);
         }
         // Set paginator
-        $count = array('count' => new Expression('count(*)'));
-        $select = $this->getModel('topic')->select()->columns($count);
-        $count = $this->getModel('topic')->selectWith($select)->current()->count;
+        $count     = ['count' => new Expression('count(*)')];
+        $select    = $this->getModel('topic')->select()->columns($count);
+        $count     = $this->getModel('topic')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $this->getModule(),
-                'controller' => 'topic',
-                'action' => 'index',
-            )),
-        ));
+        $paginator->setUrlOptions(
+            [
+                'router' => $this->getEvent()->getRouter(),
+                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $this->getModule(),
+                        'controller' => 'topic',
+                        'action'     => 'index',
+                    ]
+                ),
+            ]
+        );
         // Set view
         $this->view()->setTemplate('topic-index');
         $this->view()->assign('topics', $list);
@@ -130,38 +135,38 @@ class TopicController extends ActionController
             Pi::service('file')->remove($files); */
             // clear DB
             $topic->image = '';
-            $topic->path = '';
+            $topic->path  = '';
             // Save
             if ($topic->save()) {
                 $message = sprintf(__('Image of %s removed'), $topic->title);
-                $status = 1;
+                $status  = 1;
             } else {
                 $message = __('Image not remove');
-                $status = 0;
+                $status  = 0;
             }
         } else {
             $message = __('Please select story');
-            $status = 0;
+            $status  = 0;
         }
-        return array(
-            'status' => $status,
+        return [
+            'status'  => $status,
             'message' => $message,
-        );
+        ];
     }
 
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
-        $option = array();
+        $option = [];
         // Find topic
         if ($id) {
             $topic = $this->getModel('topic')->find($id)->toArray();
             if ($topic['image']) {
-                $topic['thumbUrl'] = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $topic['path'], $topic['image']);
-                $option['thumbUrl'] = Pi::url($topic['thumbUrl']);
-                $option['removeUrl'] = $this->url('', array('action' => 'remove', 'id' => $topic['id']));
+                $topic['thumbUrl']   = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $topic['path'], $topic['image']);
+                $option['thumbUrl']  = Pi::url($topic['thumbUrl']);
+                $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $topic['id']]);
             }
         }
         // Set form
@@ -171,8 +176,8 @@ class TopicController extends ActionController
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
             // Set slug
-            $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $filter = new Filter\Slug;
+            $slug         = ($data['slug']) ? $data['slug'] : $data['title'];
+            $filter       = new Filter\Slug;
             $data['slug'] = $filter($slug);
             // Form filter
             $form->setInputFilter(new TopicFilter);
@@ -183,7 +188,7 @@ class TopicController extends ActionController
                 if (!empty($file['image']['name'])) {
                     // Set upload path
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
-                    $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+                    $originalPath   = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
                     // Image name
                     $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageTopicPrefix, $values['path']);
                     // Upload
@@ -199,43 +204,45 @@ class TopicController extends ActionController
                         // process image
                         Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
-                        $this->jump(array('action' => 'update'), __('Problem in upload image. please try again'));
+                        $this->jump(['action' => 'update'], __('Problem in upload image. please try again'));
                     }
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
                 // Set setting
-                $setting = array();
-                $setting['show_config'] = $values['show_config'];
-                $setting['show_perpage'] = ($values['show_perpage']) ? $values['show_perpage'] : $this->config('show_perpage');
-                $setting['show_columns'] = $values['show_columns'];
+                $setting                    = [];
+                $setting['show_config']     = $values['show_config'];
+                $setting['show_perpage']    = ($values['show_perpage']) ? $values['show_perpage'] : $this->config('show_perpage');
+                $setting['show_columns']    = $values['show_columns'];
                 $setting['show_order_link'] = $values['show_order_link'];
-                $setting['show_topic'] = $values['show_topic'];
-                $setting['show_topicinfo'] = $values['show_topicinfo'];
-                $setting['show_date'] = $values['show_date'];
-                $setting['show_pdf'] = $values['show_pdf'];
-                $setting['show_print'] = $values['show_print'];
-                $setting['show_mail'] = $values['show_mail'];
-                $setting['show_hits'] = $values['show_hits'];
-                $setting['show_tag'] = $values['show_tag'];
-                $setting['show_subid'] = $values['show_subid'];
-                $setting['set_page'] = $values['set_page'];
-                $setting['attach'] = $values['attach'];
-                $values['setting'] = json_encode($setting);
+                $setting['show_topic']      = $values['show_topic'];
+                $setting['show_topicinfo']  = $values['show_topicinfo'];
+                $setting['show_date']       = $values['show_date'];
+                $setting['show_pdf']        = $values['show_pdf'];
+                $setting['show_print']      = $values['show_print'];
+                $setting['show_mail']       = $values['show_mail'];
+                $setting['show_hits']       = $values['show_hits'];
+                $setting['show_tag']        = $values['show_tag'];
+                $setting['show_subid']      = $values['show_subid'];
+                $setting['set_page']        = $values['set_page'];
+                $setting['attach']          = $values['attach'];
+                $values['setting']          = json_encode($setting);
                 // Set seo_title
-                $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $filter = new Filter\HeadTitle;
+                $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+                $filter              = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
-                $filter = new Filter\HeadKeywords;
-                $filter->setOptions(array(
-                    'force_replace_space' => (bool)$this->config('force_replace_space'),
-                ));
+                $filter   = new Filter\HeadKeywords;
+                $filter->setOptions(
+                    [
+                        'force_replace_space' => (bool)$this->config('force_replace_space'),
+                    ]
+                );
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
-                $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $filter = new Filter\HeadDescription;
+                $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+                $filter                    = new Filter\HeadDescription;
                 $values['seo_description'] = $filter($description);
                 // Set if new
                 if (empty($values['id'])) {
@@ -256,13 +263,13 @@ class TopicController extends ActionController
                 $row->save();
                 // Add attach
                 if (!empty($values['attach_link'])) {
-                    $attach['url'] = $values['attach_link'];
-                    $attach['title'] = empty($values['attach_title']) ? __('Download') : $values['attach_title'];
-                    $attach['item_id'] = $row->id;
-                    $attach['item_table'] = 'topic';
+                    $attach['url']         = $values['attach_link'];
+                    $attach['title']       = empty($values['attach_title']) ? __('Download') : $values['attach_title'];
+                    $attach['item_id']     = $row->id;
+                    $attach['item_table']  = 'topic';
                     $attach['time_create'] = time();
-                    $attach['type'] = 'link';
-                    $attach['status'] = 1;
+                    $attach['type']        = 'link';
+                    $attach['status']      = 1;
                     // save in DB
                     $rowAttach = $this->getModel('attach')->createRow();
                     $rowAttach->assign($attach);
@@ -283,11 +290,15 @@ class TopicController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url($this->url('news', array(
-                        'module' => $module,
-                        'controller' => 'topic',
-                        'slug' => $values['slug']
-                    )));
+                    $loc = Pi::url(
+                        $this->url(
+                            'news', [
+                            'module'     => $module,
+                            'controller' => 'topic',
+                            'slug'       => $values['slug'],
+                        ]
+                        )
+                    );
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);
                 }
@@ -296,14 +307,14 @@ class TopicController extends ActionController
                 Pi::registry('topicRoute', 'news')->clear();
                 // jump
                 $message = __('Topic data saved successfully.');
-                $this->jump(array('action' => 'index'), $message);
+                $this->jump(['action' => 'index'], $message);
             } else {
                 $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             if ($id) {
                 $setting = json_decode($topic['setting'], true);
-                $topic = array_merge($topic, $setting);
+                $topic   = array_merge($topic, $setting);
                 $form->setData($topic);
             }
         }
@@ -377,22 +388,24 @@ class TopicController extends ActionController
      * Add page settings to system
      *
      * @uid Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
+     *
      * @param string $name
      * @param string $title
+     *
      * @return int
      */
     protected function setPage($name, $title)
     {
-        $page = array(
-            'section' => 'front',
-            'module' => $this->getModule(),
+        $page = [
+            'section'    => 'front',
+            'module'     => $this->getModule(),
             'controller' => 'topic',
-            'action' => $name,
-            'title' => $title,
-            'block' => 1,
-            'custom' => 0,
-        );
-        $row = Pi::model('page')->createRow($page);
+            'action'     => $name,
+            'title'      => $title,
+            'block'      => 1,
+            'custom'     => 0,
+        ];
+        $row  = Pi::model('page')->createRow($page);
         $row->save();
         return $row->id;
     }
@@ -401,17 +414,19 @@ class TopicController extends ActionController
      * Remove from system page settings
      *
      * @uid Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
+     *
      * @param stinr $name
+     *
      * @return int
      */
     protected function removePage($name)
     {
-        $where = array(
-            'section' => 'front',
-            'module' => $this->getModule(),
+        $where = [
+            'section'    => 'front',
+            'module'     => $this->getModule(),
             'controller' => 'topic',
-            'action' => $name,
-        );
+            'action'     => $name,
+        ];
         $count = Pi::model('page')->delete($where);
         return $count;
     }
@@ -420,26 +435,27 @@ class TopicController extends ActionController
      * time_update from system page settings
      *
      * @param stinr $name
+     *
      * @return int
      */
     protected function updatePage($name, $title)
     {
         // Set where
-        $where = array(
-            'section' => 'front',
-            'module' => $this->getModule(),
+        $where = [
+            'section'    => 'front',
+            'module'     => $this->getModule(),
             'controller' => 'topic',
-            'action' => $name,
-        );
+            'action'     => $name,
+        ];
         // Get count
-        $columns = array('count' => new Expression('count(*)'));
-        $select = Pi::model('page')->select()->where($where)->columns($columns);
-        $count = Pi::model('page')->selectWith($select)->current()->count;
+        $columns = ['count' => new Expression('count(*)')];
+        $select  = Pi::model('page')->select()->where($where)->columns($columns);
+        $count   = Pi::model('page')->selectWith($select)->current()->count;
         // Set page
         if ($count == 0) {
             $this->setPage($name, $title);
         } else {
-            Pi::model('page')->update(array('action' => $name, 'title' => $title), $where);
+            Pi::model('page')->update(['action' => $name, 'title' => $title], $where);
         }
     }
 }

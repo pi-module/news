@@ -1,90 +1,90 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Front section
-    'front' => array(
-        'public' => array(
-            'title' => _a('Global public resource'),
-            'access' => array(
+    'front' => [
+        'public'    => [
+            'title'  => _a('Global public resource'),
+            'access' => [
                 'guest',
                 'member',
-            ),
-        ),
-        'author' => array(
-            'title' => _a('Authors'),
-            'access' => array(
+            ],
+        ],
+        'author'    => [
+            'title'  => _a('Authors'),
+            'access' => [
                 'guest',
                 'member',
-            ),
-        ),
-        'favourite' => array(
-            'title' => _a('Favourite'),
-            'access' => array(
+            ],
+        ],
+        'favourite' => [
+            'title'  => _a('Favourite'),
+            'access' => [
                 'member',
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
     // Admin section
-    'admin' => array(
-        'author' => array(
-            'title' => _a('Authors'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'role' => array(
-            'title' => _a('Author roles'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'attribute' => array(
-            'title' => _a('Attribute'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'position' => array(
-            'title' => _a('Attribute position'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'spotlight' => array(
-            'title' => _a('Spotlight'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'story' => array(
-            'title' => _a('Story'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'topic' => array(
-            'title' => _a('Topic'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'tools' => array(
-            'title' => _a('Tools'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'microblog' => array(
-            'title' => _a('Micro blog'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'json' => array(
-            'title' => _a('Json'),
-            'access' => array(//'admin',
-            ),
-        ),
-    ),
-);
+    'admin' => [
+        'author'    => [
+            'title'  => _a('Authors'),
+            'access' => [//'admin',
+            ],
+        ],
+        'role'      => [
+            'title'  => _a('Author roles'),
+            'access' => [//'admin',
+            ],
+        ],
+        'attribute' => [
+            'title'  => _a('Attribute'),
+            'access' => [//'admin',
+            ],
+        ],
+        'position'  => [
+            'title'  => _a('Attribute position'),
+            'access' => [//'admin',
+            ],
+        ],
+        'spotlight' => [
+            'title'  => _a('Spotlight'),
+            'access' => [//'admin',
+            ],
+        ],
+        'story'     => [
+            'title'  => _a('Story'),
+            'access' => [//'admin',
+            ],
+        ],
+        'topic'     => [
+            'title'  => _a('Topic'),
+            'access' => [//'admin',
+            ],
+        ],
+        'tools'     => [
+            'title'  => _a('Tools'),
+            'access' => [//'admin',
+            ],
+        ],
+        'microblog' => [
+            'title'  => _a('Micro blog'),
+            'access' => [//'admin',
+            ],
+        ],
+        'json'      => [
+            'title'  => _a('Json'),
+            'access' => [//'admin',
+            ],
+        ],
+    ],
+];

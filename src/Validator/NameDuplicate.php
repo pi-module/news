@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
@@ -23,26 +23,29 @@ class NameDuplicate extends AbstractValidator
     /**
      * @var array
      */
-    protected $messageTemplates = array(
-        self::TAKEN => 'This name already exists',
-    );
+    protected $messageTemplates
+        = [
+            self::TAKEN => 'This name already exists',
+        ];
 
-    protected $options = array(
-        'module', 'table'
-    );
+    protected $options
+        = [
+            'module', 'table',
+        ];
 
     /**
      * Name validate
      *
      * @param  mixed $value
      * @param  array $context
+     *
      * @return boolean
      */
     public function isValid($value, $context = null)
     {
         $this->setValue($value);
         if (null !== $value) {
-            $where = array('name' => $value);
+            $where = ['name' => $value];
             if (!empty($context['id'])) {
                 $where['id <> ?'] = $context['id'];
             }

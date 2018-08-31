@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Form\Element;
 
 use Pi;
@@ -23,11 +24,11 @@ class Topic extends Select
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
-            $where = array('status' => 1);
-            $columns = array('id', 'pid', 'title');
-            $order = array('title ASC', 'id ASC');
+            $where   = ['status' => 1];
+            $columns = ['id', 'pid', 'title'];
+            $order   = ['title ASC', 'id ASC'];
             // Set type
-            if (isset($this->options['type']) && in_array($this->options['type'], array('event', 'blog'))) {
+            if (isset($this->options['type']) && in_array($this->options['type'], ['event', 'blog'])) {
                 $where['type'] = $this->options['type'];
             } else {
                 $where['type'] = 'general';
@@ -48,11 +49,11 @@ class Topic extends Select
      */
     public function getAttributes()
     {
-        $this->Attributes = array(
-            'size' => 5,
+        $this->Attributes = [
+            'size'     => 5,
             'multiple' => 1,
-            'class' => 'form-control',
-        );
+            'class'    => 'form-control',
+        ];
         // check form size
         if (isset($this->attributes['size'])) {
             $this->Attributes['size'] = $this->attributes['size'];
@@ -66,13 +67,13 @@ class Topic extends Select
 
     public function getTree($elements, $parentId = 0)
     {
-        $branch = array();
+        $branch = [];
         // Set default category options
         if ($parentId == 0) {
             if (isset($this->options['topic'])) {
                 if (empty($this->options['topic'])) {
                     $branch[0] = '';
-                } elseif($this->options['topic'] != 'full') {
+                } elseif ($this->options['topic'] != 'full') {
                     $branch = $this->options['topic'];
                 }
             } else {
@@ -82,9 +83,9 @@ class Topic extends Select
         // Set category list as tree
         foreach ($elements as $element) {
             if ($element['pid'] == $parentId) {
-                $depth = 0;
+                $depth                  = 0;
                 $branch[$element['id']] = $element['title'];
-                $children = $this->getTree($elements, $element['id']);
+                $children               = $this->getTree($elements, $element['id']);
                 if ($children) {
                     $depth++;
                     foreach ($children as $key => $value) {

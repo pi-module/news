@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -19,15 +20,15 @@ use Module\News\Form\PositionFilter;
 
 class PositionController extends ActionController
 {
-    protected $positionColumns = array('id', 'title', 'order', 'status');
+    protected $positionColumns = ['id', 'title', 'order', 'status'];
 
     public function indexAction()
     {
         // Get from url
         $module = $this->params('module');
         // Get info
-        $list = array();
-        $order = array('order ASC', 'id ASC');
+        $list   = [];
+        $order  = ['order ASC', 'id ASC'];
         $select = $this->getModel('field_position')->select()->order($order);
         $rowset = $this->getModel('field_position')->selectWith($select);
         // Make list
@@ -36,7 +37,7 @@ class PositionController extends ActionController
         }
         // Go to update page if empty
         if (empty($list)) {
-            return $this->redirect()->toRoute('', array('action' => 'update'));
+            return $this->redirect()->toRoute('', ['action' => 'update']);
         }
         // Set view
         $this->view()->setTemplate('position-index');
@@ -46,7 +47,7 @@ class PositionController extends ActionController
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Set form
         $form = new PositionForm('position');
@@ -73,7 +74,7 @@ class PositionController extends ActionController
                 $row->save();
                 // Jump
                 $message = __('Attribute position data saved successfully.');
-                $this->jump(array('action' => 'index'), $message);
+                $this->jump(['action' => 'index'], $message);
             }
         } else {
             if ($id) {

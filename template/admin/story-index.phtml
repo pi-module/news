@@ -1,10 +1,13 @@
 <?php
-$this->css(array(
-    $this->assetModule('css/admin.css'),
-    $this->assetModule('script/system-ui.css', 'system'),
-));
+/* $this->css(
+    [
+        $this->assetModule('css/admin.css'),
+        $this->assetModule('script/system-ui.css', 'system'),
+    ]
+);
 $this->jQuery();
-$this->js($this->assetModule('script/system-msg.js', 'system'));
+$this->js($this->assetModule('script/system-msg.js', 'system')); */
+$this->css($this->assetModule('css/admin.css'));
 ?>
 <div class="clearfix">
     <div class="admin-header clearfix row">
@@ -13,17 +16,22 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingHelp">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false"
+                               aria-controls="collapseHelp">
                                 <i class="fa fa-plus"></i> <?php _e('Description about add new story'); ?>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseHelp" class="panel-collapse collapse" role="tabpanel">
                         <div class="panel-body">
-                            <p><?php _e('You can select many types on submit new story, each type have different template and view and useful for special usage'); ?></p>
+                            <p><?php _e(
+                                    'You can select many types on submit new story, each type have different template and view and useful for special usage'
+                                ); ?></p>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Text'); ?></strong></dt>
-                                <dd><?php _e('Text type, default view format main image set on center and under title and extra images and information set on sidebar'); ?></dd>
+                                <dd><?php _e(
+                                        'Text type, default view format main image set on center and under title and extra images and information set on sidebar'
+                                    ); ?></dd>
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Article'); ?></strong></dt>
@@ -31,7 +39,9 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Magazine'); ?></strong></dt>
-                                <dd><?php _e('Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'); ?></dd>
+                                <dd><?php _e(
+                                        'Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'
+                                    ); ?></dd>
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Blog post'); ?></strong></dt>
@@ -39,19 +49,27 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Image'); ?></strong></dt>
-                                <dd><?php _e('Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'); ?></dd>
+                                <dd><?php _e(
+                                        'Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'
+                                    ); ?></dd>
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Gallery'); ?></strong></dt>
-                                <dd><?php _e('Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'); ?></dd>
+                                <dd><?php _e(
+                                        'Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'
+                                    ); ?></dd>
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Media'); ?></strong></dt>
-                                <dd><?php _e('Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'); ?></dd>
+                                <dd><?php _e(
+                                        'Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'
+                                    ); ?></dd>
                             </dl>
                             <dl class="dl-horizontal">
                                 <dt><strong class="text-danger"><?php _e('Download'); ?></strong></dt>
-                                <dd><?php _e('Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'); ?></dd>
+                                <dd><?php _e(
+                                        'Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'
+                                    ); ?></dd>
                             </dl>
                         </div>
                     </div>
@@ -67,31 +85,31 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                     <ul class="dropdown-menu" role="menu">
                         <?php if (!$config['admin_deactivate_view']) { ?>
                             <li><a title="<?php _e('Add new text'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'text')); ?>"><i
-                                        class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'text']); ?>"><i
+                                            class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
                             <li><a title="<?php _e('Add new article'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'article')); ?>"><i
-                                        class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'article']); ?>"><i
+                                            class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
                             <li><a title="<?php _e('Add new magazine'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'magazine')); ?>"><i
-                                        class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'magazine']); ?>"><i
+                                            class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
                             <li><a title="<?php _e('Add new gallery album'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'gallery')); ?>"><i
-                                        class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'gallery']); ?>"><i
+                                            class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
                             <li><a title="<?php _e('Add new single image'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'image')); ?>"><i
-                                        class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'image']); ?>"><i
+                                            class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
                             <li><a title="<?php _e('Add new media'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'media')); ?>"><i
-                                        class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'media']); ?>"><i
+                                            class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
                             <li><a title="<?php _e('Add new download'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'download')); ?>"><i
-                                        class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'download']); ?>"><i
+                                            class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
                         <?php } ?>
                         <?php if (Pi::service('module')->isActive('blog')) { ?>
                             <li><a title="<?php _e('Add new blog post'); ?>"
-                                   href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'add', 'type' => 'post')); ?>"><i
-                                        class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
+                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'post']); ?>"><i
+                                            class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
                         <?php } ?>
                         <?php if (!Pi::service('module')->isActive('blog') && $config['admin_deactivate_view']) { ?>
                             <li><?php _e('News module front page is deactivate'); ?></li>
@@ -104,26 +122,26 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li><a title="<?php _e('All stories'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index')); ?>"><i
-                                    class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index']); ?>"><i
+                                        class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
                         <li><a title="<?php _e('Published'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '1')); ?>"><i
-                                    class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '1']); ?>"><i
+                                        class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
                         <li><a title="<?php _e('Pending review'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '2')); ?>"><i
-                                    class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '2']); ?>"><i
+                                        class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
                         <li><a title="<?php _e('Draft'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '3')); ?>"><i
-                                    class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '3']); ?>"><i
+                                        class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
                         <li><a title="<?php _e('Private'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '4')); ?>"><i
-                                    class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '4']); ?>"><i
+                                        class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
                         <li><a title="<?php _e('Trash'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '5')); ?>"><i
-                                    class="fa fa-trash"></i> <?php _e('Trash'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '5']); ?>"><i
+                                        class="fa fa-trash"></i> <?php _e('Trash'); ?></a></li>
                         <li><a title="<?php _e('System draft'); ?>"
-                               href="<?php echo $this->url('', array('controller' => 'story', 'action' => 'index', 'status' => '6')); ?>"><i
-                                    class="fa fa-pencil"></i> <?php _e('System draft'); ?></a></li>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '6']); ?>"><i
+                                        class="fa fa-pencil"></i> <?php _e('System draft'); ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -168,19 +186,20 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                             <strong><?php _e('Action'); ?></strong> :
                             <span class="story-action">
                                 <?php if ($story['status'] == 1) { ?>
-                                    <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>" target="_blank"><i class="fa fa-eye"></i>  <?php _e('View'); ?></a>
+                                    <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                       target="_blank"><i class="fa fa-eye"></i> <?php _e('View'); ?></a>
                                 <?php } ?>
-                                <?php if ($story['status'] == 1) { ?>
+                                <?php /* if ($story['status'] == 1) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"
                                             class="btn btn-warning btn-xs" data-toggle="button"
-                                            data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '2')); ?>">
+                                            data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '2']); ?>">
                                         <i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
-                                <?php } elseif (in_array($story['status'], array(2, 3, 4))) { ?>
+                                <?php } elseif (in_array($story['status'], [2, 3, 4])) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"
                                             class="btn btn-success btn-xs" data-toggle="button"
-                                            data-link="<?php echo $this->url('', array('action' => 'accept', 'id' => $story['id'], 'status' => '1')); ?>">
+                                            data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '1']); ?>">
                                         <i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
-                                <?php } ?>
+                                <?php } */ ?>
                             </span>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
@@ -189,19 +208,21 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a title="<?php _e('Edit basic information'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'update', 'id' => $story['id'])); ?>"><i
-                                                class="fa fa-edit"></i> <?php _e('Edit basic information'); ?></a></li>
+                                           href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
+                                                    class="fa fa-edit"></i> <?php _e('Edit basic information'); ?></a></li>
                                     <li><a title="<?php _e('Edit additional information'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'additional', 'id' => $story['id'])); ?>"><i
-                                                class="fa fa-edit"></i> <?php _e('Edit additional information'); ?></a>
+                                           href="<?php echo $this->url('', ['action' => 'additional', 'id' => $story['id']]); ?>"><i
+                                                    class="fa fa-edit"></i> <?php _e('Edit additional information'); ?></a>
                                     </li>
                                     <li><a title="<?php _e('Preview'); ?>"
-                                           href="<?php echo $this->url('', array('action' => 'view', 'id' => $story['id'])); ?>"><i
-                                                class="fa fa-eye"></i> <?php _e('Preview'); ?></a></li>
+                                           href="<?php echo $this->url('', ['action' => 'view', 'id' => $story['id']]); ?>"><i
+                                                    class="fa fa-eye"></i> <?php _e('Preview'); ?></a></li>
                                 </ul>
                             </div>
-                            <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', array('action' => 'delete', 'id' => $story['id'])); ?>"   onclick="return confirm('<?php echo _a('Are you sure to delete this story?'); ?>')">
-                                <i class="fa fa-trash"></i>  <?php _e('Delete'); ?>
+                            <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>"
+                               href="<?php echo $this->url('', ['action' => 'delete', 'id' => $story['id']]); ?>"
+                               onclick="return confirm('<?php echo _a('Are you sure to delete this story?'); ?>')">
+                                <i class="fa fa-trash"></i> <?php _e('Delete'); ?>
                             </a>
                         </div>
                     </div>
@@ -216,7 +237,7 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
         <span class="label label-danger"><?php _e('Trash'); ?></span>
     </p>
 </div>
-<script>
+<?php /* <script>
     (function ($) {
         $("#story-list").on("click", ".story-action button", function () {
             systemMessage.wait("<?php _e('Accept story in process'); ?>");
@@ -242,4 +263,4 @@ $this->js($this->assetModule('script/system-msg.js', 'system'));
             });
         });
     })(jQuery)
-</script>
+</script> */ ?>

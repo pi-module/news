@@ -1,10 +1,10 @@
-<?php $this->css(array($this->assetModule('css/block.css', 'news') => array('defer' => 'defer'))); ?>
+<?php $this->css([$this->assetModule('css/block.css', 'news') => ['defer' => 'defer']]); ?>
 <div class="news-block">
     <div class="news-item-block itemList clearfix">
         <?php if ($block['type'] == 'vertical') { ?>
             <div class="news-item-block-vertical clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('guide')->thumb('thumbnail'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('guide')->thumb('thumbnail'); ?>
                     <div class="vertical-story-single h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                             <div class="col-md-4 storyImage">
@@ -70,8 +70,8 @@
         <?php } elseif ($block['type'] == 'verticalwide') { ?>
             <div class="news-item-block-verticalwide clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                             <div class="clearfix">
@@ -136,8 +136,8 @@
             <div class="news-item-block-verticalcompressed list-group clearfix">
                 <?php $i = 1; ?>
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <?php if ($i == 1) { ?>
                         <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="clearfix">
@@ -215,8 +215,8 @@
         <?php } elseif ($block['type'] == 'horizontal') { ?>
             <div class="news-item-block-horizontal clearfix row match-height-list">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <div class="h-entry col-md-3" itemscope itemtype="https://schema.org/Article">
                         <div class="news-item-block-horizontal-box clearfix">
                             <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
@@ -317,7 +317,9 @@
                     <?php foreach ($block['resources'] as $story) { ?>
                         <tr class="odd h-entry" itemscope itemtype="https://schema.org/Article">
                             <td class="p-name" itemprop="name"><a href="<?php echo $this->escape($story['storyUrl']); ?>"
-                                                                  title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape($story['title']); ?></a>
+                                                                  title="<?php echo $this->escape($story['title']); ?>"><?php echo $this->escape(
+                                        $story['title']
+                                    ); ?></a>
                             </td>
                             <?php if ($block['showdesc']) { ?>
                                 <td class="p-summary"><?php echo $this->escape($story['text_summary']); ?></td>
@@ -334,16 +336,18 @@
             </div>
         <?php } elseif ($block['type'] == 'slide') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery(array(
-                    'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.min.css',
-                ));
-                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+                $this->jQuery(
+                    [
+                        'extension/owl.carousel.min.js',
+                        'extension/owl.carousel.min.css',
+                    ]
+                );
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
             } ?>
             <div class="owl-carousel text-center clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope itemtype="https://schema.org/Article">
                         <div class="thumbnail">
                             <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -360,28 +364,28 @@
                                     </a>
                                 </h3>
                                 <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
-                                <ul class="list-unstyled">
-                                    <?php if ($block['showdate']) { ?>
-                                        <li class="dt-published"><i
-                                                    class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
-                                            : <?php echo $this->escape($story['time_publish_view']); ?></li>
-                                    <?php } ?>
-                                    <?php if ($block['showhits']) { ?>
-                                        <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
-                                            : <?php echo _number($this->escape($story['hits'])); ?></li>
-                                    <?php } ?>
-                                    <?php if ($block['showauthor']) { ?>
-                                        <?php foreach ($story['authors'] as $author) { ?>
-                                            <li>
-                                                <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
-                                                <a title="<?php echo $author['authorName']; ?>"
-                                                   href="<?php echo $author['authorUrl']; ?>">
-                                                    <?php echo $author['authorName']; ?>
-                                                </a>
-                                            </li>
+                                    <ul class="list-unstyled">
+                                        <?php if ($block['showdate']) { ?>
+                                            <li class="dt-published"><i
+                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
-                                    <?php } ?>
-                                </ul>
+                                        <?php if ($block['showhits']) { ?>
+                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                : <?php echo _number($this->escape($story['hits'])); ?></li>
+                                        <?php } ?>
+                                        <?php if ($block['showauthor']) { ?>
+                                            <?php foreach ($story['authors'] as $author) { ?>
+                                                <li>
+                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <a title="<?php echo $author['authorName']; ?>"
+                                                       href="<?php echo $author['authorUrl']; ?>">
+                                                        <?php echo $author['authorName']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </ul>
                                 <?php } ?>
                                 <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                             </div>
@@ -391,17 +395,19 @@
             </div>
         <?php } elseif ($block['type'] == 'slidehover') { ?>
             <?php if ($block['blockEffect']) {
-                $this->jQuery(array(
-                    'extension/owl.carousel.min.js',
-                    'extension/owl.carousel.min.css',
-                ));
-                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), array('defer' => 'defer'));
+                $this->jQuery(
+                    [
+                        'extension/owl.carousel.min.js',
+                        'extension/owl.carousel.min.css',
+                    ]
+                );
+                $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
                 $this->js($this->assetModule('js/caption.hover.js', 'news'));
             } ?>
             <div class="owl-carousel text-center clearfix hover-captions-container">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope
                          itemtype="https://schema.org/Article">
                         <div class="hover-caption">
@@ -462,8 +468,8 @@
                     <div class="carousel-inner">
                         <?php $i = 1; ?>
                         <?php foreach ($block['resources'] as $story) { ?>
-                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                            <?php $largeUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>
+                            <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                            <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>
                             <div class="h-entry item<?php if ($i == 1) {
                                 echo ' active';
                             } ?>" itemscope itemtype="https://schema.org/Article">
@@ -471,7 +477,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="img-responsive u-photo" />
+                                         class="img-responsive u-photo"/>
                                 </a>
 
                                 <div class="carousel-caption">
@@ -530,8 +536,8 @@
                         $class = 'col-md-6 col-sm-6 col-xs-12';
                     } ?>
                     <?php foreach ($block['resources'] as $story) { ?>
-                        <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                        <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                        <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                        <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                         <div class="h-entry clearfix <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
                             <a itemprop="url" class="u-url"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -566,7 +572,9 @@
                     <div class="news-item-block-magazine-main">
                         <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
-                                <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                                <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb(
+                                    'medium'
+                                ); ?>
                                 <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
                                     <a itemprop="url" class="u-url"
                                        href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
@@ -626,8 +634,8 @@
                 <div class="col-md-9 col-sm-7 col-xs-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
-                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                            <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                            <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                            <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
@@ -743,7 +751,9 @@
                                           content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
                                 </div>
                                 <div class="col-md-4 col-sm-5 col-xs-12">
-                                    <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                                    <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb(
+                                        'medium'
+                                    ); ?>
                                     <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
                                         <a itemprop="url" class="u-url"
                                            href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
@@ -761,8 +771,8 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
-                            <?php $thumbUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-                            <?php $mediumUrl = Pi::api('doc','media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                            <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                            <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">

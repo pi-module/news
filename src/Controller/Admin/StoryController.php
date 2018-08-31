@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Controller\Admin;
 
 use Pi;
@@ -32,67 +33,71 @@ class StoryController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page = $this->params('page', 1);
+        $page   = $this->params('page', 1);
         $module = $this->params('module');
         $status = $this->params('status');
-        $topic = $this->params('topic');
-        $uid = $this->params('uid');
-        $title = $this->params('title');
+        $topic  = $this->params('topic');
+        $uid    = $this->params('uid');
+        $title  = $this->params('title');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
         // Set info
-        $offset = (int)($page - 1) * $this->config('admin_perpage');
-        $order = array('id DESC');
-        $limit = intval($this->config('admin_perpage'));
-        $columnStory = array('id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type');
-        $users = array();
+        $offset      = (int)($page - 1) * $this->config('admin_perpage');
+        $order       = ['id DESC'];
+        $limit       = intval($this->config('admin_perpage'));
+        $columnStory = ['id', 'title', 'slug', 'status', 'time_publish', 'uid', 'type'];
+        $users       = [];
         // Set where
-        $whereStory = array();
+        $whereStory = [];
         if (empty($title)) {
-            $whereStory['type'] = array(
-                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            );
-            if (!empty($status) && in_array($status, array(1, 2, 3, 4, 5))) {
+            $whereStory['type'] = [
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ];
+            if (!empty($status) && in_array($status, [1, 2, 3, 4, 5])) {
                 $whereStory['status'] = $status;
             } elseif (!empty($status) && $status == 6) {
                 $whereStory['status'] = 6;
             } else {
-                $whereStory['status'] = array(1, 2, 3, 4);
+                $whereStory['status'] = [1, 2, 3, 4];
             }
             if (!empty($uid)) {
                 $whereStory['uid'] = $uid;
             }
         } else {
             $whereStory['title LIKE ?'] = '%' . $title . '%';
-            $whereStory['status'] = array(1, 2, 3, 4, 5);
-            $whereStory['type'] = array(
-                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
-            );
+            $whereStory['status']       = [1, 2, 3, 4, 5];
+            $whereStory['type']         = [
+                'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+            ];
         }
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('story')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
-            $story[$row->id] = $row->toArray();
+            $story[$row->id]                 = $row->toArray();
             $story[$row->id]['time_publish'] = _date($story[$row->id]['time_publish']);
             // Get use
             if (isset($users[$row->uid]) && !empty($users[$row->uid])) {
                 $story[$row->id]['user'] = $users[$row->uid];
             } else {
-                $user = Pi::user()->get($row->uid, array(
-                    'id', 'identity', 'name', 'email'
-                ));
+                $user                    = Pi::user()->get(
+                    $row->uid, [
+                        'id', 'identity', 'name', 'email',
+                    ]
+                );
                 $story[$row->id]['user'] = $user;
-                $users[$row->uid] = $user;
+                $users[$row->uid]        = $user;
             }
             // Set url
             if ($row->status == 1) {
-                $story[$row->id]['storyUrl'] = $this->url('news', array(
-                    'module' => $module,
-                    'controller' => 'story',
-                    'slug' => $row->slug
-                ));
+                $story[$row->id]['storyUrl'] = $this->url(
+                    'news', [
+                        'module'     => $module,
+                        'controller' => 'story',
+                        'slug'       => $row->slug,
+                    ]
+                );
             } else {
                 $story[$row->id]['storyUrl'] = '';
             }
@@ -128,11 +133,13 @@ class StoryController extends ActionController
                     // Set url
                     if (Pi::service('module')->isActive('blog')) {
                         if ($row->status == 1) {
-                            $story[$row->id]['storyUrl'] = $this->url('blog', array(
-                                'module' => 'blog',
-                                'controller' => 'post',
-                                'slug' => $row->slug
-                            ));
+                            $story[$row->id]['storyUrl'] = $this->url(
+                                'blog', [
+                                    'module'     => 'blog',
+                                    'controller' => 'post',
+                                    'slug'       => $row->slug,
+                                ]
+                            );
                         }
                     } else {
                         $story[$row->id]['storyUrl'] = '';
@@ -146,32 +153,36 @@ class StoryController extends ActionController
             }
         }
         // Set count
-        $columnsLink = array('count' => new Expression('count(*)'));
-        $select = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
-        $count = $this->getModel('story')->selectWith($select)->current()->count;
+        $columnsLink = ['count' => new Expression('count(*)')];
+        $select      = $this->getModel('story')->select()->where($whereStory)->columns($columnsLink);
+        $count       = $this->getModel('story')->selectWith($select)->current()->count;
         // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($this->config('admin_perpage'));
         $paginator->setCurrentPageNumber($page);
-        $paginator->setUrlOptions(array(
-            'router' => $this->getEvent()->getRouter(),
-            'route' => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-            'params' => array_filter(array(
-                'module' => $this->getModule(),
-                'controller' => 'story',
-                'action' => 'index',
-                'status' => $status,
-                'topic' => $topic,
-                'uid' => $uid,
-                'title' => $title,
-            )),
-        ));
-        // Set form
-        $values = array(
-            'title' => $title,
+        $paginator->setUrlOptions(
+            [
+                'router' => $this->getEvent()->getRouter(),
+                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                'params' => array_filter(
+                    [
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'action'     => 'index',
+                        'status'     => $status,
+                        'topic'      => $topic,
+                        'uid'        => $uid,
+                        'title'      => $title,
+                    ]
+                ),
+            ]
         );
-        $form = new StorySearchForm('search');
-        $form->setAttribute('action', $this->url('', array('action' => 'process')));
+        // Set form
+        $values = [
+            'title' => $title,
+        ];
+        $form   = new StorySearchForm('search');
+        $form->setAttribute('action', $this->url('', ['action' => 'process']));
         $form->setData($values);
         // Set view
         $this->view()->setTemplate('story-index');
@@ -189,23 +200,23 @@ class StoryController extends ActionController
             $form->setInputFilter(new StorySearchFilter());
             $form->setData($data);
             if ($form->isValid()) {
-                $values = $form->getData();
+                $values  = $form->getData();
                 $message = __('View filtered stores');
-                $url = array(
+                $url     = [
                     'action' => 'index',
-                    'title' => $values['title'],
-                );
+                    'title'  => $values['title'],
+                ];
             } else {
                 $message = __('Not valid');
-                $url = array(
+                $url     = [
                     'action' => 'index',
-                );
+                ];
             }
         } else {
             $message = __('Not set');
-            $url = array(
+            $url     = [
                 'action' => 'index',
-            );
+            ];
         }
         return $this->jump($url, $message);
     }
@@ -223,62 +234,66 @@ class StoryController extends ActionController
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
         // Check message
         if (!$story) {
-            $this->jump(array('action' => 'index'), __('Please select story'));
+            $this->jump(['action' => 'index'], __('Please select story'));
         }
         // Set view
         $this->view()->setTemplate('story-view');
         $this->view()->assign('story', $story);
     }
 
-    public function acceptAction()
+    /* public function acceptAction()
     {
         // Get id and status
         $module = $this->params('module');
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $status = $this->params('status');
-        $return = array();
+        $return = [];
         // set story
         $story = $this->getModel('story')->find($id);
         // Check
-        if ($story && in_array($status, array(1, 2, 3, 4, 5, 6))) {
+        if ($story && in_array($status, [1, 2, 3, 4, 5, 6])) {
             // Accept
             $story->status = $status;
             // Save
             if ($story->save()) {
                 // Update link table
-                $this->getModel('link')->update(array('status' => $story->status), array('story' => $story->id));
+                $this->getModel('link')->update(['status' => $story->status], ['story' => $story->id]);
                 // Clear registry
                 Pi::registry('spotlightStoryId', 'news')->clear();
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url($this->url('news', array(
-                        'module' => $module,
-                        'controller' => 'story',
-                        'slug' => $story->slug
-                    )));
+                    $loc = Pi::url(
+                        $this->url(
+                            'news', [
+                                'module'     => $module,
+                                'controller' => 'story',
+                                'slug'       => $story->slug,
+                            ]
+                        )
+                    );
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $story->status, $module, 'story', $story->id);
                 }
                 // Set return
-                $return['message'] = sprintf(__('%s story accept successfully'), $story->title);
-                $return['ajaxstatus'] = 1;
-                $return['id'] = $story->id;
+                $return['message']     = sprintf(__('%s story accept successfully'), $story->title);
+                $return['ajaxstatus']  = 1;
+                $return['id']          = $story->id;
                 $return['storystatus'] = $story->status;
             } else {
-                $return['message'] = sprintf(__('Error in accept %s story'), $story->title);
-                $return['ajaxstatus'] = 0;
-                $return['id'] = 0;
+                $return['message']     = sprintf(__('Error in accept %s story'), $story->title);
+                $return['ajaxstatus']  = 0;
+                $return['id']          = 0;
                 $return['storystatus'] = $story->status;
             }
         } else {
-            $return['message'] = __('Please select story');
-            $return['ajaxstatus'] = 0;
-            $return['id'] = 0;
+            $return['message']     = __('Please select story');
+            $return['ajaxstatus']  = 0;
+            $return['id']          = 0;
             $return['storystatus'] = 0;
         }
         return $return;
-    }
+    } */
 
     public function removeAction()
     {
@@ -298,79 +313,96 @@ class StoryController extends ActionController
             Pi::service('file')->remove($files); */
             // clear DB
             $story->image = '';
-            $story->path = '';
+            $story->path  = '';
             // Save
             if ($story->save()) {
                 $message = sprintf(__('Image of %s removed'), $story->title);
-                $status = 1;
+                $status  = 1;
             } else {
                 $message = __('Image not remove');
-                $status = 0;
+                $status  = 0;
             }
         } else {
             $message = __('Please select story');
-            $status = 0;
+            $status  = 0;
         }
-        return array(
-            'status' => $status,
+        return [
+            'status'  => $status,
             'message' => $message,
-        );
+        ];
     }
 
-    public function addAction() {
-        $id = uniqid('story-');
-        $row = $this->getModel('story')->createRow();
-        $row->title = $id;
-        $row->slug = $id;
-        $row->status = 6;
+    public function addAction()
+    {
+        $id               = uniqid('story-');
+        $row              = $this->getModel('story')->createRow();
+        $row->title       = $id;
+        $row->slug        = $id;
+        $row->status      = 6;
         $row->time_create = time();
-        $row->type = $this->params('type');
-        $row->uid = Pi::user()->getId();
+        $row->type        = $this->params('type');
+        $row->uid         = Pi::user()->getId();
         $row->save();
         // Make jump information
         $message = '';
-        $url = array('controller' => 'story', 'action' => 'update', 'id' => $row->id);
+        $url     = ['controller' => 'story', 'action' => 'update', 'id' => $row->id];
         $this->jump($url, $message);
     }
 
     public function updateAction()
     {
         // Get id
-        $id = $this->params('id');
+        $id     = $this->params('id');
         $module = $this->params('module');
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+
+        // Get user
+        $uid          = Pi::user()->getId();
+
+        // Set confirmation access
+        $allowConfirm = 1;
+        if ($config['admin_confirmation_limit'] && !empty($config['admin_confirmation_role'])) {
+            $roles        = Pi::service('user')->getRole($uid, 'admin');
+            if (!in_array($config['admin_confirmation_role'], $roles)) {
+                $allowConfirm = 0;
+            }
+        }
+
         // Set option
-        $option = array();
-        $option['admin_time_publish'] = $config['admin_time_publish'];
-        $option['admin_text_extra'] = $config['admin_text_extra'];
+        $option                             = [];
+        $option['admin_time_publish']       = $config['admin_time_publish'];
+        $option['admin_text_extra']         = $config['admin_text_extra'];
+        $option['admin_confirmation_limit'] = $config['admin_confirmation_limit'];
+        $option['admin_confirmation_role']  = $config['admin_confirmation_role'];
+        $option['user_allow_confirm']       = $allowConfirm;
         // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();
         } else {
-            $this->jump(array('action' => 'index'), __('Please select story'));
+            $this->jump(['action' => 'index'], __('Please select story'));
         }
         // Set topic
         $story['topic'] = json_decode($story['topic'], true);
         // Set image
         if ($story['image']) {
-            $thumbUrl = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $story['path'], $story['image']);
-            $option['thumbUrl'] = Pi::url($thumbUrl);
-            $option['removeUrl'] = $this->url('', array('action' => 'remove', 'id' => $story['id']));
+            $thumbUrl            = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $story['path'], $story['image']);
+            $option['thumbUrl']  = Pi::url($thumbUrl);
+            $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $story['id']]);
         }
         // Get attribute field
-        $fields = Pi::api('attribute', 'news')->Get($story['topic_main']);
+        $fields          = Pi::api('attribute', 'news')->Get($story['topic_main']);
         $option['field'] = $fields['attribute'];
         // Set author
         if ($this->config('admin_setauthor')) {
             $option['author'] = Pi::api('author', 'news')->getFormAuthor();
-            $option['role'] = Pi::api('author', 'news')->getFormRole();
+            $option['role']   = Pi::api('author', 'news')->getFormRole();
         } else {
             $option['author'] = '';
-            $option['role'] = '';
+            $option['role']   = '';
         }
         // Set type
-        $option['type'] = $story['type'];
+        $option['type']                  = $story['type'];
         $option['admin_deactivate_view'] = $config['admin_deactivate_view'];
         // Set form
         $form = new StoryForm('story', $option);
@@ -379,8 +411,8 @@ class StoryController extends ActionController
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
             // Set slug
-            $slug = ($data['slug']) ? $data['slug'] : $data['title'];
-            $filter = new Filter\Slug;
+            $slug         = ($data['slug']) ? $data['slug'] : $data['title'];
+            $filter       = new Filter\Slug;
             $data['slug'] = $filter($slug);
             // Form filter
             $form->setInputFilter(new StoryFilter($option));
@@ -388,11 +420,11 @@ class StoryController extends ActionController
             if ($form->isValid()) {
                 $values = $form->getData();
                 // Set author
-                $author = array();
+                $author = [];
                 if (!empty($option['role'])) {
                     foreach ($option['role'] as $role) {
                         if ($values[$role['name']] > 0) {
-                            $author[$role['id']]['role'] = $role['id'];
+                            $author[$role['id']]['role']   = $role['id'];
                             $author[$role['id']]['author'] = $values[$role['name']];
                         }
                     }
@@ -405,7 +437,7 @@ class StoryController extends ActionController
                 if (!empty($file['image']['name'])) {
                     // Set upload path
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
-                    $originalPath = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+                    $originalPath   = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
                     // Image name
                     $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageStoryPrefix, $values['path']);
                     // Upload
@@ -422,7 +454,9 @@ class StoryController extends ActionController
                         Pi::api('image', 'news')->process($values['image'], $values['path']);
                     } else {
                         $messages = $uploader->getMessages();
-                        $this->jump(array('action' => 'update', 'id' => $id), $messages ? implode('; ', $messages) : __('Problem in upload image. please try again'));
+                        $this->jump(
+                            ['action' => 'update', 'id' => $id], $messages ? implode('; ', $messages) : __('Problem in upload image. please try again')
+                        );
                     }
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
@@ -437,23 +471,25 @@ class StoryController extends ActionController
                 // Author
                 $values['author'] = (empty($author)) ? '' : json_encode($author);
                 // Set seo_title
-                $title = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
-                $filter = new Filter\HeadTitle;
+                $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
+                $filter              = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
-                $filter = new Filter\HeadKeywords;
-                $filter->setOptions(array(
-                    'force_replace_space' => (bool)$this->config('force_replace_space'),
-                ));
+                $filter   = new Filter\HeadKeywords;
+                $filter->setOptions(
+                    [
+                        'force_replace_space' => (bool)$this->config('force_replace_space'),
+                    ]
+                );
                 $values['seo_keywords'] = $filter($keywords);
                 // Set seo_description
-                $description = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
-                $filter = new Filter\HeadDescription;
+                $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
+                $filter                    = new Filter\HeadDescription;
                 $values['seo_description'] = $filter($description);
                 // Set time
                 if ($story['status'] == 6) {
-                    $values['uid'] = Pi::user()->getId();
+                    $values['uid']         = $uid;
                     $values['time_create'] = time();
                     if ($values['time_publish'] && $config['admin_time_publish']) {
                         $values['time_publish'] = strtotime($values['time_publish']);
@@ -466,6 +502,12 @@ class StoryController extends ActionController
                         $values['time_publish'] = strtotime($values['time_publish']);
                     }
                 }
+
+                // Check confirm access
+                if (!$allowConfirm) {
+                    $values['status'] = 2;
+                }
+
                 // Save values
                 $row = $this->getModel('story')->find($values['id']);
                 $row->assign($values);
@@ -485,11 +527,15 @@ class StoryController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url($this->url('news', array(
-                        'module' => $module,
-                        'controller' => 'story',
-                        'slug' => $values['slug']
-                    )));
+                    $loc = Pi::url(
+                        $this->url(
+                            'news', [
+                                'module'     => $module,
+                                'controller' => 'story',
+                                'slug'       => $values['slug'],
+                            ]
+                        )
+                    );
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);
                 }
@@ -499,13 +545,13 @@ class StoryController extends ActionController
                     && $row->status == 1
                 ) {
                     // Set values
-                    $spotlightValues = array();
+                    $spotlightValues                 = [];
                     $spotlightValues['time_publish'] = time();
-                    $spotlightValues['time_expire'] = time() + (60 * 60 * 24 * 14);
-                    $spotlightValues['uid'] = Pi::user()->getId();
-                    $spotlightValues['story'] = $row->id;
-                    $spotlightValues['topic'] = 0;
-                    $spotlightValues['status'] = $row->status;
+                    $spotlightValues['time_expire']  = time() + (60 * 60 * 24 * 14);
+                    $spotlightValues['uid']          = $uid;
+                    $spotlightValues['story']        = $row->id;
+                    $spotlightValues['topic']        = 0;
+                    $spotlightValues['status']       = $row->status;
                     // Save values
                     $spotlight = $this->getModel('spotlight')->createRow();
                     $spotlight->assign($spotlightValues);
@@ -515,7 +561,7 @@ class StoryController extends ActionController
                 Pi::registry('spotlightStoryId', 'news')->clear();
                 // Make jump information
                 $message = __('Story data saved successfully.');
-                $url = array('controller' => 'story', 'action' => 'additional', 'id' => $row->id);
+                $url     = ['controller' => 'story', 'action' => 'additional', 'id' => $row->id];
                 $this->jump($url, $message);
             }
         } else {
@@ -544,11 +590,15 @@ class StoryController extends ActionController
         // Set type message
         switch ($type) {
             case 'download':
-                $message = __('Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page');
+                $message = __(
+                    'Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page'
+                );
                 break;
 
             case 'media':
-                $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
+                $message = __(
+                    'Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page'
+                );
                 break;
 
             case 'image':
@@ -556,7 +606,9 @@ class StoryController extends ActionController
                 break;
 
             case 'gallery':
-                $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
+                $message = __(
+                    'Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page'
+                );
                 break;
 
             case 'post':
@@ -577,30 +629,36 @@ class StoryController extends ActionController
                 break;
         }
         // Get all attach files
-        $select = $this->getModel('attach')->select()->where(array('item_id' => $story['id'], 'item_table' => 'story'));
+        $select  = $this->getModel('attach')->select()->where(['item_id' => $story['id'], 'item_table' => 'story']);
         $attachs = $this->getModel('attach')->selectWith($select);
         // Make list
-        $contents = array();
+        $contents = [];
         foreach ($attachs as $attach) {
-            $content[$attach->id] = $attach->toArray();
+            $content[$attach->id]                = $attach->toArray();
             $content[$attach->id]['time_create'] = _date($content[$attach->id]['time_create']);
-            $content[$attach->id]['downloadUrl'] = Pi::url($this->url('news', array(
-                'module' => $this->getModule(),
-                'controller' => 'media',
-                'action' => 'download',
-                'id' => $attach->id,
-            )));
-            $content[$attach->id]['editUrl'] = $this->url('', array(
-                'controller' => 'attach',
-                'action' => 'edit',
-                'id' => $attach->id,
-            ));
-            $content[$attach->id]['preview'] = Pi::api('attach', 'news')->filePreview(
+            $content[$attach->id]['downloadUrl'] = Pi::url(
+                $this->url(
+                    'news', [
+                        'module'     => $this->getModule(),
+                        'controller' => 'media',
+                        'action'     => 'download',
+                        'id'         => $attach->id,
+                    ]
+                )
+            );
+            $content[$attach->id]['editUrl']     = $this->url(
+                '', [
+                    'controller' => 'attach',
+                    'action'     => 'edit',
+                    'id'         => $attach->id,
+                ]
+            );
+            $content[$attach->id]['preview']     = Pi::api('attach', 'news')->filePreview(
                 $content[$attach->id]['type'],
                 $content[$attach->id]['path'],
                 $content[$attach->id]['file']
             );
-            $contents[] = $content[$attach->id];
+            $contents[]                          = $content[$attach->id];
         }
         // Set view
         $this->view()->setTemplate('story-update');
@@ -614,16 +672,16 @@ class StoryController extends ActionController
     public function additionalAction()
     {
         // Get id
-        $id = $this->params('id');
-        $option = array();
+        $id     = $this->params('id');
+        $option = [];
         // Find story
         if ($id) {
             $story = $this->getModel('story')->find($id)->toArray();
         } else {
-            $this->jump(array('action' => 'index'), __('Please select story'));
+            $this->jump(['action' => 'index'], __('Please select story'));
         }
         // Get attribute field
-        $fields = Pi::api('attribute', 'news')->Get($story['topic_main']);
+        $fields          = Pi::api('attribute', 'news')->Get($story['topic_main']);
         $option['field'] = $fields['attribute'];
         // Check attribute is empty
         if (empty($fields['attribute'])) {
@@ -652,7 +710,7 @@ class StoryController extends ActionController
             } */
             // Do jump
             $message = __('Text data saved successfully.');
-            $url = array('controller' => 'story', 'action' => 'index');
+            $url     = ['controller' => 'story', 'action' => 'index'];
             $this->jump($url, $message);
         }
         // Check post
@@ -669,7 +727,7 @@ class StoryController extends ActionController
                 if (!empty($fields['field'])) {
                     foreach ($fields['field'] as $field) {
                         $attribute[$field]['field'] = $field;
-                        $attribute[$field]['data'] = $values[$field];
+                        $attribute[$field]['data']  = $values[$field];
                     }
                 }
                 // Set time
@@ -707,7 +765,7 @@ class StoryController extends ActionController
                 } */
                 // Do jump
                 $message = __('Text data saved successfully.');
-                $url = array('controller' => 'story', 'action' => 'index');
+                $url     = ['controller' => 'story', 'action' => 'index'];
                 $this->jump($url, $message);
             }
         } else {
@@ -721,15 +779,21 @@ class StoryController extends ActionController
         // Set type message
         switch ($story['type']) {
             case 'download':
-                $message = __('Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page');
+                $message = __(
+                    'Your story type is <strong>Download</strong> , first please completion this form , after that if you see extra file fields, you can add your file urls , and after click on submit button , you can upload your download files on next page'
+                );
                 break;
 
             case 'media':
-                $message = __('Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page');
+                $message = __(
+                    'Your story type is <strong>Media</strong> , first please completion this form , after that if you see extra video or audio fields, you can add your video or audio urls for play on website media player, and after click on submit button , you can upload your media on next page'
+                );
                 break;
 
             case 'gallery':
-                $message = __('Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page');
+                $message = __(
+                    'Your story type is <strong>Gallery</strong> , first please completion this form , after click on submit button , you can upload your images on next page'
+                );
                 break;
 
             case 'text':
@@ -751,27 +815,31 @@ class StoryController extends ActionController
         // Get information
         $this->view()->setTemplate(false);
         $module = $this->params('module');
-        $id = $this->params('id');
-        $row = $this->getModel('story')->find($id);
+        $id     = $this->params('id');
+        $row    = $this->getModel('story')->find($id);
         if ($row) {
             $row->status = 5;
             $row->save();
             // update links
-            $this->getModel('link')->update(array('status' => $row->status), array('story' => $row->id));
+            $this->getModel('link')->update(['status' => $row->status], ['story' => $row->id]);
             // Spotlight
-            $this->getModel('spotlight')->delete(array('story' => $row->id));
+            $this->getModel('spotlight')->delete(['story' => $row->id]);
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
-                $loc = Pi::url($this->url('news', array(
-                        'module'      => $module,
-                        'controller'  => 'story',
-                        'slug'        => $row->slug
-                    )));
+                $loc = Pi::url(
+                    $this->url(
+                        'news', [
+                            'module'     => $module,
+                            'controller' => 'story',
+                            'slug'       => $row->slug,
+                        ]
+                    )
+                );
                 Pi::api('sitemap', 'sitemap')->remove($loc);
             }
             // Remove page
-            $this->jump(array('action' => 'index'), __('This story deleted'));
+            $this->jump(['action' => 'index'], __('This story deleted'));
         }
-        $this->jump(array('action' => 'index'), __('Please select story'));
+        $this->jump(['action' => 'index'], __('Please select story'));
     }
 }

@@ -1,4 +1,4 @@
-<?php $this->css($this->assetModule('css/front.css'), array('defer' => 'defer')); ?>
+<?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -20,7 +20,7 @@
                     <td class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?>
                             <span class="label label-danger"><?php _e('Important'); ?></span>
-                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>" />
+                            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         <?php } ?>
                         <?php if ($story['main_image']) { ?>
                             <img itemprop="image"
@@ -28,8 +28,8 @@
                                  alt="<?php echo $this->escape($story['title']); ?>"/>
                         <?php } ?>
                         <a
-                            itemprop="url" title="<?php echo $story['title']; ?>"
-                            href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
+                                itemprop="url" title="<?php echo $story['title']; ?>"
+                                href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape($story['title']); ?></a>
                     </td>
                     <?php if ($topic['showdate']) { ?>
                         <td class="dt-published"

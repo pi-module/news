@@ -1,16 +1,17 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt BSD 3-Clause License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt BSD 3-Clause License
  * @package         Registry
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\News\Registry;
 
 use Pi;
@@ -27,16 +28,16 @@ class SpotlightStoryId extends AbstractRegistry
     /**
      * {@inheritDoc}
      */
-    protected function loadDynamic($options = array())
+    protected function loadDynamic($options = [])
     {
-        $ids = array();
+        $ids = [];
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
         // Set info
-        $limit =  intval($config['spotlight_registry']);
-        $order = array('time_publish DESC', 'id DESC');
-        $where = array('status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time());
-        $columns = array('id', 'story');
+        $limit   = intval($config['spotlight_registry']);
+        $order   = ['time_publish DESC', 'id DESC'];
+        $where   = ['status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()];
+        $columns = ['id', 'story'];
         // Select
         $select = Pi::model('spotlight', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('spotlight', $this->module)->selectWith($select);
@@ -46,8 +47,8 @@ class SpotlightStoryId extends AbstractRegistry
         // Check empty
         if (empty($ids)) {
             // Set info
-            $where = array('status' => 1);
-            $columns = array('id');
+            $where   = ['status' => 1];
+            $columns = ['id'];
             // Select
             $select = Pi::model('story', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
             $rowset = Pi::model('story', $this->module)->selectWith($select);
@@ -65,8 +66,8 @@ class SpotlightStoryId extends AbstractRegistry
      */
     public function read()
     {
-        $options = array();
-        $result = $this->loadData($options);
+        $options = [];
+        $result  = $this->loadData($options);
 
         return $result;
     }
