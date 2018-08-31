@@ -386,6 +386,7 @@ class Api extends AbstractApi
 
             default:
             case 'link':
+                
                 // Select from link table
                 $select = Pi::model('link', $this->getModule())->select();
                 if (!empty($where)) {
@@ -459,6 +460,7 @@ class Api extends AbstractApi
                 $count   = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
                 break;
         }
+
         // Check template
         $template['module']     = (isset($template['module'])) ? $template['module'] : 'news';
         $template['controller'] = (isset($template['controller'])) ? $template['controller'] : 'index';
