@@ -527,15 +527,28 @@ class StoryController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    $loc = Pi::url(
-                        $this->url(
-                            'news', [
-                                'module'     => $module,
-                                'controller' => 'story',
-                                'slug'       => $values['slug'],
-                            ]
-                        )
-                    );
+                    if ($row->type = 'post') {
+                        $loc = Pi::url(
+                            $this->url(
+                                'blog', [
+                                    'module'     => 'blog',
+                                    'controller' => 'post',
+                                    'slug'       => $values['slug'],
+                                ]
+                            )
+                        );
+                    } else {
+                        $loc = Pi::url(
+                            $this->url(
+                                'news', [
+                                    'module'     => $module,
+                                    'controller' => 'story',
+                                    'slug'       => $values['slug'],
+                                ]
+                            )
+                        );
+                    }
+
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'story', $row->id);
                 }
