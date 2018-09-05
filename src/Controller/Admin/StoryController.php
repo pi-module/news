@@ -530,7 +530,7 @@ class StoryController extends ActionController
                     if ($row->type = 'post') {
                         $loc = Pi::url(
                             $this->url(
-                                'blog', [
+                                'news', [
                                     'module'     => 'blog',
                                     'controller' => 'post',
                                     'slug'       => $values['slug'],
