@@ -43,13 +43,13 @@ $this->Backbone();
     </div>
 </div>
 <script id="temp-carousel" type="text/template">
-    <div id="file-<%= data.id %>" class="well">
+    <div id="file-<%= data.id %>" class="card card-body bg-light mb-3">
         <div class="upload-carousel-item-img"><img src="<%= data.preview %>" alt="<%= data.title %>"/></div>
         <p><%= data.title %></p>
-        <button type="button" class="info-attach btn btn-info btn-xs" data-toggle="modal"
+        <button type="button" class="info-attach btn btn-info btn-sm" data-toggle="modal"
                 data-target="#info-attach-<%= data.id %>"><i
                     class="fa fa-eye-open fa fa-white"></i> <?php _e('PerView'); ?></button>
-        <button type="button" class="remove-attach btn btn-danger btn-xs" data-toggle="button"
+        <button type="button" class="remove-attach btn btn-danger btn-sm" data-toggle="button"
                 data-link="<?php echo $this->url('', ['action' => 'delete']); ?>id/<%= data.id %>"><i
                     class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
     </div>

@@ -12,18 +12,18 @@ $this->css($this->assetModule('css/admin.css'));
 <div class="clearfix">
     <div class="admin-header clearfix row">
         <div class="col-md-12">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingHelp">
-                        <h4 class="panel-title">
+            <div class="card-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="card card-body bg-light mb-3">
+                    <div class="card-heading" role="tab" id="headingHelp">
+                        <h4 class="card-title">
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false"
                                aria-controls="collapseHelp">
                                 <i class="fa fa-plus"></i> <?php _e('Description about add new story'); ?>
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseHelp" class="panel-collapse collapse" role="tabpanel">
-                        <div class="panel-body">
+                    <div id="collapseHelp" class="card-collapse collapse" role="tabpanel">
+                        <div class="card-text">
                             <p><?php _e(
                                     'You can select many types on submit new story, each type have different template and view and useful for special usage'
                                 ); ?></p>
@@ -80,69 +80,69 @@ $this->css($this->assetModule('css/admin.css'));
             <div class="nav">
                 <div class="btn-group">
                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-plus"></i> <?php _e('Add new story'); ?> <span class="caret"></span>
+                        <i class="fa fa-plus"></i> <?php _e('Add new story'); ?>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <?php if (!$config['admin_deactivate_view']) { ?>
-                            <li><a title="<?php _e('Add new text'); ?>"
+                            <a class="dropdown-item" title="<?php _e('Add new text'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'text']); ?>"><i
-                                            class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a></li>
-                            <li><a title="<?php _e('Add new article'); ?>"
+                                            class="fa fa-sticky-note"></i> <?php _e('Add new text'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new article'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'article']); ?>"><i
-                                            class="fa fa-folder"></i> <?php _e('Add new article'); ?></a></li>
-                            <li><a title="<?php _e('Add new magazine'); ?>"
+                                            class="fa fa-folder"></i> <?php _e('Add new article'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new magazine'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'magazine']); ?>"><i
-                                            class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a></li>
-                            <li><a title="<?php _e('Add new gallery album'); ?>"
+                                            class="fa fa-pie-chart"></i> <?php _e('Add new magazine'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new gallery album'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'gallery']); ?>"><i
-                                            class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a></li>
-                            <li><a title="<?php _e('Add new single image'); ?>"
+                                            class="fa fa-camera"></i> <?php _e('Add new gallery album'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new single image'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'image']); ?>"><i
-                                            class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a></li>
-                            <li><a title="<?php _e('Add new media'); ?>"
+                                            class="fa fa-picture-o"></i> <?php _e('Add new single image'); ?></a>
+                           <a class="dropdown-item" title="<?php _e('Add new media'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'media']); ?>"><i
-                                            class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a></li>
-                            <li><a title="<?php _e('Add new download'); ?>"
+                                            class="fa fa-video-camera"></i> <?php _e('Add new media'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new download'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'download']); ?>"><i
-                                            class="fa fa-download"></i> <?php _e('Add new download'); ?></a></li>
+                                            class="fa fa-download"></i> <?php _e('Add new download'); ?></a>
                         <?php } ?>
                         <?php if (Pi::service('module')->isActive('blog')) { ?>
-                            <li><a title="<?php _e('Add new blog post'); ?>"
+                            <a class="dropdown-item" title="<?php _e('Add new blog post'); ?>"
                                    href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'post']); ?>"><i
-                                            class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a></li>
+                                            class="fa fa-globe"></i> <?php _e('Add new blog post'); ?></a>
                         <?php } ?>
                         <?php if (!Pi::service('module')->isActive('blog') && $config['admin_deactivate_view']) { ?>
-                            <li><?php _e('News module front page is deactivate'); ?></li>
+                            <?php _e('News module front page is deactivate'); ?>
                         <?php } ?>
-                    </ul>
+                    </div>
                 </div>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-eye"></i> <?php _e('View'); ?> <span class="caret"></span>
+                        <i class="fa fa-eye"></i> <?php _e('View'); ?>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a title="<?php _e('All stories'); ?>"
+                    <div class="dropdown-menu" role="menu">
+                        <a class="dropdown-item" title="<?php _e('All stories'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index']); ?>"><i
-                                        class="fa fa-file"></i> <?php _e('All stories'); ?></a></li>
-                        <li><a title="<?php _e('Published'); ?>"
+                                        class="fa fa-file"></i> <?php _e('All stories'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('Published'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '1']); ?>"><i
-                                        class="fa fa-file"></i> <?php _e('Published'); ?></a></li>
-                        <li><a title="<?php _e('Pending review'); ?>"
+                                        class="fa fa-file"></i> <?php _e('Published'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('Pending review'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '2']); ?>"><i
-                                        class="fa fa-file"></i> <?php _e('Pending review'); ?></a></li>
-                        <li><a title="<?php _e('Draft'); ?>"
+                                        class="fa fa-file"></i> <?php _e('Pending review'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('Draft'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '3']); ?>"><i
-                                        class="fa fa-file"></i> <?php _e('Draft'); ?></a></li>
-                        <li><a title="<?php _e('Private'); ?>"
+                                        class="fa fa-file"></i> <?php _e('Draft'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('Private'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '4']); ?>"><i
-                                        class="fa fa-file"></i> <?php _e('Private'); ?></a></li>
-                        <li><a title="<?php _e('Trash'); ?>"
+                                        class="fa fa-file"></i> <?php _e('Private'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('Trash'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '5']); ?>"><i
-                                        class="fa fa-trash"></i> <?php _e('Trash'); ?></a></li>
-                        <li><a title="<?php _e('System draft'); ?>"
+                                        class="fa fa-trash"></i> <?php _e('Trash'); ?></a>
+                        <a class="dropdown-item" title="<?php _e('System draft'); ?>"
                                href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '6']); ?>"><i
-                                        class="fa fa-pencil"></i> <?php _e('System draft'); ?></a></li>
-                    </ul>
+                                        class="fa fa-pencil"></i> <?php _e('System draft'); ?></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@ $this->css($this->assetModule('css/admin.css'));
         </div>
     </div>
     <h3><?php _e('List of stories'); ?></h3>
-    <table id="story-list" class="table table-striped table-bordered table-condensed">
+    <table id="story-list" class="table table-striped table-bordered table-sm">
         <tr>
             <th><?php _e('ID'); ?></th>
             <th><?php _e('Information'); ?></th>
@@ -159,16 +159,16 @@ $this->css($this->assetModule('css/admin.css'));
         <?php foreach ($stores as $story) { ?>
             <?php
             if ($story['status'] == 1) {
-                $labelClass = 'label label-success';
+                $labelClass = 'badge badge-success';
             } elseif ($story['status'] == 5) {
-                $labelClass = 'label label-danger';
+                $labelClass = 'badge badge-danger';
             } else {
-                $labelClass = 'label label-warning';
+                $labelClass = 'badge badge-warning';
             }
             ?>
             <tr>
                 <td><span id="label-<?php echo $story['id']; ?>"
-                          class="label label-default <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
+                          class="badge badge-default <?php echo $labelClass; ?>"><?php echo $story['id']; ?></span></td>
                 <td>
                     <div class="row">
                         <div class="col-md-12">
@@ -186,40 +186,40 @@ $this->css($this->assetModule('css/admin.css'));
                             <strong><?php _e('Action'); ?></strong> :
                             <span class="story-action">
                                 <?php if ($story['status'] == 1) { ?>
-                                    <a class="btn btn-success btn-xs" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                                    <a class="btn btn-success btn-sm" title="<?php _e('View'); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        target="_blank"><i class="fa fa-eye"></i> <?php _e('View'); ?></a>
                                 <?php } ?>
                                 <?php /* if ($story['status'] == 1) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"
-                                            class="btn btn-warning btn-xs" data-toggle="button"
+                                            class="btn btn-warning btn-sm" data-toggle="button"
                                             data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '2']); ?>">
                                         <i class="fa fa-trash-o"></i> <?php _e('Reject'); ?></button>
                                 <?php } elseif (in_array($story['status'], [2, 3, 4])) { ?>
                                     <button id="button-<?php echo $story['id']; ?>" type="button"
-                                            class="btn btn-success btn-xs" data-toggle="button"
+                                            class="btn btn-success btn-sm" data-toggle="button"
                                             data-link="<?php echo $this->url('', ['action' => 'accept', 'id' => $story['id'], 'status' => '1']); ?>">
                                         <i class="fa fa-check"></i> <?php _e('Accept'); ?></button>
                                 <?php } */ ?>
                             </span>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
+                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
                                         data-toggle="dropdown">
-                                    <i class="fa fa-edit"></i> <?php _e('Manage'); ?> <span class="caret"></span>
+                                    <i class="fa fa-edit"></i> <?php _e('Manage'); ?>
                                 </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a title="<?php _e('Edit basic information'); ?>"
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item" title="<?php _e('Edit basic information'); ?>"
                                            href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
-                                                    class="fa fa-edit"></i> <?php _e('Edit basic information'); ?></a></li>
-                                    <li><a title="<?php _e('Edit additional information'); ?>"
+                                                    class="fa fa-edit"></i> <?php _e('Edit basic information'); ?></a>
+                                    <a class="dropdown-item" title="<?php _e('Edit additional information'); ?>"
                                            href="<?php echo $this->url('', ['action' => 'additional', 'id' => $story['id']]); ?>"><i
                                                     class="fa fa-edit"></i> <?php _e('Edit additional information'); ?></a>
-                                    </li>
-                                    <li><a title="<?php _e('Preview'); ?>"
+
+                                    <a class="dropdown-item" title="<?php _e('Preview'); ?>"
                                            href="<?php echo $this->url('', ['action' => 'view', 'id' => $story['id']]); ?>"><i
-                                                    class="fa fa-eye"></i> <?php _e('Preview'); ?></a></li>
-                                </ul>
+                                                    class="fa fa-eye"></i> <?php _e('Preview'); ?></a>
+                                </div>
                             </div>
-                            <a class="btn btn-danger btn-xs" title="<?php _e('Delete'); ?>"
+                            <a class="btn btn-danger btn-sm" title="<?php _e('Delete'); ?>"
                                href="<?php echo $this->url('', ['action' => 'delete', 'id' => $story['id']]); ?>"
                                onclick="return confirm('<?php echo _a('Are you sure to delete this story?'); ?>')">
                                 <i class="fa fa-trash"></i> <?php _e('Delete'); ?>
@@ -232,9 +232,9 @@ $this->css($this->assetModule('css/admin.css'));
     </table>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
     <p>
-        <span class="label label-success"><?php _e('Published'); ?></span>
-        <span class="label label-warning"><?php _e('Pending review'); ?></span>
-        <span class="label label-danger"><?php _e('Trash'); ?></span>
+        <span class="badge badge-success"><?php _e('Published'); ?></span>
+        <span class="badge badge-warning"><?php _e('Pending review'); ?></span>
+        <span class="badge badge-danger"><?php _e('Trash'); ?></span>
     </p>
 </div>
 <?php /* <script>
@@ -244,13 +244,13 @@ $this->css($this->assetModule('css/admin.css'));
             $.getJSON($(this).attr("data-link")).done(function (result) {
                 if (result.ajaxstatus == 1) {
                     if (result.storystatus == 1) {
-                        var labelClass = 'label label label-success';
-                        var buttonClass = 'btn btn-warning btn-xs disabled';
+                        var labelClass = 'label badge badge-success';
+                        var buttonClass = 'btn btn-warning btn-sm disabled';
                         var buttonText = '<i class="fa fa-trash-o"></i> <?php _e("Reject"); ?>';
                     }
                     if (result.storystatus == 2) {
-                        var labelClass = 'label label label-warning';
-                        var buttonClass = 'btn btn-success btn-xs disabled';
+                        var labelClass = 'label badge badge-warning';
+                        var buttonClass = 'btn btn-success btn-sm disabled';
                         var buttonText = '<i class="fa fa-check"></i> <?php _e("Accept"); ?>';
                     }
                     $('#label-' + result.id).attr('class', labelClass);

@@ -266,7 +266,7 @@ class Block
             $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar(
                 $microblog[$row->id]['uid'], 'medium', [
                 'alt'   => $microblog[$row->id]['user']['name'],
-                'class' => 'img-circle',
+                'class' => 'rounded-circle',
             ]
             );
         }

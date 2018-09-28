@@ -10,7 +10,7 @@
             <div class="single-news h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                 <div class="single-news-heading">
                     <h3 class="p-name" itemprop="name headline">
-                        <?php if ($story['important']) { ?><span class="label label-danger"><?php _e('Important'); ?></span><?php } ?>
+                        <?php if ($story['important']) { ?><span class="badge badge-danger"><?php _e('Important'); ?></span><?php } ?>
                         <a itemprop="url" title="<?php echo $story['title']; ?>" href="<?php echo $story['storyUrl']; ?>">
                             <?php echo $this->escape($story['title']); ?>
                         </a>
@@ -22,7 +22,7 @@
                             <div class="col-md-3 u-photo">
                                 <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
-                                    <img class="img-responsive img-thumbnail" itemprop="image"
+                                    <img class="img-fluid img-thumbnail" itemprop="image"
                                          src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
                                              'medium'
                                          ); ?>"
@@ -37,17 +37,17 @@
                     <div class="clearfix">
                         <ul class="list-inline small">
                             <?php if ($topic['show_date']) { ?>
-                                <li class="itemPostDate dt-published" itemprop="datePublished">
+                                <li class="list-inline-item itemPostDate dt-published" itemprop="datePublished">
                                     <?php _e('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
                                 </li>
                             <?php } ?>
                             <?php if ($topic['show_hits']) { ?>
-                                <li class="itemStats">
+                                <li class="list-inline-item itemStats">
                                     <?php _e('Read'); ?> : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
                                 </li>
                             <?php } ?>
                             <?php if ($topic['show_topic']) { ?>
-                                <li>
+                                <li class="list-inline-item">
                                     <?php _e('Topics'); ?> : <?php foreach ($story['topics'] as $storyTopic) { ?>
                                         <span class=" p-category" itemprop="about"><a
                                                     title="<?php echo $storyTopic['title']; ?>"
@@ -56,7 +56,7 @@
                                 </li>
                             <?php } ?>
                             <?php if (!empty($story['authors'])) { ?>
-                                <li>
+                                <li class="list-inline-item">
                                     <?php foreach ($story['authors'] as $author) { ?>
                                         <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?>
                                             : <a title="<?php echo $author['authorName']; ?>"
