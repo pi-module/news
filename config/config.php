@@ -463,17 +463,17 @@ return [
             'filter'      => 'number_int',
             'value'       => 1200,
         ],
-        'image_itemw'              => [
+        'image_itemh'              => [
             'category'    => 'image',
-            'title'       => _a('Item Image width'),
+            'title'       => _a('Item Image height'),
             'description' => '',
             'edit'        => 'text',
             'filter'      => 'number_int',
             'value'       => 800,
         ],
-        'image_itemh'              => [
+        'image_itemw'              => [
             'category'    => 'image',
-            'title'       => _a('Item Image height'),
+            'title'       => _a('Item Image width'),
             'description' => '',
             'edit'        => 'text',
             'filter'      => 'number_int',
