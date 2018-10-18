@@ -1,17 +1,17 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
+    <div class="card card-body bg-light mb-3">
+        <div class="card-heading">
+            <h3 class="card-title">
                 <?php if ($story['important']) { ?>
-                    <span class="label label label-important">
+                    <span class="label badge badge-important">
 					<?php _e('Important'); ?>
 				</span>
                 <?php } ?>
                 <?php echo $this->escape($story['title']); ?>
             </h3>
         </div>
-        <div class="panel-body">
+        <div class="card-text">
             <div class="itemInfo">
                 <span class="itemPostDate"><?php _e('Update Time'); ?>
                     : <?php echo $this->escape($story['time_publish_view']); ?></span>
@@ -36,7 +36,7 @@
                 <div class="itemText"><?php echo $story['text_description']; ?></div>
                 <div class="clearfix"></div>
             </div>
-            <div class="clearfix well well-sm">
+            <div class="clearfix card card-body bg-light mb-3">
                 <a class="btn btn-primary" title="<?php _e('Back'); ?>"
                    href="<?php echo $this->url('', ['action' => 'index']); ?>"><i
                             class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>

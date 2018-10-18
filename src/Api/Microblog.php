@@ -66,7 +66,7 @@ class Microblog extends AbstractApi
         $microblog['user']['avatar'] = Pi::service('user')->avatar(
             $microblog['uid'], 'large', [
             'alt'   => $microblog['user']['name'],
-            'class' => 'img-circle',
+            'class' => 'rounded-circle',
         ]
         );
         // profile url

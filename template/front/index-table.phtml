@@ -5,7 +5,7 @@
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
     <div class="index-table clearfix">
-        <table class="table table-striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th><?php _e('Title'); ?></th>
                 <?php if ($topic['showdate']) { ?>
@@ -19,7 +19,7 @@
                 <tr class="h-entry" itemscope itemtype="https://schema.org/Article">
                     <td class="p-name" itemprop="name headline">
                         <?php if ($story['important']) { ?>
-                            <span class="label label-danger"><?php _e('Important'); ?></span>
+                            <span class="badge badge-danger"><?php _e('Important'); ?></span>
                             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                         <?php } ?>
                         <?php if ($story['main_image']) { ?>

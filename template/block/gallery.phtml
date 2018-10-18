@@ -1,7 +1,7 @@
 <?php
 
 // Set width
-$width = $block['widthclass'] ? $block['widthclass'] : 'col-xs-6 col-sm-6 col-md-3';
+$width = $block['widthclass'] ? $block['widthclass'] : 'col-6 col-sm-6 col-md-3';
 ?>
 <div class="news-block news-gallery-block gallery clearfix">
     <?php if ($block['type'] == 'simple') { ?>
@@ -66,7 +66,7 @@ EOT;
                             </a>
                         </p>
                     </div>
-                    <img itemprop="image" class="media-object img-responsive u-photo"
+                    <img itemprop="image" class="media-object img-fluid u-photo"
                          src="<?php echo $this->escape($gallery['thumbUrl']); ?>"
                          alt="<?php echo $this->escape($gallery['title']); ?>">
                 </div>

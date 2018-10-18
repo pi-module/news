@@ -18,7 +18,7 @@ $this->headMeta(__('List of all topics'), 'twitter:description');
     <?php if (isset($topics) && !empty($topics)) { ?>
         <div class="topics clearfix">
             <?php foreach ($topics as $topic) { ?>
-                <div class="col-xs-12 col-sm-6 col-md-3" itemprop="itemListElement">
+                <div class="col-12 col-sm-6 col-md-3" itemprop="itemListElement">
                     <div class="thumbnail">
                         <?php if (!empty($topic['image'])) { ?>
                             <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"
