@@ -9,7 +9,7 @@
             <?php foreach ($stores as $story) { ?>
                 <li class="list-group-item <?php echo $topic['column_class']; ?> h-entry clearfix" itemscope
                     itemtype="https://schema.org/Article">
-                    <div class="col-xs-3">
+                    <div class="col-3">
                         <?php if ($story['main_image']) { ?>
                             <span class="u-photo">
 		    		        <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
@@ -17,7 +17,7 @@
 		    	        </span>
                         <?php } ?>
                     </div>
-                    <div class="col-xs-9">
+                    <div class="col-9">
                         <h2 itemprop="name headline">
                             <a class="p-name" itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>

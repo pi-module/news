@@ -7,19 +7,19 @@
                         <?php if ($microblog['topic'] == 0) { ?>
                             <div class="clearfix">
                                 <ul class="list-inline">
-                                    <li>
+                                    <li class="list-inline-item">
                                         <div class="text-center">
                                             <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
                                                 <?php echo $microblog['user']['avatar']; ?>
                                             </a>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li class="list-inline-item">
                                         <a href="<?php echo $microblog['profileUrl']; ?>" title="<?php echo $microblog['user']['name']; ?>">
                                             <?php echo $microblog['user']['name']; ?>
                                         </a>
                                     </li>
-                                    <li>
+                                    <li class="list-inline-item">
                                         <a href="<?php echo $microblog['microblogUrl']; ?>" title="<?php echo $microblog['seo_title']; ?>">
                                             <?php echo $microblog['time_create_view']; ?>
                                         </a>
