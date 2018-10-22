@@ -28,17 +28,17 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="list-inline-item dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
                                                 <li class="list-inline-item">
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -91,17 +91,17 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="list-inline-item dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
                                                 <li class="list-inline-item">
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -156,17 +156,17 @@
                                         <ul class="text-muted list-inline">
                                             <?php if ($block['showdate']) { ?>
                                                 <li class="list-inline-item dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
-                                                <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showauthor']) { ?>
                                                 <?php foreach ($story['authors'] as $author) { ?>
                                                     <li class="list-inline-item">
-                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                         <a title="<?php echo $author['authorName']; ?>"
                                                            href="<?php echo $author['authorUrl']; ?>">
                                                             <?php echo $author['authorName']; ?>
@@ -193,7 +193,7 @@
                         <div class="h-entry list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
                                 <h4 class="p-name" itemprop="name headline">
-                                    <i class="fa fa-angle-left"></i>
+                                    <i class="fas fa-angle-left"></i>
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
                                         <?php echo $this->escape($story['title']); ?>
@@ -235,17 +235,17 @@
                                         <ul class="text-muted list-inline small">
                                             <?php if ($block['showdate']) { ?>
                                                 <li class="list-inline-item dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
-                                                <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showauthor']) { ?>
                                                 <?php foreach ($story['authors'] as $author) { ?>
                                                     <li class="list-inline-item">
-                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                         <a title="<?php echo $author['authorName']; ?>"
                                                            href="<?php echo $author['authorUrl']; ?>">
                                                             <?php echo $author['authorName']; ?>
@@ -347,17 +347,17 @@
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
                                     <li class="dt-published"><i
-                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showhits']) { ?>
-                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                    <li><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                         : <?php echo _number($this->escape($story['hits'])); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showauthor']) { ?>
                                     <?php foreach ($story['authors'] as $author) { ?>
                                         <li>
-                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                             <a title="<?php echo $author['authorName']; ?>"
                                                href="<?php echo $author['authorUrl']; ?>">
                                                 <?php echo $author['authorName']; ?>
@@ -403,17 +403,17 @@
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
                                     <li class="dt-published"><i
-                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showhits']) { ?>
-                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                    <li><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                         : <?php echo _number($this->escape($story['hits'])); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showauthor']) { ?>
                                     <?php foreach ($story['authors'] as $author) { ?>
                                         <li>
-                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                             <a title="<?php echo $author['authorName']; ?>"
                                                href="<?php echo $author['authorUrl']; ?>">
                                                 <?php echo $author['authorName']; ?>
@@ -478,17 +478,17 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="list-inline-item dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
                                                 <li class="list-inline-item">
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -509,10 +509,10 @@
                     </div>
                     <!-- Carousel nav -->
                     <a class="right carousel-control" href="#<?php echo $carouselId; ?>" data-slide="next">
-                        <span class="icon-prev fa fa-chevron-right"></span>
+                        <span class="icon-prev fas fa-chevron-right"></span>
                     </a>
                     <a class="left carousel-control" href="#<?php echo $carouselId; ?>" data-slide="prev">
-                        <span class="icon-next fa fa-chevron-left"></span>
+                        <span class="icon-next fas fa-chevron-left"></span>
                     </a>
                 </div>
             </div>
@@ -564,17 +564,17 @@
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="list-inline-item dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($firstStory['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($firstStory['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($firstStory['authors'] as $author) { ?>
                                                 <li class="list-inline-item">
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -625,17 +625,17 @@
                                             <ul class="text-muted list-inline">
                                                 <?php if ($block['showdate']) { ?>
                                                     <li class="list-inline-item dt-published"><i
-                                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                                class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                                 <?php } ?>
                                                 <?php if ($block['showhits']) { ?>
-                                                    <li class="list-inline-item"><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                    <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                         : <?php echo _number($this->escape($story['hits'])); ?></li>
                                                 <?php } ?>
                                                 <?php if ($block['showauthor']) { ?>
                                                     <?php foreach ($story['authors'] as $author) { ?>
                                                         <li class="list-inline-item">
-                                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                             <a title="<?php echo $author['authorName']; ?>"
                                                                href="<?php echo $author['authorUrl']; ?>">
                                                                 <?php echo $author['authorName']; ?>

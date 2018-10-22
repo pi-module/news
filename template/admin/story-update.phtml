@@ -73,10 +73,10 @@ $this->Backbone();
             <p><%= data.title %></p>
             <button type="button" class="info-attach btn btn-info btn-sm" data-toggle="modal"
                     data-target="#info-attach-<%= data.id %>"><i
-                        class="fa fa-eye-open fa fa-white"></i> <?php _e('PerView'); ?></button>
+                        class="far fa-eye-open"></i> <?php _e('PerView'); ?></button>
             <button type="button" class="remove-attach btn btn-danger btn-sm" data-toggle="button"
                     data-link="<?php echo $this->url('', ['controller' => 'attach', 'action' => 'delete']); ?>id/<%= data.id %>"><i
-                        class="fa fa-trash fa fa-white"></i> <?php _e('Delete'); ?></button>
+                        class="fas fa-trash-alt"></i> <?php _e('Delete'); ?></button>
         </div>
         <div class="modal fade" id="info-attach-<%= data.id %>" tabindex="-1" role="dialog"
              aria-hidden="true">

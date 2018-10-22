@@ -3,7 +3,7 @@
     <p>
         <a class="btn btn-primary" title="<?php _e('Add Spotlight'); ?>"
            href="<?php echo $this->url('', ['controller' => 'spotlight', 'action' => 'update']); ?>"><i
-                    class="fa fa-user"></i> <?php _e('Add Spotlight'); ?></a>
+                    class="fas fa-user"></i> <?php _e('Add Spotlight'); ?></a>
     </p>
 
     <h3><?php _e('List of spotlights'); ?></h3>
@@ -30,13 +30,13 @@
                        href="<?php echo $this->url(
                            'news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug'])]
                        ); ?>"><i
-                                class="fa fa-edit"></i> <?php _e('Veiw story'); ?></a>
+                                class="fas fa-edit"></i> <?php _e('Veiw story'); ?></a>
                     <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                        href="<?php echo $this->url('', ['action' => 'update', 'id' => $spotlight['id']]); ?>"><i
-                                class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                                class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                     <a class="btn btn-danger" title="<?php _e('Delete'); ?>"
                        href="<?php echo $this->url('', ['action' => 'delete', 'id' => $spotlight['id']]); ?>"><i
-                                class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+                                class="far fa-trash-alt"></i> <?php _e('Delete'); ?></a>
                 </td>
             </tr>
         <?php } ?>

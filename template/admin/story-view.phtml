@@ -39,16 +39,16 @@
             <div class="clearfix card card-body bg-light mb-3">
                 <a class="btn btn-primary" title="<?php _e('Back'); ?>"
                    href="<?php echo $this->url('', ['action' => 'index']); ?>"><i
-                            class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+                            class="fas fa-arrow-left"></i> <?php _e('Back'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('View'); ?>"
                    href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug'])]); ?>"><i
-                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                            class="far fa-eye"></i> <?php _e('View'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
-                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                            class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Delete'); ?>"
                    href="<?php echo $this->url('', ['action' => 'delete', 'id' => $story['id']]); ?>"><i
-                            class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+                            class="far fa-trash-alt"></i> <?php _e('Delete'); ?></a>
             </div>
         </div>
     </div>

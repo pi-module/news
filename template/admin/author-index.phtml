@@ -4,7 +4,7 @@
         <div class="col-md-7">
             <a class="btn btn-primary" title="<?php _e('Add Author'); ?>"
                href="<?php echo $this->url('', ['controller' => 'author', 'action' => 'update']); ?>"><i
-                        class="fa fa-plus"></i> <?php _e('Add Author'); ?></a>
+                        class="fas fa-plus"></i> <?php _e('Add Author'); ?></a>
         </div>
         <div class="col-md-5">
             <?php echo $this->form($form, 'inline'); ?>
@@ -36,10 +36,10 @@
                            href="<?php echo $this->url(
                                'news', ['module' => $module, 'controller' => 'author', 'slug' => $this->escape($author['slug'])]
                            ); ?>"><i
-                                    class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                                    class="far fa-eye"></i> <?php _e('View'); ?></a>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                            href="<?php echo $this->url('', ['action' => 'update', 'id' => $author['id']]); ?>"><i
-                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                                    class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                     </td>
                 </tr>
             <?php } ?>

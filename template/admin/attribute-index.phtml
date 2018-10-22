@@ -7,39 +7,39 @@ $this->jQuery('ui/jquery-ui.min.js');
     <div class="clearfix">
         <div class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-plus"></i> <?php _e('Add attribute'); ?>
+                <i class="fas fa-plus"></i> <?php _e('Add attribute'); ?>
             </button>
             <div class="dropdown-menu" role="menu">
                 <a class="dropdown-item"  title="<?php _e('Add text field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'text']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add text field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add text field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add link field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'link']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add link field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add link field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add video field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'video']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add video field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add video field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add audio field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'audio']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add audio field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add audio field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add file field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'file']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add file field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add file field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add currency field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'currency']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add currency field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add currency field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add date field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'date']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add date field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add date field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add number field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'number']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add number field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add number field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add select field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'select']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add select field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add select field'); ?></a>
                 <a class="dropdown-item"  title="<?php _e('Add checkbox field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'checkbox']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add checkbox field'); ?></a>
+                            class="fas fa-file"></i> <?php _e('Add checkbox field'); ?></a>
                 </ul>
             </div>
         </div>
@@ -70,20 +70,20 @@ $this->jQuery('ui/jquery-ui.min.js');
                                         <div class="col-md-2">
                                             <a class="btn btn-link" title="<?php _e('Edit'); ?>"
                                                href="<?php echo $this->url('', ['action' => 'update', 'type' => $field['type'], 'id' => $field['id']]); ?>"><i
-                                                        class="fa fa-edit"></i></a>
+                                                        class="fas fa-edit"></i></a>
                                             <a class="btn btn-link" title="<?php _e('Delete'); ?>"
                                                href="<?php echo $this->url('', ['action' => 'delete', 'id' => $field['id']]); ?>"><i
-                                                        class="fa fa-trash-o"></i></a>
+                                                        class="far fa-trash-alt"></i></a>
                                             <span class="label <?php if ($field['status']) {
                                                 echo 'label-success';
                                             } else {
                                                 echo 'label-danger';
-                                            } ?>"><i class="fa fa-exclamation-circle"></i></span>
+                                            } ?>"><i class="fas fa-exclamation-circle"></i></span>
                                             <span class="label <?php if ($field['search']) {
                                                 echo 'label-success';
                                             } else {
                                                 echo 'label-danger';
-                                            } ?>"><i class="fa fa-search"></i></span>
+                                            } ?>"><i class="fas fa-search"></i></span>
                                         </div>
                                     </div>
                                 </div>

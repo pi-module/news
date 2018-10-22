@@ -66,18 +66,18 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
         <ul class="list-inline text-muted pull-right">
             <?php if ($config['show_date']) { ?>
                 <li class="list-inline-item itemPostDate dt-published">
-                    <i class="fa fa-calendar"></i> <?php _e('Time'); ?>
+                    <i class="fas fa-calendar-alt"></i> <?php _e('Time'); ?>
                     : <?php echo $this->escape($story['time_publish_view']); ?>
                 </li>
             <?php } ?>
             <?php if ($config['show_hits']) { ?>
                 <li class="list-inline-item itemStats">
-                    <i class="fa fa-eye"></i> <?php _e('Read'); ?>
+                    <i class="far fa-eye"></i> <?php _e('Read'); ?>
                     : <?php echo _number($this->escape($story['hits'])); ?> <?php _e('Times'); ?>
                 </li>
             <?php } ?>
             <?php if ($config['show_topic']) { ?>
-                <li class="list-inline-item"><i class="fa fa-folder"></i> <?php _e('Topics'); ?> :
+                <li class="list-inline-item"><i class="fas fa-folder"></i> <?php _e('Topics'); ?> :
                     <?php foreach ($story['topics'] as $storyTopic) { ?>
                         <span class=" p-category" itemprop="about">
                                         <a title="<?php echo $storyTopic['title']; ?>"
@@ -200,7 +200,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
                                 <li class="list-inline-item tagItem">
                                     <a title="<?php echo $this->escape($term); ?>"
                                        href="<?php echo Pi::url($this->url('', ['controller' => 'tag', 'action' => 'term', 'slug' => urlencode($term)])); ?>">
-                                        <i class="fa fa-tag"></i> <?php echo $this->escape($term); ?>
+                                        <i class="fas fa-tag"></i> <?php echo $this->escape($term); ?>
                                     </a>
                                 </li>
                             <?php } ?>
