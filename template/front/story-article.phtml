@@ -121,14 +121,14 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
                 </div>
                 <?php if ($config['show_nav']) { ?>
                     <div class="itemPager">
-                        <ul class="pager">
+                        <ul class="pagination">
                             <?php if (!empty($link['previous'])) { ?>
-                                <li class="previous"><a title="<?php echo $this->escape($link['previous']['title']); ?>"
+                                <li class="previous page-item"><a class="page-link" title="<?php echo $this->escape($link['previous']['title']); ?>"
                                                         href="<?php echo $this->escape($link['previous']['url']); ?>"><?php _e('Previous'); ?></a>
                                 </li>
                             <?php } ?>
                             <?php if (!empty($link['next'])) { ?>
-                                <li class="next"><a title="<?php echo $this->escape($link['next']['title']); ?>"
+                                <li class="next page-item"><a class="page-link" title="<?php echo $this->escape($link['next']['title']); ?>"
                                                     href="<?php echo $this->escape($link['next']['url']); ?>"><?php _e('Next'); ?></a>
                                 </li>
                             <?php } ?>
