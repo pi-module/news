@@ -41,8 +41,6 @@ if ($shareImage) {
     $this->headMeta($shareImage, 'twitter:image');
 }
 
-$this->sticky();
-
 $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'async']);
 
 ?>
@@ -89,7 +87,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
         </ul>
     </div>
 
-    <div class="row news-story-page clearfix h-entry" id="sticky-container">
+    <div class="row news-story-page clearfix h-entry">
         <div class="col-md-8">
             <div class="news-story-page-body">
                 <?php if ($story['subtitle']) { ?>
@@ -203,7 +201,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
             </div>
         </div>
         <div class="col-md-4">
-            <div class="news-story-page-side" id="sticky-sidebar">
+            <div class="news-story-page-side sticky-top">
                 <div class="clearfix">
                     <?php include $this->template('front/attribute'); ?>
                 </div>
