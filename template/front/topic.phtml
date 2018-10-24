@@ -110,7 +110,7 @@ EOT;
             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", time())); ?>"/>
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
-            <div itemprop="description" class="card card-body bg-light mb-3 newsIndexDescription clearfix">
+            <div itemprop="description" class="card bg-light mb-3 newsIndexDescription clearfix">
                 <?php echo $config['text_description_index']; ?>
             </div>
         <?php } ?>

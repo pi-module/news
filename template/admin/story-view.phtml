@@ -1,6 +1,6 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <div class="card card-body bg-light mb-3">
+    <div class="card bg-light mb-3">
         <div class="card-heading">
             <h3 class="card-title">
                 <?php if ($story['important']) { ?>
@@ -36,7 +36,7 @@
                 <div class="itemText"><?php echo $story['text_description']; ?></div>
                 <div class="clearfix"></div>
             </div>
-            <div class="clearfix card card-body bg-light mb-3">
+            <div class="clearfix card bg-light mb-3">
                 <a class="btn btn-primary" title="<?php _e('Back'); ?>"
                    href="<?php echo $this->url('', ['action' => 'index']); ?>"><i
                             class="fas fa-arrow-left"></i> <?php _e('Back'); ?></a>

@@ -6,7 +6,7 @@
     <?php if (isset($tagList) && !empty($tagList)) { ?>
         <div class="tagList clearfix">
             <?php foreach ($tagList as $tag) { ?>
-                <div class="card card-body bg-light mb-3 col-md-3">
+                <div class="card bg-light mb-3 col-md-3">
                     <a title="<?php echo $this->escape($tag['term']); ?>"
                        href="<?php echo $this->escape($tag['url']); ?>">
                         <i class="fas fa-tag"></i> <?php echo $this->escape($tag['term']); ?>
