@@ -61,7 +61,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
 
     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
     <div class="clearfix small itemUnderHead">
-        <ul class="list-inline text-muted pull-right">
+        <ul class="list-inline text-muted float-right">
             <?php if ($config['show_date']) { ?>
                 <li class="list-inline-item itemPostDate dt-published">
                     <i class="fas fa-calendar-alt"></i> <?php _e('Time'); ?>
@@ -91,7 +91,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
         <div class="clearfix">
             <div class="clearfix">
                 <?php if (!empty($story['authors']) && $config['show_author']) { ?>
-                    <div class="pull-left">
+                    <div class="float-left">
                         <?php foreach ($story['authors'] as $author) { ?>
                             <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a
                                         title="<?php echo $author['authorName']; ?>"
@@ -100,7 +100,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
                     </div>
                 <?php } ?>
                 <?php if ($config['show_topic']) { ?>
-                    <div class="pull-left"><?php _e('Topics'); ?> :
+                    <div class="float-left"><?php _e('Topics'); ?> :
                         <?php foreach ($story['topics'] as $storyTopic) { ?>
                             <span class=" p-category" itemprop="about"><a title="<?php echo $storyTopic['title']; ?>"
                                                                           href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>

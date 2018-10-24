@@ -61,7 +61,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
 
     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
     <div class="clearfix small itemUnderHead">
-        <ul class="list-inline text-muted pull-right">
+        <ul class="list-inline text-muted float-right">
             <?php if ($config['show_date']) { ?>
                 <li class="list-inline-item itemPostDate dt-published">
                     <i class="fas fa-calendar-alt"></i> <?php _e('Time'); ?>
@@ -97,7 +97,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
                 <?php } ?>
                 <div class="clearfix">
                     <?php if ($story['main_image'] || $story['additional_images']) { ?>
-                        <div class="storyImageMain gallery pull-left col-md-4">
+                        <div class="storyImageMain gallery float-left col-md-4">
                             <div class="thumbnail u-photo">
                                 <?php $media = Pi::api('doc', 'media')->getSingleLinkData($story['main_image'], 'large', null, null, 'news') ?>
                                 <a href="<?php echo $media['resized_url']; ?>"

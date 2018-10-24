@@ -61,7 +61,7 @@ $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'asyn
 
     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
     <div class="clearfix small itemUnderHead">
-        <ul class="list-inline text-muted pull-right">
+        <ul class="list-inline text-muted float-right">
             <?php if ($config['show_date']) { ?>
                 <li class="list-inline-item itemPostDate dt-published">
                     <i class="fas fa-calendar-alt"></i> <?php _e('Time'); ?>
