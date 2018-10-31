@@ -49,19 +49,19 @@
     max-width: 160px;
 }
 
-.upload-carousel-item .form-horizontal .col-form-label,
-.widget-tab-item.form-horizontal .col-form-label {
+.upload-carousel-item form .col-form-label,
+.widget-tab-item .col-form-label {
     width: 40px;
     font-size: 12px;
 }
 
-.upload-carousel-item .form-horizontal .controls,
-.widget-tab-item.form-horizontal .controls {
+.upload-carousel-item form .controls,
+.widget-tab-item .controls {
     margin-left: 45px;
 }
 
-.upload-carousel-item .form-horizontal .control-group,
-.widget-tab-item.form-horizontal .control-group {
+.upload-carousel-item form .control-group,
+.widget-tab-item .control-group {
     margin-bottom: 8px;
 }
 
