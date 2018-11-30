@@ -6,11 +6,11 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="row index-media clearfix">
+    <div class="row index-media clearfix row-eq-height">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="col-12 <?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="thumbnail text-center h-entry" itemscope itemtype="https://schema.org/Article">
-                <div class="hover-style">
+            <div class="text-center h-100" itemscope itemtype="https://schema.org/Article">
+                <div class="thumbnail hover-style">
                     <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
                             <picture>
