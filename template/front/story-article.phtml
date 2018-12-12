@@ -24,8 +24,8 @@ EOT;
 // Set Open Graph tags for meta
 $shareImage = (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large');
 $this->doctype('HTML5');
-$this->headMeta($story['title'], 'og:title', 'property');
 $this->headMeta($this->escape($story['storyUrl']), 'og:url', 'property');
+$this->headMeta($story['title'], 'og:title', 'property');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
     $this->headMeta(_strip($story['text_summary']), 'og:description', 'property');
 }
@@ -33,6 +33,7 @@ if ($shareImage) {
     $this->headMeta($shareImage, 'og:image', 'property');
 }
 // Set twitter for meta
+$this->headMeta($this->escape($story['storyUrl']), 'twitter:url');
 $this->headMeta($story['title'], 'twitter:title');
 if (isset($story['text_summary']) && !empty($story['text_summary'])) {
     $this->headMeta(_strip($story['text_summary']), 'twitter:description');
