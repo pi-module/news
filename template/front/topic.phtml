@@ -1,15 +1,15 @@
 <?php
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-if (isset($topic['title']) && !empty($topic['title'])) {
-    $this->headMeta($topic['title'], 'og:title', 'property');
-} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
-    $this->headMeta($newsTitleH1, 'og:title', 'property');
-}
 if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
     $this->headMeta($this->escape($topic['topicUrl']), 'og:url', 'property');
 } elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
     $this->headMeta(Pi::url($this->url('', ['module' => 'news'])), 'og:url', 'property');
+}
+if (isset($topic['title']) && !empty($topic['title'])) {
+    $this->headMeta($topic['title'], 'og:title', 'property');
+} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
+    $this->headMeta($newsTitleH1, 'og:title', 'property');
 }
 if (isset($topic['text_description']) && !empty($topic['text_description'])) {
     $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
@@ -20,6 +20,11 @@ if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
     $this->headMeta($this->escape($topic['largeUrl']), 'og:image', 'property');
 }
 // Set twitter for meta
+if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
+    $this->headMeta($this->escape($topic['topicUrl']), 'twitter:url');
+} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
+    $this->headMeta(Pi::url($this->url('', ['module' => 'news'])), 'twitter:url');
+}
 if (isset($topic['title']) && !empty($topic['title'])) {
     $this->headMeta($topic['title'], 'twitter:title');
 } elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
