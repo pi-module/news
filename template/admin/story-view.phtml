@@ -1,7 +1,7 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <div class="card bg-light mb-3">
-        <div class="card-heading">
+        <div class="card-header">
             <h3 class="card-title">
                 <?php if ($story['important']) { ?>
                     <span class="label badge badge-important">
@@ -11,7 +11,7 @@
                 <?php echo $this->escape($story['title']); ?>
             </h3>
         </div>
-        <div class="card-text">
+        <div class="card-body">
             <div class="itemInfo">
                 <span class="itemPostDate"><?php _e('Update Time'); ?>
                     : <?php echo $this->escape($story['time_publish_view']); ?></span>
