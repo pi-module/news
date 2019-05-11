@@ -4,101 +4,103 @@ $this->css($this->assetModule('script/system-ui.css', 'system'));
 $this->jQuery('ui/jquery-ui.min.js');
 ?>
 <div class="clearfix" id="tree-template">
-    <div class="btn-group">
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-plus"></i> <?php _e('Add attribute'); ?> <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li><a title="<?php _e('Add text field'); ?>"
+    <div class="clearfix">
+        <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                <i class="fas fa-plus"></i> <?php _e('Add attribute'); ?>
+            </button>
+            <div class="dropdown-menu" role="menu">
+                <a class="dropdown-item"  title="<?php _e('Add text field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'text']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add text field'); ?></a></li>
-            <li><a title="<?php _e('Add link field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add text field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add link field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'link']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add link field'); ?></a></li>
-            <li><a title="<?php _e('Add video field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add link field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add video field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'video']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add video field'); ?></a></li>
-            <li><a title="<?php _e('Add audio field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add video field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add audio field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'audio']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add audio field'); ?></a></li>
-            <li><a title="<?php _e('Add file field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add audio field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add file field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'file']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add file field'); ?></a></li>
-            <li><a title="<?php _e('Add currency field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add file field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add currency field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'currency']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add currency field'); ?></a></li>
-            <li><a title="<?php _e('Add date field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add currency field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add date field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'date']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add date field'); ?></a></li>
-            <li><a title="<?php _e('Add number field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add date field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add number field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'number']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add number field'); ?></a></li>
-            <li><a title="<?php _e('Add select field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add number field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add select field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'select']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add select field'); ?></a></li>
-            <li><a title="<?php _e('Add checkbox field'); ?>"
+                            class="fas fa-file"></i> <?php _e('Add select field'); ?></a>
+                <a class="dropdown-item"  title="<?php _e('Add checkbox field'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'type' => 'checkbox']); ?>"><i
-                            class="fa fa-file"></i> <?php _e('Add checkbox field'); ?></a></li>
-        </ul>
-    </div>
+                            class="fas fa-file"></i> <?php _e('Add checkbox field'); ?></a>
+                </ul>
+            </div>
+        </div>
 
-    <h3><?php _e('List of attributes'); ?></h3>
+        <h3><?php _e('List of attributes'); ?></h3>
 
-    <div id="attribute-sort">
-        <div class="attribute-field">
-            <?php foreach ($positions as $key => $position) { ?>
-                <?php if (isset($fields[$key]) && !empty($fields[$key])) { ?>
-                    <h4><?php echo $this->escape($position); ?></h4>
-                    <?php foreach ($fields[$key] as $field) { ?>
-                        <div id="mod_<?php echo $this->escape($field['id']); ?>">
-                            <div class="tree-item">
-                                <div class="tree-item-header" style="cursor:move;">
-                                    <div class="col-md-4">
-                                        <strong><?php _e('Title'); ?></strong> :
-                                        <span> <?php echo $this->escape($field['title']); ?> </span>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <strong><?php _e('Type'); ?></strong> :
-                                        <span> <?php echo $this->escape($field['type']); ?> </span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <strong><?php _e('Set'); ?></strong> :
-                                        <span> <?php echo $this->escape($field['position_view']); ?> </span>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <a class="btn btn-link" title="<?php _e('Edit'); ?>"
-                                           href="<?php echo $this->url('', ['action' => 'update', 'type' => $field['type'], 'id' => $field['id']]); ?>"><i
-                                                    class="fa fa-edit"></i></a>
-                                        <a class="btn btn-link" title="<?php _e('Delete'); ?>"
-                                           href="<?php echo $this->url('', ['action' => 'delete', 'id' => $field['id']]); ?>"><i
-                                                    class="fa fa-trash-o"></i></a>
-                                        <span class="label <?php if ($field['status']) {
-                                            echo 'label-success';
-                                        } else {
-                                            echo 'label-danger';
-                                        } ?>"><i class="fa fa-exclamation-circle"></i></span>
-                                        <span class="label <?php if ($field['search']) {
-                                            echo 'label-success';
-                                        } else {
-                                            echo 'label-danger';
-                                        } ?>"><i class="fa fa-search"></i></span>
+        <div id="attribute-sort" class="clearfix">
+            <div class="attribute-field">
+                <?php foreach ($positions as $key => $position) { ?>
+                    <?php if (isset($fields[$key]) && !empty($fields[$key])) { ?>
+                        <h4><?php echo $this->escape($position); ?></h4>
+                        <?php foreach ($fields[$key] as $field) { ?>
+                            <div id="mod_<?php echo $this->escape($field['id']); ?>">
+                                <div class="tree-item">
+                                    <div class="tree-item-header row" style="cursor:move;">
+                                        <div class="col-md-4">
+                                            <strong><?php _e('Title'); ?></strong> :
+                                            <span> <?php echo $this->escape($field['title']); ?> </span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <strong><?php _e('Type'); ?></strong> :
+                                            <span> <?php echo $this->escape($field['type']); ?> </span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <strong><?php _e('Set'); ?></strong> :
+                                            <span> <?php echo $this->escape($field['position_view']); ?> </span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a class="btn btn-link" title="<?php _e('Edit'); ?>"
+                                               href="<?php echo $this->url('', ['action' => 'update', 'type' => $field['type'], 'id' => $field['id']]); ?>"><i
+                                                        class="fas fa-edit"></i></a>
+                                            <a class="btn btn-link" title="<?php _e('Delete'); ?>"
+                                               href="<?php echo $this->url('', ['action' => 'delete', 'id' => $field['id']]); ?>"><i
+                                                        class="far fa-trash-alt"></i></a>
+                                            <span class="label <?php if ($field['status']) {
+                                                echo 'label-success';
+                                            } else {
+                                                echo 'label-danger';
+                                            } ?>"><i class="fas fa-exclamation-circle"></i></span>
+                                            <span class="label <?php if ($field['search']) {
+                                                echo 'label-success';
+                                            } else {
+                                                echo 'label-danger';
+                                            } ?>"><i class="fas fa-search"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     <?php } ?>
                 <?php } ?>
-            <?php } ?>
+            </div>
         </div>
     </div>
-</div>
-<script>
-    $(document).ready(function () {
-        $('#attribute-sort .attribute-field').sortable({
-            update: function (event, ui) {
-                var list = $(this).sortable('serialize');
-                $.post("<?php echo $this->url('', ['action' => 'sort']); ?>", list);
-            }
+    <script>
+        $(document).ready(function () {
+            $('#attribute-sort .attribute-field').sortable({
+                update: function (event, ui) {
+                    var list = $(this).sortable('serialize');
+                    $.post("<?php echo $this->url('', ['action' => 'sort']); ?>", list);
+                }
+            });
         });
-    });
-</script>
+    </script>

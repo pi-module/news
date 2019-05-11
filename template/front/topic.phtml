@@ -1,15 +1,15 @@
 <?php
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-if (isset($topic['title']) && !empty($topic['title'])) {
-    $this->headMeta($topic['title'], 'og:title', 'property');
-} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
-    $this->headMeta($newsTitleH1, 'og:title', 'property');
-}
 if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
     $this->headMeta($this->escape($topic['topicUrl']), 'og:url', 'property');
 } elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
     $this->headMeta(Pi::url($this->url('', ['module' => 'news'])), 'og:url', 'property');
+}
+if (isset($topic['title']) && !empty($topic['title'])) {
+    $this->headMeta($topic['title'], 'og:title', 'property');
+} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
+    $this->headMeta($newsTitleH1, 'og:title', 'property');
 }
 if (isset($topic['text_description']) && !empty($topic['text_description'])) {
     $this->headMeta(_strip($topic['text_description']), 'og:description', 'property');
@@ -20,6 +20,11 @@ if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
     $this->headMeta($this->escape($topic['largeUrl']), 'og:image', 'property');
 }
 // Set twitter for meta
+if (isset($topic['topicUrl']) && !empty($topic['topicUrl'])) {
+    $this->headMeta($this->escape($topic['topicUrl']), 'twitter:url');
+} elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
+    $this->headMeta(Pi::url($this->url('', ['module' => 'news'])), 'twitter:url');
+}
 if (isset($topic['title']) && !empty($topic['title'])) {
     $this->headMeta($topic['title'], 'twitter:title');
 } elseif (isset($newsTitleH1) && !empty($newsTitleH1)) {
@@ -63,7 +68,7 @@ EOT;
         </div>
         <div class="clearfix">
             <?php if (!empty($topic['image'])) { ?>
-                <div class="pull-left gallery itemImageList u-photo">
+                <div class="float-left gallery itemImageList u-photo">
                     <?php if ($config['image_lightbox']) { ?>
                         <a href="<?php echo $topic['largeUrl']; ?>"
                            title="<?php echo $this->escape($topic['title']); ?>">
@@ -85,9 +90,9 @@ EOT;
                             <a class="btn btn-primary" rel="external" target="_blank"
                                title="<?php echo $this->escape($attach['title']); ?>"
                                href="<?php echo $this->escape($attach['downloadUrl']); ?>">
-                                <i class="fa fa-download"></i>
+                                <i class="fas fa-download"></i>
                                 <?php echo $this->escape($attach['title']); ?>
-                                <span class="badge"><?php echo _number($this->escape($attach['hits'])); ?></span>
+                                <span class="badge badge-warning"><?php echo _number($this->escape($attach['hits'])); ?></span>
                             </a>
                         <?php } ?>
                     </p>
@@ -110,8 +115,10 @@ EOT;
             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", time())); ?>"/>
         </div>
         <?php if (!empty($config['text_description_index']) && isset($showIndexDesc) && $showIndexDesc == 1 && isset($page) && $page == 1) { ?>
-            <div itemprop="description" class="well newsIndexDescription clearfix">
-                <?php echo $config['text_description_index']; ?>
+            <div itemprop="description" class="card bg-light mb-3 newsIndexDescription clearfix">
+                <div class="card-body">
+                    <?php echo $config['text_description_index']; ?>
+                </div>
             </div>
         <?php } ?>
     </div>

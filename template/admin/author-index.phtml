@@ -4,7 +4,7 @@
         <div class="col-md-7">
             <a class="btn btn-primary" title="<?php _e('Add Author'); ?>"
                href="<?php echo $this->url('', ['controller' => 'author', 'action' => 'update']); ?>"><i
-                        class="fa fa-plus"></i> <?php _e('Add Author'); ?></a>
+                        class="fas fa-plus"></i> <?php _e('Add Author'); ?></a>
         </div>
         <div class="col-md-5">
             <?php echo $this->form($form, 'inline'); ?>
@@ -12,7 +12,7 @@
     </div>
     <?php if (!empty($authors)) { ?>
         <h3><?php _e('List of authors'); ?></h3>
-        <table class="table table-striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th><?php _e('ID'); ?></th>
                 <th><?php _e('Title'); ?></th>
@@ -21,9 +21,9 @@
             <?php foreach ($authors as $author) { ?>
                 <?php
                 if ($author['status'] == 1) {
-                    $labelIdClass = 'label label-success';
+                    $labelIdClass = 'badge badge-success';
                 } else {
-                    $labelIdClass = 'label label-warning';
+                    $labelIdClass = 'badge badge-warning';
                 }
                 ?>
                 <tr>
@@ -36,19 +36,19 @@
                            href="<?php echo $this->url(
                                'news', ['module' => $module, 'controller' => 'author', 'slug' => $this->escape($author['slug'])]
                            ); ?>"><i
-                                    class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                                    class="far fa-eye"></i> <?php _e('View'); ?></a>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                            href="<?php echo $this->url('', ['action' => 'update', 'id' => $author['id']]); ?>"><i
-                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                                    class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                     </td>
                 </tr>
             <?php } ?>
         </table>
         <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
         <p>
-            <span class="label label-success"><?php _e('Published'); ?></span>
-            <span class="label label-warning"><?php _e('Pending review'); ?></span>
-            <span class="label label-danger"><?php _e('Trash'); ?></span>
+            <span class="badge badge-success"><?php _e('Published'); ?></span>
+            <span class="badge badge-warning"><?php _e('Pending review'); ?></span>
+            <span class="badge badge-danger"><?php _e('Trash'); ?></span>
         </p>
     <?php } ?>
 </div>

@@ -2,7 +2,7 @@
 <div class="clearfix">
     <h3><?php _e('List of attached files'); ?></h3>
     <?php if (!empty($files)) { ?>
-        <table class="table table-striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th><?php _e('ID'); ?></th>
                 <th><?php _e('PerView'); ?></th>
@@ -33,14 +33,14 @@
                     <td>
                         <a class="btn btn-primary" rel="external" title="<?php _e('Get'); ?>"
                            href="<?php echo $file['downloadUrl']; ?>"><i
-                                    class="fa fa-download-alt"></i> <?php _e('Get'); ?></a>
+                                    class="fas fa-download"></i> <?php _e('Get'); ?></a>
                         <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                            href="<?php echo $this->url('', ['action' => 'edit', 'id' => $file['id']]); ?>"><i
-                                    class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                                    class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                         <?php if ($file['item_table'] == 'story') { ?>
                             <a class="btn btn-primary" title="<?php _e('Edit from story'); ?>"
                                href="<?php echo $this->url('', ['action' => 'add', 'id' => $file['item_id']]); ?>"><i
-                                        class="fa fa-edit"></i> <?php _e('Edit from story'); ?></a>
+                                        class="fas fa-edit"></i> <?php _e('Edit from story'); ?></a>
                         <?php } ?>
                     </td>
                 </tr>
@@ -48,8 +48,8 @@
         </table>
         <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
         <p>
-            <span class="label label-success"><?php _e('Published'); ?></span>
-            <span class="label label-warning"><?php _e('Pending review'); ?></span>
+            <span class="badge badge-success"><?php _e('Published'); ?></span>
+            <span class="badge badge-warning"><?php _e('Pending review'); ?></span>
         </p>
     <?php } else { ?>
         <div class="alert alert-danger">

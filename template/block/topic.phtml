@@ -10,7 +10,7 @@
                             <?php if ($topic['image']) { ?>
                                 <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
                                    href="<?php echo $this->escape($topic['topicUrl']); ?>">
-                                    <img itemprop="image" class="img-responsive u-photo"
+                                    <img itemprop="image" class="img-fluid u-photo"
                                          src="<?php echo $this->escape($topic['thumbUrl']); ?>"
                                          alt="<?php echo $this->escape($topic['title']); ?>"/>
                                 </a>
@@ -76,7 +76,7 @@
                                 </a>
                             </p>
                         </div>
-                        <img itemprop="image" class="media-object img-responsive u-photo"
+                        <img itemprop="image" class="media-object img-fluid u-photo"
                              src="<?php echo $this->escape($topic['thumbUrl']); ?>"
                              alt="<?php echo $this->escape($topic['title']); ?>">
                     </div>
@@ -90,7 +90,7 @@
                     } ?>" itemprop="itemListElement">
                         <a itemprop="url" class="u-url" title="<?php echo $this->escape($topic['title']); ?>"
                            href="<?php echo $this->escape($topic['topicUrl']); ?>">
-                            <img itemprop="image" class="img-responsive u-photo"
+                            <img itemprop="image" class="img-fluid u-photo"
                                  src="<?php echo $this->escape($topic['mediumUrl']); ?>"
                                  alt="<?php echo $this->escape($topic['title']); ?>"/>
                         </a>

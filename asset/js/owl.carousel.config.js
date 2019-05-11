@@ -9,7 +9,7 @@ $(document).ready(function ($) {
         dots: false,
         autoplayTimeout: 12000,
         autoplayHoverPause: true,
-        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
         responsive: {
             0: {items: 2},
             600: {items: 4},

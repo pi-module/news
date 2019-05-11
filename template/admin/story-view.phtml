@@ -1,17 +1,17 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h3 class="card-title">
                 <?php if ($story['important']) { ?>
-                    <span class="label label label-important">
+                    <span class="label badge badge-important">
 					<?php _e('Important'); ?>
 				</span>
                 <?php } ?>
                 <?php echo $this->escape($story['title']); ?>
             </h3>
         </div>
-        <div class="panel-body">
+        <div class="card-body">
             <div class="itemInfo">
                 <span class="itemPostDate"><?php _e('Update Time'); ?>
                     : <?php echo $this->escape($story['time_publish_view']); ?></span>
@@ -26,7 +26,7 @@
             </div>
             <div class="itemBody">
                 <?php if ($story['main_image']) { ?>
-                    <div class="itemImage gallery pull-left">
+                    <div class="itemImage gallery float-left">
                         <img class="img-thumbnail"
                              src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"/>
@@ -36,19 +36,19 @@
                 <div class="itemText"><?php echo $story['text_description']; ?></div>
                 <div class="clearfix"></div>
             </div>
-            <div class="clearfix well well-sm">
+            <div class="clearfix card bg-light mb-3">
                 <a class="btn btn-primary" title="<?php _e('Back'); ?>"
                    href="<?php echo $this->url('', ['action' => 'index']); ?>"><i
-                            class="fa fa-arrow-left"></i> <?php _e('Back'); ?></a>
+                            class="fas fa-arrow-left"></i> <?php _e('Back'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('View'); ?>"
                    href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($story['slug'])]); ?>"><i
-                            class="fa fa-eye"></i> <?php _e('View'); ?></a>
+                            class="far fa-eye"></i> <?php _e('View'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Edit'); ?>"
                    href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
-                            class="fa fa-edit"></i> <?php _e('Edit'); ?></a>
+                            class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
                 <a class="btn btn-primary" title="<?php _e('Delete'); ?>"
                    href="<?php echo $this->url('', ['action' => 'delete', 'id' => $story['id']]); ?>"><i
-                            class="fa fa-trash-o"></i> <?php _e('Delete'); ?></a>
+                            class="far fa-trash-alt"></i> <?php _e('Delete'); ?></a>
             </div>
         </div>
     </div>

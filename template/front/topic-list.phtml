@@ -2,10 +2,11 @@
 $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']);
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-$this->headMeta(__('List of all topics'), 'og:title', 'property');
 $this->headMeta(Pi::url($this->url('', ['module' => 'news', 'controller' => 'topic'])), 'og:url', 'property');
+$this->headMeta(__('List of all topics'), 'og:title', 'property');
 $this->headMeta(__('List of all topics'), 'og:description', 'property');
 // Set twitter for meta
+$this->headMeta(Pi::url($this->url('', ['module' => 'news', 'controller' => 'topic'])), 'twitter:url');
 $this->headMeta(__('List of all topics'), 'twitter:title');
 $this->headMeta(__('List of all topics'), 'twitter:description');
 ?>
@@ -18,7 +19,7 @@ $this->headMeta(__('List of all topics'), 'twitter:description');
     <?php if (isset($topics) && !empty($topics)) { ?>
         <div class="topics clearfix">
             <?php foreach ($topics as $topic) { ?>
-                <div class="col-xs-12 col-sm-6 col-md-3" itemprop="itemListElement">
+                <div class="col-12 col-sm-6 col-md-3" itemprop="itemListElement">
                     <div class="thumbnail">
                         <?php if (!empty($topic['image'])) { ?>
                             <a itemprop="url" href="<?php echo $this->escape($topic['topicUrl']); ?>"

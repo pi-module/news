@@ -2,7 +2,7 @@
 <?php $galleryImagesBig = Pi::api('doc', 'media')->getGalleryLinkData($story['additional_images'], 'large', null, null, false, [], 'news') ?>
 <?php if ($galleryImages) { ?>
     <div class="clearfix">
-        <div class="attach-image">
+        <div class="attach-image row">
             <?php foreach ($galleryImages as $key => $galleryImage) { ?>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail u-photo">
@@ -24,7 +24,7 @@
                                 <source srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                         data-srcset="<?php echo $galleryImage['resized_url'][100]; ?>" media="(max-width: 2800px)">
 
-                                <img itemprop="image" class="img-responsive lazyload" src="<?php echo $galleryImage['resized_url'][767]; ?>"
+                                <img itemprop="image" class="img-fluid lazyload" src="<?php echo $galleryImage['resized_url'][767]; ?>"
                                      alt="<?php echo $this->escape($galleryImage['title']); ?>"/>
                             </picture>
                         </a>

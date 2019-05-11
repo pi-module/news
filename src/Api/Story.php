@@ -465,9 +465,10 @@ class Story extends AbstractApi
         }
 
         if ($story['main_image']) {
-            $story['largeUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
-            $story['mediumUrl'] = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'));
-            $story['thumbUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'));
+            $linkUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news');
+            $story['largeUrl']  = Pi::url((string)$linkUrl ->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string)$linkUrl ->thumb('medium'));
+            $story['thumbUrl']  = Pi::url((string)$linkUrl ->thumb('thumbnail'));
         } else {
             $story['largeUrl']  = '';
             $story['mediumUrl'] = '';

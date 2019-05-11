@@ -1,6 +1,6 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <div class="well">
+    <div class="card bg-light mb-3">
         <h3><?php _e('How this part work?'); ?></h3>
         <p><?php _e(
                 'Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '
@@ -23,17 +23,17 @@
 
 <div class="row">
     <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card bg-light mb-3">
+            <div class="card-header">
                 <?php echo _a('Pre-generate media cache'); ?>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 <p>
                     <?php echo _a('This tool can pre-generate media cache according to media module parameters'); ?>
                 </p>
                 <p>
                     <a href="<?php echo $this->url('', ['action' => 'generatePictures']); ?>" class="btn btn-primary btn-sm">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
+                        <i class="fas fa-cog" aria-hidden="true"></i>
                         <?php echo _a('Pre-generate media cache'); ?>
                     </a>
                 </p>

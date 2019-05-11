@@ -404,10 +404,10 @@ return [
             ],
             'widthclass' => [
                 'title'       => _a('Image width class'),
-                'description' => _a('Bootstrap 3 grid options like : col-xs-6 col-sm-6 col-md-3'),
+                'description' => _a('Bootstrap 3 grid options like : col-6 col-sm-6 col-md-3'),
                 'edit'        => 'text',
                 'filter'      => 'string',
-                'value'       => 'col-xs-6 col-sm-6 col-md-3',
+                'value'       => 'col-6 col-sm-6 col-md-3',
             ],
             'type'       => [
                 'title'       => _a('Image list type'),
