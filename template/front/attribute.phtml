@@ -2,9 +2,9 @@
     <div class="itemAttribute clearfix">
         <?php foreach ($attribute['all'] as $attributeSingle) { ?>
             <div class="clearfix row">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $attributeSingle['title']; ?></h3>
+                <div class="card bg-light mb-3">
+                    <div class="card-heading">
+                        <h3 class="card-title"><?php echo $attributeSingle['title']; ?></h3>
                     </div>
                     <table class="table attribute-item">
                         <?php foreach ($attributeSingle['info'] as $field) { ?>

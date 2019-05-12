@@ -6,11 +6,11 @@
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
     <?php include $this->template('front/advertisement'); ?>
-    <div class="row index-media clearfix match-height-list">
+    <div class="row index-media clearfix row-eq-height">
         <?php foreach ($stores as $story) { ?>
-            <?php if ($topic['column_class']) { ?><div class="col-xs-12 <?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="thumbnail text-center h-entry" itemscope itemtype="https://schema.org/Article">
-                <div class="hover-style">
+            <?php if ($topic['column_class']) { ?><div class="col-12 <?php echo $topic['column_class']; ?>"><?php } ?>
+            <div class="text-center h-100" itemscope itemtype="https://schema.org/Article">
+                <div class="thumbnail hover-style">
                     <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
                             <picture>
@@ -31,7 +31,7 @@
                                             290, 290
                                         ); ?>" media="(max-width: 2800px)">
 
-                                <img itemprop="image" class="img-responsive lazyload"
+                                <img itemprop="image" class="img-fluid lazyload"
                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAEElEQVR42mP8/58BCBghFAAj/wP/DcJIqAAAAABJRU5ErkJggg=="
                                      data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
                                          'medium'
@@ -42,7 +42,7 @@
                     <?php } ?>
                     <div class="caption">
                         <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
-                                    class="label label-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
+                                    class="badge badge-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
                                                                                                             title="<?php echo htmlentities($story['title']); ?>"
                                                                                                             href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape(
                                     $story['title']

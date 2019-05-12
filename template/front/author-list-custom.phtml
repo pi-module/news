@@ -4,7 +4,7 @@
             <?php foreach ($authors as $author) { ?>
                 <div class="media">
                     <div class="col-md-3 media-left">
-                        <img itemprop="image" class="media-object img-responsive img-circle" src="<?php echo $this->escape($author['thumbUrl']); ?>"
+                        <img itemprop="image" class="media-object img-fluid rounded-circle" src="<?php echo $this->escape($author['thumbUrl']); ?>"
                              alt="<?php echo $this->escape($author['title']); ?>">
                     </div>
                     <div class="col-md-9 media-body">

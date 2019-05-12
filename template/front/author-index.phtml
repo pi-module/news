@@ -23,8 +23,8 @@ EOT;
 
 // Set Open Graph tags for meta
 $this->doctype('HTML5');
-$this->headMeta($author['title'], 'og:title', 'property');
 $this->headMeta($this->escape($author['authorUrl']), 'og:url', 'property');
+$this->headMeta($author['title'], 'og:title', 'property');
 if (isset($author['text_description']) && !empty($author['text_description'])) {
     $this->headMeta(_strip($author['text_description']), 'og:description', 'property');
 }
@@ -32,6 +32,7 @@ if (!empty($author['largeUrl'])) {
     $this->headMeta($this->escape($author['largeUrl']), 'og:image', 'property');
 }
 // Set twitter for meta
+$this->headMeta($this->escape($author['authorUrl']), 'twitter:url');
 $this->headMeta($author['title'], 'twitter:title');
 if (isset($author['text_description']) && !empty($author['text_description'])) {
     $this->headMeta(_strip($author['text_description']), 'twitter:description');
@@ -51,7 +52,7 @@ if (!empty($author['largeUrl'])) {
             </h1>
         </div>
         <div class="clearfix">
-            <div class="col-md-3 col-sm-4 col-xs-12 gallery itemImageList">
+            <div class="col-md-3 col-sm-4 col-12 gallery itemImageList">
                 <?php if ($config['image_lightbox']) { ?>
                     <a href="<?php echo $this->escape($author['mediumUrl']); ?>"
                        title="<?php echo $this->escape($author['title']); ?>">
@@ -65,7 +66,7 @@ if (!empty($author['largeUrl'])) {
                          alt="<?php echo $this->escape($author['title']); ?>"/>
                 <?php } ?>
             </div>
-            <div class="p-summary col-md-9 col-sm-8 col-xs-12">
+            <div class="p-summary col-md-9 col-sm-8 col-12">
                 <div itemprop="description clearfix">
                     <?php echo $author['text_description']; ?>
                 </div>
@@ -88,17 +89,17 @@ if (!empty($author['largeUrl'])) {
                         <h4><?php echo $this->escape($role['title']); ?></h4>
                         <div class="list-group">
                             <?php foreach ($stores[$role['id']] as $story) { ?>
-                                <a itemscope itemtype="https://schema.org/Article" class="list-group-item col-md-4 col-sm-4 col-xs-12"
+                                <a itemscope itemtype="https://schema.org/Article" class="list-group-item col-md-4 col-sm-4 col-12"
                                    title="<?php echo $this->escape($story['title']); ?>"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>">
                                     <?php if ($story['main_image']) { ?>
-                                        <img class="col-md-4 col-sm-4 col-xs-4" itemprop="image"
+                                        <img class="col-md-4 col-sm-4 col-4" itemprop="image"
                                              src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
                                                  'medium'
                                              ); ?>"
                                              alt="<?php echo $this->escape($story['title']); ?>"/>
                                     <?php } ?>
-                                    <span itemprop="name headline" class="col-md-8 col-sm-8 col-xs-8"><?php echo $this->escape($story['title']); ?></span>
+                                    <span itemprop="name headline" class="col-md-8 col-sm-8 col-8"><?php echo $this->escape($story['title']); ?></span>
                                     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                                 </a>
                             <?php } ?>

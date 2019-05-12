@@ -10,7 +10,7 @@
                             <div class="col-md-4 storyImage">
                                 <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>">
-                                    <img itemprop="image" class="img-responsive img-rounded u-photo"
+                                    <img itemprop="image" class="img-fluid rounded u-photo"
                                          src="<?php echo $thumbUrl; ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
@@ -29,18 +29,18 @@
                                 <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
-                                            <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                            <li class="list-inline-item dt-published"><i
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
-                                                <li>
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <li class="list-inline-item">
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -80,7 +80,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="media-object img-responsive u-photo"/>
+                                         class="media-object img-fluid u-photo"/>
                                 </a>
                             </div>
                         <?php } ?>
@@ -96,18 +96,18 @@
                                 <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
-                                            <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                            <li class="list-inline-item dt-published"><i
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
-                                                <li>
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <li class="list-inline-item">
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -146,7 +146,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="media-object img-responsive u-photo"/>
+                                         class="media-object img-fluid u-photo"/>
                                 </a>
                             </div>
                             <div class="media-body p-item h-card">
@@ -160,18 +160,18 @@
                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                         <ul class="text-muted list-inline">
                                             <?php if ($block['showdate']) { ?>
-                                                <li class="dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                <li class="list-inline-item dt-published"><i
+                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
-                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showauthor']) { ?>
                                                 <?php foreach ($story['authors'] as $author) { ?>
-                                                    <li>
-                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <li class="list-inline-item">
+                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                         <a title="<?php echo $author['authorName']; ?>"
                                                            href="<?php echo $author['authorUrl']; ?>">
                                                             <?php echo $author['authorName']; ?>
@@ -198,7 +198,7 @@
                         <div class="h-entry list-group-item clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
                                 <h4 class="p-name" itemprop="name headline">
-                                    <i class="fa fa-angle-left"></i>
+                                    <i class="fas fa-angle-left"></i>
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                        title="<?php echo $this->escape($story['title']); ?>">
                                         <?php echo $this->escape($story['title']); ?>
@@ -213,7 +213,7 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'horizontal') { ?>
-            <div class="news-item-block-horizontal clearfix row match-height-list">
+            <div class="news-item-block-horizontal clearfix row">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
                     <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
@@ -224,7 +224,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="media-object img-responsive u-photo"/>
+                                         class="media-object img-fluid u-photo"/>
                                 </a>
                             <?php } ?>
                             <div class="p-item h-card">
@@ -239,18 +239,18 @@
                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                         <ul class="text-muted list-inline small">
                                             <?php if ($block['showdate']) { ?>
-                                                <li class="dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                <li class="list-inline-item dt-published"><i
+                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
-                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showauthor']) { ?>
                                                 <?php foreach ($story['authors'] as $author) { ?>
-                                                    <li>
-                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <li class="list-inline-item">
+                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                         <a title="<?php echo $author['authorName']; ?>"
                                                            href="<?php echo $author['authorUrl']; ?>">
                                                             <?php echo $author['authorName']; ?>
@@ -301,7 +301,7 @@
             </div>
         <?php } elseif ($block['type'] == 'table') { ?>
             <div class="news-item-block-table clearfix">
-                <table class="table table-striped table-bordered table-condensed">
+                <table class="table table-striped table-bordered table-sm">
                     <tr char="head">
                         <th><?php echo _b('Title'); ?></th>
                         <?php if ($block['showdesc']) { ?>
@@ -352,7 +352,7 @@
                         <div class="thumbnail">
                             <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
-                                <img itemprop="image" class="media-object img-responsive u-photo"
+                                <img itemprop="image" class="media-object img-fluid u-photo"
                                      src="<?php echo $this->escape($thumbUrl); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>">
                             </a>
@@ -367,17 +367,17 @@
                                     <ul class="list-unstyled">
                                         <?php if ($block['showdate']) { ?>
                                             <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
                                                 <li>
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -414,17 +414,17 @@
                             <ul class="list-unstyled">
                                 <?php if ($block['showdate']) { ?>
                                     <li class="dt-published"><i
-                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                         : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showhits']) { ?>
-                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                    <li><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                         : <?php echo _number($this->escape($story['hits'])); ?></li>
                                 <?php } ?>
                                 <?php if ($block['showauthor']) { ?>
                                     <?php foreach ($story['authors'] as $author) { ?>
                                         <li>
-                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                             <a title="<?php echo $author['authorName']; ?>"
                                                href="<?php echo $author['authorUrl']; ?>">
                                                 <?php echo $author['authorName']; ?>
@@ -441,7 +441,7 @@
                                 </a>
                             </p>
                         </div>
-                        <img itemprop="image" class="media-object img-responsive u-photo"
+                        <img itemprop="image" class="media-object img-fluid u-photo"
                              src="<?php echo $this->escape($thumbUrl); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>">
 
@@ -477,7 +477,7 @@
                                    title="<?php echo $this->escape($story['title']); ?>">
                                     <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                         class="img-responsive u-photo"/>
+                                         class="img-fluid u-photo"/>
                                 </a>
 
                                 <div class="carousel-caption">
@@ -489,18 +489,18 @@
                                     </h4>
                                     <ul class="text-muted list-inline">
                                         <?php if ($block['showdate']) { ?>
-                                            <li class="dt-published"><i
-                                                        class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                            <li class="list-inline-item dt-published"><i
+                                                        class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                 : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showhits']) { ?>
-                                            <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                            <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                 : <?php echo _number($this->escape($story['hits'])); ?></li>
                                         <?php } ?>
                                         <?php if ($block['showauthor']) { ?>
                                             <?php foreach ($story['authors'] as $author) { ?>
-                                                <li>
-                                                    <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <li class="list-inline-item">
+                                                    <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                     <a title="<?php echo $author['authorName']; ?>"
                                                        href="<?php echo $author['authorUrl']; ?>">
                                                         <?php echo $author['authorName']; ?>
@@ -520,10 +520,10 @@
                     </div>
                     <!-- Carousel nav -->
                     <a class="right carousel-control" href="#<?php echo $carouselId; ?>" data-slide="next">
-                        <span class="icon-prev fa fa-chevron-right"></span>
+                        <span class="icon-prev fas fa-chevron-right"></span>
                     </a>
                     <a class="left carousel-control" href="#<?php echo $carouselId; ?>" data-slide="prev">
-                        <span class="icon-next fa fa-chevron-left"></span>
+                        <span class="icon-next fas fa-chevron-left"></span>
                     </a>
                 </div>
             </div>
@@ -531,9 +531,9 @@
             <div class="news-item-block-image clearfix">
                 <div class="row">
                     <?php if ($block['number'] == 1) {
-                        $class = 'col-md-12 col-sm-12 col-xs-12';
+                        $class = 'col-md-12 col-sm-12 col-12';
                     } else {
-                        $class = 'col-md-6 col-sm-6 col-xs-12';
+                        $class = 'col-md-6 col-sm-6 col-12';
                     } ?>
                     <?php foreach ($block['resources'] as $story) { ?>
                         <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
@@ -544,7 +544,7 @@
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"
-                                     class="img-responsive u-photo"/>
+                                     class="img-fluid u-photo"/>
                             </a>
                             <?php if ($block['showdesc']) { ?>
                                 <div class="news-item-block-image-text">
@@ -568,7 +568,7 @@
         <?php } elseif ($block['type'] == 'magazine') { ?>
             <div class="news-item-block-magazine clearfix row">
                 <?php $firstStory = array_shift($block['resources']); ?>
-                <div class="col-md-3 col-sm-5 col-xs-12">
+                <div class="col-md-3 col-sm-5 col-12">
                     <div class="news-item-block-magazine-main">
                         <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card">
@@ -581,7 +581,7 @@
                                        title="<?php echo $this->escape($firstStory['title']); ?>">
                                         <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                              alt="<?php echo $this->escape($firstStory['title']); ?>"
-                                             class="media-object img-rounded img-responsive u-photo"/>
+                                             class="media-object rounded img-fluid u-photo"/>
                                     </a>
                                 <?php } ?>
                                 <h3 class="p-name itemSingleTitle" itemprop="name headline">
@@ -594,18 +594,18 @@
                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                         <ul class="text-muted list-inline">
                                             <?php if ($block['showdate']) { ?>
-                                                <li class="dt-published"><i
-                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                <li class="list-inline-item dt-published"><i
+                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                     : <?php echo $this->escape($firstStory['time_publish_view']); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showhits']) { ?>
-                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                     : <?php echo _number($this->escape($firstStory['hits'])); ?></li>
                                             <?php } ?>
                                             <?php if ($block['showauthor']) { ?>
                                                 <?php foreach ($firstStory['authors'] as $author) { ?>
-                                                    <li>
-                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                    <li class="list-inline-item">
+                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                         <a title="<?php echo $author['authorName']; ?>"
                                                            href="<?php echo $author['authorUrl']; ?>">
                                                             <?php echo $author['authorName']; ?>
@@ -631,26 +631,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9 col-sm-7 col-xs-12">
+                <div class="col-md-9 col-sm-7 col-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
                             <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
                             <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
-                                        <div class="col-md-4 col-sm-4 col-xs-5">
+                                        <div class="col-md-4 col-sm-4 col-5">
                                             <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                                 <a itemprop="url" class="u-url"
                                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                                    title="<?php echo $this->escape($story['title']); ?>">
                                                     <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                                         class="media-object img-rounded img-responsive u-photo"/>
+                                                         class="media-object rounded img-fluid u-photo"/>
                                                 </a>
                                             <?php } ?>
                                         </div>
-                                        <div class="col-md-8 col-sm-8 col-xs-7">
+                                        <div class="col-md-8 col-sm-8 col-7">
                                             <div class="p-item h-card">
                                                 <h4 class="p-name itemSingleTitle" itemprop="name headline">
                                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -662,18 +662,18 @@
                                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                                         <ul class="text-muted list-inline">
                                                             <?php if ($block['showdate']) { ?>
-                                                                <li class="dt-published"><i
-                                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                                <li class="list-inline-item dt-published"><i
+                                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                                             <?php } ?>
                                                             <?php if ($block['showhits']) { ?>
-                                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                                             <?php } ?>
                                                             <?php if ($block['showauthor']) { ?>
                                                                 <?php foreach ($story['authors'] as $author) { ?>
-                                                                    <li>
-                                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                                    <li class="list-inline-item">
+                                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                                         <a title="<?php echo $author['authorName']; ?>"
                                                                            href="<?php echo $author['authorUrl']; ?>">
                                                                             <?php echo $author['authorName']; ?>
@@ -701,11 +701,11 @@
         <?php } elseif ($block['type'] == 'magazinewide') { ?>
             <div class="news-item-block-magazine-wide clearfix row">
                 <?php $firstStory = array_shift($block['resources']); ?>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-12">
                     <div class="news-item-block-magazine-main">
                         <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                             <div class="p-item h-card row">
-                                <div class="col-md-8 col-sm-7 col-xs-12">
+                                <div class="col-md-8 col-sm-7 col-12">
                                     <h3 class="p-name itemSingleTitle" itemprop="name headline">
                                         <a itemprop="url" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                                            title="<?php echo $this->escape($firstStory['title']); ?>">
@@ -716,18 +716,18 @@
                                         <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                             <ul class="text-muted list-inline">
                                                 <?php if ($block['showdate']) { ?>
-                                                    <li class="dt-published"><i
-                                                                class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                    <li class="list-inline-item dt-published"><i
+                                                                class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                         : <?php echo $this->escape($firstStory['time_publish_view']); ?></li>
                                                 <?php } ?>
                                                 <?php if ($block['showhits']) { ?>
-                                                    <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                    <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                         : <?php echo _number($this->escape($firstStory['hits'])); ?></li>
                                                 <?php } ?>
                                                 <?php if ($block['showauthor']) { ?>
                                                     <?php foreach ($firstStory['authors'] as $author) { ?>
-                                                        <li>
-                                                            <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                        <li class="list-inline-item">
+                                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                             <a title="<?php echo $author['authorName']; ?>"
                                                                href="<?php echo $author['authorUrl']; ?>">
                                                                 <?php echo $author['authorName']; ?>
@@ -750,7 +750,7 @@
                                     <meta itemprop="datePublished"
                                           content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
                                 </div>
-                                <div class="col-md-4 col-sm-5 col-xs-12">
+                                <div class="col-md-4 col-sm-5 col-12">
                                     <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb(
                                         'medium'
                                     ); ?>
@@ -760,7 +760,7 @@
                                            title="<?php echo $this->escape($firstStory['title']); ?>">
                                             <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                                  alt="<?php echo $this->escape($firstStory['title']); ?>"
-                                                 class="media-object img-rounded img-responsive u-photo"/>
+                                                 class="media-object rounded img-fluid u-photo"/>
                                         </a>
                                     <?php } ?>
                                 </div>
@@ -768,26 +768,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-12">
                     <div class="row">
                         <?php foreach ($block['resources'] as $story) { ?>
                             <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
                             <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-6 col-sm-6 col-12">
                                 <div class="news-item-block-magazine-sub">
                                     <div class="h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
-                                        <div class="col-md-4 col-sm-4 col-xs-5">
+                                        <div class="col-md-4 col-sm-4 col-5">
                                             <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                                                 <a itemprop="url" class="u-url"
                                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                                    title="<?php echo $this->escape($story['title']); ?>">
                                                     <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                                         class="media-object img-rounded img-responsive u-photo"/>
+                                                         class="media-object rounded img-fluid u-photo"/>
                                                 </a>
                                             <?php } ?>
                                         </div>
-                                        <div class="col-md-8 col-sm-8 col-xs-7">
+                                        <div class="col-md-8 col-sm-8 col-7">
                                             <div class="p-item h-card">
                                                 <h4 class="p-name itemSingleTitle" itemprop="name headline">
                                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -799,18 +799,18 @@
                                                     <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
                                                         <ul class="text-muted list-inline">
                                                             <?php if ($block['showdate']) { ?>
-                                                                <li class="dt-published"><i
-                                                                            class="fa fa-calendar"></i> <?php echo _b('Time'); ?>
+                                                                <li class="list-inline-item dt-published"><i
+                                                                            class="fas fa-calendar-alt"></i> <?php echo _b('Time'); ?>
                                                                     : <?php echo $this->escape($story['time_publish_view']); ?></li>
                                                             <?php } ?>
                                                             <?php if ($block['showhits']) { ?>
-                                                                <li><i class="fa fa-eye"></i> <?php echo _b('Read'); ?>
+                                                                <li class="list-inline-item"><i class="far fa-eye"></i> <?php echo _b('Read'); ?>
                                                                     : <?php echo _number($this->escape($story['hits'])); ?></li>
                                                             <?php } ?>
                                                             <?php if ($block['showauthor']) { ?>
                                                                 <?php foreach ($story['authors'] as $author) { ?>
-                                                                    <li>
-                                                                        <i class="fa fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                                    <li class="list-inline-item">
+                                                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
                                                                         <a title="<?php echo $author['authorName']; ?>"
                                                                            href="<?php echo $author['authorUrl']; ?>">
                                                                             <?php echo $author['authorName']; ?>
@@ -835,7 +835,7 @@
         <?php } ?>
         <?php if ($block['showblockmore']) { ?>
             <div class="news-block-more clearfix">
-                <a class="pull-right" title="<?php echo _b('More stories'); ?>"
+                <a class="float-right" title="<?php echo _b('More stories'); ?>"
                    href="<?php echo $block['linkblockmore']; ?>"><?php echo _b('More stories'); ?></a>
             </div>
         <?php } ?>
