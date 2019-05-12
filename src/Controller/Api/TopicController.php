@@ -22,11 +22,12 @@ class TopicController extends ApiController
     {
         // Set default result
         $result = [
-            'success' => false,
+            'result' => false,
             'data'    => [],
             'error'   => [
                 'code'    => 1,
                 'message' => __('Nothing selected'),
+                'messageFlag' => false,
             ]
         ];
 
@@ -57,7 +58,7 @@ class TopicController extends ApiController
 
             // Check data
             if (!empty($result['data'])) {
-                $result['success'] =  true;
+                $result['result'] =  true;
             } else {
                 // Set error
                 $result['error'] = [
@@ -74,7 +75,7 @@ class TopicController extends ApiController
         }
 
         // Check final result
-        if ($result['success']) {
+        if ($result['result']) {
             $result['error'] = [];
         }
 
@@ -86,7 +87,7 @@ class TopicController extends ApiController
     {
         // Set default result
         $result = [
-            'success' => false,
+            'result' => false,
             'data'    => [],
             'error'   => [
                 'code'    => 1,
@@ -119,7 +120,7 @@ class TopicController extends ApiController
 
                 // Check data
                 if (!empty($result['data'])) {
-                    $result['success'] =  true;
+                    $result['result'] =  true;
                 } else {
                     // Set error
                     $result['error'] = [
@@ -143,7 +144,7 @@ class TopicController extends ApiController
         }
 
         // Check final result
-        if ($result['success']) {
+        if ($result['result']) {
             $result['error'] = [];
         }
 

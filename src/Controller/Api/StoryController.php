@@ -22,7 +22,7 @@ class StoryController extends ApiController
     {
         // Set default result
         $result = [
-            'success' => false,
+            'result' => false,
             'data'    => [],
             'error'   => [
                 'code'    => 1,
@@ -62,7 +62,7 @@ class StoryController extends ApiController
 
             // Check data
             if (!empty($result['data'])) {
-                $result['success'] =  true;
+                $result['result'] =  true;
             } else {
                 // Set error
                 $result['error'] = [
@@ -79,7 +79,7 @@ class StoryController extends ApiController
         }
 
         // Check final result
-        if ($result['success']) {
+        if ($result['result']) {
             $result['error'] = [];
         }
 
@@ -91,7 +91,7 @@ class StoryController extends ApiController
     {
         // Set default result
         $result = [
-            'success' => false,
+            'result' => false,
             'data'    => [],
             'error'   => [
                 'code'    => 1,
@@ -124,7 +124,7 @@ class StoryController extends ApiController
 
                 // Check data
                 if (!empty($result['data'])) {
-                    $result['success'] =  true;
+                    $result['result'] =  true;
                 } else {
                     // Set error
                     $result['error'] = [
@@ -148,7 +148,7 @@ class StoryController extends ApiController
         }
 
         // Check final result
-        if ($result['success']) {
+        if ($result['result']) {
             $result['error'] = [];
         }
 
