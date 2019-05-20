@@ -47,32 +47,36 @@ CREATE TABLE `{story}` (
   FULLTEXT `search_description_idx` (`text_description`)
 );
 
-ALTER TABLE `{story}` ADD FULLTEXT `search_seo_title_idx` (`seo_title`);
-ALTER TABLE `{story}` ADD FULLTEXT `search_seo_keywords_idx` (`seo_keywords`);
-ALTER TABLE `{story}` ADD FULLTEXT `search_seo_description_idx` (`seo_description`);
-ALTER TABLE `{story}` ADD FULLTEXT `search_idx_2` (`title`, `text_description`, `seo_title`, `seo_keywords`, `seo_description`);
+ALTER TABLE `{story}`
+  ADD FULLTEXT `search_seo_title_idx` (`seo_title`);
+ALTER TABLE `{story}`
+  ADD FULLTEXT `search_seo_keywords_idx` (`seo_keywords`);
+ALTER TABLE `{story}`
+  ADD FULLTEXT `search_seo_description_idx` (`seo_description`);
+ALTER TABLE `{story}`
+  ADD FULLTEXT `search_idx_2` (`title`, `text_description`, `seo_title`, `seo_keywords`, `seo_description`);
 
 
 CREATE TABLE `{topic}` (
-  `id`               INT(10) UNSIGNED                                              NOT NULL AUTO_INCREMENT,
-  `pid`              INT(5) UNSIGNED                                               NOT NULL DEFAULT '0',
-  `title`            VARCHAR(255)                                                  NOT NULL DEFAULT '',
-  `slug`             VARCHAR(255)                                                  NOT NULL DEFAULT '',
+  `id`               INT(10) UNSIGNED                     NOT NULL AUTO_INCREMENT,
+  `pid`              INT(5) UNSIGNED                      NOT NULL DEFAULT '0',
+  `title`            VARCHAR(255)                         NOT NULL DEFAULT '',
+  `slug`             VARCHAR(255)                         NOT NULL DEFAULT '',
   `text_summary`     TEXT,
   `text_description` TEXT,
-  `image`            VARCHAR(255)                                                  NOT NULL DEFAULT '',
-  `path`             VARCHAR(16)                                                   NOT NULL DEFAULT '',
-  `seo_title`        VARCHAR(255)                                                  NOT NULL DEFAULT '',
-  `seo_keywords`     VARCHAR(255)                                                  NOT NULL DEFAULT '',
-  `seo_description`  VARCHAR(255)                                                  NOT NULL DEFAULT '',
-  `uid`              INT(10) UNSIGNED                                              NOT NULL DEFAULT '0',
-  `time_create`      INT(10) UNSIGNED                                              NOT NULL DEFAULT '0',
-  `time_update`      INT(10) UNSIGNED                                              NOT NULL DEFAULT '0',
+  `image`            VARCHAR(255)                         NOT NULL DEFAULT '',
+  `path`             VARCHAR(16)                          NOT NULL DEFAULT '',
+  `seo_title`        VARCHAR(255)                         NOT NULL DEFAULT '',
+  `seo_keywords`     VARCHAR(255)                         NOT NULL DEFAULT '',
+  `seo_description`  VARCHAR(255)                         NOT NULL DEFAULT '',
+  `uid`              INT(10) UNSIGNED                     NOT NULL DEFAULT '0',
+  `time_create`      INT(10) UNSIGNED                     NOT NULL DEFAULT '0',
+  `time_update`      INT(10) UNSIGNED                     NOT NULL DEFAULT '0',
   `setting`          TEXT,
-  `status`           TINYINT(1) UNSIGNED                                           NOT NULL DEFAULT '0',
+  `status`           TINYINT(1) UNSIGNED                  NOT NULL DEFAULT '0',
   `style`            ENUM ('news', 'list', 'table',
                            'media', 'spotlight', 'topic') NOT NULL DEFAULT 'news',
-  `type`             ENUM ('general', 'event', 'blog')                             NOT NULL DEFAULT 'general',
+  `type`             ENUM ('general', 'event', 'blog')    NOT NULL DEFAULT 'general',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `pid` (`pid`),
@@ -85,19 +89,19 @@ CREATE TABLE `{topic}` (
 );
 
 CREATE TABLE `{link}` (
-  `id`           INT(10) UNSIGNED                                                                                       NOT NULL AUTO_INCREMENT,
-  `story`        INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
-  `topic`        INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
-  `time_publish` INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
-  `time_update`  INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
-  `status`       TINYINT(1) UNSIGNED                                                                                    NOT NULL DEFAULT '0',
-  `uid`          INT(10) UNSIGNED                                                                                       NOT NULL DEFAULT '0',
+  `id`           INT(10) UNSIGNED    NOT NULL AUTO_INCREMENT,
+  `story`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `topic`        INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `time_publish` INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `time_update`  INT(10) UNSIGNED    NOT NULL DEFAULT '0',
+  `status`       TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `uid`          INT(10) UNSIGNED    NOT NULL DEFAULT '0',
   `type`         ENUM ('text', 'post', 'article',
                        'magazine', 'event', 'image',
                        'gallery', 'media', 'download',
-                       'feed') NOT NULL DEFAULT 'text',
-  `module`       VARCHAR(16)                                                                                            NOT NULL DEFAULT 'news',
-  `controller`   VARCHAR(16)                                                                                            NOT NULL DEFAULT 'topic',
+                       'feed')       NOT NULL DEFAULT 'text',
+  `module`       VARCHAR(16)         NOT NULL DEFAULT 'news',
+  `controller`   VARCHAR(16)         NOT NULL DEFAULT 'topic',
   PRIMARY KEY (`id`),
   KEY `story` (`story`),
   KEY `topic` (`topic`),
@@ -131,20 +135,20 @@ CREATE TABLE `{spotlight}` (
 );
 
 CREATE TABLE `{attach}` (
-  `id`          INT(10) UNSIGNED                                                           NOT NULL AUTO_INCREMENT,
-  `title`       VARCHAR(255)                                                               NOT NULL DEFAULT '',
-  `file`        VARCHAR(255)                                                               NOT NULL DEFAULT '',
-  `path`        VARCHAR(16)                                                                NOT NULL DEFAULT '',
-  `url`         VARCHAR(255)                                                               NOT NULL DEFAULT '',
-  `item_table`  ENUM ('story', 'topic', 'author')                                          NOT NULL DEFAULT 'story',
-  `item_id`     INT(10) UNSIGNED                                                           NOT NULL DEFAULT '0',
-  `time_create` INT(10) UNSIGNED                                                           NOT NULL DEFAULT '0',
-  `size`        INT(10) UNSIGNED                                                           NOT NULL DEFAULT '0',
+  `id`          INT(10) UNSIGNED                  NOT NULL AUTO_INCREMENT,
+  `title`       VARCHAR(255)                      NOT NULL DEFAULT '',
+  `file`        VARCHAR(255)                      NOT NULL DEFAULT '',
+  `path`        VARCHAR(16)                       NOT NULL DEFAULT '',
+  `url`         VARCHAR(255)                      NOT NULL DEFAULT '',
+  `item_table`  ENUM ('story', 'topic', 'author') NOT NULL DEFAULT 'story',
+  `item_id`     INT(10) UNSIGNED                  NOT NULL DEFAULT '0',
+  `time_create` INT(10) UNSIGNED                  NOT NULL DEFAULT '0',
+  `size`        INT(10) UNSIGNED                  NOT NULL DEFAULT '0',
   `type`        ENUM ('archive', 'image', 'video',
                       'audio', 'pdf', 'doc',
-                      'link', 'other') NOT NULL DEFAULT 'image',
-  `status`      TINYINT(1) UNSIGNED                                                        NOT NULL DEFAULT '0',
-  `hits`        INT(10) UNSIGNED                                                           NOT NULL DEFAULT '0',
+                      'link', 'other')            NOT NULL DEFAULT 'image',
+  `status`      TINYINT(1) UNSIGNED               NOT NULL DEFAULT '0',
+  `hits`        INT(10) UNSIGNED                  NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `title` (`title`),
   KEY `item_table` (`item_table`),
@@ -155,18 +159,18 @@ CREATE TABLE `{attach}` (
 );
 
 CREATE TABLE `{field}` (
-  `id`       INT(10) UNSIGNED                                                                                    NOT NULL AUTO_INCREMENT,
-  `title`    VARCHAR(255)                                                                                        NOT NULL DEFAULT '',
-  `icon`     VARCHAR(32)                                                                                         NOT NULL DEFAULT '',
+  `id`       INT(10) UNSIGNED          NOT NULL AUTO_INCREMENT,
+  `title`    VARCHAR(255)              NOT NULL DEFAULT '',
+  `icon`     VARCHAR(32)               NOT NULL DEFAULT '',
   `type`     ENUM ('text', 'link', 'currency', 'date',
                    'number', 'select', 'video', 'audio',
                    'file', 'checkbox') NOT NULL DEFAULT 'text',
-  `order`    INT(10) UNSIGNED                                                                                    NOT NULL DEFAULT '0',
-  `status`   TINYINT(1) UNSIGNED                                                                                 NOT NULL DEFAULT '0',
-  `search`   TINYINT(1) UNSIGNED                                                                                 NOT NULL DEFAULT '0',
-  `position` INT(10) UNSIGNED                                                                                    NOT NULL DEFAULT '0',
+  `order`    INT(10) UNSIGNED          NOT NULL DEFAULT '0',
+  `status`   TINYINT(1) UNSIGNED       NOT NULL DEFAULT '0',
+  `search`   TINYINT(1) UNSIGNED       NOT NULL DEFAULT '0',
+  `position` INT(10) UNSIGNED          NOT NULL DEFAULT '0',
   `value`    TEXT,
-  `name`     VARCHAR(64)                                                                                                  DEFAULT NULL,
+  `name`     VARCHAR(64)                        DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `title` (`title`),
