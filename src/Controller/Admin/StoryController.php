@@ -527,7 +527,7 @@ class StoryController extends ActionController
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
-                    if ($row->type = 'post') {
+                    if ($row->type == 'post') {
                         $loc = Pi::url(
                             $this->url(
                                 'news', [
