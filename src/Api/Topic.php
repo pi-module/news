@@ -21,6 +21,7 @@ use Zend\Db\Sql\Predicate\Expression;
  * Pi::api('topic', 'news')->getTopic($parameter, $field;
  * Pi::api('topic', 'news')->getTopicFull($parameter, $field);
  * Pi::api('topic', 'news')->getTopicList();
+ * Pi::api('topic', 'news')->getTopicFullList($options);
  * Pi::api('topic', 'news')->canonizeTopic($topic);
  * Pi::api('topic', 'news')->setLink($story, $topics, $publish $update, $status, $uid, $type, $module, $controller);
  * Pi::api('topic', 'news')->topicCount();
@@ -67,6 +68,20 @@ class Topic extends AbstractApi
         foreach ($rowset as $row) {
             $topicList[$row->id]['id']    = $row->id;
             $topicList[$row->id]['title'] = $row->title;
+        }
+        return $topicList;
+    }
+
+    public function getTopicFullList($options)
+    {
+        $topicList = [];
+        $columns   = ['id', 'title'];
+        $where     = ['status' => 1, 'type' => $options['type']];
+        $order     = ['title ASC', 'id ASC'];
+        $select    = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where)->order($order);
+        $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            $topicList[$row->id] = $this->canonizeTopic($row);
         }
         return $topicList;
     }

@@ -20,7 +20,6 @@ use Module\News\Form\RebuildForm;
 use Module\News\Form\PruneForm;
 use Module\News\Form\SitemapForm;
 use Module\News\Form\PageForm;
-use Module\News\Form\RegenerateImageForm;
 
 class ToolsController extends ActionController
 {
@@ -221,6 +220,11 @@ class ToolsController extends ActionController
                     Pi::api('author', 'news')->sitemap();
                     break;
             }
+
+            // Update sitemap root module
+            $loc = Pi::url(Pi::service("url")->assemble("news"));
+            Pi::api('sitemap', 'sitemap')->singleLink($loc, 1, 'news', 'news', 0);
+
             $message = __('Sitemap rebuild finished');
         }
         // Set view
