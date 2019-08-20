@@ -54,11 +54,12 @@ class TopicController extends ApiController
             $options['type']    = 'general';
 
             // Get data
-            $result['data'] = Pi::api('api', 'news')->getTopicFullList($options);
+            $result['data'] = Pi::api('topic', 'news')->getTopicFullList($options);
 
             // Check data
             if (!empty($result['data'])) {
                 $result['result'] =  true;
+                $result['data'] = array_values($result['data']);
             } else {
                 // Set error
                 $result['error'] = [

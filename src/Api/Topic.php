@@ -75,10 +75,9 @@ class Topic extends AbstractApi
     public function getTopicFullList($options)
     {
         $topicList = [];
-        $columns   = ['id', 'title'];
         $where     = ['status' => 1, 'type' => $options['type']];
         $order     = ['title ASC', 'id ASC'];
-        $select    = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where)->order($order);
+        $select    = Pi::model('topic', $this->getModule())->select()->where($where)->order($order);
         $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
             $topicList[$row->id] = $this->canonizeTopic($row);

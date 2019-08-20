@@ -17,7 +17,7 @@
                     </h3>
                 </div>
                 <div class="single-news-body">
-                    <div class="clearfix">
+                    <div class="clearfix row">
                         <?php if ($story['main_image']) { ?>
                             <div class="col-md-3 u-photo">
                                 <a itemprop="url" href="<?php echo $story['storyUrl']; ?>"
@@ -30,7 +30,7 @@
                                 </a>
                             </div>
                         <?php } ?>
-                        <div class="storyText p-summary" itemprop="description">
+                        <div class="storyText p-summary col-md-9" itemprop="description">
                             <?php echo $story['text_summary']; ?>
                         </div>
                     </div>

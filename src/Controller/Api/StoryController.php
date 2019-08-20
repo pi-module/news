@@ -120,7 +120,7 @@ class StoryController extends ApiController
 
             // Check id
             if (intval($id) > 0) {
-                $result['data'] = Pi::api('api', 'news')->jsonSingle(intval($id), true);
+                $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
                 // Check data
                 if (!empty($result['data'])) {
