@@ -4,19 +4,19 @@
         <?php if ($block['type'] == 'vertical') { ?>
             <div class="news-item-block-vertical clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
-                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('guide')->thumb('thumbnail'); ?>
-                    <div class="vertical-story-single h-entry clearfix" itemscope itemtype="https://schema.org/Article">
+                    <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+                    <div class="vertical-story-single h-entry clearfix row" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
-                            <div class="col-md-4 storyImage">
+                            <div class="col-lg-4 col-md-3 storyImage">
                                 <a itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>">
-                                    <img itemprop="image" class="img-fluid rounded u-photo"
+                                    <img itemprop="image" class="img-fluid u-photo"
                                          src="<?php echo $thumbUrl; ?>"
                                          alt="<?php echo $this->escape($story['title']); ?>"/>
                                 </a>
                             </div>
                         <?php } ?>
-                        <div class="<?php if ($block['showimage'] && !empty($thumbUrl)) { ?>col-md-8<?php } else { ?>col-md-12<?php } ?> p-item h-card">
+                        <div class="<?php if ($block['showimage'] && !empty($thumbUrl)) { ?>col-lg-8 col-md-9<?php } else { ?>col-lg-12 col-md-12<?php } ?> p-item h-card">
                             <div class="vertical-story-single-title p-name" itemprop="name headline">
                                 <h3 class="clearfix">
                                     <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
@@ -68,13 +68,13 @@
                 <?php } ?>
             </div>
         <?php } elseif ($block['type'] == 'verticalwide') { ?>
-            <div class="news-item-block-verticalwide clearfix row">
+            <div class="news-item-block-verticalwide clearfix">
                 <?php foreach ($block['resources'] as $story) { ?>
                     <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
                     <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                     <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
                         <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
-                            <div class="col-lg-3 col-md-3">
+                            <div class="clearfix">
                                 <a itemprop="url" class="u-url"
                                    href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
@@ -84,7 +84,7 @@
                                 </a>
                             </div>
                         <?php } ?>
-                        <div class="col-lg-9 col-md-9 media-body p-item h-card">
+                        <div class="media-body p-item h-card">
                             <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
                                 <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                    title="<?php echo $this->escape($story['title']); ?>">
@@ -579,7 +579,7 @@
                                        title="<?php echo $this->escape($firstStory['title']); ?>">
                                         <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                              alt="<?php echo $this->escape($firstStory['title']); ?>"
-                                             class="media-object rounded img-fluid u-photo"/>
+                                             class="media-object img-fluid u-photo"/>
                                     </a>
                                 <?php } ?>
                                 <h3 class="p-name itemSingleTitle" itemprop="name headline">
@@ -644,7 +644,7 @@
                                                    title="<?php echo $this->escape($story['title']); ?>">
                                                     <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                                         class="media-object rounded img-fluid u-photo"/>
+                                                         class="media-object img-fluid u-photo"/>
                                                 </a>
                                             <?php } ?>
                                         </div>
@@ -758,7 +758,7 @@
                                            title="<?php echo $this->escape($firstStory['title']); ?>">
                                             <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                                                  alt="<?php echo $this->escape($firstStory['title']); ?>"
-                                                 class="media-object rounded img-fluid u-photo"/>
+                                                 class="media-object img-fluid u-photo"/>
                                         </a>
                                     <?php } ?>
                                 </div>
@@ -781,7 +781,7 @@
                                                    title="<?php echo $this->escape($story['title']); ?>">
                                                     <img itemprop="image" src="<?php echo $this->escape($thumbUrl); ?>"
                                                          alt="<?php echo $this->escape($story['title']); ?>"
-                                                         class="media-object rounded img-fluid u-photo"/>
+                                                         class="media-object img-fluid u-photo"/>
                                                 </a>
                                             <?php } ?>
                                         </div>
