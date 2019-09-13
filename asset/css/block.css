@@ -6,7 +6,8 @@
     margin-top: 10px;
 }
 
-.vertical-story-single {
+.vertical-story-single,
+.news-item-block-magazine-sub {
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
     margin-bottom: 15px;

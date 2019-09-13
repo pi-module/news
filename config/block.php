@@ -18,84 +18,91 @@ return [
         'render'      => ['block', 'item'],
         'template'    => 'item',
         'config'      => [
-            'topicid'          => [
+            'topicid'           => [
                 'title'       => _a('Topic'),
                 'description' => '',
                 'edit'        => 'Module\News\Form\Element\Topic',
                 'filter'      => 'string',
                 'value'       => 0,
             ],
-            'number'           => [
+            'number'            => [
                 'title'       => _a('Number'),
                 'description' => '',
                 'edit'        => 'text',
                 'filter'      => 'number_int',
                 'value'       => 5,
             ],
-            'showdesc'         => [
+            'showdesc'          => [
                 'title'       => _a('Show text'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'textlimit'        => [
+            'textlimit'         => [
                 'title'       => _a('Text width limit'),
                 'description' => _a('Set 0 for no limit'),
                 'edit'        => 'text',
                 'filter'      => 'number_int',
                 'value'       => 0,
             ],
-            'showdate'         => [
+            'showdate'          => [
                 'title'       => _a('Show date'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'showhits'         => [
+            'showhits'          => [
                 'title'       => _a('Show hits'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'showimage'        => [
+            'showimage'         => [
                 'title'       => _a('Show Images'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'showmore'         => [
+            'showmore'          => [
                 'title'       => _a('Show More link for each story'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'showauthor'       => [
+            'showauthor'        => [
                 'title'       => _a('Show authors'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 0,
             ],
-            'showblockmore'    => [
+            'showFirstMagazine' => [
+                'title'       => _a('Big first story on magazine'),
+                'description' => '',
+                'edit'        => 'checkbox',
+                'filter'      => 'number_int',
+                'value'       => 1,
+            ],
+            'showblockmore'     => [
                 'title'       => _a('Show More link to module page'),
                 'description' => '',
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 0,
             ],
-            'linkblockmore'    => [
+            'linkblockmore'     => [
                 'title'       => _a('Set More link to module page'),
                 'description' => '',
                 'edit'        => 'text',
                 'filter'      => 'string',
                 'value'       => '',
             ],
-            'order'            => [
+            'order'             => [
                 'title'       => _a('Story order'),
                 'description' => _a('Story list order options'),
                 'edit'        => [
@@ -113,7 +120,7 @@ return [
                 'filter'      => 'text',
                 'value'       => 'publishDESC',
             ],
-            'type'             => [
+            'type'              => [
                 'title'       => _a('Item list type'),
                 'description' => '',
                 'edit'        => [
@@ -138,14 +145,14 @@ return [
                 'filter'      => 'text',
                 'value'       => 'vertical',
             ],
-            'blockEffect'      => [
+            'blockEffect'       => [
                 'title'       => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),
                 'edit'        => 'checkbox',
                 'filter'      => 'number_int',
                 'value'       => 1,
             ],
-            'notShowSpotlight' => [
+            'notShowSpotlight'  => [
                 'title'       => _a('Not show top stories'),
                 'description' => _a(
                     'By active this option, you skip show spotlight stories on this block and can show them on other blocks, it can help you to manage homepage to show all spotlight story on one block and other stories on other blocks'
