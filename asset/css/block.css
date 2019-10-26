@@ -6,13 +6,8 @@
     margin-top: 10px;
 }
 
-.vertical-story-single,
-.news-item-block-magazine-sub {
+.widget-vertical-single {
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
     margin-bottom: 15px;
 }
-
-/* .news-block .storyImage {
-    padding-right: 0;
-} */

@@ -1,0 +1,58 @@
+<?php if ($block['blockEffect']) {
+    $this->jQuery(
+        [
+            'extension/owl.carousel.min.js',
+            'extension/owl.carousel.min.css',
+        ]
+    );
+    $this->js($this->assetModule('js/owl.carousel.config.defer.js', 'news'), ['defer' => 'defer']);
+} ?>
+<div class="owl-carousel text-center clearfix">
+    <?php foreach ($block['resources'] as $story) { ?>
+        <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
+        <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope itemtype="https://schema.org/Article">
+            <div class="thumbnail">
+                <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                   title="<?php echo $this->escape($story['title']); ?>">
+                    <img itemprop="image" class="media-object img-fluid u-photo"
+                         src="<?php echo $this->escape($thumbUrl); ?>"
+                         alt="<?php echo $this->escape($story['title']); ?>">
+                </a>
+                <div class="caption">
+                    <h3 itemprop="name headline">
+                        <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                           title="<?php echo $this->escape($story['title']); ?>">
+                            <?php echo $this->escape($story['title']); ?>
+                        </a>
+                    </h3>
+                    <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
+                        <ul class="list-unstyled">
+                            <?php if ($block['showdate']) { ?>
+                                <li class="list-inline-item dt-published">
+                                    <i class="fas fa-calendar-alt"></i> <?php echo $this->escape($story['time_publish_view']); ?>
+                                </li>
+                            <?php } ?>
+                            <?php if ($block['showhits']) { ?>
+                                <li class="list-inline-item">
+                                    <i class="far fa-eye"></i> <?php echo _number($this->escape($story['hits'])); ?>
+                                </li>
+                            <?php } ?>
+                            <?php if ($block['showauthor']) { ?>
+                                <?php foreach ($story['authors'] as $author) { ?>
+                                    <li>
+                                        <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                        <a title="<?php echo $author['authorName']; ?>"
+                                           href="<?php echo $author['authorUrl']; ?>">
+                                            <?php echo $author['authorName']; ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>

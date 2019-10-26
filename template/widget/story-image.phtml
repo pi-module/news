@@ -1,0 +1,36 @@
+<div class="widget-image clearfix">
+    <div class="row">
+        <?php if ($block['number'] == 1) {
+            $class = 'col-md-12 col-sm-12 col-12';
+        } else {
+            $class = 'col-md-6 col-sm-6 col-12';
+        } ?>
+        <?php foreach ($block['resources'] as $story) { ?>
+            <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+            <div class="card border-light h-entry clearfix <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
+                <a itemprop="url" class="u-url"
+                   href="<?php echo $this->escape($story['storyUrl']); ?>"
+                   title="<?php echo $this->escape($story['title']); ?>">
+                    <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
+                         alt="<?php echo $this->escape($story['title']); ?>"
+                         class="card-img-top img-fluid u-photo"/>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                            <?php echo $this->escape($story['title']); ?>
+                        </a>
+                    </h5>
+                    <?php if ($block['showdesc']) { ?>
+                        <div class="widget-image-text card-text">
+                            <div class="widget-summary p-summary "><?php echo $story['text_summary']; ?></div>
+                        </div>
+                    <?php } ?>
+                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                    <meta itemprop="name" content="<?php echo $this->escape($story['title']); ?>"/>
+                    <meta itemprop="headline" content="<?php echo $this->escape($story['title']); ?>"/>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
+<div class="clearfix">
+    <h1><?php _e('Archive'); ?></h1>
+    <ul class="list-group row">
+        <?php foreach ($list as $year => $months) { ?>
+            <li class="list-group-item active col-md-4">
+                <?php echo $year; ?>
+                <ul>
+                    <?php foreach ($months as $month) { ?>
+                        <li class="list-group-item"><a href="#"><?php echo $month['year']; ?> - <?php echo $month['month']; ?></a></li>
+                    <?php } ?>
+                </ul>
+            </li>
+        <?php } ?>
+    </ul>
+</div>

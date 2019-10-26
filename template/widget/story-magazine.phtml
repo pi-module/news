@@ -1,0 +1,76 @@
+<div class="widget-magazine clearfix row">
+    <?php if ($block['showFirstMagazine']) { ?>
+        <?php $firstStory = array_shift($block['resources']); ?>
+        <div class="col-md-3 col-sm-5 col-12">
+            <div class="widget-magazine-main">
+                <div class="h-entry clearfix" itemscope itemtype="https://schema.org/Article">
+                    <div class="p-item h-card">
+                        <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb('medium'); ?>
+                        <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
+                            <a itemprop="url" class="u-url"
+                               href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
+                               title="<?php echo $this->escape($firstStory['title']); ?>">
+                                <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
+                                     alt="<?php echo $this->escape($firstStory['title']); ?>"
+                                     class="media-object img-fluid u-photo"/>
+                            </a>
+                        <?php } ?>
+                        <h3 class="p-name itemSingleTitle" itemprop="name headline">
+                            <a itemprop="url" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
+                               title="<?php echo $this->escape($firstStory['title']); ?>">
+                                <?php echo $this->escape($firstStory['title']); ?>
+                            </a>
+                        </h3>
+                        <div class="clearfix">
+                            <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
+                                <ul class="text-muted list-inline">
+                                    <?php if ($block['showdate']) { ?>
+                                        <li class="list-inline-item dt-published">
+                                            <i class="fas fa-calendar-alt"></i> <?php echo $this->escape($story['time_publish_view']); ?>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($block['showhits']) { ?>
+                                        <li class="list-inline-item">
+                                            <i class="far fa-eye"></i> <?php echo _number($this->escape($story['hits'])); ?>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($block['showauthor']) { ?>
+                                        <?php foreach ($firstStory['authors'] as $author) { ?>
+                                            <li class="list-inline-item">
+                                                <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                                <a title="<?php echo $author['authorName']; ?>"
+                                                   href="<?php echo $author['authorUrl']; ?>">
+                                                    <?php echo $author['authorName']; ?>
+                                                </a>
+                                            </li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                            <?php } ?>
+                        </div>
+                        <?php if ($block['showdesc']) { ?>
+                            <div class="widget-summary p-summary"><?php echo $firstStory['text_summary']; ?></div>
+                        <?php } ?>
+                        <?php if ($block['showmore']) { ?>
+                            <div class="widget-story-more">
+                                <a href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
+                                   title="<?php echo $this->escape($firstStory['title']); ?>"><?php echo _b('Read More'); ?></a>
+                            </div>
+                        <?php } ?>
+                        <meta itemprop="datePublished"
+                              content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <div class="clearfix">
+        <div class="row">
+            <?php
+            $block['showdesc'] = 0;
+            $block['showmore'] = 0;
+            $widgetSingleClass = 'col-lg-6 col-md-6 col-12';
+            include $this->template('story-vertical.phtml', 'widget', 'news'); ?>
+        </div>
+    </div>
+</div>
