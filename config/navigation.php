@@ -72,6 +72,26 @@ return [
             'route'      => 'admin',
             'controller' => 'topic',
             'action'     => 'index',
+            'pages'      => [
+                'list'   => [
+                    'label'      => _a('Topic list'),
+                    'permission' => [
+                        'resource' => 'topic',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'topic',
+                    'action'     => 'index',
+                ],
+                'manage' => [
+                    'label'      => _a('New topic'),
+                    'permission' => [
+                        'resource' => 'topic',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'topic',
+                    'action'     => 'update',
+                ],
+            ],
         ],
         'spotlight' => [
             'label'      => _a('Spotlight'),
@@ -81,6 +101,26 @@ return [
             'route'      => 'admin',
             'controller' => 'spotlight',
             'action'     => 'index',
+            'pages'      => [
+                'list'   => [
+                    'label'      => _a('Spotlight list'),
+                    'permission' => [
+                        'resource' => 'spotlight',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'spotlight',
+                    'action'     => 'index',
+                ],
+                'manage' => [
+                    'label'      => _a('New spotlight'),
+                    'permission' => [
+                        'resource' => 'spotlight',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'spotlight',
+                    'action'     => 'update',
+                ],
+            ],
         ],
         'attribute' => [
             'label'      => _a('Attribute'),
@@ -120,7 +160,7 @@ return [
             'controller' => 'author',
             'action'     => 'index',
             'pages'      => [
-                'author' => [
+                'author'     => [
                     'label'      => _a('Authors'),
                     'permission' => [
                         'resource' => 'author',
@@ -129,7 +169,16 @@ return [
                     'controller' => 'author',
                     'action'     => 'index',
                 ],
-                'role'   => [
+                'author_new' => [
+                    'label'      => _a('New authors'),
+                    'permission' => [
+                        'resource' => 'author',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'author',
+                    'action'     => 'update',
+                ],
+                'role'       => [
                     'label'      => _a('Author roles'),
                     'permission' => [
                         'resource' => 'role',
@@ -137,6 +186,15 @@ return [
                     'route'      => 'admin',
                     'controller' => 'role',
                     'action'     => 'index',
+                ],
+                'role_new'   => [
+                    'label'      => _a('New author roles'),
+                    'permission' => [
+                        'resource' => 'role',
+                    ],
+                    'route'      => 'admin',
+                    'controller' => 'role',
+                    'action'     => 'update',
                 ],
             ],
         ],
@@ -158,7 +216,7 @@ return [
             'controller' => 'tools',
             'action'     => 'index',
             'pages'      => [
-                'tools'     => [
+                'tools'            => [
                     'label'      => _a('Tools'),
                     'permission' => [
                         'resource' => 'tools',
@@ -167,7 +225,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'index',
                 ],
-                'rebuild'   => [
+                'rebuild'          => [
                     'label'      => _a('Rebuild'),
                     'permission' => [
                         'resource' => 'tools',
@@ -176,7 +234,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'rebuild',
                 ],
-                'prune'     => [
+                'prune'            => [
                     'label'      => _a('Prune'),
                     'permission' => [
                         'resource' => 'tools',
@@ -185,7 +243,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'prune',
                 ],
-                'spotlight' => [
+                'spotlight'        => [
                     'label'      => _a('Spotlight'),
                     'permission' => [
                         'resource' => 'tools',
@@ -194,7 +252,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'spotlight',
                 ],
-                'page'      => [
+                'page'             => [
                     'label'      => _a('Page'),
                     'permission' => [
                         'resource' => 'tools',
@@ -203,7 +261,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'page',
                 ],
-                'sitemap'   => [
+                'sitemap'          => [
                     'label'      => _a('Sitemap'),
                     'permission' => [
                         'resource' => 'tools',
@@ -212,7 +270,7 @@ return [
                     'controller' => 'tools',
                     'action'     => 'sitemap',
                 ],
-                'media'     => [
+                'media'            => [
                     'label'      => _a('Media'),
                     'permission' => [
                         'resource' => 'tools',
@@ -221,14 +279,14 @@ return [
                     'controller' => 'tools',
                     'action'     => 'media',
                 ],
-                'json'      => [
-                    'label'      => _a('Json'),
+                'generatePictures' => [
+                    'label'      => _a('Pre-generate media cache'),
                     'permission' => [
-                        'resource' => 'json',
+                        'resource' => 'tools',
                     ],
                     'route'      => 'admin',
-                    'controller' => 'json',
-                    'action'     => 'index',
+                    'controller' => 'tools',
+                    'action'     => 'generatePictures',
                 ],
             ],
         ],

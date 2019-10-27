@@ -23,18 +23,22 @@ class Block
         // Set options
         $block     = [];
         $block     = array_merge($block, $options);
-        $whereLink = [];
+
+        // Set model and get information
+        $whereLink = [
+            'status' => 1,
+            'type' => 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+        ];
+        $columns             = ['story' => new Expression('DISTINCT story')];
+        $limit               = intval($block['number']);
+        $storyId        = [];
+        $storyList      = [];
+
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
         }
-        // Set model and get information
-        $whereLink['status'] = 1;
-        $whereLink['type']   = [
-            'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
-        ];
-        $columns             = ['story' => new Expression('DISTINCT story')];
-        $limit               = intval($block['number']);
+
         // Set order
         switch ($block['order']) {
             case 'random':
@@ -58,40 +62,59 @@ class Block
                 $order = ['time_publish DESC', 'id DESC'];;
                 break;
         }
-        //
+
+        // Select
         $select = Pi::model('link', $module)->select()->where($whereLink);
-        // skip show last X story
+
+        // Select : skip show last X story
         if (!$block['notShowSpotlight']) {
             $ids = Pi::registry('spotlightStoryId', 'news')->read();
             foreach ($ids as $id) {
                 $select->where(['story != ?' => $id]);
             }
         }
-        // Get info from link table
+
+        // Select : Get info from link table
         $select->columns($columns)->order($order)->limit($limit);
-        $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
+        $rowset = Pi::model('link', $module)->selectWith($select);
+
         // Make list
-        foreach ($rowset as $id) {
-            $storyId[] = $id['story'];
-        }
-        // Set info
-        $whereStory = ['status' => 1, 'id' => $storyId];
-        // Get topic list
-        $topicList = Pi::registry('topicList', 'news')->read();
-        // Get author list
-        $authorList = Pi::registry('authorList', 'news')->read();
-        // Get list of story
-        $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
-        $rowset = Pi::model('story', $module)->selectWith($select);
-        // Make list
-        foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
-            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+        if (!empty($rowset)) {
+            foreach ($rowset as $row) {
+                $storyId[] = $row->story;
             }
         }
+
+        // Check story not empty
+        if (!empty($storyId)) {
+
+            // Set info
+            $whereStory = [
+                'status' => 1,
+                'id'     => $storyId,
+            ];
+
+            // Get topic list
+            $topicList = Pi::registry('topicList', 'news')->read();
+
+            // Get author list
+            $authorList = Pi::registry('authorList', 'news')->read();
+
+            // Get list of story
+            $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
+            $rowset = Pi::model('story', $module)->selectWith($select);
+
+            // Make list
+            foreach ($rowset as $row) {
+                $storyList[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+                if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                    $storyList[$row->id]['text_summary'] = mb_substr(strip_tags($storyList[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+                }
+            }
+        }
+
         // Set block array
-        $block['resources'] = $story;
+        $block['resources'] = $storyList;
         return $block;
     }
 
@@ -100,10 +123,20 @@ class Block
         // Set options
         $block = [];
         $block = array_merge($block, $options);
+
         // Set model and get information
-        $whereSpotlight['status'] = ['status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()];
-        $columns                  = ['story' => new Expression('DISTINCT story')];
-        $limit                    = intval($block['number']);
+        $whereSpotlight = [
+            'status' => [
+                'status'           => 1,
+                'time_publish < ?' => time(),
+                'time_expire > ?'  => time(),
+            ],
+        ];
+        $columns        = ['story' => new Expression('DISTINCT story')];
+        $limit          = intval($block['number']);
+        $storyId        = [];
+        $storyList      = [];
+
         // Set order
         switch ($block['order']) {
             case 'random':
@@ -127,31 +160,48 @@ class Block
                 $order = ['time_publish DESC', 'id DESC'];;
                 break;
         }
+
         // Get info from link table
         $select = Pi::model('spotlight', $module)->select()->where($whereSpotlight)->columns($columns)->order($order)->limit($limit);
-        $rowset = Pi::model('spotlight', $module)->selectWith($select)->toArray();
+        $rowset = Pi::model('spotlight', $module)->selectWith($select);
+
         // Make list
-        foreach ($rowset as $id) {
-            $storyId[] = $id['story'];
-        }
-        // Set info
-        $whereStory = ['status' => 1, 'id' => $storyId];
-        // Get topic list
-        $topicList = Pi::registry('topicList', 'news')->read();
-        // Get author list
-        $authorList = Pi::registry('authorList', 'news')->read();
-        // Get list of story
-        $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
-        $rowset = Pi::model('story', $module)->selectWith($select);
-        // Make list
-        foreach ($rowset as $row) {
-            $story[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
-            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+        if (!empty($rowset)) {
+            foreach ($rowset as $row) {
+                $storyId[] = $row->story;
             }
         }
+
+        // Check story not empty
+        if (!empty($storyId)) {
+
+            // Set info
+            $whereStory = [
+                'status' => 1,
+                'id'     => $storyId,
+            ];
+
+            // Get topic list
+            $topicList = Pi::registry('topicList', 'news')->read();
+
+            // Get author list
+            $authorList = Pi::registry('authorList', 'news')->read();
+
+            // Get list of story
+            $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
+            $rowset = Pi::model('story', $module)->selectWith($select);
+
+            // Make list
+            foreach ($rowset as $row) {
+                $storyList[$row->id] = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+                if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                    $storyList[$row->id]['text_summary'] = mb_substr(strip_tags($storyList[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+                }
+            }
+        }
+
         // Set block array
-        $block['resources'] = $story;
+        $block['resources'] = $storyList;
         return $block;
     }
 
@@ -160,11 +210,16 @@ class Block
         // Set options
         $block = [];
         $block = array_merge($block, $options);
+        $topicList = [];
+
         // Set model and get information
-        $where = ['status' => 1];
+        $where = [
+            'status' => 1
+        ];
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
         }
+
         // Set order
         switch ($block['order']) {
             case 'titleASC':
@@ -184,19 +239,23 @@ class Block
                 $order = ['time_create DESC', 'id DESC'];
                 break;
         }
+
         // Get info from topic table
         $select = Pi::model('topic', $module)->select()->where($where)->order($order);
         $rowset = Pi::model('topic', $module)->selectWith($select);
+
         // Process information
         foreach ($rowset as $row) {
-            $topic[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
+            $topicList[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
-        //
-        if ($block['tree']) {
-            $topic = Pi::api('topic', 'news')->getTreeFull($topic);
+
+        // Make tree
+        if ($block['tree'] && !empty($topicList)) {
+            $topicList = Pi::api('topic', 'news')->getTreeFull($topicList);
         }
+
         // Set block array
-        $block['resources'] = $topic;
+        $block['resources'] =$topicList;
         return $block;
     }
 
@@ -208,6 +267,7 @@ class Block
 
         $where = ['module' => 'news', 'object_name' => 'story'];
         $limit = intval($block['number']);
+
         // Select
         $select = Pi::model('link', 'media')->select()->where($where)->limit($limit);
         $rowset = Pi::model('link', 'media')->selectWith($select);
@@ -242,14 +302,17 @@ class Block
         // Set options
         $block = [];
         $block = array_merge($block, $options);
+
         // Get config
         $config                    = Pi::service('registry')->config->read($module);
         $block['microblog_active'] = $config['microblog_active'];
+
         // Set info
         $microblog = [];
         $where     = ['status' => 1];
         $order     = ['time_create DESC', 'id DESC'];
         $limit     = intval($block['number']);
+
         // Check uid and topic
         if (intval($block['uid']) > 0) {
             $where['uid']   = intval($block['uid']);
@@ -257,19 +320,22 @@ class Block
         } elseif (isset($block['topicid']) && !empty($block['topicid'])) {
             $where['topic'] = 1;
         }
+
         // Select
         $select = Pi::model('microblog', $module)->select()->where($where)->order($order)->limit($limit);
         $rowset = Pi::model('microblog', $module)->selectWith($select);
+
         // Process information
         foreach ($rowset as $row) {
             $microblog[$row->id]                   = Pi::api('microblog', 'news')->canonizeMicroblog($row);
             $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar(
                 $microblog[$row->id]['uid'], 'medium', [
-                'alt'   => $microblog[$row->id]['user']['name'],
-                'class' => 'rounded-circle',
-            ]
+                    'alt'   => $microblog[$row->id]['user']['name'],
+                    'class' => 'rounded-circle',
+                ]
             );
         }
+
         // Set block array
         $block['resources'] = $microblog;
         return $block;
@@ -280,13 +346,16 @@ class Block
         // Set options
         $block = [];
         $block = array_merge($block, $options);
+
         // Set info
         $story     = [];
         $whereLink = [];
+
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $whereLink['topic'] = $block['topicid'];
         }
+
         // Set model and get information
         $whereLink['status'] = 1;
         $whereLink['type']   = [
@@ -294,31 +363,45 @@ class Block
         ];
         $columns             = ['story' => new Expression('DISTINCT story')];
         $order               = ['time_publish DESC', 'id DESC'];
+
         // select
         $select = Pi::model('link', $module)->select()->where($whereLink)->columns($columns)->order($order)->limit(1);
-        $rowset = Pi::model('link', $module)->selectWith($select)->toArray();
+        $rowset = Pi::model('link', $module)->selectWith($select);
+
         // Make list
-        foreach ($rowset as $id) {
-            $storyId[] = $id['story'];
-        }
-        // Set info
-        $whereStory = ['status' => 1, 'id' => $storyId];
-        // Get topic list
-        $topicList = Pi::registry('topicList', 'news')->read();
-        // Get author list
-        $authorList = Pi::registry('authorList', 'news')->read();
-        // Get list of story
-        $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
-        $rowset = Pi::model('story', $module)->selectWith($select);
-        // Make list
-        foreach ($rowset as $row) {
-            $story[$row->id]                    = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
-            $story[$row->id]['media_attach']    = Pi::api('story', 'news')->AttachList($row->id);
-            $story[$row->id]['media_attribute'] = Pi::api('attribute', 'news')->Story($row->id, $row->topic_main);
-            if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
-                $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+        if (!empty($rowset)) {
+            foreach ($rowset as $row) {
+                $storyId[] = $row->story;
             }
         }
+
+        // Set info
+        $whereStory = [
+            'status' => 1,
+            'id' => $storyId
+        ];
+
+        // Check story not empty
+        if (!empty($storyId)) {
+            // Get topic list
+            $topicList = Pi::registry('topicList', 'news')->read();
+
+            // Get author list
+            $authorList = Pi::registry('authorList', 'news')->read();
+            // Get list of story
+            $select = Pi::model('story', $module)->select()->where($whereStory)->order($order);
+            $rowset = Pi::model('story', $module)->selectWith($select);
+            // Make list
+            foreach ($rowset as $row) {
+                $story[$row->id]                    = Pi::api('story', 'news')->canonizeStory($row, $topicList, $authorList);
+                $story[$row->id]['media_attach']    = Pi::api('story', 'news')->AttachList($row->id);
+                $story[$row->id]['media_attribute'] = Pi::api('attribute', 'news')->Story($row->id, $row->topic_main);
+                if (!empty($block['textlimit']) && $block['textlimit'] > 0) {
+                    $story[$row->id]['text_summary'] = mb_substr(strip_tags($story[$row->id]['text_summary']), 0, $block['textlimit'], 'utf-8') . "...";
+                }
+            }
+        }
+
         // Set block array
         $block['resources'] = $story;
         return $block;

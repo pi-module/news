@@ -33,14 +33,17 @@
                 <td><?php echo $this->escape($topic['type_view']); ?></td>
                 <td>
                     <a class="btn btn-success btn-sm" title="<?php _e('View'); ?>"
-                       href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug'])]); ?>"><i
-                                class="far fa-eye"></i> <?php _e('View'); ?></a>
+                       href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'topic', 'slug' => $this->escape($topic['slug'])]); ?>">
+                        <i class="far fa-eye"></i> <?php _e('View'); ?>
+                    </a>
                     <a class="btn btn-primary btn-sm" title="<?php _e('All stories'); ?>"
-                       href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'topic' => $topic['id']]); ?>"><i
-                                class="far fa-eye"></i> <?php _e('All stories'); ?></a>
+                       href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'topic' => $topic['id']]); ?>">
+                        <i class="far fa-eye"></i> <?php _e('All stories'); ?>
+                    </a>
                     <a class="btn btn-primary btn-sm" title="<?php _e('Edit'); ?>"
-                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $topic['id']]); ?>"><i
-                                class="fas fa-edit"></i> <?php _e('Edit'); ?></a>
+                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $topic['id']]); ?>">
+                        <i  class="fas fa-edit"></i> <?php _e('Edit'); ?>
+                    </a>
                 </td>
             </tr>
         <?php } ?>

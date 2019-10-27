@@ -1,26 +1,32 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
     <div class="card bg-light mb-3">
-        <h3><?php _e('How this part work?'); ?></h3>
-        <p><?php _e(
-                'Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '
-            ); ?></p>
-        <ul>
-            <li><strong><?php _e('Rebuild'); ?></strong>
-                : <?php _e(
-                    'You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'
-                ); ?>
-            </li>
-            <li><strong><?php _e('Prune'); ?></strong>
-                : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
-            <li><strong><?php _e('Spotlight'); ?></strong> : <?php _e('You can remove old spotlights'); ?></li>
-            <li><strong><?php _e('Page'); ?></strong> : <?php _e('Manage system page'); ?></li>
-            <li><strong><?php _e('Sitemap'); ?></strong> : <?php _e('Manage links on sitemap module'); ?></li>
-        </ul>
+        <div class="card-body">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <?php _e('How this part work?'); ?>
+                </h3>
+                <p class="card-text">
+                    <?php _e(
+                        'Tools system, help you to manage your module, Update database and remove unused information. At this moment, we ready 4 tools for you : '
+                    ); ?>
+                </p>
+            </div>
+            <ul class="card-text">
+                <li>
+                    <strong><?php _e('Rebuild'); ?></strong>
+                    : <?php _e(
+                        'You can rebuild all your added stores, after rebuild all your old data time_update to new. And you must set start and end time_publish time.'
+                    ); ?>
+                </li>
+                <li><strong><?php _e('Prune'); ?></strong> : <?php _e('You can prune all old stores, from selected topic.'); ?></li>
+                <li><strong><?php _e('Spotlight'); ?></strong> : <?php _e('You can remove old spotlights'); ?></li>
+                <li><strong><?php _e('Page'); ?></strong> : <?php _e('Manage system page'); ?></li>
+                <li><strong><?php _e('Sitemap'); ?></strong> : <?php _e('Manage links on sitemap module'); ?></li>
+            </ul>
+        </div>
     </div>
 </div>
-
-
 <div class="row">
     <div class="col-md-4">
         <div class="card bg-light mb-3">
@@ -28,10 +34,10 @@
                 <?php echo _a('Pre-generate media cache'); ?>
             </div>
             <div class="card-body">
-                <p>
+                <p class="card-text">
                     <?php echo _a('This tool can pre-generate media cache according to media module parameters'); ?>
                 </p>
-                <p>
+                <p class="card-text">
                     <a href="<?php echo $this->url('', ['action' => 'generatePictures']); ?>" class="btn btn-primary btn-sm">
                         <i class="fas fa-cog" aria-hidden="true"></i>
                         <?php echo _a('Pre-generate media cache'); ?>

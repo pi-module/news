@@ -8,13 +8,13 @@
                     </a>
 			    </span>
                 <?php if ($block['showdate']) { ?>
-                    <span class="itemPostDate dt-published">
-				        <?php echo _b('Time'); ?> : <?php echo $this->escape($story['time_publish_view']); ?>
+                    <span class="itemPostDate dt-published text-muted small">
+				        <i class="fas fa-calendar-alt"></i> <?php echo $this->escape($story['time_publish_view']); ?>
                     </span>
                 <?php } ?>
                 <?php if ($block['showhits']) { ?>
-                    <span class="itemStats">
-				        <?php echo _b('Read'); ?> : <?php echo $this->escape($story['hits']); ?>
+                    <span class="itemStats text-muted small">
+				        <i class="far fa-eye"></i> <?php echo $this->escape($story['hits']); ?>
 			        </span>
                 <?php } ?>
             </li>

@@ -147,7 +147,7 @@ class TagController extends IndexController
                         '', [
                         'controller' => 'tag',
                         'action'     => 'term',
-                        'slug'       => urldecode($tag['term']),
+                        'slug'       => urlencode($tag['term']),
                     ]
                     )
                 );

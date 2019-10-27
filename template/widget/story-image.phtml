@@ -1,35 +1,58 @@
+<?php if ($block['number'] == 1) {
+    $class = 'col-md-12 col-sm-12 col-12';
+} else {
+    $class = 'col-md-6 col-sm-6 col-12';
+} ?>
 <div class="widget-image clearfix">
     <div class="row">
-        <?php if ($block['number'] == 1) {
-            $class = 'col-md-12 col-sm-12 col-12';
-        } else {
-            $class = 'col-md-6 col-sm-6 col-12';
-        } ?>
         <?php foreach ($block['resources'] as $story) { ?>
-            <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
-            <div class="card border-light h-entry clearfix <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
-                <a itemprop="url" class="u-url"
-                   href="<?php echo $this->escape($story['storyUrl']); ?>"
-                   title="<?php echo $this->escape($story['title']); ?>">
-                    <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
-                         alt="<?php echo $this->escape($story['title']); ?>"
-                         class="card-img-top img-fluid u-photo"/>
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
-                            <?php echo $this->escape($story['title']); ?>
-                        </a>
-                    </h5>
-                    <?php if ($block['showdesc']) { ?>
-                        <div class="widget-image-text card-text">
-                            <div class="widget-summary p-summary "><?php echo $story['text_summary']; ?></div>
-                        </div>
-                    <?php } ?>
-                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
-                    <meta itemprop="name" content="<?php echo $this->escape($story['title']); ?>"/>
-                    <meta itemprop="headline" content="<?php echo $this->escape($story['title']); ?>"/>
+            <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>
+            <div class="card border-light text-white h-entry clearfix mb-3 <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
+                <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>" alt="<?php echo $this->escape($story['title']); ?>"
+                     class="card-img img-fluid u-photo"/>
+                <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                    <div class="widget-image-info">
+                        <h4 class="card-title">
+                            <a itemprop="url" class="u-url text-white" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                               title="<?php echo $this->escape($story['title']); ?>">
+                                <?php echo $this->escape($story['title']); ?>
+                            </a>
+                        </h4>
+                        <?php if ($block['showdate'] || $block['showhits'] || $block['showauthor']) { ?>
+                            <ul class="text-muted list-inline small">
+                                <?php if ($block['showdate']) { ?>
+                                    <li class="list-inline-item dt-published">
+                                        <i class="fas fa-calendar-alt"></i> <?php echo $this->escape($story['time_publish_view']); ?>
+                                    </li>
+                                <?php } ?>
+                                <?php if ($block['showhits']) { ?>
+                                    <li class="list-inline-item">
+                                        <i class="far fa-eye"></i> <?php echo _number($this->escape($story['hits'])); ?>
+                                    </li>
+                                <?php } ?>
+                                <?php if ($block['showauthor']) { ?>
+                                    <?php foreach ($story['authors'] as $author) { ?>
+                                        <li class="list-inline-item">
+                                            <i class="fas fa-user"></i> <?php echo $author['authorRole']; ?> :
+                                            <a title="<?php echo $author['authorName']; ?>"
+                                               href="<?php echo $author['authorUrl']; ?>">
+                                                <?php echo $author['authorName']; ?>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?>
+                            </ul>
+                        <?php } ?>
+                        <?php if ($block['showdesc']) { ?>
+                            <div class="widget-image-text card-text">
+                                <div class="widget-summary p-summary "><?php echo $story['text_summary']; ?></div>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
+                <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                <meta itemprop="name" content="<?php echo $this->escape($story['title']); ?>"/>
+                <meta itemprop="headline" content="<?php echo $this->escape($story['title']); ?>"/>
             </div>
         <?php } ?>
     </div>

@@ -56,7 +56,6 @@ ALTER TABLE `{story}`
 ALTER TABLE `{story}`
   ADD FULLTEXT `search_idx_2` (`title`, `text_description`, `seo_title`, `seo_keywords`, `seo_description`);
 
-
 CREATE TABLE `{topic}` (
   `id`               INT(10) UNSIGNED                     NOT NULL AUTO_INCREMENT,
   `pid`              INT(5) UNSIGNED                      NOT NULL DEFAULT '0',

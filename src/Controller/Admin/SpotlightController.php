@@ -27,10 +27,12 @@ class SpotlightController extends ActionController
         // Get page
         $page           = $this->params('page', 1);
         $whereSpotlight = [];
+
         // Get story and topic
         $columns = ['story', 'topic'];
         $select  = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($columns);
         $idSet   = $this->getModel('spotlight')->selectWith($select)->toArray();
+
         // Set topics and stores
         $topicArr = [];
         $storyArr = [];
@@ -38,11 +40,13 @@ class SpotlightController extends ActionController
             $topicArr[] = $spotlight['topic'];
             $storyArr[] = $spotlight['story'];
         }
+
         // Get topics
         $whereTopic = $topicArr ? ['id' => array_unique($topicArr)] : [];
         $columns    = ['id', 'title', 'slug'];
         $select     = $this->getModel('topic')->select()->where($whereTopic)->columns($columns);
         $topicSet   = $this->getModel('topic')->selectWith($select);
+
         // Make topic list
         foreach ($topicSet as $row) {
             $topicList[$row->id] = $row->toArray();
@@ -57,19 +61,23 @@ class SpotlightController extends ActionController
             'title' => __('All Topics'),
             'slug'  => '',
         ];
+
         // Get stores
         $whereStory = $storyArr ? ['id' => array_unique($storyArr)] : [];
         $columns    = ['id', 'title', 'slug'];
         $select     = $this->getModel('story')->select()->where($whereStory)->columns($columns);
         $storySet   = $this->getModel('story')->selectWith($select);
+
         // Make story list
         foreach ($storySet as $row) {
             $storyList[$row->id] = $row->toArray();
         }
+
         // Get spotlights
         $order        = ['id DESC', 'time_publish DESC'];
         $select       = $this->getModel('spotlight')->select()->where($whereSpotlight)->order($order);
         $spotlightSet = $this->getModel('spotlight')->selectWith($select);
+
         // Make spotlight list
         $spotlightList = [];
         foreach ($spotlightSet as $row) {
@@ -81,6 +89,7 @@ class SpotlightController extends ActionController
             $spotlightList[$row->id]['time_publish_view'] = _date($spotlightList[$row->id]['time_publish']);
             $spotlightList[$row->id]['time_expire_view']  = _date($spotlightList[$row->id]['time_expire']);
         }
+
         // Set paginator
         $count     = ['count' => new Expression('count(*)')];
         $select    = $this->getModel('spotlight')->select()->where($whereSpotlight)->columns($count);
@@ -101,6 +110,7 @@ class SpotlightController extends ActionController
                 ),
             ]
         );
+
         // Set view
         $this->view()->setTemplate('spotlight-index');
         $this->view()->assign('spotlightList', $spotlightList);
@@ -118,14 +128,17 @@ class SpotlightController extends ActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
+
                 // Set time
-                $values['time_publish'] = strtotime($values['time_publish']);
-                $values['time_expire']  = strtotime($values['time_expire']);
+                $values['time_publish'] = strtotime(sprintf('%s 00:00:00', $values['time_publish']));
+                $values['time_expire']  = strtotime(sprintf('%s 23:59:59', $values['time_expire']));
+
                 // Set if new
                 if (empty($values['id'])) {
                     // Set user
                     $values['uid'] = Pi::user()->getId();
                 }
+
                 // Save values
                 if (!empty($values['id'])) {
                     $row = $this->getModel('spotlight')->find($values['id']);
@@ -134,15 +147,12 @@ class SpotlightController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
+
                 // Check it save or not
                 if ($row->id) {
                     $message = __('Spotlight data saved successfully.');
                     $this->jump(['action' => 'index'], $message);
-                } else {
-                    $message = __('Spotlight data not saved.');
                 }
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             if ($id) {
@@ -150,15 +160,11 @@ class SpotlightController extends ActionController
                 $values['time_publish'] = date('Y-m-d', $values['time_publish']);
                 $values['time_expire']  = date('Y-m-d', $values['time_expire']);
                 $form->setData($values);
-                $message = 'You can edit this spotlight';
-            } else {
-                $message = 'You can add new spotlight';
             }
         }
         $this->view()->setTemplate('spotlight-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Spotlight'));
-        $this->view()->assign('message', $message);
     }
 
     public function deleteAction()
