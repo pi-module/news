@@ -27,7 +27,7 @@ class Block
         // Set model and get information
         $whereLink = [
             'status' => 1,
-            'type' => 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'
+            'type' => ['text', 'article', 'magazine', 'image', 'gallery', 'media', 'download']
         ];
         $columns             = ['story' => new Expression('DISTINCT story')];
         $limit               = intval($block['number']);
