@@ -483,6 +483,25 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+        // view_position
+        $this->add(
+            [
+                'name'       => 'view_position',
+                'type'       => 'select',
+                'options'    => [
+                    'label'         => __('View position for api'),
+                    'value_options' => [
+                        'both'   => __('Both'),
+                        'top'    => __('Top'),
+                        'side'   => __('Side'),
+                        'hidden' => __('Hidden'),
+                    ],
+                ],
+                'attributes' => [
+                    'description' => '',
+                ],
+            ]
+        );
         // extra_attach
         $this->add(
             [

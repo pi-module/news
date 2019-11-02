@@ -224,6 +224,7 @@ class TopicController extends ActionController
                 $setting['show_hits']       = $values['show_hits'];
                 $setting['show_tag']        = $values['show_tag'];
                 $setting['show_subid']      = $values['show_subid'];
+                $setting['view_position']   = $values['view_position'];
                 $setting['set_page']        = $values['set_page'];
                 $setting['attach']          = $values['attach'];
                 $values['setting']          = json_encode($setting);

@@ -237,6 +237,13 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+        // view_position
+        $this->add(
+            [
+                'name'     => 'view_position',
+                'required' => false,
+            ]
+        );
         // attach
         $this->add(
             [

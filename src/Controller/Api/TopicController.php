@@ -56,10 +56,17 @@ class TopicController extends ApiController
             // Get data
             $result['data'] = Pi::api('topic', 'news')->getTopicFullList($options);
 
+            $dataList = [];
+            foreach ($result['data'] as $dataSingle) {
+                if (in_array($dataSingle['view_position'], ['both', 'top', 'side'])) {
+                    $dataList[$dataSingle['id']] = $dataSingle;
+                }
+            }
+
             // Check data
-            if (!empty($result['data'])) {
+            if (!empty($dataList)) {
                 $result['result'] =  true;
-                $result['data'] = array_values($result['data']);
+                $result['data'] = array_values($dataList);
             } else {
                 // Set error
                 $result['error'] = [

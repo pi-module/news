@@ -15,7 +15,7 @@ return [
     'meta'       => [
         'title'       => _a('News'),
         'description' => _a('Manage News and Blog'),
-        'version'     => '2.1.0',
+        'version'     => '2.1.1',
         'license'     => 'New BSD',
         'logo'        => 'image/logo.png',
         'readme'      => 'docs/readme.txt',
