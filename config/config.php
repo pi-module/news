@@ -16,10 +16,10 @@ return [
             'title' => _a('Admin'),
             'name'  => 'admin',
         ],
-        [
+        /* [
             'title' => _a('Json output'),
             'name'  => 'json',
-        ],
+        ], */
         [
             'title' => _a('Show'),
             'name'  => 'show',
@@ -133,7 +133,7 @@ return [
             'value'       => 'admin',
         ],
         // Json
-        'admin_json'               => [
+        /* 'admin_json'               => [
             'category'    => 'json',
             'title'       => _a('Active json output'),
             'description' => '',
@@ -164,7 +164,7 @@ return [
             'edit'        => 'text',
             'filter'      => 'string',
             'value'       => md5(rand(1, 99999)),
-        ],
+        ], */
         // Show
         'style'                    => [
             'title'       => _a('Show Style'),

@@ -69,7 +69,7 @@ class JsonController extends IndexController
         }
     } */
 
-    public function indexAction()
+    /* public function indexAction()
     {
         // Set return
         $return = [
@@ -78,9 +78,9 @@ class JsonController extends IndexController
         ];
         // Set view
         return $return;
-    }
+    } */
 
-    public function searchAction()
+    /* public function searchAction()
     {
         // Get info from url
         $module = $this->params('module');
@@ -251,9 +251,9 @@ class JsonController extends IndexController
         ];
 
         return $result;
-    }
+    } */
 
-    public function storyAllAction()
+    /* public function storyAllAction()
     {
         // Get info from url
         $update = $this->params('update', 0);
@@ -276,9 +276,9 @@ class JsonController extends IndexController
         $storyList = $this->storyJsonList($where);
         // Set view
         return $storyList;
-    }
+    } */
 
-    public function storyTopicAction()
+    /* public function storyTopicAction()
     {
         // Get info from url
         $id     = $this->params('id', 0);
@@ -311,9 +311,9 @@ class JsonController extends IndexController
         }
         // Set view
         return $storyList;
-    }
+    } */
 
-    public function storySingleAction()
+    /* public function storySingleAction()
     {
         // Get info from url
         $id     = $this->params('id');
@@ -371,7 +371,7 @@ class JsonController extends IndexController
         $storySingle = [$storySingle];
         // Set view
         return $storySingle;
-    }
+    } */
 
     /* public function storySubmitAction()
     {
@@ -426,7 +426,7 @@ class JsonController extends IndexController
         return $result;
     } */
 
-    public function filterSearchAction()
+    /* public function filterSearchAction()
     {
         // Get info from url
         $module  = $this->params('module');
@@ -469,9 +469,9 @@ class JsonController extends IndexController
         }
         // Set view
         return $list;
-    }
+    } */
 
-    public function checkPassword()
+    /* public function checkPassword()
     {
         // Get info from url
         $module   = $this->params('module');
@@ -488,7 +488,7 @@ class JsonController extends IndexController
         } else {
             return true;
         }
-    }
+    } */
 
     public function hitAction()
     {
