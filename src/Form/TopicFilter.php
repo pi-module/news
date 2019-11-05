@@ -27,6 +27,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // pid
         $this->add(
             [
@@ -34,6 +35,7 @@ class TopicFilter extends InputFilter
                 'required' => true,
             ]
         );
+
         // title
         $this->add(
             [
@@ -46,6 +48,7 @@ class TopicFilter extends InputFilter
                 ],
             ]
         );
+
         // slug
         $this->add(
             [
@@ -66,6 +69,7 @@ class TopicFilter extends InputFilter
                 ],
             ]
         );
+
         // text_summary
         $this->add(
             [
@@ -78,6 +82,7 @@ class TopicFilter extends InputFilter
                 ],
             ]
         );
+
         // text_description
         $this->add(
             [
@@ -90,6 +95,7 @@ class TopicFilter extends InputFilter
                 ],
             ]
         );
+
         // image
         $this->add(
             [
@@ -97,6 +103,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // status
         $this->add(
             [
@@ -104,6 +111,7 @@ class TopicFilter extends InputFilter
                 'required' => true,
             ]
         );
+
         // style
         $this->add(
             [
@@ -111,6 +119,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // type
         $this->add(
             [
@@ -118,6 +127,15 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
+        // display_order
+        $this->add(
+            [
+                'name'     => 'display_order',
+                'required' => false,
+            ]
+        );
+
         // seo_title
         $this->add(
             [
@@ -125,6 +143,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // seo_keywords
         $this->add(
             [
@@ -132,6 +151,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // seo_description
         $this->add(
             [
@@ -139,6 +159,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_config
         $this->add(
             [
@@ -146,6 +167,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_perpage
         $this->add(
             [
@@ -153,6 +175,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_columns
         $this->add(
             [
@@ -160,6 +183,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // set_page
         $this->add(
             [
@@ -167,6 +191,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_order_link
         $this->add(
             [
@@ -174,6 +199,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_topic
         $this->add(
             [
@@ -181,6 +207,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_topicinfo
         $this->add(
             [
@@ -188,6 +215,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_date
         $this->add(
             [
@@ -195,6 +223,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_pdf
         $this->add(
             [
@@ -202,6 +231,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_print
         $this->add(
             [
@@ -209,6 +239,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_mail
         $this->add(
             [
@@ -216,6 +247,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_hits
         $this->add(
             [
@@ -223,6 +255,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_tag
         $this->add(
             [
@@ -230,6 +263,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // show_subid
         $this->add(
             [
@@ -237,6 +271,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // view_position
         $this->add(
             [
@@ -244,6 +279,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // attach
         $this->add(
             [
@@ -251,6 +287,7 @@ class TopicFilter extends InputFilter
                 'required' => false,
             ]
         );
+
         // attach_title
         $this->add(
             [
@@ -263,6 +300,7 @@ class TopicFilter extends InputFilter
                 ],
             ]
         );
+
         // attach_link
         $this->add(
             [

@@ -76,7 +76,7 @@ class Topic extends AbstractApi
     {
         $topicList = [];
         $where     = ['status' => 1, 'type' => $options['type']];
-        $order     = ['title ASC', 'id ASC'];
+        $order     = ['display_order ASC','title ASC', 'id ASC'];
         $select    = Pi::model('topic', $this->getModule())->select()->where($where)->order($order);
         $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {

@@ -36,6 +36,7 @@ class Topic extends Model
             'uid',
             'time_create',
             'time_update',
+            'display_order',
             'setting',
             'status',
             'style',

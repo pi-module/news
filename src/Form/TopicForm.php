@@ -88,6 +88,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // text_summary
         $this->add(
             [
@@ -103,6 +104,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // text_description
         $this->add(
             [
@@ -118,6 +120,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // status
         $this->add(
             [
@@ -135,6 +138,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // style
         $this->add(
             [
@@ -156,6 +160,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // type
         $this->add(
             [
@@ -174,6 +179,7 @@ class TopicForm extends BaseForm
                 ],
             ]
         );
+
         // Image
         if ($this->thumbUrl) {
             $this->add(
@@ -221,6 +227,22 @@ class TopicForm extends BaseForm
                 ]
             );
         }
+
+        // display_order
+        $this->add(
+            [
+                'name'       => 'display_order',
+                'options'    => [
+                    'label' => __('Display order'),
+                ],
+                'attributes' => [
+                    'type'        => 'text',
+                    'description' => '',
+                    'required'    => false,
+                ],
+            ]
+        );
+
         // extra_seo
         $this->add(
             [

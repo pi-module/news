@@ -1009,6 +1009,22 @@ SQL;
             }
         }
 
+        if (version_compare($moduleVersion, '2.1.2', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD `display_order` INT(10) UNSIGNED NOT NULL DEFAULT '0' AFTER `time_update`", $topicTable);
+            try {
+                $topicAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult(
+                    'db', [
+                        'status'  => false,
+                        'message' => 'Table alter query failed: '
+                            . $exception->getMessage(),
+                    ]
+                );
+                return false;
+            }
+        }
+
         return true;
     }
 }
