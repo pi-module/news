@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2016-09-11 17:56+0430\n"
+"POT-Creation-Date: 2019-10-30 12:08+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,39 +9,53 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/Api/Api.php:227 src/Controller/Admin/AuthorController.php:252
-#: src/Controller/Admin/StoryController.php:359
-#: src/Controller/Admin/TopicController.php:136
+#: src/Api/Api.php:276 src/Controller/Admin/AuthorController.php:264
+#: src/Controller/Admin/StoryController.php:319
+#: src/Controller/Admin/TopicController.php:141
 #, php-format
 msgid "Image of %s removed"
 msgstr ""
 
-#: src/Api/Api.php:230 src/Controller/Admin/AuthorController.php:255
-#: src/Controller/Admin/StoryController.php:362
-#: src/Controller/Admin/TopicController.php:139
+#: src/Api/Api.php:279 src/Controller/Admin/AuthorController.php:267
+#: src/Controller/Admin/StoryController.php:322
+#: src/Controller/Admin/TopicController.php:144
 msgid "Image not remove"
 msgstr ""
 
-#: src/Api/Api.php:234 src/Controller/Admin/StoryController.php:281
-#: src/Controller/Admin/StoryController.php:330
-#: src/Controller/Admin/StoryController.php:366
-#: src/Controller/Admin/StoryController.php:406
-#: src/Controller/Admin/StoryController.php:672
-#: src/Controller/Admin/StoryController.php:824
-#: src/Controller/Admin/TopicController.php:143
+#: src/Api/Api.php:283 src/Controller/Admin/StoryController.php:237
+#: src/Controller/Admin/StoryController.php:326
+#: src/Controller/Admin/StoryController.php:383
+#: src/Controller/Admin/StoryController.php:694
+#: src/Controller/Admin/StoryController.php:856
+#: src/Controller/Admin/TopicController.php:148
 msgid "Please select story"
 msgstr ""
 
-#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:180
-#: src/Form/StoryForm.php:158 template/admin/microblog-index.phtml:17
-#: template/admin/story-index.phtml:25
+#: src/Api/Api.php:590 src/Controller/Front/JsonController.php:132
+#: template/admin/story-index.phtml:153
+msgid "List of stories"
+msgstr ""
+
+#: src/Api/Api.php:611 src/Controller/Front/JsonController.php:153
+#, php-format
+msgid "List of stories on %s topic"
+msgstr ""
+
+#: src/Api/Api.php:627 src/Controller/Front/JsonController.php:169
+#, php-format
+msgid "All stories from %s"
+msgstr ""
+
+#: src/Api/Attribute.php:60 src/Controller/Admin/StoryController.php:151
+#: src/Form/StoryForm.php:181 template/admin/microblog-index.phtml:14
+#: template/admin/story-index.phtml:31
 msgid "Text"
 msgstr ""
 
@@ -85,265 +99,225 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:50 src/Api/Breadcrumbs.php:63
+#: src/Api/Breadcrumbs.php:55 src/Api/Breadcrumbs.php:72
 #: template/front/author-list.phtml:6
 msgid "Author list"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:70
+#: src/Api/Breadcrumbs.php:79
 msgid "Favourite list"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:93 src/Api/Breadcrumbs.php:105
+#: src/Api/Breadcrumbs.php:104 src/Api/Breadcrumbs.php:120
 #: template/front/tag-list.phtml:4
 msgid "Tag list"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:114 src/Api/Breadcrumbs.php:127
-#: template/front/topic-list.phtml:16
+#: src/Api/Breadcrumbs.php:153 template/front/topic-list.phtml:17
 msgid "Topic list"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:136 src/Api/Breadcrumbs.php:148
+#: src/Api/Breadcrumbs.php:162 src/Api/Breadcrumbs.php:178
 msgid "Post list"
 msgstr ""
 
-#: src/Api/Breadcrumbs.php:162
-msgid "Search result"
+#: src/Api/Story.php:719 src/Form/AuthorForm.php:98
+#: src/Form/AuthorRoleForm.php:68 src/Form/MicroblogForm.php:103
+#: src/Form/PositionForm.php:84 src/Form/SpotlightForm.php:121
+#: src/Form/StoryForm.php:167 src/Form/TopicForm.php:131
+#: template/admin/story-index.phtml:133 template/admin/story-index.phtml:135
+msgid "Draft"
 msgstr ""
 
-#: src/Controller/Admin/AttachController.php:85
-#: src/Controller/Admin/AttachController.php:194
-msgid "You must select story"
+#: src/Api/Story.php:721
+msgid "Missing image or path value from db for Story ID"
 msgstr ""
 
-#: src/Controller/Admin/AttachController.php:90
-#: src/Controller/Admin/AttachController.php:202
-msgid "Your selected story not exist"
+#: src/Api/Story.php:748
+msgid "Missing file or path value from db for attachment ID"
 msgstr ""
 
-#: src/Controller/Admin/AttachController.php:121
-#, php-format
-msgid "Attach files to %s"
-msgstr ""
-
-#: src/Controller/Admin/AttachController.php:129
-msgid "You must select file"
-msgstr ""
-
-#: src/Controller/Admin/AttachController.php:158
-msgid "All changes in file saved successfully."
-msgstr ""
-
-#: src/Controller/Admin/AttachController.php:167
-msgid "Edit file"
-msgstr ""
-
-#: src/Controller/Admin/AttachController.php:274
-msgid "Your attached file remove successfully"
-msgstr ""
-
-#: src/Controller/Admin/AttachController.php:279
-msgid "Please select file"
-msgstr ""
-
-#: src/Controller/Admin/AttributeController.php:53
+#: src/Controller/Admin/AttributeController.php:54
 msgid "Attribute field type not set."
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:108
+#: src/Controller/Admin/AttributeController.php:109
 msgid "Attribute field data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:120
+#: src/Controller/Admin/AttributeController.php:121
 #, php-format
 msgid "Add attribute - type : %s"
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:152
+#: src/Controller/Admin/AttributeController.php:153
 msgid "Selected field delete"
 msgstr ""
 
-#: src/Controller/Admin/AttributeController.php:154
+#: src/Controller/Admin/AttributeController.php:155
 msgid "Please select field"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:93
-#: src/Controller/Admin/StoryController.php:248
+#: src/Controller/Admin/AuthorController.php:99
+#: src/Controller/Admin/StoryController.php:204
 msgid "View filtered stores"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:99
-#: src/Controller/Admin/StoryController.php:254
+#: src/Controller/Admin/AuthorController.php:105
+#: src/Controller/Admin/StoryController.php:210
 msgid "Not valid"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:105
-#: src/Controller/Admin/StoryController.php:260
+#: src/Controller/Admin/AuthorController.php:111
+#: src/Controller/Admin/StoryController.php:216
 msgid "Not set"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:163
-#: src/Controller/Admin/StoryController.php:479
-#: src/Controller/Admin/TopicController.php:202
+#: src/Controller/Admin/AuthorController.php:169
+#: src/Controller/Admin/StoryController.php:458
+#: src/Controller/Admin/TopicController.php:207
 msgid "Problem in upload image. please try again"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:215
+#: src/Controller/Admin/AuthorController.php:227
 msgid "Author data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:218
-#: src/Controller/Admin/RoleController.php:81
-#: src/Controller/Admin/SpotlightController.php:136
-#: src/Controller/Admin/TopicController.php:301
+#: src/Controller/Admin/AuthorController.php:230
+#: src/Controller/Admin/RoleController.php:82
+#: src/Controller/Admin/TopicController.php:312
 msgid "Invalid data, please check and re-submit."
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:228
+#: src/Controller/Admin/AuthorController.php:240
 #: template/admin/author-index.phtml:5 template/admin/author-index.phtml:7
 msgid "Add Author"
 msgstr ""
 
-#: src/Controller/Admin/AuthorController.php:259
+#: src/Controller/Admin/AuthorController.php:271
 msgid "Please select author"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:90
-#: src/Controller/Admin/MicroblogController.php:167
-#: src/Controller/Front/MicroblogController.php:40
-#: src/Controller/Front/MicroblogController.php:84
+#: src/Controller/Admin/MicroblogController.php:100
+#: src/Controller/Admin/MicroblogController.php:181
+#: src/Controller/Front/MicroblogController.php:41
+#: src/Controller/Front/MicroblogController.php:85
 msgid "Microblog system not active"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:131
+#: src/Controller/Admin/MicroblogController.php:145
 msgid "Post saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:142
-#: template/admin/microblog-index.phtml:8
-#: template/admin/microblog-index.phtml:10
+#: src/Controller/Admin/MicroblogController.php:156
+#: template/admin/microblog-index.phtml:5
+#: template/admin/microblog-index.phtml:7
 msgid "New post"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:144
-#: template/admin/microblog-index.phtml:5
-#: template/admin/microblog-index.phtml:7
+#: src/Controller/Admin/MicroblogController.php:158
 msgid "New news"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:146
+#: src/Controller/Admin/MicroblogController.php:160
 msgid "Update"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:186
+#: src/Controller/Admin/MicroblogController.php:204
 msgid "This post deleted"
 msgstr ""
 
-#: src/Controller/Admin/MicroblogController.php:188
+#: src/Controller/Admin/MicroblogController.php:206
 msgid "Please select post"
 msgstr ""
 
-#: src/Controller/Admin/PositionController.php:75
+#: src/Controller/Admin/PositionController.php:76
 msgid "Attribute position data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/PositionController.php:87
+#: src/Controller/Admin/PositionController.php:88
 #: template/admin/position-index.phtml:4 template/admin/position-index.phtml:6
 msgid "Add position"
 msgstr ""
 
-#: src/Controller/Admin/RoleController.php:78
+#: src/Controller/Admin/RoleController.php:79
 msgid "Role data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/RoleController.php:92
+#: src/Controller/Admin/RoleController.php:93
 #: template/admin/author-role.phtml:3 template/admin/author-role.phtml:5
 msgid "Add Role"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:48
-#: src/Form/SpotlightForm.php:24
+#: src/Controller/Admin/SpotlightController.php:56
+#: src/Form/SpotlightForm.php:25
 msgid "Home Page"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:53
-#: src/Form/Element/Topic.php:79 src/Form/SpotlightForm.php:25
+#: src/Controller/Admin/SpotlightController.php:61
+#: src/Form/Element/Topic.php:80 src/Form/SpotlightForm.php:26
 msgid "All Topics"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:130
+#: src/Controller/Admin/SpotlightController.php:153
 msgid "Spotlight data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:133
-msgid "Spotlight data not saved."
-msgstr ""
-
-#: src/Controller/Admin/SpotlightController.php:151
+#: src/Controller/Admin/SpotlightController.php:167
 msgid "Add a Spotlight"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:164
+#: src/Controller/Admin/SpotlightController.php:179
 msgid "Selected spotlight delete"
 msgstr ""
 
-#: src/Controller/Admin/SpotlightController.php:166
+#: src/Controller/Admin/SpotlightController.php:181
 msgid "Please select spotlight"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:138 src/Form/StoryForm.php:159
-#: template/admin/story-index.phtml:29
+#: src/Controller/Admin/StoryController.php:107 src/Form/StoryForm.php:182
+#: template/admin/story-index.phtml:37
 msgid "Article"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:142 src/Form/StoryForm.php:160
-#: template/admin/story-index.phtml:33
+#: src/Controller/Admin/StoryController.php:111 src/Form/StoryForm.php:183
+#: template/admin/story-index.phtml:41
 msgid "Magazine"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:146
-#: src/Controller/Admin/TopicController.php:260 src/Form/StoryForm.php:164
-#: template/admin/attach-add.phtml:67 template/admin/story-index.phtml:53
-#: template/admin/story-update.phtml:118
+#: src/Controller/Admin/StoryController.php:115
+#: src/Controller/Admin/TopicController.php:267 src/Form/StoryForm.php:187
+#: template/admin/attach-add.phtml:71 template/admin/story-index.phtml:69
+#: template/admin/story-update.phtml:122
 msgid "Download"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:150
-#: src/Controller/Admin/TopicController.php:56 src/Form/StoryForm.php:163
-#: src/Form/TopicForm.php:133 template/admin/story-index.phtml:49
+#: src/Controller/Admin/StoryController.php:119
+#: src/Controller/Admin/ToolsController.php:242
+#: src/Controller/Admin/TopicController.php:57 src/Form/StoryForm.php:186
+#: src/Form/TopicForm.php:149 template/admin/story-index.phtml:63
 msgid "Media"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:154 src/Form/StoryForm.php:161
+#: src/Controller/Admin/StoryController.php:123 src/Form/StoryForm.php:184
 msgid "Gallery album"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:158 src/Form/StoryForm.php:162
+#: src/Controller/Admin/StoryController.php:127 src/Form/StoryForm.php:185
 msgid "Single image"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:163 src/Form/StoryForm.php:165
-#: src/Form/StoryForm.php:169 template/admin/story-index.phtml:37
+#: src/Controller/Admin/StoryController.php:132 src/Form/StoryForm.php:188
+#: src/Form/StoryForm.php:192 template/admin/story-index.phtml:47
 msgid "Blog post"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:319
-#, php-format
-msgid "%s story accept successfully"
-msgstr ""
-
-#: src/Controller/Admin/StoryController.php:324
-#, php-format
-msgid "Error in accept %s story"
-msgstr ""
-
-#: src/Controller/Admin/StoryController.php:566
+#: src/Controller/Admin/StoryController.php:576
 msgid "Story data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:596
-#: src/Controller/Admin/StoryController.php:773
+#: src/Controller/Admin/StoryController.php:607
+#: src/Controller/Admin/StoryController.php:796
 msgid ""
 "Your story type is <strong>Download</strong> , first please completion this "
 "form , after that if you see extra file fields, you can add your file urls , "
@@ -351,8 +325,8 @@ msgid ""
 "next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:600
-#: src/Controller/Admin/StoryController.php:777
+#: src/Controller/Admin/StoryController.php:613
+#: src/Controller/Admin/StoryController.php:802
 msgid ""
 "Your story type is <strong>Media</strong> , first please completion this "
 "form , after that if you see extra video or audio fields, you can add your "
@@ -360,63 +334,63 @@ msgid ""
 "submit button , you can upload your media on next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:604
+#: src/Controller/Admin/StoryController.php:618
 msgid ""
 "Your story type is <strong>Image</strong> , please completion this form and "
 "attach your image"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:608
-#: src/Controller/Admin/StoryController.php:781
+#: src/Controller/Admin/StoryController.php:623
+#: src/Controller/Admin/StoryController.php:808
 msgid ""
 "Your story type is <strong>Gallery</strong> , first please completion this "
 "form , after click on submit button , you can upload your images on next page"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:612
+#: src/Controller/Admin/StoryController.php:628
 msgid ""
 "Your story type is <strong>Blog post</strong> , write your post here and it "
 "will show on blog module"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:616
+#: src/Controller/Admin/StoryController.php:632
 msgid ""
 "Your story type is <strong>Article</strong> and you should add text "
 "information on form fields, image set on side bar"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:620
+#: src/Controller/Admin/StoryController.php:636
 msgid ""
 "Your story type is <strong>Magazine</strong> and you should add text "
 "information on form fields, image set on side bar"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:625
+#: src/Controller/Admin/StoryController.php:641
 msgid ""
 "Your story type is <strong>Text</strong> and you should add text information "
 "on form fields, image set on top and center"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:657
+#: src/Controller/Admin/StoryController.php:679
 msgid "Add a Story"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:703
-#: src/Controller/Admin/StoryController.php:758
+#: src/Controller/Admin/StoryController.php:725
+#: src/Controller/Admin/StoryController.php:780
 msgid "Text data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:786
+#: src/Controller/Admin/StoryController.php:814
 msgid ""
 "Your story type is <strong>Text</strong> and you shuold add text information "
 "on form fields"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:792
+#: src/Controller/Admin/StoryController.php:820
 msgid "Manage additional information"
 msgstr ""
 
-#: src/Controller/Admin/StoryController.php:822
+#: src/Controller/Admin/StoryController.php:854
 msgid "This story deleted"
 msgstr ""
 
@@ -436,250 +410,272 @@ msgstr ""
 msgid "Finish Rebuild SEO title, all story SEO title update"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:92
+#: src/Controller/Admin/ToolsController.php:94
 msgid "Finish Rebuild SEO keywords, all story SEO keywords update"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:101
+#: src/Controller/Admin/ToolsController.php:103
 msgid "Finish Rebuild SEO description, all story SEO description update"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:108
+#: src/Controller/Admin/ToolsController.php:110
 msgid "Rebuild stores"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:115
-#: template/admin/tools-index.phtml:11
+#: src/Controller/Admin/ToolsController.php:117
+#: template/admin/tools-index.phtml:22
 msgid "You can prune all old stores, from selected topic."
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:130
+#: src/Controller/Admin/ToolsController.php:132
 #, php-format
 msgid "<strong>%s</strong> old stores removed"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:133
+#: src/Controller/Admin/ToolsController.php:135
 msgid ""
 "Error in pruned old stores. perhaps no stroy exist whit your select query"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:139
+#: src/Controller/Admin/ToolsController.php:141
 msgid "Prune stores"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:150
+#: src/Controller/Admin/ToolsController.php:152
 #, php-format
 msgid "<strong>%s</strong> old spotlights removed"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:153
+#: src/Controller/Admin/ToolsController.php:155
 msgid "Error in remove old spotlights. perhaps no spotlights exist"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:157
+#: src/Controller/Admin/ToolsController.php:159
 msgid "Prune spotlights"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:164
+#: src/Controller/Admin/ToolsController.php:166
 msgid ""
 "Remove all topic pages from system page table. and keep just module default "
 "pages"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:183
+#: src/Controller/Admin/ToolsController.php:185
 msgid "All other pages removed"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:185
+#: src/Controller/Admin/ToolsController.php:187
 msgid "No pages were removed"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:191
+#: src/Controller/Admin/ToolsController.php:193
 msgid "Remove topic pages"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:198
+#: src/Controller/Admin/ToolsController.php:200
 msgid "Rebuild thie module links on sitemap module tabels"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:221
+#: src/Controller/Admin/ToolsController.php:228
 msgid "Sitemap rebuild finished"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:226
+#: src/Controller/Admin/ToolsController.php:233
 msgid "Rebuild sitemap links"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:233
-msgid ""
-"Regenerate all images by new setting. Please make backup from youe files on "
-"upload folder , before use this tools"
+#: src/Controller/Admin/ToolsController.php:251
+msgid "Media have migrate successfully"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:257
-msgid "Regenerate images finished"
+#: src/Controller/Admin/ToolsController.php:289
+#: src/Controller/Front/CronController.php:40
+#, php-format
+msgid "%s picture(s) has been generated or already exists"
 msgstr ""
 
-#: src/Controller/Admin/ToolsController.php:262
-msgid "Regenerate images"
-msgstr ""
-
-#: src/Controller/Admin/TopicController.php:48 src/Form/TopicForm.php:131
+#: src/Controller/Admin/TopicController.php:49 src/Form/TopicForm.php:147
 msgid "List"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:52 src/Form/TopicForm.php:132
+#: src/Controller/Admin/TopicController.php:53 src/Form/TopicForm.php:148
 msgid "Table"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:60 src/Form/TopicForm.php:134
-#: template/admin/tools-index.phtml:12
+#: src/Controller/Admin/TopicController.php:61 src/Form/TopicForm.php:150
+#: template/admin/tools-index.phtml:23
 msgid "Spotlight"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:64 src/Form/AttributeForm.php:74
-#: src/Form/StoryForm.php:190 src/Form/TopicForm.php:135
+#: src/Controller/Admin/TopicController.php:65 src/Form/AttributeForm.php:82
+#: src/Form/StoryForm.php:216 src/Form/TopicForm.php:151
 msgid "Topic"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:69 src/Form/TopicForm.php:130
+#: src/Controller/Admin/TopicController.php:70 src/Form/TopicForm.php:146
 msgid "News"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:75
+#: src/Controller/Admin/TopicController.php:76
 msgid "Blog module"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:79
+#: src/Controller/Admin/TopicController.php:80
 msgid "Event module"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:84 src/Form/TopicForm.php:149
+#: src/Controller/Admin/TopicController.php:85 src/Form/TopicForm.php:167
 msgid "General"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:275
-#: src/Controller/Admin/TopicController.php:277
+#: src/Controller/Admin/TopicController.php:282
+#: src/Controller/Admin/TopicController.php:284
 #, php-format
 msgid "Page : %s"
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:298
+#: src/Controller/Admin/TopicController.php:309
 msgid "Topic data saved successfully."
 msgstr ""
 
-#: src/Controller/Admin/TopicController.php:312
+#: src/Controller/Admin/TopicController.php:323
 msgid "Add a Topic"
 msgstr ""
 
-#: src/Controller/Feed/IndexController.php:24
+#: src/Controller/Api/StoryController.php:29
+#: src/Controller/Api/StoryController.php:98
+#: src/Controller/Api/TopicController.php:29
+#: src/Controller/Api/TopicController.php:95
+msgid "Nothing selected"
+msgstr ""
+
+#: src/Controller/Api/StoryController.php:70
+#: src/Controller/Api/StoryController.php:132
+#: src/Controller/Api/TopicController.php:67
+#: src/Controller/Api/TopicController.php:129
+msgid "Data is empty"
+msgstr ""
+
+#: src/Controller/Api/StoryController.php:139
+#: src/Controller/Api/TopicController.php:136
+msgid "Id not selected"
+msgstr ""
+
+#: src/Controller/Feed/IndexController.php:26
 msgid "News feed"
 msgstr ""
 
-#: src/Controller/Feed/IndexController.php:25
+#: src/Controller/Feed/IndexController.php:27
 msgid "Recent News."
 msgstr ""
 
-#: src/Controller/Front/AuthorController.php:31
-#: src/Controller/Front/AuthorController.php:73
-#: src/Controller/Front/FavouriteController.php:33
-#: src/Controller/Front/IndexController.php:34
+#: src/Controller/Front/AuthorController.php:32
+#: src/Controller/Front/AuthorController.php:80
+#: src/Controller/Front/FavouriteController.php:34
+#: src/Controller/Front/IndexController.php:35
 #: src/Controller/Front/MediaController.php:30
-#: src/Controller/Front/MediaController.php:81
-#: src/Controller/Front/MediaController.php:132
-#: src/Controller/Front/MicroblogController.php:33
-#: src/Controller/Front/MicroblogController.php:77
-#: src/Controller/Front/StoryController.php:30
-#: src/Controller/Front/TagController.php:31
-#: src/Controller/Front/TagController.php:114
+#: src/Controller/Front/MediaController.php:87
+#: src/Controller/Front/MediaController.php:146
+#: src/Controller/Front/MicroblogController.php:34
+#: src/Controller/Front/MicroblogController.php:78
+#: src/Controller/Front/StoryController.php:31
+#: src/Controller/Front/TagController.php:32
+#: src/Controller/Front/TagController.php:131
 #: src/Controller/Front/TopicController.php:32
-#: src/Controller/Front/TopicController.php:117
+#: src/Controller/Front/TopicController.php:125
 msgid "Page not found."
 msgstr ""
 
-#: src/Controller/Front/AuthorController.php:43
+#: src/Controller/Front/AuthorController.php:44
 msgid "The author not found."
 msgstr ""
 
-#: src/Controller/Front/AuthorController.php:89
+#: src/Controller/Front/AuthorController.php:96
 msgid "List of all authors"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:40
+#: src/Controller/Front/FavouriteController.php:41
 msgid "The user not select"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:47
+#: src/Controller/Front/FavouriteController.php:48
 msgid "Favourite module not installed"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:59
+#: src/Controller/Front/FavouriteController.php:60
 msgid "No favourite find by you"
 msgstr ""
 
-#: src/Controller/Front/FavouriteController.php:78
+#: src/Controller/Front/FavouriteController.php:81
 msgid "All favourite stories by you"
 msgstr ""
 
-#: src/Controller/Front/IndexController.php:151
+#: src/Controller/Front/IndexController.php:56
+#: src/Controller/Front/TopicController.php:138
+#: template/front/topic-list.phtml:6 template/front/topic-list.phtml:7
+#: template/front/topic-list.phtml:10 template/front/topic-list.phtml:11
+msgid "List of all topics"
+msgstr ""
+
+#: src/Controller/Front/IndexController.php:96
 msgid "List of Latest stories"
 msgstr ""
 
-#: src/Controller/Front/JsonController.php:90
-#: src/Controller/Front/JsonController.php:116
-#: src/Controller/Front/JsonController.php:151
+#: src/Controller/Front/JsonController.php:263
+#: src/Controller/Front/JsonController.php:289
+#: src/Controller/Front/JsonController.php:324
 msgid "Password not set or wrong"
 msgstr ""
 
-#: src/Controller/Front/JsonController.php:199
+#: src/Controller/Front/JsonController.php:437
 msgid "The keyword not found."
 msgstr ""
 
-#: src/Controller/Front/JsonController.php:216
+#: src/Controller/Front/JsonController.php:454
 #, php-format
 msgid "Stories related to %s"
 msgstr ""
 
 #: src/Controller/Front/MediaController.php:39
-#: src/Controller/Front/MediaController.php:88
-#: src/Controller/Front/MediaController.php:139
+#: src/Controller/Front/MediaController.php:94
+#: src/Controller/Front/MediaController.php:153
 msgid "The media not set."
 msgstr ""
 
-#: src/Controller/Front/MicroblogController.php:50
+#: src/Controller/Front/MicroblogController.php:51
 msgid "The post not found."
 msgstr ""
 
-#: src/Controller/Front/MicroblogController.php:129
+#: src/Controller/Front/MicroblogController.php:134
 msgid "All posts on microblog system"
 msgstr ""
 
-#: src/Controller/Front/StoryController.php:46
+#: src/Controller/Front/StoryController.php:56
 msgid "The story not found."
 msgstr ""
 
-#: src/Controller/Front/StoryController.php:53
+#: src/Controller/Front/StoryController.php:63
 msgid "The Story not publish."
 msgstr ""
 
-#: src/Controller/Front/TagController.php:38
+#: src/Controller/Front/TagController.php:39
 msgid "Tag module not installed."
 msgstr ""
 
-#: src/Controller/Front/TagController.php:47
+#: src/Controller/Front/TagController.php:46
 msgid "The tag not set."
 msgstr ""
 
-#: src/Controller/Front/TagController.php:60
+#: src/Controller/Front/TagController.php:59
 msgid "The tag not found."
 msgstr ""
 
-#: src/Controller/Front/TagController.php:84
+#: src/Controller/Front/TagController.php:93
 #, php-format
 msgid "All stores from %s"
 msgstr ""
 
-#: src/Controller/Front/TagController.php:136
+#: src/Controller/Front/TagController.php:157
 msgid "List of all used tags"
 msgstr ""
 
@@ -691,563 +687,563 @@ msgstr ""
 msgid "Topic not active."
 msgstr ""
 
-#: src/Controller/Front/TopicController.php:130
-#: template/front/topic-list.phtml:5 template/front/topic-list.phtml:7
-#: template/front/topic-list.phtml:9 template/front/topic-list.phtml:10
-msgid "List of all topics"
-msgstr ""
-
-#: src/Form/AttachForm.php:48 src/Form/AttributeForm.php:49
-#: src/Form/AuthorForm.php:48 src/Form/AuthorRoleForm.php:46
-#: src/Form/PositionForm.php:47 src/Form/StoryForm.php:58
-#: src/Form/StorySearchForm.php:40 src/Form/TopicForm.php:64
-#: template/admin/attach-index.phtml:29 template/admin/attribute-index.phtml:57
+#: src/Form/AttachForm.php:52 src/Form/AttributeForm.php:53
+#: src/Form/AuthorForm.php:52 src/Form/AuthorRoleForm.php:50
+#: src/Form/PositionForm.php:50 src/Form/StoryForm.php:64
+#: src/Form/StorySearchForm.php:41 src/Form/TopicForm.php:70
+#: template/admin/attach-index.phtml:29 template/admin/attribute-index.phtml:59
 #: template/admin/author-index.phtml:18 template/admin/author-role.phtml:11
-#: template/admin/position-index.phtml:13 template/admin/story-index.phtml:157
-#: template/admin/topic-index.phtml:13 template/front/index-table.phtml:16
+#: template/admin/position-index.phtml:13 template/admin/story-index.phtml:175
+#: template/admin/topic-index.phtml:13 template/front/index-table.phtml:10
 msgid "Title"
 msgstr ""
 
-#: src/Form/AttachForm.php:60 src/Form/AttributeForm.php:89
-#: src/Form/AuthorForm.php:84 src/Form/AuthorRoleForm.php:58
-#: src/Form/MicroblogForm.php:88 src/Form/PositionForm.php:73
-#: src/Form/SpotlightForm.php:105 src/Form/StoryForm.php:142
-#: src/Form/TopicForm.php:113 template/admin/attach-add.phtml:82
-#: template/admin/story-update.phtml:105
+#: src/Form/AttachForm.php:66 src/Form/AttributeForm.php:99
+#: src/Form/AuthorForm.php:94 src/Form/AuthorRoleForm.php:64
+#: src/Form/MicroblogForm.php:99 src/Form/PositionForm.php:80
+#: src/Form/SpotlightForm.php:117 src/Form/StoryForm.php:163
+#: src/Form/TopicForm.php:127 template/admin/attach-add.phtml:86
+#: template/admin/story-update.phtml:109
 msgid "Status"
 msgstr ""
 
-#: src/Form/AttachForm.php:62 src/Form/AttributeForm.php:91
+#: src/Form/AttachForm.php:68 src/Form/AttributeForm.php:101
 msgid "Online"
 msgstr ""
 
-#: src/Form/AttachForm.php:63 src/Form/AttributeForm.php:92
+#: src/Form/AttachForm.php:69 src/Form/AttributeForm.php:102
 msgid "Offline"
 msgstr ""
 
-#: src/Form/AttachForm.php:72 src/Form/AttributeForm.php:199
-#: src/Form/AuthorForm.php:184 src/Form/AuthorRoleForm.php:72
-#: src/Form/MicroblogForm.php:106 src/Form/PageForm.php:43
-#: src/Form/PositionForm.php:88 src/Form/PruneForm.php:44
-#: src/Form/RebuildForm.php:68 src/Form/RegenerateImageForm.php:46
-#: src/Form/SitemapForm.php:46 src/Form/SpotlightForm.php:119
-#: src/Form/StoryAdditionalForm.php:98 src/Form/StoryForm.php:390
-#: src/Form/TopicForm.php:467
+#: src/Form/AttachForm.php:80 src/Form/AttributeForm.php:223
+#: src/Form/AuthorForm.php:212 src/Form/AuthorRoleForm.php:80
+#: src/Form/MicroblogForm.php:119 src/Form/PageForm.php:47
+#: src/Form/PositionForm.php:97 src/Form/PruneForm.php:48
+#: src/Form/RebuildForm.php:76 src/Form/RegenerateImageForm.php:50
+#: src/Form/SitemapForm.php:50 src/Form/SpotlightForm.php:133
+#: src/Form/StoryAdditionalForm.php:110 src/Form/StoryForm.php:423
+#: src/Form/TopicForm.php:541
 msgid "Submit"
 msgstr ""
 
-#: src/Form/AttributeForm.php:61
+#: src/Form/AttributeForm.php:67 template/front/partial/favourite-list.phtml:6
 msgid "Name"
 msgstr ""
 
-#: src/Form/AttributeForm.php:65
+#: src/Form/AttributeForm.php:71
 msgid "Set name for call anywhere, a-z 0-9 allowed"
 msgstr ""
 
-#: src/Form/AttributeForm.php:78
+#: src/Form/AttributeForm.php:86
 msgid "Set allowed topics ( main topic ) to use this attribute"
 msgstr ""
 
-#: src/Form/AttributeForm.php:104 template/admin/attribute-index.phtml:65
+#: src/Form/AttributeForm.php:116 template/admin/attribute-index.phtml:67
 msgid "Set"
 msgstr ""
 
-#: src/Form/AttributeForm.php:109
+#: src/Form/AttributeForm.php:121
 msgid "Set view position"
 msgstr ""
 
-#: src/Form/AttributeForm.php:141
+#: src/Form/AttributeForm.php:155
 msgid "General data"
 msgstr ""
 
-#: src/Form/AttributeForm.php:147
+#: src/Form/AttributeForm.php:161
 msgid "Use `|` as delimiter to separate select box elements"
 msgstr ""
 
-#: src/Form/AttributeForm.php:154
+#: src/Form/AttributeForm.php:170
 msgid "Default data"
 msgstr ""
 
-#: src/Form/AttributeForm.php:165 src/Installer/Action/Install.php:137
+#: src/Form/AttributeForm.php:183 src/Installer/Action/Install.php:137
 msgid "Extra information"
 msgstr ""
 
-#: src/Form/AttributeForm.php:169
+#: src/Form/AttributeForm.php:187
 msgid "Put page URL for click by user to explain about this field"
 msgstr ""
 
-#: src/Form/AttributeForm.php:176
+#: src/Form/AttributeForm.php:196
 msgid "Icon"
 msgstr ""
 
-#: src/Form/AttributeForm.php:180
+#: src/Form/AttributeForm.php:200
 msgid "Use fontawesome.io icons, and set icon name like fa-home"
 msgstr ""
 
-#: src/Form/AttributeForm.php:188 src/Form/StorySearchForm.php:52
+#: src/Form/AttributeForm.php:210 src/Form/StorySearchForm.php:55
 msgid "Search"
 msgstr ""
 
-#: src/Form/AuthorForm.php:59 src/Form/StoryForm.php:81
-#: src/Form/TopicForm.php:75
+#: src/Form/AuthorForm.php:65 src/Form/StoryForm.php:91
+#: src/Form/TopicForm.php:83
 msgid "slug"
 msgstr ""
 
-#: src/Form/AuthorForm.php:70 src/Form/TopicForm.php:99
+#: src/Form/AuthorForm.php:78 src/Form/TopicForm.php:111
 msgid "Description"
 msgstr ""
 
-#: src/Form/AuthorForm.php:86 src/Form/AuthorRoleForm.php:60
-#: src/Form/MicroblogForm.php:90 src/Form/PositionForm.php:75
-#: src/Form/SpotlightForm.php:107 src/Form/StoryForm.php:144
-#: src/Form/TopicForm.php:115 template/admin/attach-index.phtml:51
-#: template/admin/author-index.phtml:47 template/admin/author-role.phtml:36
-#: template/admin/microblog-index.phtml:49
-#: template/admin/microblog-index.phtml:61 template/admin/story-index.phtml:109
-#: template/admin/story-index.phtml:111 template/admin/story-index.phtml:162
-#: template/admin/story-index.phtml:217 template/admin/topic-index.phtml:61
+#: src/Form/AuthorForm.php:96 src/Form/AuthorRoleForm.php:66
+#: src/Form/MicroblogForm.php:101 src/Form/PositionForm.php:82
+#: src/Form/SpotlightForm.php:119 src/Form/StoryForm.php:165
+#: src/Form/TopicForm.php:129 template/admin/attach-index.phtml:51
+#: template/admin/author-index.phtml:49 template/admin/author-role.phtml:36
+#: template/admin/microblog-index.phtml:46
+#: template/admin/microblog-index.phtml:58 template/admin/story-index.phtml:127
+#: template/admin/story-index.phtml:129 template/admin/story-index.phtml:180
+#: template/admin/story-index.phtml:224 template/admin/topic-index.phtml:53
 msgid "Published"
 msgstr ""
 
-#: src/Form/AuthorForm.php:87 src/Form/AuthorRoleForm.php:61
-#: src/Form/MicroblogForm.php:91 src/Form/PositionForm.php:76
-#: src/Form/SpotlightForm.php:108 src/Form/StoryForm.php:145
-#: src/Form/TopicForm.php:116 template/admin/attach-index.phtml:52
-#: template/admin/author-index.phtml:48 template/admin/author-role.phtml:37
-#: template/admin/microblog-index.phtml:62 template/admin/story-index.phtml:112
-#: template/admin/story-index.phtml:114 template/admin/story-index.phtml:218
-#: template/admin/topic-index.phtml:62
+#: src/Form/AuthorForm.php:97 src/Form/AuthorRoleForm.php:67
+#: src/Form/MicroblogForm.php:102 src/Form/PositionForm.php:83
+#: src/Form/SpotlightForm.php:120 src/Form/StoryForm.php:166
+#: src/Form/TopicForm.php:130 template/admin/attach-index.phtml:52
+#: template/admin/author-index.phtml:50 template/admin/author-role.phtml:37
+#: template/admin/microblog-index.phtml:59 template/admin/story-index.phtml:130
+#: template/admin/story-index.phtml:132 template/admin/story-index.phtml:225
+#: template/admin/topic-index.phtml:54
 msgid "Pending review"
 msgstr ""
 
-#: src/Form/AuthorForm.php:88 src/Form/AuthorRoleForm.php:62
-#: src/Form/MicroblogForm.php:92 src/Form/PositionForm.php:77
-#: src/Form/SpotlightForm.php:109 src/Form/StoryForm.php:146
-#: src/Form/TopicForm.php:117 template/admin/story-index.phtml:115
-#: template/admin/story-index.phtml:117
-msgid "Draft"
-msgstr ""
-
-#: src/Form/AuthorForm.php:89 src/Form/AuthorRoleForm.php:63
-#: src/Form/MicroblogForm.php:93 src/Form/PositionForm.php:78
-#: src/Form/SpotlightForm.php:110 src/Form/StoryForm.php:147
-#: src/Form/TopicForm.php:118 template/admin/story-index.phtml:118
-#: template/admin/story-index.phtml:120
+#: src/Form/AuthorForm.php:99 src/Form/AuthorRoleForm.php:69
+#: src/Form/MicroblogForm.php:104 src/Form/PositionForm.php:85
+#: src/Form/SpotlightForm.php:122 src/Form/StoryForm.php:168
+#: src/Form/TopicForm.php:132 template/admin/story-index.phtml:136
+#: template/admin/story-index.phtml:138
 msgid "Private"
 msgstr ""
 
-#: src/Form/AuthorForm.php:108 src/Form/StoryForm.php:271
-#: src/Form/TopicForm.php:173
+#: src/Form/AuthorForm.php:122 src/Form/TopicForm.php:195
 msgid "Remove image"
 msgstr ""
 
-#: src/Form/AuthorForm.php:124 src/Form/TopicForm.php:189
-#: template/admin/story-index.phtml:41
+#: src/Form/AuthorForm.php:142 src/Form/TopicForm.php:215
+#: template/admin/story-index.phtml:51
+#: template/front/partial/favourite-list.phtml:5
 msgid "Image"
 msgstr ""
 
-#: src/Form/AuthorForm.php:137 src/Form/StoryForm.php:308
-#: src/Form/TopicForm.php:202
+#: src/Form/AuthorForm.php:157 src/Form/StoryForm.php:323
+#: src/Form/TopicForm.php:230
 msgid "SEO options"
 msgstr ""
 
-#: src/Form/AuthorForm.php:144 src/Form/RebuildForm.php:33
-#: src/Form/TopicForm.php:209
+#: src/Form/AuthorForm.php:166 src/Form/RebuildForm.php:35
+#: src/Form/TopicForm.php:239
 msgid "SEO Title"
 msgstr ""
 
-#: src/Form/AuthorForm.php:157 src/Form/RebuildForm.php:34
-#: src/Form/TopicForm.php:222
+#: src/Form/AuthorForm.php:181 src/Form/RebuildForm.php:36
+#: src/Form/TopicForm.php:254
 msgid "SEO Keywords"
 msgstr ""
 
-#: src/Form/AuthorForm.php:170 src/Form/RebuildForm.php:35
-#: src/Form/TopicForm.php:235
+#: src/Form/AuthorForm.php:196 src/Form/RebuildForm.php:37
+#: src/Form/TopicForm.php:269
 msgid "SEO Description"
 msgstr ""
 
-#: src/Form/MicroblogForm.php:49
+#: src/Form/MicroblogForm.php:52
 msgid "Post"
 msgstr ""
 
-#: src/Form/MicroblogForm.php:94 src/Form/PositionForm.php:79
-#: src/Form/TopicForm.php:119 template/admin/attach-add.phtml:50
-#: template/admin/attribute-index.phtml:72
+#: src/Form/MicroblogForm.php:105 src/Form/PositionForm.php:86
+#: src/Form/TopicForm.php:133 template/admin/attach-add.phtml:54
+#: template/admin/attribute-index.phtml:74
+#: template/admin/microblog-index.phtml:42
 #: template/admin/microblog-index.phtml:45
-#: template/admin/microblog-index.phtml:48
-#: template/admin/spotlight-index.phtml:33
-#: template/admin/spotlight-index.phtml:35 template/admin/story-index.phtml:206
-#: template/admin/story-index.phtml:207 template/admin/story-update.phtml:75
-#: template/admin/story-view.phtml:51 template/admin/story-view.phtml:53
+#: template/admin/spotlight-index.phtml:35
+#: template/admin/spotlight-index.phtml:36 template/admin/story-index.phtml:211
+#: template/admin/story-index.phtml:214 template/admin/story-update.phtml:79
+#: template/admin/story-view.phtml:49 template/admin/story-view.phtml:51
 msgid "Delete"
 msgstr ""
 
-#: src/Form/PageForm.php:32
+#: src/Form/PageForm.php:34
 msgid "Confirm to remove all topic pages"
 msgstr ""
 
-#: src/Form/PositionForm.php:60
+#: src/Form/PositionForm.php:65
 msgid "Order"
 msgstr ""
 
-#: src/Form/PruneForm.php:32
+#: src/Form/PruneForm.php:34
 msgid "All contacts Before"
 msgstr ""
 
-#: src/Form/RebuildForm.php:26 template/admin/tools-index.phtml:7
+#: src/Form/RebuildForm.php:28 template/admin/tools-index.phtml:17
 msgid "Rebuild"
 msgstr ""
 
-#: src/Form/RebuildForm.php:30
+#: src/Form/RebuildForm.php:32
 msgid "Slug"
 msgstr ""
 
-#: src/Form/RebuildForm.php:31
+#: src/Form/RebuildForm.php:33
 msgid "Replace slug by title"
 msgstr ""
 
-#: src/Form/RebuildForm.php:32
+#: src/Form/RebuildForm.php:34
 msgid "Replace slug by id"
 msgstr ""
 
-#: src/Form/RebuildForm.php:43
+#: src/Form/RebuildForm.php:47
 msgid "Start date"
 msgstr ""
 
-#: src/Form/RebuildForm.php:55
+#: src/Form/RebuildForm.php:61
 msgid "End date"
 msgstr ""
 
-#: src/Form/RegenerateImageForm.php:32
+#: src/Form/RegenerateImageForm.php:34
 msgid "Select for regenerate"
 msgstr ""
 
-#: src/Form/RegenerateImageForm.php:34
+#: src/Form/RegenerateImageForm.php:36
 msgid "All images"
 msgstr ""
 
-#: src/Form/RegenerateImageForm.php:35
+#: src/Form/RegenerateImageForm.php:37
 msgid "Just story images"
 msgstr ""
 
-#: src/Form/RegenerateImageForm.php:36
+#: src/Form/RegenerateImageForm.php:38
 msgid "Just topic images"
 msgstr ""
 
-#: src/Form/RegenerateImageForm.php:37
+#: src/Form/RegenerateImageForm.php:39
 msgid "Just author images"
 msgstr ""
 
-#: src/Form/SitemapForm.php:32
+#: src/Form/SitemapForm.php:34
 msgid "Select for rebuild"
 msgstr ""
 
-#: src/Form/SitemapForm.php:34
+#: src/Form/SitemapForm.php:36
 msgid "All of tables"
 msgstr ""
 
-#: src/Form/SitemapForm.php:35
+#: src/Form/SitemapForm.php:37
 msgid "Just story table"
 msgstr ""
 
-#: src/Form/SitemapForm.php:36
+#: src/Form/SitemapForm.php:38
 msgid "Just topic table"
 msgstr ""
 
-#: src/Form/SitemapForm.php:37
+#: src/Form/SitemapForm.php:39
 msgid "Just author table"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:52 template/admin/spotlight-index.phtml:13
+#: src/Form/SpotlightForm.php:56 template/admin/spotlight-index.phtml:13
 msgid "Story"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:56
+#: src/Form/SpotlightForm.php:60
 msgid "Select story for add to Spotlight"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:66 template/admin/spotlight-index.phtml:14
+#: src/Form/SpotlightForm.php:72 template/admin/spotlight-index.phtml:14
 msgid "Show in"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:71
+#: src/Form/SpotlightForm.php:77
 msgid "Select Spotlight topic, Your Spotlight show in this topic/page"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:80 template/admin/spotlight-index.phtml:15
+#: src/Form/SpotlightForm.php:88 template/admin/spotlight-index.phtml:15
+#: template/front/partial/favourite-list.phtml:8
 msgid "Publish date"
 msgstr ""
 
-#: src/Form/SpotlightForm.php:92 template/admin/spotlight-index.phtml:16
+#: src/Form/SpotlightForm.php:102 template/admin/spotlight-index.phtml:16
 msgid "Expire date"
 msgstr ""
 
-#: src/Form/StoryForm.php:51
+#: src/Form/StoryForm.php:55
 msgid "Text options"
 msgstr ""
 
-#: src/Form/StoryForm.php:70
+#: src/Form/StoryForm.php:78
 msgid "Subtitle"
 msgstr ""
 
-#: src/Form/StoryForm.php:92 src/Form/TopicForm.php:86
+#: src/Form/StoryForm.php:95
+msgid "Used as story URL value : must be unique, short, and user oriented"
+msgstr ""
+
+#: src/Form/StoryForm.php:104 src/Form/TopicForm.php:96
 msgid "Short text"
 msgstr ""
 
-#: src/Form/StoryForm.php:98 src/Form/TopicForm.php:92
-msgid "Just show on story list and blocks"
-msgstr ""
-
-#: src/Form/StoryForm.php:105
-msgid "Main text"
-msgstr ""
-
-#: src/Form/StoryForm.php:111
-msgid "Only show on story page"
+#: src/Form/StoryForm.php:110
+msgid "Just shown on story list and blocks"
 msgstr ""
 
 #: src/Form/StoryForm.php:119
-msgid "Extra html text"
+msgid "Main text"
 msgstr ""
 
 #: src/Form/StoryForm.php:125
+msgid "Only shown on story page"
+msgstr ""
+
+#: src/Form/StoryForm.php:135
+msgid "Extra html text"
+msgstr ""
+
+#: src/Form/StoryForm.php:141
 msgid "Set custom html code to show under main text"
 msgstr ""
 
-#: src/Form/StoryForm.php:134
-msgid "Mian options"
+#: src/Form/StoryForm.php:152
+msgid "Main options"
 msgstr ""
 
-#: src/Form/StoryForm.php:148
+#: src/Form/StoryForm.php:169
 msgid "Remove"
 msgstr ""
 
-#: src/Form/StoryForm.php:176 template/admin/attach-add.phtml:78
-#: template/admin/attribute-index.phtml:61
-#: template/admin/story-update.phtml:101
+#: src/Form/StoryForm.php:200 template/admin/attach-add.phtml:82
+#: template/admin/attribute-index.phtml:63
+#: template/admin/story-update.phtml:105
 msgid "Type"
 msgstr ""
 
-#: src/Form/StoryForm.php:201
+#: src/Form/StoryForm.php:229
 msgid "Main topic"
 msgstr ""
 
-#: src/Form/StoryForm.php:209
+#: src/Form/StoryForm.php:237
 msgid "Just use for breadcrumbs and mobile apps"
 msgstr ""
 
-#: src/Form/StoryForm.php:218
+#: src/Form/StoryForm.php:248
 msgid "Publish time"
 msgstr ""
 
-#: src/Form/StoryForm.php:231 template/admin/story-view.phtml:8
-#: template/front/index-media.phtml:25 template/front/index-news.phtml:19
-#: template/front/index-table.phtml:28 template/front/story-article.phtml:52
-#: template/front/story-download.phtml:52 template/front/story-gallery.phtml:50
-#: template/front/story-image.phtml:50 template/front/story-magazine.phtml:50
-#: template/front/story-media.phtml:52 template/front/story-text.phtml:52
+#: src/Form/StoryForm.php:263 template/admin/story-view.phtml:8
+#: template/front/index-media.phtml:45 template/front/index-news.phtml:13
+#: template/front/index-table.phtml:22 template/front/story-article.phtml:58
+#: template/front/story-download.phtml:56 template/front/story-gallery.phtml:56
+#: template/front/story-image.phtml:56 template/front/story-magazine.phtml:56
+#: template/front/story-media.phtml:56 template/front/story-text.phtml:56
 msgid "Important"
 msgstr ""
 
-#: src/Form/StoryForm.php:242
+#: src/Form/StoryForm.php:276
 msgid "Add as spotlight"
 msgstr ""
 
-#: src/Form/StoryForm.php:253
+#: src/Form/StoryForm.php:289
 msgid "Media options"
 msgstr ""
 
-#: src/Form/StoryForm.php:287
-msgid "Upload image"
+#: src/Form/StoryForm.php:299
+msgid "Main image"
 msgstr ""
 
-#: src/Form/StoryForm.php:300
-msgid "Attach media"
+#: src/Form/StoryForm.php:310
+msgid "Additional images"
 msgstr ""
 
-#: src/Form/StoryForm.php:315
+#: src/Form/StoryForm.php:332
 msgid "Meta Title"
 msgstr ""
 
-#: src/Form/StoryForm.php:321
+#: src/Form/StoryForm.php:339
 msgid ""
-"Between 10 to 70 character, better keep it empty to copy main title here"
+"Displayed in search Engine result pages as Title : between 10 to 70 "
+"character. If empty, will be popuated automaticaly by main title value"
 msgstr ""
 
-#: src/Form/StoryForm.php:328
+#: src/Form/StoryForm.php:349
 msgid "Meta Keywords"
 msgstr ""
 
-#: src/Form/StoryForm.php:334
-msgid "Between 5 to 12 words"
+#: src/Form/StoryForm.php:356
+msgid ""
+"Not used anymore by search engines : between 5 to 12 words / left it empty, "
+"it will be automaticaly populated with main title values"
 msgstr ""
 
-#: src/Form/StoryForm.php:341
+#: src/Form/StoryForm.php:366
 msgid "Meta Description"
 msgstr ""
 
-#: src/Form/StoryForm.php:347
-msgid "Between 80 to 160 character"
+#: src/Form/StoryForm.php:372
+msgid ""
+"Displayed in search Engine result pages : quick summary to incitate user to "
+"click, between 80 to 160 character"
 msgstr ""
 
-#: src/Form/StoryForm.php:356 template/front/story-article.phtml:175
-#: template/front/story-download.phtml:120
-#: template/front/story-magazine.phtml:169 template/front/story-media.phtml:176
-#: template/front/story-text.phtml:177
+#: src/Form/StoryForm.php:383 template/front/story-article.phtml:227
+#: template/front/story-download.phtml:135
+#: template/front/story-magazine.phtml:188 template/front/story-media.phtml:196
+#: template/front/story-text.phtml:192
 msgid "Tags"
 msgstr ""
 
-#: src/Form/StoryForm.php:360
+#: src/Form/StoryForm.php:387
 msgid "Use `|` as delimiter to separate tag terms"
 msgstr ""
 
-#: src/Form/StoryForm.php:371
+#: src/Form/StoryForm.php:400
 msgid "Authors"
 msgstr ""
 
-#: src/Form/TopicForm.php:51
+#: src/Form/TopicForm.php:55
 msgid "Parent Topic"
 msgstr ""
 
-#: src/Form/TopicForm.php:128
+#: src/Form/TopicForm.php:102
+msgid "Just show on story list and blocks"
+msgstr ""
+
+#: src/Form/TopicForm.php:144
 msgid "Topic Style"
 msgstr ""
 
-#: src/Form/TopicForm.php:147
+#: src/Form/TopicForm.php:165
 msgid "Topic type"
 msgstr ""
 
-#: src/Form/TopicForm.php:150
+#: src/Form/TopicForm.php:168
 msgid "Just event module"
 msgstr ""
 
-#: src/Form/TopicForm.php:151
+#: src/Form/TopicForm.php:169
 msgid "Just blog module"
 msgstr ""
 
-#: src/Form/TopicForm.php:155
+#: src/Form/TopicForm.php:173
 msgid "Set type for use as general or special module"
 msgstr ""
 
-#: src/Form/TopicForm.php:249
+#: src/Form/TopicForm.php:285
 msgid "Extra options"
 msgstr ""
 
-#: src/Form/TopicForm.php:257
+#: src/Form/TopicForm.php:295
 msgid "Extra Config Options Type"
 msgstr ""
 
-#: src/Form/TopicForm.php:259
+#: src/Form/TopicForm.php:297
 msgid "Use topic options"
 msgstr ""
 
-#: src/Form/TopicForm.php:260
+#: src/Form/TopicForm.php:298
 msgid "Use module options"
 msgstr ""
 
-#: src/Form/TopicForm.php:264
+#: src/Form/TopicForm.php:302
 msgid ""
 "Use topic option whit select topic options or set it to module to use module "
 "option"
 msgstr ""
 
-#: src/Form/TopicForm.php:271
+#: src/Form/TopicForm.php:311
 msgid "Perpage"
 msgstr ""
 
-#: src/Form/TopicForm.php:283
+#: src/Form/TopicForm.php:325
 msgid "Columns"
 msgstr ""
 
-#: src/Form/TopicForm.php:285
+#: src/Form/TopicForm.php:327
 msgid "One column"
 msgstr ""
 
-#: src/Form/TopicForm.php:286
+#: src/Form/TopicForm.php:328
 msgid "Two columns"
 msgstr ""
 
-#: src/Form/TopicForm.php:287
+#: src/Form/TopicForm.php:329
 msgid "Three columns"
 msgstr ""
 
-#: src/Form/TopicForm.php:288
+#: src/Form/TopicForm.php:330
 msgid "Four columns"
 msgstr ""
 
-#: src/Form/TopicForm.php:300
+#: src/Form/TopicForm.php:344
 msgid "Set as system page"
 msgstr ""
 
-#: src/Form/TopicForm.php:311
+#: src/Form/TopicForm.php:357
 msgid "Story order"
 msgstr ""
 
-#: src/Form/TopicForm.php:313
+#: src/Form/TopicForm.php:359
 msgid "Publish time DESC"
 msgstr ""
 
-#: src/Form/TopicForm.php:314
+#: src/Form/TopicForm.php:360
 msgid "Publish time ASC"
 msgstr ""
 
-#: src/Form/TopicForm.php:315
+#: src/Form/TopicForm.php:361
 msgid "Random"
 msgstr ""
 
-#: src/Form/TopicForm.php:319
+#: src/Form/TopicForm.php:365
 msgid "Story list order options"
 msgstr ""
 
-#: src/Form/TopicForm.php:327
+#: src/Form/TopicForm.php:375
 msgid "Show Topic"
 msgstr ""
 
-#: src/Form/TopicForm.php:338
+#: src/Form/TopicForm.php:388
 msgid "Show Topic Information"
 msgstr ""
 
-#: src/Form/TopicForm.php:349
+#: src/Form/TopicForm.php:401
 msgid "Show Date"
 msgstr ""
 
-#: src/Form/TopicForm.php:360
+#: src/Form/TopicForm.php:414
 msgid "Show DPF"
 msgstr ""
 
-#: src/Form/TopicForm.php:371
+#: src/Form/TopicForm.php:427
 msgid "Show Print"
 msgstr ""
 
-#: src/Form/TopicForm.php:382
+#: src/Form/TopicForm.php:440
 msgid "Show Mail"
 msgstr ""
 
-#: src/Form/TopicForm.php:393
+#: src/Form/TopicForm.php:453
 msgid "Show Hits"
 msgstr ""
 
-#: src/Form/TopicForm.php:404
+#: src/Form/TopicForm.php:466
 msgid "Show Tags"
 msgstr ""
 
-#: src/Form/TopicForm.php:415
+#: src/Form/TopicForm.php:479
 msgid "Show Subtopic stories on main topic"
 msgstr ""
 
-#: src/Form/TopicForm.php:426
+#: src/Form/TopicForm.php:492
 msgid "Attach file options"
 msgstr ""
 
-#: src/Form/TopicForm.php:434
+#: src/Form/TopicForm.php:502
 msgid "Check for attach file"
 msgstr ""
 
-#: src/Form/TopicForm.php:444 template/admin/attach-edit.phtml:27
+#: src/Form/TopicForm.php:514 template/admin/attach-edit.phtml:27
 msgid "File title"
 msgstr ""
 
-#: src/Form/TopicForm.php:455
+#: src/Form/TopicForm.php:527
 msgid "File link"
 msgstr ""
 
@@ -1331,64 +1327,64 @@ msgstr ""
 msgid "Default information added."
 msgstr ""
 
-#: template/admin/attach-add.phtml:17 template/admin/story-update.phtml:28
+#: template/admin/attach-add.phtml:21 template/admin/story-update.phtml:32
 msgid "Attach extra images and files"
 msgstr ""
 
-#: template/admin/attach-add.phtml:34 template/admin/attach-add.phtml:35
+#: template/admin/attach-add.phtml:38 template/admin/attach-add.phtml:39
 #: template/admin/attach-edit.phtml:34 template/admin/attach-edit.phtml:36
-#: template/admin/story-view.phtml:39 template/admin/story-view.phtml:41
+#: template/admin/story-view.phtml:40 template/admin/story-view.phtml:42
 msgid "Back"
 msgstr ""
 
-#: template/admin/attach-add.phtml:36 template/admin/attach-add.phtml:37
+#: template/admin/attach-add.phtml:40 template/admin/attach-add.phtml:41
 msgid "Finish"
 msgstr ""
 
-#: template/admin/attach-add.phtml:47 template/admin/attach-index.phtml:8
-#: template/admin/story-update.phtml:72
+#: template/admin/attach-add.phtml:51 template/admin/attach-index.phtml:8
+#: template/admin/story-update.phtml:76
 msgid "PerView"
 msgstr ""
 
-#: template/admin/attach-add.phtml:70 template/admin/story-update.phtml:93
+#: template/admin/attach-add.phtml:74 template/admin/story-update.phtml:97
 msgid "Id"
 msgstr ""
 
-#: template/admin/attach-add.phtml:74 template/admin/attach-index.phtml:10
-#: template/admin/story-update.phtml:97
+#: template/admin/attach-add.phtml:78 template/admin/attach-index.phtml:10
+#: template/admin/story-update.phtml:101
 msgid "Create"
 msgstr ""
 
-#: template/admin/attach-add.phtml:86 template/admin/story-update.phtml:109
+#: template/admin/attach-add.phtml:90 template/admin/story-update.phtml:113
 msgid "Hits"
 msgstr ""
 
-#: template/admin/attach-add.phtml:90 template/admin/story-update.phtml:113
+#: template/admin/attach-add.phtml:94 template/admin/story-update.phtml:117
 msgid "Size"
 msgstr ""
 
-#: template/admin/attach-add.phtml:95 template/admin/attach-index.phtml:37
-#: template/admin/attach-index.phtml:39 template/admin/attribute-index.phtml:69
-#: template/admin/author-index.phtml:38 template/admin/author-index.phtml:40
+#: template/admin/attach-add.phtml:99 template/admin/attach-index.phtml:37
+#: template/admin/attach-index.phtml:39 template/admin/attribute-index.phtml:71
+#: template/admin/author-index.phtml:40 template/admin/author-index.phtml:42
 #: template/admin/author-role.phtml:28 template/admin/author-role.phtml:30
-#: template/admin/microblog-index.phtml:42
-#: template/admin/microblog-index.phtml:44
+#: template/admin/microblog-index.phtml:39
+#: template/admin/microblog-index.phtml:41
 #: template/admin/position-index.phtml:30
 #: template/admin/position-index.phtml:32
-#: template/admin/spotlight-index.phtml:30
 #: template/admin/spotlight-index.phtml:32
-#: template/admin/story-update.phtml:119 template/admin/story-view.phtml:45
-#: template/admin/story-view.phtml:47 template/admin/topic-index.phtml:41
-#: template/admin/topic-index.phtml:43
+#: template/admin/spotlight-index.phtml:33
+#: template/admin/story-update.phtml:123 template/admin/story-view.phtml:46
+#: template/admin/story-view.phtml:48 template/admin/topic-index.phtml:43
+#: template/admin/topic-index.phtml:45
 msgid "Edit"
 msgstr ""
 
-#: template/admin/attach-add.phtml:97 template/admin/story-update.phtml:57
-#: template/admin/story-update.phtml:121
+#: template/admin/attach-add.phtml:101 template/admin/story-update.phtml:61
+#: template/admin/story-update.phtml:125
 msgid "Close"
 msgstr ""
 
-#: template/admin/attach-add.phtml:140 template/admin/story-update.phtml:165
+#: template/admin/attach-add.phtml:144 template/admin/story-update.phtml:169
 msgid "In process"
 msgstr ""
 
@@ -1405,20 +1401,20 @@ msgid "List of attached files"
 msgstr ""
 
 #: template/admin/attach-index.phtml:7 template/admin/author-index.phtml:17
-#: template/admin/author-role.phtml:10 template/admin/microblog-index.phtml:16
+#: template/admin/author-role.phtml:10 template/admin/microblog-index.phtml:13
 #: template/admin/position-index.phtml:12
-#: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:138
+#: template/admin/spotlight-index.phtml:12 template/admin/story-index.phtml:156
 #: template/admin/topic-index.phtml:12
 msgid "ID"
 msgstr ""
 
-#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:139
+#: template/admin/attach-index.phtml:9 template/admin/story-index.phtml:157
 msgid "Information"
 msgstr ""
 
 #: template/admin/attach-index.phtml:11 template/admin/author-index.phtml:19
 #: template/admin/author-role.phtml:12 template/admin/position-index.phtml:14
-#: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:168
+#: template/admin/spotlight-index.phtml:17 template/admin/story-index.phtml:186
 #: template/admin/topic-index.phtml:16
 msgid "Action"
 msgstr ""
@@ -1443,61 +1439,61 @@ msgstr ""
 msgid "No file upload yet"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:9
+#: template/admin/attribute-index.phtml:10
 msgid "Add attribute"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:12
-#: template/admin/attribute-index.phtml:14
+#: template/admin/attribute-index.phtml:13
+#: template/admin/attribute-index.phtml:15
 msgid "Add text field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:15
-#: template/admin/attribute-index.phtml:17
+#: template/admin/attribute-index.phtml:16
+#: template/admin/attribute-index.phtml:18
 msgid "Add link field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:18
-#: template/admin/attribute-index.phtml:20
+#: template/admin/attribute-index.phtml:19
+#: template/admin/attribute-index.phtml:21
 msgid "Add video field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:21
-#: template/admin/attribute-index.phtml:23
+#: template/admin/attribute-index.phtml:22
+#: template/admin/attribute-index.phtml:24
 msgid "Add audio field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:24
-#: template/admin/attribute-index.phtml:26
+#: template/admin/attribute-index.phtml:25
+#: template/admin/attribute-index.phtml:27
 msgid "Add file field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:27
-#: template/admin/attribute-index.phtml:29
+#: template/admin/attribute-index.phtml:28
+#: template/admin/attribute-index.phtml:30
 msgid "Add currency field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:30
-#: template/admin/attribute-index.phtml:32
+#: template/admin/attribute-index.phtml:31
+#: template/admin/attribute-index.phtml:33
 msgid "Add date field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:33
-#: template/admin/attribute-index.phtml:35
+#: template/admin/attribute-index.phtml:34
+#: template/admin/attribute-index.phtml:36
 msgid "Add number field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:36
-#: template/admin/attribute-index.phtml:38
+#: template/admin/attribute-index.phtml:37
+#: template/admin/attribute-index.phtml:39
 msgid "Add select field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:39
-#: template/admin/attribute-index.phtml:41
+#: template/admin/attribute-index.phtml:40
+#: template/admin/attribute-index.phtml:42
 msgid "Add checkbox field"
 msgstr ""
 
-#: template/admin/attribute-index.phtml:45
+#: template/admin/attribute-index.phtml:47
 msgid "List of attributes"
 msgstr ""
 
@@ -1505,19 +1501,19 @@ msgstr ""
 msgid "List of authors"
 msgstr ""
 
-#: template/admin/author-index.phtml:35 template/admin/author-index.phtml:37
-#: template/admin/microblog-index.phtml:38
-#: template/admin/microblog-index.phtml:40 template/admin/story-index.phtml:103
-#: template/admin/story-index.phtml:171 template/admin/story-view.phtml:42
-#: template/admin/story-view.phtml:44 template/admin/topic-index.phtml:35
-#: template/admin/topic-index.phtml:37
+#: template/admin/author-index.phtml:35 template/admin/author-index.phtml:39
+#: template/admin/microblog-index.phtml:35
+#: template/admin/microblog-index.phtml:37 template/admin/story-index.phtml:121
+#: template/admin/story-index.phtml:189 template/admin/story-index.phtml:190
+#: template/admin/story-view.phtml:43 template/admin/story-view.phtml:45
+#: template/admin/topic-index.phtml:35 template/admin/topic-index.phtml:37
 msgid "View"
 msgstr ""
 
-#: template/admin/author-index.phtml:49 template/admin/author-role.phtml:38
-#: template/admin/microblog-index.phtml:63 template/admin/story-index.phtml:121
-#: template/admin/story-index.phtml:123 template/admin/story-index.phtml:219
-#: template/admin/topic-index.phtml:63
+#: template/admin/author-index.phtml:51 template/admin/author-role.phtml:38
+#: template/admin/microblog-index.phtml:60 template/admin/story-index.phtml:139
+#: template/admin/story-index.phtml:141 template/admin/story-index.phtml:226
+#: template/admin/topic-index.phtml:55
 msgid "Trash"
 msgstr ""
 
@@ -1525,23 +1521,19 @@ msgstr ""
 msgid "List of roles"
 msgstr ""
 
-#: template/admin/author-update.phtml:16
+#: template/admin/author-update.phtml:18
 msgid "Remove image author in process"
 msgstr ""
 
-#: template/admin/json-index.phtml:3
-msgid "List of json output links"
-msgstr ""
-
-#: template/admin/microblog-index.phtml:13
+#: template/admin/microblog-index.phtml:10
 msgid "List of posts"
 msgstr ""
 
-#: template/admin/microblog-index.phtml:51 template/admin/story-index.phtml:164
+#: template/admin/microblog-index.phtml:48 template/admin/story-index.phtml:182
 msgid "By"
 msgstr ""
 
-#: template/admin/microblog-index.phtml:68
+#: template/admin/microblog-index.phtml:65
 msgid ""
 "Microblog system is inactive, if you want use it , please active it from "
 "module config"
@@ -1560,229 +1552,206 @@ msgstr ""
 msgid "List of spotlights"
 msgstr ""
 
-#: template/admin/spotlight-index.phtml:27
 #: template/admin/spotlight-index.phtml:29
-msgid "Veiw story"
+#: template/admin/spotlight-index.phtml:30
+msgid "View story"
 msgstr ""
 
-#: template/admin/story-index.phtml:17
+#: template/admin/story-index.phtml:21
 msgid "Description about add new story"
 msgstr ""
 
-#: template/admin/story-index.phtml:23
+#: template/admin/story-index.phtml:28
 msgid ""
 "You can select many types on submit new story, each type have different "
 "template and view and useful for special usage"
 msgstr ""
 
-#: template/admin/story-index.phtml:26
+#: template/admin/story-index.phtml:33
 msgid ""
 "Text type, default view format main image set on center and under title and "
 "extra images and information set on sidebar"
 msgstr ""
 
-#: template/admin/story-index.phtml:30
+#: template/admin/story-index.phtml:38
 msgid ""
 "Article view, main image and extra information set on sidebar and text set "
 "on center and under title"
 msgstr ""
 
-#: template/admin/story-index.phtml:34
+#: template/admin/story-index.phtml:43
 msgid ""
 "Magazine view, main and extra images set on center and text under them , "
 "after that extra information , without sidebar"
 msgstr ""
 
-#: template/admin/story-index.phtml:38
+#: template/admin/story-index.phtml:48
 msgid ""
 "You need install blog module and story show on blog system, for better SEO"
 msgstr ""
 
-#: template/admin/story-index.phtml:42
+#: template/admin/story-index.phtml:53
 msgid ""
 "Single image set on center and under title, other texts , extra information "
 "and images set under main and big image, you can use topic as gallery album "
 "and each story is single image on album"
 msgstr ""
 
-#: template/admin/story-index.phtml:45
+#: template/admin/story-index.phtml:57
 msgid "Gallery"
 msgstr ""
 
-#: template/admin/story-index.phtml:46
+#: template/admin/story-index.phtml:59
 msgid ""
 "Gallery album view, main image and other extra images set as album on same "
 "position, all other texts and extra information set under images, you can "
 "use topic as category for albums and each story is single album by images"
 msgstr ""
 
-#: template/admin/story-index.phtml:50
+#: template/admin/story-index.phtml:65
 msgid ""
 "Media type load video or audio player under title and set all extra "
 "information on side bar and texts under player, you need attach mp4 or mp3 "
 "files to story or make audio / video attribute and put your media file link"
 msgstr ""
 
-#: template/admin/story-index.phtml:54
+#: template/admin/story-index.phtml:71
 msgid ""
 "Download template and show download button for get file by user, you need "
 "attach file to story or make file attribute and put your file link"
 msgstr ""
 
-#: template/admin/story-index.phtml:65
+#: template/admin/story-index.phtml:83
 msgid "Add new story"
 msgstr ""
 
-#: template/admin/story-index.phtml:69 template/admin/story-index.phtml:71
+#: template/admin/story-index.phtml:87 template/admin/story-index.phtml:89
 msgid "Add new text"
 msgstr ""
 
-#: template/admin/story-index.phtml:72 template/admin/story-index.phtml:74
+#: template/admin/story-index.phtml:90 template/admin/story-index.phtml:92
 msgid "Add new article"
 msgstr ""
 
-#: template/admin/story-index.phtml:75 template/admin/story-index.phtml:77
+#: template/admin/story-index.phtml:93 template/admin/story-index.phtml:95
 msgid "Add new magazine"
 msgstr ""
 
-#: template/admin/story-index.phtml:78 template/admin/story-index.phtml:80
+#: template/admin/story-index.phtml:96 template/admin/story-index.phtml:98
 msgid "Add new gallery album"
 msgstr ""
 
-#: template/admin/story-index.phtml:81 template/admin/story-index.phtml:83
+#: template/admin/story-index.phtml:99 template/admin/story-index.phtml:101
 msgid "Add new single image"
 msgstr ""
 
-#: template/admin/story-index.phtml:84 template/admin/story-index.phtml:86
+#: template/admin/story-index.phtml:102 template/admin/story-index.phtml:104
 msgid "Add new media"
 msgstr ""
 
-#: template/admin/story-index.phtml:87 template/admin/story-index.phtml:89
+#: template/admin/story-index.phtml:105 template/admin/story-index.phtml:107
 msgid "Add new download"
 msgstr ""
 
-#: template/admin/story-index.phtml:92 template/admin/story-index.phtml:94
+#: template/admin/story-index.phtml:110 template/admin/story-index.phtml:112
 msgid "Add new blog post"
 msgstr ""
 
-#: template/admin/story-index.phtml:97
+#: template/admin/story-index.phtml:115
 msgid "News module front page is deactivate"
 msgstr ""
 
-#: template/admin/story-index.phtml:106 template/admin/story-index.phtml:108
-#: template/admin/topic-index.phtml:38 template/admin/topic-index.phtml:40
+#: template/admin/story-index.phtml:124 template/admin/story-index.phtml:126
+#: template/admin/topic-index.phtml:39 template/admin/topic-index.phtml:41
 msgid "All stories"
 msgstr ""
 
-#: template/admin/story-index.phtml:124 template/admin/story-index.phtml:126
+#: template/admin/story-index.phtml:142 template/admin/story-index.phtml:144
 msgid "System draft"
 msgstr ""
 
-#: template/admin/story-index.phtml:135
-msgid "List of stories"
-msgstr ""
-
-#: template/admin/story-index.phtml:177 template/admin/story-index.phtml:231
-msgid "Reject"
-msgstr ""
-
-#: template/admin/story-index.phtml:182 template/admin/story-index.phtml:236
-msgid "Accept"
-msgstr ""
-
-#: template/admin/story-index.phtml:188
+#: template/admin/story-index.phtml:196
 msgid "Manage"
 msgstr ""
 
-#: template/admin/story-index.phtml:191 template/admin/story-index.phtml:193
+#: template/admin/story-index.phtml:199 template/admin/story-index.phtml:201
 msgid "Edit basic information"
 msgstr ""
 
-#: template/admin/story-index.phtml:194 template/admin/story-index.phtml:196
+#: template/admin/story-index.phtml:202 template/admin/story-index.phtml:204
 msgid "Edit additional information"
 msgstr ""
 
-#: template/admin/story-index.phtml:198 template/admin/story-index.phtml:200
-msgid "Attach files"
-msgstr ""
-
-#: template/admin/story-index.phtml:201 template/admin/story-index.phtml:203
+#: template/admin/story-index.phtml:206 template/admin/story-index.phtml:208
 msgid "Preview"
 msgstr ""
 
-#: template/admin/story-index.phtml:225
-msgid "Accept story in process"
-msgstr ""
-
-#: template/admin/story-update.phtml:54
+#: template/admin/story-update.phtml:58
 msgid "Just close the attach system after finish upload"
 msgstr ""
 
-#: template/admin/story-update.phtml:262
+#: template/admin/story-update.phtml:266
 msgid "Remove image story in process"
 msgstr ""
 
-#: template/admin/story-view.phtml:16 template/front/index-table.phtml:18
+#: template/admin/story-view.phtml:16 template/front/index-table.phtml:12
 msgid "Update Time"
 msgstr ""
 
-#: template/admin/story-view.phtml:18 template/front/index-news.phtml:47
-#: template/front/index-table.phtml:21 template/front/story-article.phtml:68
-#: template/front/story-download.phtml:68 template/front/story-gallery.phtml:67
-#: template/front/story-image.phtml:67 template/front/story-magazine.phtml:66
-#: template/front/story-media.phtml:68 template/front/story-text.phtml:68
+#: template/admin/story-view.phtml:18 template/front/index-news.phtml:46
+#: template/front/index-table.phtml:15 template/front/story-article.phtml:76
+#: template/front/story-download.phtml:74 template/front/story-gallery.phtml:74
+#: template/front/story-image.phtml:74 template/front/story-magazine.phtml:74
+#: template/front/story-media.phtml:74 template/front/story-text.phtml:74
 msgid "Read"
 msgstr ""
 
-#: template/admin/story-view.phtml:19 template/front/index-list.phtml:32
-#: template/front/index-news.phtml:53 template/front/story-article.phtml:73
-#: template/front/story-download.phtml:73 template/front/story-gallery.phtml:82
-#: template/front/story-image.phtml:82 template/front/story-magazine.phtml:71
-#: template/front/story-media.phtml:73 template/front/story-text.phtml:73
+#: template/admin/story-view.phtml:19 template/front/index-list.phtml:26
+#: template/front/index-news.phtml:51 template/front/story-article.phtml:81
+#: template/front/story-download.phtml:79 template/front/story-gallery.phtml:79
+#: template/front/story-gallery.phtml:104 template/front/story-image.phtml:79
+#: template/front/story-image.phtml:104 template/front/story-magazine.phtml:79
+#: template/front/story-media.phtml:79 template/front/story-text.phtml:79
 msgid "Topics"
 msgstr ""
 
-#: template/admin/story-view.phtml:48 template/admin/story-view.phtml:50
-msgid "Attach"
-msgstr ""
-
-#: template/admin/tools-index.phtml:4
+#: template/admin/tools-index.phtml:7
 msgid "How this part work?"
 msgstr ""
 
-#: template/admin/tools-index.phtml:5
+#: template/admin/tools-index.phtml:11
 msgid ""
 "Tools system, help you to manage your module, Update database and remove "
 "unused information. At this moment, we ready 4 tools for you : "
 msgstr ""
 
-#: template/admin/tools-index.phtml:8
+#: template/admin/tools-index.phtml:19
 msgid ""
 "You can rebuild all your added stores, after rebuild all your old data "
 "time_update to new. And you must set start and end time_publish time."
 msgstr ""
 
-#: template/admin/tools-index.phtml:10
+#: template/admin/tools-index.phtml:22
 msgid "Prune"
 msgstr ""
 
-#: template/admin/tools-index.phtml:12
+#: template/admin/tools-index.phtml:23
 msgid "You can remove old spotlights"
 msgstr ""
 
-#: template/admin/tools-index.phtml:13
+#: template/admin/tools-index.phtml:24
 msgid "Page"
 msgstr ""
 
-#: template/admin/tools-index.phtml:13
+#: template/admin/tools-index.phtml:24
 msgid "Manage system page"
 msgstr ""
 
-#: template/admin/tools-index.phtml:14
+#: template/admin/tools-index.phtml:25
 msgid "Sitemap"
 msgstr ""
 
-#: template/admin/tools-index.phtml:14
+#: template/admin/tools-index.phtml:25
 msgid "Manage links on sitemap module"
 msgstr ""
 
@@ -1802,8 +1771,12 @@ msgstr ""
 msgid "Module"
 msgstr ""
 
-#: template/admin/topic-update.phtml:16
+#: template/admin/topic-update.phtml:18
 msgid "Remove image topic in process"
+msgstr ""
+
+#: template/front/archive.phtml:3
+msgid "Archive"
 msgstr ""
 
 #: template/front/attach.phtml:5
@@ -1841,51 +1814,63 @@ msgstr ""
 msgid "Rss Feed"
 msgstr ""
 
-#: template/front/index-news.phtml:42 template/front/story-article.phtml:62
-#: template/front/story-download.phtml:62 template/front/story-gallery.phtml:62
-#: template/front/story-image.phtml:62 template/front/story-magazine.phtml:60
-#: template/front/story-media.phtml:62 template/front/story-text.phtml:62
+#: template/front/index-news.phtml:41 template/front/story-article.phtml:70
+#: template/front/story-download.phtml:68 template/front/story-gallery.phtml:68
+#: template/front/story-image.phtml:68 template/front/story-magazine.phtml:68
+#: template/front/story-media.phtml:68 template/front/story-text.phtml:68
 msgid "Time"
 msgstr ""
 
-#: template/front/index-news.phtml:48 template/front/story-article.phtml:69
-#: template/front/story-download.phtml:69 template/front/story-gallery.phtml:68
-#: template/front/story-image.phtml:68 template/front/story-magazine.phtml:67
-#: template/front/story-media.phtml:69 template/front/story-text.phtml:69
+#: template/front/index-news.phtml:46 template/front/story-article.phtml:77
+#: template/front/story-download.phtml:75 template/front/story-gallery.phtml:75
+#: template/front/story-image.phtml:75 template/front/story-magazine.phtml:75
+#: template/front/story-media.phtml:75 template/front/story-text.phtml:75
 msgid "Times"
 msgstr ""
 
-#: template/front/story-article.phtml:112
-#: template/front/story-download.phtml:176
-#: template/front/story-gallery.phtml:156 template/front/story-image.phtml:157
-#: template/front/story-magazine.phtml:125 template/front/story-media.phtml:113
-#: template/front/story-text.phtml:124
+#: template/front/partial/favourite-list.phtml:2
+msgid "Favourite news"
+msgstr ""
+
+#: template/front/partial/favourite-list.phtml:7
+msgid "Category"
+msgstr ""
+
+#: template/front/story-article.phtml:126
+#: template/front/story-download.phtml:191
+#: template/front/story-gallery.phtml:204 template/front/story-image.phtml:190
+#: template/front/story-magazine.phtml:144 template/front/story-media.phtml:124
+#: template/front/story-text.phtml:139
 msgid "Previous"
 msgstr ""
 
-#: template/front/story-article.phtml:117
-#: template/front/story-download.phtml:181
-#: template/front/story-gallery.phtml:161 template/front/story-image.phtml:162
-#: template/front/story-magazine.phtml:130 template/front/story-media.phtml:118
-#: template/front/story-text.phtml:129
+#: template/front/story-article.phtml:131
+#: template/front/story-download.phtml:196
+#: template/front/story-gallery.phtml:209 template/front/story-image.phtml:195
+#: template/front/story-magazine.phtml:149 template/front/story-media.phtml:129
+#: template/front/story-text.phtml:144
 msgid "Next"
 msgstr ""
 
-#: template/front/story-article.phtml:192
-#: template/front/story-download.phtml:152
-#: template/front/story-magazine.phtml:186 template/front/story-media.phtml:193
-#: template/front/story-text.phtml:194
+#: template/front/story-article.phtml:200
+msgid "Vote to this event"
+msgstr ""
+
+#: template/front/story-article.phtml:244
+#: template/front/story-download.phtml:167
+#: template/front/story-magazine.phtml:205 template/front/story-media.phtml:213
+#: template/front/story-text.phtml:209
 msgid "Share if you like"
 msgstr ""
 
-#: template/front/story-article.phtml:207
-#: template/front/story-download.phtml:218
-#: template/front/story-magazine.phtml:201 template/front/story-media.phtml:208
-#: template/front/story-text.phtml:209
+#: template/front/story-article.phtml:259
+#: template/front/story-download.phtml:233
+#: template/front/story-magazine.phtml:220 template/front/story-media.phtml:228
+#: template/front/story-text.phtml:224
 msgid "Related storys"
 msgstr ""
 
-#: template/front/story-download.phtml:138
+#: template/front/story-download.phtml:153
 msgid "Score"
 msgstr ""
 
@@ -1895,6 +1880,6 @@ msgid ""
 "later"
 msgstr ""
 
-#: template/front/topic-list.phtml:43
+#: template/front/topic-list.phtml:44
 msgid "No topic has been made on this part yet. please check this page later"
 msgstr ""

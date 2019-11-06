@@ -118,9 +118,29 @@ class StoryController extends ApiController
                 );
             }
 
+            // Get Module Config
+            $config = Pi::service('registry')->config->read($module);
+
             // Check id
             if (intval($id) > 0) {
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
+
+                // Attribute
+                $result['data']['attributeList'] = [];
+                if ($config['show_attribute'] && $result['data']['attribute']) {
+                    $attributeList = Pi::api('attribute', 'news')->Story($result['data']['id'], $result['data']['topic_main']);
+
+                    foreach ($attributeList as $attributeSingle) {
+                        $attributeSingle = array_shift($attributeSingle);
+                        $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                    }
+                }
+
+                // Tag
+                //$result['data']['tagList'] = [];
+                //if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {
+                //    $result['data']['tagList'] = Pi::service('tag')->get($module, $result['data']['id'], '');
+                //}
 
                 // Check data
                 if (!empty($result['data'])) {
