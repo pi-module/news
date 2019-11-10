@@ -125,14 +125,36 @@ class StoryController extends ApiController
             if (intval($id) > 0) {
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
+                // Set Additional images
+                $result['data']['additional_images_url'] = [];
+                if (!empty($result['data']['additional_images'])) {
+                    $additionalImages = Pi::api('doc', 'media')->getGalleryLinkData($result['data']['additional_images'], 'large', null, null, false, [], 'news');
+                    foreach ($additionalImages as $additionalImage) {
+                        $result['data']['additional_images_url'][] = $additionalImage['resized_url'];
+                    }
+                }
+
                 // Attribute
                 $result['data']['attributeList'] = [];
                 if ($config['show_attribute'] && $result['data']['attribute']) {
                     $attributeList = Pi::api('attribute', 'news')->Story($result['data']['id'], $result['data']['topic_main']);
+                    $result['data']['attributeList'] = [];
+                    foreach ($attributeList as $attributeKey => $attributeCategory) {
+                        switch ($attributeKey) {
+                            case 'video':
+                                foreach ($attributeCategory as $attributeSingle) {
+                                    $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                                }
+                                break;
 
-                    foreach ($attributeList as $attributeSingle) {
-                        $attributeSingle = array_shift($attributeSingle);
-                        $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                            default:
+                                foreach ($attributeCategory as $attributePosition) {
+                                    foreach ($attributePosition['info'] as $attributeSingle) {
+                                        $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                                    }
+                                }
+                                break;
+                        }
                     }
                 }
 
