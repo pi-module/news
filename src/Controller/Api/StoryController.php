@@ -125,6 +125,9 @@ class StoryController extends ApiController
             if (intval($id) > 0) {
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
+                // Update hits
+                $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
+
                 // Set Additional images
                 $result['data']['additional_images_url'] = [];
                 if (!empty($result['data']['additional_images'])) {
