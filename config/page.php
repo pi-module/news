@@ -123,4 +123,23 @@ return [
             'block'      => 0,
         ],
     ],
+    // Feed section
+    'feed'  => [
+        [
+            'title'      => _a('Feed index'),
+            'controller' => 'index',
+        ],
+
+    ],
+    // Api section
+    'api'   => [
+        [
+            'title'      => _a('Story'),
+            'controller' => 'story',
+        ],
+        [
+            'title'      => _a('Topic'),
+            'controller' => 'topic',
+        ],
+    ],
 ];
