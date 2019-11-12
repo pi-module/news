@@ -126,6 +126,7 @@ class StoryController extends ApiController
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
                 // Update hits
+                $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
                 $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
 
                 // Set Additional images
