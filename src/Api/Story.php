@@ -177,10 +177,15 @@ class Story extends AbstractApi
      */
     public function Related($id, $topic)
     {
-        // Set info
+        // Get config
         $config  = Pi::service('registry')->config->read($this->getModule());
+
+        // Set info
         $related = [];
+        $storyId = [];
         $order   = ['time_publish DESC', 'id DESC'];
+        $columns = ['story' => new Expression('DISTINCT story'), '*'];
+        $limit   = intval($config['related_num']);
         $where   = [
             'status'            => 1,
             'story != ?'        => $id,
@@ -190,15 +195,19 @@ class Story extends AbstractApi
                 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
             ],
         ];
-        $columns = ['story' => new Expression('DISTINCT story')];
-        $limit   = intval($config['related_num']);
+
         // Get info from link table
         $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
-        $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
+        $rowset = Pi::model('link', $this->getModule())->selectWith($select);
+
         // Make list
-        foreach ($rowset as $id) {
-            $storyId[] = $id['story'];
+        if (!empty($rowset)) {
+            $rowset = $rowset->toArray();
+            foreach ($rowset as $id) {
+                $storyId[] = $id['story'];
+            }
         }
+
         // Get story
         if (!empty($storyId)) {
             $related = $this->getListFromIdLight($storyId);
