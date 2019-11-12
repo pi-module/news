@@ -22,6 +22,7 @@ return [
         'demo'        => 'http://piengine.org',
         'icon'        => 'fa-rocket',
     ],
+    // Dependency
     'dependency' => [
         'media',
     ],
@@ -32,7 +33,7 @@ return [
         'website' => 'http://piengine.org',
         'credits' => 'Pi Engine Team',
     ],
-    // resource
+    // Resource
     'resource'   => [
         'database'   => 'database.php',
         'config'     => 'config.php',
