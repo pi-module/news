@@ -18,6 +18,8 @@ use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Zend\Db\Sql\Predicate\Expression;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Paginator\Adapter\DbSelect;
 
 class IndexController extends ActionController
 {
@@ -188,12 +190,12 @@ class IndexController extends ActionController
         }
 
         // Set info
-        $columns = ['story' => new Expression('DISTINCT story')];
+        $columns = ['story_id' => new Expression('DISTINCT story'), '*'];
         // Get info from link table
         $select = $this->getModel('link')->select()->where($where)->columns($columns)->order($order);
 
-        $resultSetPrototype = new  \Zend\Db\ResultSet\ResultSet();
-        $paginatorAdapter   = new \Zend\Paginator\Adapter\DbSelect(
+        $resultSetPrototype = new  ResultSet();
+        $paginatorAdapter   = new DbSelect(
             $select,
             $this->getModel('link')->getAdapter(),
             $resultSetPrototype
@@ -210,7 +212,7 @@ class IndexController extends ActionController
         }
 
         // paginator
-        $paginator = new \Pi\Paginator\Paginator($paginatorAdapter);
+        $paginator = new Paginator($paginatorAdapter);
         $paginator->setItemCountPerPage(intval($itemPerPage));
         $paginator->setCurrentPageNumber(intval($page));
         $paginator->setUrlOptions(
