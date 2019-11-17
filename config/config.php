@@ -367,6 +367,14 @@ return [
             'filter'      => 'number_int',
             'value'       => 0,
         ],
+        'story_all_hits'           => [
+            'category'    => 'show',
+            'title'       => _a('Include all hits'),
+            'description' => _a('Include all page refresh as hits, if not check use SESSION check for update hits'),
+            'edit'        => 'checkbox',
+            'filter'      => 'number_int',
+            'value'       => 0
+        ],
         // Feed
         'feed_icon'                => [
             'category'    => 'feed',

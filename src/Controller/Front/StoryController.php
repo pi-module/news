@@ -23,8 +23,10 @@ class StoryController extends ActionController
         // Get info from url
         $slug   = $this->params('slug');
         $module = $this->params('module');
+
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -32,31 +34,28 @@ class StoryController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get topic list
         $topicList = Pi::registry('topicList', 'news')->read();
+
         // Get author list
         $authorList = Pi::registry('authorList', 'news')->read();
+
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
-
         if ($slug != $story['slug']) {
             return $this->redirect()->toRoute('', ['slug' => $story['slug']])->setStatusCode(301);
         }
-
         $story = Pi::api('story', 'news')->canonizeStory($story, $topicList, $authorList);
+
         // Check status
-        if (!$story || $story['status'] != 1
-            || !in_array(
-                $story['type'], [
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
-            ]
-            )
-        ) {
+        if (!$story || $story['status'] != 1 || !in_array($story['type'], ['text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'])) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The story not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check time_publish
         if ($story['time_publish'] > time()) {
             $this->getResponse()->setStatusCode(401);
@@ -66,47 +65,59 @@ class StoryController extends ActionController
         }
 
         // Update Hits
-        if (!isset($_SESSION['hits_news'][$story['id']])) {
-            if (!isset($_SESSION['hits_news'])) {
-                $_SESSION['hits_news'] = [];
+        if ($config['item_all_hits']) {
+            $this->getModel('story')->increment('hits', ['id' => $story['id']]);
+            $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+        } else {
+            if (!isset($_SESSION['hits_news'][$story['id']])) {
+                if (!isset($_SESSION['hits_news'])) {
+                    $_SESSION['hits_news'] = [];
+                }
+
+                $_SESSION['hits_news'][$story['id']] = false;
             }
 
-            $_SESSION['hits_news'][$story['id']] = false;
-        }
-
-        if (!$_SESSION['hits_news'][$story['id']]) {
-            $this->getModel('story')->increment('hits', ['id' => $story['id']]);
-            $_SESSION['hits_news'][$story['id']] = true;
+            if (!$_SESSION['hits_news'][$story['id']]) {
+                $this->getModel('story')->increment('hits', ['id' => $story['id']]);
+                $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+                $_SESSION['hits_news'][$story['id']] = true;
+            }
         }
 
         // Links
         $link = Pi::api('story', 'news')->Link($story['id'], [$story['topic_main']]);
         $this->view()->assign('link', $link);
+
         // Related
         if ($config['show_related']) {
             $related = Pi::api('story', 'news')->Related($story['id'], $story['topic_main']);
             $this->view()->assign('relateds', $related);
         }
+
         // Attached
         if ($config['show_attach'] && $story['attach']) {
             $attach = Pi::api('story', 'news')->AttachList($story['id']);
             $this->view()->assign('attach', $attach);
         }
+
         // Attribute
         if ($config['show_attribute'] && $story['attribute']) {
             $attribute = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
             $this->view()->assign('attribute', $attribute);
         }
+
         // Tag
         if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {
             $tag = Pi::service('tag')->get($module, $story['id'], '');
             $this->view()->assign('tag', $tag);
         }
+
         // Author
-        /* if ($config['show_author']) {
+        if ($config['show_author']) {
             $author = Pi::api('author', 'news')->getStorySingle($story['id']);
             $this->view()->assign('authors', $author);
-        } */
+        }
+
         // Set vote
         if ($config['vote_bar'] && Pi::service('module')->isActive('vote')) {
             $vote['point']  = $story['point'];
@@ -117,6 +128,7 @@ class StoryController extends ActionController
             $vote['type']   = 'star';
             $this->view()->assign('vote', $vote);
         }
+
         // favourite
         if ($config['favourite_bar'] && Pi::service('module')->isActive('favourite')) {
             $favourite['is']     = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);
@@ -132,6 +144,7 @@ class StoryController extends ActionController
             }
 
         }
+
         // Set template
         switch ($story['type']) {
             case 'download':

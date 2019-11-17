@@ -126,8 +126,24 @@ class StoryController extends ApiController
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
                 // Update hits
-                $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
-                $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
+                if ($config['item_all_hits']) {
+                    $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
+                    $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
+                } else {
+                    if (!isset($_SESSION['hits_news'][$result['data']['id']])) {
+                        if (!isset($_SESSION['hits_news'])) {
+                            $_SESSION['hits_news'] = [];
+                        }
+
+                        $_SESSION['hits_news'][$result['data']['id']] = false;
+                    }
+
+                    if (!$_SESSION['hits_news'][$result['data']['id']]) {
+                        $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
+                        $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
+                        $_SESSION['hits_news'][$result['data']['id']] = true;
+                    }
+                }
 
                 // Set Additional images
                 $result['data']['additional_images_url'] = [];
