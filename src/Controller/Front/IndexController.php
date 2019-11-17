@@ -185,8 +185,8 @@ class IndexController extends ActionController
         // Get config
         $config = Pi::service('registry')->config->read($module);
         // Set day limit
-        if ($this->config('daylimit')) {
-            $where['time_publish > ?'] = time() - (86400 * $config['daylimit']);
+        if ($this->config('day_limit')) {
+            $where['time_publish > ?'] = time() - (86400 * $config['day_limit']);
         }
 
         // Set info

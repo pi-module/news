@@ -58,11 +58,6 @@ return [
         ],
     ],
     'item'     => [
-        // Generic
-        'advertisement'            => [
-            'title' => _a('Advertisement'),
-            'edit'  => 'textarea',
-        ],
         // Admin
         'admin_perpage'            => [
             'category'    => 'admin',
@@ -364,7 +359,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 10,
         ],
-        'daylimit'                 => [
+        'day_limit'                 => [
             'category'    => 'show',
             'title'       => _a('Just show news from X days ago'),
             'description' => _a('Set 0 for show all news, Or set day number for limit news in days'),
