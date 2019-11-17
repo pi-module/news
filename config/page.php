@@ -75,6 +75,14 @@ return [
         [
             'title'      => _a('Topic'),
             'controller' => 'topic',
+            'controller' => 'index',
+            'permission' => 'public',
+            'block'      => 1,
+        ],
+        [
+            'title'      => _a('Topic list'),
+            'controller' => 'topic',
+            'action'     => 'list',
             'permission' => 'public',
             'block'      => 1,
         ],
@@ -87,13 +95,6 @@ return [
         [
             'title'      => _a('Tag'),
             'controller' => 'tag',
-            'permission' => 'public',
-            'block'      => 1,
-        ],
-        [
-            'title'      => _a('Topic list'),
-            'controller' => 'topic',
-            'action'     => 'list',
             'permission' => 'public',
             'block'      => 1,
         ],
@@ -115,6 +116,18 @@ return [
             'controller' => 'favourite',
             'permission' => 'favourite',
             'block'      => 1,
+        ],
+        [
+            'label'      => _a('Archive'),
+            'controller' => 'archive',
+            'permission' => 'public',
+            'block'      => 0,
+        ],
+        [
+            'label'      => _a('Api'),
+            'controller' => 'api',
+            'permission' => 'public',
+            'block'      => 0,
         ],
         [
             'label'      => _a('Json output'),
