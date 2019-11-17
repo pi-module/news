@@ -45,4 +45,37 @@ class ApiController extends ActionController
         echo Pi::service('view')->render($view->getViewModel());
         die();
     }
+
+    public function hitAction()
+    {
+        // Get info from url
+        $slug = $this->params('slug');
+
+        // Find story
+        $story = Pi::model('story', 'news')->find($slug, 'slug');
+
+        // Update Hits
+        if (!isset($_SESSION['hits_news'][$story['id']])) {
+            if (!isset($_SESSION['hits_news'])) {
+                $_SESSION['hits_news'] = [];
+            }
+
+            $_SESSION['hits_news'][$story['id']] = false;
+        }
+
+        if (!$_SESSION['hits_news'][$story['id']]) {
+            Pi::model('story', 'news')->increment('hits', ['id' => $story['id']]);
+            $_SESSION['hits_news'][$story['id']] = true;
+        }
+
+        /**
+         * Get new hit count
+         */
+        $story = Pi::model('story', 'news')->find($slug, 'slug');
+
+        return [
+            'status' => 1,
+            'hits'   => (int)$story->hits,
+        ];
+    }
 }

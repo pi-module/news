@@ -1,14 +1,12 @@
-<?php
-$hitsAjaxUrl = Pi::url(
+<?php $hitsAjaxUrl = Pi::url(
     $this->url(
         '', [
-        'controller' => 'json',
+        'controller' => 'api',
         'action'     => 'hit',
         'slug'       => $story['slug'],
     ]
     )
-);
-?>
+); ?>
 <script>
     $(document).ready(function () {
         $.getJSON("<?php echo $hitsAjaxUrl ?>", function (result) {
