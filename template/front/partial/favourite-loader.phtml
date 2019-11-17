@@ -1,10 +1,6 @@
 <?php //include $this->template('favouritebar', 'front', 'favourite'); ?>
-
-
 <div id="favouriteWrapper"></div>
-
-<?php
-$eventAjaxUrl = Pi::url(
+<?php $eventAjaxUrl = Pi::url(
     $this->url(
         '', [
         'controller' => 'api',
@@ -12,9 +8,7 @@ $eventAjaxUrl = Pi::url(
         'slug'       => $story['slug'],
     ]
     )
-);
-
-?>
+); ?>
 <script>
     $(document).ready(function () {
         $.get("<?php echo $eventAjaxUrl ?>", function (html) {

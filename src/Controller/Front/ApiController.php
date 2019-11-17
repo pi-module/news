@@ -22,9 +22,6 @@ class ApiController extends ActionController
         // Find story
         $story = $this->getModel('story')->find($slug, 'slug');
 
-        //        print_r($story); die();
-
-
         // favourite
         if ($config['favourite_bar'] && Pi::service('module')->isActive('favourite')) {
             $favourite['is']     = Pi::api('favourite', 'favourite')->loadFavourite($module, 'story', $story['id']);

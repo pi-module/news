@@ -24,8 +24,10 @@ class TopicController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $slug   = $this->params('slug');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -33,8 +35,10 @@ class TopicController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get topic information from model
         $topic = $this->getModel('topic')->find($slug, 'slug');
+
         // Check slug set
         if (empty($topic)) {
             $this->getResponse()->setStatusCode(404);
@@ -42,8 +46,10 @@ class TopicController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic($topic);
+
         // Check topic
         if ($topic['status'] != 1 || $topic['type'] != 'general') {
             $this->getResponse()->setStatusCode(404);
@@ -51,6 +57,7 @@ class TopicController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check topic style
         if ($topic['style'] == 'topic') {
             // Get topic list
@@ -65,9 +72,11 @@ class TopicController extends IndexController
                     $setting['show_subid'] = 0;
                     $row->setting          = json_encode($setting);
                 }
+
                 // Canonize topic
                 $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
             }
+
             // Set view
             $this->view()->assign('topics', $topics);
         } else {
@@ -86,13 +95,16 @@ class TopicController extends IndexController
                 'action'     => 'index',
                 'slug'       => $topic['slug'],
             ];
+
             // Get paginator
             $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+
             // Get story List
             $storyList = $this->storyList($paginator, $topic['show_order_link']);
 
             // Spotlight
             $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+
             // Set view
             $this->view()->assign('stores', $storyList);
             $this->view()->assign('paginator', $paginator);
@@ -117,8 +129,10 @@ class TopicController extends IndexController
     {
         // Get page ID or slug from url
         $module = $this->params('module');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -126,6 +140,7 @@ class TopicController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get topic list
         $where  = ['status' => 1, 'type' => 'general'];
         $order  = ['time_create DESC', 'id DESC'];
@@ -134,8 +149,10 @@ class TopicController extends IndexController
         foreach ($rowset as $row) {
             $topics[$row->id] = Pi::api('topic', 'news')->canonizeTopic($row);
         }
+
         // Set header and title
         $title = __('List of all topics');
+
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(
