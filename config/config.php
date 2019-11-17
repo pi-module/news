@@ -359,7 +359,7 @@ return [
             'filter'      => 'number_int',
             'value'       => 10,
         ],
-        'day_limit'                 => [
+        'day_limit'                => [
             'category'    => 'show',
             'title'       => _a('Just show news from X days ago'),
             'description' => _a('Set 0 for show all news, Or set day number for limit news in days'),
@@ -373,7 +373,7 @@ return [
             'description' => _a('Include all page refresh as hits, if not check use SESSION check for update hits'),
             'edit'        => 'checkbox',
             'filter'      => 'number_int',
-            'value'       => 0
+            'value'       => 0,
         ],
         // Feed
         'feed_icon'                => [
@@ -393,7 +393,7 @@ return [
             'value'       => 10,
         ],
         // Image
-        'image_minw'    => [
+        'image_minw'               => [
             'category'    => 'image',
             'title'       => _t('Min Image width (upload)'),
             'description' => _t('This config can override media module value'),
@@ -401,7 +401,7 @@ return [
             'filter'      => 'string',
             'value'       => '',
         ],
-        'image_minh'    => [
+        'image_minh'               => [
             'category'    => 'image',
             'title'       => _t('Min Image height (upload)'),
             'description' => _t('This config can override media module value'),
@@ -409,7 +409,7 @@ return [
             'filter'      => 'string',
             'value'       => '',
         ],
-        'image_quality' => [
+        'image_quality'            => [
             'category'    => 'image',
             'title'       => _a('Image quality'),
             'description' => _a('Between 0 to 100 and support both of JPG and PNG, default is 75. This config can override media module value'),
