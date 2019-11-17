@@ -23,11 +23,14 @@ class FavouriteController extends IndexController
     {
         // Check user is login or not
         Pi::service('authentication')->requireLogin();
+
         // Get info from url
         $module = $this->params('module');
         $userId = Pi::user()->getId();
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -35,6 +38,7 @@ class FavouriteController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check user
         if (!$userId) {
             $this->getResponse()->setStatusCode(404);
@@ -42,6 +46,7 @@ class FavouriteController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check module active
         if (!Pi::service('module')->isActive('favourite')) {
             $this->getResponse()->setStatusCode(404);
@@ -52,8 +57,10 @@ class FavouriteController extends IndexController
 
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
+
         // Get story id
         $storyId = Pi::api('favourite', 'favourite')->userFavourite($userId, $module);
+
         // Check id
         if (empty($storyId)) {
             $this->getResponse()->setStatusCode(404);
@@ -61,6 +68,7 @@ class FavouriteController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Set story info
         $where = ['status' => 1, 'story' => $storyId];
 
@@ -69,8 +77,10 @@ class FavouriteController extends IndexController
             'controller' => 'favourite',
             'action'     => 'index',
         ];
+
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+
         // Get story List
         $storyList = $this->storyList($paginator, $topic['show_order_link']);
 
@@ -79,6 +89,7 @@ class FavouriteController extends IndexController
 
         // Set header and title
         $title = __('All favourite stories by you');
+
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(

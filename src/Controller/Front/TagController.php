@@ -24,8 +24,10 @@ class TagController extends IndexController
         // Get info from url
         $module = $this->params('module');
         $slug   = $this->params('slug');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -33,6 +35,7 @@ class TagController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check tag
         if (!Pi::service('module')->isActive('tag')) {
             $this->getResponse()->setStatusCode(404);
@@ -40,6 +43,7 @@ class TagController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check slug
         if (!isset($slug) || empty($slug)) {
             $this->getResponse()->setStatusCode(404);
@@ -47,18 +51,21 @@ class TagController extends IndexController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get id from tag module
         $tagId = [];
         $tags  = Pi::service('tag')->getList($slug, $module);
         foreach ($tags as $tag) {
             $tagId[] = $tag['item'];
         }
+
         // Check slug
         if (empty($tagId)) {
             $this->getResponse()->setStatusCode(404);
             $this->terminate(__('The tag not found.'), '', 'error-404');
             $this->view()->setLayout('layout-simple');
         }
+
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
         if ($topic['style'] == 'topic') {
@@ -76,21 +83,26 @@ class TagController extends IndexController
                 'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
             ],
         ];
+
         // Set paginator info
         $template = [
             'controller' => 'tag',
             'action'     => 'term',
             'slug'       => $slug,
         ];
+
         // Get paginator
         $paginator = $this->storyPaginator($template, $where, $topic['show_perpage'], $topic['show_order_link']);
+
         // Get story List
         $storyList = $this->storyList($paginator, $topic['show_order_link']);
 
         // Spotlight
         $spotlight = Pi::api('spotlight', 'news')->getSpotlight();
+
         // Set header and title
         $title = sprintf(__('All stores from %s'), $slug);
+
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(

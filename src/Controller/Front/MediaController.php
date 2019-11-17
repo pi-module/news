@@ -22,8 +22,10 @@ class MediaController extends ActionController
     {
         // Get info from url
         $module = $this->params('module');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -31,8 +33,10 @@ class MediaController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get info from url
         $id = $this->params('id');
+
         // Check id
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
@@ -40,8 +44,10 @@ class MediaController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // find attach
         $attach = $this->getModel('attach')->find($id)->toArray();
+
         // find item
         switch ($attach['item_table']) {
             case 'story':
@@ -62,6 +68,7 @@ class MediaController extends ActionController
                 $item['url'] = $item['authorUrl'];
                 break;
         }
+
         // update
         $this->getModel('attach')->increment('hits', ['id' => $attach['id']]);
 
@@ -79,8 +86,10 @@ class MediaController extends ActionController
         // Get info from url
         $id     = $this->params('id');
         $module = $this->params('module');
+
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -95,8 +104,10 @@ class MediaController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // find attach
         $attach = $this->getModel('attach')->find($id)->toArray();
+
         // update
         $this->getModel('attach')->increment('hits', ['id' => $attach['id']]);
 
@@ -129,6 +140,7 @@ class MediaController extends ActionController
                 $attach['file']
             );
         }
+
         // redirect
         return $this->redirect()->toUrl($url);
     }
@@ -138,8 +150,10 @@ class MediaController extends ActionController
         // Get info from url
         $id     = $this->params('id');
         $module = $this->params('module');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -147,6 +161,7 @@ class MediaController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check id
         if (!isset($id) || empty($id)) {
             $this->getResponse()->setStatusCode(404);
@@ -154,12 +169,14 @@ class MediaController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
-        // find topic anhd update cint
+
+        // find topic and update hint
         $topic                            = $this->getModel('topic')->find($id);
         $setting                          = json_decode($topic->setting, true);
         $setting['attach_download_count'] = $setting['attach_download_count'] + 1;
         $topic->setting                   = json_encode($setting);
         $topic->save();
+
         // redirect
         return $this->redirect()->toUrl($setting['attach_link']);
     }

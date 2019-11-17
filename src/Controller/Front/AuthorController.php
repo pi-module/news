@@ -24,8 +24,10 @@ class AuthorController extends ActionController
         // Get info from url
         $module = $this->params('module');
         $slug   = $this->params('slug');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -33,11 +35,14 @@ class AuthorController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get topic or homepage setting
         $topic = Pi::api('topic', 'news')->canonizeTopic();
+
         // Get topic information from model
         $author = $this->getModel('author')->find($slug, 'slug');
         $author = Pi::api('author', 'news')->canonizeAuthor($author);
+
         // Check status
         if (!$author || $author['status'] != 1) {
             $this->getResponse()->setStatusCode(404);
@@ -45,8 +50,10 @@ class AuthorController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Get role
         $roles = Pi::api('author', 'news')->getFormRole();
+
         // Get story
         $storyList = Pi::api('author', 'news')->getStoryList($author['id'], $roles);
 
@@ -72,8 +79,10 @@ class AuthorController extends ActionController
         // Get page
         $page   = $this->params('page', 1);
         $module = $this->params('module');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -81,19 +90,24 @@ class AuthorController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Set info
         $order  = ['title ASC', 'id ASC'];
         $where  = ['status' => 1];
         $author = [];
+
         // Get list of author
         $select = $this->getModel('author')->select()->where($where)->order($order);
         $rowset = $this->getModel('author')->selectWith($select);
+
         // Make list
         foreach ($rowset as $row) {
             $author[$row->id] = Pi::api('author', 'news')->canonizeAuthor($row);
         }
+
         // Set header and title
         $title = __('List of all authors');
+
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(
@@ -107,6 +121,7 @@ class AuthorController extends ActionController
         if (Pi::service('module')->isActive('statistics')) {
             Pi::api('log', 'statistics')->save('news', 'authorList');
         }
+
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headDescription($title, 'set');

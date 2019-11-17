@@ -126,7 +126,7 @@ class StoryController extends ApiController
                 $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
 
                 // Update hits
-                if ($config['item_all_hits']) {
+                if ($config['story_all_hits']) {
                     $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
                     $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
                 } else {

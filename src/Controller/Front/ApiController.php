@@ -14,8 +14,10 @@ class ApiController extends ActionController
 
         Pi::service('log')->mute();
 
+        // Get info from url
         $slug   = $this->params('slug');
         $module = $this->params('module');
+
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
 
@@ -49,23 +51,33 @@ class ApiController extends ActionController
     public function hitAction()
     {
         // Get info from url
-        $slug = $this->params('slug');
+        $module = $this->params('module');
+        $slug   = $this->params('slug');
+
+        // Get config
+        $config = Pi::service('registry')->config->read($module);
 
         // Find story
         $story = Pi::model('story', 'news')->find($slug, 'slug');
 
         // Update Hits
-        if (!isset($_SESSION['hits_news'][$story['id']])) {
-            if (!isset($_SESSION['hits_news'])) {
-                $_SESSION['hits_news'] = [];
+        if ($config['story_all_hits']) {
+            $this->getModel('story')->increment('hits', ['id' => $story['id']]);
+            $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+        } else {
+            if (!isset($_SESSION['hits_news'][$story['id']])) {
+                if (!isset($_SESSION['hits_news'])) {
+                    $_SESSION['hits_news'] = [];
+                }
+
+                $_SESSION['hits_news'][$story['id']] = false;
             }
 
-            $_SESSION['hits_news'][$story['id']] = false;
-        }
-
-        if (!$_SESSION['hits_news'][$story['id']]) {
-            Pi::model('story', 'news')->increment('hits', ['id' => $story['id']]);
-            $_SESSION['hits_news'][$story['id']] = true;
+            if (!$_SESSION['hits_news'][$story['id']]) {
+                $this->getModel('story')->increment('hits', ['id' => $story['id']]);
+                $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+                $_SESSION['hits_news'][$story['id']] = true;
+            }
         }
 
         /**

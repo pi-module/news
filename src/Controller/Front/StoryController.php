@@ -65,7 +65,7 @@ class StoryController extends ActionController
         }
 
         // Update Hits
-        if ($config['item_all_hits']) {
+        if ($config['story_all_hits']) {
             $this->getModel('story')->increment('hits', ['id' => $story['id']]);
             $this->getModel('link')->increment('hits', ['story' => $story['id']]);
         } else {

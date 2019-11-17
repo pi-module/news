@@ -26,8 +26,10 @@ class MicroblogController extends ActionController
         // Get info from url
         $id     = $this->params('id');
         $module = $this->params('module');
+
         // Get Module Config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -35,6 +37,7 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check status
         if (!$config['microblog_active']) {
             $this->getResponse()->setStatusCode(404);
@@ -42,6 +45,7 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Find microblog
         $microblog = $this->getModel('microblog')->find($id);
         $microblog = Pi::api('microblog', 'news')->canonizeMicroblog($microblog);
@@ -52,8 +56,10 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Update Hits
         $this->getModel('microblog')->increment('hits', ['id' => $microblog['id']]);
+
         // Set view
         $this->view()->headTitle($microblog['seo_title']);
         $this->view()->headdescription($microblog['seo_description'], 'set');
@@ -70,8 +76,10 @@ class MicroblogController extends ActionController
         $uid    = $this->params('uid');
         $topic  = $this->params('topic');
         $page   = $this->params('page', 1);
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Check deactivate view
         if ($config['admin_deactivate_view']) {
             $this->getResponse()->setStatusCode(404);
@@ -79,6 +87,7 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Check status
         if (!$config['microblog_active']) {
             $this->getResponse()->setStatusCode(404);
@@ -86,9 +95,11 @@ class MicroblogController extends ActionController
             $this->view()->setLayout('layout-simple');
             return;
         }
+
         // Set info
         $list  = [];
         $where = ['status' => 1];
+
         // Check uid and topic
         if (isset($uid) && intval($uid) > 0) {
             $where['uid']   = intval($uid);
@@ -96,21 +107,26 @@ class MicroblogController extends ActionController
         } elseif (isset($topic) && intval($topic) > 0) {
             $where['topic'] = 1;
         }
+
         // Set info
         $order  = ['time_create DESC', 'id DESC'];
         $offset = (int)($page - 1) * $this->config('microblog_perpage');
         $limit  = intval($this->config('microblog_perpage'));
+
         // Get info
         $select = $this->getModel('microblog')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('microblog')->selectWith($select);
+
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = Pi::api('microblog', 'news')->canonizeMicroblog($row);
         }
+
         // get count
         $columns = ['count' => new Expression('count(*)')];
         $select  = $this->getModel('microblog')->select()->where($where)->columns($columns);
         $count   = $this->getModel('microblog')->selectWith($select)->current()->count;
+
         // paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage(intval($limit));
@@ -130,8 +146,10 @@ class MicroblogController extends ActionController
                 ),
             ]
         );
+
         // Set header and title
         $title = __('All posts on microblog system');
+
         // Set seo_keywords
         $filter = new Filter\HeadKeywords;
         $filter->setOptions(
@@ -140,6 +158,7 @@ class MicroblogController extends ActionController
             ]
         );
         $seoKeywords = $filter($title);
+
         // Set view
         $this->view()->headTitle($title);
         $this->view()->headdescription($title, 'set');
