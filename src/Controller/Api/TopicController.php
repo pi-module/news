@@ -23,12 +23,12 @@ class TopicController extends ApiController
         // Set default result
         $result = [
             'result' => false,
-            'data'    => [],
-            'error'   => [
-                'code'    => 1,
-                'message' => __('Nothing selected'),
+            'data'   => [],
+            'error'  => [
+                'code'        => 1,
+                'message'     => __('Nothing selected'),
                 'messageFlag' => false,
-            ]
+            ],
         ];
 
         // Get info from url
@@ -50,8 +50,8 @@ class TopicController extends ApiController
             }
 
             // Set options
-            $options            = [];
-            $options['type']    = 'general';
+            $options         = [];
+            $options['type'] = 'general';
 
             // Get data
             $result['data'] = Pi::api('topic', 'news')->getTopicFullList($options);
@@ -65,8 +65,8 @@ class TopicController extends ApiController
 
             // Check data
             if (!empty($dataList)) {
-                $result['result'] =  true;
-                $result['data'] = array_values($dataList);
+                $result['result'] = true;
+                $result['data']   = array_values($dataList);
             } else {
                 // Set error
                 $result['error'] = [
@@ -96,11 +96,11 @@ class TopicController extends ApiController
         // Set default result
         $result = [
             'result' => false,
-            'data'    => [],
-            'error'   => [
+            'data'   => [],
+            'error'  => [
                 'code'    => 1,
                 'message' => __('Nothing selected'),
-            ]
+            ],
         ];
 
         // Get info from url
@@ -128,7 +128,7 @@ class TopicController extends ApiController
 
                 // Check data
                 if (!empty($result['data'])) {
-                    $result['result'] =  true;
+                    $result['result'] = true;
                 } else {
                     // Set error
                     $result['error'] = [

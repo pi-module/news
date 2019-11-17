@@ -211,10 +211,10 @@ class AuthorController extends ActionController
                     $loc = Pi::url(
                         $this->url(
                             'news', [
-                            'module'     => $module,
-                            'controller' => 'author',
-                            'slug'       => $values['slug'],
-                        ]
+                                'module'     => $module,
+                                'controller' => 'author',
+                                'slug'       => $values['slug'],
+                            ]
                         )
                     );
                     // Update sitemap

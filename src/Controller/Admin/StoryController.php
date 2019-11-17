@@ -358,12 +358,12 @@ class StoryController extends ActionController
         $config = Pi::service('registry')->config->read($module);
 
         // Get user
-        $uid          = Pi::user()->getId();
+        $uid = Pi::user()->getId();
 
         // Set confirmation access
         $allowConfirm = 1;
         if ($config['admin_confirmation_limit'] && !empty($config['admin_confirmation_role'])) {
-            $roles        = Pi::service('user')->getRole($uid, 'admin');
+            $roles = Pi::service('user')->getRole($uid, 'admin');
             if (!in_array($config['admin_confirmation_role'], $roles)) {
                 $allowConfirm = 0;
             }

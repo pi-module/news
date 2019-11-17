@@ -43,17 +43,17 @@ class MicroblogController extends ActionController
             $list[$row->id]['time_publish'] = _date($list[$row->id]['time_publish']);
             $list[$row->id]['user']         = Pi::user()->get(
                 $row->uid, [
-                'id', 'identity', 'name', 'email',
-            ]
+                    'id', 'identity', 'name', 'email',
+                ]
             );
             // Set url
             if ($row->status == 1) {
                 $list[$row->id]['microblogUrl'] = $this->url(
                     'news', [
-                    'module'     => $module,
-                    'controller' => 'microblog',
-                    'id'         => $row->id,
-                ]
+                        'module'     => $module,
+                        'controller' => 'microblog',
+                        'id'         => $row->id,
+                    ]
                 );
             } else {
                 $list[$row->id]['microblogUrl'] = '';
@@ -132,10 +132,10 @@ class MicroblogController extends ActionController
                     $loc = Pi::url(
                         $this->url(
                             'news', [
-                            'module'     => $module,
-                            'controller' => 'microblog',
-                            'id'         => $row->id,
-                        ]
+                                'module'     => $module,
+                                'controller' => 'microblog',
+                                'id'         => $row->id,
+                            ]
                         )
                     );
                     // Update sitemap
@@ -192,10 +192,10 @@ class MicroblogController extends ActionController
                 $loc = Pi::url(
                     $this->url(
                         'news', [
-                        'module'     => $module,
-                        'controller' => 'microblog',
-                        'id'         => $row->id,
-                    ]
+                            'module'     => $module,
+                            'controller' => 'microblog',
+                            'id'         => $row->id,
+                        ]
                     )
                 );
                 Pi::api('sitemap', 'sitemap')->remove($loc);

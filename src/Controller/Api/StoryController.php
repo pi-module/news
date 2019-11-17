@@ -23,11 +23,11 @@ class StoryController extends ApiController
         // Set default result
         $result = [
             'result' => false,
-            'data'    => [],
-            'error'   => [
+            'data'   => [],
+            'error'  => [
                 'code'    => 1,
                 'message' => __('Nothing selected'),
-            ]
+            ],
         ];
 
         // Get info from url
@@ -62,7 +62,7 @@ class StoryController extends ApiController
 
             // Check data
             if (!empty($result['data'])) {
-                $result['result'] =  true;
+                $result['result'] = true;
             } else {
                 // Set error
                 $result['error'] = [
@@ -92,11 +92,11 @@ class StoryController extends ApiController
         // Set default result
         $result = [
             'result' => false,
-            'data'    => [],
-            'error'   => [
+            'data'   => [],
+            'error'  => [
                 'code'    => 1,
                 'message' => __('Nothing selected'),
-            ]
+            ],
         ];
 
         // Get info from url
@@ -148,7 +148,9 @@ class StoryController extends ApiController
                 // Set Additional images
                 $result['data']['additional_images_url'] = [];
                 if (!empty($result['data']['additional_images'])) {
-                    $additionalImages = Pi::api('doc', 'media')->getGalleryLinkData($result['data']['additional_images'], 'large', null, null, false, [], 'news');
+                    $additionalImages = Pi::api('doc', 'media')->getGalleryLinkData(
+                        $result['data']['additional_images'], 'large', null, null, false, [], 'news'
+                    );
                     foreach ($additionalImages as $additionalImage) {
                         $result['data']['additional_images_url'][] = $additionalImage['resized_url'];
                     }
@@ -157,7 +159,7 @@ class StoryController extends ApiController
                 // Attribute
                 $result['data']['attributeList'] = [];
                 if ($config['show_attribute'] && $result['data']['attribute']) {
-                    $attributeList = Pi::api('attribute', 'news')->Story($result['data']['id'], $result['data']['topic_main']);
+                    $attributeList                   = Pi::api('attribute', 'news')->Story($result['data']['id'], $result['data']['topic_main']);
                     $result['data']['attributeList'] = [];
                     foreach ($attributeList as $attributeKey => $attributeCategory) {
                         switch ($attributeKey) {
@@ -186,7 +188,7 @@ class StoryController extends ApiController
 
                 // Check data
                 if (!empty($result['data'])) {
-                    $result['result'] =  true;
+                    $result['result'] = true;
                 } else {
                     // Set error
                     $result['error'] = [

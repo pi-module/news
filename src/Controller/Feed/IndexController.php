@@ -48,10 +48,10 @@ class IndexController extends FeedController
             $entry['link']          = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'story',
-                    'slug'       => $row->slug,
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'slug'       => $row->slug,
+                    ]
                 )
             );
             $feed->entry            = $entry;

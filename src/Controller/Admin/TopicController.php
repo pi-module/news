@@ -294,10 +294,10 @@ class TopicController extends ActionController
                     $loc = Pi::url(
                         $this->url(
                             'news', [
-                            'module'     => $module,
-                            'controller' => 'topic',
-                            'slug'       => $values['slug'],
-                        ]
+                                'module'     => $module,
+                                'controller' => 'topic',
+                                'slug'       => $values['slug'],
+                            ]
                         )
                     );
                     // Update sitemap
