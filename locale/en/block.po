@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2019-10-30 12:08+0330\n"
+"POT-Creation-Date: 2019-11-17 11:54+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _b\n"
 "X-Poedit-Basepath: ../..\n"
@@ -21,33 +21,15 @@ msgid "View"
 msgstr ""
 
 #: template/block/item.phtml:38 template/block/item.phtml:39
-#: template/block/list.phtml:25 template/block/list.phtml:26
+#: template/block/list.phtml:5 template/block/list.phtml:6
 #: template/block/spotlight.phtml:38 template/block/spotlight.phtml:39
-#: template/block/table.phtml:28 template/block/table.phtml:29
+#: template/block/table.phtml:5 template/block/table.phtml:6
 #: template/block/topic.phtml:104 template/block/topic.phtml:105
 msgid "More stories"
 msgstr ""
 
-#: template/block/list.phtml:11 template/block/table.phtml:8
-#: template/widget/story-table.phtml:9
-msgid "Time"
-msgstr ""
-
-#: template/block/list.phtml:16 template/block/table.phtml:10
-#: template/widget/story-table.phtml:12
-msgid "Read"
-msgstr ""
-
 #: template/block/microblog.phtml:39
 msgid "Microblog system is inactive."
-msgstr ""
-
-#: template/block/table.phtml:4 template/widget/story-table.phtml:4
-msgid "Title"
-msgstr ""
-
-#: template/block/table.phtml:6 template/widget/story-table.phtml:6
-msgid "Summary"
 msgstr ""
 
 #: template/widget/story-horizontal.phtml:71
@@ -57,4 +39,20 @@ msgstr ""
 #: template/widget/story-vertical-wide.phtml:55
 #: template/widget/story-vertical.phtml:58
 msgid "Read More"
+msgstr ""
+
+#: template/widget/story-table.phtml:4
+msgid "Title"
+msgstr ""
+
+#: template/widget/story-table.phtml:6
+msgid "Summary"
+msgstr ""
+
+#: template/widget/story-table.phtml:9
+msgid "Time"
+msgstr ""
+
+#: template/widget/story-table.phtml:12
+msgid "Read"
 msgstr ""
