@@ -40,8 +40,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         'href'  => Pi::url(
                             Pi::service('url')->assemble(
                                 'news', [
-                                'module' => $this->getModule(),
-                            ]
+                                    'module' => $this->getModule(),
+                                ]
                             )
                         ),
                     ],
@@ -56,9 +56,9 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
                                         'news', [
-                                        'controller' => 'author',
-                                        //'action' => 'list',
-                                    ]
+                                            'controller' => 'author',
+                                            //'action' => 'list',
+                                        ]
                                     )
                                 ),
                             ];
@@ -105,9 +105,9 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
                                         'news', [
-                                        'controller' => 'tag',
-                                        'action'     => 'list',
-                                    ]
+                                            'controller' => 'tag',
+                                            'action'     => 'list',
+                                        ]
                                     )
                                 ),
                             ];
@@ -163,8 +163,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
                                         'news', [
-                                        'controller' => 'microblog',
-                                    ]
+                                            'controller' => 'microblog',
+                                        ]
                                     )
                                 ),
                             ];

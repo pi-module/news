@@ -95,10 +95,10 @@ class Search extends AbstractSearch
                 $link = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'story',
-                        'slug'       => $item['slug'],
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $item['slug'],
+                        ]
                     )
                 );
                 break;
@@ -107,10 +107,10 @@ class Search extends AbstractSearch
                 $link = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'topic',
-                        'slug'       => $item['slug'],
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'topic',
+                            'slug'       => $item['slug'],
+                        ]
                     )
                 );
                 break;

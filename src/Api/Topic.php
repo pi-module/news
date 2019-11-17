@@ -40,10 +40,10 @@ class Topic extends AbstractApi
         $topic['topicUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'topic',
-                'slug'       => $topic['slug'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'topic',
+                    'slug'       => $topic['slug'],
+                ]
             )
         );
         return $topic;
@@ -76,7 +76,7 @@ class Topic extends AbstractApi
     {
         $topicList = [];
         $where     = ['status' => 1, 'type' => $options['type']];
-        $order     = ['display_order ASC','title ASC', 'id ASC'];
+        $order     = ['display_order ASC', 'title ASC', 'id ASC'];
         $select    = Pi::model('topic', $this->getModule())->select()->where($where)->order($order);
         $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
@@ -102,10 +102,10 @@ class Topic extends AbstractApi
             $topic['topicUrl'] = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'topic',
-                    'slug'       => $topic['slug'],
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'topic',
+                        'slug'       => $topic['slug'],
+                    ]
                 )
             );
             // Set image url
@@ -170,11 +170,11 @@ class Topic extends AbstractApi
                     $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
                         Pi::service('url')->assemble(
                             'news', [
-                            'module'     => $this->getModule(),
-                            'controller' => 'media',
-                            'action'     => 'download',
-                            'id'         => $row->id,
-                        ]
+                                'module'     => $this->getModule(),
+                                'controller' => 'media',
+                                'action'     => 'download',
+                                'id'         => $row->id,
+                            ]
                         )
                     );
                 }
@@ -410,10 +410,10 @@ class Topic extends AbstractApi
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'topic',
-                        'slug'       => $row->slug,
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'topic',
+                            'slug'       => $row->slug,
+                        ]
                     )
                 );
                 // Add to sitemap

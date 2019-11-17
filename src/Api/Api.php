@@ -97,9 +97,9 @@ class Api extends AbstractApi
         if (!isset($values['type'])
             || !in_array(
                 $values['type'], [
-                'text', 'post', 'article', 'magazine', 'event',
-                'image', 'gallery', 'media', 'download', 'feed',
-            ]
+                    'text', 'post', 'article', 'magazine', 'event',
+                    'image', 'gallery', 'media', 'download', 'feed',
+                ]
             )
         ) {
             return false;
@@ -386,7 +386,7 @@ class Api extends AbstractApi
 
             default:
             case 'link':
-                
+
                 // Select from link table
                 $select = Pi::model('link', $this->getModule())->select();
                 if (!empty($where)) {
@@ -723,8 +723,8 @@ class Api extends AbstractApi
         if (!$story || $story['status'] != 1
             || !in_array(
                 $story['type'], [
-                'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
-            ]
+                    'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
+                ]
             )
         ) {
             $storySingle = [];
@@ -756,8 +756,8 @@ class Api extends AbstractApi
             if ($getUser) {
                 $user                      = Pi::user()->get(
                     $story['uid'], [
-                    'id', 'identity', 'name', 'email',
-                ]
+                        'id', 'identity', 'name', 'email',
+                    ]
                 );
                 $storySingle['userName']   = $user['name'];
                 $storySingle['userAvatar'] = '';

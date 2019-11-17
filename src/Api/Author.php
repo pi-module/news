@@ -165,10 +165,10 @@ class Author extends AbstractApi
             $list[$row->id]['name']      = $author['title'];
             $list[$row->id]['authorUrl'] = Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'author',
-                'slug'       => $author['slug'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'author',
+                    'slug'       => $author['slug'],
+                ]
             );;
         }
         return $list;
@@ -192,10 +192,10 @@ class Author extends AbstractApi
         // Set story url
         $author['authorUrl'] = Pi::service('url')->assemble(
             'news', [
-            'module'     => $this->getModule(),
-            'controller' => 'author',
-            'slug'       => $author['slug'],
-        ]
+                'module'     => $this->getModule(),
+                'controller' => 'author',
+                'slug'       => $author['slug'],
+            ]
         );
         // Set image url
         if ($author['image']) {
@@ -263,10 +263,10 @@ class Author extends AbstractApi
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'author',
-                        'slug'       => $row->slug,
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'author',
+                            'slug'       => $row->slug,
+                        ]
                     )
                 );
                 // Add to sitemap

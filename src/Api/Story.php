@@ -145,11 +145,11 @@ class Story extends AbstractApi
             $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'media',
-                    'action'     => 'download',
-                    'id'         => $row->id,
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'media',
+                        'action'     => 'download',
+                        'id'         => $row->id,
+                    ]
                 )
             );
         }
@@ -178,7 +178,7 @@ class Story extends AbstractApi
     public function Related($id, $topic)
     {
         // Get config
-        $config  = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read($this->getModule());
 
         // Set info
         $related = [];
@@ -239,10 +239,10 @@ class Story extends AbstractApi
             $link['next']['url']   = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'story',
-                    'slug'       => $story['slug'],
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'slug'       => $story['slug'],
+                    ]
                 )
             );
         }
@@ -265,10 +265,10 @@ class Story extends AbstractApi
             $link['previous']['url']   = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'story',
-                    'slug'       => $story['slug'],
-                ]
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'slug'       => $story['slug'],
+                    ]
                 )
             );
         }
@@ -324,10 +324,10 @@ class Story extends AbstractApi
                         'categoryUrl' => Pi::url(
                             Pi::service("url")->assemble(
                                 "news", [
-                                "module"     => $this->getModule(),
-                                "controller" => "category",
-                                "slug"       => $row->slug,
-                            ]
+                                    "module"     => $this->getModule(),
+                                    "controller" => "category",
+                                    "slug"       => $row->slug,
+                                ]
                             )
                         ),
                     ];
@@ -356,10 +356,10 @@ class Story extends AbstractApi
                     $story['url'] = Pi::url(
                         Pi::service('url')->assemble(
                             'news', [
-                            'module'     => $this->getModule(),
-                            'controller' => 'story',
-                            'slug'       => $row->slug,
-                        ]
+                                'module'     => $this->getModule(),
+                                'controller' => 'story',
+                                'slug'       => $row->slug,
+                            ]
                         )
                     );
 
@@ -419,10 +419,10 @@ class Story extends AbstractApi
         $story['storyUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'story',
-                'slug'       => $story['slug'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $story['slug'],
+                ]
             )
         );
         // Set topic information
@@ -437,10 +437,10 @@ class Story extends AbstractApi
                     $story['topics'][$topic]['url']   = Pi::url(
                         Pi::service('url')->assemble(
                             'news', [
-                            'module'     => $this->getModule(),
-                            'controller' => 'topic',
-                            'slug'       => $topicList[$topic]['slug'],
-                        ]
+                                'module'     => $this->getModule(),
+                                'controller' => 'topic',
+                                'slug'       => $topicList[$topic]['slug'],
+                            ]
                         )
                     );
                 }
@@ -467,17 +467,17 @@ class Story extends AbstractApi
         if (isset($option['getUser']) && $option['getUser']) {
             $user          = Pi::user()->get(
                 $story['uid'], [
-                'id', 'identity', 'name', 'email',
-            ]
+                    'id', 'identity', 'name', 'email',
+                ]
             );
             $story['user'] = $user['name'];
         }
 
         if ($story['main_image']) {
-            $linkUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news');
-            $story['largeUrl']  = Pi::url((string)$linkUrl ->thumb('large'));
-            $story['mediumUrl'] = Pi::url((string)$linkUrl ->thumb('medium'));
-            $story['thumbUrl']  = Pi::url((string)$linkUrl ->thumb('thumbnail'));
+            $linkUrl            = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news');
+            $story['largeUrl']  = Pi::url((string)$linkUrl->thumb('large'));
+            $story['mediumUrl'] = Pi::url((string)$linkUrl->thumb('medium'));
+            $story['thumbUrl']  = Pi::url((string)$linkUrl->thumb('thumbnail'));
         } else {
             $story['largeUrl']  = '';
             $story['mediumUrl'] = '';
@@ -508,10 +508,10 @@ class Story extends AbstractApi
         $story['storyUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'story',
-                'slug'       => $story['slug'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $story['slug'],
+                ]
             )
         );
 
@@ -551,10 +551,10 @@ class Story extends AbstractApi
         $story['storyUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'story',
-                'slug'       => $story['slug'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'story',
+                    'slug'       => $story['slug'],
+                ]
             )
         );
 
@@ -613,10 +613,10 @@ class Story extends AbstractApi
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'story',
-                        'slug'       => $row->slug,
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $row->slug,
+                        ]
                     )
                 );
                 // Add to sitemap

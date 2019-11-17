@@ -21,18 +21,18 @@ class Block
     public static function item($options = [], $module = null)
     {
         // Set options
-        $block     = [];
-        $block     = array_merge($block, $options);
+        $block = [];
+        $block = array_merge($block, $options);
 
         // Set model and get information
         $whereLink = [
             'status' => 1,
-            'type' => ['text', 'article', 'magazine', 'image', 'gallery', 'media', 'download']
+            'type'   => ['text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'],
         ];
-        $columns             = ['story' => new Expression('DISTINCT story')];
-        $limit               = intval($block['number']);
-        $storyId        = [];
-        $storyList      = [];
+        $columns   = ['story' => new Expression('DISTINCT story')];
+        $limit     = intval($block['number']);
+        $storyId   = [];
+        $storyList = [];
 
         // Check topic permission
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
@@ -208,13 +208,13 @@ class Block
     public static function topic($options = [], $module = null)
     {
         // Set options
-        $block = [];
-        $block = array_merge($block, $options);
+        $block     = [];
+        $block     = array_merge($block, $options);
         $topicList = [];
 
         // Set model and get information
         $where = [
-            'status' => 1
+            'status' => 1,
         ];
         if (isset($block['topicid']) && !empty($block['topicid']) && !in_array(0, $block['topicid'])) {
             $where['id'] = $block['topicid'];
@@ -255,7 +255,7 @@ class Block
         }
 
         // Set block array
-        $block['resources'] =$topicList;
+        $block['resources'] = $topicList;
         return $block;
     }
 
@@ -378,7 +378,7 @@ class Block
         // Set info
         $whereStory = [
             'status' => 1,
-            'id' => $storyId
+            'id'     => $storyId,
         ];
 
         // Check story not empty

@@ -62,10 +62,10 @@ class Spotlight extends AbstractApi
                 $story[$row->id]['storyUrl'] = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'story',
-                        'slug'       => $story[$row->id]['slug'],
-                    ]
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $story[$row->id]['slug'],
+                        ]
                     )
                 );
                 // Set image url

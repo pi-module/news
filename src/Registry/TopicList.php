@@ -40,10 +40,10 @@ class TopicList extends AbstractRegistry
             $return[$row->id]['url'] = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                    'module'     => $this->module,
-                    'controller' => 'topic',
-                    'slug'       => $return[$row->id]['slug'],
-                ]
+                        'module'     => $this->module,
+                        'controller' => 'topic',
+                        'slug'       => $return[$row->id]['slug'],
+                    ]
                 )
             );
         }

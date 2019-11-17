@@ -50,31 +50,31 @@ class Microblog extends AbstractApi
         $microblog['microblogUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                'module'     => $this->getModule(),
-                'controller' => 'microblog',
-                'id'         => $microblog['id'],
-            ]
+                    'module'     => $this->getModule(),
+                    'controller' => 'microblog',
+                    'id'         => $microblog['id'],
+                ]
             )
         );
         // Set user
         $microblog['user'] = Pi::user()->get(
             $microblog['uid'], [
-            'id', 'identity', 'name', 'email',
-        ]
+                'id', 'identity', 'name', 'email',
+            ]
         );
         // Set avatar
         $microblog['user']['avatar'] = Pi::service('user')->avatar(
             $microblog['uid'], 'large', [
-            'alt'   => $microblog['user']['name'],
-            'class' => 'rounded-circle',
-        ]
+                'alt'   => $microblog['user']['name'],
+                'class' => 'rounded-circle',
+            ]
         );
         // profile url
         $microblog['profileUrl'] = Pi::url(
             Pi::service('user')->getUrl(
                 'profile', [
-                'id' => $microblog['uid'],
-            ]
+                    'id' => $microblog['uid'],
+                ]
             )
         );
         // Set SEO
