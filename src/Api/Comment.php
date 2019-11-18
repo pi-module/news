@@ -43,7 +43,7 @@ class Comment extends AbstractComment
                 'title' => $story[$id]['title'],
                 'url'   => $story[$id]['storyUrl'],
                 'uid'   => $story[$id]['uid'],
-                'time'  => $story[$id]['time_create'],
+                'time'  => $story[$id]['time_publish'],
             ];
         }
 
