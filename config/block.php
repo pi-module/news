@@ -95,6 +95,13 @@ return [
                 'filter'      => 'number_int',
                 'value'       => 0,
             ],
+            'day_limit'         => [
+                'title'       => _a('Just show news from X days ago'),
+                'description' => _a('Set 0 for show all news, Or set day number for limit news in days'),
+                'edit'        => 'text',
+                'filter'      => 'number_int',
+                'value'       => 0,
+            ],
             'linkblockmore'     => [
                 'title'       => _a('Set More link to module page'),
                 'description' => '',
@@ -113,6 +120,7 @@ return [
                             'publishASC'  => _a('Publish time ASC'),
                             'updateDESC'  => _a('Update time DESC'),
                             'updateASC'   => _a('Update time ASC'),
+                            'hitsDESC'    => _a('Hits DSC'),
                             'random'      => _a('Random'),
                         ],
                     ],

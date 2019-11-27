@@ -31,18 +31,25 @@ class TopicController extends ActionController
         // Get page
         $page   = $this->params('page', 1);
         $module = $this->params('module');
+
         // Get config
         $config = Pi::service('registry')->config->read($module);
+
         // Get info
+        $where   = ['status' => [1,2,3,4]];
         $columns = ['id', 'title', 'slug', 'style', 'status', 'type'];
         $order   = ['id DESC', 'time_create DESC'];
         $limit   = intval($this->config('admin_perpage'));
         $offset  = (int)($page - 1) * $this->config('admin_perpage');
-        $select  = $this->getModel('topic')->select()->columns($columns)->order($order)->offset($offset)->limit($limit);
+
+        // Select
+        $select  = $this->getModel('topic')->select()->columns($columns)->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset  = $this->getModel('topic')->selectWith($select);
+
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
+
             // Set topic style view
             switch ($row->style) {
                 case 'list':
@@ -70,6 +77,7 @@ class TopicController extends ActionController
                     $list[$row->id]['style_view'] = __('News');
                     break;
             }
+
             // Set topic style view
             switch ($row->type) {
                 case 'blog':
@@ -86,14 +94,18 @@ class TopicController extends ActionController
                     break;
             }
         }
+
         // Go to time_update page if empty
         if (empty($list)) {
             return $this->redirect()->toRoute('', ['action' => 'update']);
         }
-        // Set paginator
+
+        // Set count
         $count     = ['count' => new Expression('count(*)')];
-        $select    = $this->getModel('topic')->select()->columns($count);
+        $select    = $this->getModel('topic')->select()->columns($count)->where($where);
         $count     = $this->getModel('topic')->selectWith($select)->current()->count;
+
+        // Set paginator
         $paginator = Paginator::factory(intval($count));
         $paginator->setItemCountPerPage($limit);
         $paginator->setCurrentPageNumber($page);
@@ -110,6 +122,7 @@ class TopicController extends ActionController
                 ),
             ]
         );
+
         // Set view
         $this->view()->setTemplate('topic-index');
         $this->view()->assign('topics', $list);

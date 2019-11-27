@@ -39,6 +39,11 @@ class Block
             $whereLink['topic'] = $block['topicid'];
         }
 
+        // Set day limit
+        if (intval($block['day_limit']) > 0) {
+            $whereLink['time_publish > ?'] = time() - (86400 * $block['day_limit']);
+        }
+
         // Set order
         switch ($block['order']) {
             case 'random':
@@ -51,6 +56,10 @@ class Block
 
             case 'updateDESC':
                 $order = ['time_update DESC', 'id DESC'];;
+                break;
+
+            case 'hitsDESC':
+                $order = ['hits DESC', 'id DESC'];;
                 break;
 
             case 'publishASC':

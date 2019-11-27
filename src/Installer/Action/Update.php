@@ -1025,6 +1025,22 @@ SQL;
             }
         }
 
+        if (version_compare($moduleVersion, '2.1.4', '<')) {
+            $sql = sprintf("ALTER TABLE %s ADD `hits` INT(10) UNSIGNED NOT NULL DEFAULT '0'", $linkTable);
+            try {
+                $linkAdapter->query($sql, 'execute');
+            } catch (\Exception $exception) {
+                $this->setResult(
+                    'db', [
+                        'status'  => false,
+                        'message' => 'Table alter query failed: '
+                            . $exception->getMessage(),
+                    ]
+                );
+                return false;
+            }
+        }
+
         return true;
     }
 }
