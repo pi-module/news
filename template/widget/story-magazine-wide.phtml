@@ -17,6 +17,7 @@
                     <h3 class="p-name itemSingleTitle" itemprop="name headline">
                         <a itemprop="url" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                            title="<?php echo $this->escape($firstStory['title']); ?>">
+                            <?php if ($firstStory['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                             <?php echo $this->escape($firstStory['title']); ?>
                         </a>
                     </h3>

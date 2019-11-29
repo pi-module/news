@@ -16,6 +16,7 @@
             <tr class="odd h-entry" itemscope itemtype="https://schema.org/Article">
                 <td class="p-name" itemprop="name">
                     <a href="<?php echo $this->escape($story['storyUrl']); ?>" title="<?php echo $this->escape($story['title']); ?>">
+                        <?php if ($story['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                         <?php echo $this->escape($story['title']); ?>
                     </a>
                 </td>
