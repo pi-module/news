@@ -1,0 +1,826 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: news\n"
+"POT-Creation-Date: 2019-11-29 13:12+0330\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: config/block.php:16
+msgid "Item"
+msgstr "فقرة"
+
+#: config/block.php:22 config/block.php:312 config/block.php:453
+#: config/block.php:484 config/block.php:530 config/block.php:598
+#: config/config.php:176 config/navigation.php:68 config/page.php:52
+#: config/page.php:76 config/page.php:154 config/permission.php:70
+msgid "Topic"
+msgstr "الاقسام"
+
+#: config/block.php:29 config/block.php:183 config/block.php:407
+#: config/block.php:460 config/block.php:537 config/block.php:605
+msgid "Number"
+msgstr "العدد"
+
+#: config/block.php:36 config/block.php:190 config/block.php:326
+#: config/block.php:506 config/block.php:612
+msgid "Show text"
+msgstr "اظهار النص"
+
+#: config/block.php:43 config/block.php:197 config/block.php:513
+msgid "Text width limit"
+msgstr "عرض النص المحدد"
+
+#: config/block.php:44 config/block.php:198 config/block.php:514
+msgid "Set 0 for no limit"
+msgstr "بدء 0 الى غير محدد"
+
+#: config/block.php:50 config/block.php:204 config/block.php:544
+#: config/block.php:619
+msgid "Show date"
+msgstr "اظهار التاريخ"
+
+#: config/block.php:57 config/block.php:211 config/block.php:551
+#: config/block.php:626
+msgid "Show hits"
+msgstr "اظهار النقرات"
+
+#: config/block.php:64 config/block.php:218 config/block.php:333
+msgid "Show Images"
+msgstr "اظهار الصور"
+
+#: config/block.php:71 config/block.php:225
+msgid "Show More link for each story"
+msgstr "اظهار اكثر من رابط لكل قسم"
+
+#: config/block.php:78 config/block.php:232
+msgid "Show authors"
+msgstr "اظهار الناشر"
+
+#: config/block.php:85
+msgid "Big first story on magazine"
+msgstr "القصة الأولى الكبيرة في المجلة"
+
+#: config/block.php:92 config/block.php:239 config/block.php:340
+#: config/block.php:558 config/block.php:633
+msgid "Show More link to module page"
+msgstr "إظهار المزيد من رابط إلى صفحة الموديل "
+
+#: config/block.php:99 config/config.php:364
+msgid "Just show news from X days ago"
+msgstr "فقط عرض الأخبار من X أيام مضت"
+
+#: config/block.php:100 config/config.php:365
+msgid "Set 0 for show all news, Or set day number for limit news in days"
+msgstr "تعيين 0 لعرض كل الأخبار ، أو تعيين رقم اليوم للحد من الأخبار في أيام"
+
+#: config/block.php:106 config/block.php:246 config/block.php:347
+#: config/block.php:565 config/block.php:640
+msgid "Set More link to module page"
+msgstr "تعيين المزيد من الرابط إلى صفحة الموديل"
+
+#: config/block.php:113 config/block.php:253 config/block.php:572
+#: config/block.php:647 config/config.php:211
+msgid "Story order"
+msgstr "ترتيب الخبر"
+
+#: config/block.php:114 config/block.php:254 config/block.php:573
+#: config/block.php:648 config/config.php:212
+msgid "Story list order options"
+msgstr "خيارات ترتيب قائمة الخبر"
+
+#: config/block.php:119 config/block.php:259 config/block.php:578
+#: config/block.php:653 config/config.php:217
+msgid "Publish time DESC"
+msgstr "نشر الوقت تنازليا"
+
+#: config/block.php:120 config/block.php:260 config/block.php:579
+#: config/block.php:654 config/config.php:218
+msgid "Publish time ASC"
+msgstr "نشر الوقت تصاعديا"
+
+#: config/block.php:121 config/block.php:261
+msgid "Update time DESC"
+msgstr "تحديث الوقت تصاعديا"
+
+#: config/block.php:122 config/block.php:262
+msgid "Update time ASC"
+msgstr "تحديث الوقت تنازليا"
+
+#: config/block.php:123
+msgid "Hits DSC"
+msgstr ""
+
+#: config/block.php:124 config/block.php:263 config/block.php:580
+#: config/block.php:655
+msgid "Random"
+msgstr "عشوائي"
+
+#: config/block.php:132 config/block.php:271
+msgid "Item list type"
+msgstr "نوع قائمة المواد"
+
+#: config/block.php:138 config/block.php:277 config/block.php:377
+msgid "Vertical"
+msgstr "عامودي"
+
+#: config/block.php:139 config/block.php:278
+msgid "Vertical wide"
+msgstr "عمودي واسع"
+
+#: config/block.php:140 config/block.php:279
+msgid "Vertical compressed"
+msgstr "مضغوط عمودي"
+
+#: config/block.php:141 config/block.php:280 config/block.php:378
+msgid "Horizontal"
+msgstr "افقي"
+
+#: config/block.php:142 config/block.php:281
+msgid "Magazine"
+msgstr "مجلة"
+
+#: config/block.php:143
+msgid "Magazine wide"
+msgstr "مجلة واسعة"
+
+#: config/block.php:144 config/block.php:282 config/block.php:379
+#: config/config.php:172
+msgid "List"
+msgstr "قائمة"
+
+#: config/block.php:145 config/block.php:283 config/block.php:592
+#: config/config.php:173
+msgid "Table"
+msgstr "جدول"
+
+#: config/block.php:146 config/block.php:284 config/block.php:381
+#: config/block.php:435
+msgid "Slide"
+msgstr "منزلق"
+
+#: config/block.php:147 config/block.php:285
+msgid "Slide by hover effect"
+msgstr "الشريحة بواسطة تأثير التحويم"
+
+#: config/block.php:148 config/block.php:286
+msgid "Carousel"
+msgstr "دائري"
+
+#: config/block.php:149 config/block.php:287 config/block.php:382
+#: config/config.php:32
+msgid "Image"
+msgstr "صورة"
+
+#: config/block.php:157 config/block.php:295 config/block.php:390
+msgid "Use block effects"
+msgstr "استخدام آثار الكتلة"
+
+#: config/block.php:158 config/block.php:296 config/block.php:391
+msgid "Use block effects or set custom effect on theme"
+msgstr "استخدام تأثيرات الكتلة أو تعيين تأثير مخصص على السمة"
+
+#: config/block.php:164
+msgid "Not show top stories"
+msgstr "لا تظهر أهم الأخبار"
+
+#: config/block.php:166
+msgid ""
+"By active this option, you skip show spotlight stories on this block and can "
+"show them on other blocks, it can help you to manage homepage to show all "
+"spotlight story on one block and other stories on other blocks"
+msgstr ""
+"من خلال تفعيل هذا الخيار ، يمكنك تخطي عرض قصص إلقاء الضوء على هذه الكتلة "
+"ويمكن عرضها في كتل أخرى ، ويمكن أن تساعدك على إدارة الصفحة الرئيسية لإظهار "
+"جميع قصص الضوء على كتلة واحدة والقصص الأخرى على كتل أخرى"
+
+#: config/block.php:177 config/config.php:44 config/config.php:175
+#: config/navigation.php:97 config/navigation.php:247 config/page.php:37
+#: config/permission.php:60
+msgid "Spotlight"
+msgstr "الشريط الأحمر بالاسفل"
+
+#: config/block.php:306
+msgid "List of topic"
+msgstr "قائمة القسم"
+
+#: config/block.php:319
+msgid "Tree view"
+msgstr "عرض الشجرة"
+
+#: config/block.php:354
+msgid "Topic order"
+msgstr "ترتيب القسم"
+
+#: config/block.php:355
+msgid "Topic list order options"
+msgstr "خيارات ترتيب قائمة القسم"
+
+#: config/block.php:360
+msgid "Create DESC"
+msgstr "انشاء جديد تنازلي"
+
+#: config/block.php:361
+msgid "Create ASC"
+msgstr "انشاء جديد تصاعدي"
+
+#: config/block.php:362
+msgid "Title DESC"
+msgstr "عنوان تنازلي"
+
+#: config/block.php:363
+msgid "Title ASC"
+msgstr "عنوان تصاعدي"
+
+#: config/block.php:371
+msgid "Topic list type"
+msgstr "نوع قائمة القسم"
+
+#: config/block.php:380
+msgid "List group"
+msgstr "مجموعة قائمة"
+
+#: config/block.php:401
+msgid "Gallery"
+msgstr "معرض الصور"
+
+#: config/block.php:414
+msgid "Show gallery effect"
+msgstr "اظهار تأثير معرض الصور"
+
+#: config/block.php:421
+msgid "Image width class"
+msgstr "فئة عرض الصورة"
+
+#: config/block.php:422
+msgid "Bootstrap 3 grid options like : col-6 col-sm-6 col-md-3"
+msgstr ""
+
+#: config/block.php:428
+msgid "Image list type"
+msgstr "نوع قائمة الصور"
+
+#: config/block.php:434
+msgid "Simple"
+msgstr "نموذج"
+
+#: config/block.php:447
+msgid "Microblog"
+msgstr "مدونات صغيرة"
+
+#: config/block.php:467
+msgid "User ID"
+msgstr " معرف المستخدم"
+
+#: config/block.php:468
+msgid "Set user ID, if you want show special user posts"
+msgstr "قم بتعيين معرف المستخدم ، إذا كنت تريد إظهار مشاركات المستخدم الخاصة"
+
+#: config/block.php:478 config/config.php:174 config/navigation.php:274
+msgid "Media"
+msgstr "الوسائط"
+
+#: config/block.php:491
+msgid "Media type"
+msgstr "أنواع الوسائط"
+
+#: config/block.php:497
+msgid "Video"
+msgstr "الفيديو"
+
+#: config/block.php:498
+msgid "Audio"
+msgstr "الصوت"
+
+#: config/block.php:524
+msgid "list"
+msgstr "قائمة"
+
+#: config/comment.php:15
+msgid "News comments"
+msgstr "تعليقات الاخبار"
+
+#: config/config.php:16
+msgid "Admin"
+msgstr "الادمن"
+
+#: config/config.php:24
+msgid "Show"
+msgstr "اظهار"
+
+#: config/config.php:28
+msgid "Feed"
+msgstr "التغذية"
+
+#: config/config.php:36
+msgid "File"
+msgstr "ملف"
+
+#: config/config.php:40
+msgid "Social"
+msgstr "اجتماعي"
+
+#: config/config.php:48
+msgid "Vote"
+msgstr "تصويت"
+
+#: config/config.php:52 config/navigation.php:16 config/page.php:115
+#: config/permission.php:31
+msgid "Favourite"
+msgstr "المفضلة"
+
+#: config/config.php:56 config/navigation.php:202 config/page.php:57
+#: config/permission.php:80
+msgid "Micro blog"
+msgstr "بلوق الصغيرة"
+
+#: config/config.php:64 config/config.php:186
+msgid "Perpage"
+msgstr ""
+
+#: config/config.php:72
+msgid "Set topic as system page for support customise layout for blocks"
+msgstr "تعيين الموضوع كصفحة النظام للحصول على دعم تخصيص تخطيط للكتل"
+
+#: config/config.php:80
+msgid "Set story authors"
+msgstr "تعيين مؤلفي الخبر"
+
+#: config/config.php:88
+msgid "Set custom publish time"
+msgstr "ضبط وقت النشر المخصص"
+
+#: config/config.php:96
+msgid "Set custom html code"
+msgstr "تعيين رمز HTML مخصص"
+
+#: config/config.php:104
+msgid "Deactivate module front pages"
+msgstr "إلغاء تنشيط الصفحات الأمامية للموديل"
+
+#: config/config.php:106
+msgid ""
+"Deactivate module front pages by 404 error code, useful if you want use "
+"module as service for event and blog and dont want publish any story as news"
+msgstr ""
+"قم بإلغاء تنشيط الصفحات الأمامية للوحدة النمطية برمز الخطأ 404 ، وهو مفيد إذا "
+"كنت تريد استخدام الوحدة النمطية كخدمة للحدث والمدونة ولا تريد نشر أي قصة كخبر"
+
+#: config/config.php:114
+msgid "Confirmation limit"
+msgstr "حد التأكيد"
+
+#: config/config.php:116
+msgid ""
+"Set limit for confirmation and publish stories, if checked just selected role "
+"can be publish news"
+msgstr ""
+"قم بتعيين حد للتأكيد ونشر الأخبار ، إذا تم تحديد الدور المحدد فقط فيمكنك نشر "
+"الأخبار"
+
+#: config/config.php:124
+msgid "Confirmation role"
+msgstr "دور التأكيد"
+
+#: config/config.php:125
+msgid "Set allowed role name than have access to confirm and publish news"
+msgstr "قم بتعيين اسم الدور المسموح به بدلاً من الوصول إلى تأكيد ونشر الأخبار"
+
+#: config/config.php:165
+msgid "Show Style"
+msgstr "اظهار الاسلوب"
+
+#: config/config.php:171 config/module.php:16 module.php:16
+msgid "News"
+msgstr "الاخبار"
+
+#: config/config.php:193
+msgid "Columns"
+msgstr "الاعمدة"
+
+#: config/config.php:199
+msgid "One column"
+msgstr "عامود واحد"
+
+#: config/config.php:200
+msgid "Two columns"
+msgstr "عامودان"
+
+#: config/config.php:201
+msgid "Three columns"
+msgstr "ثلاث اعمدة"
+
+#: config/config.php:202
+msgid "Four columns"
+msgstr "أربعة اعمدة"
+
+#: config/config.php:228
+msgid "Show Subtopic stories on main topic"
+msgstr "عرض اقسام فرعية على القسم الرئيسي"
+
+#: config/config.php:236
+msgid "Show Topic"
+msgstr "اظهار القسم"
+
+#: config/config.php:244
+msgid "Show Topic Information"
+msgstr "اظهار معلومات القسم"
+
+#: config/config.php:252
+msgid "Show author"
+msgstr "اظهار الناشر"
+
+#: config/config.php:260
+msgid "Show Date"
+msgstr "اظهار التاريخ"
+
+#: config/config.php:268
+msgid "Show Hits"
+msgstr "اظهار النقرات"
+
+#: config/config.php:276
+msgid "Show Tags"
+msgstr "اظهار الوسوم"
+
+#: config/config.php:284
+msgid "Show attach files"
+msgstr "اظهار الملف المرفق"
+
+#: config/config.php:292
+msgid "Show attribute information"
+msgstr "إظهار معلومات السمة"
+
+#: config/config.php:300
+msgid "Show navigation"
+msgstr "عرض الملاحة"
+
+#: config/config.php:308
+msgid "Show spotlight"
+msgstr "اظهار الشريط الاحمر"
+
+#: config/config.php:316
+msgid "Show breadcrumbs"
+msgstr ""
+
+#: config/config.php:324
+msgid "Show topics on breadcrumbs"
+msgstr ""
+
+#: config/config.php:332
+msgid "Show related news"
+msgstr "اظهار اخبار ذات صلة"
+
+#: config/config.php:340
+msgid "related number"
+msgstr "عدد ذات الصلة"
+
+#: config/config.php:348
+msgid "Show latest news"
+msgstr "اظهار اخر الاخبار"
+
+#: config/config.php:356
+msgid "latest number"
+msgstr "اخر عدد"
+
+#: config/config.php:372
+msgid "Include all hits"
+msgstr ""
+
+#: config/config.php:373
+msgid ""
+"Include all page refresh as hits, if not check use SESSION check for update "
+"hits"
+msgstr ""
+
+#: config/config.php:381
+msgid "Show feed icon"
+msgstr "إظهار رمز التغذية"
+
+#: config/config.php:389
+msgid "Feed number"
+msgstr "رقم التغذية"
+
+#: config/config.php:398
+msgid "Min Image width (upload)"
+msgstr "الحد الأدنى لعرض الصورة (تحميل)"
+
+#: config/config.php:399 config/config.php:407
+msgid "This config can override media module value"
+msgstr "يمكن لهذا التكوين تجاوز قيمة وحدة الوسائط"
+
+#: config/config.php:406
+msgid "Min Image height (upload)"
+msgstr "الحد الأدنى لارتفاع الصورة (تحميل)"
+
+#: config/config.php:414
+msgid "Image quality"
+msgstr "جودة الصورة"
+
+#: config/config.php:415
+msgid ""
+"Between 0 to 100 and support both of JPG and PNG, default is 75. This config "
+"can override media module value"
+msgstr ""
+"بين 0 إلى 100 ودعم كل من JPG و PNG ، الافتراضي هو 75. هذا التكوين يمكن أن "
+"يتجاوز قيمة وحدة الوسائط"
+
+#: config/config.php:423
+msgid "Use default if image not set"
+msgstr "استخدم الافتراضي إذا لم يتم تعيين الصورة"
+
+#: config/config.php:431
+msgid "Image Size"
+msgstr "حجم الصورة"
+
+#: config/config.php:439
+msgid "Image path"
+msgstr "مسار الصورة"
+
+#: config/config.php:447
+msgid "Image Extension"
+msgstr "تمديد الصورة"
+
+#: config/config.php:455
+msgid "Large Image height"
+msgstr "ارتفاع صورة كبيرة"
+
+#: config/config.php:463
+msgid "Large Image width"
+msgstr "عرض صورة كبيرة"
+
+#: config/config.php:471
+msgid "Item Image height"
+msgstr "فقرة ارتفاع الصورة"
+
+#: config/config.php:479
+msgid "Item Image width"
+msgstr "فقرة عرض الصورة"
+
+#: config/config.php:487
+msgid "Medium Image height"
+msgstr "ارتفاع الصورة المتوسطة"
+
+#: config/config.php:495
+msgid "Medium Image width"
+msgstr "عرض الصورة المتوسطة"
+
+#: config/config.php:503
+msgid "Thumb Image height"
+msgstr "ارتفاع صورة الإبهام"
+
+#: config/config.php:511
+msgid "Thumb Image width"
+msgstr "عرض صورة الإبهام"
+
+#: config/config.php:519
+msgid "Use lightbox"
+msgstr "استخدام الشريط الاحمر"
+
+#: config/config.php:527
+msgid "Add Watermark"
+msgstr "إضافة علامة مائية"
+
+#: config/config.php:535
+msgid "Watermark Image"
+msgstr "صورة علامة مائية"
+
+#: config/config.php:542
+msgid "Watermark Positio"
+msgstr "موقف العلامة المائية"
+
+#: config/config.php:548
+msgid "Top Left"
+msgstr "أعلى اليسار"
+
+#: config/config.php:549
+msgid "Top Right"
+msgstr "أعلى اليمين"
+
+#: config/config.php:550
+msgid "Bottom Left"
+msgstr "أسفل اليسار"
+
+#: config/config.php:551
+msgid "Bottom Right"
+msgstr "أسفل اليمين"
+
+#: config/config.php:561
+msgid "Social sharing items"
+msgstr "عناصر المشاركة الاجتماعية"
+
+#: config/config.php:575
+msgid "Number of stories"
+msgstr "عدد من الاخبار"
+
+#: config/config.php:583
+msgid "Show Image for sub spotlights"
+msgstr "عرض صورة لشريط الاحمر"
+
+#: config/config.php:591
+msgid "Spotlight story number for registry"
+msgstr "رقم تسجيل الشريط الاحمر"
+
+#: config/config.php:600
+msgid "Use vote system"
+msgstr "استخدام نظام التصويت"
+
+#: config/config.php:609
+msgid "Use favourite system"
+msgstr "استخدام النظام المفضل"
+
+#: config/config.php:618
+msgid "Description for index page"
+msgstr "وصف لصفحة الفهرس"
+
+#: config/config.php:626
+msgid "Force replace space by comma(,)"
+msgstr "فرض استبدال مساحة بفاصلة (،)"
+
+#: config/config.php:635
+msgid "File Size"
+msgstr "حجم الملف"
+
+#: config/config.php:643
+msgid "File path"
+msgstr "مسار الملف"
+
+#: config/config.php:651
+msgid "File Extension"
+msgstr "امتداد الملف"
+
+#: config/config.php:660
+msgid "Active microblog system"
+msgstr "نظام المدونات الصغيرة النشطة"
+
+#: config/config.php:668
+msgid "Micro blog perpage"
+msgstr "الصغرى بلوق في الصفحة"
+
+#: config/module.php:17 module.php:17
+msgid "Manage News and Blog"
+msgstr "إدارة الأخبار والمدونة"
+
+#: config/navigation.php:27 config/navigation.php:77 config/page.php:83
+msgid "Topic list"
+msgstr "قائمة الاقسام"
+
+#: config/navigation.php:37 config/page.php:102
+msgid "Tag list"
+msgstr "قائمة الوسوم"
+
+#: config/navigation.php:48
+msgid "Author list"
+msgstr "قائمة المؤلفين"
+
+#: config/navigation.php:59 config/page.php:42 config/page.php:90
+#: config/page.php:150 config/permission.php:65
+msgid "Story"
+msgstr "الخبر"
+
+#: config/navigation.php:86
+msgid "New topic"
+msgstr "قسم جديد"
+
+#: config/navigation.php:106
+msgid "Spotlight list"
+msgstr "قائمة الشريط الاحمر"
+
+#: config/navigation.php:115
+msgid "New spotlight"
+msgstr "شريط احمر جديد"
+
+#: config/navigation.php:126 config/navigation.php:135 config/page.php:27
+#: config/permission.php:50
+msgid "Attribute"
+msgstr "صفة"
+
+#: config/navigation.php:144 config/page.php:32 config/permission.php:55
+msgid "Attribute position"
+msgstr "موقع الصفة"
+
+#: config/navigation.php:155 config/navigation.php:164 config/page.php:17
+#: config/page.php:109 config/permission.php:24 config/permission.php:40
+msgid "Authors"
+msgstr "المؤلفون"
+
+#: config/navigation.php:173
+msgid "New authors"
+msgstr "المؤلفون الجدد"
+
+#: config/navigation.php:182 config/page.php:22 config/permission.php:45
+msgid "Author roles"
+msgstr "أدوار المؤلف"
+
+#: config/navigation.php:191
+msgid "New author roles"
+msgstr "أدوار المؤلف الجديد"
+
+#: config/navigation.php:211 config/navigation.php:220 config/page.php:47
+#: config/permission.php:75
+msgid "Tools"
+msgstr "ادوات"
+
+#: config/navigation.php:229
+msgid "Rebuild"
+msgstr "إعادة بناء"
+
+#: config/navigation.php:238
+msgid "Prune"
+msgstr ""
+
+#: config/navigation.php:256
+msgid "Page"
+msgstr "صفحة"
+
+#: config/navigation.php:265
+msgid "Sitemap"
+msgstr "خارطة الموقع"
+
+#: config/navigation.php:283 template/admin/tools-index.phtml:34
+#: template/admin/tools-index.phtml:43
+msgid "Pre-generate media cache"
+msgstr "قبل توليد ذاكرة التخزين المؤقت للميديا"
+
+#: config/page.php:62 config/page.php:133
+msgid "Json output"
+msgstr "مخرجات جيسون"
+
+#: config/page.php:70
+msgid "Index page"
+msgstr "صفحة الفهرس"
+
+#: config/page.php:96
+msgid "Tag"
+msgstr "وسم"
+
+#: config/page.php:121
+msgid "Archive"
+msgstr ""
+
+#: config/page.php:127
+msgid "Api"
+msgstr ""
+
+#: config/page.php:142
+msgid "Feed index"
+msgstr ""
+
+#: config/permission.php:17
+msgid "Global public resource"
+msgstr "الموارد العامة العالمية"
+
+#: config/permission.php:85
+msgid "Json"
+msgstr ""
+
+#: template/admin/microblog-index.phtml:44 template/admin/story-index.phtml:213
+msgid "Are you sure to delete this story?"
+msgstr "هل أنت متأكد من حذف هذه الخبر؟"
+
+#: template/admin/tools-image.phtml:15
+msgid "Launch migration tool"
+msgstr "إطلاق أداة الترحيل"
+
+#: template/admin/tools-image.phtml:17
+msgid ""
+"That migrates old media data (files, images) for story news and events (main "
+"image / additionals) to new media module. You can relaunch the script as many "
+"times as needed : the script bypasses correct already moved images."
+msgstr ""
+"يعمل هذا على نقل بيانات الوسائط القديمة (الملفات والصور) للحصول على أخبار "
+"وأحداث الأخبار (الصورة / الإضافات الرئيسية) إلى وحدة وسائط جديدة. يمكنك إعادة "
+"تشغيل البرنامج النصي عدة مرات حسب الحاجة: يتجاوز النص الصور الصحيحة التي تم "
+"نقلها بالفعل."
+
+#: template/admin/tools-index.phtml:38
+msgid ""
+"This tool can pre-generate media cache according to media module parameters"
+msgstr ""
+"يمكن لهذه الأداة إنشاء ذاكرة التخزين المؤقت للوسائط مسبقًا وفقًا لمعلمات وحدة "
+"الوسائط"
+
+#~ msgid "Advertisement"
+#~ msgstr "الإعلانات"
+
+#~ msgid "Active json output"
+#~ msgstr "انتاج json نشط"
+
+#~ msgid "Check password for json output"
+#~ msgstr "تحقق من كلمة المرور لإخراج json"
+
+#~ msgid "Password for json output"
+#~ msgstr "كلمة المرور لإخراج json"
+
+#~ msgid "After use on mobile device , do not change it"
+#~ msgstr "بعد الاستخدام على الجهاز المحمول ، لا تقم بتغييره"
