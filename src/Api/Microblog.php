@@ -40,7 +40,7 @@ class Microblog extends AbstractApi
         }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
-        // boject to array
+        // object to array
         $microblog = $microblog->toArray();
         // Set text_summary
         $microblog['post'] = Pi::service('markup')->render($microblog['post'], 'html', 'text');

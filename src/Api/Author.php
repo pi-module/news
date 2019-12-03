@@ -182,7 +182,7 @@ class Author extends AbstractApi
         }
         // Get config
         $config = Pi::service('registry')->config->read($this->getModule());
-        // boject to array
+        // object to array
         $author = $author->toArray();
         // Set description
         $author['text_description'] = Pi::service('markup')->render($author['text_description'], 'html', 'html');

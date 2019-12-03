@@ -400,7 +400,7 @@ class Story extends AbstractApi
         // Set option
         $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
         $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $this->config['image_path'];
-        // boject to array
+        // object to array
         $story = $story->toArray();
         // Set text_summary
 
@@ -499,7 +499,7 @@ class Story extends AbstractApi
         // Set option
         $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
         $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
-        // boject to array
+        // object to array
         $story = $story->toArray();
         // Set times
         $story['time_publish_view']   = _date($story['time_publish']);
@@ -551,7 +551,7 @@ class Story extends AbstractApi
             }
         }
 
-        // boject to array
+        // object to array
         $story = $story->toArray();
 
         // Set return array
