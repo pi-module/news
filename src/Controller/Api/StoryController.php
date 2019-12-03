@@ -55,7 +55,12 @@ class StoryController extends ApiController
             $options['topic']   = $this->params('topic');
             $options['tag']     = $this->params('tag');
             $options['limit']   = $this->params('limit');
+            $options['type']    = $this->params('type');
+            $options['fields']  = $this->params('fields');
             $options['getUser'] = true;
+
+            // Check fields
+            $options['fields'] = empty($options['fields']) ? [] : explode(',', $options['fields']);
 
             // Get data
             $result['data'] = Pi::api('api', 'news')->jsonList($options);

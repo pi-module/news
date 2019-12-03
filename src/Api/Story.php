@@ -540,56 +540,81 @@ class Story extends AbstractApi
         if (empty($story)) {
             return '';
         }
-        // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
-        // Set option
-        $option['authorSet'] = isset($option['authorSet']) ? $option['authorSet'] : true;
-        $option['imagePath'] = isset($option['imagePath']) ? $option['imagePath'] : $config['image_path'];
+
+        // Set allow fields
+        $allowFields = ['id' => true, 'title' => true, 'subtitle' => true, 'time' => true, 'topic' => true, 'url' => true, 'image' => true, 'body' => true];
+        if (isset($option['fields']) && !empty($option['fields']) && is_array($option['fields'])) {
+            foreach ($allowFields as $key => $value) {
+                if (!in_array($key, $option['fields'])) {
+                    unset($allowFields[$key]);
+                }
+            }
+        }
+
         // boject to array
         $story = $story->toArray();
-        // Set story url
-        $story['storyUrl'] = Pi::url(
-            Pi::service('url')->assemble(
-                'news', [
-                    'module'     => $this->getModule(),
-                    'controller' => 'story',
-                    'slug'       => $story['slug'],
-                ]
-            )
-        );
 
-        // Set topic
-        //$topic = json_decode($story['topic'], true);
-        // Set body
-        $body = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
-        $body = strip_tags($body, "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
-        $body = str_replace("<p>&nbsp;</p>", "", $body);
         // Set return array
         $storyJson = [
-            'id'                => $story['id'],
-            'title'             => $story['title'],
-            'subtitle'          => $story['subtitle'],
-            'time_publish'      => $story['time_publish'],
-            'time_publish_view' => _date($story['time_publish']),
-            'time_update'       => $story['time_update'],
-            'time_update_view'  => _date($story['time_update']),
-            'topic'             => $story['topic_main'],
-            'image'             => $story['image'],
-            'body'              => $body,
+            'id'    => $story['id'],
+            'title' => $story['title'],
         ];
 
-        if ($story['main_image']) {
-            $storyJson['largeUrl']  = Pi::url((string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'));
-            $storyJson['mediumUrl'] = Pi::url(
-                (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium')
+        // Set time
+        if (isset($allowFields['time'])) {
+            $storyJson['time_publish']      = $story['time_publish'];
+            $storyJson['time_publish_view'] = _date($story['time_publish']);
+            $storyJson['time_update']       = $story['time_update'];
+            $storyJson['time_update_view']  = _date($story['time_update']);
+        }
+
+        // Set time
+        if (isset($allowFields['subtitle'])) {
+            $storyJson['subtitle'] = $story['subtitle'];
+        }
+
+        // Set time
+        if (isset($allowFields['topic'])) {
+            $storyJson['topic'] = $story['topic_main'];
+        }
+
+        // Set story url
+        if (isset($allowFields['url'])) {
+            $storyJson['storyUrl'] = Pi::url(
+                Pi::service('url')->assemble(
+                    'news', [
+                        'module'     => $this->getModule(),
+                        'controller' => 'story',
+                        'slug'       => $story['slug'],
+                    ]
+                )
             );
-            $storyJson['thumbUrl']  = Pi::url(
-                (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail')
-            );
-        } else {
-            $storyJson['largeUrl']  = '';
-            $storyJson['mediumUrl'] = '';
-            $storyJson['thumbUrl']  = '';
+        }
+
+        // Set body
+        if (isset($allowFields['body'])) {
+            $storyJson['body'] = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
+            $storyJson['body'] = strip_tags($storyJson['body'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
+            $storyJson['body'] = str_replace("<p>&nbsp;</p>", "", $storyJson['body']);
+        }
+
+        // Set image
+        if (isset($allowFields['image'])) {
+            if ($story['main_image']) {
+                $storyJson['largeUrl']  = Pi::url(
+                    (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large')
+                );
+                $storyJson['mediumUrl'] = Pi::url(
+                    (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium')
+                );
+                $storyJson['thumbUrl']  = Pi::url(
+                    (string)Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail')
+                );
+            } else {
+                $storyJson['largeUrl']  = '';
+                $storyJson['mediumUrl'] = '';
+                $storyJson['thumbUrl']  = '';
+            }
         }
 
         // return item

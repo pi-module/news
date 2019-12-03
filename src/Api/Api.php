@@ -592,6 +592,12 @@ class Api extends AbstractApi
         // Set order
         $order = ['time_publish DESC', 'id DESC'];
 
+        // Check type
+        $type = 'full';
+        if (isset($options['type']) && in_array($options['type'], ['json', 'light', 'full'])) {
+            $type = $options['type'];
+        }
+
         // Get topic information from model
         if (!empty($options['topic'])) {
             // Get topic
@@ -692,9 +698,11 @@ class Api extends AbstractApi
             // Set option
             $storyOptions = [
                 'getUser' => $options['getUser'],
+                'fields'  => (!empty($options['fields']) && is_array($options['fields'])) ? $options['fields'] : [],
             ];
+
             // Get story
-            $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, 'full', 'link', $storyOptions);
+            $story = Pi::api('api', 'news')->getStoryList($whereLink, $order, $offset, $limit, $type, 'link', $storyOptions);
             $count = Pi::api('api', 'news')->getStoryCount($whereLink, 'link');
             $story = array_values($story);
         }
