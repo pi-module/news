@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: ../..\n"
@@ -143,7 +143,7 @@ msgstr "نوع حقل السمة غير مضبوط."
 
 #: src/Controller/Admin/AttributeController.php:109
 msgid "Attribute field data saved successfully."
-msgstr "تم حفظ بيانات حقل السمة بنجاح"
+msgstr "تم حفظ بيانات حقل السمة بنجاح."
 
 #: src/Controller/Admin/AttributeController.php:121
 #, php-format
@@ -181,7 +181,7 @@ msgstr "مشكلة في تحميل الصور. حاول مرة اخرى"
 
 #: src/Controller/Admin/AuthorController.php:227
 msgid "Author data saved successfully."
-msgstr "تم حفظ بيانات المؤلف بنجاح"
+msgstr "تم حفظ بيانات المؤلف بنجاح."
 
 #: src/Controller/Admin/AuthorController.php:230
 #: src/Controller/Admin/RoleController.php:82
@@ -849,7 +849,7 @@ msgstr "عناوين seo"
 #: src/Form/AuthorForm.php:181 src/Form/RebuildForm.php:36
 #: src/Form/TopicForm.php:276
 msgid "SEO Keywords"
-msgstr " الكلمات الرئيسية seo "
+msgstr " الكلمات الرئيسية seo"
 
 #: src/Form/AuthorForm.php:196 src/Form/RebuildForm.php:37
 #: src/Form/TopicForm.php:291
@@ -1041,8 +1041,9 @@ msgstr "نشر الوقت"
 #: template/front/story-download.phtml:55 template/front/story-gallery.phtml:55
 #: template/front/story-image.phtml:55 template/front/story-magazine.phtml:55
 #: template/front/story-media.phtml:55 template/front/story-text.phtml:55
+#, fuzzy
 msgid "Important"
-msgstr "مهم"
+msgstr "عاجل"
 
 #: src/Form/StoryForm.php:276
 msgid "Add as spotlight"
@@ -1788,7 +1789,7 @@ msgid ""
 msgstr ""
 "نظام الأدوات ، مساعدتك في إدارة الوحدة النمطية الخاصة بك ، تحديث قاعدة "
 "البيانات وإزالة المعلومات غير المستخدمة. في هذه اللحظة ، نحن على استعداد "
-"لأدوات 4 لك:"
+"لأدوات 4 لك: "
 
 #: template/admin/tools-index.phtml:19
 msgid ""
