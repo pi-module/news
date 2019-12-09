@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: news\n"
-"POT-Creation-Date: 2019-11-29 13:12+0330\n"
+"POT-Creation-Date: 2019-12-07 15:39+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -43,12 +43,12 @@ msgstr "يرجى اختيار خبر"
 msgid "List of stories"
 msgstr "قائمة الاخبار"
 
-#: src/Api/Api.php:611
+#: src/Api/Api.php:617
 #, php-format
 msgid "List of stories on %s topic"
 msgstr ""
 
-#: src/Api/Api.php:627
+#: src/Api/Api.php:633
 #, php-format
 msgid "All stories from %s"
 msgstr "كل الاخبار من %s"
@@ -121,7 +121,7 @@ msgstr "قائمة الاقسام"
 msgid "Post list"
 msgstr "قائمة المشاركة"
 
-#: src/Api/Story.php:728 src/Form/AuthorForm.php:98
+#: src/Api/Story.php:753 src/Form/AuthorForm.php:98
 #: src/Form/AuthorRoleForm.php:68 src/Form/MicroblogForm.php:103
 #: src/Form/PositionForm.php:84 src/Form/SpotlightForm.php:121
 #: src/Form/StoryForm.php:167 src/Form/TopicForm.php:134
@@ -129,11 +129,11 @@ msgstr "قائمة المشاركة"
 msgid "Draft"
 msgstr "مشروع"
 
-#: src/Api/Story.php:730
+#: src/Api/Story.php:755
 msgid "Missing image or path value from db for Story ID"
 msgstr "صورة مفقودة أو قيمة المسار من داتابيس لمعرف الخبر"
 
-#: src/Api/Story.php:757
+#: src/Api/Story.php:782
 msgid "Missing file or path value from db for attachment ID"
 msgstr "ملف مفقود أو قيمة المسار من داتا بيس لمعرف المرفق"
 
@@ -566,20 +566,20 @@ msgid "Add a Topic"
 msgstr "أضف قسم"
 
 #: src/Controller/Api/StoryController.php:29
-#: src/Controller/Api/StoryController.php:98
+#: src/Controller/Api/StoryController.php:103
 #: src/Controller/Api/TopicController.php:29
 #: src/Controller/Api/TopicController.php:102
 msgid "Nothing selected"
 msgstr "لا شيء محدد"
 
-#: src/Controller/Api/StoryController.php:70
-#: src/Controller/Api/StoryController.php:196
+#: src/Controller/Api/StoryController.php:75
+#: src/Controller/Api/StoryController.php:201
 #: src/Controller/Api/TopicController.php:74
 #: src/Controller/Api/TopicController.php:136
 msgid "Data is empty"
 msgstr "البيانات فارغة"
 
-#: src/Controller/Api/StoryController.php:203
+#: src/Controller/Api/StoryController.php:208
 #: src/Controller/Api/TopicController.php:143
 msgid "Id not selected"
 msgstr "معرف غير محدد"
