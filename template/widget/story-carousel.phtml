@@ -14,7 +14,7 @@
         <div class="carousel-inner">
             <?php $i = 1; ?>
             <?php foreach ($block['resources'] as $story) { ?>
-                <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>
+                <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
                 <div class="h-entry carousel-item<?php if ($i == 1) {
                     echo ' active';
                 } ?>" itemscope itemtype="https://schema.org/Article">

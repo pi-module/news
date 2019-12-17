@@ -6,7 +6,7 @@
 <div class="widget-image clearfix">
     <div class="row">
         <?php foreach ($block['resources'] as $story) { ?>
-            <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('large'); ?>
+            <?php $largeUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>
             <div class="card border-light text-white h-entry clearfix mb-3 <?php echo $class; ?>" itemscope itemtype="https://schema.org/Article">
                 <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>" alt="<?php echo $this->escape($story['title']); ?>"
                      class="card-img img-fluid u-photo"/>
