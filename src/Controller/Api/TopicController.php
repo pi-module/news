@@ -42,7 +42,7 @@ class TopicController extends ApiController
             // Save statistics
             if (Pi::service('module')->isActive('statistics')) {
                 Pi::api('log', 'statistics')->save(
-                    'news', 'storyList', 0, [
+                    'news', 'topicList', 0, [
                         'source'  => $this->params('platform'),
                         'section' => 'api',
                     ]
@@ -115,7 +115,7 @@ class TopicController extends ApiController
             // Save statistics
             if (Pi::service('module')->isActive('statistics')) {
                 Pi::api('log', 'statistics')->save(
-                    'news', 'storySingle', $this->params('id'), [
+                    'news', 'topicSingle', $this->params('id'), [
                         'source'  => $this->params('platform'),
                         'section' => 'api',
                     ]
