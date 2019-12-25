@@ -337,6 +337,54 @@ class TopicController extends ActionController
         $this->view()->assign('title', __('Add a Topic'));
     }
 
+    public function deleteAction()
+    {
+        // Set view
+        $this->view()->setTemplate(false);
+
+        // Get information
+        $module = $this->params('module');
+        $id     = $this->params('id');
+
+        // Find row
+        $row    = $this->getModel('topic')->find($id);
+
+        // Check row
+        if ($row) {
+            // Delete row
+            $row->status = 5;
+            $row->save();
+
+            // Remove sitemap
+            if (Pi::service('module')->isActive('sitemap')) {
+                $loc = Pi::url(
+                    $this->url(
+                        'news', [
+                            'module'     => $module,
+                            'controller' => 'topic',
+                            'slug'       => $row->slug,
+                        ]
+                    )
+                );
+                Pi::api('sitemap', 'sitemap')->remove($loc);
+            }
+
+            // Set topic as page for dress up block
+            $pageName = sprintf('topic-%s', $row->id);
+            $this->removePage($pageName);
+
+            // Clear registry
+            Pi::service('registry')->page->clear($this->getModule());
+            Pi::registry('topicList', 'news')->clear();
+            Pi::registry('topicRoute', 'news')->clear();
+
+            // Remove page
+            $this->jump(['action' => 'index'], __('This topic deleted'));
+        }
+
+        $this->jump(['action' => 'index'], __('Please select story'));
+    }
+
     /* public function deleteAction()
     {
         // Get information

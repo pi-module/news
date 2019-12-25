@@ -825,18 +825,28 @@ class StoryController extends ActionController
 
     public function deleteAction()
     {
-        // Get information
+        // Set view
         $this->view()->setTemplate(false);
+
+        // Get information
         $module = $this->params('module');
         $id     = $this->params('id');
+
+        // Find row
         $row    = $this->getModel('story')->find($id);
+
+        // Check row
         if ($row) {
+            // Delete row
             $row->status = 5;
             $row->save();
+
             // update links
             $this->getModel('link')->update(['status' => $row->status], ['story' => $row->id]);
+
             // Spotlight
             $this->getModel('spotlight')->delete(['story' => $row->id]);
+
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url(
