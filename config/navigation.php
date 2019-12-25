@@ -11,49 +11,6 @@
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 return [
-    'front' => [
-        'favourite' => [
-            'label'      => _a('Favourite'),
-            'permission' => [
-                'resource' => 'public',
-            ],
-            'route'      => 'news',
-            'module'     => 'news',
-            'controller' => 'favourite',
-            'action'     => 'index',
-        ],
-
-        'topic' => [
-            'label'      => _a('Topic list'),
-            'permission' => [
-                'resource' => 'public',
-            ],
-            'route'      => 'news',
-            'module'     => 'news',
-            'controller' => 'topic',
-        ],
-
-        'tag' => [
-            'label'      => _a('Tag list'),
-            'permission' => [
-                'resource' => 'public',
-            ],
-            'route'      => 'news',
-            'module'     => 'news',
-            'controller' => 'tag',
-            'action'     => 'list',
-        ],
-
-        'author' => [
-            'label'      => _a('Author list'),
-            'permission' => [
-                'resource' => 'author',
-            ],
-            'route'      => 'news',
-            'module'     => 'news',
-            'controller' => 'author',
-        ],
-    ],
     'admin' => [
         'story'     => [
             'label'      => _a('Story'),
@@ -64,6 +21,7 @@ return [
             'controller' => 'story',
             'action'     => 'index',
         ],
+
         'topic'     => [
             'label'      => _a('Topic'),
             'permission' => [
@@ -93,6 +51,7 @@ return [
                 ],
             ],
         ],
+
         'spotlight' => [
             'label'      => _a('Spotlight'),
             'permission' => [
@@ -122,6 +81,7 @@ return [
                 ],
             ],
         ],
+
         'attribute' => [
             'label'      => _a('Attribute'),
             'permission' => [
@@ -151,6 +111,7 @@ return [
                 ],
             ],
         ],
+
         'author'    => [
             'label'      => _a('Authors'),
             'permission' => [
@@ -198,6 +159,7 @@ return [
                 ],
             ],
         ],
+
         'microblog' => [
             'label'      => _a('Micro blog'),
             'permission' => [
@@ -207,6 +169,7 @@ return [
             'controller' => 'microblog',
             'action'     => 'index',
         ],
+
         'tools'     => [
             'label'      => _a('Tools'),
             'permission' => [
@@ -289,6 +252,49 @@ return [
                     'action'     => 'generatePictures',
                 ],
             ],
+        ],
+    ],
+    'front' => [
+        'favourite' => [
+            'label'      => _a('Favourite'),
+            'permission' => [
+                'resource' => 'public',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
+            'controller' => 'favourite',
+            'action'     => 'index',
+        ],
+
+        'topic' => [
+            'label'      => _a('Topic list'),
+            'permission' => [
+                'resource' => 'public',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
+            'controller' => 'topic',
+        ],
+
+        'tag' => [
+            'label'      => _a('Tag list'),
+            'permission' => [
+                'resource' => 'public',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
+            'controller' => 'tag',
+            'action'     => 'list',
+        ],
+
+        'author' => [
+            'label'      => _a('Author list'),
+            'permission' => [
+                'resource' => 'author',
+            ],
+            'route'      => 'news',
+            'module'     => 'news',
+            'controller' => 'author',
         ],
     ],
 ];
