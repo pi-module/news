@@ -22,13 +22,7 @@ class StoryAdditionalFilter extends InputFilter
     {
         // Set attribute position
         $position = Pi::api('attribute', 'news')->attributePositionForm();
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
+
         // Set attribute
         if (!empty($option['field'])) {
             foreach ($position as $key => $value) {

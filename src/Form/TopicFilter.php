@@ -18,16 +18,8 @@ use Zend\InputFilter\InputFilter;
 
 class TopicFilter extends InputFilter
 {
-    public function __construct()
+    public function __construct($option)
     {
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
-
         // pid
         $this->add(
             [
@@ -64,6 +56,7 @@ class TopicFilter extends InputFilter
                         [
                             'module' => Pi::service('module')->current(),
                             'table'  => 'topic',
+                            'id'     => $option['id'],
                         ]
                     ),
                 ],

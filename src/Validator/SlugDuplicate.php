@@ -30,7 +30,7 @@ class SlugDuplicate extends AbstractValidator
 
     protected $options
         = [
-            'module', 'table',
+            'module', 'table', 'id'
         ];
 
     /**
@@ -46,8 +46,8 @@ class SlugDuplicate extends AbstractValidator
         $this->setValue($value);
         if (null !== $value) {
             $where = ['slug' => $value];
-            if (!empty($context['id'])) {
-                $where['id <> ?'] = $context['id'];
+            if (!empty($this->options['id'])) {
+                $where['id <> ?'] = $this->options['id'];
             }
             $rowset = Pi::model($this->options['table'], $this->options['module'])->select($where);
             if ($rowset->count()) {

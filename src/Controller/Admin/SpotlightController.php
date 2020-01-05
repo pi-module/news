@@ -134,14 +134,14 @@ class SpotlightController extends ActionController
                 $values['time_expire']  = strtotime(sprintf('%s 23:59:59', $values['time_expire']));
 
                 // Set if new
-                if (empty($values['id'])) {
+                if (empty($id)) {
                     // Set user
                     $values['uid'] = Pi::user()->getId();
                 }
 
                 // Save values
-                if (!empty($values['id'])) {
-                    $row = $this->getModel('spotlight')->find($values['id']);
+                if (!empty($id)) {
+                    $row = $this->getModel('spotlight')->find($id);
                 } else {
                     $row = $this->getModel('spotlight')->createRow();
                 }

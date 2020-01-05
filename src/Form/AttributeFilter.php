@@ -20,13 +20,6 @@ class AttributeFilter extends InputFilter
 {
     public function __construct($options)
     {
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
         // title
         $this->add(
             [

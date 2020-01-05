@@ -18,8 +18,9 @@ use Pi\Form\Form as BaseForm;
 
 class TopicForm extends BaseForm
 {
-    public function __construct($name = null, $options = [])
+    public function __construct($name = null, $option = [])
     {
+        $this->option    = $option;
         $this->module    = Pi::service('module')->current();
         $this->category  = [0 => 'Root'];
         $this->thumbUrl  = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
@@ -30,22 +31,13 @@ class TopicForm extends BaseForm
     public function getInputFilter()
     {
         if (!$this->filter) {
-            $this->filter = new TopicFilter;
+            $this->filter = new TopicFilter($this->option);
         }
         return $this->filter;
     }
 
     public function init()
     {
-        // id
-        $this->add(
-            [
-                'name'       => 'id',
-                'attributes' => [
-                    'type' => 'hidden',
-                ],
-            ]
-        );
         // pid
         $this->add(
             [

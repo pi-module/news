@@ -79,6 +79,7 @@ class AttributeController extends ActionController
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
+                
                 // Set value
                 $value           = [
                     'data'        => (isset($data['data'])) ? $data['data'] : '',
@@ -86,25 +87,30 @@ class AttributeController extends ActionController
                     'information' => $data['information'],
                 ];
                 $values['value'] = json_encode($value);
+                
                 // Set type
                 $values['type'] = $type;
+                
                 // Set order
-                if (empty($values['id'])) {
+                if (empty($id)) {
                     $columns         = ['order'];
                     $order           = ['order DESC'];
                     $select          = $this->getModel('field')->select()->columns($columns)->order($order)->limit(1);
                     $values['order'] = $this->getModel('field')->selectWith($select)->current()->order + 1;
                 }
+                
                 // Save values
-                if (!empty($values['id'])) {
-                    $row = $this->getModel('field')->find($values['id']);
+                if (!empty($id)) {
+                    $row = $this->getModel('field')->find($id);
                 } else {
                     $row = $this->getModel('field')->createRow();
                 }
                 $row->assign($values);
                 $row->save();
+                
                 //
                 Pi::api('attribute', 'news')->setTopic($row->id, $data['topic']);
+                
                 // Check it save or not
                 $message = __('Attribute field data saved successfully.');
                 $url     = ['action' => 'index'];

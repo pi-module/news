@@ -20,13 +20,6 @@ class StoryFilter extends InputFilter
 {
     public function __construct($option = [])
     {
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
         // title
         $this->add(
             [
@@ -66,6 +59,7 @@ class StoryFilter extends InputFilter
                         [
                             'module' => Pi::service('module')->current(),
                             'table'  => 'story',
+                            'id'     => $option['id'],
                         ]
                     ),
                 ],

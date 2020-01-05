@@ -37,15 +37,6 @@ class StoryAdditionalForm extends BaseForm
 
     public function init()
     {
-        // id
-        $this->add(
-            [
-                'name'       => 'id',
-                'attributes' => [
-                    'type' => 'hidden',
-                ],
-            ]
-        );
         // Set attribute field
         if (!empty($this->field)) {
             foreach ($this->position as $key => $value) {

@@ -18,15 +18,8 @@ use Zend\InputFilter\InputFilter;
 
 class AuthorFilter extends InputFilter
 {
-    public function __construct()
+    public function __construct($option)
     {
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
         // title
         $this->add(
             [
@@ -54,6 +47,7 @@ class AuthorFilter extends InputFilter
                         [
                             'module' => Pi::service('module')->current(),
                             'table'  => 'author',
+                            'id'     => $option['id'],
                         ]
                     ),
                 ],

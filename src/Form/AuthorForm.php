@@ -18,8 +18,9 @@ use Pi\Form\Form as BaseForm;
 
 class AuthorForm extends BaseForm
 {
-    public function __construct($name = null, $options = [])
+    public function __construct($name = null, $option = [])
     {
+        $this->option    = $option;
         $this->thumbUrl  = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
         $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
         parent::__construct($name);
@@ -28,22 +29,13 @@ class AuthorForm extends BaseForm
     public function getInputFilter()
     {
         if (!$this->filter) {
-            $this->filter = new AuthorFilter;
+            $this->filter = new AuthorFilter($this->option);
         }
         return $this->filter;
     }
 
     public function init()
     {
-        // id
-        $this->add(
-            [
-                'name'       => 'id',
-                'attributes' => [
-                    'type' => 'hidden',
-                ],
-            ]
-        );
         // title
         $this->add(
             [

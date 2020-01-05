@@ -38,15 +38,6 @@ class SpotlightForm extends BaseForm
 
     public function init()
     {
-        // id
-        $this->add(
-            [
-                'name'       => 'id',
-                'attributes' => [
-                    'type' => 'hidden',
-                ],
-            ]
-        );
         // story
         $this->add(
             [

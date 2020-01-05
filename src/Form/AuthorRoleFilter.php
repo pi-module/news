@@ -20,13 +20,6 @@ class AuthorRoleFilter extends InputFilter
 {
     public function __construct()
     {
-        // id
-        $this->add(
-            [
-                'name'     => 'id',
-                'required' => false,
-            ]
-        );
         // title
         $this->add(
             [

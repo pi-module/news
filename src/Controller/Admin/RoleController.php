@@ -50,7 +50,7 @@ class roleController extends ActionController
     {
         // Get id
         $id     = $this->params('id');
-        $module = $this->params('module');
+        
         // Set form
         $form = new AuthorRoleForm('role');
         if ($this->request->isPost()) {
@@ -66,20 +66,20 @@ class roleController extends ActionController
                     }
                 }
                 // Save values
-                if (!empty($values['id'])) {
-                    $row = $this->getModel('author_role')->find($values['id']);
+                if (!empty($id)) {
+                    $row = $this->getModel('author_role')->find($id);
                 } else {
                     $row = $this->getModel('author_role')->createRow();
                 }
                 $row->assign($values);
                 $row->save();
+                
                 // Clear registry
                 Pi::registry('authorList', 'news')->clear();
+                
                 // jump
                 $message = __('Role data saved successfully.');
                 $this->jump(['action' => 'index'], $message);
-            } else {
-                $message = __('Invalid data, please check and re-submit.');
             }
         } else {
             if ($id) {
@@ -87,6 +87,7 @@ class roleController extends ActionController
                 $form->setData($role);
             }
         }
+        
         // Set view
         $this->view()->setTemplate('author-role-update');
         $this->view()->assign('form', $form);

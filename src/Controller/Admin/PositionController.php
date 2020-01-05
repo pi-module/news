@@ -65,8 +65,8 @@ class PositionController extends ActionController
                     }
                 }
                 // Save values
-                if (!empty($values['id'])) {
-                    $row = $this->getModel('field_position')->find($values['id']);
+                if (!empty($id)) {
+                    $row = $this->getModel('field_position')->find($id);
                 } else {
                     $row = $this->getModel('field_position')->createRow();
                 }

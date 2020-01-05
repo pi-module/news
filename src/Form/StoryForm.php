@@ -37,15 +37,6 @@ class StoryForm extends BaseForm
 
     public function init()
     {
-        // id
-        $this->add(
-            [
-                'name'       => 'id',
-                'attributes' => [
-                    'type' => 'hidden',
-                ],
-            ]
-        );
         // extra_text
         $this->add(
             [
