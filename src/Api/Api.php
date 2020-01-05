@@ -401,7 +401,7 @@ class Api extends AbstractApi
                 if (!empty($limit)) {
                     $select->limit($limit);
                 }
-                $columns = ['story' => new Expression('DISTINCT story')];
+                $columns = ['story' => new Expression('DISTINCT story'), '*'];
                 $select->columns($columns);
                 $rowSetLink = Pi::model('link', $this->getModule())->selectWith($select);
                 $storyId    = [];
