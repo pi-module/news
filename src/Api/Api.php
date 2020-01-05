@@ -527,19 +527,23 @@ class Api extends AbstractApi
         // Set info
         $config  = Pi::service('registry')->config->read($this->getModule());
         $related = [];
-        $columns = ['story' => new Expression('DISTINCT story')];
+        $columns = ['story' => new Expression('DISTINCT story'), '*'];
         $limit   = intval($config['related_num']);
+
         // Get info from link table
         $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
+
         // Make list
         foreach ($rowset as $id) {
             $storyId[] = $id['story'];
         }
+
         // Get story
         if (!empty($storyId)) {
             $related = Pi::api('story', 'news')->getListFromIdLight($storyId);
         }
+
         return $related;
     }
 
