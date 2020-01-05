@@ -26,7 +26,7 @@ class Topic extends Select
         if (empty($this->valueOptions)) {
             $where   = ['status' => 1];
             $columns = ['id', 'pid', 'title'];
-            $order   = ['title ASC', 'id ASC'];
+            $order   = ['display_order ASC', 'title ASC', 'id ASC'];
             // Set type
             if (isset($this->options['type']) && in_array($this->options['type'], ['event', 'blog'])) {
                 $where['type'] = $this->options['type'];
