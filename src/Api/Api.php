@@ -91,6 +91,11 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Api extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
+
     public function addStory($values, $processEventImage = false)
     {
         // Check type

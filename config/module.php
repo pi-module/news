@@ -21,6 +21,7 @@ return [
         'readme'      => 'docs/readme.txt',
         'demo'        => 'http://piengine.org',
         'icon'        => 'fa-rocket',
+        'clonable'    => true,
     ],
     // Dependency
     'dependency' => [

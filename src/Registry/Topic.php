@@ -30,6 +30,9 @@ class Topic extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
+        // Set module
+        $this->module  = Pi::service('module')->current();
+
         $list    = [];
         $where   = ['status' => 1];
         $columns = ['id', 'slug'];

@@ -38,6 +38,11 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Story extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
+
     public function getStory($parameter, $field = 'id', $option = [])
     {
         // Get product
@@ -234,17 +239,21 @@ class Story extends AbstractApi
         $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
             $row                   = $row->toArray();
-            $story                 = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
-            $link['next']['title'] = $story['title'];
-            $link['next']['url']   = Pi::url(
-                Pi::service('url')->assemble(
-                    'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'story',
-                        'slug'       => $story['slug'],
-                    ]
-                )
-            );
+            $story                 = Pi::model('story', $this->getModule())->find($row['story']);
+
+            if (!empty($story)) {
+                $story = $story->toArray();
+                $link['next']['title'] = $story['title'];
+                $link['next']['url']   = Pi::url(
+                    Pi::service('url')->assemble(
+                        'news', [
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $story['slug'],
+                        ]
+                    )
+                );
+            }
         }
         // Select Prev
         $where  = [
@@ -260,17 +269,21 @@ class Story extends AbstractApi
         $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
             $row                       = $row->toArray();
-            $story                     = Pi::model('story', $this->getModule())->find($row['story'])->toArray();
-            $link['previous']['title'] = $story['title'];
-            $link['previous']['url']   = Pi::url(
-                Pi::service('url')->assemble(
-                    'news', [
-                        'module'     => $this->getModule(),
-                        'controller' => 'story',
-                        'slug'       => $story['slug'],
-                    ]
-                )
-            );
+            $story                     = Pi::model('story', $this->getModule())->find($row['story']);
+
+            if (!empty($story)) {
+                $story = $story->toArray();
+                $link['previous']['title'] = $story['title'];
+                $link['previous']['url']   = Pi::url(
+                    Pi::service('url')->assemble(
+                        'news', [
+                            'module'     => $this->getModule(),
+                            'controller' => 'story',
+                            'slug'       => $story['slug'],
+                        ]
+                    )
+                );
+            }
         }
         return $link;
     }

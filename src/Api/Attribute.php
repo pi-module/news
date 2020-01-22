@@ -31,6 +31,11 @@ use Pi\Application\Api\AbstractApi;
 
 class Attribute extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
+
     /*
       * Get list of attribute fields for show in forms
       */

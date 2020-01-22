@@ -24,18 +24,21 @@ class Topic extends Select
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
+            $module  = Pi::service('module')->current();
             $where   = ['status' => 1];
             $columns = ['id', 'pid', 'title'];
             $order   = ['display_order ASC', 'title ASC', 'id ASC'];
+
             // Set type
             if (isset($this->options['type']) && in_array($this->options['type'], ['event', 'blog'])) {
                 $where['type'] = $this->options['type'];
             } else {
                 $where['type'] = 'general';
             }
+
             // Get topic list
-            $select = Pi::model('topic', 'news')->select()->where($where)->columns($columns)->order($order);
-            $rowset = Pi::model('topic', 'news')->selectWith($select);
+            $select = Pi::model('topic', $module)->select()->where($where)->columns($columns)->order($order);
+            $rowset = Pi::model('topic', $module)->selectWith($select);
             foreach ($rowset as $row) {
                 $list[$row->id] = $row->toArray();
             }

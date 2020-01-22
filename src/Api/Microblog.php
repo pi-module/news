@@ -24,6 +24,11 @@ use Pi\Filter;
 
 class Microblog extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
+
     public function getMicroblog($parameter, $field = 'id')
     {
         // Get topic

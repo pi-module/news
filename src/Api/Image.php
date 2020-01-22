@@ -25,6 +25,10 @@ use Imagine\Image\Point;
 
 class Image extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
 
     protected $_convertTable
         = [

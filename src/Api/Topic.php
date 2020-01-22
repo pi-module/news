@@ -32,6 +32,11 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Topic extends AbstractApi
 {
+    public function __construct()
+    {
+        $this->module = Pi::service('module')->current();
+    }
+
     public function getTopic($parameter, $field = 'id')
     {
         // Get topic

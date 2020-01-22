@@ -30,6 +30,9 @@ class TopicList extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
+        // Set module
+        $this->module  = Pi::service('module')->current();
+
         $return = [];
         $where  = ['status' => 1];
         $order  = ['title DESC', 'id DESC'];

@@ -73,6 +73,7 @@ class StoryController extends ActionController
                 'text', 'post', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
             ];
         }
+
         // Get list of story
         $select = $this->getModel('story')->select()->columns($columnStory)->where($whereStory)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('story')->selectWith($select);
@@ -105,7 +106,7 @@ class StoryController extends ActionController
                     ]
                 );
             } else {
-                $story[$row->id]['storyUrl'] = '';
+                $story[$row->id]['storyUrl'] = '#';
             }
             
             // Set story type view

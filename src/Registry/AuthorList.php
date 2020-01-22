@@ -30,15 +30,23 @@ class AuthorList extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
-        $author = [];
+        // Set module
+        $this->module  = Pi::service('module')->current();
+
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
+
         // Get author list
         $where   = ['status' => 1];
         $order   = ['title DESC', 'id DESC'];
         $columns = ['id', 'title', 'slug', 'image', 'path'];
+        $author = [];
+
+        // Select
         $select  = Pi::model('author', $this->module)->select()->where($where)->columns($columns)->order($order);
         $rowset  = Pi::model('author', $this->module)->selectWith($select);
+
+        // Make list
         foreach ($rowset as $row) {
             $author['author'][$row->id]        = $row->toArray();
             $author['author'][$row->id]['url'] = Pi::service('url')->assemble(
@@ -61,6 +69,7 @@ class AuthorList extends AbstractRegistry
                 $author['author'][$row->id]['thumbUrl'] = Pi::url('static/avatar/local/large.png');
             }
         }
+
         // Get role list
         $where  = ['status' => 1];
         $order  = ['title DESC', 'id DESC'];
@@ -69,6 +78,7 @@ class AuthorList extends AbstractRegistry
         foreach ($rowset as $row) {
             $author['role'][$row->id] = $row->toArray();
         }
+
         return $author;
     }
 

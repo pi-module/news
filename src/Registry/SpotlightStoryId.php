@@ -30,25 +30,33 @@ class SpotlightStoryId extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
-        $ids = [];
+        // Set module
+        $this->module  = Pi::service('module')->current();
+
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
+
         // Set info
         $limit   = intval($config['spotlight_registry']);
         $order   = ['time_publish DESC', 'id DESC'];
         $where   = ['status' => 1, 'time_publish < ?' => time(), 'time_expire > ?' => time()];
         $columns = ['id', 'story'];
+        $ids = [];
+
         // Select
         $select = Pi::model('spotlight', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
         $rowset = Pi::model('spotlight', $this->module)->selectWith($select);
+
         foreach ($rowset as $row) {
             $ids[$row->story] = $row->story;
         }
+
         // Check empty
         if (empty($ids)) {
             // Set info
             $where   = ['status' => 1];
             $columns = ['id'];
+
             // Select
             $select = Pi::model('story', $this->module)->select()->where($where)->columns($columns)->order($order)->limit($limit);
             $rowset = Pi::model('story', $this->module)->selectWith($select);
@@ -56,6 +64,7 @@ class SpotlightStoryId extends AbstractRegistry
                 $ids[$row->id] = $row->id;
             }
         }
+
         // return
         return $ids;
     }
