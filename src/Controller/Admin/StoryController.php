@@ -431,6 +431,7 @@ class StoryController extends ActionController
         // Set type
         $option['type']                  = $story['type'];
         $option['admin_deactivate_view'] = $config['admin_deactivate_view'];
+        $option['id']                    = $story['id'];
 
         // Set form
         $form = new StoryForm('story', $option);
