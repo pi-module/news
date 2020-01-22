@@ -15,63 +15,79 @@ $this->css($this->assetModule('css/admin.css'));
             <div class="card-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="card bg-light mb-3">
                     <div class="card-header" role="tab" id="headingHelp">
-                        <h4 class="card-title">
+
                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelp" aria-expanded="false"
                                aria-controls="collapseHelp">
                                 <i class="fas fa-plus"></i> <?php _e('Description about add new story'); ?>
                             </a>
-                        </h4>
+     
                     </div>
                     <div id="collapseHelp" class="card-collapse collapse" role="tabpanel">
-                        <div class="card-text">
-                            <p><?php _e(
-                                    'You can select many types on submit new story, each type have different template and view and useful for special usage'
-                                ); ?></p>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Text'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Text type, default view format main image set on center and under title and extra images and information set on sidebar'
-                                    ); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Article'); ?></strong></dt>
-                                <dd><?php _e('Article view, main image and extra information set on sidebar and text set on center and under title'); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Magazine'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'
-                                    ); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Blog post'); ?></strong></dt>
-                                <dd><?php _e('You need install blog module and story show on blog system, for better SEO'); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Image'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'
-                                    ); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Gallery'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'
-                                    ); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Media'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'
-                                    ); ?></dd>
-                            </dl>
-                            <dl class="dl-horizontal">
-                                <dt><strong class="text-danger"><?php _e('Download'); ?></strong></dt>
-                                <dd><?php _e(
-                                        'Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'
-                                    ); ?></dd>
-                            </dl>
-                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <?php _e('You can select many types on submit new story, each type have different template and view and useful for special usage'); ?>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Text'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Text type, default view format main image set on center and under title and extra images and information set on sidebar'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Article'); ?></strong></dt>
+                                    <dd><?php _e('Article view, main image and extra information set on sidebar and text set on center and under title'); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Magazine'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Magazine view, main and extra images set on center and text under them , after that extra information , without sidebar'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Blog post'); ?></strong></dt>
+                                    <dd><?php _e('You need install blog module and story show on blog system, for better SEO'); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Image'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Single image set on center and under title, other texts , extra information and images set under main and big image, you can use topic as gallery album and each story is single image on album'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Gallery'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Gallery album view, main image and other extra images set as album on same position, all other texts and extra information set under images, you can use topic as category for albums and each story is single album by images'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Media'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Media type load video or audio player under title and set all extra information on side bar and texts under player, you need attach mp4 or mp3 files to story or make audio / video attribute and put your media file link'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt><strong class="text-danger"><?php _e('Download'); ?></strong></dt>
+                                    <dd><?php _e(
+                                            'Download template and show download button for get file by user, you need attach file to story or make file attribute and put your file link'
+                                        ); ?></dd>
+                                </dl>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
