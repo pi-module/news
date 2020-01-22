@@ -85,31 +85,31 @@ $this->css($this->assetModule('css/admin.css'));
                     <div class="dropdown-menu" role="menu">
                         <?php if (!$config['admin_deactivate_view']) { ?>
                             <a class="dropdown-item" title="<?php _e('Add new text'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'text']); ?>"><i
-                                            class="fas fa-sticky-note"></i> <?php _e('Add new text'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'text']); ?>"><i
+                                        class="fas fa-sticky-note"></i> <?php _e('Add new text'); ?></a>
                             <a class="dropdown-item" title="<?php _e('Add new article'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'article']); ?>"><i
-                                            class="fas fa-folder"></i> <?php _e('Add new article'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'article']); ?>"><i
+                                        class="fas fa-folder"></i> <?php _e('Add new article'); ?></a>
                             <a class="dropdown-item" title="<?php _e('Add new magazine'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'magazine']); ?>"><i
-                                            class="fas fa-chart-pie"></i> <?php _e('Add new magazine'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'magazine']); ?>"><i
+                                        class="fas fa-chart-pie"></i> <?php _e('Add new magazine'); ?></a>
                             <a class="dropdown-item" title="<?php _e('Add new gallery album'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'gallery']); ?>"><i
-                                            class="fas fa-camera"></i> <?php _e('Add new gallery album'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'gallery']); ?>"><i
+                                        class="fas fa-camera"></i> <?php _e('Add new gallery album'); ?></a>
                             <a class="dropdown-item" title="<?php _e('Add new single image'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'image']); ?>"><i
-                                            class="far fa-picture"></i> <?php _e('Add new single image'); ?></a>
-                           <a class="dropdown-item" title="<?php _e('Add new media'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'media']); ?>"><i
-                                            class="fas fa-video"></i> <?php _e('Add new media'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'image']); ?>"><i
+                                        class="far fa-picture"></i> <?php _e('Add new single image'); ?></a>
+                            <a class="dropdown-item" title="<?php _e('Add new media'); ?>"
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'media']); ?>"><i
+                                        class="fas fa-video"></i> <?php _e('Add new media'); ?></a>
                             <a class="dropdown-item" title="<?php _e('Add new download'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'download']); ?>"><i
-                                            class="fas fa-download"></i> <?php _e('Add new download'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'download']); ?>"><i
+                                        class="fas fa-download"></i> <?php _e('Add new download'); ?></a>
                         <?php } ?>
                         <?php if (Pi::service('module')->isActive('blog')) { ?>
                             <a class="dropdown-item" title="<?php _e('Add new blog post'); ?>"
-                                   href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'post']); ?>"><i
-                                            class="fas fa-globe-americas"></i> <?php _e('Add new blog post'); ?></a>
+                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'add', 'type' => 'post']); ?>"><i
+                                        class="fas fa-globe-americas"></i> <?php _e('Add new blog post'); ?></a>
                         <?php } ?>
                         <?php if (!Pi::service('module')->isActive('blog') && $config['admin_deactivate_view']) { ?>
                             <?php _e('News module front page is deactivate'); ?>
@@ -122,26 +122,26 @@ $this->css($this->assetModule('css/admin.css'));
                     </button>
                     <div class="dropdown-menu" role="menu">
                         <a class="dropdown-item" title="<?php _e('All stories'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index']); ?>"><i
-                                        class="fas fa-file"></i> <?php _e('All stories'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index']); ?>"><i
+                                    class="fas fa-file"></i> <?php _e('All stories'); ?></a>
                         <a class="dropdown-item" title="<?php _e('Published'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '1']); ?>"><i
-                                        class="fas fa-file"></i> <?php _e('Published'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '1']); ?>"><i
+                                    class="fas fa-file"></i> <?php _e('Published'); ?></a>
                         <a class="dropdown-item" title="<?php _e('Pending review'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '2']); ?>"><i
-                                        class="fas fa-file"></i> <?php _e('Pending review'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '2']); ?>"><i
+                                    class="fas fa-file"></i> <?php _e('Pending review'); ?></a>
                         <a class="dropdown-item" title="<?php _e('Draft'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '3']); ?>"><i
-                                        class="fas fa-file"></i> <?php _e('Draft'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '3']); ?>"><i
+                                    class="fas fa-file"></i> <?php _e('Draft'); ?></a>
                         <a class="dropdown-item" title="<?php _e('Private'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '4']); ?>"><i
-                                        class="fas fa-file"></i> <?php _e('Private'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '4']); ?>"><i
+                                    class="fas fa-file"></i> <?php _e('Private'); ?></a>
                         <a class="dropdown-item" title="<?php _e('Trash'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '5']); ?>"><i
-                                        class="fas fa-trash-alt"></i> <?php _e('Trash'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '5']); ?>"><i
+                                    class="fas fa-trash-alt"></i> <?php _e('Trash'); ?></a>
                         <a class="dropdown-item" title="<?php _e('System draft'); ?>"
-                               href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '6']); ?>"><i
-                                        class="fas fa-pencil-alt"></i> <?php _e('System draft'); ?></a>
+                           href="<?php echo $this->url('', ['controller' => 'story', 'action' => 'index', 'status' => '6']); ?>"><i
+                                    class="fas fa-pencil-alt"></i> <?php _e('System draft'); ?></a>
                     </div>
                 </div>
             </div>
@@ -197,15 +197,15 @@ $this->css($this->assetModule('css/admin.css'));
                                 </button>
                                 <div class="dropdown-menu" role="menu">
                                     <a class="dropdown-item" title="<?php _e('Edit basic information'); ?>"
-                                           href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
-                                                    class="fas fa-edit"></i> <?php _e('Edit basic information'); ?></a>
+                                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $story['id']]); ?>"><i
+                                                class="fas fa-edit"></i> <?php _e('Edit basic information'); ?></a>
                                     <a class="dropdown-item" title="<?php _e('Edit additional information'); ?>"
-                                           href="<?php echo $this->url('', ['action' => 'additional', 'id' => $story['id']]); ?>"><i
-                                                    class="fas fa-edit"></i> <?php _e('Edit additional information'); ?></a>
+                                       href="<?php echo $this->url('', ['action' => 'additional', 'id' => $story['id']]); ?>"><i
+                                                class="fas fa-edit"></i> <?php _e('Edit additional information'); ?></a>
 
                                     <a class="dropdown-item" title="<?php _e('Preview'); ?>"
-                                           href="<?php echo $this->url('', ['action' => 'view', 'id' => $story['id']]); ?>"><i
-                                                    class="far fa-eye"></i> <?php _e('Preview'); ?></a>
+                                       href="<?php echo $this->url('', ['action' => 'view', 'id' => $story['id']]); ?>"><i
+                                                class="far fa-eye"></i> <?php _e('Preview'); ?></a>
                                 </div>
                             </div>
                             <a class="btn btn-danger btn-sm" title="<?php _e('Delete'); ?>"

@@ -26,13 +26,17 @@
                 <td><?php echo $this->escape($spotlight['time_publish_view']); ?></td>
                 <td><?php echo $this->escape($spotlight['time_expire_view']); ?></td>
                 <td>
-                    <a class="btn btn-primar btn-smy" title="<?php _e('View story'); ?>" href="<?php echo $this->url('news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug'])]); ?>">
+                    <a class="btn btn-primar btn-smy" title="<?php _e('View story'); ?>" href="<?php echo $this->url(
+                        'news', ['module' => $module, 'controller' => 'story', 'slug' => $this->escape($spotlight['storyslug'])]
+                    ); ?>">
                         <i class="fas fa-edit"></i> <?php _e('View story'); ?>
                     </a>
-                    <a class="btn btn-primary btn-sm" title="<?php _e('Edit'); ?>" href="<?php echo $this->url('', ['action' => 'update', 'id' => $spotlight['id']]); ?>">
+                    <a class="btn btn-primary btn-sm" title="<?php _e('Edit'); ?>"
+                       href="<?php echo $this->url('', ['action' => 'update', 'id' => $spotlight['id']]); ?>">
                         <i class="fas fa-edit"></i> <?php _e('Edit'); ?>
                     </a>
-                    <a class="btn btn-danger btn-sm" title="<?php _e('Delete'); ?>" href="<?php echo $this->url('', ['action' => 'delete', 'id' => $spotlight['id']]); ?>">
+                    <a class="btn btn-danger btn-sm" title="<?php _e('Delete'); ?>"
+                       href="<?php echo $this->url('', ['action' => 'delete', 'id' => $spotlight['id']]); ?>">
                         <i class="far fa-trash-alt"></i> <?php _e('Delete'); ?>
                     </a>
                 </td>

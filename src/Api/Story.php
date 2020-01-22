@@ -238,11 +238,11 @@ class Story extends AbstractApi
         $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(['id ASC'])->limit(1);
         $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
-            $row                   = $row->toArray();
-            $story                 = Pi::model('story', $this->getModule())->find($row['story']);
+            $row   = $row->toArray();
+            $story = Pi::model('story', $this->getModule())->find($row['story']);
 
             if (!empty($story)) {
-                $story = $story->toArray();
+                $story                 = $story->toArray();
                 $link['next']['title'] = $story['title'];
                 $link['next']['url']   = Pi::url(
                     Pi::service('url')->assemble(
@@ -268,11 +268,11 @@ class Story extends AbstractApi
         $select = Pi::model('link', $this->getModule())->select()->columns($columns)->where($where)->order(['id ASC'])->limit(1);
         $row    = Pi::model('link', $this->getModule())->selectWith($select)->current();
         if (!empty($row)) {
-            $row                       = $row->toArray();
-            $story                     = Pi::model('story', $this->getModule())->find($row['story']);
+            $row   = $row->toArray();
+            $story = Pi::model('story', $this->getModule())->find($row['story']);
 
             if (!empty($story)) {
-                $story = $story->toArray();
+                $story                     = $story->toArray();
                 $link['previous']['title'] = $story['title'];
                 $link['previous']['url']   = Pi::url(
                     Pi::service('url')->assemble(

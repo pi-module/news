@@ -31,35 +31,35 @@ class AuthorController extends ActionController
     public function indexAction()
     {
         // Get page
-        $page   = $this->params('page', 1);
-        $title  = $this->params('title');
-        
+        $page  = $this->params('page', 1);
+        $title = $this->params('title');
+
         // Set info
         $order  = ['title DESC', 'id DESC'];
         $limit  = intval($this->config('admin_perpage'));
         $offset = (int)($page - 1) * $limit;
-        
+
         // Get
         $where = [];
         if (!empty($title)) {
             $where['title LIKE ?'] = '%' . $title . '%';
         }
-        
+
         // Get list of author
         $select = $this->getModel('author')->select()->where($where)->order($order)->offset($offset)->limit($limit);
         $rowset = $this->getModel('author')->selectWith($select);
-        
+
         // Make list
         $author = [];
         foreach ($rowset as $row) {
             $author[$row->id]                = $row->toArray();
             $author[$row->id]['time_create'] = _date($author[$row->id]['time_create']);
         }
-        
+
         // Get count
-        $columns   = ['count' => new Expression('count(*)')];
-        $select    = $this->getModel('author')->select()->where($where)->columns($columns);
-        $count     = $this->getModel('author')->selectWith($select)->current()->count;
+        $columns = ['count' => new Expression('count(*)')];
+        $select  = $this->getModel('author')->select()->where($where)->columns($columns);
+        $count   = $this->getModel('author')->selectWith($select)->current()->count;
 
         // Set paginator
         $paginator = Paginator::factory(intval($count));
@@ -79,7 +79,7 @@ class AuthorController extends ActionController
                 ),
             ]
         );
-        
+
         // Set form
         $values = [
             'title' => $title,
@@ -87,7 +87,7 @@ class AuthorController extends ActionController
         $form   = new StorySearchForm('search');
         $form->setAttribute('action', $this->url('', ['action' => 'process']));
         $form->setData($values);
-        
+
         // Set view
         $this->view()->setTemplate('author-index');
         $this->view()->assign('authors', $author);
@@ -132,7 +132,7 @@ class AuthorController extends ActionController
         $option = [
             'id' => $id,
         ];
-        
+
         // Find author
         if ($id) {
             $author = $this->getModel('author')->find($id)->toArray();
@@ -142,25 +142,25 @@ class AuthorController extends ActionController
                 $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $author['id']]);
             }
         }
-        
+
         // Set form
         $form = new AuthorForm('author', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
-            
+
             // Set slug
             $slug         = ($data['slug']) ? $data['slug'] : $data['title'];
             $filter       = new Filter\Slug;
             $data['slug'] = $filter($slug);
-            
+
             // Form filter
             $form->setInputFilter(new AuthorFilter($option));
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
-                
+
                 // upload image
                 if (!empty($file['image']['name'])) {
                     // Set upload path
@@ -186,12 +186,12 @@ class AuthorController extends ActionController
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
-                
+
                 // Set seo_title
                 $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $filter              = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
-                
+
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
                 $filter   = new Filter\HeadKeywords;
@@ -205,7 +205,7 @@ class AuthorController extends ActionController
                 $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
                 $filter                    = new Filter\HeadDescription;
                 $values['seo_description'] = $filter($description);
-                
+
                 // Set if new
                 if (empty($id)) {
                     // Set time
@@ -213,10 +213,10 @@ class AuthorController extends ActionController
                     // Set user
                     $values['uid'] = Pi::user()->getId();
                 }
-                
+
                 // Set time_update
                 $values['time_update'] = time();
-                
+
                 // Save values
                 if (!empty($id)) {
                     $row = $this->getModel('author')->find$id);
@@ -225,7 +225,7 @@ class AuthorController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
-                
+
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
@@ -241,11 +241,11 @@ class AuthorController extends ActionController
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'author', $row->id);
                 }
-                
+
                 // Clear registry
                 Pi::registry('authorList', 'news')->clear();
                 Pi::registry('authorRoute', 'news')->clear();
-                
+
                 // jump
                 $message = __('Author data saved successfully.');
                 $this->jump(['action' => 'index'], $message);
@@ -255,7 +255,7 @@ class AuthorController extends ActionController
                 $form->setData($author);
             }
         }
-        
+
         // Set view
         $this->view()->setTemplate('author-update');
         $this->view()->assign('form', $form);

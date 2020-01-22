@@ -1,7 +1,8 @@
 <div class="widget-vertical clearfix">
     <?php foreach ($block['resources'] as $story) { ?>
         <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
-        <div class="widget-vertical-single h-entry row <?php echo  isset($widgetSingleClass) ? $widgetSingleClass : ''; ?>" itemscope itemtype="https://schema.org/Article">
+        <div class="widget-vertical-single h-entry row <?php echo isset($widgetSingleClass) ? $widgetSingleClass : ''; ?>" itemscope
+             itemtype="https://schema.org/Article">
             <?php if ($block['showimage'] && !empty($thumbUrl)) { ?>
                 <div class="col-lg-4 col-md-3 storyImage">
                     <a itemprop="url mainEntityOfPage" title="<?php echo $this->escape($story['title']); ?>"

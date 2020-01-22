@@ -30,7 +30,7 @@ class SlugDuplicate extends AbstractValidator
 
     protected $options
         = [
-            'module', 'table', 'id'
+            'module', 'table', 'id',
         ];
 
     /**

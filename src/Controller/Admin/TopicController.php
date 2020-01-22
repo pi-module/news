@@ -36,15 +36,15 @@ class TopicController extends ActionController
         $config = Pi::service('registry')->config->read($module);
 
         // Get info
-        $where   = ['status' => [1,2,3,4]];
+        $where   = ['status' => [1, 2, 3, 4]];
         $columns = ['id', 'title', 'slug', 'style', 'status', 'type'];
         $order   = ['id DESC', 'time_create DESC'];
         $limit   = intval($this->config('admin_perpage'));
         $offset  = (int)($page - 1) * $limit;
 
         // Select
-        $select  = $this->getModel('topic')->select()->columns($columns)->where($where)->order($order)->offset($offset)->limit($limit);
-        $rowset  = $this->getModel('topic')->selectWith($select);
+        $select = $this->getModel('topic')->select()->columns($columns)->where($where)->order($order)->offset($offset)->limit($limit);
+        $rowset = $this->getModel('topic')->selectWith($select);
 
         // Make list
         foreach ($rowset as $row) {
@@ -101,9 +101,9 @@ class TopicController extends ActionController
         }
 
         // Set count
-        $count     = ['count' => new Expression('count(*)')];
-        $select    = $this->getModel('topic')->select()->columns($count)->where($where);
-        $count     = $this->getModel('topic')->selectWith($select)->current()->count;
+        $count  = ['count' => new Expression('count(*)')];
+        $select = $this->getModel('topic')->select()->columns($count)->where($where);
+        $count  = $this->getModel('topic')->selectWith($select)->current()->count;
 
         // Set paginator
         $paginator = Paginator::factory(intval($count));
@@ -173,9 +173,9 @@ class TopicController extends ActionController
         $id     = $this->params('id');
         $module = $this->params('module');
         $option = [
-            'id' => $id
+            'id' => $id,
         ];
-        
+
         // Find topic
         if ($id) {
             $topic = $this->getModel('topic')->find($id)->toArray();
@@ -185,25 +185,25 @@ class TopicController extends ActionController
                 $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $topic['id']]);
             }
         }
-        
+
         // Set form
         $form = new TopicForm('topic', $option);
         $form->setAttribute('enctype', 'multipart/form-data');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $file = $this->request->getFiles();
-            
+
             // Set slug
             $slug         = ($data['slug']) ? $data['slug'] : $data['title'];
             $filter       = new Filter\Slug;
             $data['slug'] = $filter($slug);
-            
+
             // Form filter
             $form->setInputFilter(new TopicFilter($option));
             $form->setData($data);
             if ($form->isValid()) {
                 $values = $form->getData();
-                
+
                 // upload image
                 if (!empty($file['image']['name'])) {
                     // Set upload path
@@ -229,7 +229,7 @@ class TopicController extends ActionController
                 } elseif (!isset($values['image'])) {
                     $values['image'] = '';
                 }
-                
+
                 // Set setting
                 $setting                    = [];
                 $setting['show_config']     = $values['show_config'];
@@ -249,12 +249,12 @@ class TopicController extends ActionController
                 $setting['set_page']        = $values['set_page'];
                 $setting['attach']          = $values['attach'];
                 $values['setting']          = json_encode($setting);
-                
+
                 // Set seo_title
                 $title               = ($values['seo_title']) ? $values['seo_title'] : $values['title'];
                 $filter              = new Filter\HeadTitle;
                 $values['seo_title'] = $filter($title);
-                
+
                 // Set seo_keywords
                 $keywords = ($values['seo_keywords']) ? $values['seo_keywords'] : '';
                 $filter   = new Filter\HeadKeywords;
@@ -264,12 +264,12 @@ class TopicController extends ActionController
                     ]
                 );
                 $values['seo_keywords'] = $filter($keywords);
-                
+
                 // Set seo_description
                 $description               = ($values['seo_description']) ? $values['seo_description'] : $values['title'];
                 $filter                    = new Filter\HeadDescription;
                 $values['seo_description'] = $filter($description);
-                
+
                 // Set if new
                 if (empty($id)) {
                     // Set time
@@ -277,10 +277,10 @@ class TopicController extends ActionController
                     // Set user
                     $values['uid'] = Pi::user()->getId();
                 }
-                
+
                 // Set time_update
                 $values['time_update'] = time();
-                
+
                 // Save values
                 if (!empty($id)) {
                     $row = $this->getModel('topic')->find($id);
@@ -289,7 +289,7 @@ class TopicController extends ActionController
                 }
                 $row->assign($values);
                 $row->save();
-                
+
                 // Add attach
                 if (!empty($values['attach_link'])) {
                     $attach['url']         = $values['attach_link'];
@@ -304,7 +304,7 @@ class TopicController extends ActionController
                     $rowAttach->assign($attach);
                     $rowAttach->save();
                 }
-                
+
                 // Set topic as page for dress up block
                 $pageName = sprintf('topic-%s', $row->id);
                 if ($this->config('admin_setpage') && $setting['set_page']) {
@@ -317,7 +317,7 @@ class TopicController extends ActionController
                     $this->removePage($pageName);
                 }
                 Pi::service('registry')->page->clear($this->getModule());
-                
+
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
                     // Set loc
@@ -333,11 +333,11 @@ class TopicController extends ActionController
                     // Update sitemap
                     Pi::api('sitemap', 'sitemap')->singleLink($loc, $row->status, $module, 'topic', $row->id);
                 }
-                
+
                 // Clear registry
                 Pi::registry('topicList', 'news')->clear();
                 Pi::registry('topicRoute', 'news')->clear();
-                
+
                 // jump
                 $message = __('Topic data saved successfully.');
                 $this->jump(['action' => 'index'], $message);
@@ -349,7 +349,7 @@ class TopicController extends ActionController
                 $form->setData($topic);
             }
         }
-        
+
         $this->view()->setTemplate('topic-update');
         $this->view()->assign('form', $form);
         $this->view()->assign('title', __('Add a Topic'));
@@ -365,7 +365,7 @@ class TopicController extends ActionController
         $id     = $this->params('id');
 
         // Find row
-        $row    = $this->getModel('topic')->find($id);
+        $row = $this->getModel('topic')->find($id);
 
         // Check row
         if ($row) {

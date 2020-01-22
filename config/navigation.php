@@ -12,7 +12,7 @@
  */
 return [
     'admin' => [
-        'story'     => [
+        'story' => [
             'label'      => _a('Story'),
             'permission' => [
                 'resource' => 'story',
@@ -22,7 +22,7 @@ return [
             'action'     => 'index',
         ],
 
-        'topic'     => [
+        'topic' => [
             'label'      => _a('Topic'),
             'permission' => [
                 'resource' => 'topic',
@@ -112,7 +112,7 @@ return [
             ],
         ],
 
-        'author'    => [
+        'author' => [
             'label'      => _a('Authors'),
             'permission' => [
                 'resource' => 'author',
@@ -170,7 +170,7 @@ return [
             'action'     => 'index',
         ],
 
-        'tools'     => [
+        'tools' => [
             'label'      => _a('Tools'),
             'permission' => [
                 'resource' => 'tools',

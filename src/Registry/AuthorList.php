@@ -31,7 +31,7 @@ class AuthorList extends AbstractRegistry
     protected function loadDynamic($options = [])
     {
         // Set module
-        $this->module  = Pi::service('module')->current();
+        $this->module = Pi::service('module')->current();
 
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
@@ -40,11 +40,11 @@ class AuthorList extends AbstractRegistry
         $where   = ['status' => 1];
         $order   = ['title DESC', 'id DESC'];
         $columns = ['id', 'title', 'slug', 'image', 'path'];
-        $author = [];
+        $author  = [];
 
         // Select
-        $select  = Pi::model('author', $this->module)->select()->where($where)->columns($columns)->order($order);
-        $rowset  = Pi::model('author', $this->module)->selectWith($select);
+        $select = Pi::model('author', $this->module)->select()->where($where)->columns($columns)->order($order);
+        $rowset = Pi::model('author', $this->module)->selectWith($select);
 
         // Make list
         foreach ($rowset as $row) {
