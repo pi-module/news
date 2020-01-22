@@ -2,7 +2,7 @@
     <?php $firstStory = array_shift($block['resources']); ?>
     <?php $mediumUrl = Pi::api('doc', 'media')->getSingleLinkUrl($firstStory['main_image'])->setConfigModule('news')->thumb('medium'); ?>
     <div class="card border-light widget-compressed-main h-entry clearfix mb-3" itemscope itemtype="https://schema.org/Article">
-        <a itemprop="url" class="u-url"
+        <a itemprop="url mainEntityOfPage" class="u-url"
            href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
            title="<?php echo $this->escape($firstStory['title']); ?>">
             <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
@@ -11,7 +11,7 @@
         </a>
         <div class="card-body">
             <h3 class="p-name card-title" itemprop="name headline">
-                <a itemprop="url" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
+                <a itemprop="url mainEntityOfPage" href="<?php echo $this->escape($firstStory['storyUrl']); ?>"
                    title="<?php echo $this->escape($firstStory['title']); ?>">
                     <?php if ($firstStory['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                     <?php echo $this->escape($firstStory['title']); ?>
@@ -56,6 +56,9 @@
                 <?php } ?>
             </div>
             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_publish'])); ?>"/>
+            <meta itemprop="dateModified" content="<?php echo $this->escape(date("Y-m-d H:i:s", $firstStory['time_update'])); ?>"/>
+            <meta itemprop="author" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
+            <meta itemprop="publisher" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
         </div>
     </div>
     <?php

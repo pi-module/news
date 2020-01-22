@@ -12,7 +12,7 @@
         <?php $thumbUrl = Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('thumbnail'); ?>
         <div class="item hover-captions hover-captions-slide col-sm-12 col-md-12" itemscope itemtype="https://schema.org/Article">
             <div class="thumbnail">
-                <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                <a itemprop="url mainEntityOfPage" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                    title="<?php echo $this->escape($story['title']); ?>">
                     <img itemprop="image" class="media-object img-fluid u-photo"
                          src="<?php echo $this->escape($thumbUrl); ?>"
@@ -20,7 +20,7 @@
                 </a>
                 <div class="caption">
                     <h3 itemprop="name headline">
-                        <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                        <a itemprop="url mainEntityOfPage" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                            title="<?php echo $this->escape($story['title']); ?>">
                             <?php if ($story['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                             <?php echo $this->escape($story['title']); ?>
@@ -52,6 +52,9 @@
                         </ul>
                     <?php } ?>
                     <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                    <meta itemprop="dateModified" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_update'])); ?>"/>
+                    <meta itemprop="author" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
+                    <meta itemprop="publisher" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
                 </div>
             </div>
         </div>

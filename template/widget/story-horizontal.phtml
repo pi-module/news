@@ -22,7 +22,7 @@
         <div class="h-entry <?php echo $class ?>" itemscope itemtype="https://schema.org/Article">
             <div class="widget-horizontal-box clearfix">
                 <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
-                    <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                    <a itemprop="url mainEntityOfPage" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                        title="<?php echo $this->escape($story['title']); ?>">
                         <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"
@@ -31,7 +31,7 @@
                 <?php } ?>
                 <div class="p-item h-card">
                     <h3 class="p-name itemSingleTitle" itemprop="name headline">
-                        <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                        <a itemprop="url mainEntityOfPage" href="<?php echo $this->escape($story['storyUrl']); ?>"
                            title="<?php echo $this->escape($story['title']); ?>">
                             <?php if ($story['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                             <?php echo $this->escape($story['title']); ?>
@@ -75,6 +75,9 @@
                     </div>
                 </div>
                 <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                <meta itemprop="dateModified" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_update'])); ?>"/>
+                <meta itemprop="author" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
+                <meta itemprop="publisher" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
             </div>
         </div>
     <?php } ?>

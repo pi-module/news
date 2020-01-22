@@ -4,7 +4,7 @@
         <div class="media h-entry clearfix" itemscope itemtype="https://schema.org/Article">
             <?php if ($block['showimage'] && !empty($mediumUrl)) { ?>
                 <div class="clearfix">
-                    <a itemprop="url" class="u-url"
+                    <a itemprop="url mainEntityOfPage" class="u-url"
                        href="<?php echo $this->escape($story['storyUrl']); ?>"
                        title="<?php echo $this->escape($story['title']); ?>">
                         <img itemprop="image" src="<?php echo $this->escape($mediumUrl); ?>"
@@ -15,7 +15,7 @@
             <?php } ?>
             <div class="media-body p-item h-card">
                 <h3 class="media-heading p-name itemSingleTitle" itemprop="name headline">
-                    <a itemprop="url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                    <a itemprop="url mainEntityOfPage" href="<?php echo $this->escape($story['storyUrl']); ?>"
                        title="<?php echo $this->escape($story['title']); ?>">
                         <?php if ($story['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                         <?php echo $this->escape($story['title']); ?>
@@ -59,6 +59,9 @@
                 </div>
             </div>
             <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+            <meta itemprop="dateModified" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_update'])); ?>"/>
+            <meta itemprop="author" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
+            <meta itemprop="publisher" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
         </div>
     <?php } ?>
 </div>

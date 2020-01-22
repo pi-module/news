@@ -18,7 +18,7 @@
                 <div class="h-entry carousel-item<?php if ($i == 1) {
                     echo ' active';
                 } ?>" itemscope itemtype="https://schema.org/Article">
-                    <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                    <a itemprop="url mainEntityOfPage" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                        title="<?php echo $this->escape($story['title']); ?>">
                         <img itemprop="image" src="<?php echo $this->escape($largeUrl); ?>"
                              alt="<?php echo $this->escape($story['title']); ?>"
@@ -27,7 +27,7 @@
 
                     <div class="carousel-caption">
                         <h4 class="p-name" itemprop="name headline">
-                            <a itemprop="url" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
+                            <a itemprop="url mainEntityOfPage" class="u-url" href="<?php echo $this->escape($story['storyUrl']); ?>"
                                title="<?php echo $this->escape($story['title']); ?>">
                                 <?php if ($story['important']) { ?> <span class="badge badge-danger"><?php echo _b('Important'); ?></span> <?php } ?>
                                 <?php echo $this->escape($story['title']); ?>
@@ -60,6 +60,9 @@
                             <div class="widget-summary p-summary"><?php echo $story['text_summary']; ?></div>
                         <?php } ?>
                         <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+                        <meta itemprop="dateModified" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_update'])); ?>"/>
+                        <meta itemprop="author" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
+                        <meta itemprop="publisher" content="<?php echo _escape(Pi::config('sitename')); ?>"/>
                     </div>
                 </div>
                 <?php $i++; ?>
