@@ -31,7 +31,8 @@ class AuthorList extends AbstractRegistry
     protected function loadDynamic($options = [])
     {
         // Set module
-        $this->module = Pi::service('module')->current();
+        $module = Pi::service('module')->current();
+        $this->module = empty($module) ? $this->module : $module;
 
         // Get config
         $config = Pi::service('registry')->config->read($this->module);
