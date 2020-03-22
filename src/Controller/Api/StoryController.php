@@ -31,11 +31,10 @@ class StoryController extends ApiController
         ];
 
         // Get info from url
-        $module = $this->params('module');
         $token  = $this->params('token');
 
         // Check token
-        $check = Pi::api('token', 'tools')->check($token, $module);
+        $check = Pi::api('token', 'tools')->check($token);
         if ($check['status'] == 1) {
 
             // Save statistics
@@ -110,7 +109,7 @@ class StoryController extends ApiController
         $id     = $this->params('id');
 
         // Check token
-        $check = Pi::api('token', 'tools')->check($token, $module);
+        $check = Pi::api('token', 'tools')->check($token);
         if ($check['status'] == 1) {
 
             // Save statistics
