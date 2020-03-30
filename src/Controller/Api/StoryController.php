@@ -106,77 +106,97 @@ class StoryController extends ApiController
         // Get info from url
         $module = $this->params('module');
         $token  = $this->params('token');
-        $id     = $this->params('id');
+        $storyId     = $this->params('id');
 
         // Check token
         $check = Pi::api('token', 'tools')->check($token);
         if ($check['status'] == 1) {
 
-            // Save statistics
-            if (Pi::service('module')->isActive('statistics')) {
-                Pi::api('log', 'statistics')->save(
-                    'news', 'storySingle', $this->params('id'), [
-                        'source'  => $this->params('platform'),
-                        'section' => 'api',
-                    ]
-                );
-            }
-
-            // Get Module Config
-            $config = Pi::service('registry')->config->read($module);
-
             // Check id
-            if (intval($id) > 0) {
-                $result['data'] = Pi::api('story', 'news')->getStory(intval($id));
+            if (intval($storyId) > 0) {
+                $story = Pi::api('story', 'news')->getStory(intval($storyId));
+
+                // Check status
+                if (!$story || $story['status'] != 1 || !in_array($story['type'], ['text', 'article', 'magazine', 'image', 'gallery', 'media', 'download'])) {
+                    // Set error
+                    $result['error'] = [
+                        'code'    => 4,
+                        'message' => __('The story not found.'),
+                    ];
+                    return $result;
+                }
+
+                // Check time_publish
+                if ($story['time_publish'] > time()) {
+                    // Set error
+                    $result['error'] = [
+                        'code'    => 5,
+                        'message' => __('The Story not publish.'),
+                    ];
+                    return $result;
+                }
+
+                // Get Module Config
+                $config = Pi::service('registry')->config->read($module);
+
+                // Save statistics
+                if (Pi::service('module')->isActive('statistics')) {
+                    Pi::api('log', 'statistics')->save(
+                        'news', 'storySingle', $this->params('id'), [
+                            'source'  => $this->params('platform'),
+                            'section' => 'api',
+                        ]
+                    );
+                }
 
                 // Update hits
                 if ($config['story_all_hits']) {
-                    $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
-                    $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
+                    $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+                    $this->getModel('story')->increment('hits', ['id' => $story['id']]);
                 } else {
-                    if (!isset($_SESSION['hits_news'][$result['data']['id']])) {
+                    if (!isset($_SESSION['hits_news'][$story['id']])) {
                         if (!isset($_SESSION['hits_news'])) {
                             $_SESSION['hits_news'] = [];
                         }
 
-                        $_SESSION['hits_news'][$result['data']['id']] = false;
+                        $_SESSION['hits_news'][$story['id']] = false;
                     }
 
-                    if (!$_SESSION['hits_news'][$result['data']['id']]) {
-                        $this->getModel('story')->increment('hits', ['id' => $result['data']['id']]);
-                        $this->getModel('link')->increment('hits', ['story' => $result['data']['id']]);
-                        $_SESSION['hits_news'][$result['data']['id']] = true;
+                    if (!$_SESSION['hits_news'][$story['id']]) {
+                        $this->getModel('story')->increment('hits', ['id' => $story['id']]);
+                        $this->getModel('link')->increment('hits', ['story' => $story['id']]);
+                        $_SESSION['hits_news'][$story['id']] = true;
                     }
                 }
 
                 // Set Additional images
-                $result['data']['additional_images_url'] = [];
-                if (!empty($result['data']['additional_images'])) {
+                $story['additional_images_url'] = [];
+                if (!empty($story['additional_images'])) {
                     $additionalImages = Pi::api('doc', 'media')->getGalleryLinkData(
-                        $result['data']['additional_images'], 'large', null, null, false, [], 'news'
+                        $story['additional_images'], 'large', null, null, false, [], 'news'
                     );
                     foreach ($additionalImages as $additionalImage) {
-                        $result['data']['additional_images_url'][] = $additionalImage['resized_url'];
+                        $story['additional_images_url'][] = $additionalImage['resized_url'];
                     }
                 }
 
                 // Attribute
-                $result['data']['attributeList'] = [];
-                if ($config['show_attribute'] && $result['data']['attribute']) {
-                    $attributeList                   = Pi::api('attribute', 'news')->Story($result['data']['id'], $result['data']['topic_main']);
-                    $result['data']['attributeList'] = [];
+                $story['attributeList'] = [];
+                if ($config['show_attribute'] && $story['attribute']) {
+                    $attributeList                   = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
+                    $story['attributeList'] = [];
                     foreach ($attributeList as $attributeKey => $attributeCategory) {
                         switch ($attributeKey) {
                             case 'video':
                                 foreach ($attributeCategory as $attributeSingle) {
-                                    $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                                    $story['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
                                 }
                                 break;
 
                             default:
                                 foreach ($attributeCategory as $attributePosition) {
                                     foreach ($attributePosition['info'] as $attributeSingle) {
-                                        $result['data']['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
+                                        $story['attributeList'][$attributeSingle['name']] = $attributeSingle['data'];
                                     }
                                 }
                                 break;
@@ -185,21 +205,22 @@ class StoryController extends ApiController
                 }
 
                 // Tag
-                //$result['data']['tagList'] = [];
+                //$story['tagList'] = [];
                 //if ($config['show_tag'] && Pi::service('module')->isActive('tag')) {
-                //    $result['data']['tagList'] = Pi::service('tag')->get($module, $result['data']['id'], '');
+                //    $story['tagList'] = Pi::service('tag')->get($module, $story['id'], '');
                 //}
 
-                // Check data
-                if (!empty($result['data'])) {
-                    $result['result'] = true;
-                } else {
-                    // Set error
-                    $result['error'] = [
-                        'code'    => 4,
-                        'message' => __('Data is empty'),
-                    ];
-                }
+                // Set default result
+                $result = [
+                    'result' => true,
+                    'data'   => [
+                        $story
+                    ],
+                    'error'  => [
+                        'code'    => 0,
+                        'message' => '',
+                    ],
+                ];
             } else {
                 // Set error
                 $result['error'] = [

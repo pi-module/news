@@ -62,7 +62,7 @@ class Story extends AbstractApi
     public function getStoryJson($parameter, $field = 'id', $option = [])
     {
         // Get product
-        $story = Pi::model('story', $this->getModule())->find($parameter, $field);
+        $story = Pi::model('story', 'news')->find($parameter, $field);
         $story = $this->canonizeStoryJson($story, $option);
         return $story;
     }
@@ -555,7 +555,7 @@ class Story extends AbstractApi
         }
 
         // Set allow fields
-        $allowFields = ['id' => true, 'title' => true, 'subtitle' => true, 'time' => true, 'topic' => true, 'url' => true, 'image' => true, 'body' => true];
+        $allowFields = ['id' => true, 'title' => true, 'subtitle' => true, 'slug' => true, 'time' => true, 'topic' => true, 'url' => true, 'image' => true, 'body' => true, 'type' => true, 'status' => true];
         if (isset($option['fields']) && !empty($option['fields']) && is_array($option['fields'])) {
             foreach ($allowFields as $key => $value) {
                 if (!in_array($key, $option['fields'])) {
@@ -586,9 +586,24 @@ class Story extends AbstractApi
             $storyJson['subtitle'] = $story['subtitle'];
         }
 
-        // Set time
+        // Set slug
+        if (isset($allowFields['slug'])) {
+            $storyJson['slug'] = $story['slug'];
+        }
+
+        // Set topic
         if (isset($allowFields['topic'])) {
             $storyJson['topic'] = $story['topic_main'];
+        }
+
+        // Set type
+        if (isset($allowFields['type'])) {
+            $storyJson['type'] = $story['type'];
+        }
+
+        // Set status
+        if (isset($allowFields['status'])) {
+            $storyJson['status'] = $story['status'];
         }
 
         // Set story url
@@ -606,9 +621,16 @@ class Story extends AbstractApi
 
         // Set body
         if (isset($allowFields['body'])) {
-            $storyJson['body'] = Pi::service('markup')->render($story['text_summary'] . $story['text_description'], 'html', 'html');
-            $storyJson['body'] = strip_tags($storyJson['body'], "<b><strong><i><p><br><ul><li><ol><h2><h3><h4>");
-            $storyJson['body'] = str_replace("<p>&nbsp;</p>", "", $storyJson['body']);
+
+            $storyJson['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
+            $storyJson['text_summary'] = strip_tags($storyJson['text_summary'], "<b><strong><i><p><br><ul><li><ol><h1><h2><h3><h4><h5><h6>");
+            $storyJson['text_summary'] = str_replace("<p>&nbsp;</p>", "", $storyJson['text_summary']);
+            $storyJson['text_summary'] = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $storyJson['text_summary']);
+
+            $storyJson['text_description'] = Pi::service('markup')->render($story['text_description'], 'html', 'html');
+            $storyJson['text_description'] = strip_tags($storyJson['text_description'], "<b><strong><i><p><br><ul><li><ol><h1><h2><h3><h4><h5><h6>");
+            $storyJson['text_description'] = str_replace("<p>&nbsp;</p>", "", $storyJson['text_description']);
+            $storyJson['text_description'] = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $storyJson['text_description']);
         }
 
         // Set image
