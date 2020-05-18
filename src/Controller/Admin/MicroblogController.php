@@ -18,7 +18,7 @@ use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Module\News\Form\MicroblogForm;
 use Module\News\Form\MicroblogFilter;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class MicroblogController extends ActionController
 {

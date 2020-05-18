@@ -14,7 +14,7 @@
 namespace Module\News\Block;
 
 use Pi;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class Block
 {

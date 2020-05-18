@@ -17,9 +17,9 @@ use Pi;
 use Pi\Filter;
 use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
-use Zend\Db\Sql\Predicate\Expression;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Paginator\Adapter\DbSelect;
+use Laminas\Db\Sql\Predicate\Expression;
+use Laminas\Db\ResultSet\ResultSet;
+use Laminas\Paginator\Adapter\DbSelect;
 
 class IndexController extends ActionController
 {

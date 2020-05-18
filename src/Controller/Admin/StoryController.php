@@ -24,7 +24,7 @@ use Module\News\Form\StoryAdditionalForm;
 use Module\News\Form\StoryAdditionalFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class StoryController extends ActionController
 {

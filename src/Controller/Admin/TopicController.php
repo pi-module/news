@@ -20,7 +20,7 @@ use Pi\Paginator\Paginator;
 use Pi\File\Transfer\Upload;
 use Module\News\Form\TopicForm;
 use Module\News\Form\TopicFilter;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class TopicController extends ActionController
 {
