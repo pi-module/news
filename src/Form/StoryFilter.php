@@ -14,7 +14,7 @@
 namespace Module\News\Form;
 
 use Pi;
-use Zend\InputFilter\InputFilter;
+use Laminas\InputFilter\InputFilter;
 
 class StoryFilter extends InputFilter
 {

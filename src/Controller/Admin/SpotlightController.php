@@ -18,7 +18,7 @@ use Pi\Mvc\Controller\ActionController;
 use Pi\Paginator\Paginator;
 use Module\News\Form\SpotlightForm;
 use Module\News\Form\SpotlightFilter;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class SpotlightController extends ActionController
 {

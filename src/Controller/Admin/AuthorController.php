@@ -22,7 +22,7 @@ use Module\News\Form\AuthorForm;
 use Module\News\Form\AuthorFilter;
 use Module\News\Form\StorySearchForm;
 use Module\News\Form\StorySearchFilter;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 class AuthorController extends ActionController
 {

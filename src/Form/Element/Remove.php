@@ -14,9 +14,9 @@
 namespace Module\News\Form\Element;
 
 use Pi;
-use Zend\Form\Element\Button as ZendButton;
+use Laminas\Form\Element\Button as LaminasButton;
 
-class Remove extends ZendButton
+class Remove extends LaminasButton
 {
     /**
      * @return array

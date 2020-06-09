@@ -18,7 +18,7 @@ use Pi\Application\Api\AbstractApi;
 use Pi\File\Transfer\Upload;
 use Pi\Filter;
 use Pi\Paginator\Paginator;
-use Zend\Db\Sql\Predicate\Expression;
+use Laminas\Db\Sql\Predicate\Expression;
 
 /*
  * Pi::api('api', 'news')->addStory($values);

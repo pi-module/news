@@ -15,7 +15,7 @@ namespace Module\News\Installer\Action;
 
 use Pi;
 use Pi\Application\Installer\Action\Install as BasicInstall;
-use Zend\EventManager\Event;
+use Laminas\EventManager\Event;
 
 class Install extends BasicInstall
 {
