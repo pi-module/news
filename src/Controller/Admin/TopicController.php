@@ -115,7 +115,7 @@ class TopicController extends ActionController
                 'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
                 'params' => array_filter(
                     [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'topic',
                         'action'     => 'index',
                     ]
@@ -316,7 +316,7 @@ class TopicController extends ActionController
                 } else {
                     $this->removePage($pageName);
                 }
-                Pi::service('registry')->page->clear($this->getModule());
+                Pi::service('registry')->page->clear('news');
 
                 // Add / Edit sitemap
                 if (Pi::service('module')->isActive('sitemap')) {
@@ -392,7 +392,7 @@ class TopicController extends ActionController
             $this->removePage($pageName);
 
             // Clear registry
-            Pi::service('registry')->page->clear($this->getModule());
+            Pi::service('registry')->page->clear('news');
             Pi::registry('topicList', 'news')->clear();
             Pi::registry('topicRoute', 'news')->clear();
 
@@ -447,7 +447,7 @@ class TopicController extends ActionController
             // Remove page
             $pageName = sprintf('topic-%s', $row->id);
             $this->removePage($pageName);
-            Pi::service('registry')->page->clear($this->getModule());
+            Pi::service('registry')->page->clear('news');
             // Remove sitemap
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url($this->url('news', array(
@@ -478,7 +478,7 @@ class TopicController extends ActionController
     {
         $page = [
             'section'    => 'front',
-            'module'     => $this->getModule(),
+            'module'     => 'news',
             'controller' => 'topic',
             'action'     => $name,
             'title'      => $title,
@@ -503,7 +503,7 @@ class TopicController extends ActionController
     {
         $where = [
             'section'    => 'front',
-            'module'     => $this->getModule(),
+            'module'     => 'news',
             'controller' => 'topic',
             'action'     => $name,
         ];
@@ -523,7 +523,7 @@ class TopicController extends ActionController
         // Set where
         $where = [
             'section'    => 'front',
-            'module'     => $this->getModule(),
+            'module'     => 'news',
             'controller' => 'topic',
             'action'     => $name,
         ];

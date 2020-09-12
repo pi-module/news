@@ -103,7 +103,7 @@ class SpotlightController extends ActionController
                 'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
                 'params' => array_filter(
                     [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'spotlight',
                         'action'     => 'index',
                     ]
@@ -121,7 +121,7 @@ class SpotlightController extends ActionController
     {
         // Get id
         $id   = $this->params('id');
-        $form = new SpotlightForm('topic', $this->getModule());
+        $form = new SpotlightForm('topic', 'news');
         if ($this->request->isPost()) {
             $data = $this->request->getPost();
             $form->setInputFilter(new SpotlightFilter);

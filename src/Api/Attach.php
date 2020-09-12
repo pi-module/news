@@ -34,14 +34,14 @@ class Attach extends AbstractApi
     public function attachList($id, $parent = 'story')
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // Set info
         $file  = [];
         $where = ['item_id' => $id, 'status' => 1, 'item_table' => $parent];
         $order = ['time_create ASC', 'id ASC'];
         // Get all attach files
-        $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
-        $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
+        $select = Pi::model('attach', 'news')->select()->where($where)->order($order);
+        $rowset = Pi::model('attach', 'news')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
             $file[$row->type][$row->id]                     = $row->toArray();
@@ -102,14 +102,14 @@ class Attach extends AbstractApi
     public function filePreview($type, $path, $file)
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
 
         if ($type == 'image') {
             $image   = sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $file);
             $preview = Pi::url($image);
         } else {
             $image   = sprintf('image/%s.png', $type);
-            $preview = Pi::service('asset')->getModuleAsset($image, $this->getModule());
+            $preview = Pi::service('asset')->getModuleAsset($image, 'news');
         }
         return $preview;
     }
@@ -117,7 +117,7 @@ class Attach extends AbstractApi
     public function fileView($type, $path, $file)
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
 
         if ($type == 'image') {
             $file = sprintf('upload/%s/thumb/%s/%s', $config['image_path'], $path, $file);

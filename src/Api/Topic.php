@@ -34,18 +34,18 @@ class Topic extends AbstractApi
 {
     public function __construct()
     {
-        $this->module = Pi::service('module')->current();
+        $this->module = 'news';
     }
 
     public function getTopic($parameter, $field = 'id')
     {
         // Get topic
-        $topic             = Pi::model('topic', $this->getModule())->find($parameter, $field);
+        $topic             = Pi::model('topic', 'news')->find($parameter, $field);
         $topic             = $topic->toArray();
         $topic['topicUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                    'module'     => $this->getModule(),
+                    'module'     => 'news',
                     'controller' => 'topic',
                     'slug'       => $topic['slug'],
                 ]
@@ -57,7 +57,7 @@ class Topic extends AbstractApi
     public function getTopicFull($parameter, $field = 'id')
     {
         // Get topic
-        $topic = Pi::model('topic', $this->getModule())->find($parameter, $field);
+        $topic = Pi::model('topic', 'news')->find($parameter, $field);
         $topic = $this->canonizeTopic($topic);
         return $topic;
     }
@@ -68,8 +68,8 @@ class Topic extends AbstractApi
         $columns   = ['id', 'title'];
         $where     = ['status' => 1, 'type' => $type];
         $order     = ['title ASC', 'id ASC'];
-        $select    = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where)->order($order);
-        $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
+        $select    = Pi::model('topic', 'news')->select()->columns($columns)->where($where)->order($order);
+        $rowset    = Pi::model('topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $topicList[$row->id]['id']    = $row->id;
             $topicList[$row->id]['title'] = $row->title;
@@ -82,8 +82,8 @@ class Topic extends AbstractApi
         $topicList = [];
         $where     = ['status' => 1, 'type' => $options['type']];
         $order     = ['display_order ASC', 'title ASC', 'id ASC'];
-        $select    = Pi::model('topic', $this->getModule())->select()->where($where)->order($order);
-        $rowset    = Pi::model('topic', $this->getModule())->selectWith($select);
+        $select    = Pi::model('topic', 'news')->select()->where($where)->order($order);
+        $rowset    = Pi::model('topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $topicList[$row->id] = $this->canonizeTopic($row);
         }
@@ -96,7 +96,7 @@ class Topic extends AbstractApi
     public function canonizeTopic($topic = null)
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // Set topic information
         if (isset($topic) && !empty($topic) && is_object($topic)) {
             $topic = $topic->toArray();
@@ -107,7 +107,7 @@ class Topic extends AbstractApi
             $topic['topicUrl'] = Pi::url(
                 Pi::service('url')->assemble(
                     'news', [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'topic',
                         'slug'       => $topic['slug'],
                     ]
@@ -165,8 +165,8 @@ class Topic extends AbstractApi
                 $where = ['item_id' => $topic['id'], 'item_table' => 'topic', 'status' => 1];
                 $order = ['time_create DESC', 'id DESC'];
                 // Get all attach files
-                $select = Pi::model('attach', $this->getModule())->select()->where($where)->order($order);
-                $rowset = Pi::model('attach', $this->getModule())->selectWith($select);
+                $select = Pi::model('attach', 'news')->select()->where($where)->order($order);
+                $rowset = Pi::model('attach', 'news')->selectWith($select);
                 // Make list
                 foreach ($rowset as $row) {
                     $file[$row->type][$row->id]                = $row->toArray();
@@ -175,7 +175,7 @@ class Topic extends AbstractApi
                     $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
                         Pi::service('url')->assemble(
                             'news', [
-                                'module'     => $this->getModule(),
+                                'module'     => 'news',
                                 'controller' => 'media',
                                 'action'     => 'download',
                                 'id'         => $row->id,
@@ -320,7 +320,7 @@ class Topic extends AbstractApi
         $controller = 'topic'
     ) {
         //Remove
-        Pi::model('link', $this->getModule())->delete(['story' => $story]);
+        Pi::model('link', 'news')->delete(['story' => $story]);
         // Add
         $newTopics = json_decode($topics, true);
         foreach ($newTopics as $topic) {
@@ -335,7 +335,7 @@ class Topic extends AbstractApi
             $values['module']       = $module;
             $values['controller']   = $controller;
             // Save
-            $row = Pi::model('link', $this->getModule())->createRow();
+            $row = Pi::model('link', 'news')->createRow();
             $row->assign($values);
             $row->save();
         }
@@ -344,8 +344,8 @@ class Topic extends AbstractApi
     public function topicCount()
     {
         $columns = ['count' => new Expression('count(*)')];
-        $select  = Pi::model('topic', $this->getModule())->select()->columns($columns);
-        $count   = Pi::model('topic', $this->getModule())->selectWith($select)->current()->count;
+        $select  = Pi::model('topic', 'news')->select()->columns($columns);
+        $count   = Pi::model('topic', 'news')->selectWith($select)->current()->count;
         return $count;
     }
 
@@ -354,8 +354,8 @@ class Topic extends AbstractApi
         $list    = [];
         $where   = ['status' => 1];
         $columns = ['id', 'pid'];
-        $select  = Pi::model('topic', $this->getModule())->select()->columns($columns)->where($where);
-        $rowset  = Pi::model('topic', $this->getModule())->selectWith($select);
+        $select  = Pi::model('topic', 'news')->select()->columns($columns)->where($where);
+        $rowset  = Pi::model('topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $list[$row->id] = $row->toArray();
         }
@@ -405,24 +405,24 @@ class Topic extends AbstractApi
     {
         if (Pi::service('module')->isActive('sitemap')) {
             // Remove old links
-            Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'topic');
+            Pi::api('sitemap', 'sitemap')->removeAll('news', 'topic');
             // find and import
             $columns = ['id', 'slug', 'status'];
-            $select  = Pi::model('topic', $this->getModule())->select()->columns($columns);
-            $rowset  = Pi::model('topic', $this->getModule())->selectWith($select);
+            $select  = Pi::model('topic', 'news')->select()->columns($columns);
+            $rowset  = Pi::model('topic', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                            'module'     => $this->getModule(),
+                            'module'     => 'news',
                             'controller' => 'topic',
                             'slug'       => $row->slug,
                         ]
                     )
                 );
                 // Add to sitemap
-                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'topic', $row->id);
+                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, 'news', 'topic', $row->id);
             }
         }
     }
@@ -430,12 +430,12 @@ class Topic extends AbstractApi
     public function regenerateImage()
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // Set info
         $columns = ['id', 'image', 'path'];
         $order   = ['id ASC'];
-        $select  = Pi::model('topic', $this->getModule())->select()->columns($columns)->order($order);
-        $rowset  = Pi::model('topic', $this->getModule())->selectWith($select);
+        $select  = Pi::model('topic', 'news')->select()->columns($columns)->order($order);
+        $rowset  = Pi::model('topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path

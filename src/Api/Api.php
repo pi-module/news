@@ -93,7 +93,7 @@ class Api extends AbstractApi
 {
     public function __construct()
     {
-        $this->module = Pi::service('module')->current();
+        $this->module = 'news';
     }
 
     public function addStory($values, $processEventImage = false)
@@ -147,7 +147,7 @@ class Api extends AbstractApi
         // Topics
         $values['topic'] = json_encode($values['topic']);
         // Save story
-        $story = Pi::model('story', $this->getModule())->createRow();
+        $story = Pi::model('story', 'news')->createRow();
 
         $imageToProcess = false;
 
@@ -198,7 +198,7 @@ class Api extends AbstractApi
         // Topics
         $values['topic'] = json_encode($values['topic']);
         // Save story
-        $story = Pi::model('story', $this->getModule())->find($values['id']);
+        $story = Pi::model('story', 'news')->find($values['id']);
 
         $imageToProcess = false;
 
@@ -269,7 +269,7 @@ class Api extends AbstractApi
         // Check id
         if (isset($id) && intval($id) > 0) {
             // Get story
-            $story = Pi::model('story', $this->getModule())->find($id);
+            $story = Pi::model('story', 'news')->find($id);
             if ($story) {
                 // clear DB
                 $story->image = '';
@@ -295,7 +295,7 @@ class Api extends AbstractApi
     public function setupLink($link)
     {
         // Remove
-        Pi::model('link', $this->getModule())->delete(
+        Pi::model('link', 'news')->delete(
             [
                 'story' => $link['story'],
             ]
@@ -334,7 +334,7 @@ class Api extends AbstractApi
                                 $values['controller'] = $controller['name'];
                                 $values['module']     = $module['name'];
                                 // Save
-                                $row = Pi::model('link', $this->getModule())->createRow();
+                                $row = Pi::model('link', 'news')->createRow();
                                 $row->assign($values);
                                 $row->save();
                             }
@@ -373,7 +373,7 @@ class Api extends AbstractApi
         switch ($table) {
             case 'story':
                 // Select from story table
-                $select = Pi::model('story', $this->getModule())->select();
+                $select = Pi::model('story', 'news')->select();
                 if (!empty($where)) {
                     $select->where($where);
                 }
@@ -386,14 +386,14 @@ class Api extends AbstractApi
                 if (!empty($limit)) {
                     $select->limit($limit);
                 }
-                $rowSet = Pi::model('story', $this->getModule())->selectWith($select);
+                $rowSet = Pi::model('story', 'news')->selectWith($select);
                 break;
 
             default:
             case 'link':
 
                 // Select from link table
-                $select = Pi::model('link', $this->getModule())->select();
+                $select = Pi::model('link', 'news')->select();
                 if (!empty($where)) {
                     $select->where($where);
                 }
@@ -408,7 +408,7 @@ class Api extends AbstractApi
                 }
                 $columns = ['story' => new Expression('DISTINCT story'), '*'];
                 $select->columns($columns);
-                $rowSetLink = Pi::model('link', $this->getModule())->selectWith($select);
+                $rowSetLink = Pi::model('link', 'news')->selectWith($select);
                 $storyId    = [];
                 foreach ($rowSetLink as $id) {
                     $storyId[] = $id['story'];
@@ -416,8 +416,8 @@ class Api extends AbstractApi
                 // Select from story table
                 if (!empty($storyId)) {
                     $whereStory = ['id' => $storyId];
-                    $select     = Pi::model('story', $this->getModule())->select()->where($whereStory)->order($order);
-                    $rowSet     = Pi::model('story', $this->getModule())->selectWith($select);
+                    $select     = Pi::model('story', 'news')->select()->where($whereStory)->order($order);
+                    $rowSet     = Pi::model('story', 'news')->selectWith($select);
                 } else {
                     return $list;
                 }
@@ -454,15 +454,15 @@ class Api extends AbstractApi
         switch ($table) {
             case 'story':
                 $columns = ['count' => new Expression('count(*)')];
-                $select  = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
-                $count   = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                $select  = Pi::model('story', 'news')->select()->where($where)->columns($columns);
+                $count   = Pi::model('story', 'news')->selectWith($select)->current()->count;
                 break;
 
             default:
             case 'link':
                 $columns = ['count' => new Expression('count(DISTINCT `story`)')];
-                $select  = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
-                $count   = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                $select  = Pi::model('link', 'news')->select()->where($where)->columns($columns);
+                $count   = Pi::model('link', 'news')->selectWith($select)->current()->count;
                 break;
         }
 
@@ -511,15 +511,15 @@ class Api extends AbstractApi
         switch ($table) {
             case 'story':
                 $columns = ['count' => new Expression('count(*)')];
-                $select  = Pi::model('story', $this->getModule())->select()->where($where)->columns($columns);
-                $count   = Pi::model('story', $this->getModule())->selectWith($select)->current()->count;
+                $select  = Pi::model('story', 'news')->select()->where($where)->columns($columns);
+                $count   = Pi::model('story', 'news')->selectWith($select)->current()->count;
                 break;
 
             default:
             case 'link':
                 $columns = ['count' => new Expression('count(DISTINCT `story`)')];
-                $select  = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns);
-                $count   = Pi::model('link', $this->getModule())->selectWith($select)->current()->count;
+                $select  = Pi::model('link', 'news')->select()->where($where)->columns($columns);
+                $count   = Pi::model('link', 'news')->selectWith($select)->current()->count;
                 break;
         }
 
@@ -530,14 +530,14 @@ class Api extends AbstractApi
     public function getStoryRelated($where, $order)
     {
         // Set info
-        $config  = Pi::service('registry')->config->read($this->getModule());
+        $config  = Pi::service('registry')->config->read('news');
         $related = [];
         $columns = ['story' => new Expression('DISTINCT story'), '*'];
         $limit   = intval($config['related_num']);
 
         // Get info from link table
-        $select = Pi::model('link', $this->getModule())->select()->where($where)->columns($columns)->order($order)->limit($limit);
-        $rowset = Pi::model('link', $this->getModule())->selectWith($select)->toArray();
+        $select = Pi::model('link', 'news')->select()->where($where)->columns($columns)->order($order)->limit($limit);
+        $rowset = Pi::model('link', 'news')->selectWith($select)->toArray();
 
         // Make list
         foreach ($rowset as $id) {
@@ -555,7 +555,7 @@ class Api extends AbstractApi
     public function jsonList($options)
     {
         // Get info from url
-        $module = $this->getModule();
+        $module = 'news';
 
         // Set has search result
         $hasSearchResult = true;

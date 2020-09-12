@@ -40,7 +40,7 @@ class Author extends AbstractApi
     public function getAuthor($parameter, $field = 'id')
     {
         // Get product
-        $author = Pi::model('author', $this->getModule())->find($parameter, $field);
+        $author = Pi::model('author', 'news')->find($parameter, $field);
         $author = $this->canonizeAuthor($author);
         return $author;
     }
@@ -52,8 +52,8 @@ class Author extends AbstractApi
         $order = ['title ASC', 'id ASC'];
         $list  = [];
         // Get attach count
-        $select = Pi::model('author', $this->getModule())->select()->where($where)->order($order);
-        $rowset = Pi::model('author', $this->getModule())->selectWith($select);
+        $select = Pi::model('author', 'news')->select()->where($where)->order($order);
+        $rowset = Pi::model('author', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $list[$row->id] = $this->canonizeAuthor($row);
         }
@@ -68,8 +68,8 @@ class Author extends AbstractApi
         $order   = ['title DESC', 'id DESC'];
         $list    = [0 => ''];
         // Get attach count
-        $select = Pi::model('author', $this->getModule())->select()->columns($columns)->where($where)->order($order);
-        $rowset = Pi::model('author', $this->getModule())->selectWith($select);
+        $select = Pi::model('author', 'news')->select()->columns($columns)->where($where)->order($order);
+        $rowset = Pi::model('author', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $list[$row->id] = $row->title;
         }
@@ -84,8 +84,8 @@ class Author extends AbstractApi
         $order   = ['title DESC', 'id DESC'];
         $list    = [];
         // Get attach count
-        $select = Pi::model('author_role', $this->getModule())->select()->columns($columns)->where($where)->order($order);
-        $rowset = Pi::model('author_role', $this->getModule())->selectWith($select);
+        $select = Pi::model('author_role', 'news')->select()->columns($columns)->where($where)->order($order);
+        $rowset = Pi::model('author_role', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $list[$row->id]         = $row->toArray();
             $list[$row->id]['name'] = sprintf('role_%s', $row->id);
@@ -98,8 +98,8 @@ class Author extends AbstractApi
         // set info
         $where = ['story' => $story['id']];
         // Get attach count
-        $select = Pi::model('author_story', $this->getModule())->select()->where($where);
-        $rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
+        $select = Pi::model('author_story', 'news')->select()->where($where);
+        $rowset = Pi::model('author_story', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $name         = sprintf('role_%s', $row->role);
             $story[$name] = $row->author;
@@ -111,7 +111,7 @@ class Author extends AbstractApi
     {
         if (!empty($authors)) {
             //Remove
-            Pi::model('author_story', $this->getModule())->delete(['story' => $story]);
+            Pi::model('author_story', 'news')->delete(['story' => $story]);
             // Add
             foreach ($authors as $author) {
                 if ($author['author'] > 0) {
@@ -122,7 +122,7 @@ class Author extends AbstractApi
                     $values['author']       = $author['author'];
                     $values['role']         = $author['role'];
                     // Save
-                    $row = Pi::model('author_story', $this->getModule())->createRow();
+                    $row = Pi::model('author_story', 'news')->createRow();
                     $row->assign($values);
                     $row->save();
                 }
@@ -139,8 +139,8 @@ class Author extends AbstractApi
             $where = ['status' => 1, 'author' => $author, 'role' => $role['id']];
             $order = ['time_publish DESC', 'id DESC'];
             // Get author
-            $select = Pi::model('author_story', $this->getModule())->select()->where($where)->order($order);
-            $rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
+            $select = Pi::model('author_story', 'news')->select()->where($where)->order($order);
+            $rowset = Pi::model('author_story', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 $id[] = $row->story;
             }
@@ -161,16 +161,16 @@ class Author extends AbstractApi
         $where = ['status' => 1, 'story' => $story,];
         $order = ['time_publish DESC', 'id DESC'];
         // Get author
-        $select = Pi::model('author_story', $this->getModule())->select()->where($where)->order($order);
-        $rowset = Pi::model('author_story', $this->getModule())->selectWith($select);
+        $select = Pi::model('author_story', 'news')->select()->where($where)->order($order);
+        $rowset = Pi::model('author_story', 'news')->selectWith($select);
         foreach ($rowset as $row) {
-            $author                      = Pi::model('author', $this->getModule())->find($row->author)->toArray();
+            $author                      = Pi::model('author', 'news')->find($row->author)->toArray();
             $list[$row->id]              = [];
             $list[$row->id]['role']      = $roles[$row->role]['title'];
             $list[$row->id]['name']      = $author['title'];
             $list[$row->id]['authorUrl'] = Pi::service('url')->assemble(
                 'news', [
-                    'module'     => $this->getModule(),
+                    'module'     => 'news',
                     'controller' => 'author',
                     'slug'       => $author['slug'],
                 ]
@@ -186,7 +186,7 @@ class Author extends AbstractApi
             return '';
         }
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // object to array
         $author = $author->toArray();
         // Set description
@@ -197,7 +197,7 @@ class Author extends AbstractApi
         // Set story url
         $author['authorUrl'] = Pi::service('url')->assemble(
             'news', [
-                'module'     => $this->getModule(),
+                'module'     => 'news',
                 'controller' => 'author',
                 'slug'       => $author['slug'],
             ]
@@ -258,24 +258,24 @@ class Author extends AbstractApi
     {
         if (Pi::service('module')->isActive('sitemap')) {
             // Remove old links
-            Pi::api('sitemap', 'sitemap')->removeAll($this->getModule(), 'author');
+            Pi::api('sitemap', 'sitemap')->removeAll('news', 'author');
             // find and import
             $columns = ['id', 'slug', 'status'];
-            $select  = Pi::model('author', $this->getModule())->select()->columns($columns);
-            $rowset  = Pi::model('author', $this->getModule())->selectWith($select);
+            $select  = Pi::model('author', 'news')->select()->columns($columns);
+            $rowset  = Pi::model('author', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 // Make url
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                            'module'     => $this->getModule(),
+                            'module'     => 'news',
                             'controller' => 'author',
                             'slug'       => $row->slug,
                         ]
                     )
                 );
                 // Add to sitemap
-                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, $this->getModule(), 'author', $row->id);
+                Pi::api('sitemap', 'sitemap')->groupLink($loc, $row->status, 'news', 'author', $row->id);
             }
         }
     }
@@ -283,12 +283,12 @@ class Author extends AbstractApi
     public function regenerateImage()
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // Set info
         $columns = ['id', 'image', 'path'];
         $order   = ['id ASC'];
-        $select  = Pi::model('author', $this->getModule())->select()->columns($columns)->order($order);
-        $rowset  = Pi::model('author', $this->getModule())->selectWith($select);
+        $select  = Pi::model('author', 'news')->select()->columns($columns)->order($order);
+        $rowset  = Pi::model('author', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             if (!empty($row->image) && !empty($row->path)) {
                 // Set image original path

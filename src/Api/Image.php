@@ -90,7 +90,7 @@ class Image extends AbstractApi
     public function rename($image = '', $prefix = 'image_', $path = '', $imagePath = null)
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule(), 'image');
+        $config = Pi::service('registry')->config->read('news', 'image');
         // Set image path
         $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
         // Check image name
@@ -127,7 +127,7 @@ class Image extends AbstractApi
     public function process($image, $path, $imagePath = null, $cropping = null)
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule(), 'image');
+        $config = Pi::service('registry')->config->read('news', 'image');
         // Set image path
         $imagePath = empty($imagePath) ? $config['image_path'] : $imagePath;
         // Set original path

@@ -71,7 +71,7 @@ class AuthorController extends ActionController
                 'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
                 'params' => array_filter(
                     [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'author',
                         'action'     => 'index',
                         'title'      => $title,

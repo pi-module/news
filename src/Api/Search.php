@@ -95,7 +95,7 @@ class Search extends AbstractSearch
                 $link = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                            'module'     => $this->getModule(),
+                            'module'     => 'news',
                             'controller' => 'story',
                             'slug'       => $item['slug'],
                         ]
@@ -107,7 +107,7 @@ class Search extends AbstractSearch
                 $link = Pi::url(
                     Pi::service('url')->assemble(
                         'news', [
-                            'module'     => $this->getModule(),
+                            'module'     => 'news',
                             'controller' => 'topic',
                             'slug'       => $item['slug'],
                         ]
@@ -125,7 +125,7 @@ class Search extends AbstractSearch
     protected function buildImage(array $item, $table = '')
     {
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
 
         $image = '';
 

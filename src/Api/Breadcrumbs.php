@@ -26,11 +26,11 @@ class Breadcrumbs extends AbstractBreadcrumbs
         // Get params
         $params = Pi::service('url')->getRouteMatch()->getParams();
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // Check breadcrumbs
         if ($config['view_breadcrumbs']) {
             // Set module link
-            $moduleData = Pi::registry('module')->read($this->getModule());
+            $moduleData = Pi::registry('module')->read('news');
             // Make tree
             if (!empty($params['controller']) && $params['controller'] != 'index') {
                 // Set index
@@ -40,7 +40,7 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         'href'  => Pi::url(
                             Pi::service('url')->assemble(
                                 'news', [
-                                    'module' => $this->getModule(),
+                                    'module' => 'news',
                                 ]
                             )
                         ),

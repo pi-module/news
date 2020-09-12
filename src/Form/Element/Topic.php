@@ -24,7 +24,7 @@ class Topic extends Select
     public function getValueOptions()
     {
         if (empty($this->valueOptions)) {
-            $module  = Pi::service('module')->current();
+            $module  = 'news';
             $where   = ['status' => 1];
             $columns = ['id', 'pid', 'title'];
             $order   = ['display_order ASC', 'title ASC', 'id ASC'];

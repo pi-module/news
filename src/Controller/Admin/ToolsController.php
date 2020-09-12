@@ -113,7 +113,7 @@ class ToolsController extends ActionController
 
     public function pruneAction()
     {
-        $form    = new PruneForm('prune', $this->getModule());
+        $form    = new PruneForm('prune', 'news');
         $message = __('You can prune all old stores, from selected topic.');
         if ($this->request->isPost()) {
             // Set form date
@@ -170,7 +170,7 @@ class ToolsController extends ActionController
             if ($values['confirm']) {
                 $where1 = [
                     'section'     => 'front',
-                    'module'      => $this->getModule(),
+                    'module'      => 'news',
                     'controller'  => 'topic',
                     'action != ?' => 'list',
                 ];
@@ -181,7 +181,7 @@ class ToolsController extends ActionController
                         $row->delete();
                     }
                 }
-                Pi::service('registry')->page->clear($this->getModule());
+                Pi::service('registry')->page->clear('news');
                 $message = __('All other pages removed');
             } else {
                 $message = __('No pages were removed');

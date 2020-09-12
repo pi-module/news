@@ -32,7 +32,7 @@ class Microblog extends AbstractApi
     public function getMicroblog($parameter, $field = 'id')
     {
         // Get topic
-        $microblog = Pi::model('microblog', $this->getModule())->find($parameter, $field);
+        $microblog = Pi::model('microblog', 'news')->find($parameter, $field);
         $microblog = $this->canonizeMicroblog($microblog);
         return $microblog;
     }
@@ -44,7 +44,7 @@ class Microblog extends AbstractApi
             return '';
         }
         // Get config
-        $config = Pi::service('registry')->config->read($this->getModule());
+        $config = Pi::service('registry')->config->read('news');
         // object to array
         $microblog = $microblog->toArray();
         // Set text_summary
@@ -55,7 +55,7 @@ class Microblog extends AbstractApi
         $microblog['microblogUrl'] = Pi::url(
             Pi::service('url')->assemble(
                 'news', [
-                    'module'     => $this->getModule(),
+                    'module'     => 'news',
                     'controller' => 'microblog',
                     'id'         => $microblog['id'],
                 ]

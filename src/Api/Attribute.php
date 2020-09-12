@@ -56,8 +56,8 @@ class Attribute extends AbstractApi
         // find
         $whereField = ['status' => 1, 'id' => $id];
         $orderField = ['order ASC', 'position ASC', 'id DESC'];
-        $select     = Pi::model('field', $this->getModule())->select()->where($whereField)->order($orderField);
-        $rowset     = Pi::model('field', $this->getModule())->selectWith($select);
+        $select     = Pi::model('field', 'news')->select()->where($whereField)->order($orderField);
+        $rowset     = Pi::model('field', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $return['attribute'][$row->position][$row->id] = $row->toArray();
             switch ($row->type) {
@@ -116,11 +116,11 @@ class Attribute extends AbstractApi
         foreach ($attribute as $field) {
             // Find row
             $where  = ['field' => $field['field'], 'story' => $story];
-            $select = Pi::model('field_data', $this->getModule())->select()->where($where)->limit(1);
-            $row    = Pi::model('field_data', $this->getModule())->selectWith($select)->current();
+            $select = Pi::model('field_data', 'news')->select()->where($where)->limit(1);
+            $row    = Pi::model('field_data', 'news')->selectWith($select)->current();
             // create new row
             if (empty($row)) {
-                $row        = Pi::model('field_data', $this->getModule())->createRow();
+                $row        = Pi::model('field_data', 'news')->createRow();
                 $row->field = $field['field'];
                 $row->story = $story;
             }
@@ -142,8 +142,8 @@ class Attribute extends AbstractApi
     public function Form($values)
     {
         $where  = ['story' => $values['id']];
-        $select = Pi::model('field_data', $this->getModule())->select()->where($where);
-        $rowset = Pi::model('field_data', $this->getModule())->selectWith($select);
+        $select = Pi::model('field_data', 'news')->select()->where($where);
+        $rowset = Pi::model('field_data', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $field[$row->field]                   = $row->toArray();
             $values[$field[$row->field]['field']] = $field[$row->field]['data'];
@@ -160,8 +160,8 @@ class Attribute extends AbstractApi
         // Get data list
         $whereData  = ['story' => $id];
         $columnData = ['field', 'data'];
-        $select     = Pi::model('field_data', $this->getModule())->select()->where($whereData)->columns($columnData);
-        $rowset     = Pi::model('field_data', $this->getModule())->selectWith($select);
+        $select     = Pi::model('field_data', 'news')->select()->where($whereData)->columns($columnData);
+        $rowset     = Pi::model('field_data', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $data[$row->field] = $row->toArray();
         }
@@ -176,8 +176,8 @@ class Attribute extends AbstractApi
             // Select
             $whereField = ['status' => 1, 'id' => $id];
             $orderField = ['order ASC', 'id ASC'];
-            $select     = Pi::model('field', $this->getModule())->select()->where($whereField)->order($orderField);
-            $rowset     = Pi::model('field', $this->getModule())->selectWith($select);
+            $select     = Pi::model('field', 'news')->select()->where($whereField)->order($orderField);
+            $rowset     = Pi::model('field', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 switch ($row->type) {
                     case 'audio':
@@ -238,8 +238,8 @@ class Attribute extends AbstractApi
                 'field' => $attribute['field'],
                 'data'  => $attribute['data'],
             ];
-            $select = Pi::model('field_data', $this->getModule())->select()->where($where)->columns($column);
-            $rowset = Pi::model('field_data', $this->getModule())->selectWith($select);
+            $select = Pi::model('field_data', 'news')->select()->where($where)->columns($column);
+            $rowset = Pi::model('field_data', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 if (isset($row->story) && !empty($row->story)) {
                     $id[] = $row->story;
@@ -261,8 +261,8 @@ class Attribute extends AbstractApi
             'status' => 1,
         ];
         $order  = ['order ASC', 'id ASC'];
-        $select = Pi::model('field_position', $this->getModule())->select()->where($where)->order($order);
-        $rowset = Pi::model('field_position', $this->getModule())->selectWith($select);
+        $select = Pi::model('field_position', 'news')->select()->where($where)->order($order);
+        $rowset = Pi::model('field_position', 'news')->selectWith($select);
         // Make list
         foreach ($rowset as $row) {
             $list[$row->id] = $row->title;
@@ -273,11 +273,11 @@ class Attribute extends AbstractApi
     public function setTopic($field, $topicArr)
     {
         // Remove
-        Pi::model('field_topic', $this->getModule())->delete(['field' => $field]);
+        Pi::model('field_topic', 'news')->delete(['field' => $field]);
         // Add
         foreach ($topicArr as $topic) {
             // Save
-            $row        = Pi::model('field_topic', $this->getModule())->createRow();
+            $row        = Pi::model('field_topic', 'news')->createRow();
             $row->field = $field;
             $row->topic = $topic;
             $row->save();
@@ -288,8 +288,8 @@ class Attribute extends AbstractApi
     {
         $topic  = [];
         $where  = ['field' => $field];
-        $select = Pi::model('field_topic', $this->getModule())->select()->where($where);
-        $rowset = Pi::model('field_topic', $this->getModule())->selectWith($select);
+        $select = Pi::model('field_topic', 'news')->select()->where($where);
+        $rowset = Pi::model('field_topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $topic[] = $row->topic;
         }
@@ -304,8 +304,8 @@ class Attribute extends AbstractApi
         } else {
             $where = ['topic' => 0];
         }
-        $select = Pi::model('field_topic', $this->getModule())->select()->where($where);
-        $rowset = Pi::model('field_topic', $this->getModule())->selectWith($select);
+        $select = Pi::model('field_topic', 'news')->select()->where($where);
+        $rowset = Pi::model('field_topic', 'news')->selectWith($select);
         foreach ($rowset as $row) {
             $field[] = $row->field;
         }

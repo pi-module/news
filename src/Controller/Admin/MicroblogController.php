@@ -72,7 +72,7 @@ class MicroblogController extends ActionController
                 'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
                 'params' => array_filter(
                     [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'microblog',
                         'action'     => 'index',
                     ]

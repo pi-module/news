@@ -178,7 +178,7 @@ class StoryController extends ActionController
                 'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
                 'params' => array_filter(
                     [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'story',
                         'action'     => 'index',
                         'status'     => $status,
@@ -703,7 +703,7 @@ class StoryController extends ActionController
             $content[$attach->id]['downloadUrl'] = Pi::url(
                 $this->url(
                     'news', [
-                        'module'     => $this->getModule(),
+                        'module'     => 'news',
                         'controller' => 'media',
                         'action'     => 'download',
                         'id'         => $attach->id,

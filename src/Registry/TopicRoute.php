@@ -27,9 +27,6 @@ class TopicRoute extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
-        // Set module
-        $module = Pi::service('module')->current();
-        $this->module = empty($module) ? $this->module : $module;
 
         $return  = [];
         $where   = ['status' => 1];
