@@ -32,11 +32,6 @@ use Pi\Application\Api\AbstractApi;
 
 class Author extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = Pi::service('module')->current();
-    }
-
     public function getAuthor($parameter, $field = 'id')
     {
         // Get product

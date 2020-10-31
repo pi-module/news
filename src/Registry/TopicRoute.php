@@ -27,7 +27,6 @@ class TopicRoute extends AbstractRegistry
      */
     protected function loadDynamic($options = [])
     {
-
         $return  = [];
         $where   = ['status' => 1];
         $columns = ['id', 'slug'];

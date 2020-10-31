@@ -23,11 +23,6 @@ use Pi\Application\Api\AbstractApi;
 
 class Spotlight extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = Pi::service('module')->current();
-    }
-
     public function getSpotlight($topic = -1)
     {
         // Get config

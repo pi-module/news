@@ -32,7 +32,8 @@ class News extends Standard
 
     protected $controllerList
         = [
-            'author', 'favourite', 'index', 'json', 'media', 'story', 'tag', 'topic', 'microblog',
+            'author', 'favourite', 'index', 'json', 'media',
+            'story', 'tag', 'topic', 'microblog',
             'cron', 'api', 'archive',
         ];
 

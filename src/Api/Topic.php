@@ -32,11 +32,6 @@ use Laminas\Db\Sql\Predicate\Expression;
 
 class Topic extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = 'news';
-    }
-
     public function getTopic($parameter, $field = 'id')
     {
         // Get topic

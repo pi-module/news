@@ -23,11 +23,6 @@ use Pi\Application\Api\AbstractApi;
 
 class Attach extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = Pi::service('module')->current();
-    }
-
     /**
      * Get list of attach files
      */

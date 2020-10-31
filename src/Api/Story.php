@@ -38,11 +38,6 @@ use Laminas\Db\Sql\Predicate\Expression;
 
 class Story extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = Pi::service('module')->current();
-    }
-
     public function getStory($parameter, $field = 'id', $option = [])
     {
         // Get product

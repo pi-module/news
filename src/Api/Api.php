@@ -91,11 +91,6 @@ use Laminas\Db\Sql\Predicate\Expression;
 
 class Api extends AbstractApi
 {
-    public function __construct()
-    {
-        $this->module = 'news';
-    }
-
     public function addStory($values, $processEventImage = false)
     {
         // Check type
@@ -300,6 +295,7 @@ class Api extends AbstractApi
                 'story' => $link['story'],
             ]
         );
+
         // process link module
         foreach ($link['module'] as $module) {
             // Check module
@@ -554,9 +550,6 @@ class Api extends AbstractApi
 
     public function jsonList($options)
     {
-        // Get info from url
-        $module = 'news';
-
         // Set has search result
         $hasSearchResult = true;
 
@@ -578,7 +571,7 @@ class Api extends AbstractApi
         }
 
         // Get config
-        $config = Pi::service('registry')->config->read($module);
+        $config = Pi::service('registry')->config->read('news');
 
         // Set empty result
         $result = [
@@ -634,7 +627,7 @@ class Api extends AbstractApi
                 return $result;
             }
             // Get id from tag module
-            $tagList = Pi::service('tag')->getList($options['tag'], $module);
+            $tagList = Pi::service('tag')->getList($options['tag'], 'news');
             foreach ($tagList as $tagSingle) {
                 $storyIDTag[] = $tagSingle['item'];
             }
@@ -653,7 +646,7 @@ class Api extends AbstractApi
             $checkTitle = true;
             $titles     = is_array($options['title']) ? $options['title'] : [$options['title']];
             $columns    = ['id'];
-            $select     = Pi::model('story', $module)->select()->columns($columns)->where(
+            $select     = Pi::model('story', 'news')->select()->columns($columns)->where(
                 function ($where) use ($titles) {
                     $whereMain = clone $where;
                     $whereKey  = clone $where;
@@ -664,7 +657,7 @@ class Api extends AbstractApi
                     $where->andPredicate($whereMain)->andPredicate($whereKey);
                 }
             )->order($order);
-            $rowset     = Pi::model('story', $module)->selectWith($select);
+            $rowset     = Pi::model('story', 'news')->selectWith($select);
             foreach ($rowset as $row) {
                 $storyIDList['title'][$row->id] = $row->id;
             }

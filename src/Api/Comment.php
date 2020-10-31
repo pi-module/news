@@ -18,9 +18,6 @@ use Pi\Application\Api\AbstractComment;
 
 class Comment extends AbstractComment
 {
-    /** @var string */
-    protected $module = 'news';
-
     /**
      * Get target data
      *
