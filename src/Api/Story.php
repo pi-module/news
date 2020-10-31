@@ -550,7 +550,8 @@ class Story extends AbstractApi
         }
 
         // Set allow fields
-        $allowFields = ['id' => true, 'title' => true, 'subtitle' => true, 'slug' => true, 'time' => true, 'topic' => true, 'url' => true, 'image' => true, 'body' => true, 'type' => true, 'status' => true];
+        $allowFields = ['id'   => true, 'title' => true, 'subtitle' => true, 'slug' => true, 'time' => true, 'topic' => true, 'url' => true, 'image' => true,
+                        'body' => true, 'type' => true, 'status' => true];
         if (isset($option['fields']) && !empty($option['fields']) && is_array($option['fields'])) {
             foreach ($allowFields as $key => $value) {
                 if (!in_array($key, $option['fields'])) {

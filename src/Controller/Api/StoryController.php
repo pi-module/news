@@ -31,7 +31,7 @@ class StoryController extends ApiController
         ];
 
         // Get info from url
-        $token  = $this->params('token');
+        $token = $this->params('token');
 
         // Check token
         $check = Pi::api('token', 'tools')->check($token);
@@ -104,9 +104,9 @@ class StoryController extends ApiController
         ];
 
         // Get info from url
-        $module = $this->params('module');
-        $token  = $this->params('token');
-        $storyId     = $this->params('id');
+        $module  = $this->params('module');
+        $token   = $this->params('token');
+        $storyId = $this->params('id');
 
         // Check token
         $check = Pi::api('token', 'tools')->check($token);
@@ -183,7 +183,7 @@ class StoryController extends ApiController
                 // Attribute
                 $story['attributeList'] = [];
                 if ($config['show_attribute'] && $story['attribute']) {
-                    $attributeList                   = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
+                    $attributeList          = Pi::api('attribute', 'news')->Story($story['id'], $story['topic_main']);
                     $story['attributeList'] = [];
                     foreach ($attributeList as $attributeKey => $attributeCategory) {
                         switch ($attributeKey) {
@@ -214,7 +214,7 @@ class StoryController extends ApiController
                 $result = [
                     'result' => true,
                     'data'   => [
-                        $story
+                        $story,
                     ],
                     'error'  => [
                         'code'    => 0,

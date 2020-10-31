@@ -32,7 +32,7 @@ class TopicController extends ApiController
         ];
 
         // Get info from url
-        $token  = $this->params('token');
+        $token = $this->params('token');
 
         // Check token
         $check = Pi::api('token', 'tools')->check($token);
@@ -103,8 +103,8 @@ class TopicController extends ApiController
         ];
 
         // Get info from url
-        $token  = $this->params('token');
-        $id     = $this->params('id');
+        $token = $this->params('token');
+        $id    = $this->params('id');
 
         // Check token
         $check = Pi::api('token', 'tools')->check($token);
