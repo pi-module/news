@@ -219,7 +219,7 @@ class AuthorController extends ActionController
 
                 // Save values
                 if (!empty($id)) {
-                    $row = $this->getModel('author')->find$id);
+                    $row = $this->getModel('author')->find($id);
                 } else {
                     $row = $this->getModel('author')->createRow();
                 }
