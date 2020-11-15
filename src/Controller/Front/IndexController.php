@@ -201,7 +201,6 @@ class IndexController extends ActionController
         $page   = $this->params('page', 1);
         $order  = $this->setLinkOrder($order);
         $module = $this->params('module');
-        $where  = [];
 
         // Get config
         $config = Pi::service('registry')->config->read($module);
