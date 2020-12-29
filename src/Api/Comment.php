@@ -27,7 +27,6 @@ class Comment extends AbstractComment
      */
     public function get($item)
     {
-
         $result = [];
         $items  = (array)$item;
 
@@ -85,5 +84,4 @@ class Comment extends AbstractComment
             'title' => $data['title'],
         ];
     }
-
 }

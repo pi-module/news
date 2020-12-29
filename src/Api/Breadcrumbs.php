@@ -39,7 +39,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                         'label' => $moduleData['title'],
                         'href'  => Pi::url(
                             Pi::service('url')->assemble(
-                                'news', [
+                                'news',
+                                [
                                     'module' => 'news',
                                 ]
                             )
@@ -55,7 +56,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'label' => __('Author list'),
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
-                                        'news', [
+                                        'news',
+                                        [
                                             'controller' => 'author',
                                             //'action' => 'list',
                                         ]
@@ -104,7 +106,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'label' => __('Tag list'),
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
-                                        'news', [
+                                        'news',
+                                        [
                                             'controller' => 'tag',
                                             'action'     => 'list',
                                         ]
@@ -162,7 +165,8 @@ class Breadcrumbs extends AbstractBreadcrumbs
                                 'label' => __('Post list'),
                                 'href'  => Pi::url(
                                     Pi::service('url')->assemble(
-                                        'news', [
+                                        'news',
+                                        [
                                             'controller' => 'microblog',
                                         ]
                                     )
@@ -238,6 +242,5 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
         sort($result);
         return $result;
-
     }
 }

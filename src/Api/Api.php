@@ -96,7 +96,8 @@ class Api extends AbstractApi
         // Check type
         if (!isset($values['type'])
             || !in_array(
-                $values['type'], [
+                $values['type'],
+                [
                     'text', 'post', 'article', 'magazine', 'event',
                     'image', 'gallery', 'media', 'download', 'feed',
                 ]
@@ -732,7 +733,8 @@ class Api extends AbstractApi
         // Check item
         if (!$story || $story['status'] != 1
             || !in_array(
-                $story['type'], [
+                $story['type'],
+                [
                     'text', 'article', 'magazine', 'image', 'gallery', 'media', 'download',
                 ]
             )
@@ -765,7 +767,8 @@ class Api extends AbstractApi
 
             if ($getUser) {
                 $user                      = Pi::user()->get(
-                    $story['uid'], [
+                    $story['uid'],
+                    [
                         'id', 'identity', 'name', 'email',
                     ]
                 );

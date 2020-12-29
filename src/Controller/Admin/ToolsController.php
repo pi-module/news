@@ -244,7 +244,6 @@ class ToolsController extends ActionController
 
     public function migrateMediaAction()
     {
-
         $msg = Pi::api('story', 'news')->migrateMedia();
 
         $messenger = $this->plugin('flashMessenger');
@@ -287,7 +286,6 @@ class ToolsController extends ActionController
             }
 
             $messenger->addSuccessMessage(sprintf(__('%s picture(s) has been generated or already exists'), $nbPicturesToGenerate));
-
         } catch (Exception $e) {
             $messenger->addErrorMessage($e->getMessage());
         }

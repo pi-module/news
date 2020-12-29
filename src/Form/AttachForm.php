@@ -18,10 +18,10 @@ use Pi\Form\Form as BaseForm;
 
 class AttachForm extends BaseForm
 {
-
     public function __construct($name = null)
     {
-        $this->module = Pi::service('module')->current();;
+        $this->module = Pi::service('module')->current();
+        ;
         parent::__construct($name);
     }
 

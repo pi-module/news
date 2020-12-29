@@ -323,7 +323,8 @@ class TopicController extends ActionController
                     // Set loc
                     $loc = Pi::url(
                         $this->url(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => $module,
                                 'controller' => 'topic',
                                 'slug'       => $values['slug'],
@@ -377,7 +378,8 @@ class TopicController extends ActionController
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url(
                     $this->url(
-                        'news', [
+                        'news',
+                        [
                             'module'     => $module,
                             'controller' => 'topic',
                             'slug'       => $row->slug,

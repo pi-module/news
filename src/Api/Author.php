@@ -164,12 +164,14 @@ class Author extends AbstractApi
             $list[$row->id]['role']      = $roles[$row->role]['title'];
             $list[$row->id]['name']      = $author['title'];
             $list[$row->id]['authorUrl'] = Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'module'     => 'news',
                     'controller' => 'author',
                     'slug'       => $author['slug'],
                 ]
-            );;
+            );
+            ;
         }
         return $list;
     }
@@ -191,7 +193,8 @@ class Author extends AbstractApi
         $author['time_update_view'] = _date($author['time_update']);
         // Set story url
         $author['authorUrl'] = Pi::service('url')->assemble(
-            'news', [
+            'news',
+            [
                 'module'     => 'news',
                 'controller' => 'author',
                 'slug'       => $author['slug'],
@@ -262,7 +265,8 @@ class Author extends AbstractApi
                 // Make url
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'author',
                             'slug'       => $row->slug,

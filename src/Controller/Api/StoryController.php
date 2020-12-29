@@ -40,7 +40,10 @@ class StoryController extends ApiController
             // Save statistics
             if (Pi::service('module')->isActive('statistics')) {
                 Pi::api('log', 'statistics')->save(
-                    'news', 'storyList', 0, [
+                    'news',
+                    'storyList',
+                    0,
+                    [
                         'source'  => $this->params('platform'),
                         'section' => 'api',
                     ]
@@ -142,7 +145,10 @@ class StoryController extends ApiController
                 // Save statistics
                 if (Pi::service('module')->isActive('statistics')) {
                     Pi::api('log', 'statistics')->save(
-                        'news', 'storySingle', $this->params('id'), [
+                        'news',
+                        'storySingle',
+                        $this->params('id'),
+                        [
                             'source'  => $this->params('platform'),
                             'section' => 'api',
                         ]
@@ -173,7 +179,13 @@ class StoryController extends ApiController
                 $story['additional_images_url'] = [];
                 if (!empty($story['additional_images'])) {
                     $additionalImages = Pi::api('doc', 'media')->getGalleryLinkData(
-                        $story['additional_images'], 'large', null, null, false, [], 'news'
+                        $story['additional_images'],
+                        'large',
+                        null,
+                        null,
+                        false,
+                        [],
+                        'news'
                     );
                     foreach ($additionalImages as $additionalImage) {
                         $story['additional_images_url'][] = $additionalImage['resized_url'];

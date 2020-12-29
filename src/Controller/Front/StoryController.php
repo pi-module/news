@@ -142,7 +142,6 @@ class StoryController extends ActionController
                 $favouriteList = Pi::api('favourite', 'favourite')->listItemFavourite('news', 'story', $story['id']);
                 $this->view()->assign('favouriteList', $favouriteList);
             }
-
         }
 
         // Set template

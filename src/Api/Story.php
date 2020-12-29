@@ -144,7 +144,8 @@ class Story extends AbstractApi
             // Set download url
             $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
                 Pi::service('url')->assemble(
-                    'news', [
+                    'news',
+                    [
                         'module'     => 'news',
                         'controller' => 'media',
                         'action'     => 'download',
@@ -241,7 +242,8 @@ class Story extends AbstractApi
                 $link['next']['title'] = $story['title'];
                 $link['next']['url']   = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'story',
                             'slug'       => $story['slug'],
@@ -271,7 +273,8 @@ class Story extends AbstractApi
                 $link['previous']['title'] = $story['title'];
                 $link['previous']['url']   = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'story',
                             'slug'       => $story['slug'],
@@ -331,7 +334,8 @@ class Story extends AbstractApi
                         'title'       => $row->title,
                         'categoryUrl' => Pi::url(
                             Pi::service("url")->assemble(
-                                "news", [
+                                "news",
+                                [
                                     "module"     => 'news',
                                     "controller" => "category",
                                     "slug"       => $row->slug,
@@ -363,7 +367,8 @@ class Story extends AbstractApi
 
                     $story['url'] = Pi::url(
                         Pi::service('url')->assemble(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => 'news',
                                 'controller' => 'story',
                                 'slug'       => $row->slug,
@@ -426,7 +431,8 @@ class Story extends AbstractApi
         // Set story url
         $story['storyUrl'] = Pi::url(
             Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'module'     => 'news',
                     'controller' => 'story',
                     'slug'       => $story['slug'],
@@ -444,7 +450,8 @@ class Story extends AbstractApi
                     $story['topics'][$topic]['slug']  = $topicList[$topic]['slug'];
                     $story['topics'][$topic]['url']   = Pi::url(
                         Pi::service('url')->assemble(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => 'news',
                                 'controller' => 'topic',
                                 'slug'       => $topicList[$topic]['slug'],
@@ -474,7 +481,8 @@ class Story extends AbstractApi
 
         if (isset($option['getUser']) && $option['getUser']) {
             $user          = Pi::user()->get(
-                $story['uid'], [
+                $story['uid'],
+                [
                     'id', 'identity', 'name', 'email',
                 ]
             );
@@ -515,7 +523,8 @@ class Story extends AbstractApi
         // Set story url
         $story['storyUrl'] = Pi::url(
             Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'module'     => 'news',
                     'controller' => 'story',
                     'slug'       => $story['slug'],
@@ -606,7 +615,8 @@ class Story extends AbstractApi
         if (isset($allowFields['url'])) {
             $storyJson['storyUrl'] = Pi::url(
                 Pi::service('url')->assemble(
-                    'news', [
+                    'news',
+                    [
                         'module'     => 'news',
                         'controller' => 'story',
                         'slug'       => $story['slug'],
@@ -617,7 +627,6 @@ class Story extends AbstractApi
 
         // Set body
         if (isset($allowFields['body'])) {
-
             $storyJson['text_summary'] = Pi::service('markup')->render($story['text_summary'], 'html', 'html');
             $storyJson['text_summary'] = strip_tags($storyJson['text_summary'], "<b><strong><i><p><br><ul><li><ol><h1><h2><h3><h4><h5><h6>");
             $storyJson['text_summary'] = str_replace("<p>&nbsp;</p>", "", $storyJson['text_summary']);
@@ -668,7 +677,8 @@ class Story extends AbstractApi
                 // Make url
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'story',
                             'slug'       => $row->slug,
@@ -749,7 +759,6 @@ class Story extends AbstractApi
     public function migrateMedia()
     {
         if (Pi::service("module")->isActive("media")) {
-
             $msg = '';
 
             // Get config
@@ -761,7 +770,6 @@ class Story extends AbstractApi
             $storyCollection = $storyModel->selectWith($select);
 
             foreach ($storyCollection as $story) {
-
                 $toSave = false;
 
                 $mediaData = [
@@ -780,7 +788,6 @@ class Story extends AbstractApi
                      * Check if media item exists
                      */
                     if (empty($story["image"]) || empty($story["path"])) {
-
                         $draft = $story->status == 3 ? ' (' . __('Draft') . ')' : '';
 
                         $msg .= __("Missing image or path value from db for Story ID") . " " . $story->id . $draft . "<br>";

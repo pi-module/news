@@ -130,4 +130,4 @@ class AuthorController extends ActionController
         $this->view()->assign('authors', $author);
         $this->view()->assign('config', $config);
     }
-}    
+}

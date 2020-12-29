@@ -231,7 +231,8 @@ class AuthorController extends ActionController
                     // Set loc
                     $loc = Pi::url(
                         $this->url(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => $module,
                                 'controller' => 'author',
                                 'slug'       => $values['slug'],

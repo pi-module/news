@@ -42,14 +42,16 @@ class MicroblogController extends ActionController
             $list[$row->id]                 = $row->toArray();
             $list[$row->id]['time_publish'] = _date($list[$row->id]['time_publish']);
             $list[$row->id]['user']         = Pi::user()->get(
-                $row->uid, [
+                $row->uid,
+                [
                     'id', 'identity', 'name', 'email',
                 ]
             );
             // Set url
             if ($row->status == 1) {
                 $list[$row->id]['microblogUrl'] = $this->url(
-                    'news', [
+                    'news',
+                    [
                         'module'     => $module,
                         'controller' => 'microblog',
                         'id'         => $row->id,
@@ -131,7 +133,8 @@ class MicroblogController extends ActionController
                     // Set loc
                     $loc = Pi::url(
                         $this->url(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => $module,
                                 'controller' => 'microblog',
                                 'id'         => $row->id,
@@ -191,7 +194,8 @@ class MicroblogController extends ActionController
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url(
                     $this->url(
-                        'news', [
+                        'news',
+                        [
                             'module'     => $module,
                             'controller' => 'microblog',
                             'id'         => $row->id,

@@ -17,7 +17,8 @@ class RowGateway extends \Pi\Db\RowGateway\RowGateway
     {
         $url = Pi::url(
             Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'slug' => $this->slug,
                 ]
             )

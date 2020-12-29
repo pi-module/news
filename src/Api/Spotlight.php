@@ -61,7 +61,8 @@ class Spotlight extends AbstractApi
                 // Set story url
                 $story[$row->id]['storyUrl'] = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'story',
                             'slug'       => $story[$row->id]['slug'],

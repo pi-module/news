@@ -284,7 +284,6 @@ class Block
         $list = [];
         // Make list
         foreach ($rowset as $row) {
-
             $media = Pi::model('doc', 'media')->find($row->id);
 
             $imageLarge  = (string)Pi::api('doc', 'media')->getSingleLinkUrl($row->id)->setConfigModule('news')->thumb('large');
@@ -338,7 +337,9 @@ class Block
         foreach ($rowset as $row) {
             $microblog[$row->id]                   = Pi::api('microblog', 'news')->canonizeMicroblog($row);
             $microblog[$row->id]['user']['avatar'] = Pi::service('user')->avatar(
-                $microblog[$row->id]['uid'], 'medium', [
+                $microblog[$row->id]['uid'],
+                'medium',
+                [
                     'alt'   => $microblog[$row->id]['user']['name'],
                     'class' => 'rounded-circle',
                 ]

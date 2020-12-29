@@ -49,7 +49,8 @@ class Microblog extends AbstractApi
         // Set story url
         $microblog['microblogUrl'] = Pi::url(
             Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'module'     => 'news',
                     'controller' => 'microblog',
                     'id'         => $microblog['id'],
@@ -58,13 +59,16 @@ class Microblog extends AbstractApi
         );
         // Set user
         $microblog['user'] = Pi::user()->get(
-            $microblog['uid'], [
+            $microblog['uid'],
+            [
                 'id', 'identity', 'name', 'email',
             ]
         );
         // Set avatar
         $microblog['user']['avatar'] = Pi::service('user')->avatar(
-            $microblog['uid'], 'large', [
+            $microblog['uid'],
+            'large',
+            [
                 'alt'   => $microblog['user']['name'],
                 'class' => 'rounded-circle',
             ]
@@ -72,7 +76,8 @@ class Microblog extends AbstractApi
         // profile url
         $microblog['profileUrl'] = Pi::url(
             Pi::service('user')->getUrl(
-                'profile', [
+                'profile',
+                [
                     'id' => $microblog['uid'],
                 ]
             )

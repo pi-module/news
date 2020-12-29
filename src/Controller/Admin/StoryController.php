@@ -88,7 +88,8 @@ class StoryController extends ActionController
                 $story[$row->id]['user'] = $users[$row->uid];
             } else {
                 $user                    = Pi::user()->get(
-                    $row->uid, [
+                    $row->uid,
+                    [
                         'id', 'identity', 'name', 'email',
                     ]
                 );
@@ -99,7 +100,8 @@ class StoryController extends ActionController
             // Set url
             if ($row->status == 1) {
                 $story[$row->id]['storyUrl'] = $this->url(
-                    'news', [
+                    'news',
+                    [
                         'module'     => $module,
                         'controller' => 'story',
                         'slug'       => $row->slug,
@@ -144,7 +146,8 @@ class StoryController extends ActionController
                     if (Pi::service('module')->isActive('blog')) {
                         if ($row->status == 1) {
                             $story[$row->id]['storyUrl'] = $this->url(
-                                'blog', [
+                                'blog',
+                                [
                                     'module'     => 'blog',
                                     'controller' => 'post',
                                     'slug'       => $row->slug,
@@ -489,7 +492,8 @@ class StoryController extends ActionController
                     } else {
                         $messages = $uploader->getMessages();
                         $this->jump(
-                            ['action' => 'update', 'id' => $id], $messages ? implode('; ', $messages) : __('Problem in upload image. please try again')
+                            ['action' => 'update', 'id' => $id],
+                            $messages ? implode('; ', $messages) : __('Problem in upload image. please try again')
                         );
                     }
                 } elseif (!isset($values['image'])) {
@@ -572,7 +576,8 @@ class StoryController extends ActionController
                     if ($row->type == 'post') {
                         $loc = Pi::url(
                             $this->url(
-                                'news', [
+                                'news',
+                                [
                                     'module'     => 'blog',
                                     'controller' => 'post',
                                     'slug'       => $values['slug'],
@@ -582,7 +587,8 @@ class StoryController extends ActionController
                     } else {
                         $loc = Pi::url(
                             $this->url(
-                                'news', [
+                                'news',
+                                [
                                     'module'     => $module,
                                     'controller' => 'story',
                                     'slug'       => $values['slug'],
@@ -702,7 +708,8 @@ class StoryController extends ActionController
             $content[$attach->id]['time_create'] = _date($content[$attach->id]['time_create']);
             $content[$attach->id]['downloadUrl'] = Pi::url(
                 $this->url(
-                    'news', [
+                    'news',
+                    [
                         'module'     => 'news',
                         'controller' => 'media',
                         'action'     => 'download',
@@ -711,7 +718,8 @@ class StoryController extends ActionController
                 )
             );
             $content[$attach->id]['editUrl']     = $this->url(
-                '', [
+                '',
+                [
                     'controller' => 'attach',
                     'action'     => 'edit',
                     'id'         => $attach->id,
@@ -909,7 +917,8 @@ class StoryController extends ActionController
             if (Pi::service('module')->isActive('sitemap')) {
                 $loc = Pi::url(
                     $this->url(
-                        'news', [
+                        'news',
+                        [
                             'module'     => $module,
                             'controller' => 'story',
                             'slug'       => $row->slug,

@@ -52,4 +52,4 @@ class SitemapForm extends BaseForm
             ]
         );
     }
-}	
+}

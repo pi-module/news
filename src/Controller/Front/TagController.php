@@ -156,7 +156,8 @@ class TagController extends IndexController
                 $tagList[$row->id]['term'] = $tag['term'];
                 $tagList[$row->id]['url']  = Pi::url(
                     $this->url(
-                        '', [
+                        '',
+                        [
                             'controller' => 'tag',
                             'action'     => 'term',
                             'slug'       => urlencode($tag['term']),

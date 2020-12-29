@@ -39,7 +39,8 @@ class Topic extends AbstractApi
         $topic             = $topic->toArray();
         $topic['topicUrl'] = Pi::url(
             Pi::service('url')->assemble(
-                'news', [
+                'news',
+                [
                     'module'     => 'news',
                     'controller' => 'topic',
                     'slug'       => $topic['slug'],
@@ -101,7 +102,8 @@ class Topic extends AbstractApi
             // Set topic url
             $topic['topicUrl'] = Pi::url(
                 Pi::service('url')->assemble(
-                    'news', [
+                    'news',
+                    [
                         'module'     => 'news',
                         'controller' => 'topic',
                         'slug'       => $topic['slug'],
@@ -169,7 +171,8 @@ class Topic extends AbstractApi
                     // Set download url
                     $file[$row->type][$row->id]['downloadUrl'] = Pi::url(
                         Pi::service('url')->assemble(
-                            'news', [
+                            'news',
+                            [
                                 'module'     => 'news',
                                 'controller' => 'media',
                                 'action'     => 'download',
@@ -409,7 +412,8 @@ class Topic extends AbstractApi
                 // Make url
                 $loc = Pi::url(
                     Pi::service('url')->assemble(
-                        'news', [
+                        'news',
+                        [
                             'module'     => 'news',
                             'controller' => 'topic',
                             'slug'       => $row->slug,
