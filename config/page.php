@@ -75,7 +75,6 @@ return [
         [
             'title'      => _a('Topic'),
             'controller' => 'topic',
-            'controller' => 'index',
             'permission' => 'public',
             'block'      => 1,
         ],

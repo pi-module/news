@@ -1,6 +1,5 @@
 <?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
 <?php $this->js(Pi::url('static/vendor/lazysizes/lazysizes.min.js'), ['async' => 'async']); ?>
-
 <div class="clearfix">
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
@@ -8,8 +7,8 @@
     <div class="row index-media clearfix row-eq-height">
         <?php foreach ($stores as $story) { ?>
             <?php if ($topic['column_class']) { ?><div class="col-12 <?php echo $topic['column_class']; ?>"><?php } ?>
-            <div class="text-center h-100" itemscope itemtype="https://schema.org/Article">
-                <div class="thumbnail hover-style">
+            <div class="text-center card mb-3" itemscope itemtype="https://schema.org/Article">
+                <div class="hover-style">
                     <?php if ($story['main_image']) { ?>
                         <a class="u-photo" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
                             <picture>
@@ -30,35 +29,37 @@
                                             290, 290
                                         ); ?>" media="(max-width: 2800px)">
 
-                                <img itemprop="image" class="img-fluid lazyload"
+                                <img itemprop="image" class="card-img-top lazyload"
                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAEElEQVR42mP8/58BCBghFAAj/wP/DcJIqAAAAABJRU5ErkJggg=="
-                                     data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb(
-                                         'medium'
-                                     ); ?>"
+                                     data-src="<?php echo Pi::api('doc', 'media')->getSingleLinkUrl($story['main_image'])->setConfigModule('news')->thumb('medium'); ?>"
                                      alt="<?php echo $this->escape($story['title']); ?>"/>
                             </picture>
                         </a>
                     <?php } ?>
-                    <div class="caption">
-                        <h4 class="p-name" itemprop="name headline"><?php if ($story['important']) { ?><span
-                                    class="badge badge-danger"><?php _e('Important'); ?></span><?php } ?><a itemprop="url"
-                                                                                                            title="<?php echo htmlentities($story['title']); ?>"
-                                                                                                            href="<?php echo $story['storyUrl']; ?>"><?php echo $this->escape(
-                                    $story['title']
-                                ); ?></a>
-                        </h4>
-                        <div class="storyText p-summary" itemprop="description"><?php echo $story['text_summary']; ?></div>
+                    <div class="card-body">
+                        <h2 class="card-title p-name mb-3" itemprop="name headline">
+                            <a itemprop="url" title="<?php echo htmlentities($story['title']); ?>" href="<?php echo $story['storyUrl']; ?>">
+                                <?php echo $this->escape( $story['title']); ?>
+                            </a>
+                        </h2>
+                        <?php if (isset($story['text_summary']) && !empty($story['text_summary'])) { ?>
+                            <div class="card-text clearfix mb-3 p-summary" itemprop="description">
+                                <?php echo $story['text_summary']; ?>
+                            </div>
+                        <?php } ?>
                         <?php if ($topic['show_date']) { ?>
                             <div class="itemPostDate dt-published">
                                 <?php echo $this->escape($story['time_publish_view']); ?>
                             </div>
                         <?php } ?>
+                        <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                     </div>
-                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
                 </div>
             </div>
             <?php if ($topic['column_class']) { ?></div><?php } ?>
         <?php } ?>
     </div>
-    <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
+    <div class="paginator">
+        <?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?>
+    </div>
 </div>

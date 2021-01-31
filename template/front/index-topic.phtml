@@ -1,29 +1,31 @@
 <?php $this->css($this->assetModule('css/front.css'), ['defer' => 'defer']); ?>
-<div class="clearfix">
-    <?php include $this->template('front/feed'); ?>
-    <?php include $this->template('front/topic'); ?>
-    <?php include $this->template('front/spotlight'); ?>
-    <div class="index-topic">
+<div class="clearfix row">
+    <?php if (isset($topics) && !empty($topics)) { ?>
         <?php foreach ($topics as $topic) { ?>
-            <div class="col-12 col-md-2 col-sm-2 col-3 text-center" itemscope itemtype="https://schema.org/Article">
-                <div class="thumbnail h-entry">
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="card h-entry mb-3" itemprop="itemListElement">
                     <?php if ($topic['main_image']) { ?>
-                        <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>"
-                           href="<?php echo $this->escape($topic['topicUrl']); ?>">
-                            <img itemprop="image" src="<?php echo $this->escape($topic['thumbUrl']); ?>"
-                                 alt="<?php echo $this->escape($topic['title']); ?>"/>
+                        <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                            <img class="card-img-top" itemprop="image" src="<?php echo $this->escape($topic['thumbUrl']); ?>" alt="<?php echo $this->escape($topic['title']); ?>"/>
                         </a>
                     <?php } ?>
-                    <div class="caption">
-                        <h5 class="p-name" itemprop="name">
-                            <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>"
-                               href="<?php echo $this->escape($topic['topicUrl']); ?>"><?php echo $this->escape($topic['title']); ?></a>
-                        </h5>
+                    <div class="card-body">
+                        <h2 class="card-title p-name mb-3" itemprop="name">
+                            <a itemprop="url" title="<?php echo $this->escape($topic['title']); ?>" href="<?php echo $this->escape($topic['topicUrl']); ?>">
+                                <?php echo $this->escape($topic['title']); ?>
+                            </a>
+                        </h2>
+                        <?php if (isset($topic['text_summary']) && !empty($topic['text_summary'])) { ?>
+                            <div class="card-text clearfix mb-3">
+                                <?php echo $topic['text_summary']; ?>
+                            </div>
+                        <?php } ?>
+                        <a href="<?php echo $this->escape($topic['topicUrl']); ?>" class="btn btn-link">
+                            <?php _e('Read stories'); ?>
+                        </a>
                     </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
         <?php } ?>
-        <div class="clearfix"></div>
-    </div>
+    <?php } ?>
 </div>
