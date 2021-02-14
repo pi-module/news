@@ -3,47 +3,52 @@
     <?php include $this->template('front/feed'); ?>
     <?php include $this->template('front/topic'); ?>
     <?php include $this->template('front/spotlight'); ?>
-    <div class="index-list clearfix">
-        <ul class="list-group">
-            <?php foreach ($stores as $story) { ?>
-                <li class="list-group-item <?php echo $topic['column_class']; ?> h-entry clearfix" itemscope
-                    itemtype="https://schema.org/Article">
-                    <div class="col-3">
-                        <?php if ($story['main_image']) { ?>
-                            <span class="u-photo">
-		    		        <img itemprop="image" src="<?php echo $this->escape($story['thumbUrl']); ?>"
-                                 alt="<?php echo $this->escape($story['title']); ?>"/>
-		    	        </span>
-                        <?php } ?>
-                    </div>
-                    <div class="col-9">
-                        <h2 itemprop="name headline">
-                            <a class="p-name" itemprop="url" title="<?php echo $this->escape($story['title']); ?>"
-                               href="<?php echo $this->escape($story['storyUrl']); ?>"><?php echo $this->escape($story['title']); ?></a>
-                        </h2>
-                        <?php if ($topic['show_topic']) { ?>
-                            <div class="clearfix small"> <?php _e('Topics'); ?> :
-                                <?php foreach ($story['topics'] as $storyTopic) { ?>
-                                    <span class=" p-category" itemprop="about"><a
-                                                title="<?php echo $storyTopic['title']; ?>"
-                                                href="<?php echo $storyTopic['url']; ?>"><?php echo $storyTopic['title']; ?></a></span>
-                                <?php } ?>
+    <div class="index-list clearfix row">
+        <?php foreach ($stores as $story) { ?>
+            <div class="<?php echo $topic['column_class']; ?>">
+                <div class="card mb-3 h-entry clearfix" itemscope itemtype="https://schema.org/Article">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 col-3 u-photo">
+                            <?php if ($story['main_image']) { ?>
+                                <img itemprop="image" class="card-img" src="<?php echo $this->escape($story['thumbUrl']); ?>" alt="<?php echo $this->escape($story['title']); ?>"/>
+                            <?php } ?>
+                        </div>
+                        <div class="col-md-8 col-9">
+                            <div class="card-body p-3">
+                                <h2 itemprop="card-title name headline">
+                                    <a class="p-name" itemprop="url" title="<?php echo $this->escape($story['title']); ?>" href="<?php echo $this->escape($story['storyUrl']); ?>">
+                                        <?php echo $this->escape($story['title']); ?>
+                                    </a>
+                                </h2>
+                                <div class="card-text mt-3">
+                                    <?php if ($topic['show_topic']) { ?>
+                                        <div class="clearfix small"> <?php _e('Topics'); ?> :
+                                            <?php foreach ($story['topics'] as $storyTopic) { ?>
+                                                <a class="p-category" itemprop="about" title="<?php echo $storyTopic['title']; ?>" href="<?php echo $storyTopic['url']; ?>">
+                                                    <?php echo $storyTopic['title']; ?>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if (!empty($story['authors'])) { ?>
+                                        <div class="clearfix small">
+                                            <?php foreach ($story['authors'] as $author) { ?>
+                                                <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> :
+                                                <a title="<?php echo $author['authorName']; ?>" href="<?php echo $author['authorUrl']; ?>">
+                                                    <?php echo $author['authorName']; ?>
+                                                </a>
+                                            </span>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+                                </div>
                             </div>
-                        <?php } ?>
-                        <?php if (!empty($story['authors'])) { ?>
-                            <div class="clearfix small">
-                                <?php foreach ($story['authors'] as $author) { ?>
-                                    <span class="p-author" itemprop="publisher"><?php echo $author['authorRole']; ?> : <a
-                                                title="<?php echo $author['authorName']; ?>"
-                                                href="<?php echo $author['authorUrl']; ?>"><?php echo $author['authorName']; ?></a></span>
-                                <?php } ?>
-                            </div>
-                        <?php } ?>
+                        </div>
                     </div>
-                    <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
-                </li>
-            <?php } ?>
-        </ul>
+                </div>
+            </div>
+            <meta itemprop="datePublished" content="<?php echo $this->escape(date("Y-m-d H:i:s", $story['time_publish'])); ?>"/>
+        <?php } ?>
     </div>
     <div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator.phtml'); ?></div>
 </div>
