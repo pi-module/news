@@ -39,7 +39,7 @@ if (isset($topic['largeUrl']) && !empty($topic['largeUrl'])) {
     $this->headMeta($this->escape($topic['largeUrl']), 'twitter:image');
 }
 ?>
-<?php if ($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['image']))) {
+<?php if ($topic['show_topicinfo'] && !empty($topic['title']) && (!empty($topic['text_description']) || !empty($topic['text_summary']) || !empty($topic['image']))) {
     // Image lightbox
     if ($config['image_lightbox']) {
         $script
@@ -82,6 +82,7 @@ EOT;
                     <?php } ?>
                 </div>
             <?php } ?>
+            <div itemprop="description"><?php echo $topic['text_summary']; ?></div>
             <div itemprop="description"><?php echo $topic['text_description']; ?></div>
             <?php if (isset($topic['attachList']) && !empty($topic['attachList'])) { ?>
                 <div class="attach-list">
@@ -123,4 +124,3 @@ EOT;
         <?php } ?>
     </div>
 <?php } ?>
-

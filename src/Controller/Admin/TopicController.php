@@ -172,6 +172,8 @@ class TopicController extends ActionController
         // Get id
         $id     = $this->params('id');
         $module = $this->params('module');
+
+        // Set option
         $option = [
             'id' => $id,
         ];
@@ -180,9 +182,8 @@ class TopicController extends ActionController
         if ($id) {
             $topic = $this->getModel('topic')->find($id)->toArray();
             if ($topic['image']) {
-                $topic['thumbUrl']   = sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $topic['path'], $topic['image']);
-                $option['thumbUrl']  = Pi::url($topic['thumbUrl']);
-                $option['removeUrl'] = $this->url('', ['action' => 'remove', 'id' => $topic['id']]);
+                $option['thumbUrl']  = Pi::url(sprintf('upload/%s/thumb/%s/%s', $this->config('image_path'), $topic['path'], $topic['image']));
+                $option['removeUrl'] = Pi::url($this->url('', ['action' => 'remove', 'id' => $topic['id']]));
             }
         }
 
@@ -209,8 +210,10 @@ class TopicController extends ActionController
                     // Set upload path
                     $values['path'] = sprintf('%s/%s', date('Y'), date('m'));
                     $originalPath   = Pi::path(sprintf('upload/%s/original/%s', $this->config('image_path'), $values['path']));
+
                     // Image name
                     $imageName = Pi::api('image', 'news')->rename($file['image']['name'], $this->ImageTopicPrefix, $values['path']);
+
                     // Upload
                     $uploader = new Upload;
                     $uploader->setDestination($originalPath);

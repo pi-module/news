@@ -23,8 +23,9 @@ class TopicForm extends BaseForm
         $this->option    = $option;
         $this->module    = Pi::service('module')->current();
         $this->category  = [0 => 'Root'];
-        $this->thumbUrl  = (isset($options['thumbUrl'])) ? $options['thumbUrl'] : '';
-        $this->removeUrl = empty($options['removeUrl']) ? '' : $options['removeUrl'];
+
+        d($this->option);
+
         parent::__construct($name);
     }
 
@@ -173,7 +174,7 @@ class TopicForm extends BaseForm
         );
 
         // Image
-        if ($this->thumbUrl) {
+        if (isset($this->option['thumbUrl']) && !empty($this->option['thumbUrl'])) {
             $this->add(
                 [
                     'name'       => 'imageview',
@@ -181,7 +182,7 @@ class TopicForm extends BaseForm
                     'options'    => [//'label' => __('Image'),
                     ],
                     'attributes' => [
-                        'src' => $this->thumbUrl,
+                        'src' => $this->option['thumbUrl'],
                     ],
                 ]
             );
@@ -193,7 +194,7 @@ class TopicForm extends BaseForm
                         'label' => __('Remove image'),
                     ],
                     'attributes' => [
-                        'link' => $this->removeUrl,
+                        'link' => $this->option['removeUrl'],
                     ],
                 ]
             );
